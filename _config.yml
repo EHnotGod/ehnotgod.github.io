@@ -6,9 +6,9 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Zihao Sheng"
-description              : "Autonomous Driving | Foundation Models | RL"
-repository               : "zihaosheng/zihaosheng.github.io"
+title                    : "张三的个人主页"
+description              : "清华大学计算机系教授，研究方向：人工智能与机器学习"
+repository               : "ehnotgod/ehnotgod.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -21,14 +21,14 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Zihao Sheng"
+  name             : "张三"
   avatar           : "images/zihao.jpg"
   bio              : "PhD Student at University of Wisconsin-Madison"
   location         : "WI, USA"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=3T-SILsAAAAJ"
-  email            : "zihao.sheng@wisc.edu"
+  email            : "zhangsan@university.edu"
   researchgate     : "https://www.researchgate.net/profile/Zihao_Sheng?ev=hdr_xprf" # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
