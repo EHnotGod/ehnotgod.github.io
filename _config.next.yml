@@ -47,7 +47,5 @@ symbols_count_time:
 reward_settings:
   enable: true
   animation: true
-  comment: 请我喝杯茉莉奶绿吧🧋
-
 reward:
   wechatpay: /images/wechatpay.png
