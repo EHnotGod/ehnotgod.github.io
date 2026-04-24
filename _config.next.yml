@@ -32,6 +32,7 @@ local_search:
   # Preload the search data when the page loads.
   preload: false
 
+# 统计字数和阅读时间
 symbols_count_time:
   symbols: true
   time: true
@@ -41,3 +42,13 @@ symbols_count_time:
   awl: 2    
   wpm: 275
   suffix: "mins."
+
+# Reward (Donate)
+reward_settings:
+  enable: true
+  animation: true
+  comment: 请我喝杯茉莉奶绿吧🧋
+
+reward:
+  wechatpay: /images/wechatpay.png
+  alipay: /images/alipay.png
