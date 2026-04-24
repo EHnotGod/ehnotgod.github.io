@@ -175,6 +175,16 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
   </nav>
 </div>
   <div class="links-of-author animated">
@@ -324,6 +334,37 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var categoryList = document.querySelector('.category-all .category-list');
+    if (!categoryList) return;
+
+    categoryList.querySelectorAll('li.category-list-item').forEach(function(item) {
+      var child = item.querySelector(':scope > ul.category-list-child');
+      if (!child) return;
+
+      item.classList.add('has-child', 'collapsed');
+
+      var toggle = document.createElement('span');
+      toggle.className = 'category-toggle';
+      toggle.setAttribute('aria-hidden', 'true');
+      toggle.textContent = '▸';
+      toggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        item.classList.toggle('collapsed');
+        item.classList.toggle('expanded');
+      });
+
+      var link = item.querySelector(':scope > a.category-list-link');
+      if (link) {
+        item.insertBefore(toggle, link);
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

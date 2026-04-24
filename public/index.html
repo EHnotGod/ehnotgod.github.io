@@ -175,6 +175,16 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
   </nav>
 </div>
   <div class="links-of-author animated">
@@ -249,8 +259,26 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2026-04-24 14:01:21" itemprop="dateCreated datePublished" datetime="2026-04-24T14:01:21+08:00">2026-04-24</time>
+      <time title="创建时间：2026-04-24 14:01:21 / 修改时间：21:51:36" itemprop="dateCreated datePublished" datetime="2026-04-24T14:01:21+08:00">2026-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">图论</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/%E8%BF%AA%E6%9D%B0%E6%96%AF%E7%89%B9%E6%8B%89/" itemprop="url" rel="index"><span itemprop="name">迪杰斯特拉</span></a>
+        </span>
     </span>
 
   
@@ -367,6 +395,37 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var categoryList = document.querySelector('.category-all .category-list');
+    if (!categoryList) return;
+
+    categoryList.querySelectorAll('li.category-list-item').forEach(function(item) {
+      var child = item.querySelector(':scope > ul.category-list-child');
+      if (!child) return;
+
+      item.classList.add('has-child', 'collapsed');
+
+      var toggle = document.createElement('span');
+      toggle.className = 'category-toggle';
+      toggle.setAttribute('aria-hidden', 'true');
+      toggle.textContent = '▸';
+      toggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        item.classList.toggle('collapsed');
+        item.classList.toggle('expanded');
+      });
+
+      var link = item.querySelector(':scope > a.category-list-link');
+      if (link) {
+        item.insertBefore(toggle, link);
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

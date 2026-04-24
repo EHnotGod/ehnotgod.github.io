@@ -28,7 +28,7 @@
 <meta property="og:description" content="A blog about programming, technology, and life.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-24T10:49:36.000Z">
-<meta property="article:modified_time" content="2026-04-24T10:49:36.018Z">
+<meta property="article:modified_time" content="2026-04-24T13:46:34.749Z">
 <meta property="article:author" content="EH">
 <meta name="twitter:card" content="summary">
 
@@ -36,7 +36,7 @@
 <link rel="canonical" href="https://ehnotgod.github.io/tags/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/tags/index.html","path":"tags/index.html","title":"tags"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"https://ehnotgod.github.io/tags/index.html","path":"tags/index.html","title":"tags"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>tags | EH's Blog
@@ -178,6 +178,16 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
   </nav>
 </div>
   <div class="links-of-author animated">
@@ -233,8 +243,15 @@
       
       
       
-      <div class="post-body">
-          
+      <div class="post-body"><div class="tag-cloud">
+  <div class="tag-cloud-title">
+    目前共计 4 个标签
+  </div>
+  <div class="tag-cloud-tags">
+    <a href="/tags/e/" style="font-size: 12px;" class="tag-cloud-0">e</a> <a href="/tags/h/" style="font-size: 12px;" class="tag-cloud-0">h</a> <a href="/tags/l/" style="font-size: 12px;" class="tag-cloud-0">l</a> <a href="/tags/o/" style="font-size: 12px;" class="tag-cloud-0">o</a>
+  </div>
+</div>
+
       </div>
       
       
@@ -314,6 +331,37 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var categoryList = document.querySelector('.category-all .category-list');
+    if (!categoryList) return;
+
+    categoryList.querySelectorAll('li.category-list-item').forEach(function(item) {
+      var child = item.querySelector(':scope > ul.category-list-child');
+      if (!child) return;
+
+      item.classList.add('has-child', 'collapsed');
+
+      var toggle = document.createElement('span');
+      toggle.className = 'category-toggle';
+      toggle.setAttribute('aria-hidden', 'true');
+      toggle.textContent = '▸';
+      toggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        item.classList.toggle('collapsed');
+        item.classList.toggle('expanded');
+      });
+
+      var link = item.querySelector(':scope > a.category-list-link');
+      if (link) {
+        item.insertBefore(toggle, link);
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

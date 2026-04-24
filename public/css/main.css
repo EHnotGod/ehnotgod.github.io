@@ -1422,7 +1422,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #c38e9d;
+    background: #9d9638;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3071,27 +3071,21 @@ body {
 .main-inner > .tabs-comment,
 .main-inner > .comments,
 .main-inner > .pagination {
-  background: rgba(245,245,245,0.42);
+  background: rgba(255,255,255,0.8);
 }
 body {
-  color: #000;
-}
-.posts-expand .post-title-link {
-  color: #000;
-}
-.posts-expand .post-meta-container {
-  color: #800;
+  font-size: 15px;
 }
 .sidebar {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 .header-inner {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.85);
 }
 .popup {
   opacity: 0.8;
 }
 .main-inner {
-  background-color: rgba(255,255,255,0);
-  padding: 0px 40px 40px 40px;
+  background-color: rgba(255,255,255,0.85);
+  padding: 0px 20px 20px 20px;
 }

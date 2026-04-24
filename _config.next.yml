@@ -1,6 +1,7 @@
 # 自定义文件注入
 custom_file_path:
   style: source/_data/styles.styl
+  bodyEnd: source/_data/body-end.njk
 
 # Schemes
 #scheme: Muse
