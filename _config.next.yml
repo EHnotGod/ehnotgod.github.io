@@ -14,10 +14,12 @@ menu:
 # 侧边栏头像
 avatar:
   url: /images/avatar.png   # 放一张图片到 source/images/
+  rounded: true
 
 # 社交链接
 social:
   GitHub: https://github.com/ehnotgod || fab fa-github
+  E-Mail: mailto:417674118@qq.com || fa fa-envelope
 
 # Local Search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
@@ -60,3 +62,20 @@ reward_settings:
   animation: true
 reward:
   wechatpay: /images/wechatpay.png
+
+# Blog rolls
+links_settings:
+  icon: fa fa-link
+  title: Links
+  # Available values: block | inline
+  layout: inline
+
+links:
+  #Title: http://yoursite.com
+  Codeforces: https://codeforces.com/profile/EHnotgod
+  Luogu: https://www.luogu.com.cn/user/1347497
+
+github_banner:
+  enable: true
+  permalink: https://github.com/ehnotgod
+  title: Follow me on GitHub
