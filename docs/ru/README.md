@@ -1,8 +1,8 @@
 <div align="right">
-  Language:
-  🇺🇸
-  <a title="Chinese" href="docs/zh-CN/README.md">🇨🇳</a>
-  <a title="Russian" href="docs/ru/README.md">🇷🇺</a>
+  Язык:
+  <a title="Английский" href="../../README.md">🇺🇸</a>
+  <a title="Китайский" href="../zh-CN/README.md">🇨🇳</a>
+  🇷🇺
 </div>
 
 <picture>
@@ -11,11 +11,11 @@
   <img alt="NexT preview" src="https://raw.githubusercontent.com/next-theme/theme-next-docs/v8.13.0/source/images/next-schemes.png">
 </picture>
 
-<a title="NexT website" href="https://theme-next.js.org"><img align="right" alt="NexT logo" width="100" height="100" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg"></a>
+<a title="NexT website" href="https://theme-next.js.org"><img align="right" alt="NexT logo" width="100" height="100" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a>
 
 # NexT
 
-> NexT is a high quality elegant [Hexo](https://hexo.io) theme. It is crafted from scratch with love.
+> «NexT» — элегантная высококачественная тема под [Hexo](https://hexo.io). Сделана с нуля, с любовью.
 
 [![NPM version](https://img.shields.io/npm/v/hexo-theme-next?color=red&logo=npm&style=for-the-badge)](https://www.npmjs.com/package/hexo-theme-next)
 [![NPM Downloads](https://img.shields.io/npm/dm/hexo-theme-next?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/hexo-theme-next)
@@ -25,16 +25,16 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/next-theme/hexo-theme-next/tester.yml?branch=master&logo=github&style=for-the-badge)](https://github.com/next-theme/hexo-theme-next/actions?query=workflow%3ATester)
 [![Coverage Status](https://img.shields.io/coveralls/github/next-theme/hexo-theme-next?logo=coveralls&style=for-the-badge)](https://coveralls.io/github/next-theme/hexo-theme-next)
 
-## Live Preview
+## Демо
 
 <p align="center">
   💟 <a href="https://theme-next.js.org/muse/">Muse</a> | 🔯 <a href="https://theme-next.js.org/mist/">Mist</a> | ♓️ <a href="https://theme-next.js.org/pisces/">Pisces</a> | ♊️ <a href="https://theme-next.js.org">Gemini</a>
 <br>
 <br>
-  More NexT examples <a href="https://github.com/next-theme/awesome-next#live-preview">here</a>.
+  Больше примеров «NexT» <a href="https://github.com/next-theme/awesome-next#live-preview">здесь</a>.
 </p>
 
-## Installation
+## Установка
 
 If you're using Hexo 5.0 or later, the simplest way to install is through npm:
 
@@ -64,11 +64,11 @@ It is not recommended to directly modify any files in the NexT theme. Because th
 
 At present, NexT encourages users to use the [Alternate Theme Config][docs-configuration-url] to configure NexT. And it's easy to customize the layout or style of NexT using [Custom Files][docs-custom-files-url].
 
-## Plugins
+## Плагины
 
 Plugins extend and expand the functionality of NexT. Some advanced features may require third-party libraries or additional configuration, giving you the flexibility to create a truly personalized website.
 
-Configuring these plugins is very easy. For example, if you want to enable `pjax` on your site, just set `pjax` to `true` in NexT config file:
+Configuring these plugins is very easy. Например, Вы хотите использовать `pjax` для своего сайта. Открываем конфиг NexT'а и находим:
 
 ```yml
 # Easily enable fast Ajax navigation on your website.
@@ -90,7 +90,7 @@ vendors:
   plugins: unpkg
 ```
 
-## Update
+## Обновление
 
 The NexT theme will continue to release new versions to include new features and bug fixes. Please read the [release notes][docs-release-url] before updating the theme. You can update NexT by the following command.
 
@@ -108,25 +108,24 @@ cd themes/next
 git pull
 ```
 
-**If you want to update from v5.x / v7.x to the latest version, read [this][docs-upgrade-url].**
+**Если нужно обновиться с версии v5.x / v7.x на последней версиями, читаем [здесь][docs-upgrade-url].**
 
 ## Community
 
 Connect with us and be part of our growing community!
 
-* **Telegram Group (Chinese Language)**: [Click here to join!](https://t.me/theme_next_cn)
 * **Discord Server**: [Join our Discord!](https://discord.gg/qmkgkY3jaG)
 * **Gitter**: [Join our Gitter chats!][gitter-url]
 * **ChatGPT**: [NexT Mentor][gpt-url]
 
-## Feedback
+## Обратная связь
 
-* Visit the [Awesome NexT][awesome-next-url] list to share plugins and tutorials with other users.
-* Join our [GitHub discussions][discussions-url].
-* [Add or improve translation][i18n-url] in few seconds.
-* Report a bug in [GitHub Issues][issues-bug-url].
-* Request a new feature on [GitHub][issues-feat-url].
-* Vote for [popular feature requests][feat-req-vote-url].
+* Посетите [Awesome NexT][awesome-next-url] список.
+* Вступить в наши [GitHub discussions][discussions-url].
+* [Добавить или улучшить перевод][i18n-url] за несколько секунд.
+* Сообщить об ошибке в разделе [GitHub Issues][issues-bug-url].
+* Запросить новую возможность на [GitHub][issues-feat-url].
+* Голосовать за [популярные запросы возможностей][feat-req-vote-url].
 
 ## Contributing
 
@@ -134,13 +133,13 @@ We welcome you to join the development of NexT. Please see [contributing documen
 
 Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
 
-## Contributors
+## Содействие
 
 [![Contributors][contributors-image]][contributors-url]
 
-## Thanks
+## Благодарности
 
-NexT send special thanks to these great services that sponsor our core infrastructure:
+«NexT» send special thanks to these great services that sponsor our core infrastructure:
 
 <a href="https://github.com"><img height="40" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png"></a>
 
