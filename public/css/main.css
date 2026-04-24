@@ -1422,7 +1422,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #9d9638;
+    background: #ffff57;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3088,4 +3088,30 @@ body {
 .main-inner {
   background-color: rgba(255,255,255,0.85);
   padding: 0px 20px 20px 20px;
+}
+.category-all .category-list {
+  list-style: none;
+  padding-left: 0;
+}
+.category-all .category-list-item {
+  margin: 0.35em 0;
+}
+.category-all .category-list-item .category-toggle {
+  display: inline-block;
+  width: 1.2em;
+  margin-right: 0.35em;
+  color: #666;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+.category-all .category-list-item.expanded > .category-toggle {
+  transform: rotate(90deg);
+}
+.category-all .category-list-child {
+  margin-left: 1.8em;
+  display: none;
+}
+.category-all .category-list-item.expanded > .category-list-child {
+  display: block;
 }
