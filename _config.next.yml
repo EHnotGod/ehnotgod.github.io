@@ -1,0 +1,18 @@
+# Schemes
+#scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+scheme: Gemini
+# 菜单（显示哪些导航）
+menu:
+  home: / || fa fa-home
+  archives: /archives/ || fa fa-archive
+  tags: /tags/ || fa fa-tags
+
+# 侧边栏头像
+avatar:
+  url: /images/avatar.png   # 放一张图片到 source/images/
+
+# 社交链接
+social:
+  GitHub: https://github.com/ehnotgod || fab fa-github
