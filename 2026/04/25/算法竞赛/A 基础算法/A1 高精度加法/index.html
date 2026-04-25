@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ehnotgod.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="题目情境原题描述： 高精度加法，相当于 a+b problem，不用考虑负数。 输入格式： 分两行输入。a,b&lt;&#x3D;${10^{500}}$。 输出格式： 输出只有一行，代表 a+b 的值。 输入输出样例： 输入 #1 1211 输出 #1 12 输入 #2 1210019099 输出 #2 110100 解析：时间复杂度O(n) Python代码实现1234# P1601 高精度加法a &#x3D;">
+    <meta name="description" content="题目情境原题描述： 高精度加法，相当于 a+b problem，不用考虑负数。 输入格式： 分两行输入。a,b&lt;&#x3D;10^{500}。 输出格式： 输出只有一行，代表 a+b 的值。 输入输出样例： 输入 #1 1211 输出 #1 12 输入 #2 1210019099 输出 #2 110100 解析：时间复杂度O(n) Python代码实现12345# P1601 高精度加法a &#x3D; int">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
+<meta property="og:title" content="A1 高精度加法">
 <meta property="og:url" content="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A1%20%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
-<meta property="og:description" content="题目情境原题描述： 高精度加法，相当于 a+b problem，不用考虑负数。 输入格式： 分两行输入。a,b&lt;&#x3D;${10^{500}}$。 输出格式： 输出只有一行，代表 a+b 的值。 输入输出样例： 输入 #1 1211 输出 #1 12 输入 #2 1210019099 输出 #2 110100 解析：时间复杂度O(n) Python代码实现1234# P1601 高精度加法a &#x3D;">
+<meta property="og:description" content="题目情境原题描述： 高精度加法，相当于 a+b problem，不用考虑负数。 输入格式： 分两行输入。a,b&lt;&#x3D;10^{500}。 输出格式： 输出只有一行，代表 a+b 的值。 输入输出样例： 输入 #1 1211 输出 #1 12 输入 #2 1210019099 输出 #2 110100 解析：时间复杂度O(n) Python代码实现12345# P1601 高精度加法a &#x3D; int">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-04-25T06:06:01.338Z">
-<meta property="article:modified_time" content="2026-04-25T06:06:01.338Z">
+<meta property="article:published_time" content="2026-04-25T08:35:30.168Z">
+<meta property="article:modified_time" content="2026-04-25T08:35:30.168Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="基础算法">
 <meta name="twitter:card" content="summary">
@@ -37,10 +37,10 @@
 <link rel="canonical" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A1%20%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A1%20%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/","path":"2026/04/25/算法竞赛/A 基础算法/A1 高精度加法/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A1%20%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/","path":"2026/04/25/算法竞赛/A 基础算法/A1 高精度加法/","title":"A1 高精度加法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | EH's Blog</title>
+<title>A1 高精度加法 | EH's Blog</title>
   
 
 
@@ -180,18 +180,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -254,12 +254,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | EH's Blog">
+      <meta itemprop="name" content="A1 高精度加法 | EH's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          A1 高精度加法
         </h1>
 
         <div class="post-meta-container">
@@ -270,7 +270,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-25 06:06:01" itemprop="dateCreated datePublished" datetime="2026-04-25T06:06:01+00:00">2026-04-25</time>
+      <time title="创建时间：2026-04-25 08:35:30" itemprop="dateCreated datePublished" datetime="2026-04-25T08:35:30+00:00">2026-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -300,7 +300,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>764</span>
+      <span>761</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -320,7 +320,7 @@
     <div class="post-body" itemprop="articleBody"><h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>原题描述：</strong></p>
 <p>高精度加法，相当于 a+b problem，<strong>不用考虑负数</strong>。</p>
 <p><strong>输入格式：</strong></p>
-<p>分两行输入。<em>a</em>,<em>b</em>&lt;=${10^{500}}$。</p>
+<p>分两行输入。<em>a</em>,<em>b</em>&lt;=<script type="math/tex">10^{500}</script>。</p>
 <p><strong>输出格式：</strong></p>
 <p>输出只有一行，代表 <em>a</em>+<em>b</em> 的值。</p>
 <p><strong>输入输出样例：</strong></p>
@@ -333,8 +333,9 @@
 <p>输出 #2</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10100</span><br></pre></td></tr></table></figure>
 <p><strong>解析：</strong>时间复杂度O(n)</p>
-<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P1601 高精度加法</span></span><br><span class="line">a = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">b = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="built_in">print</span>(a + b)</span><br></pre></td></tr></table></figure>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P1601 高精度加法</span></span><br><span class="line"></span><br><span class="line">a = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">b = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="built_in">print</span>(a + b)</span><br></pre></td></tr></table></figure>
 <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">505</span>;</span><br><span class="line"><span class="type">int</span> a[N],b[N],c[N];</span><br><span class="line"><span class="type">int</span> la,lb,lc;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> b[],<span class="type">int</span> c[])</span></span>&#123; <span class="comment">//a+b=c</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=lc; i++)&#123;</span><br><span class="line">        c[i]+=a[i]+b[i]; <span class="comment">//求和</span></span><br><span class="line">        c[i<span class="number">+1</span>]+=c[i]/<span class="number">10</span>; <span class="comment">//进位</span></span><br><span class="line">        c[i]%=<span class="number">10</span>;        <span class="comment">//存余</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(c[lc<span class="number">+1</span>]) lc++;  <span class="comment">//最高位</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string sa,sb; cin&gt;&gt;sa&gt;&gt;sb;</span><br><span class="line">    la=sa.<span class="built_in">size</span>(),lb=sb.<span class="built_in">size</span>(),lc=<span class="built_in">max</span>(la,lb);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=la; i++) a[i]=sa[la-i]-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=lb; i++) b[i]=sb[lb-i]-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="built_in">add</span>(a,b,c);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=lc; i; i--) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,c[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -348,6 +349,18 @@
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A10%20%E5%B7%AE%E5%88%86/" rel="prev" title="A10 差分">
+                  <i class="fa fa-angle-left"></i> A10 差分
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B%20%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/B30%2001BFS/" rel="next" title="B30 01BFS">
+                  B30 01BFS <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -376,13 +389,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1k</span>
+    <span title="站点总字数">163k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">2:29</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -498,7 +511,10 @@
         var catMap = {};
         posts.forEach(function(post) {
           if (!post.categories || !post.categories.length) return;
-          var key = '/categories/' + post.categories.join('/') + '/';
+          // Hexo 将分类名中的空格转为连字符
+          var key = '/categories/' + post.categories.map(function(c) {
+            return c.replace(/ /g, '-');
+          }).join('/') + '/';
           if (!catMap[key]) catMap[key] = [];
           catMap[key].push(post);
         });
@@ -512,6 +528,20 @@
           var decodedHref = decodeURIComponent(link.getAttribute('href'));
           var matchedPosts = catMap[decodedHref] || [];
           if (!matchedPosts.length) return;
+
+          // 按标题中的字母+数字部分排序，如 A1 < A2 < A10
+          matchedPosts.sort(function(a, b) {
+            var re = /^([A-Za-z]+)(\d+(?:\.\d+)*)/;
+            var ma = re.exec(a.title), mb = re.exec(b.title);
+            if (!ma || !mb) return a.title.localeCompare(b.title);
+            if (ma[1] !== mb[1]) return ma[1].localeCompare(mb[1]);
+            var na = ma[2].split('.').map(Number), nb = mb[2].split('.').map(Number);
+            for (var i = 0; i < Math.max(na.length, nb.length); i++) {
+              var diff = (na[i] || 0) - (nb[i] || 0);
+              if (diff !== 0) return diff;
+            }
+            return 0;
+          });
 
           // 构建文章列表（复用已有样式类）
           var postList = document.createElement('ul');
