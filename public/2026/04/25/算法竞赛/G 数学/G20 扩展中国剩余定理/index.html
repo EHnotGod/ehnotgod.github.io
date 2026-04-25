@@ -430,31 +430,54 @@
 </noscript>
 <script>
 // KaTeX client-side rendering
+// hexo-renderer-kramed 将公式输出为 <script type="math/tex"> 标签
 (function() {
+  function renderMath() {
+    if (typeof katex === 'undefined') return;
+    // 渲染行内公式 <script type="math/tex">
+    document.querySelectorAll('script[type="math/tex"]').forEach(function(el) {
+      var tex = el.textContent;
+      var span = document.createElement('span');
+      try {
+        katex.render(tex, span, { throwOnError: false, displayMode: false });
+      } catch(e) { span.textContent = tex; }
+      el.parentNode.replaceChild(span, el);
+    });
+    // 渲染块级公式 <script type="math/tex; mode=display">
+    document.querySelectorAll('script[type="math/tex; mode=display"]').forEach(function(el) {
+      var tex = el.textContent;
+      var div = document.createElement('div');
+      div.className = 'katex-display';
+      try {
+        katex.render(tex, div, { throwOnError: false, displayMode: true });
+      } catch(e) { div.textContent = tex; }
+      el.parentNode.replaceChild(div, el);
+    });
+  }
+
   function loadScript(src, onload) {
+    // 避免重复加载
+    if (document.querySelector('script[src="' + src + '"]')) { onload && onload(); return; }
     var s = document.createElement('script');
     s.src = src;
     s.crossOrigin = 'anonymous';
     s.onload = onload;
     document.head.appendChild(s);
   }
-  loadScript(
-    'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
-    function() {
+
+  function init() {
+    if (typeof katex !== 'undefined') {
+      renderMath();
+    } else {
       loadScript(
-        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js',
-        function() {
-          renderMathInElement(document.body, {
-            delimiters: [
-              { left: '$$', right: '$$', display: true },
-              { left: '$',  right: '$',  display: false }
-            ],
-            throwOnError: false
-          });
-        }
+        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
+        renderMath
       );
     }
-  );
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('page:loaded', init);
 })();
 </script>
 <script>
