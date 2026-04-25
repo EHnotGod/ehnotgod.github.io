@@ -1,0 +1,91 @@
+---
+title: Hello World
+categories: 
+- [算法, 图论, 迪杰斯特拉]
+tags:
+- h
+- e
+- l
+- o
+---
+
+### A1 高精度加法
+
+**原题描述：**
+
+高精度加法，相当于 a+b problem，**不用考虑负数**。
+
+**输入格式：**
+
+分两行输入。*a*,*b*<=${10^{500}}$。
+
+**输出格式：**
+
+输出只有一行，代表 *a*+*b* 的值。
+
+**输入输出样例：**
+
+输入 #1
+
+```
+1
+1
+```
+
+输出 #1
+
+```
+2
+```
+
+输入 #2
+
+```
+1001
+9099
+```
+
+输出 #2
+
+```
+10100
+```
+
+**解析：**时间复杂度O(n)
+
+### A1 高精度加法
+
+```python
+# P1601 高精度加法
+
+a = int(input())
+b = int(input())
+print(a + b)
+```
+
+```c++
+#include <iostream>
+using namespace std;
+
+const int N=505;
+int a[N],b[N],c[N];
+int la,lb,lc;
+
+void add(int a[],int b[],int c[]){ //a+b=c
+    for(int i=1; i<=lc; i++){
+        c[i]+=a[i]+b[i]; //求和
+        c[i+1]+=c[i]/10; //进位
+        c[i]%=10;        //存余
+    }
+    if(c[lc+1]) lc++;  //最高位
+}
+int main(){
+    string sa,sb; cin>>sa>>sb;
+    la=sa.size(),lb=sb.size(),lc=max(la,lb);
+    for(int i=1; i<=la; i++) a[i]=sa[la-i]-'0';
+    for(int i=1; i<=lb; i++) b[i]=sb[lb-i]-'0';
+    add(a,b,c);
+    for(int i=lc; i; i--) printf("%d",c[i]);
+    return 0;
+}
+```

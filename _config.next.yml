@@ -84,3 +84,11 @@ github_banner:
   enable: true
   permalink: https://github.com/ehnotgod
   title: Follow me on GitHub
+# Math rendering
+math:
+  every_page: true
+  mathjax:
+    enable: false
+  katex:
+    enable: true
+    copy_tex: false
