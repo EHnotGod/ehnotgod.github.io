@@ -23,12 +23,12 @@
     <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://ehnotgod.github.io/2026/04/24/hello-world/index.html">
+<meta property="og:url" content="https://ehnotgod.github.io/2026/04/25/hello-world/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-04-24T14:11:26.801Z">
-<meta property="article:modified_time" content="2026-04-24T14:11:26.801Z">
+<meta property="article:published_time" content="2026-04-25T04:30:41.671Z">
+<meta property="article:modified_time" content="2026-04-25T04:30:41.671Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="h">
 <meta property="article:tag" content="e">
@@ -37,10 +37,10 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ehnotgod.github.io/2026/04/24/hello-world/">
+<link rel="canonical" href="https://ehnotgod.github.io/2026/04/25/hello-world/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/04/24/hello-world/","path":"2026/04/24/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/04/25/hello-world/","path":"2026/04/25/hello-world/","title":"Hello World"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Hello World | EH's Blog</title>
@@ -238,7 +238,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -267,7 +267,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-24 14:11:26" itemprop="dateCreated datePublished" datetime="2026-04-24T14:11:26+00:00">2026-04-24</time>
+      <time title="创建时间：2026-04-25 04:30:41" itemprop="dateCreated datePublished" datetime="2026-04-25T04:30:41+00:00">2026-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -420,11 +420,11 @@
     var categoryList = document.querySelector('.category-all .category-list');
     if (!categoryList) return;
 
+    var leafItems = [];
+
     categoryList.querySelectorAll('li.category-list-item').forEach(function(item) {
       var child = item.querySelector(':scope > ul.category-list-child');
-      if (!child) return;
-
-      item.classList.add('has-child', 'collapsed');
+      var link = item.querySelector(':scope > a.category-list-link');
 
       var toggle = document.createElement('span');
       toggle.className = 'category-toggle';
@@ -437,11 +437,61 @@
         item.classList.toggle('expanded');
       });
 
-      var link = item.querySelector(':scope > a.category-list-link');
-      if (link) {
-        item.insertBefore(toggle, link);
+      if (child) {
+        // 有子分类：添加折叠按钮
+        item.classList.add('has-child', 'collapsed');
+        if (link) item.insertBefore(toggle, link);
+      } else {
+        // 叶子分类：先记录，等 search.json 加载后填充文章
+        item.dataset.leafPending = '1';
+        leafItems.push({ item: item, link: link, toggle: toggle });
       }
     });
+
+    if (!leafItems.length) return;
+
+    fetch('/search.json')
+      .then(function(res) { return res.json(); })
+      .then(function(posts) {
+        // 用解码后的路径作为 key，避免编码差异
+        var catMap = {};
+        posts.forEach(function(post) {
+          if (!post.categories || !post.categories.length) return;
+          var key = '/categories/' + post.categories.join('/') + '/';
+          if (!catMap[key]) catMap[key] = [];
+          catMap[key].push(post);
+        });
+
+        leafItems.forEach(function(entry) {
+          var item = entry.item;
+          var link = entry.link;
+          var toggle = entry.toggle;
+          if (!link) return;
+
+          var decodedHref = decodeURIComponent(link.getAttribute('href'));
+          var matchedPosts = catMap[decodedHref] || [];
+          if (!matchedPosts.length) return;
+
+          // 构建文章列表（复用已有样式类）
+          var postList = document.createElement('ul');
+          postList.className = 'category-list-child';
+          matchedPosts.forEach(function(post) {
+            var li = document.createElement('li');
+            li.className = 'category-list-item';
+            var a = document.createElement('a');
+            a.href = post.url;
+            a.className = 'category-list-link category-post-link';
+            a.textContent = post.title;
+            li.appendChild(a);
+            postList.appendChild(li);
+          });
+
+          item.classList.add('has-child', 'collapsed');
+          item.insertBefore(toggle, link);
+          item.appendChild(postList);
+        });
+      })
+      .catch(function() {});
   });
 })();
 </script>
