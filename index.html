@@ -66,6 +66,11 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
 
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
@@ -231,7 +236,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -249,7 +254,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/25/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+          <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
         </h2>
 
         <div class="post-meta-container">
@@ -260,7 +265,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-25 04:36:04" itemprop="dateCreated datePublished" datetime="2026-04-25T04:36:04+00:00">2026-04-25</time>
+      <time title="创建时间：2026-04-25 05:39:26" itemprop="dateCreated datePublished" datetime="2026-04-25T05:39:26+00:00">2026-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,7 +292,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>159</span>
+      <span>758</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -305,8 +310,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-
+          <h3 id="A1-高精度加法"><a href="#A1-高精度加法" class="headerlink" title="A1 高精度加法"></a>A1 高精度加法</h3><p><strong>原题描述：</strong></p>
+<p>高精度加法，相当于 a+b problem，<strong>不用考虑负数</strong>。</p>
+<p><strong>输入格式：</strong></p>
+<p>分两行输入。<em>a</em>,<em>b</em>&lt;=${10^{500}}$。</p>
+<p><strong>输出格式：</strong></p>
+<p>输出只有一行，代表 <em>a</em>+<em>b</em> 的值。</p>
+<p><strong>输入输出样例：</strong></p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<p>输入 #2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1001</span><br><span class="line">9099</span><br></pre></td></tr></table></figure>
+<p>输出 #2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10100</span><br></pre></td></tr></table></figure>
+<p><strong>解析：</strong>时间复杂度O(n)</p>
+<h3 id="A1-高精度加法-1"><a href="#A1-高精度加法-1" class="headerlink" title="A1 高精度加法"></a>A1 高精度加法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P1601 高精度加法</span></span><br><span class="line"></span><br><span class="line">a = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">b = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="built_in">print</span>(a + b)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">505</span>;</span><br><span class="line"><span class="type">int</span> a[N],b[N],c[N];</span><br><span class="line"><span class="type">int</span> la,lb,lc;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> b[],<span class="type">int</span> c[])</span></span>&#123; <span class="comment">//a+b=c</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=lc; i++)&#123;</span><br><span class="line">        c[i]+=a[i]+b[i]; <span class="comment">//求和</span></span><br><span class="line">        c[i<span class="number">+1</span>]+=c[i]/<span class="number">10</span>; <span class="comment">//进位</span></span><br><span class="line">        c[i]%=<span class="number">10</span>;        <span class="comment">//存余</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(c[lc<span class="number">+1</span>]) lc++;  <span class="comment">//最高位</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string sa,sb; cin&gt;&gt;sa&gt;&gt;sb;</span><br><span class="line">    la=sa.<span class="built_in">size</span>(),lb=sb.<span class="built_in">size</span>(),lc=<span class="built_in">max</span>(la,lb);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=la; i++) a[i]=sa[la-i]-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=lb; i++) b[i]=sb[lb-i]-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="built_in">add</span>(a,b,c);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=lc; i; i--) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,c[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -344,7 +365,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">0k</span>
+    <span title="站点总字数">1k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
@@ -394,6 +415,35 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<script>
+// KaTeX client-side rendering
+(function() {
+  function loadScript(src, onload) {
+    var s = document.createElement('script');
+    s.src = src;
+    s.crossOrigin = 'anonymous';
+    s.onload = onload;
+    document.head.appendChild(s);
+  }
+  loadScript(
+    'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
+    function() {
+      loadScript(
+        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js',
+        function() {
+          renderMathInElement(document.body, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$',  right: '$',  display: false }
+            ],
+            throwOnError: false
+          });
+        }
+      );
+    }
+  );
+})();
+</script>
 <script>
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
