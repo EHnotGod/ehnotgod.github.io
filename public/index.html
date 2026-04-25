@@ -401,11 +401,11 @@
     var categoryList = document.querySelector('.category-all .category-list');
     if (!categoryList) return;
 
+    var leafItems = [];
+
     categoryList.querySelectorAll('li.category-list-item').forEach(function(item) {
       var child = item.querySelector(':scope > ul.category-list-child');
-      if (!child) return;
-
-      item.classList.add('has-child', 'collapsed');
+      var link = item.querySelector(':scope > a.category-list-link');
 
       var toggle = document.createElement('span');
       toggle.className = 'category-toggle';
@@ -418,11 +418,61 @@
         item.classList.toggle('expanded');
       });
 
-      var link = item.querySelector(':scope > a.category-list-link');
-      if (link) {
-        item.insertBefore(toggle, link);
+      if (child) {
+        // 有子分类：添加折叠按钮
+        item.classList.add('has-child', 'collapsed');
+        if (link) item.insertBefore(toggle, link);
+      } else {
+        // 叶子分类：先记录，等 search.json 加载后填充文章
+        item.dataset.leafPending = '1';
+        leafItems.push({ item: item, link: link, toggle: toggle });
       }
     });
+
+    if (!leafItems.length) return;
+
+    fetch('/search.json')
+      .then(function(res) { return res.json(); })
+      .then(function(posts) {
+        // 用解码后的路径作为 key，避免编码差异
+        var catMap = {};
+        posts.forEach(function(post) {
+          if (!post.categories || !post.categories.length) return;
+          var key = '/categories/' + post.categories.join('/') + '/';
+          if (!catMap[key]) catMap[key] = [];
+          catMap[key].push(post);
+        });
+
+        leafItems.forEach(function(entry) {
+          var item = entry.item;
+          var link = entry.link;
+          var toggle = entry.toggle;
+          if (!link) return;
+
+          var decodedHref = decodeURIComponent(link.getAttribute('href'));
+          var matchedPosts = catMap[decodedHref] || [];
+          if (!matchedPosts.length) return;
+
+          // 构建文章列表（复用已有样式类）
+          var postList = document.createElement('ul');
+          postList.className = 'category-list-child';
+          matchedPosts.forEach(function(post) {
+            var li = document.createElement('li');
+            li.className = 'category-list-item';
+            var a = document.createElement('a');
+            a.href = post.url;
+            a.className = 'category-list-link category-post-link';
+            a.textContent = post.title;
+            li.appendChild(a);
+            postList.appendChild(li);
+          });
+
+          item.classList.add('has-child', 'collapsed');
+          item.insertBefore(toggle, link);
+          item.appendChild(postList);
+        });
+      })
+      .catch(function() {});
   });
 })();
 </script>
