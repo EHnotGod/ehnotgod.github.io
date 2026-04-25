@@ -249,27 +249,7 @@
     <header class="post-header">
       <div class="post-meta-container">
         <time itemprop="dateCreated"
-              datetime="2026-04-25T08:35:30+00:00"
-              content="2026-04-25">
-          04-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C2.8%20%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url">
-            <span itemprop="name">C2.8 最大子段和线段树</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-04-25T08:35:30+00:00"
+              datetime="2026-04-25T08:47:32+00:00"
               content="2026-04-25">
           04-25
         </time>
@@ -289,7 +269,7 @@
     <header class="post-header">
       <div class="post-meta-container">
         <time itemprop="dateCreated"
-              datetime="2026-04-25T08:35:30+00:00"
+              datetime="2026-04-25T08:47:32+00:00"
               content="2026-04-25">
           04-25
         </time>
@@ -298,6 +278,26 @@
       <div class="post-title">
           <a class="post-title-link" href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C8%20%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url">
             <span itemprop="name">C8 可持续化线段树</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2026-04-25T08:47:32+00:00"
+              content="2026-04-25">
+          04-25
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C0%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" itemprop="url">
+            <span itemprop="name">C0 树状数组</span>
           </a>
       </div>
 
@@ -385,31 +385,54 @@
 </noscript>
 <script>
 // KaTeX client-side rendering
+// hexo-renderer-kramed 将公式输出为 <script type="math/tex"> 标签
 (function() {
+  function renderMath() {
+    if (typeof katex === 'undefined') return;
+    // 渲染行内公式 <script type="math/tex">
+    document.querySelectorAll('script[type="math/tex"]').forEach(function(el) {
+      var tex = el.textContent;
+      var span = document.createElement('span');
+      try {
+        katex.render(tex, span, { throwOnError: false, displayMode: false });
+      } catch(e) { span.textContent = tex; }
+      el.parentNode.replaceChild(span, el);
+    });
+    // 渲染块级公式 <script type="math/tex; mode=display">
+    document.querySelectorAll('script[type="math/tex; mode=display"]').forEach(function(el) {
+      var tex = el.textContent;
+      var div = document.createElement('div');
+      div.className = 'katex-display';
+      try {
+        katex.render(tex, div, { throwOnError: false, displayMode: true });
+      } catch(e) { div.textContent = tex; }
+      el.parentNode.replaceChild(div, el);
+    });
+  }
+
   function loadScript(src, onload) {
+    // 避免重复加载
+    if (document.querySelector('script[src="' + src + '"]')) { onload && onload(); return; }
     var s = document.createElement('script');
     s.src = src;
     s.crossOrigin = 'anonymous';
     s.onload = onload;
     document.head.appendChild(s);
   }
-  loadScript(
-    'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
-    function() {
+
+  function init() {
+    if (typeof katex !== 'undefined') {
+      renderMath();
+    } else {
       loadScript(
-        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js',
-        function() {
-          renderMathInElement(document.body, {
-            delimiters: [
-              { left: '$$', right: '$$', display: true },
-              { left: '$',  right: '$',  display: false }
-            ],
-            throwOnError: false
-          });
-        }
+        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
+        renderMath
       );
     }
-  );
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('page:loaded', init);
 })();
 </script>
 <script>

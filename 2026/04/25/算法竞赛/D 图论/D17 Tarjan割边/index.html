@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="EH&#39;s Blog">
 <meta property="og:description" content="题目情境P1656 炸铁路 题目描述 A 国派出将军 uim，对 B 国进行战略性措施，以解救涂炭的生灵。 B 国有 $n$ 个城市，这些城市以铁路相连。任意两个城市都可以通过铁路直接或者间接到达。 uim 发现有些铁路被毁坏之后，某两个城市无法互相通过铁路到达。这样的铁路就被称为 key road。 uim 为了尽快使该国的物流系统瘫痪，希望炸毁铁路，以达到存在某两个城市无法互相通过铁路到达的效">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-04-25T08:35:30.169Z">
-<meta property="article:modified_time" content="2026-04-25T08:35:30.169Z">
+<meta property="article:published_time" content="2026-04-25T08:47:32.922Z">
+<meta property="article:modified_time" content="2026-04-25T08:47:32.922Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="图论">
 <meta name="twitter:card" content="summary">
@@ -270,7 +270,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-25 08:35:30" itemprop="dateCreated datePublished" datetime="2026-04-25T08:35:30+00:00">2026-04-25</time>
+      <time title="创建时间：2026-04-25 08:47:32" itemprop="dateCreated datePublished" datetime="2026-04-25T08:47:32+00:00">2026-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -352,13 +352,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D19%20Tarjan%20vDCC%E7%BC%A9%E7%82%B9/" rel="prev" title="D19 Tarjan vDCC缩点">
-                  <i class="fa fa-angle-left"></i> D19 Tarjan vDCC缩点
+                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D18%20Tarjan%20eDCC%E7%BC%A9%E7%82%B9/" rel="prev" title="D18 Tarjan eDCC缩点">
+                  <i class="fa fa-angle-left"></i> D18 Tarjan eDCC缩点
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D14%20%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8FTarjan%E7%AE%97%E6%B3%95/" rel="next" title="D14 强连通分量Tarjan算法">
-                  D14 强连通分量Tarjan算法 <i class="fa fa-angle-right"></i>
+                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D16%20Tarjan%E5%89%B2%E7%82%B9/" rel="next" title="D16 Tarjan割点">
+                  D16 Tarjan割点 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -442,31 +442,54 @@
 </noscript>
 <script>
 // KaTeX client-side rendering
+// hexo-renderer-kramed 将公式输出为 <script type="math/tex"> 标签
 (function() {
+  function renderMath() {
+    if (typeof katex === 'undefined') return;
+    // 渲染行内公式 <script type="math/tex">
+    document.querySelectorAll('script[type="math/tex"]').forEach(function(el) {
+      var tex = el.textContent;
+      var span = document.createElement('span');
+      try {
+        katex.render(tex, span, { throwOnError: false, displayMode: false });
+      } catch(e) { span.textContent = tex; }
+      el.parentNode.replaceChild(span, el);
+    });
+    // 渲染块级公式 <script type="math/tex; mode=display">
+    document.querySelectorAll('script[type="math/tex; mode=display"]').forEach(function(el) {
+      var tex = el.textContent;
+      var div = document.createElement('div');
+      div.className = 'katex-display';
+      try {
+        katex.render(tex, div, { throwOnError: false, displayMode: true });
+      } catch(e) { div.textContent = tex; }
+      el.parentNode.replaceChild(div, el);
+    });
+  }
+
   function loadScript(src, onload) {
+    // 避免重复加载
+    if (document.querySelector('script[src="' + src + '"]')) { onload && onload(); return; }
     var s = document.createElement('script');
     s.src = src;
     s.crossOrigin = 'anonymous';
     s.onload = onload;
     document.head.appendChild(s);
   }
-  loadScript(
-    'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
-    function() {
+
+  function init() {
+    if (typeof katex !== 'undefined') {
+      renderMath();
+    } else {
       loadScript(
-        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js',
-        function() {
-          renderMathInElement(document.body, {
-            delimiters: [
-              { left: '$$', right: '$$', display: true },
-              { left: '$',  right: '$',  display: false }
-            ],
-            throwOnError: false
-          });
-        }
+        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
+        renderMath
       );
     }
-  );
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('page:loaded', init);
 })();
 </script>
 <script>

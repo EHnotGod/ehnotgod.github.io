@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="EH&#39;s Blog">
 <meta property="og:description" content="题目情境题目描述 您需要动态地维护一个可重集合 $M$，并且提供以下操作：  向 $M$ 中插入一个数 $x$。 从 $M$ 中删除一个数 $x$（若有多个相同的数，应只删除一个）。 查询 $M$ 中有多少个数比 $x$ 小，并且将得到的答案加一。 查询如果将 $M$ 从小到大排列后，排名位于第 $x$ 位的数。 查询 $M$ 中 $x$ 的前驱（前驱定义为小于 $x$，且最大的数）。 查询 $M">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-04-25T08:35:30.169Z">
-<meta property="article:modified_time" content="2026-04-25T08:35:30.169Z">
+<meta property="article:published_time" content="2026-04-25T08:47:32.922Z">
+<meta property="article:modified_time" content="2026-04-25T08:47:32.922Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -270,7 +270,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-25 08:35:30" itemprop="dateCreated datePublished" datetime="2026-04-25T08:35:30+00:00">2026-04-25</time>
+      <time title="创建时间：2026-04-25 08:47:32" itemprop="dateCreated datePublished" datetime="2026-04-25T08:47:32+00:00">2026-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -355,8 +355,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D1%20%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" rel="prev" title="D1 拓扑排序">
-                  <i class="fa fa-angle-left"></i> D1 拓扑排序
+                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C8%20%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="prev" title="C8 可持续化线段树">
+                  <i class="fa fa-angle-left"></i> C8 可持续化线段树
                 </a>
             </div>
             <div class="post-nav-item">
@@ -445,31 +445,54 @@
 </noscript>
 <script>
 // KaTeX client-side rendering
+// hexo-renderer-kramed 将公式输出为 <script type="math/tex"> 标签
 (function() {
+  function renderMath() {
+    if (typeof katex === 'undefined') return;
+    // 渲染行内公式 <script type="math/tex">
+    document.querySelectorAll('script[type="math/tex"]').forEach(function(el) {
+      var tex = el.textContent;
+      var span = document.createElement('span');
+      try {
+        katex.render(tex, span, { throwOnError: false, displayMode: false });
+      } catch(e) { span.textContent = tex; }
+      el.parentNode.replaceChild(span, el);
+    });
+    // 渲染块级公式 <script type="math/tex; mode=display">
+    document.querySelectorAll('script[type="math/tex; mode=display"]').forEach(function(el) {
+      var tex = el.textContent;
+      var div = document.createElement('div');
+      div.className = 'katex-display';
+      try {
+        katex.render(tex, div, { throwOnError: false, displayMode: true });
+      } catch(e) { div.textContent = tex; }
+      el.parentNode.replaceChild(div, el);
+    });
+  }
+
   function loadScript(src, onload) {
+    // 避免重复加载
+    if (document.querySelector('script[src="' + src + '"]')) { onload && onload(); return; }
     var s = document.createElement('script');
     s.src = src;
     s.crossOrigin = 'anonymous';
     s.onload = onload;
     document.head.appendChild(s);
   }
-  loadScript(
-    'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
-    function() {
+
+  function init() {
+    if (typeof katex !== 'undefined') {
+      renderMath();
+    } else {
       loadScript(
-        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js',
-        function() {
-          renderMathInElement(document.body, {
-            delimiters: [
-              { left: '$$', right: '$$', display: true },
-              { left: '$',  right: '$',  display: false }
-            ],
-            throwOnError: false
-          });
-        }
+        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
+        renderMath
       );
     }
-  );
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('page:loaded', init);
 })();
 </script>
 <script>
