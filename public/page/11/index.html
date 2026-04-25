@@ -1422,49 +1422,58 @@
 </noscript>
 <script>
 // KaTeX client-side rendering
-// hexo-renderer-kramed 将公式输出为 <script type="math/tex"> 标签
+// hexo-renderer-kramed: $$...$$ -> <script type="math/tex">，$...$ -> 原样保留
 (function() {
   function renderMath() {
     if (typeof katex === 'undefined') return;
-    // 渲染行内公式 <script type="math/tex">
+
+    // 1. 处理 $$...$$ 生成的 <script type="math/tex"> 标签
     document.querySelectorAll('script[type="math/tex"]').forEach(function(el) {
       var tex = el.textContent;
       var span = document.createElement('span');
-      try {
-        katex.render(tex, span, { throwOnError: false, displayMode: false });
-      } catch(e) { span.textContent = tex; }
+      try { katex.render(tex, span, { throwOnError: false, displayMode: false }); }
+      catch(e) { span.textContent = tex; }
       el.parentNode.replaceChild(span, el);
     });
-    // 渲染块级公式 <script type="math/tex; mode=display">
     document.querySelectorAll('script[type="math/tex; mode=display"]').forEach(function(el) {
       var tex = el.textContent;
       var div = document.createElement('div');
       div.className = 'katex-display';
-      try {
-        katex.render(tex, div, { throwOnError: false, displayMode: true });
-      } catch(e) { div.textContent = tex; }
+      try { katex.render(tex, div, { throwOnError: false, displayMode: true }); }
+      catch(e) { div.textContent = tex; }
       el.parentNode.replaceChild(div, el);
     });
+
+    // 2. 处理 $...$ 原样保留在文本里的公式（用 auto-render）
+    if (typeof renderMathInElement === 'function') {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$',  right: '$',  display: false }
+        ],
+        throwOnError: false
+      });
+    }
   }
 
   function loadScript(src, onload) {
-    // 避免重复加载
     if (document.querySelector('script[src="' + src + '"]')) { onload && onload(); return; }
     var s = document.createElement('script');
-    s.src = src;
-    s.crossOrigin = 'anonymous';
-    s.onload = onload;
+    s.src = src; s.crossOrigin = 'anonymous'; s.onload = onload;
     document.head.appendChild(s);
   }
 
   function init() {
     if (typeof katex !== 'undefined') {
-      renderMath();
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMath();
+      } else {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js', renderMath);
+      }
     } else {
-      loadScript(
-        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
-        renderMath
-      );
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js', function() {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js', renderMath);
+      });
     }
   }
 
