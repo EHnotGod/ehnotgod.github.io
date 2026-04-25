@@ -179,18 +179,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,13 +279,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1k</span>
+    <span title="站点总字数">163k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">2:29</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -401,7 +401,10 @@
         var catMap = {};
         posts.forEach(function(post) {
           if (!post.categories || !post.categories.length) return;
-          var key = '/categories/' + post.categories.join('/') + '/';
+          // Hexo 将分类名中的空格转为连字符
+          var key = '/categories/' + post.categories.map(function(c) {
+            return c.replace(/ /g, '-');
+          }).join('/') + '/';
           if (!catMap[key]) catMap[key] = [];
           catMap[key].push(post);
         });
@@ -415,6 +418,20 @@
           var decodedHref = decodeURIComponent(link.getAttribute('href'));
           var matchedPosts = catMap[decodedHref] || [];
           if (!matchedPosts.length) return;
+
+          // 按标题中的字母+数字部分排序，如 A1 < A2 < A10
+          matchedPosts.sort(function(a, b) {
+            var re = /^([A-Za-z]+)(\d+(?:\.\d+)*)/;
+            var ma = re.exec(a.title), mb = re.exec(b.title);
+            if (!ma || !mb) return a.title.localeCompare(b.title);
+            if (ma[1] !== mb[1]) return ma[1].localeCompare(mb[1]);
+            var na = ma[2].split('.').map(Number), nb = mb[2].split('.').map(Number);
+            for (var i = 0; i < Math.max(na.length, nb.length); i++) {
+              var diff = (na[i] || 0) - (nb[i] || 0);
+              if (diff !== 0) return diff;
+            }
+            return 0;
+          });
 
           // 构建文章列表（复用已有样式类）
           var postList = document.createElement('ul');

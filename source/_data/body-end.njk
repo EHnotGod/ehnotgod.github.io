@@ -70,7 +70,10 @@
         var catMap = {};
         posts.forEach(function(post) {
           if (!post.categories || !post.categories.length) return;
-          var key = '/categories/' + post.categories.join('/') + '/';
+          // Hexo 将分类名中的空格转为连字符
+          var key = '/categories/' + post.categories.map(function(c) {
+            return c.replace(/ /g, '-');
+          }).join('/') + '/';
           if (!catMap[key]) catMap[key] = [];
           catMap[key].push(post);
         });
@@ -84,6 +87,20 @@
           var decodedHref = decodeURIComponent(link.getAttribute('href'));
           var matchedPosts = catMap[decodedHref] || [];
           if (!matchedPosts.length) return;
+
+          // 按标题中的字母+数字部分排序，如 A1 < A2 < A10
+          matchedPosts.sort(function(a, b) {
+            var re = /^([A-Za-z]+)(\d+(?:\.\d+)*)/;
+            var ma = re.exec(a.title), mb = re.exec(b.title);
+            if (!ma || !mb) return a.title.localeCompare(b.title);
+            if (ma[1] !== mb[1]) return ma[1].localeCompare(mb[1]);
+            var na = ma[2].split('.').map(Number), nb = mb[2].split('.').map(Number);
+            for (var i = 0; i < Math.max(na.length, nb.length); i++) {
+              var diff = (na[i] || 0) - (nb[i] || 0);
+              if (diff !== 0) return diff;
+            }
+            return 0;
+          });
 
           // 构建文章列表（复用已有样式类）
           var postList = document.createElement('ul');
