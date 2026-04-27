@@ -176,13 +176,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -249,14 +249,14 @@
     <header class="post-header">
       <div class="post-meta-container">
         <time itemprop="dateCreated"
-              datetime="2026-04-25T08:47:32+00:00"
-              content="2026-04-25">
-          04-25
+              datetime="2026-04-27T05:52:30+00:00"
+              content="2026-04-27">
+          04-27
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E8%2001%E8%83%8C%E5%8C%85/" itemprop="url">
+          <a class="post-title-link" href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E8%2001%E8%83%8C%E5%8C%85/" itemprop="url">
             <span itemprop="name">E8 01背包</span>
           </a>
       </div>
@@ -269,14 +269,14 @@
     <header class="post-header">
       <div class="post-meta-container">
         <time itemprop="dateCreated"
-              datetime="2026-04-25T08:47:32+00:00"
-              content="2026-04-25">
-          04-25
+              datetime="2026-04-27T05:52:30+00:00"
+              content="2026-04-27">
+          04-27
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E9%20%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" itemprop="url">
+          <a class="post-title-link" href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E9%20%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" itemprop="url">
             <span itemprop="name">E9 完全背包</span>
           </a>
       </div>
@@ -313,13 +313,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">163k</span>
+    <span title="站点总字数">165k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:29</span>
+    <span title="站点阅读时长">2:30</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -365,49 +365,58 @@
 </noscript>
 <script>
 // KaTeX client-side rendering
-// hexo-renderer-kramed 将公式输出为 <script type="math/tex"> 标签
+// hexo-renderer-kramed: $$...$$ -> <script type="math/tex">，$...$ -> 原样保留
 (function() {
   function renderMath() {
     if (typeof katex === 'undefined') return;
-    // 渲染行内公式 <script type="math/tex">
+
+    // 1. 处理 $$...$$ 生成的 <script type="math/tex"> 标签
     document.querySelectorAll('script[type="math/tex"]').forEach(function(el) {
       var tex = el.textContent;
       var span = document.createElement('span');
-      try {
-        katex.render(tex, span, { throwOnError: false, displayMode: false });
-      } catch(e) { span.textContent = tex; }
+      try { katex.render(tex, span, { throwOnError: false, displayMode: false }); }
+      catch(e) { span.textContent = tex; }
       el.parentNode.replaceChild(span, el);
     });
-    // 渲染块级公式 <script type="math/tex; mode=display">
     document.querySelectorAll('script[type="math/tex; mode=display"]').forEach(function(el) {
       var tex = el.textContent;
       var div = document.createElement('div');
       div.className = 'katex-display';
-      try {
-        katex.render(tex, div, { throwOnError: false, displayMode: true });
-      } catch(e) { div.textContent = tex; }
+      try { katex.render(tex, div, { throwOnError: false, displayMode: true }); }
+      catch(e) { div.textContent = tex; }
       el.parentNode.replaceChild(div, el);
     });
+
+    // 2. 处理 $...$ 原样保留在文本里的公式（用 auto-render）
+    if (typeof renderMathInElement === 'function') {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$',  right: '$',  display: false }
+        ],
+        throwOnError: false
+      });
+    }
   }
 
   function loadScript(src, onload) {
-    // 避免重复加载
     if (document.querySelector('script[src="' + src + '"]')) { onload && onload(); return; }
     var s = document.createElement('script');
-    s.src = src;
-    s.crossOrigin = 'anonymous';
-    s.onload = onload;
+    s.src = src; s.crossOrigin = 'anonymous'; s.onload = onload;
     document.head.appendChild(s);
   }
 
   function init() {
     if (typeof katex !== 'undefined') {
-      renderMath();
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMath();
+      } else {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js', renderMath);
+      }
     } else {
-      loadScript(
-        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
-        renderMath
-      );
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js', function() {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js', renderMath);
+      });
     }
   }
 
