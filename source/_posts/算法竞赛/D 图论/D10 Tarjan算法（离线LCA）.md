@@ -1,4 +1,4 @@
----
+﻿---
 title: "D10 Tarjan算法（离线LCA）"
 categories:
 - [算法, D 图论]
@@ -10,7 +10,7 @@ tags:
 
 题面同D11
 
-![image-20250727163932059](/images/D/D10-1.png)
+![image-20250727163932059](/images/算法竞赛/D/D10-1.png)
 
 ### Python代码实现
 

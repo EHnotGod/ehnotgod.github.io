@@ -1,4 +1,4 @@
----
+﻿---
 title: "G99 超级gcd"
 categories:
 - [算法, G 数学]
@@ -8,7 +8,7 @@ tags:
 
 ### 题目情境
 
-![image-20250808230643738](/images/G/G99-1.png)
+![image-20250808230643738](/images/算法竞赛/G/G99-1.png)
 
 ## H 邪教
 

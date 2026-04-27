@@ -1,4 +1,4 @@
----
+﻿---
 title: "B15 BFS广搜"
 categories:
 - [算法, B 搜索算法]
@@ -8,9 +8,9 @@ tags:
 
 ### 题目情境
 
-![image-20250416093032988](/images/B/B15-1.png)
+![image-20250416093032988](/images/算法竞赛/B/B15-1.png)
 
-![image-20250825223816587](/images/B/B15-2.png)
+![image-20250825223816587](/images/算法竞赛/B/B15-2.png)
 
 ### Python代码实现
 

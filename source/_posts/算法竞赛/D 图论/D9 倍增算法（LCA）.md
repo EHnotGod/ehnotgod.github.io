@@ -1,4 +1,4 @@
----
+﻿---
 title: "D9 倍增算法（LCA）"
 categories:
 - [算法, D 图论]
@@ -10,9 +10,9 @@ tags:
 
 题面同D11
 
-![image-20250727163659755](/images/D/D9-1.png)
+![image-20250727163659755](/images/算法竞赛/D/D9-1.png)
 
-![image-20250727163753894](/images/D/D9-2.png)
+![image-20250727163753894](/images/算法竞赛/D/D9-2.png)
 
 ### Python代码实现
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "D5 全源 Johnson 算法"
 categories:
 - [算法, D 图论]
@@ -78,7 +78,7 @@ tags:
 
 **解析：**EH不会，只是默默地放图片说明一切。
 
-![image-20250418091441310](/images/D/D5-1.png)
+![image-20250418091441310](/images/算法竞赛/D/D5-1.png)
 
 ### Python代码实现
 

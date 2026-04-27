@@ -1,4 +1,4 @@
----
+﻿---
 title: "D4 最短路 Floyd 算法"
 categories:
 - [算法, D 图论]
@@ -8,7 +8,7 @@ tags:
 
 ### 题目情境
 
-![image-20250418091227375](/images/D/D4-1.png)
+![image-20250418091227375](/images/算法竞赛/D/D4-1.png)
 
 ### Python代码实现
 

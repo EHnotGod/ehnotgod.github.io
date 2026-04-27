@@ -1,4 +1,4 @@
----
+﻿---
 title: "D23 最小费用最大流EK"
 categories:
 - [算法, D 图论]
@@ -51,7 +51,7 @@ tags:
 
 对于 $100\%$ 的数据，$1 \leq n \leq 5\times 10^3$，$1 \leq m \leq 5 \times 10^4$，$1 \leq s,t \leq n$，$u_i \neq v_i$，$0 \leq w_i,c_i \leq 10^3$，且该网络的最大流和最小费用 $\leq 2^{31}-1$。
 
-![image-20251101160808199](/images/D/D23-1.png)
+![image-20251101160808199](/images/算法竞赛/D/D23-1.png)
 
 ### C++代码实现
 

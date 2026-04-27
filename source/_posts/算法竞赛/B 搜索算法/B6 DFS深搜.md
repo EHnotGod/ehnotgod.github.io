@@ -1,4 +1,4 @@
----
+﻿---
 title: "B6 DFS深搜"
 categories:
 - [算法, B 搜索算法]
@@ -8,11 +8,11 @@ tags:
 
 ### 题目情境
 
-![image-20250416092841158](/images/B/B6-1.png)
+![image-20250416092841158](/images/算法竞赛/B/B6-1.png)
 
-![image-20250416092956833](/images/B/B6-2.png)
+![image-20250416092956833](/images/算法竞赛/B/B6-2.png)
 
-![image-20250825223847899](/images/B/B6-3.png)
+![image-20250825223847899](/images/算法竞赛/B/B6-3.png)
 
 ### Python代码实现
 

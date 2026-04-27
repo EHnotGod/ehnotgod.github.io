@@ -1,4 +1,4 @@
----
+﻿---
 title: "A12 ST表"
 categories:
 - [算法, A 基础算法]
@@ -8,11 +8,11 @@ tags:
 
 ### 题目情境
 
-![image-20250416090732094](/images/A/A12-1.png)
+![image-20250416090732094](/images/算法竞赛/A/A12-1.png)
 
-![image-20250416090758400](/images/A/A12-2.png)
+![image-20250416090758400](/images/算法竞赛/A/A12-2.png)
 
-![image-20250416090830823](/images/A/A12-3.png)
+![image-20250416090830823](/images/算法竞赛/A/A12-3.png)
 
 ### Python代码实现
 

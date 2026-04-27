@@ -27,13 +27,13 @@
 <meta property="og:site_name" content="EH&#39;s Blog">
 <meta property="og:description" content="题目情境题目描述 给出一个包含 $n$ 个点和 $m$ 条边的有向图（下面称其为网络） $G&#x3D;(V,E)$，该网络上所有点分别编号为 $1 \sim n$，所有边分别编号为 $1\sim m$，其中该网络的源点为 $s$，汇点为 $t$，网络上的每条边 $(u,v)$ 都有一个流量限制 $w(u,v)$ 和单位流量的费用 $c(u,v)$。 你需要给每条边 $(u,v)$ 确定一个流量 $f(u,">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ehnotgod.github.io/images/D/D23-1.png">
+<meta property="og:image" content="https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D23-1.png">
 <meta property="article:published_time" content="2026-04-25T08:22:07.299Z">
-<meta property="article:modified_time" content="2026-04-25T08:26:37.998Z">
+<meta property="article:modified_time" content="2026-04-27T05:48:50.279Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="图论">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ehnotgod.github.io/images/D/D23-1.png">
+<meta name="twitter:image" content="https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D23-1.png">
 
 
 <link rel="canonical" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D23%20%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81EK/">
@@ -182,13 +182,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -271,9 +271,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-04-25 16:22:07 / 修改时间：16:26:37" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+      <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-27 13:48:50" itemprop="dateModified" datetime="2026-04-27T13:48:50+08:00">2026-04-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -340,7 +346,7 @@
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 280</span><br></pre></td></tr></table></figure>
 <p>对于 $100\%$ 的数据，$1 \leq n \leq 5\times 10^3$，$1 \leq m \leq 5 \times 10^4$，$1 \leq s,t \leq n$，$u_i \neq v_i$，$0 \leq w_i,c_i \leq 10^3$，且该网络的最大流和最小费用 $\leq 2^{31}-1$。</p>
-<p><img src="/images/D/D23-1.png" alt="image-20251101160808199"></p>
+<p><img src="/images/算法竞赛/D/D23-1.png" alt="image-20251101160808199"></p>
 <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Luogu P3381 【模板】最小费用最大流</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">5010</span>,M=<span class="number">100010</span>,INF=<span class="number">1e8</span>;</span><br><span class="line"><span class="type">int</span> n,m,S,T;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,c,w,ne;&#125;e[M];</span><br><span class="line"><span class="type">int</span> h[N],idx=<span class="number">1</span>;<span class="comment">//从2,3开始配对</span></span><br><span class="line"><span class="type">int</span> d[N],mf[N],pre[N],vis[N];</span><br><span class="line"><span class="type">int</span> flow,cost;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c,<span class="type">int</span> d)</span></span>&#123;</span><br><span class="line">  e[++idx]=&#123;b,c,d,h[a]&#125;;</span><br><span class="line">  h[a]=idx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">spfa</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">  <span class="built_in">memset</span>(mf,<span class="number">0</span>,<span class="keyword">sizeof</span> mf);</span><br><span class="line">  queue&lt;<span class="type">int</span>&gt; q; q.<span class="built_in">push</span>(S);</span><br><span class="line">  d[S]=<span class="number">0</span>, mf[S]=INF, vis[S]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="type">int</span> u=q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    vis[u]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=h[u];i;i=e[i].ne)&#123;</span><br><span class="line">      <span class="type">int</span> v=e[i].v,c=e[i].c,w=e[i].w;</span><br><span class="line">      <span class="keyword">if</span>(d[v]&gt;d[u]+w &amp;&amp; c)&#123;</span><br><span class="line">        d[v]=d[u]+w; <span class="comment">//最短路</span></span><br><span class="line">        pre[v]=i;</span><br><span class="line">        mf[v]=<span class="built_in">min</span>(mf[u],c);</span><br><span class="line">        <span class="keyword">if</span>(!vis[v])&#123;</span><br><span class="line">          q.<span class="built_in">push</span>(v); vis[v]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mf[T]&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">EK</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">spfa</span>())&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> v=T;v!=S;)&#123;</span><br><span class="line">      <span class="type">int</span> i=pre[v];</span><br><span class="line">      e[i].c-=mf[T];</span><br><span class="line">      e[i^<span class="number">1</span>].c+=mf[T];</span><br><span class="line">      v=e[i^<span class="number">1</span>].v;</span><br><span class="line">    &#125;</span><br><span class="line">    flow+=mf[T]; <span class="comment">//累加可行流</span></span><br><span class="line">    cost+=mf[T]*d[T];<span class="comment">//累加费用   </span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;S,&amp;T);</span><br><span class="line">  <span class="type">int</span> a,b,c,d;</span><br><span class="line">  <span class="keyword">while</span>(m --)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d);</span><br><span class="line">    <span class="built_in">add</span>(a,b,c,d);</span><br><span class="line">    <span class="built_in">add</span>(b,a,<span class="number">0</span>,-d);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">EK</span>();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>,flow,cost);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -396,13 +402,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">163k</span>
+    <span title="站点总字数">165k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:29</span>
+    <span title="站点阅读时长">2:30</span>
   </span>
 </div>
 <div class="busuanzi-count">

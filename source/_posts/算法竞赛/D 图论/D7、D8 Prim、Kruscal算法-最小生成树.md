@@ -1,4 +1,4 @@
----
+﻿---
 title: "D7、D8 Prim、Kruscal算法-最小生成树"
 categories:
 - [算法, D 图论]
@@ -54,11 +54,11 @@ tags:
 
 Prim算法（$$O(n^2)$$）：
 
-![image-20250418091937605](/images/D/D7-2.png)
+![image-20250418091937605](/images/算法竞赛/D/D7-2.png)
 
 Kruscal算法（$$O(mlogm)$$）：
 
-![image-20250418092200766](/images/D/D7-3.png)
+![image-20250418092200766](/images/算法竞赛/D/D7-3.png)
 
 ### Python代码实现
 

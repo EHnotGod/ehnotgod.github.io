@@ -1,4 +1,4 @@
----
+﻿---
 title: "D14 强连通分量Tarjan算法"
 categories:
 - [算法, D 图论]
@@ -42,7 +42,7 @@ P2863 [USACO06JAN] The Cow Prom S
 
 对于全部的测试点，保证 $2\le n \le 10^4$，$2\le m\le 5\times 10^4$，$1 \leq a, b \leq n$。
 
-![image-20250817142047464](/images/D/D14-1.png)
+![image-20250817142047464](/images/算法竞赛/D/D14-1.png)
 
 ### C++代码实现
 

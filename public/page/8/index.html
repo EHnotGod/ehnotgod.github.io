@@ -176,13 +176,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -227,6 +227,125 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D47%20%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D47%20%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" class="post-title-link" itemprop="url">D47 树的直径</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-27 13:48:50" itemprop="dateModified" datetime="2026-04-27T13:48:50+08:00">2026-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>B4016 树的直径</p>
+<p><strong>题目描述</strong></p>
+<p>给定一棵 $n$ 个结点的树，树没有边权。请求出树的直径是多少，即树上最长的不重复经过一个点的路径长度是多少。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行输入一个正整数 $n$，表示结点个数。</p>
+<p>第二行开始，往下一共 $n-1$ 行，每一行两个正整数 $(u,v)$，表示一条边。</p>
+<p><strong>输出格式</strong></p>
+<p>输出一行，表示树的直径是多少。</p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">2 4</span><br><span class="line">4 5</span><br><span class="line">2 3</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>数据保证，$1 \leq n \leq 10^5$。</p>
+<p><img src="/images/算法竞赛/D/D47-1.png" alt="image-20250816214118195"></p>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 树的直径 正边权 两次DFS O(n)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100005</span>;</span><br><span class="line"><span class="type">int</span> n,rt,d[N];</span><br><span class="line">vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; e[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> fa)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(d[rt]&lt;d[u]) rt=u; <span class="comment">//记录最远点</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">auto</span> [v,w]:e[u])&#123;</span><br><span class="line">    <span class="keyword">if</span>(v==fa) <span class="keyword">continue</span>;</span><br><span class="line">    d[v]=d[u]+w; <span class="comment">//d[v]从根走到v的距离</span></span><br><span class="line">    <span class="built_in">dfs</span>(v,u);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,x,y;i&lt;n;i++)&#123;</span><br><span class="line">    cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">    e[x].<span class="built_in">emplace_back</span>(y,<span class="number">1</span>);</span><br><span class="line">    e[y].<span class="built_in">emplace_back</span>(x,<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">0</span>);  <span class="comment">//找出离1最远的点rt</span></span><br><span class="line">  d[rt]=<span class="number">0</span>;</span><br><span class="line">  <span class="built_in">dfs</span>(rt,<span class="number">0</span>); <span class="comment">//找出离rt最远的点</span></span><br><span class="line">  cout&lt;&lt;d[rt];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 树的直径 正负边权 树形DP O(n)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100005</span>;</span><br><span class="line"><span class="type">int</span> n,mxd,d[N]; <span class="comment">//d[u]从u点向下走的最长距离</span></span><br><span class="line">vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; e[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> fa)</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">auto</span> [v,w]:e[u])&#123;</span><br><span class="line">    <span class="keyword">if</span>(v==fa) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(v,u);</span><br><span class="line">    mxd=<span class="built_in">max</span>(mxd,d[u]+w+d[v]); <span class="comment">//拼凑直径</span></span><br><span class="line">    d[u]=<span class="built_in">max</span>(d[u],d[v]+w);    <span class="comment">//更新d[u]</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,x,y;i&lt;n;i++)&#123;</span><br><span class="line">    cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">    e[x].<span class="built_in">emplace_back</span>(y,<span class="number">1</span>);</span><br><span class="line">    e[y].<span class="built_in">emplace_back</span>(x,<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">  cout&lt;&lt;mxd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -373,9 +492,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-04-25 16:22:07 / 修改时间：16:26:37" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+      <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-27 13:48:50" itemprop="dateModified" datetime="2026-04-27T13:48:50+08:00">2026-04-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -436,7 +561,7 @@
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 280</span><br></pre></td></tr></table></figure>
 <p>对于 $100\%$ 的数据，$1 \leq n \leq 5\times 10^3$，$1 \leq m \leq 5 \times 10^4$，$1 \leq s,t \leq n$，$u_i \neq v_i$，$0 \leq w_i,c_i \leq 10^3$，且该网络的最大流和最小费用 $\leq 2^{31}-1$。</p>
-<p><img src="/images/D/D23-1.png" alt="image-20251101160808199"></p>
+<p><img src="/images/算法竞赛/D/D23-1.png" alt="image-20251101160808199"></p>
 <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Luogu P3381 【模板】最小费用最大流</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">5010</span>,M=<span class="number">100010</span>,INF=<span class="number">1e8</span>;</span><br><span class="line"><span class="type">int</span> n,m,S,T;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,c,w,ne;&#125;e[M];</span><br><span class="line"><span class="type">int</span> h[N],idx=<span class="number">1</span>;<span class="comment">//从2,3开始配对</span></span><br><span class="line"><span class="type">int</span> d[N],mf[N],pre[N],vis[N];</span><br><span class="line"><span class="type">int</span> flow,cost;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c,<span class="type">int</span> d)</span></span>&#123;</span><br><span class="line">  e[++idx]=&#123;b,c,d,h[a]&#125;;</span><br><span class="line">  h[a]=idx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">spfa</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">  <span class="built_in">memset</span>(mf,<span class="number">0</span>,<span class="keyword">sizeof</span> mf);</span><br><span class="line">  queue&lt;<span class="type">int</span>&gt; q; q.<span class="built_in">push</span>(S);</span><br><span class="line">  d[S]=<span class="number">0</span>, mf[S]=INF, vis[S]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="type">int</span> u=q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    vis[u]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=h[u];i;i=e[i].ne)&#123;</span><br><span class="line">      <span class="type">int</span> v=e[i].v,c=e[i].c,w=e[i].w;</span><br><span class="line">      <span class="keyword">if</span>(d[v]&gt;d[u]+w &amp;&amp; c)&#123;</span><br><span class="line">        d[v]=d[u]+w; <span class="comment">//最短路</span></span><br><span class="line">        pre[v]=i;</span><br><span class="line">        mf[v]=<span class="built_in">min</span>(mf[u],c);</span><br><span class="line">        <span class="keyword">if</span>(!vis[v])&#123;</span><br><span class="line">          q.<span class="built_in">push</span>(v); vis[v]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mf[T]&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">EK</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">spfa</span>())&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> v=T;v!=S;)&#123;</span><br><span class="line">      <span class="type">int</span> i=pre[v];</span><br><span class="line">      e[i].c-=mf[T];</span><br><span class="line">      e[i^<span class="number">1</span>].c+=mf[T];</span><br><span class="line">      v=e[i^<span class="number">1</span>].v;</span><br><span class="line">    &#125;</span><br><span class="line">    flow+=mf[T]; <span class="comment">//累加可行流</span></span><br><span class="line">    cost+=mf[T]*d[T];<span class="comment">//累加费用   </span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;S,&amp;T);</span><br><span class="line">  <span class="type">int</span> a,b,c,d;</span><br><span class="line">  <span class="keyword">while</span>(m --)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d);</span><br><span class="line">    <span class="built_in">add</span>(a,b,c,d);</span><br><span class="line">    <span class="built_in">add</span>(b,a,<span class="number">0</span>,-d);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">EK</span>();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>,flow,cost);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -1071,9 +1196,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-04-25 16:22:07 / 修改时间：16:26:37" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+      <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-27 13:48:50" itemprop="dateModified" datetime="2026-04-27T13:48:50+08:00">2026-04-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1129,7 +1260,7 @@
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
 <p>对于 $100\%$ 的数据，$1\le n \le 10^4$，$1\le m \le 10^5$，$0\le a_i\le 10^3$。</p>
-<p><img src="/images/D/D15-1.png" alt="image-20250817142544858"></p>
+<p><img src="/images/算法竞赛/D/D15-1.png" alt="image-20250817142544858"></p>
 <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N],ne[N]; </span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,stk[N],top,scc[N],cnt;</span><br><span class="line"><span class="type">int</span> w[N],nw[N],d[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim; </span><br><span class="line">  stk[++top]=x;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y : e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123;</span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(!scc[y])</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(dfn[x]==low[x])&#123;</span><br><span class="line">    ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="type">int</span> y=stk[top--];</span><br><span class="line">      scc[y]=cnt;</span><br><span class="line">      <span class="keyword">if</span>(y==x) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) cin&gt;&gt;w[i];</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    e[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="comment">//缩点</span></span><br><span class="line">    <span class="keyword">if</span>(!dfn[i]) <span class="built_in">tarjan</span>(i); </span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">1</span>;x&lt;=n;x++)&#123; <span class="comment">//建拓扑图</span></span><br><span class="line">    nw[scc[x]]+=w[x];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> y:e[x])</span><br><span class="line">      <span class="keyword">if</span>(scc[x]!=scc[y]) ne[scc[x]].<span class="built_in">push_back</span>(scc[y]);</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> x=cnt;x;x--)&#123; <span class="comment">//求最长路</span></span><br><span class="line">    <span class="keyword">if</span>(d[x]==<span class="number">0</span>) d[x]=nw[x]; <span class="comment">//起点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> y:ne[x])</span><br><span class="line">      d[y]=<span class="built_in">max</span>(d[y],d[x]+nw[y]);</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++) ans=<span class="built_in">max</span>(ans,d[i]);</span><br><span class="line">  cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -1185,9 +1316,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-04-25 16:22:07 / 修改时间：16:26:37" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+      <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-27 13:48:50" itemprop="dateModified" datetime="2026-04-27T13:48:50+08:00">2026-04-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1241,109 +1378,8 @@
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
 <p>对于全部的测试点，保证 $2\le n \le 10^4$，$2\le m\le 5\times 10^4$，$1 \leq a, b \leq n$。</p>
-<p><img src="/images/D/D14-1.png" alt="image-20250817142047464"></p>
+<p><img src="/images/算法竞赛/D/D14-1.png" alt="image-20250817142047464"></p>
 <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tarjan算法 O(n+m)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b,ans;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N]; </span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,stk[N],ins[N],top,scc[N],siz[N],cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim; <span class="comment">//时间戳 追溯值</span></span><br><span class="line">  stk[++top]=x,ins[x]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y:e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123; <span class="comment">//若y尚未访问</span></span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); <span class="comment">//因y是儿子</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(ins[y]) <span class="comment">//若y已访问且在栈中</span></span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]); <span class="comment">//因y是祖先或左子树点</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(dfn[x]==low[x])&#123; <span class="comment">//若x是SCC的根</span></span><br><span class="line">    ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="type">int</span> y=stk[top--]; ins[y]=<span class="number">0</span>;</span><br><span class="line">      scc[y]=cnt; <span class="comment">//SCC的编号</span></span><br><span class="line">      ++siz[cnt]; <span class="comment">//SCC的大小</span></span><br><span class="line">      <span class="keyword">if</span>(y==x) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m--)</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b, e[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="comment">//可能不连通</span></span><br><span class="line">    <span class="keyword">if</span>(!dfn[i]) <span class="built_in">tarjan</span>(i);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)</span><br><span class="line">     <span class="keyword">if</span>(siz[i]&gt;<span class="number">1</span>) ans++;</span><br><span class="line">  cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D13%20%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D13%20%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB/" class="post-title-link" itemprop="url">D13 树上距离</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-04-25 16:22:07 / 修改时间：16:26:37" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/D/D13-1.png" alt="image-20250418092643205"></p>
-<p>解析：无，LCA板子题举例而已。</p>
-<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## https://loj.ac/p/10130</span></span><br><span class="line"><span class="comment"># 相比树链剖分板子，只在有标注“#距离”处修改了</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.setrecursionlimit(<span class="built_in">int</span>(<span class="number">1e7</span>))</span><br><span class="line">N = <span class="number">100010</span></span><br><span class="line">fa = [<span class="number">0</span>] * N</span><br><span class="line">son = [<span class="number">0</span>] * N</span><br><span class="line">dep = [<span class="number">0</span>] * N</span><br><span class="line">siz = [<span class="number">0</span>] * N</span><br><span class="line">top = [<span class="number">0</span>] * N</span><br><span class="line"><span class="comment"># 距离</span></span><br><span class="line">dis = [<span class="number">0</span>] * N</span><br><span class="line">e = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs1</span>(<span class="params">u, f</span>):</span><br><span class="line">    fa[u] = f</span><br><span class="line">    siz[u] = <span class="number">1</span></span><br><span class="line">    dep[u] = dep[f] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> e[u]:</span><br><span class="line">        <span class="keyword">if</span> v == f:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="comment"># 距离</span></span><br><span class="line">        dis[v] = dis[u] + <span class="number">1</span></span><br><span class="line">        dfs1(v, u)</span><br><span class="line">        siz[u] += siz[v]</span><br><span class="line">        <span class="keyword">if</span> siz[son[u]] &lt; siz[v]:</span><br><span class="line">            son[u] = v</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs2</span>(<span class="params">u, t</span>):</span><br><span class="line">    top[u] = t</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> son[u]:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    dfs2(son[u], t)</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> e[u]:</span><br><span class="line">        <span class="keyword">if</span> v == fa[u] <span class="keyword">or</span> v == son[u]:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        dfs2(v, v)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lca</span>(<span class="params">u, v</span>):</span><br><span class="line">    <span class="keyword">while</span> top[u] != top[v]:</span><br><span class="line">        <span class="keyword">if</span> dep[top[u]] &lt; dep[top[v]]:</span><br><span class="line">            u, v = v, u</span><br><span class="line">        u = fa[top[u]]</span><br><span class="line">    <span class="keyword">if</span> dep[u] &lt; dep[v]:</span><br><span class="line">        <span class="keyword">return</span> u</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> v</span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">    a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    e[a].append(b)</span><br><span class="line">    e[b].append(a)</span><br><span class="line">dfs1(<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">dfs2(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    <span class="comment"># 距离</span></span><br><span class="line">    d = dis[a] + dis[b] - dis[lca(a, b)] * <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(d)</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b,c;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N];</span><br><span class="line"><span class="type">int</span> dep[N],fa[N],son[N],sz[N],dis[N];</span><br><span class="line"><span class="type">int</span> top[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs1</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> father)</span></span>&#123;</span><br><span class="line">  fa[u]=father,dep[u]=dep[father]<span class="number">+1</span>,sz[u]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> v:e[u])&#123;</span><br><span class="line">    <span class="keyword">if</span>(v==father) <span class="keyword">continue</span>;</span><br><span class="line">    dis[v]=dis[u]<span class="number">+1</span>;</span><br><span class="line">    <span class="built_in">dfs1</span>(v,u);</span><br><span class="line">    sz[u]+=sz[v];</span><br><span class="line">    <span class="keyword">if</span>(sz[son[u]]&lt;sz[v])son[u]=v;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs2</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> t)</span></span>&#123;</span><br><span class="line">  top[u]=t;</span><br><span class="line">  <span class="keyword">if</span>(!son[u]) <span class="keyword">return</span>;</span><br><span class="line">  <span class="built_in">dfs2</span>(son[u],t);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> v:e[u])&#123;</span><br><span class="line">    <span class="keyword">if</span>(v==fa[u]||v==son[u])<span class="keyword">continue</span>;</span><br><span class="line">    <span class="built_in">dfs2</span>(v,v);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lca</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(top[x]!=top[y])&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[top[x]]&lt;dep[top[y]])<span class="built_in">swap</span>(x,y);</span><br><span class="line">    x=fa[top[x]];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dep[x]&lt;dep[y]?x:y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;n; i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    e[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">    e[b].<span class="built_in">push_back</span>(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">dfs1</span>(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">  <span class="built_in">dfs2</span>(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">  <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="type">int</span> d=dis[a]+dis[b]-dis[<span class="built_in">lca</span>(a,b)]*<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,d);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1385,13 +1421,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">163k</span>
+    <span title="站点总字数">165k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:29</span>
+    <span title="站点阅读时长">2:30</span>
   </span>
 </div>
 <div class="busuanzi-count">
