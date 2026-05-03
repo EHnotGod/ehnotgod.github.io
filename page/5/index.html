@@ -176,18 +176,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -236,7 +236,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G8%20%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G62%20%E7%BA%BF%E6%80%A7%E5%9F%BA-k/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -254,7 +254,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G8%20%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0/" class="post-title-link" itemprop="url">G8 线性筛质数</a>
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G62%20%E7%BA%BF%E6%80%A7%E5%9F%BA-k/" class="post-title-link" itemprop="url">G62 线性基-k</a>
         </h2>
 
         <div class="post-meta-container">
@@ -265,7 +265,320 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/G-%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">G 数学</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/算法竞赛/G/G62-1.png" alt="image-20250826122239735"></p>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 线性基 O(63*n)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10005</span>;</span><br><span class="line"><span class="type">int</span> T,n,m,s;</span><br><span class="line">LL p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">gauss</span><span class="params">()</span></span>&#123;</span><br><span class="line">  s=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">63</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">    <span class="comment">// 把当前第i位是1的数换上去</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=s;j&lt;n;j++)</span><br><span class="line">      <span class="keyword">if</span>(p[j]&gt;&gt;i&amp;<span class="number">1</span>)&#123;<span class="built_in">swap</span>(p[j],p[s]);<span class="keyword">break</span>;&#125;</span><br><span class="line">    <span class="comment">// 当前第i位所有向量都是0</span></span><br><span class="line">    <span class="keyword">if</span>((p[s]&gt;&gt;i&amp;<span class="number">1</span>)==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="comment">// 把其他数的第i位全部消为0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">      <span class="keyword">if</span>(j!=s&amp;&amp;(p[j]&gt;&gt;i&amp;<span class="number">1</span>)) p[j]^=p[s];</span><br><span class="line">    <span class="comment">// 有多组测试数据，不break，会被上一组数据影响</span></span><br><span class="line">    s++; <span class="keyword">if</span>(s==n) <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;T);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> C=<span class="number">1</span>;C&lt;=T;C++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Case #%d:\n&quot;</span>,C);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;p[i]);</span><br><span class="line">    <span class="built_in">gauss</span>(); <span class="comment">//高斯消元法构造线性基</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">      LL k; <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;k); <span class="comment">//第k小</span></span><br><span class="line">      <span class="keyword">if</span>(s&lt;n) k--;      <span class="comment">//如果能凑出0</span></span><br><span class="line">      <span class="keyword">if</span>(k&gt;=(<span class="number">1ll</span>&lt;&lt;s)) <span class="built_in">puts</span>(<span class="string">&quot;-1&quot;</span>);</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        LL ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s;i++)</span><br><span class="line">          <span class="keyword">if</span>(k&gt;&gt;i&amp;<span class="number">1</span>) ans^=p[s-i<span class="number">-1</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G74%20%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G74%20%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95/" class="post-title-link" itemprop="url">G74 拉格朗日插值法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/G-%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">G 数学</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P4781 【模板】拉格朗日插值</p>
+<p><strong>题目描述</strong></p>
+<p>对于 $n$ 个点 $(x_i,y_i)$，如果满足 $\forall i\neq j, x_i\neq x_j$，那么经过这 $n$ 个点可以唯一地确定一个 $n-1$ 次多项式 $y = f(x)$。</p>
+<p>现在，给定这样 $n$ 个点，请你确定这个 $n-1$ 次多项式，并求出 $f(k) \bmod 998244353$ 的值。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行两个整数 $n,k$。</p>
+<p>接下来 $n$ 行，第 $i$ 行两个整数 $x_i,y_i$。</p>
+<p><strong>输出格式</strong></p>
+<p>一行一个整数，表示 $f(k) \bmod 998244353$ 的值。</p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 100</span><br><span class="line">1 4</span><br><span class="line">2 9</span><br><span class="line">3 16</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10201</span><br></pre></td></tr></table></figure>
+<p>输入 #2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 100</span><br><span class="line">1 1</span><br><span class="line">2 2</span><br><span class="line">3 3</span><br></pre></td></tr></table></figure>
+<p>输出 #2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100</span><br></pre></td></tr></table></figure>
+<hr>
+<p>$1 \le n \leq 2\times 10^3$，$1 \le x_i,y_i,k &lt; 998244353$，$x_i$ 两两不同。</p>
+<p>时间复杂度：${O(n^2)}$</p>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拉格朗日插值法 O(n^2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="type">const</span> LL mod=<span class="number">998244353</span>;</span><br><span class="line">LL n,k,ans;</span><br><span class="line">LL x[<span class="number">2005</span>],y[<span class="number">2005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">ksm</span><span class="params">(LL a,LL b)</span></span>&#123;</span><br><span class="line">  LL s=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(b&amp;<span class="number">1</span>)s=s*a%mod;</span><br><span class="line">    a=a*a%mod;</span><br><span class="line">    b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;x[i]&gt;&gt;y[i];</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    LL a=y[i],b=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(i==j) <span class="keyword">continue</span>;</span><br><span class="line">      a=a*(k-x[j])%mod;</span><br><span class="line">      b=b*(x[i]-x[j])%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=(ans+a*<span class="built_in">ksm</span>(b,mod<span class="number">-2</span>)%mod)%mod;</span><br><span class="line">  &#125;</span><br><span class="line">  cout&lt;&lt;(ans+mod)%mod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G9%20%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G9%20%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">G9 欧拉函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/G-%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">G 数学</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>959</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">import</span> sys</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">def <span class="title">get_phi</span><span class="params">(n)</span>:</span></span><br><span class="line"><span class="function">    phi =</span> [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    vis = [False] * (n + <span class="number">1</span>)</span><br><span class="line">    primes = []</span><br><span class="line">    phi[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="number">2</span>, n + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> vis[i]:</span><br><span class="line">            primes.<span class="built_in">append</span>(i)</span><br><span class="line">            phi[i] = i - <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> p in primes:</span><br><span class="line">            m = i * p</span><br><span class="line">            <span class="keyword">if</span> m &gt; n:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            vis[m] = True</span><br><span class="line">            <span class="keyword">if</span> i % p == <span class="number">0</span>:</span><br><span class="line">                <span class="meta"># p | i</span></span><br><span class="line">                phi[m] = p * phi[i]</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                phi[m] = (p - <span class="number">1</span>) * phi[i]</span><br><span class="line">    <span class="keyword">return</span> phi</span><br><span class="line"></span><br><span class="line">data = sys.stdin.<span class="built_in">read</span>().<span class="built_in">split</span>()</span><br><span class="line">n = <span class="built_in">int</span>(data[<span class="number">0</span>])</span><br><span class="line">phi = <span class="built_in">get_phi</span>(n)</span><br><span class="line"># 输出 <span class="number">1.</span>.n</span><br><span class="line">out = <span class="string">&#x27;\n&#x27;</span>.<span class="built_in">join</span>(<span class="built_in">str</span>(phi[i]) <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>))</span><br><span class="line">sys.stdout.<span class="built_in">write</span>(out)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1000010</span>;</span><br><span class="line"><span class="type">int</span> p[N], vis[N], cnt;</span><br><span class="line"><span class="type">int</span> phi[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_phi</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;<span class="comment">//筛法求欧拉函数</span></span><br><span class="line">  phi[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;=n; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">      p[cnt++] = i;</span><br><span class="line">      phi[i] = i<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; i*p[j]&lt;=n; j++)&#123;</span><br><span class="line">      <span class="type">int</span> m = i*p[j];</span><br><span class="line">      vis[m] = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%p[j] == <span class="number">0</span>)&#123;</span><br><span class="line">        phi[m] = p[j]*phi[i];</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">        phi[m]=(p[j]<span class="number">-1</span>)*phi[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> n;</span><br><span class="line">  cin &gt;&gt; n;</span><br><span class="line">  <span class="built_in">get_phi</span>(n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, phi[i]);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G8%20%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G8%20%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0/" class="post-title-link" itemprop="url">G8 线性筛质数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -334,7 +647,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G99%20%E8%B6%85%E7%BA%A7gcd/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E14%20%E6%B7%B7%E5%90%88%E8%83%8C%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -352,7 +665,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G99%20%E8%B6%85%E7%BA%A7gcd/" class="post-title-link" itemprop="url">G99 超级gcd</a>
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E14%20%E6%B7%B7%E5%90%88%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E14 混合背包</a>
         </h2>
 
         <div class="post-meta-container">
@@ -363,319 +676,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/G-%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">G 数学</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/算法竞赛/G/G99-1.png" alt="image-20250808230643738"></p>
-<h2 id="H-邪教"><a href="#H-邪教" class="headerlink" title="H 邪教"></a>H 邪教</h2><h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">MOD = <span class="number">998244353</span></span><br><span class="line">PHI = MOD - <span class="number">1</span>  <span class="comment"># 欧拉函数 phi(998244353)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">qmi</span>(<span class="params">a, k</span>):</span><br><span class="line">    res = <span class="number">1</span></span><br><span class="line">    a %= MOD</span><br><span class="line">    <span class="keyword">while</span> k:</span><br><span class="line">        <span class="keyword">if</span> k &amp; <span class="number">1</span>:</span><br><span class="line">            res = res * a % MOD</span><br><span class="line">        a = a * a % MOD</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">a, b, c, d</span>):</span><br><span class="line">    g = math.gcd(a, c)</span><br><span class="line">    <span class="keyword">if</span> g == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    minv = <span class="built_in">min</span>(b, d)</span><br><span class="line">    <span class="keyword">if</span> b &lt;= d:</span><br><span class="line">        exp = b <span class="keyword">if</span> b &lt; PHI <span class="keyword">else</span> b % PHI + PHI</span><br><span class="line">        <span class="keyword">return</span> qmi(g, exp) * dfs(a // g, b, g, d - b) % MOD</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        exp = d <span class="keyword">if</span> d &lt; PHI <span class="keyword">else</span> d % PHI + PHI</span><br><span class="line">        <span class="keyword">return</span> qmi(g, exp) * dfs(g, b - d, c // g, d) % MOD</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    T = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(T):</span><br><span class="line">        a, b, c, d = <span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())</span><br><span class="line">        <span class="built_in">print</span>(dfs(a, b, c, d))</span><br><span class="line"></span><br><span class="line">threading.Thread(target=main).start()</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;bits/stdc++.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> lll = __int128;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> all(x) (x).begin(),(x).end()</span></span><br><span class="line"><span class="type">const</span> ll p = <span class="number">998244353</span>;</span><br><span class="line"><span class="function">ll <span class="title">ksm</span><span class="params">(ll x, lll Y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll r = <span class="number">1</span>;</span><br><span class="line">	x %= p;</span><br><span class="line">	<span class="keyword">if</span> (!Y) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (!x) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	ll y = Y % (p - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">while</span> (y)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (y &amp; <span class="number">1</span>) r = r * x % p;</span><br><span class="line">		x = x * x % p; y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">f</span><span class="params">(ll a, lll b, ll c, lll d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll x = <span class="built_in">gcd</span>(a, c);</span><br><span class="line">	<span class="keyword">if</span> (x == <span class="number">1</span> || b == <span class="number">0</span> || d == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	lll ka = <span class="number">0</span>, kc = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (a % x == <span class="number">0</span>) a /= x, ++ka;</span><br><span class="line">	<span class="keyword">while</span> (c % x == <span class="number">0</span>) c /= x, ++kc;</span><br><span class="line">	ka *= b, kc *= d;</span><br><span class="line">	<span class="keyword">if</span> (ka &gt; kc) <span class="built_in">swap</span>(a, c), <span class="built_in">swap</span>(b, d), <span class="built_in">swap</span>(ka, kc);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">ksm</span>(x, ka) * <span class="built_in">f</span>(a, b, x, kc - ka) % p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> T;</span><br><span class="line">	cin &gt;&gt; T;</span><br><span class="line">	<span class="keyword">while</span> (T--)</span><br><span class="line">	&#123;</span><br><span class="line">		ll a, b, c, d;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">		cout &lt;&lt; <span class="built_in">f</span>(a, b, c, d) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H%20%E9%82%AA%E6%95%99/H1%20%E5%93%88%E5%B8%8C%E7%8A%B6%E6%80%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H%20%E9%82%AA%E6%95%99/H1%20%E5%93%88%E5%B8%8C%E7%8A%B6%E6%80%81/" class="post-title-link" itemprop="url">H1 哈希状态</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/H-%E9%82%AA%E6%95%99/" itemprop="url" rel="index"><span itemprop="name">H 邪教</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/算法竞赛/H/H1-1.png" alt="image-20250727161957303"></p>
-<p><strong>解析：</strong>时间复杂度O(<script type="math/tex">nlogn)</script>)</p>
-<p>想到端点以及单调栈算法后，剩下的就是状态维护问题了，每次进栈出栈，维护不同时候的集合的不同状态数量，可以使用哈希异或的方法，WA的概率非常小。</p>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="type">int</span> t; </span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line"></span><br><span class="line">    <span class="function">mt19937_64 <span class="title">rng</span><span class="params">(random_device&#123;&#125;())</span></span>; <span class="comment">// 64位随机生成器</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">        <span class="type">int</span> n; </span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="function">vector&lt;ll&gt; <span class="title">l</span><span class="params">(n)</span>, <span class="title">r</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="function">vector&lt;ull&gt; <span class="title">w</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            w[i] = <span class="built_in">rng</span>(); <span class="comment">// 生成随机权值</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        map&lt;ll, ull&gt; event_map; <span class="comment">// 记录事件: &#123;坐标, 异或值&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            cin &gt;&gt; l[i] &gt;&gt; r[i];</span><br><span class="line">            event_map[l[i]] ^= w[i];          <span class="comment">// 在l[i]加入</span></span><br><span class="line">            event_map[r[i] + <span class="number">1</span>] ^= w[i];      <span class="comment">// 在r[i]+1移除</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        set&lt;ull&gt; seen = &#123;<span class="number">0</span>&#125;; <span class="comment">// 覆盖状态集合，初始化空状态</span></span><br><span class="line">        ull cur = <span class="number">0</span>;         <span class="comment">// 当前覆盖状态</span></span><br><span class="line">        vector&lt;ll&gt; poses;    <span class="comment">// 事件坐标</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; p : event_map) &#123;</span><br><span class="line">            poses.<span class="built_in">push_back</span>(p.first);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(poses.<span class="built_in">begin</span>(), poses.<span class="built_in">end</span>()); <span class="comment">// 坐标排序</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (ll pos : poses) &#123;</span><br><span class="line">            cur ^= event_map[pos];      <span class="comment">// 更新当前状态</span></span><br><span class="line">            seen.<span class="built_in">insert</span>(cur);            <span class="comment">// 记录新状态</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cout &lt;&lt; seen.<span class="built_in">size</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H%20%E9%82%AA%E6%95%99/H2%20%E8%B6%85%E7%BB%9D%E6%B5%AE%E7%82%B9%E7%B2%BE%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H%20%E9%82%AA%E6%95%99/H2%20%E8%B6%85%E7%BB%9D%E6%B5%AE%E7%82%B9%E7%B2%BE%E5%BA%A6/" class="post-title-link" itemprop="url">H2 超绝浮点精度</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/H-%E9%82%AA%E6%95%99/" itemprop="url" rel="index"><span itemprop="name">H 邪教</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>714</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>本邪教为py邪教，方法是使用python的Decimal提升精度，在WA与T之间徘徊。</p>
-<p><strong>题目描述</strong></p>
-<p>  “荒泷卡牌天下第一斗”酷爱卡牌，尤其是最近马上要上线的“七圣召唤”，荒泷一斗想在2.3版本前集齐全部种类的卡牌，但他不精于计算，所以他找来了你、战力第一的旅行者帮忙。</p>
-<p>已知“七圣召唤”共有K张不同的卡牌，荒泷一斗的资金够买N个卡包。每个卡包能随机从K种卡牌中抽到一张。现给出N和K，他想问你要集齐全部种类的卡牌所需的期望卡包数，以及N个卡包能开出的期望卡牌种类数。</p>
-<p><strong>输入描述：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一行输入两个整数，N和K。N表示卡包数，K表示卡牌种类数。（1&lt;=N&lt;=1000000,1&lt;=K&lt;=1000000）</span><br></pre></td></tr></table></figure>
-<p><strong>输出描述：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一行输出两个浮点数，分别是集齐全部种类的卡牌所需的期望卡包数，和N个卡包能开出的期望卡牌种类数，中间用空格间隔。（答案与标准答案相差1e-6以内就算正确）</span><br></pre></td></tr></table></figure>
-<p>输入1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 3</span><br></pre></td></tr></table></figure>
-<p>输出1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5.50000000 2.11111111</span><br></pre></td></tr></table></figure>
-<p>输入2</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4 3</span><br></pre></td></tr></table></figure>
-<p>输出2</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5.50000000 2.40740741</span><br></pre></td></tr></table></figure>
-<h2 id="I-典题"><a href="#I-典题" class="headerlink" title="I 典题"></a>I 典题</h2><h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> decimal <span class="keyword">import</span> Decimal, getcontext</span><br><span class="line"></span><br><span class="line">getcontext().prec = <span class="number">200</span></span><br><span class="line"></span><br><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">n = Decimal(n)</span><br><span class="line">k = Decimal(k)</span><br><span class="line"></span><br><span class="line">ans1 = Decimal(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(k)):</span><br><span class="line">    ans1 += k / Decimal(i + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">ans2 = k * (Decimal(<span class="number">1</span>) - (Decimal(<span class="number">1</span>) - Decimal(<span class="number">1</span>) / k) ** n)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ans1, ans2)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E14%20%E6%B7%B7%E5%90%88%E8%83%8C%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E14%20%E6%B7%B7%E5%90%88%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E14 混合背包</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -743,7 +744,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E15%20%E4%BA%8C%E7%BB%B4%E8%83%8C%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E15%20%E4%BA%8C%E7%BB%B4%E8%83%8C%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -761,7 +762,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E15%20%E4%BA%8C%E7%BB%B4%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E15 二维背包</a>
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E15%20%E4%BA%8C%E7%BB%B4%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E15 二维背包</a>
         </h2>
 
         <div class="post-meta-container">
@@ -772,7 +773,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -840,7 +841,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E16%20%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E16%20%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -858,7 +859,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E16%20%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E16 分组背包</a>
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E16%20%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E16 分组背包</a>
         </h2>
 
         <div class="post-meta-container">
@@ -869,7 +870,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -937,7 +938,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E17%20%E6%A0%91%E5%BD%A2DP/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E17%20%E6%A0%91%E5%BD%A2DP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -955,7 +956,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E17%20%E6%A0%91%E5%BD%A2DP/" class="post-title-link" itemprop="url">E17 树形DP</a>
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E17%20%E6%A0%91%E5%BD%A2DP/" class="post-title-link" itemprop="url">E17 树形DP</a>
         </h2>
 
         <div class="post-meta-container">
@@ -966,7 +967,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1035,7 +1036,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E18%20%E6%A0%91%E4%B8%8A%E8%83%8C%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E18%20%E6%A0%91%E4%B8%8A%E8%83%8C%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1053,7 +1054,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E18%20%E6%A0%91%E4%B8%8A%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E18 树上背包</a>
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E18%20%E6%A0%91%E4%B8%8A%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E18 树上背包</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1064,7 +1065,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1132,7 +1133,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E19%20%E8%83%8C%E5%8C%85%E6%96%B9%E6%A1%88%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E19%20%E8%83%8C%E5%8C%85%E6%96%B9%E6%A1%88%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1150,7 +1151,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/27/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E19%20%E8%83%8C%E5%8C%85%E6%96%B9%E6%A1%88%E6%95%B0/" class="post-title-link" itemprop="url">E19 背包方案数</a>
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E19%20%E8%83%8C%E5%8C%85%E6%96%B9%E6%A1%88%E6%95%B0/" class="post-title-link" itemprop="url">E19 背包方案数</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1161,7 +1162,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-27 06:28:58" itemprop="dateCreated datePublished" datetime="2026-04-27T06:28:58+00:00">2026-04-27</time>
+      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1244,13 +1245,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">174k</span>
+    <span title="站点总字数">187k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:39</span>
+    <span title="站点阅读时长">2:50</span>
   </span>
 </div>
 <div class="busuanzi-count">
