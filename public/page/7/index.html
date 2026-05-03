@@ -176,18 +176,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -227,6 +227,103 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E16%20%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/E16%20%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">E16 分组背包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/E-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">E 动态规划</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>573</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 分组背包 朴素算法</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> v[N][N],w[N][N],s[N];</span><br><span class="line"><span class="comment">// v[i,j]:第i组第j个物品的体积 s[i]:第i组物品的个数</span></span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"><span class="comment">// f[i,j]:前i组物品，能放入容量为j的背包的最大值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;    </span><br><span class="line">  <span class="type">int</span> n,V; cin&gt;&gt;n&gt;&gt;V;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    cin&gt;&gt;s[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=s[i];j++) cin&gt;&gt;v[i][j]&gt;&gt;w[i][j];</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)     <span class="comment">//物品组</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=V;j++)     <span class="comment">//体积</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;=s[i];k++)  <span class="comment">//同组内的物品只能选一个</span></span><br><span class="line">    <span class="keyword">if</span>(j&gt;=v[i][k]) f[i][j]=<span class="built_in">max</span>(f[i][j],f[i<span class="number">-1</span>][j-v[i][k]]+w[i][k]);                 </span><br><span class="line"></span><br><span class="line">  cout&lt;&lt;f[n][V];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1219,123 +1316,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D99%20Kruscal%E9%87%8D%E6%9E%84%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D99%20Kruscal%E9%87%8D%E6%9E%84%E6%A0%91/" class="post-title-link" itemprop="url">D99 Kruscal重构树</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>给定一张 $N$ 个点的无向图，记为 $1\cdots N$ 。</p>
-<p>图中有 $M$ 条边，第 $j$ 条边的长度为 $d_j$ 。</p>
-<p>现在有 $K$ 个询问，每个询问的格式为 $A\ \  B$，表示询问从 $A$ 走到 $B$ 的所有路径中，最长边的最小值为多少。</p>
-<p><strong>输入格式</strong></p>
-<p>第一行为三个整数 $N, M, K$ 。</p>
-<p>第二行到第 $M+1$ 行，每行三个整数 $X, Y, D$ ，表示从 $X$ 与 $Y$ 之间有一条长度为 $D$ 的边。</p>
-<p>第 $M+2$ 行到第 $M+K+1$ 行，每行两个整数 $A, B$ ，意义如上。</p>
-<p><strong>输出格式</strong></p>
-<p>共 $K$ 行。</p>
-<p>对于每个询问，输出最长边的最小值。</p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">6 6 8</span><br><span class="line">1 2 5</span><br><span class="line">2 3 4</span><br><span class="line">3 4 3</span><br><span class="line">1 4 8</span><br><span class="line">2 5 7</span><br><span class="line">4 6 2</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 3</span><br><span class="line">2 4</span><br><span class="line">5 1</span><br><span class="line">6 2</span><br><span class="line">6 1</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">5</span><br><span class="line">5</span><br><span class="line">4</span><br><span class="line">4</span><br><span class="line">7</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<p>$1 \leq N \leq 15000$</p>
-<p>$1 \leq M \leq 30000$</p>
-<p>$1 \leq D_j \leq 10^9$</p>
-<p>$1 \leq K \leq 15000$</p>
-<hr>
-<h2 id="E-动态规划"><a href="#E-动态规划" class="headerlink" title="E-动态规划"></a>E-动态规划</h2><h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*EHnotgod————</span></span><br><span class="line"><span class="comment">..............#######.....#.....#..............</span></span><br><span class="line"><span class="comment">..............#...........#.....#..............</span></span><br><span class="line"><span class="comment">..............#######.....#######..............</span></span><br><span class="line"><span class="comment">..............#...........#.....#..............</span></span><br><span class="line"><span class="comment">..............#######.....#.....#..............</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> endl <span class="string">&quot;\n&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> range(i, a, b) for (int i = (a); i &lt; (b); ++i)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> def(name, ...) auto name = [&amp;](__VA_ARGS__)</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">200006</span>;</span><br><span class="line"><span class="type">int</span> n, m, q;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;</span><br><span class="line">  <span class="type">int</span> u,v,w;</span><br><span class="line">  <span class="type">bool</span> <span class="keyword">operator</span>&lt;(<span class="type">const</span> edge &amp;t)<span class="type">const</span></span><br><span class="line">  &#123;<span class="keyword">return</span> w &lt; t.w;&#125;</span><br><span class="line">&#125;edge[N];</span><br><span class="line"><span class="type">int</span> fa2[N],ans,cnt;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">value</span><span class="params">(N, <span class="number">0</span>)</span></span>;</span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">e</span>(N, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(fa2[x]==x) <span class="keyword">return</span> x;</span><br><span class="line">  <span class="keyword">return</span> fa2[x]=<span class="built_in">find</span>(fa2[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">kruskal</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">sort</span>(edge,edge+m);</span><br><span class="line">  cnt = n;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;N;i++)fa2[i]=i;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++)&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="built_in">find</span>(edge[i].u);</span><br><span class="line">    <span class="type">int</span> y = <span class="built_in">find</span>(edge[i].v);</span><br><span class="line">    <span class="keyword">if</span>(x!=y)&#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        fa2[x]=cnt;</span><br><span class="line">        fa2[y]=cnt;</span><br><span class="line">        value[cnt] = edge[i].w;</span><br><span class="line"></span><br><span class="line">        e[x].<span class="built_in">push_back</span>(cnt);</span><br><span class="line">        e[y].<span class="built_in">push_back</span>(cnt);</span><br><span class="line">        e[cnt].<span class="built_in">push_back</span>(x);</span><br><span class="line">        e[cnt].<span class="built_in">push_back</span>(y);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> f[N][<span class="number">22</span>],dep[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> fa)</span></span>&#123;</span><br><span class="line">  f[u][<span class="number">0</span>]=fa; dep[u]=dep[fa]<span class="number">+1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">20</span>;i++) <span class="comment">//u的2,4,8...祖先</span></span><br><span class="line">    f[u][i]=f[f[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> v:e[u])</span><br><span class="line">    <span class="keyword">if</span>(v!=fa) <span class="built_in">dfs</span>(v,u);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lca</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(dep[u]&lt;dep[v]) <span class="built_in">swap</span>(u,v);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">20</span>;~i;i--) <span class="comment">//u先大步后小步向上跳，直到与v同层</span></span><br><span class="line">    <span class="keyword">if</span>(dep[f[u][i]]&gt;=dep[v]) u=f[u][i];</span><br><span class="line">  <span class="keyword">if</span>(u==v) <span class="keyword">return</span> v;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">20</span>;~i;i--) <span class="comment">//u,v一起向上跳，直到lca的下面</span></span><br><span class="line">    <span class="keyword">if</span>(f[u][i]!=f[v][i]) u=f[u][i],v=f[v][i];</span><br><span class="line">  <span class="keyword">return</span> f[u][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// vector&lt;int&gt; a(n, 0);</span></span><br><span class="line"><span class="comment">// vector&lt;vector&lt;int&gt;&gt; dp(n + 1, vector&lt;int&gt;(n + 1, 0));</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">		cin &gt;&gt; edge[i].u &gt;&gt; edge[i].v &gt;&gt; edge[i].w;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="built_in">kruskal</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">dfs</span>(cnt, <span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (q--)&#123;</span><br><span class="line">        <span class="type">int</span> u, v; cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        <span class="type">int</span> uv = <span class="built_in">lca</span>(u, v);</span><br><span class="line">        cout &lt;&lt; value[uv] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	t = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">solve</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1359,13 +1339,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">165k</span>
+    <span title="站点总字数">187k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:30</span>
+    <span title="站点阅读时长">2:50</span>
   </span>
 </div>
 <div class="busuanzi-count">
