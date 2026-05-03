@@ -236,350 +236,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A43%20%E5%8D%95%E8%B0%83%E6%A0%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A43%20%E5%8D%95%E8%B0%83%E6%A0%88/" class="post-title-link" itemprop="url">A43 单调栈</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/A-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">A 基础算法</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>460</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>给出项数为 $n$ 的整数数列 $a_{1 \dots n}$。</p>
-<p>定义函数 $f(i)$ 代表数列中第 $i$ 个元素之后第一个大于 $a<em>i$ 的元素的<strong>下标</strong>，即 $f(i)=\min</em>{i<j\leq n, a_j > a_i} {j}$。若不存在，则 $f(i)=0$。</p>
-<p>试求出 $f(1\dots n)$。</p>
-<p><strong>输入格式</strong></p>
-<p>第一行一个正整数 $n$。</p>
-<p>第二行 $n$ 个正整数 $a_{1\dots n}$。</p>
-<p><strong>输出格式</strong></p>
-<p>一行 $n$ 个整数表示 $f(1), f(2), \dots, f(n)$ 的值。</p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 4 2 3 5</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 5 4 5 0</span><br></pre></td></tr></table></figure>
-<p>对于 $100\%$ 的数据，$1 \le n\leq 3\times 10^6$，$1\leq a_i\leq 10^9$。</p>
-<hr>
-<h2 id="B-搜索算法"><a href="#B-搜索算法" class="headerlink" title="B-搜索算法"></a>B-搜索算法</h2><h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">f = [<span class="number">0</span>] * n</span><br><span class="line">q = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">while</span> q <span class="keyword">and</span> a[q[-<span class="number">1</span>]] &lt; a[i]:</span><br><span class="line">        q.pop()</span><br><span class="line">    <span class="keyword">if</span> q:</span><br><span class="line">        f[i] = q[-<span class="number">1</span>]</span><br><span class="line">    q.append(i)</span><br><span class="line"><span class="built_in">print</span>(*f)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A6%20%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A6%20%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" class="post-title-link" itemprop="url">A6 二分答案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/A-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">A 基础算法</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>木材厂有 $n$ 根原木，现在想把这些木头切割成 $k$ 段长度<strong>均</strong>为 $l$ 的小段木头（木头有可能有剩余）。请求出 $l$ 的最大值。</p>
-<p>确保长度都是正整数。</p>
-<p>例如有两根原木长度分别为 $11$ 和 $21$，要求切割成等长的 $6$ 段，很明显能切割出来的小段木头长度最长为 $5$。</p>
-<p><strong>输入格式</strong></p>
-<p>第一行是两个正整数 $n,k$，分别表示原木的数量，需要得到的小段的数量。</p>
-<p>接下来 $n$ 行，每行一个正整数 $L_i$，表示一根原木的长度。</p>
-<p><strong>输出格式</strong></p>
-<p>仅一行，即 $l$ 的最大值。</p>
-<p>如果连 $\text{1cm}$ 长的小段都切不出来，输出 <code>0</code>。</p>
-<p><strong>输入输出样例</strong></p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 7</span><br><span class="line">232</span><br><span class="line">124</span><br><span class="line">456</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">114</span><br></pre></td></tr></table></figure>
-<p>对于 $100\%$ 的数据，有 $1\le n\le 10^5$，$1\le k\le 10^8$，$1\le L_i\le 10^8(i\in[1,n])$。</p>
-<p><strong>解析：</strong>时间复杂度O(<script type="math/tex">nlog(max(L_i))</script>)</p>
-<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P2440 木材加工</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check</span>(<span class="params">x</span>):</span><br><span class="line">    y = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        y += a[i] // x</span><br><span class="line">    <span class="keyword">return</span> y &gt;= k</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>():</span><br><span class="line">    l = <span class="number">0</span></span><br><span class="line">    r = <span class="built_in">int</span>(<span class="number">1e8</span> + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">while</span> l + <span class="number">1</span> &lt; r:</span><br><span class="line">        mid = (l + r) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> check(mid):</span><br><span class="line">            l = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = mid</span><br><span class="line">    <span class="keyword">return</span> l</span><br><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">a = [<span class="built_in">int</span>(<span class="built_in">input</span>()) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">a.insert(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(find())</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100005</span>;</span><br><span class="line"><span class="type">int</span> n, k, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  LL y=<span class="number">0</span>; <span class="comment">//段数</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) y+=a[i]/x;</span><br><span class="line">  <span class="keyword">return</span> y&gt;=k; <span class="comment">//x小,y大</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> l=<span class="number">0</span>, r=<span class="number">1e8</span><span class="number">+1</span>;</span><br><span class="line">  <span class="keyword">while</span>(l<span class="number">+1</span>&lt;r)&#123;</span><br><span class="line">    <span class="type">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) l=mid; <span class="comment">//最大化</span></span><br><span class="line">    <span class="keyword">else</span> r=mid;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">find</span>());</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A8%20%E5%89%8D%E7%BC%80%E5%92%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A8%20%E5%89%8D%E7%BC%80%E5%92%8C/" class="post-title-link" itemprop="url">A8 前缀和</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/A-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">A 基础算法</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>给定 $n$ 个正整数组成的数列 $a_1, a_2, \cdots, a_n$ 和 $m$ 个区间 $[l_i,r_i]$，分别求这 $m$ 个区间的区间和。</p>
-<p>对于所有测试数据，$n,m\le10^5,a_i\le 10^4$</p>
-<p><strong>输入格式</strong></p>
-<p>第一行，为一个正整数 $n$ 。</p>
-<p>第二行，为 $n$ 个正整数 $a_1,a_2, \cdots ,a_n$</p>
-<p>第三行，为一个正整数 $m$ 。</p>
-<p>接下来 $m$ 行，每行为两个正整数 $l_i,r_i$ ，满足$1\le l_i\le r_i\le n$</p>
-<p><strong>输出格式</strong></p>
-<p>共 $m$ 行。</p>
-<p>第 $i$ 行为第 $i$ 组答案的询问。</p>
-<p><strong>输入输出样例</strong></p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">4 3 2 1</span><br><span class="line">2</span><br><span class="line">1 4</span><br><span class="line">2 3</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<p>对于 $100 \%$ 的数据：$1 \le n, m\le 10^5$，$1 \le a_i\le 10^4$</p>
-<p><strong>解析：</strong>时间复杂度<script type="math/tex">O(n)</script></p>
-<p>把每项的和加起来，然后利用相减的方式得出和的值。适用于静态的区间求和，应用面非常广泛。</p>
-<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P8218 【深进1.例1】求区间和</span></span><br><span class="line"></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">s = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    s[i] = s[i - <span class="number">1</span>] + a[i - <span class="number">1</span>]</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    l, r = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    <span class="built_in">print</span>(s[r] - s[l - <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">int</span> a[<span class="number">100005</span>],s[<span class="number">100005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">        s[i]=s[i<span class="number">-1</span>]+a[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="type">int</span> l,r; <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;l,&amp;r);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,s[r]-s[l<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A9%20%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -609,7 +265,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -692,6 +348,210 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B%20%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/B30%2001BFS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B%20%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/B30%2001BFS/" class="post-title-link" itemprop="url">B30 01BFS</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/B-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">B 搜索算法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>相当于可以节约一个log的，只有01路径的dij算法，使用deque而不是pri_que。</p>
+<p><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/115184/D">https://ac.nowcoder.com/acm/contest/115184/D</a></p>
+<p><img src="/images/算法竞赛/B/B30-1.png" alt="image-20250930163432863"></p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">3 3 2</span><br><span class="line">RLD</span><br><span class="line">UDU</span><br><span class="line">UUL</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br></pre></td></tr></table></figure>
+<h2 id="C-数据结构"><a href="#C-数据结构" class="headerlink" title="C-数据结构"></a>C-数据结构</h2><h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> endl <span class="string">&quot;\n&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> range(i, a, b) for (int i = (a); i &lt; (b); ++i)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> def(name, ...) auto name = [&amp;](__VA_ARGS__)</span></span><br><span class="line">vector&lt;vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;&gt; e;</span><br><span class="line"><span class="comment">// vector&lt;int&gt; a(n, 0);</span></span><br><span class="line"><span class="comment">// vector&lt;vector&lt;int&gt;&gt; dp(n + 1, vector&lt;int&gt;(n + 1, 0));</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> n, m, k; cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    e.<span class="built_in">assign</span>(n * m, vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;());</span><br><span class="line">    <span class="built_in">range</span>(i, <span class="number">0</span>, n)&#123;</span><br><span class="line">        string s; cin &gt;&gt; s;</span><br><span class="line">        <span class="built_in">range</span>(j, <span class="number">0</span>, m)&#123;</span><br><span class="line">            <span class="type">int</span> idx = i * m + j;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;U&#x27;</span>)e[idx].<span class="built_in">push_back</span>(&#123;idx - m, <span class="number">0</span>&#125;);</span><br><span class="line">                <span class="keyword">else</span> e[idx].<span class="built_in">push_back</span>(&#123;idx - m, <span class="number">1</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (j &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;L&#x27;</span>)e[idx].<span class="built_in">push_back</span>(&#123;idx - <span class="number">1</span>, <span class="number">0</span>&#125;);</span><br><span class="line">                <span class="keyword">else</span> e[idx].<span class="built_in">push_back</span>(&#123;idx - <span class="number">1</span>, <span class="number">1</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; n - <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;D&#x27;</span>)e[idx].<span class="built_in">push_back</span>(&#123;idx + m, <span class="number">0</span>&#125;);</span><br><span class="line">                <span class="keyword">else</span> e[idx].<span class="built_in">push_back</span>(&#123;idx + m, <span class="number">1</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (j &lt; m - <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="string">&#x27;R&#x27;</span>)e[idx].<span class="built_in">push_back</span>(&#123;idx + <span class="number">1</span>, <span class="number">0</span>&#125;);</span><br><span class="line">                <span class="keyword">else</span> e[idx].<span class="built_in">push_back</span>(&#123;idx + <span class="number">1</span>, <span class="number">1</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    deque&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; q;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vis</span><span class="params">(n * m, <span class="number">-1</span>)</span></span>;</span><br><span class="line">    q.<span class="built_in">push_back</span>(&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>())&#123;</span><br><span class="line">        <span class="keyword">auto</span> [u, dis] = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop_front</span>();</span><br><span class="line">        <span class="keyword">if</span> (vis[u] != <span class="number">-1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        vis[u] = dis;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>[v, le]: e[u])&#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[v] == <span class="number">-1</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span> (le == <span class="number">0</span>)&#123;</span><br><span class="line">                    q.<span class="built_in">push_front</span>(&#123;v, dis&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    q.<span class="built_in">push_back</span>(&#123;v, dis + <span class="number">1</span>&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (vis[n*m<span class="number">-1</span>] &gt; k)&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">solve</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B%20%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/B15%20BFS%E5%B9%BF%E6%90%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B%20%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/B15%20BFS%E5%B9%BF%E6%90%9C/" class="post-title-link" itemprop="url">B15 BFS广搜</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/B-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">B 搜索算法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/算法竞赛/B/B15-1.png" alt="image-20250416093032988"></p>
+<p><img src="/images/算法竞赛/B/B15-2.png" alt="image-20250825223816587"></p>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P1588 [USACO07OPEN] Catch That Cow S</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bfs</span>():</span><br><span class="line">    <span class="keyword">global</span> x, y</span><br><span class="line">    N = <span class="built_in">int</span>(<span class="number">2e5</span> + <span class="number">1</span>)</span><br><span class="line">    dis = [-<span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">    dis[x] = <span class="number">0</span></span><br><span class="line">    l = <span class="number">0</span></span><br><span class="line">    q = []; q.append(x)</span><br><span class="line">    <span class="keyword">while</span> l &lt; <span class="built_in">len</span>(q):</span><br><span class="line">        x = q[l]</span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> x + <span class="number">1</span> &lt; N <span class="keyword">and</span> dis[x + <span class="number">1</span>] == -<span class="number">1</span>:</span><br><span class="line">            dis[x + <span class="number">1</span>] = dis[x] + <span class="number">1</span></span><br><span class="line">            q.append(x + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> x - <span class="number">1</span> &gt; <span class="number">0</span> <span class="keyword">and</span> dis[x - <span class="number">1</span>] == -<span class="number">1</span>:</span><br><span class="line">            dis[x - <span class="number">1</span>] = dis[x] + <span class="number">1</span></span><br><span class="line">            q.append(x - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="number">2</span> * x &lt; N <span class="keyword">and</span> dis[x * <span class="number">2</span>] == -<span class="number">1</span>:</span><br><span class="line">            dis[x * <span class="number">2</span>] = dis[x] + <span class="number">1</span></span><br><span class="line">            q.append(x * <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> x == y:</span><br><span class="line">            <span class="built_in">print</span>(dis[y])</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">t = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(t):</span><br><span class="line">    x, y = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    bfs()</span><br></pre></td></tr></table></figure>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100005</span>;</span><br><span class="line"><span class="type">int</span> x, y, dis[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(dis,<span class="number">-1</span>,<span class="keyword">sizeof</span> dis); dis[x]=<span class="number">0</span>;</span><br><span class="line">  queue&lt;<span class="type">int</span>&gt; q; q.<span class="built_in">push</span>(x);</span><br><span class="line">  <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="type">int</span> x=q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="keyword">if</span>(x<span class="number">+1</span>&lt;N &amp;&amp; dis[x<span class="number">+1</span>]==<span class="number">-1</span>)&#123;</span><br><span class="line">      dis[x<span class="number">+1</span>]=dis[x]<span class="number">+1</span>; <span class="comment">//前进一步</span></span><br><span class="line">      q.<span class="built_in">push</span>(x<span class="number">+1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x<span class="number">-1</span>&gt;<span class="number">0</span> &amp;&amp; dis[x<span class="number">-1</span>]==<span class="number">-1</span>)&#123;</span><br><span class="line">      dis[x<span class="number">-1</span>]=dis[x]<span class="number">+1</span>; <span class="comment">//后退一步</span></span><br><span class="line">      q.<span class="built_in">push</span>(x<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">2</span>*x&lt;N &amp;&amp; dis[<span class="number">2</span>*x]==<span class="number">-1</span>)&#123;</span><br><span class="line">      dis[<span class="number">2</span>*x]=dis[x]<span class="number">+1</span>; <span class="comment">//走到2x位置</span></span><br><span class="line">      q.<span class="built_in">push</span>(<span class="number">2</span>*x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y)&#123;<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,dis[y]);<span class="keyword">return</span>;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> T; cin&gt;&gt;T;</span><br><span class="line">  <span class="keyword">while</span>(T--) cin&gt;&gt;x&gt;&gt;y, <span class="built_in">bfs</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/torch/torch%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -721,7 +581,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -779,6 +639,154 @@
 <h2 id="4-一些例子"><a href="#4-一些例子" class="headerlink" title="4. 一些例子"></a>4. 一些例子</h2><h3 id="4-1-卷积神经网络"><a href="#4-1-卷积神经网络" class="headerlink" title="4.1 卷积神经网络"></a>4.1 卷积神经网络</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets, transforms</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 数据加载与预处理</span></span><br><span class="line">transform = transforms.Compose([</span><br><span class="line">    transforms.ToTensor(),  <span class="comment"># 转为张量</span></span><br><span class="line">    transforms.Normalize((<span class="number">0.5</span>,), (<span class="number">0.5</span>,))  <span class="comment"># 归一化到 [-1, 1]</span></span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载 MNIST 数据集</span></span><br><span class="line">train_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">True</span>, transform=transform, download=<span class="literal">True</span>)</span><br><span class="line">test_dataset = datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">False</span>, transform=transform, download=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 定义 CNN 模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleCNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="comment"># 定义卷积层</span></span><br><span class="line">        <span class="variable language_">self</span>.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">32</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)  <span class="comment"># 输入1通道，输出32通道</span></span><br><span class="line">        <span class="variable language_">self</span>.conv2 = nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)  <span class="comment"># 输入32通道，输出64通道</span></span><br><span class="line">        <span class="comment"># 定义全连接层</span></span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">64</span> * <span class="number">7</span> * <span class="number">7</span>, <span class="number">128</span>)  <span class="comment"># 展平后输入到全连接层</span></span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)  <span class="comment"># 10 个类别</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = F.relu(<span class="variable language_">self</span>.conv1(x))  <span class="comment"># 第一层卷积 + ReLU</span></span><br><span class="line">        x = F.max_pool2d(x, <span class="number">2</span>)     <span class="comment"># 最大池化</span></span><br><span class="line">        x = F.relu(<span class="variable language_">self</span>.conv2(x))  <span class="comment"># 第二层卷积 + ReLU</span></span><br><span class="line">        x = F.max_pool2d(x, <span class="number">2</span>)     <span class="comment"># 最大池化</span></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">64</span> * <span class="number">7</span> * <span class="number">7</span>) <span class="comment"># 展平</span></span><br><span class="line">        x = F.relu(<span class="variable language_">self</span>.fc1(x))    <span class="comment"># 全连接层 + ReLU</span></span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)            <span class="comment"># 最后一层输出</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建模型实例</span></span><br><span class="line">model = SimpleCNN()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 定义损失函数与优化器</span></span><br><span class="line">criterion = nn.CrossEntropyLoss()  <span class="comment"># 多分类交叉熵损失</span></span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.01</span>, momentum=<span class="number">0.9</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 模型训练</span></span><br><span class="line">num_epochs = <span class="number">5</span></span><br><span class="line">model.train()  <span class="comment"># 设置模型为训练模式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    total_loss = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> train_loader:</span><br><span class="line">        outputs = model(images)  <span class="comment"># 前向传播</span></span><br><span class="line">        loss = criterion(outputs, labels)  <span class="comment"># 计算损失</span></span><br><span class="line"></span><br><span class="line">        optimizer.zero_grad()  <span class="comment"># 清空梯度</span></span><br><span class="line">        loss.backward()  <span class="comment"># 反向传播</span></span><br><span class="line">        optimizer.step()  <span class="comment"># 更新参数</span></span><br><span class="line"></span><br><span class="line">        total_loss += loss.item()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Epoch [<span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span>/<span class="subst">&#123;num_epochs&#125;</span>], Loss: <span class="subst">&#123;total_loss / <span class="built_in">len</span>(train_loader):<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 模型测试</span></span><br><span class="line">model.<span class="built_in">eval</span>()  <span class="comment"># 设置模型为评估模式</span></span><br><span class="line">correct = <span class="number">0</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():  <span class="comment"># 关闭梯度计算</span></span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> test_loader:</span><br><span class="line">        outputs = model(images)</span><br><span class="line">        _, predicted = torch.<span class="built_in">max</span>(outputs, <span class="number">1</span>)</span><br><span class="line">        total += labels.size(<span class="number">0</span>)</span><br><span class="line">        correct += (predicted == labels).<span class="built_in">sum</span>().item()</span><br><span class="line"></span><br><span class="line">accuracy = <span class="number">100</span> * correct / total</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Test Accuracy: <span class="subst">&#123;accuracy:<span class="number">.2</span>f&#125;</span>%&quot;</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="4-2-循环神经网络"><a href="#4-2-循环神经网络" class="headerlink" title="4.2 循环神经网络"></a>4.2 循环神经网络</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据集：字符序列预测（Hello -&gt; Elloh）</span></span><br><span class="line">char_set = <span class="built_in">list</span>(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line">char_to_idx = &#123;c: i <span class="keyword">for</span> i, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(char_set)&#125;</span><br><span class="line">idx_to_char = &#123;i: c <span class="keyword">for</span> i, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(char_set)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据准备</span></span><br><span class="line">input_str = <span class="string">&quot;hello&quot;</span></span><br><span class="line">target_str = <span class="string">&quot;elloh&quot;</span></span><br><span class="line">input_data = [char_to_idx[c] <span class="keyword">for</span> c <span class="keyword">in</span> input_str]</span><br><span class="line">target_data = [char_to_idx[c] <span class="keyword">for</span> c <span class="keyword">in</span> target_str]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为独热编码</span></span><br><span class="line">input_one_hot = np.eye(<span class="built_in">len</span>(char_set))[input_data]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为 PyTorch Tensor</span></span><br><span class="line">inputs = torch.tensor(input_one_hot, dtype=torch.float32)</span><br><span class="line">targets = torch.tensor(target_data, dtype=torch.long)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模型超参数</span></span><br><span class="line">input_size = <span class="built_in">len</span>(char_set)</span><br><span class="line">hidden_size = <span class="number">8</span></span><br><span class="line">output_size = <span class="built_in">len</span>(char_set)</span><br><span class="line">num_epochs = <span class="number">200</span></span><br><span class="line">learning_rate = <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义 RNN 模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RNNModel</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_size, hidden_size, output_size</span>):</span><br><span class="line">        <span class="built_in">super</span>(RNNModel, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.rnn = nn.RNN(input_size, hidden_size, batch_first=<span class="literal">True</span>)</span><br><span class="line">        <span class="variable language_">self</span>.fc = nn.Linear(hidden_size, output_size)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x, hidden</span>):</span><br><span class="line">        out, hidden = <span class="variable language_">self</span>.rnn(x, hidden)</span><br><span class="line">        out = <span class="variable language_">self</span>.fc(out)  <span class="comment"># 应用全连接层</span></span><br><span class="line">        <span class="keyword">return</span> out, hidden</span><br><span class="line"></span><br><span class="line">model = RNNModel(input_size, hidden_size, output_size)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义损失函数和优化器</span></span><br><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练 RNN</span></span><br><span class="line">losses = []</span><br><span class="line">hidden = <span class="literal">None</span>  <span class="comment"># 初始隐藏状态为 None</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 前向传播</span></span><br><span class="line">    outputs, hidden = model(inputs.unsqueeze(<span class="number">0</span>), hidden)</span><br><span class="line">    hidden = hidden.detach()  <span class="comment"># 防止梯度爆炸</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算损失</span></span><br><span class="line">    loss = criterion(outputs.view(-<span class="number">1</span>, output_size), targets)</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    losses.append(loss.item())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (epoch + <span class="number">1</span>) % <span class="number">20</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Epoch [<span class="subst">&#123;epoch + <span class="number">1</span>&#125;</span>/<span class="subst">&#123;num_epochs&#125;</span>], Loss: <span class="subst">&#123;loss.item():<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试 RNN</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    test_hidden = <span class="literal">None</span></span><br><span class="line">    test_output, _ = model(inputs.unsqueeze(<span class="number">0</span>), test_hidden)</span><br><span class="line">    predicted = torch.argmax(test_output, dim=<span class="number">2</span>).squeeze().numpy()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Input sequence: &quot;</span>, <span class="string">&#x27;&#x27;</span>.join([idx_to_char[i] <span class="keyword">for</span> i <span class="keyword">in</span> input_data]))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Predicted sequence: &quot;</span>, <span class="string">&#x27;&#x27;</span>.join([idx_to_char[i] <span class="keyword">for</span> i <span class="keyword">in</span> predicted]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可视化损失</span></span><br><span class="line">plt.plot(losses, label=<span class="string">&quot;Training Loss&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Epoch&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Loss&quot;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;RNN Training Loss Over Epochs&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/Dezero%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%94%B9%E8%BF%9B/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/Dezero%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%94%B9%E8%BF%9B/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" class="post-title-link" itemprop="url">自动微分与反向传播</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Dezero%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%94%B9%E8%BF%9B/" itemprop="url" rel="index"><span itemprop="name">Dezero框架学习与改进</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>11k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="1-变量与函数"><a href="#1-变量与函数" class="headerlink" title="1. 变量与函数"></a>1. 变量与函数</h3><p>我们先从最核心的部分开始——变量类（Variable）。<br>还记得 PyTorch 和 TensorFlow 吗？它们的底层核心都是 Tensor。在我们的实现中，也会有类似的概念，只不过底层我们用的是 numpy.ndarray。所有的运算都基于它来完成。<br>那问题来了：既然 NumPy 已经能做广播、求和、矩阵乘法这些操作，为什么还要自己再封装一层“变量类”呢？<br>确实，用 NumPy 我们也能写出各种计算，但它有一个致命的限制——NumPy 不会记录你的计算过程。也就是说，它不知道你是怎么一步步算出结果的，更别提反向传播或者自动求导了。<br>而我们定义“变量类”的意义就在这里。它不只是一个装数据的容器，而是一个能“记住”自己经历过哪些运算的智能变量。有了它，我们就能自动构建计算图，实现一系列自动化的操作，比如梯度计算、参数更新等等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Variable</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="variable language_">self</span>.data = data</span><br><span class="line">        </span><br><span class="line">data = np.array(<span class="number">1.0</span>)</span><br><span class="line">x = Variable(data)</span><br><span class="line"><span class="built_in">print</span>(x.data)</span><br></pre></td></tr></table></figure>
+<p>接下来，我们来看一看函数这一块。<br>先抛个问题：什么是函数？<br>比如<script type="math/tex">f(x)=x^2</script>这算不算函数？当然算！这是一个最基础的形式——从一个变量映射到另一个变量。<br>不过，现实中我们经常会遇到更复杂的函数。比如 sum()，它的输入是多个值，输出却是一个值，这就属于多对一的函数。而且这类函数通常还涉及到数据维度的变化，稍微麻烦一点，我们后面再慢慢讲。现在，我们先从简单的单变量函数入手。<br>前面我们说过，定义“变量类”的目的，是为了能记录计算过程。那同理，如果我们想要整个计算图完整、可追踪，函数的计算过程也得被“记住”。这意味着什么？——函数也要被实例化！<br>不过，函数有很多种：平方、加法、乘法、求和、指数……每一种都有自己的逻辑。如果一个个单独写，那代码会一团糟。<br>因此我们需要定义一个函数的父类（Function），然后让各种具体运算（eg. Add、Mul、Square ）去继承它：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Variable</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="variable language_">self</span>.data = data</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Function</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, <span class="built_in">input</span></span>):</span><br><span class="line">        x = <span class="built_in">input</span>.data</span><br><span class="line">        y = <span class="variable language_">self</span>.forward(x)</span><br><span class="line">        output = Variable(y)</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line">                </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span>(<span class="title class_ inherited__">Function</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> x ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">square</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> Square()(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">    x = Variable(np.array(<span class="number">6</span>))</span><br><span class="line">    y = square(x)</span><br><span class="line">    <span class="built_in">print</span>(y.data)</span><br></pre></td></tr></table></figure>
+<p>解释一下：<strong>call</strong> 是一个特殊方法，允许一个对象像函数一样被调用。怎么说呢？等价于隐藏了.<strong>call</strong>()函数，然后使用y = square(x)的时候，先调用了Square里从Function那里继承来的<strong>call</strong>，再利用call内部的forward执行自己的forward。<br>有一个需要注意的是，我们说过，ndarray执行的是计算功能，所以，定义函数时候的forward的输入不是Variable类型，而是ndarray类型。而执行函数的时候还是输入Variable类型。<br>还有就是，定义square(x)函数的主要目的是符合我们的习惯，这样可以不用定义两个括号。</p>
+<h3 id="2-纯链式正向传播与反向传播"><a href="#2-纯链式正向传播与反向传播" class="headerlink" title="2. 纯链式正向传播与反向传播"></a>2. 纯链式正向传播与反向传播</h3><p>对于正向传播，其实我们只需要这么做就行了：square(square(square(x)))不就得了，这样就能很自然地一层一层执行下去……当然，也不一定是square函数，这里只是举个例子，其实换成其他的也行，比如add(exp(x)+exp(y))。<br>然后我们来研究一下反向传播。<br>首先，先提出一个概念，叫做计算图，我们之前提到过，它可以长这样：<br><img src="/images/Dezero框架学习与改进/1-1.png" alt="image"></p>
+<p>假如我们拥有变量y，并且要对x求导的话，由链式法则，有：<script type="math/tex">\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\mathrm{d}y}{\mathrm{d}y}\frac{\mathrm{d}y}{\mathrm{d}b}\frac{\mathrm{d}b}{\mathrm{d}a}\frac{\mathrm{d}a}{\mathrm{d}x} \end{aligned}</script>，即：</p>
+<p><img src="/images/Dezero框架学习与改进/1-2.png" alt="image"></p>
+<p>我们把<script type="math/tex">\begin{aligned} \frac{\mathrm{d}?}{\mathrm{d}?} \end{aligned}</script>叫做梯度，在Variable类里添加grad这个属性，类型是ndarray，这一点我相信大家并不会陌生。<br>首先明确一件事情，我们需要知道什么才能计算梯度<script type="math/tex">\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x} \end{aligned}</script>？我们知道前向过程的输入的变量。举个例子,<script type="math/tex">y = x ^ 2</script>知道<script type="math/tex">x = 5</script>之后，就能知道<script type="math/tex">\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x}=2x=10 \end{aligned}</script>了。所以我们需要在Fuction类中添加input属性加以记录就行，然后此次算出来乘起来就行，Fuction的每个函数添加一个backword方法计算。<br>接下来就是，怎样记录这个计算图？从刚刚的反向传播的步骤我们不难知道这是一个类似链表一样的东西，把变量和函数都视作节点，记住它们的前驱就行了！所以现在你可以回答Fuction类中input属性是什么了，没错，是Variable类型。同理，我们需要记住变量的前驱，在Variable类型里添加creator属性就行，同理，这个属性的类型是函数类型。<br>我们还有一件事，假如我们顺利地处理出了所有的梯度，但是我们最后要求的可不只是每个的梯度，还有它们梯度的乘积，所以为了把“后面的变量的梯度”传递到前面，我们再给Fuction类添加一个output属性，这样后面的grad就能自然的在反向的时候向前推动了。<br>对于y = square(exp(square(x)))我们能轻松实现这一过程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Variable</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="variable language_">self</span>.data = data</span><br><span class="line">        <span class="variable language_">self</span>.grad = <span class="literal">None</span></span><br><span class="line">        <span class="variable language_">self</span>.creator = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">set_creator</span>(<span class="params">self, func</span>):</span><br><span class="line">        <span class="variable language_">self</span>.creator = func</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.grad <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="variable language_">self</span>.grad = np.ones_like(<span class="variable language_">self</span>.data)</span><br><span class="line"></span><br><span class="line">        funcs = [<span class="variable language_">self</span>.creator]</span><br><span class="line">        <span class="keyword">while</span> funcs:</span><br><span class="line">            f = funcs.pop()</span><br><span class="line">            x, y = f.<span class="built_in">input</span>, f.output</span><br><span class="line">            x.grad = f.backward(y.grad)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> x.creator <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                funcs.append(x.creator)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">as_array</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> np.isscalar(x):</span><br><span class="line">        <span class="keyword">return</span> np.array(x)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Function</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, <span class="built_in">input</span></span>):</span><br><span class="line">        x = <span class="built_in">input</span>.data</span><br><span class="line">        y = <span class="variable language_">self</span>.forward(x)</span><br><span class="line">        output = Variable(as_array(y))</span><br><span class="line">        output.set_creator(<span class="variable language_">self</span>)</span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">input</span> = <span class="built_in">input</span></span><br><span class="line">        <span class="variable language_">self</span>.output = output</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self, gy</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span>(<span class="title class_ inherited__">Function</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        y = x ** <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self, gy</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.<span class="built_in">input</span>.data</span><br><span class="line">        gx = <span class="number">2</span> * x * gy</span><br><span class="line">        <span class="keyword">return</span> gx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Exp</span>(<span class="title class_ inherited__">Function</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        y = np.exp(x)</span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self, gy</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.<span class="built_in">input</span>.data</span><br><span class="line">        gx = np.exp(x) * gy</span><br><span class="line">        <span class="keyword">return</span> gx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">square</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> Square()(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">exp</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> Exp()(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = Variable(np.array(<span class="number">0.5</span>))</span><br><span class="line">y = square(exp(square(x)))</span><br><span class="line">y.backward()</span><br><span class="line"><span class="built_in">print</span>(x.grad)</span><br></pre></td></tr></table></figure>
+<h3 id="3-可变数参数"><a href="#3-可变数参数" class="headerlink" title="3. 可变数参数"></a>3. 可变数参数</h3><p>前面我们研究的是链式的计算图，接下来我们研究一下多链式图（即“相对链式”，输入之后就是输出的那种图，但是输入和输出参数的数量会变，即“可变的长参数”，无需考虑拓扑序的那种）。</p>
+<ul>
+<li>前向过程：<br>我们来解决一下上面没有解决的问题，也就是add函数，它接受两个输入，但是只返回一个输出！这种函数是存在的。那么，有没有一个输入两个输出的呢？答案是，这也存在。比如把一个矩阵分成两个小矩阵的函数，甚至分成几个相同的矩阵也不是不行。也存在多对多的情况，比如MLP！所以说，我们需要把Function的input和output处理成inputs和outputs。<br>其实这不难理解，无非就是添加了一个循环而已。不过需要注意的是，我们为了形式上的统一，把单变量也按照列表管理处理，也就是说，内部的流动不存在单个的形式，都有一定的维度，但是输入和输出允许单个，方便我们的习惯。</li>
+<li>反向过程：<br>我们的backword函数里，需要进行调整，局部的函数也需要进行调整。<br>gys是函数是输出层的所有的变量的梯度，利用它们可以“计算”出函数输入层的梯度（这里的“计算”指的是融合，实际上局部梯度只需要函数本身和输入层就够了）。同样道理的，假如gxs是输出维度只有一层就给它套个壳（之前规范过），然后把输入层和输入层的梯度对应上就行了。对应部分的判断主要是应对这种情况：y=add(x, x)。那为啥不初始化为0，直接执行递增呢？设置为None可以节约空间啊！还有一件事，就是，由于py底层问题，此处最好不要使用自加函数哈，会不稳定。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Variable</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="keyword">if</span> data <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(data, np.ndarray):</span><br><span class="line">                <span class="keyword">raise</span> TypeError(<span class="string">&#x27;&#123;&#125; is not supported&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>(data)))</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.data = data</span><br><span class="line">        <span class="variable language_">self</span>.grad = <span class="literal">None</span></span><br><span class="line">        <span class="variable language_">self</span>.creator = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">set_creator</span>(<span class="params">self, func</span>):</span><br><span class="line">        <span class="variable language_">self</span>.creator = func</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">cleargrad</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.grad = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.grad <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="variable language_">self</span>.grad = np.ones_like(<span class="variable language_">self</span>.data)</span><br><span class="line"></span><br><span class="line">        funcs = [<span class="variable language_">self</span>.creator]</span><br><span class="line">        <span class="keyword">while</span> funcs:</span><br><span class="line">            f = funcs.pop()</span><br><span class="line">            gys = [output.grad <span class="keyword">for</span> output <span class="keyword">in</span> f.outputs]</span><br><span class="line">            gxs = f.backward(*gys)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(gxs, <span class="built_in">tuple</span>):</span><br><span class="line">                gxs = (gxs,)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> x, gx <span class="keyword">in</span> <span class="built_in">zip</span>(f.inputs, gxs):</span><br><span class="line">                <span class="keyword">if</span> x.grad <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    x.grad = gx</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    x.grad = x.grad + gx</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> x.creator <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    funcs.append(x.creator)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">as_array</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> np.isscalar(x):</span><br><span class="line">        <span class="keyword">return</span> np.array(x)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Function</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, *inputs</span>):</span><br><span class="line">        xs = [x.data <span class="keyword">for</span> x <span class="keyword">in</span> inputs]</span><br><span class="line">        ys = <span class="variable language_">self</span>.forward(*xs)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(ys, <span class="built_in">tuple</span>):</span><br><span class="line">            ys = (ys,)</span><br><span class="line">        outputs = [Variable(as_array(y)) <span class="keyword">for</span> y <span class="keyword">in</span> ys]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> output <span class="keyword">in</span> outputs:</span><br><span class="line">            output.set_creator(<span class="variable language_">self</span>)</span><br><span class="line">        <span class="variable language_">self</span>.inputs = inputs</span><br><span class="line">        <span class="variable language_">self</span>.outputs = outputs</span><br><span class="line">        <span class="keyword">return</span> outputs <span class="keyword">if</span> <span class="built_in">len</span>(outputs) &gt; <span class="number">1</span> <span class="keyword">else</span> outputs[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, xs</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self, gys</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Add</span>(<span class="title class_ inherited__">Function</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x0, x1</span>):</span><br><span class="line">        y = x0 + x1</span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self, gy</span>):</span><br><span class="line">        <span class="keyword">return</span> gy, gy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x0, x1</span>):</span><br><span class="line">    <span class="keyword">return</span> Add()(x0, x1)</span><br><span class="line"></span><br><span class="line">x = Variable(np.array(<span class="number">3.0</span>))</span><br><span class="line">y = add(add(x, x), x)</span><br><span class="line">y.backward()</span><br><span class="line"><span class="built_in">print</span>(x.grad)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-True计算图"><a href="#4-True计算图" class="headerlink" title="4. True计算图"></a>4. True计算图</h3><p>其实上一节的假设不太好，我们这里直接引入复杂的计算图吧。计算图的本质上是一个DAG（有向无环图），对于一个DAG，给定起点，一定可以进行拓扑排序。拓扑排序的做法有很多种，比如kahn算法抑或是染色法，我们这里使用Kahn算法，但是不完全是Kahn，个人感觉只是使用了Kahn 算法中的“层次”概念。不了解的自己去搜或者尝试证明以下的方法。<br>假如我需要处理下面这个图，我们之前的方法可能会y→D→c→C→a→A→x…这样是错的，因为处理a一直到x的时候，b和B都没处理，显然和计算顺序不符。<br><img src="/images/Dezero框架学习与改进/1-4.png" alt="image"><br>所以我们使用这个方法：<br>我们给每个Function还有Variable添加一个generation参数，然后我们在正向传播的时候，假如现在是函数，那么它的输出变量的generation为函数的generation+1。有人可能会问，直接赋值不会受到其他函数的干扰吗？要记住，一个变量只能由一个函数生成！所以不会干扰。函数的generation为它的所有输出层变量的generation的max。具体怎么挑下一个要处理的函数呢？取最大的generation的处理就行了。<br>理论上，只需要每个Function有 generation就行了，不过为了方便，我们给变量赋值上generation可以利用计算图的完整性，方便执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Variable</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="keyword">if</span> data <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(data, np.ndarray):</span><br><span class="line">                <span class="keyword">raise</span> TypeError(<span class="string">&#x27;&#123;&#125; is not supported&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>(data)))</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.data = data</span><br><span class="line">        <span class="variable language_">self</span>.grad = <span class="literal">None</span></span><br><span class="line">        <span class="variable language_">self</span>.creator = <span class="literal">None</span></span><br><span class="line">        <span class="variable language_">self</span>.generation = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">set_creator</span>(<span class="params">self, func</span>):</span><br><span class="line">        <span class="variable language_">self</span>.creator = func</span><br><span class="line">        <span class="variable language_">self</span>.generation = func.generation + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">cleargrad</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.grad = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.grad <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="variable language_">self</span>.grad = np.ones_like(<span class="variable language_">self</span>.data)</span><br><span class="line"></span><br><span class="line">        funcs = []</span><br><span class="line">        seen_set = <span class="built_in">set</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">add_func</span>(<span class="params">f</span>):</span><br><span class="line">            <span class="keyword">if</span> f <span class="keyword">not</span> <span class="keyword">in</span> seen_set:</span><br><span class="line">                funcs.append(f)</span><br><span class="line">                seen_set.add(f)</span><br><span class="line">                funcs.sort(key=<span class="keyword">lambda</span> x: x.generation)</span><br><span class="line"></span><br><span class="line">        add_func(<span class="variable language_">self</span>.creator)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> funcs:</span><br><span class="line">            f = funcs.pop()</span><br><span class="line">            gys = [output.grad <span class="keyword">for</span> output <span class="keyword">in</span> f.outputs]</span><br><span class="line">            gxs = f.backward(*gys)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(gxs, <span class="built_in">tuple</span>):</span><br><span class="line">                gxs = (gxs,)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> x, gx <span class="keyword">in</span> <span class="built_in">zip</span>(f.inputs, gxs):</span><br><span class="line">                <span class="keyword">if</span> x.grad <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    x.grad = gx</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    x.grad = x.grad + gx</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> x.creator <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    add_func(x.creator)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">as_array</span>(<span class="params">x</span>):</span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Function</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, *inputs</span>):</span><br><span class="line">        xs = [x.data <span class="keyword">for</span> x <span class="keyword">in</span> inputs]</span><br><span class="line">        ys = <span class="variable language_">self</span>.forward(*xs)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(ys, <span class="built_in">tuple</span>):</span><br><span class="line">            ys = (ys,)</span><br><span class="line">        outputs = [Variable(as_array(y)) <span class="keyword">for</span> y <span class="keyword">in</span> ys]</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.generation = <span class="built_in">max</span>([x.generation <span class="keyword">for</span> x <span class="keyword">in</span> inputs])</span><br><span class="line">        <span class="keyword">for</span> output <span class="keyword">in</span> outputs:</span><br><span class="line">            output.set_creator(<span class="variable language_">self</span>)</span><br><span class="line">        <span class="variable language_">self</span>.inputs = inputs</span><br><span class="line">        <span class="variable language_">self</span>.outputs = outputs</span><br><span class="line">        <span class="keyword">return</span> outputs <span class="keyword">if</span> <span class="built_in">len</span>(outputs) &gt; <span class="number">1</span> <span class="keyword">else</span> outputs[<span class="number">0</span>]</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>seen_set的意思是，目前添加过哪些函数，就不能二次添加了。每次添加函数之后进行一轮sort，看似复杂度爆炸，实则模型里的函数数目其实比变量少多了，这点复杂度不需要节约，加个优先队列反而需要占用更多空间。</p>
+<h3 id="5-一些必要的优化"><a href="#5-一些必要的优化" class="headerlink" title="5. 一些必要的优化"></a>5. 一些必要的优化</h3><ol>
+<li>内存管理和循环引用</li>
+</ol>
+<p>Python使用两种方式管理内存，一种是引用计数，另外一种是分代垃圾回收。引用计数的原理很简单，当它被另一个对象引用的时候，引用计数+1，停止引用时，引用计数-1。引用计数为0时，Python解释器会回收该对象。这很智能，但是它不能处理循环引用，所以单纯设置None无法解决这个内存问题。不过分代垃圾回收机制可以解决这个问题，具体原理很复杂这里不多说了。他会在内存不足的时候自动调用，也可以gc.collect()主动调用。<br>在 Python 中，我们可以使用 weakref.ref 函数来创建弱引用。弱引用是在不增加引用计数的情况下引用另一个对象的功能。我们需要破除右侧的循环，可以给outputs打上weakref，就可以自动破除了。weakref的引用方式是后面加个”()”。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> funcs:</span><br><span class="line">    f = funcs.pop()</span><br><span class="line">    gys = [output().grad <span class="keyword">for</span> output <span class="keyword">in</span> f.outputs]  <span class="comment"># output is weakref</span></span><br><span class="line">    ......</span><br><span class="line">        <span class="keyword">if</span> x.creator <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            add_func(x.creator)</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Function</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, *inputs</span>):</span><br><span class="line">        ......</span><br><span class="line">        <span class="variable language_">self</span>.inputs = inputs</span><br><span class="line">        <span class="variable language_">self</span>.outputs = [weakref.ref(output) <span class="keyword">for</span> output <span class="keyword">in</span> outputs] <span class="comment"># output is weakref</span></span><br><span class="line">        <span class="keyword">return</span> outputs <span class="keyword">if</span> <span class="built_in">len</span>(outputs) &gt; <span class="number">1</span> <span class="keyword">else</span> outputs[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<ol>
+<li>自动消除不必要的内存</li>
+</ol>
+<ul>
+<li>一、在反向传播的时候，中间用过的梯度，在很多情况下，可以不要了。</li>
+<li>二、我们知道，pytorch里，有个功能是model.train()，还有功能是model.eval()。这两个的区别之一就是后者不需要保留中间层的输入变量。<br>对于第一点，我们可以在backword函数处设置一个开关，自主选择是否需要中间的梯度：<br>对于第二点，可以使用@contextlib.contextmanager修饰器，它可以让你用 生成器函数 来实现 with 语句的行为，实现“在局部时间”内的控制操作。</li>
+</ul>
+<ol>
+<li>添加一些同步化的优化<br>有一点需要明确，虽然我们使用了numpy的ndarray作为计算底层，那么我们为何不整一个numpy-plus呢？简单来说，我们可以添加一些函数让它更加易用！<br>numpy里有个东西叫做x.shape，这里我们实现一下：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@property</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">shape</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span>.data.shape</span><br></pre></td></tr></table></figure>
+dtype，ndim，size同理，len可以重载<strong>len</strong>实现，print可以重载<strong>repr</strong>实现，这里不赘述了，包括运算符的重载。<br>有个需要注意的是，由于函数是实例化的，它可以存东西。这一点很重要，后续的矩阵运算也依赖维度的信息存储。比如幂函数：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Pow</span>(<span class="title class_ inherited__">Function</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, c</span>):</span><br><span class="line">        <span class="variable language_">self</span>.c = c</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        y = x ** <span class="variable language_">self</span>.c</span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self, gy</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.inputs[<span class="number">0</span>].data</span><br><span class="line">        c = <span class="variable language_">self</span>.c</span><br><span class="line">        gx = c * x ** (c - <span class="number">1</span>) * gy</span><br><span class="line">        <span class="keyword">return</span> gx</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pow</span>(<span class="params">x, c</span>):</span><br><span class="line">    <span class="keyword">return</span> Pow(c)(x)</span><br><span class="line">Variable.__pow__ = <span class="built_in">pow</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>原书有绘制计算图以及求高阶导数等步骤，在这里我们将掠过，这部分内容不需要。</p>
+<h3 id="6-可变长参数"><a href="#6-可变长参数" class="headerlink" title="6. 可变长参数"></a>6. 可变长参数</h3><p>前面我们研究过“可变数参数”，这是啥意思呢？通俗的说就是，输入和输出的变量数目不一样，比如add，会把两个变量聚合到一个变量上面去。这里我们讲的可变长参数的主要是，变量内部的维度。比如sum函数，它可以把一个1*n长度的变量变成一个标量，对应的，它的正向传播和反向传播也得写清楚，还有更难的，比如矩阵呢？这个在接下来我们会一步一步讲。</p>
+<ul>
+<li>reshape函数<br>这个函数比较容易理解，所以我打算把它放在最开始去讲。<br>回忆一下，我们之前讲幂次函数的时候，我们说过，要记录一个东西是吧，也就是幂次本身。我们的reshape函数同理，要记录一下原来的维度（x_shape）以及改变后的维度(shape)。numpy里自带了reshape函数，所以计算过程直接使用就行。对于反向过程，我们直接reshape回去就行，梯度数值不需要进行处理。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Reshape</span>(<span class="title class_ inherited__">Function</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, shape</span>):</span><br><span class="line">        <span class="variable language_">self</span>.shape = shape</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="variable language_">self</span>.x_shape = x.shape</span><br><span class="line">        y = x.reshape(<span class="variable language_">self</span>.shape)</span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self, gy</span>):</span><br><span class="line">        <span class="keyword">return</span> reshape(gy, <span class="variable language_">self</span>.x_shape)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reshape</span>(<span class="params">x, shape</span>):</span><br><span class="line">    <span class="keyword">if</span> x.shape == shape:</span><br><span class="line">        <span class="keyword">return</span> as_variable(x)</span><br><span class="line">    <span class="keyword">return</span> Reshape(shape)(x)</span><br></pre></td></tr></table></figure>
+<p>使用方法比较反人类：y = F.reshape(x,(6,))，而我们平时可能使用惯了y = x.reshape(2, 3)这样，所以我们可以修改一下Variable类，去实现这个便捷设计（略）。</p>
+<ul>
+<li>矩阵乘法</li>
+</ul>
+<p>求导：<br>设定：<br>令<script type="math/tex">Y = A B</script>其中<script type="math/tex">A \in \mathbb{R}^{m\times n}</script>，<script type="math/tex">B \in \mathbb{R}^{n\times p}</script>，<script type="math/tex">Y \in \mathbb{R}^{m\times p}</script>上游标量损失为L，并记梯度矩阵<script type="math/tex">G = \frac{\partial L}{\partial Y} \in \mathbb{R}^{m\times p}.</script>。<br>则<script type="math/tex">\boxed{\frac{\partial L}{\partial A} = G\,B^{\mathsf{T}}}</script>，<script type="math/tex">\boxed{\frac{\partial L}{\partial B} = A^{\mathsf{T}}\,G}</script>。<br>推导：<br>每个元素：</p>
+<script type="math/tex; mode=display">Y_{ij} = \sum_{k} A_{ik} B_{kj}.</script><p>用链式法则：</p>
+<script type="math/tex; mode=display">\frac{\partial L}{\partial A_{uv}} = \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial A_{uv}}
+= \sum_{i,j} G_{ij}\,\delta_{iu}\,B_{vj}
+= \sum_{j} G_{uj} B_{vj},</script><p>这就是矩阵形式</p>
+<script type="math/tex; mode=display">\frac{\partial L}{\partial A} = G B^{\mathsf{T}}.</script><p>对 B 同理：</p>
+<script type="math/tex; mode=display">\frac{\partial L}{\partial B_{uv}} = \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial B_{uv}}
+= \sum_{i,j} G_{ij}\,A_{iu}\,\delta_{jv}
+= \sum_{i} A_{iu} G_{iv},</script><p>因此矩阵形式为</p>
+<script type="math/tex; mode=display">\frac{\partial L}{\partial B} = A^{\mathsf{T}} G.</script><p>故矩阵乘法就很简单了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MatMul</span>(<span class="title class_ inherited__">Function</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x, W</span>):</span><br><span class="line">        y = x.dot(W)</span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">self, gy</span>):</span><br><span class="line">        x, W = <span class="variable language_">self</span>.inputs</span><br><span class="line">        gx = matmul(gy, W.T)</span><br><span class="line">        gW = matmul(x.T, gy)</span><br><span class="line">        <span class="keyword">return</span> gx, gW</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">matmul</span>(<span class="params">x, W</span>):</span><br><span class="line">    <span class="keyword">return</span> MatMul()(x, W)</span><br></pre></td></tr></table></figure>
       
     </div>
 

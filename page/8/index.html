@@ -265,7 +265,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -349,119 +349,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D16%20Tarjan%E5%89%B2%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D16%20Tarjan%E5%89%B2%E7%82%B9/" class="post-title-link" itemprop="url">D16 Tarjan割点</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P3388 【模板】割点（割顶）</p>
-<p><strong>题目描述</strong></p>
-<p>给出一个 $n$ 个点，$m$ 条边的无向图，求图的割点。</p>
-<p><strong>输入格式</strong></p>
-<p>第一行输入两个正整数 $n,m$。</p>
-<p>下面 $m$ 行每行输入两个正整数 $x,y$ 表示 $x$ 到 $y$ 有一条边。</p>
-<p><strong>输出格式</strong></p>
-<p>第一行输出割点个数。</p>
-<p>第二行按照节点编号从小到大输出节点，用空格隔开。</p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">6 7</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 5</span><br><span class="line">4 5</span><br><span class="line">5 6</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 </span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<p>对于全部数据，$1\leq n \le 2\times 10^4$，$1\leq m \le 1 \times 10^5$。</p>
-<p>点的编号均大于 $0$ 小于等于 $n$。</p>
-<p><strong>Tarjan 图不一定连通。</strong></p>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">20010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N];</span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,cut[N],root;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim;</span><br><span class="line">  <span class="type">int</span> son=<span class="number">0</span>; <span class="comment">//x的儿子个数</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y:e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123; <span class="comment">//若y未访问</span></span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); </span><br><span class="line">      <span class="keyword">if</span>(low[y]&gt;=dfn[x])&#123;</span><br><span class="line">        son++;</span><br><span class="line">        <span class="keyword">if</span>(x!=root||son&gt;<span class="number">1</span>) cut[x]=<span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//若y已访问</span></span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]); <span class="comment">//注:dfn不能换成low</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m --)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    e[a].<span class="built_in">push_back</span>(b),</span><br><span class="line">    e[b].<span class="built_in">push_back</span>(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(root=<span class="number">1</span>;root&lt;=n;root++) <span class="keyword">if</span>(!dfn[root]) <span class="built_in">tarjan</span>(root);</span><br><span class="line">  </span><br><span class="line">  <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span>(cut[i]) ans++;</span><br><span class="line">  cout&lt;&lt;ans&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span>(cut[i]) cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D17%20Tarjan%E5%89%B2%E8%BE%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -491,7 +378,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -577,7 +464,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D18%20Tarjan%20eDCC%E7%BC%A9%E7%82%B9/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D16%20Tarjan%E5%89%B2%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -595,7 +482,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D18%20Tarjan%20eDCC%E7%BC%A9%E7%82%B9/" class="post-title-link" itemprop="url">D18 Tarjan eDCC缩点</a>
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D16%20Tarjan%E5%89%B2%E7%82%B9/" class="post-title-link" itemprop="url">D16 Tarjan割点</a>
         </h2>
 
         <div class="post-meta-container">
@@ -606,7 +493,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -629,7 +516,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.5k</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -647,148 +534,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P8436 【模板】边双连通分量</p>
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P3388 【模板】割点（割顶）</p>
 <p><strong>题目描述</strong></p>
-<p>对于一个 $n$ 个节点 $m$ 条无向边的图，请输出其边双连通分量的个数，并且输出每个边双连通分量。</p>
+<p>给出一个 $n$ 个点，$m$ 条边的无向图，求图的割点。</p>
 <p><strong>输入格式</strong></p>
-<p>第一行，两个整数 $n$ 和 $m$。</p>
-<p>接下来 $m$ 行，每行两个整数 $u, v$，表示一条无向边。</p>
-<p><strong>不保证图为简单图，图中可能有重边和自环。</strong></p>
+<p>第一行输入两个正整数 $n,m$。</p>
+<p>下面 $m$ 行每行输入两个正整数 $x,y$ 表示 $x$ 到 $y$ 有一条边。</p>
 <p><strong>输出格式</strong></p>
-<p>第一行一个整数 $x$ 表示边双连通分量的个数。</p>
-<p>接下来的 $x$ 行，每行第一个数 $a$ 表示该分量结点个数，然后 $a$ 个数，描述一个边双连通分量。</p>
-<p>你可以以任意顺序输出边双连通分量与边双连通分量内的结点。</p>
+<p>第一行输出割点个数。</p>
+<p>第二行按照节点编号从小到大输出节点，用空格隔开。</p>
 <p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">7 8</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">2 5</span><br><span class="line">6 4</span><br><span class="line">2 5</span><br><span class="line">6 3</span><br><span class="line">2 7</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">6 7</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 5</span><br><span class="line">4 5</span><br><span class="line">5 6</span><br></pre></td></tr></table></figure>
 <p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 1</span><br><span class="line">5 2 5 3 6 4</span><br><span class="line">1 7</span><br></pre></td></tr></table></figure>
-<p><strong>样例1解释：</strong></p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/0bzdfzeq.png" alt=""></p>
-<p>相同颜色的点为同一个连通分量。</p>
-<p><strong>数据范围：</strong><br>对于 $100\%$ 的数据，$1 \le n \le 5 \times10 ^5$，$1 \le m \le 2 \times 10^6$。</p>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">500010</span>,M=<span class="number">4000010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b;</span><br><span class="line"><span class="type">int</span> h[N],to[M],ne[M],idx=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">  to[++idx]=b,ne[idx]=h[a],h[a]=idx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,stk[N],top,dcc[N],siz[N],cnt,bri[M];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; d[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> ine)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim;stk[++top]=x;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=h[x];i;i=ne[i])&#123;</span><br><span class="line">    <span class="type">int</span> y=to[i];</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123;</span><br><span class="line">      <span class="built_in">tarjan</span>(y,i);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]);</span><br><span class="line">      <span class="keyword">if</span>(low[y]&lt;dfn[x]) bri[i]=bri[i^<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(i!=(ine^<span class="number">1</span>)) low[x]=<span class="built_in">min</span>(low[x],dfn[y]);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(dfn[x]==low[x])&#123;</span><br><span class="line">    ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="type">int</span> y=stk[top--];</span><br><span class="line">      <span class="comment">// dcc[y]=cnt;</span></span><br><span class="line">      siz[cnt]++;</span><br><span class="line">      d[cnt].<span class="built_in">push_back</span>(y);</span><br><span class="line">      <span class="keyword">if</span>(x==y) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;<span class="built_in">add</span>(a,b);<span class="built_in">add</span>(b,a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="keyword">if</span>(!dfn[i])<span class="built_in">tarjan</span>(i,<span class="number">0</span>);</span><br><span class="line">  cout&lt;&lt;cnt&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)&#123;</span><br><span class="line">    cout&lt;&lt;siz[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j:d[i]) cout&lt;&lt;j&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D19%20Tarjan%20vDCC%E7%BC%A9%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D19%20Tarjan%20vDCC%E7%BC%A9%E7%82%B9/" class="post-title-link" itemprop="url">D19 Tarjan vDCC缩点</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P8435 【模板】点双连通分量</p>
-<p><strong>题目描述</strong></p>
-<p>对于一个 $n$ 个节点 $m$ 条无向边的图，请输出其点双连通分量的个数，并且输出每个点双连通分量。</p>
-<p><strong>输入格式</strong></p>
-<p>第一行，两个整数 $n$ 和 $m$。</p>
-<p>接下来 $m$ 行，每行两个整数 $u, v$，表示一条无向边。</p>
-<p><strong>输出格式</strong></p>
-<p>第一行一个整数 $x$ 表示点双连通分量的个数。</p>
-<p>接下来的 $x$ 行，每行第一个数 $a$ 表示该分量结点个数，然后 $a$ 个数，描述一个点双连通分量。</p>
-<p>你可以以任意顺序输出点双连通分量与点双连通分量内的结点。</p>
-<p>输入 #4</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">7 8</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">2 5</span><br><span class="line">6 4</span><br><span class="line">2 5</span><br><span class="line">6 3</span><br><span class="line">2 7</span><br></pre></td></tr></table></figure>
-<p>输出 #4</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2 7 2</span><br><span class="line">5 5 2 4 6 3</span><br><span class="line">2 3 1</span><br></pre></td></tr></table></figure>
-<p>输入 #5</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
-<p>输出 #5</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
-<p>说明/提示</p>
-<p><strong>样例四解释：</strong></p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/huvwgbuo.png" alt=""></p>
-<p>相同颜色的点为同一个分量里的结点。</p>
-<p><strong>温馨提示：请认真考虑孤立点与自环（样例五）的情况。</strong></p>
-<hr>
-<p><strong>数据范围：</strong><br>对于 $100\%$ 的数据，$1 \le n \le 5 \times10 ^5$，$1 \le m \le 2 \times 10^6$。</p>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">500010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N],ne[N],dcc[N];</span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tot,stk[N],top,cut[N],root,cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x==root&amp;&amp;!e[x].<span class="built_in">size</span>())&#123; <span class="comment">//孤立点</span></span><br><span class="line">        dcc[++cnt].<span class="built_in">push_back</span>(x);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">  dfn[x]=low[x]=++tot; stk[++top]=x;</span><br><span class="line">  <span class="type">int</span> son=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y:e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123; <span class="comment">//若y未访问</span></span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); </span><br><span class="line">      <span class="keyword">if</span>(low[y]&gt;=dfn[x])&#123;</span><br><span class="line">        son++;</span><br><span class="line">        <span class="keyword">if</span>(x!=root||son&gt;<span class="number">1</span>)cut[x]=<span class="number">1</span>; <span class="comment">//割点</span></span><br><span class="line">        </span><br><span class="line">        ++cnt;</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">          <span class="type">int</span> z=stk[top--];</span><br><span class="line">          dcc[cnt].<span class="built_in">push_back</span>(z);</span><br><span class="line">          <span class="keyword">if</span>(z==y) <span class="keyword">break</span>; <span class="comment">//让x留在栈中</span></span><br><span class="line">        &#125;</span><br><span class="line">        dcc[cnt].<span class="built_in">push_back</span>(x); <span class="comment">//vDCC</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//若y已访问</span></span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    <span class="keyword">if</span>(a==b) <span class="keyword">continue</span>; <span class="comment">//忽略自环</span></span><br><span class="line">    e[a].<span class="built_in">push_back</span>(b),</span><br><span class="line">    e[b].<span class="built_in">push_back</span>(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(root=<span class="number">1</span>;root&lt;=n;root++)<span class="keyword">if</span>(!dfn[root])<span class="built_in">tarjan</span>(root);</span><br><span class="line">  cout&lt;&lt;cnt&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)&#123;</span><br><span class="line">    cout&lt;&lt;dcc[i].<span class="built_in">size</span>()&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j:dcc[i])cout&lt;&lt;j&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 </span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<p>对于全部数据，$1\leq n \le 2\times 10^4$，$1\leq m \le 1 \times 10^5$。</p>
+<p>点的编号均大于 $0$ 小于等于 $n$。</p>
+<p><strong>Tarjan 图不一定连通。</strong></p>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">20010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N];</span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,cut[N],root;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim;</span><br><span class="line">  <span class="type">int</span> son=<span class="number">0</span>; <span class="comment">//x的儿子个数</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y:e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123; <span class="comment">//若y未访问</span></span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); </span><br><span class="line">      <span class="keyword">if</span>(low[y]&gt;=dfn[x])&#123;</span><br><span class="line">        son++;</span><br><span class="line">        <span class="keyword">if</span>(x!=root||son&gt;<span class="number">1</span>) cut[x]=<span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//若y已访问</span></span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]); <span class="comment">//注:dfn不能换成low</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m --)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    e[a].<span class="built_in">push_back</span>(b),</span><br><span class="line">    e[b].<span class="built_in">push_back</span>(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(root=<span class="number">1</span>;root&lt;=n;root++) <span class="keyword">if</span>(!dfn[root]) <span class="built_in">tarjan</span>(root);</span><br><span class="line">  </span><br><span class="line">  <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span>(cut[i]) ans++;</span><br><span class="line">  cout&lt;&lt;ans&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span>(cut[i]) cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -844,7 +606,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -948,6 +710,128 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D19%20Tarjan%20vDCC%E7%BC%A9%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D19%20Tarjan%20vDCC%E7%BC%A9%E7%82%B9/" class="post-title-link" itemprop="url">D19 Tarjan vDCC缩点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P8435 【模板】点双连通分量</p>
+<p><strong>题目描述</strong></p>
+<p>对于一个 $n$ 个节点 $m$ 条无向边的图，请输出其点双连通分量的个数，并且输出每个点双连通分量。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行，两个整数 $n$ 和 $m$。</p>
+<p>接下来 $m$ 行，每行两个整数 $u, v$，表示一条无向边。</p>
+<p><strong>输出格式</strong></p>
+<p>第一行一个整数 $x$ 表示点双连通分量的个数。</p>
+<p>接下来的 $x$ 行，每行第一个数 $a$ 表示该分量结点个数，然后 $a$ 个数，描述一个点双连通分量。</p>
+<p>你可以以任意顺序输出点双连通分量与点双连通分量内的结点。</p>
+<p>输入 #4</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">7 8</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">2 5</span><br><span class="line">6 4</span><br><span class="line">2 5</span><br><span class="line">6 3</span><br><span class="line">2 7</span><br></pre></td></tr></table></figure>
+<p>输出 #4</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2 7 2</span><br><span class="line">5 5 2 4 6 3</span><br><span class="line">2 3 1</span><br></pre></td></tr></table></figure>
+<p>输入 #5</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
+<p>输出 #5</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
+<p>说明/提示</p>
+<p><strong>样例四解释：</strong></p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/huvwgbuo.png" alt=""></p>
+<p>相同颜色的点为同一个分量里的结点。</p>
+<p><strong>温馨提示：请认真考虑孤立点与自环（样例五）的情况。</strong></p>
+<hr>
+<p><strong>数据范围：</strong><br>对于 $100\%$ 的数据，$1 \le n \le 5 \times10 ^5$，$1 \le m \le 2 \times 10^6$。</p>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">500010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N],ne[N],dcc[N];</span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tot,stk[N],top,cut[N],root,cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x==root&amp;&amp;!e[x].<span class="built_in">size</span>())&#123; <span class="comment">//孤立点</span></span><br><span class="line">        dcc[++cnt].<span class="built_in">push_back</span>(x);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">  dfn[x]=low[x]=++tot; stk[++top]=x;</span><br><span class="line">  <span class="type">int</span> son=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y:e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123; <span class="comment">//若y未访问</span></span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); </span><br><span class="line">      <span class="keyword">if</span>(low[y]&gt;=dfn[x])&#123;</span><br><span class="line">        son++;</span><br><span class="line">        <span class="keyword">if</span>(x!=root||son&gt;<span class="number">1</span>)cut[x]=<span class="number">1</span>; <span class="comment">//割点</span></span><br><span class="line">        </span><br><span class="line">        ++cnt;</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">          <span class="type">int</span> z=stk[top--];</span><br><span class="line">          dcc[cnt].<span class="built_in">push_back</span>(z);</span><br><span class="line">          <span class="keyword">if</span>(z==y) <span class="keyword">break</span>; <span class="comment">//让x留在栈中</span></span><br><span class="line">        &#125;</span><br><span class="line">        dcc[cnt].<span class="built_in">push_back</span>(x); <span class="comment">//vDCC</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//若y已访问</span></span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    <span class="keyword">if</span>(a==b) <span class="keyword">continue</span>; <span class="comment">//忽略自环</span></span><br><span class="line">    e[a].<span class="built_in">push_back</span>(b),</span><br><span class="line">    e[b].<span class="built_in">push_back</span>(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(root=<span class="number">1</span>;root&lt;=n;root++)<span class="keyword">if</span>(!dfn[root])<span class="built_in">tarjan</span>(root);</span><br><span class="line">  cout&lt;&lt;cnt&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)&#123;</span><br><span class="line">    cout&lt;&lt;dcc[i].<span class="built_in">size</span>()&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j:dcc[i])cout&lt;&lt;j&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D21%20Dinic%E6%9C%80%E5%A4%A7%E6%B5%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -977,7 +861,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1061,6 +945,231 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D18%20Tarjan%20eDCC%E7%BC%A9%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D18%20Tarjan%20eDCC%E7%BC%A9%E7%82%B9/" class="post-title-link" itemprop="url">D18 Tarjan eDCC缩点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P8436 【模板】边双连通分量</p>
+<p><strong>题目描述</strong></p>
+<p>对于一个 $n$ 个节点 $m$ 条无向边的图，请输出其边双连通分量的个数，并且输出每个边双连通分量。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行，两个整数 $n$ 和 $m$。</p>
+<p>接下来 $m$ 行，每行两个整数 $u, v$，表示一条无向边。</p>
+<p><strong>不保证图为简单图，图中可能有重边和自环。</strong></p>
+<p><strong>输出格式</strong></p>
+<p>第一行一个整数 $x$ 表示边双连通分量的个数。</p>
+<p>接下来的 $x$ 行，每行第一个数 $a$ 表示该分量结点个数，然后 $a$ 个数，描述一个边双连通分量。</p>
+<p>你可以以任意顺序输出边双连通分量与边双连通分量内的结点。</p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">7 8</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">2 5</span><br><span class="line">6 4</span><br><span class="line">2 5</span><br><span class="line">6 3</span><br><span class="line">2 7</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 1</span><br><span class="line">5 2 5 3 6 4</span><br><span class="line">1 7</span><br></pre></td></tr></table></figure>
+<p><strong>样例1解释：</strong></p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/0bzdfzeq.png" alt=""></p>
+<p>相同颜色的点为同一个连通分量。</p>
+<p><strong>数据范围：</strong><br>对于 $100\%$ 的数据，$1 \le n \le 5 \times10 ^5$，$1 \le m \le 2 \times 10^6$。</p>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">500010</span>,M=<span class="number">4000010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b;</span><br><span class="line"><span class="type">int</span> h[N],to[M],ne[M],idx=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">  to[++idx]=b,ne[idx]=h[a],h[a]=idx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,stk[N],top,dcc[N],siz[N],cnt,bri[M];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; d[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> ine)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim;stk[++top]=x;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=h[x];i;i=ne[i])&#123;</span><br><span class="line">    <span class="type">int</span> y=to[i];</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123;</span><br><span class="line">      <span class="built_in">tarjan</span>(y,i);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]);</span><br><span class="line">      <span class="keyword">if</span>(low[y]&lt;dfn[x]) bri[i]=bri[i^<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(i!=(ine^<span class="number">1</span>)) low[x]=<span class="built_in">min</span>(low[x],dfn[y]);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(dfn[x]==low[x])&#123;</span><br><span class="line">    ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="type">int</span> y=stk[top--];</span><br><span class="line">      <span class="comment">// dcc[y]=cnt;</span></span><br><span class="line">      siz[cnt]++;</span><br><span class="line">      d[cnt].<span class="built_in">push_back</span>(y);</span><br><span class="line">      <span class="keyword">if</span>(x==y) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;<span class="built_in">add</span>(a,b);<span class="built_in">add</span>(b,a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="keyword">if</span>(!dfn[i])<span class="built_in">tarjan</span>(i,<span class="number">0</span>);</span><br><span class="line">  cout&lt;&lt;cnt&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)&#123;</span><br><span class="line">    cout&lt;&lt;siz[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j:d[i]) cout&lt;&lt;j&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D27%20%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D27%20%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" class="post-title-link" itemprop="url">D27 二分图最大匹配</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
+<p>给定一个二分图，其左部点的个数为 $n$，右部点的个数为 $m$，边数为 $e$，求其最大匹配的边数。</p>
+<p>左部点从 $1$ 至 $n$ 编号，右部点从 $1$ 至 $m$ 编号。</p>
+<p><strong>输入格式</strong></p>
+<p>输入的第一行是三个整数，分别代表 $n$，$m$ 和 $e$。</p>
+<p>接下来 $e$ 行，每行两个整数 $u, v$，表示存在一条连接左部点 $u$ 和右部点 $v$ 的边。</p>
+<p><strong>输出格式</strong></p>
+<p>输出一行一个整数，代表二分图最大匹配的边数。</p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 1 1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 1010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> M 2000010</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,k,S,T;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,c,ne;&#125;e[M];</span><br><span class="line"><span class="type">int</span> h[N],idx=<span class="number">1</span>; <span class="comment">//从2,3开始配对</span></span><br><span class="line"><span class="type">int</span> d[N],cur[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c)</span></span>&#123;</span><br><span class="line">  e[++idx]=&#123;b,c,h[a]&#125;;</span><br><span class="line">  h[a]=idx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123; <span class="comment">//对点分层，找增广路</span></span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">  queue&lt;<span class="type">int</span>&gt;q; </span><br><span class="line">  q.<span class="built_in">push</span>(S); d[S]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="type">int</span> u=q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=h[u];i;i=e[i].ne)&#123;</span><br><span class="line">      <span class="type">int</span> v=e[i].v;</span><br><span class="line">      <span class="keyword">if</span>(d[v]==<span class="number">0</span> &amp;&amp; e[i].c)&#123;</span><br><span class="line">        d[v]=d[u]<span class="number">+1</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(v);</span><br><span class="line">        <span class="keyword">if</span>(v==T)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> mf)</span></span>&#123; <span class="comment">//多路增广</span></span><br><span class="line">  <span class="keyword">if</span>(u==T) <span class="keyword">return</span> mf;</span><br><span class="line">  <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=cur[u];i;i=e[i].ne)&#123;</span><br><span class="line">    cur[u]=i; <span class="comment">//当前弧优化</span></span><br><span class="line">    <span class="type">int</span> v=e[i].v;</span><br><span class="line">    <span class="keyword">if</span>(d[v]==d[u]<span class="number">+1</span> &amp;&amp; e[i].c)&#123;</span><br><span class="line">      <span class="type">int</span> f=<span class="built_in">dfs</span>(v,<span class="built_in">min</span>(mf,e[i].c));</span><br><span class="line">      e[i].c-=f; </span><br><span class="line">      e[i^<span class="number">1</span>].c+=f; <span class="comment">//更新残留网</span></span><br><span class="line">      sum+=f; <span class="comment">//累加u的流出流量</span></span><br><span class="line">      mf-=f;  <span class="comment">//减少u的剩余流量</span></span><br><span class="line">      <span class="keyword">if</span>(mf==<span class="number">0</span>)<span class="keyword">break</span>;<span class="comment">//余量优化</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(sum==<span class="number">0</span>) d[u]=<span class="number">0</span>; <span class="comment">//残枝优化</span></span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dinic</span><span class="params">()</span></span>&#123; <span class="comment">//累加可行流</span></span><br><span class="line">  <span class="type">int</span> flow=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">bfs</span>())&#123;</span><br><span class="line">    <span class="built_in">memcpy</span>(cur, h, <span class="keyword">sizeof</span> h);</span><br><span class="line">    flow+=<span class="built_in">dfs</span>(S,<span class="number">1e9</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> a,b,c;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">  <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="built_in">add</span>(a,b+n,<span class="number">1</span>);<span class="built_in">add</span>(b+n,a,<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  S=<span class="number">0</span>;T=n+m<span class="number">+1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="built_in">add</span>(S,i,<span class="number">1</span>),<span class="built_in">add</span>(i,S,<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    <span class="built_in">add</span>(i+n,T,<span class="number">1</span>),<span class="built_in">add</span>(T,i+n,<span class="number">0</span>); </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">dinic</span>());</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D23%20%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81EK/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1090,7 +1199,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1179,115 +1288,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D27%20%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D27%20%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" class="post-title-link" itemprop="url">D27 二分图最大匹配</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>给定一个二分图，其左部点的个数为 $n$，右部点的个数为 $m$，边数为 $e$，求其最大匹配的边数。</p>
-<p>左部点从 $1$ 至 $n$ 编号，右部点从 $1$ 至 $m$ 编号。</p>
-<p><strong>输入格式</strong></p>
-<p>输入的第一行是三个整数，分别代表 $n$，$m$ 和 $e$。</p>
-<p>接下来 $e$ 行，每行两个整数 $u, v$，表示存在一条连接左部点 $u$ 和右部点 $v$ 的边。</p>
-<p><strong>输出格式</strong></p>
-<p>输出一行一个整数，代表二分图最大匹配的边数。</p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 1 1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 1010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> M 2000010</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,k,S,T;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,c,ne;&#125;e[M];</span><br><span class="line"><span class="type">int</span> h[N],idx=<span class="number">1</span>; <span class="comment">//从2,3开始配对</span></span><br><span class="line"><span class="type">int</span> d[N],cur[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c)</span></span>&#123;</span><br><span class="line">  e[++idx]=&#123;b,c,h[a]&#125;;</span><br><span class="line">  h[a]=idx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123; <span class="comment">//对点分层，找增广路</span></span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">  queue&lt;<span class="type">int</span>&gt;q; </span><br><span class="line">  q.<span class="built_in">push</span>(S); d[S]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="type">int</span> u=q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=h[u];i;i=e[i].ne)&#123;</span><br><span class="line">      <span class="type">int</span> v=e[i].v;</span><br><span class="line">      <span class="keyword">if</span>(d[v]==<span class="number">0</span> &amp;&amp; e[i].c)&#123;</span><br><span class="line">        d[v]=d[u]<span class="number">+1</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(v);</span><br><span class="line">        <span class="keyword">if</span>(v==T)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> mf)</span></span>&#123; <span class="comment">//多路增广</span></span><br><span class="line">  <span class="keyword">if</span>(u==T) <span class="keyword">return</span> mf;</span><br><span class="line">  <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=cur[u];i;i=e[i].ne)&#123;</span><br><span class="line">    cur[u]=i; <span class="comment">//当前弧优化</span></span><br><span class="line">    <span class="type">int</span> v=e[i].v;</span><br><span class="line">    <span class="keyword">if</span>(d[v]==d[u]<span class="number">+1</span> &amp;&amp; e[i].c)&#123;</span><br><span class="line">      <span class="type">int</span> f=<span class="built_in">dfs</span>(v,<span class="built_in">min</span>(mf,e[i].c));</span><br><span class="line">      e[i].c-=f; </span><br><span class="line">      e[i^<span class="number">1</span>].c+=f; <span class="comment">//更新残留网</span></span><br><span class="line">      sum+=f; <span class="comment">//累加u的流出流量</span></span><br><span class="line">      mf-=f;  <span class="comment">//减少u的剩余流量</span></span><br><span class="line">      <span class="keyword">if</span>(mf==<span class="number">0</span>)<span class="keyword">break</span>;<span class="comment">//余量优化</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(sum==<span class="number">0</span>) d[u]=<span class="number">0</span>; <span class="comment">//残枝优化</span></span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dinic</span><span class="params">()</span></span>&#123; <span class="comment">//累加可行流</span></span><br><span class="line">  <span class="type">int</span> flow=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">bfs</span>())&#123;</span><br><span class="line">    <span class="built_in">memcpy</span>(cur, h, <span class="keyword">sizeof</span> h);</span><br><span class="line">    flow+=<span class="built_in">dfs</span>(S,<span class="number">1e9</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> a,b,c;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">  <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="built_in">add</span>(a,b+n,<span class="number">1</span>);<span class="built_in">add</span>(b+n,a,<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  S=<span class="number">0</span>;T=n+m<span class="number">+1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="built_in">add</span>(S,i,<span class="number">1</span>),<span class="built_in">add</span>(i,S,<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    <span class="built_in">add</span>(i+n,T,<span class="number">1</span>),<span class="built_in">add</span>(T,i+n,<span class="number">0</span>); </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">dinic</span>());</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/03/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D3%20SPFA%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1317,7 +1317,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-03 12:34:52" itemprop="dateCreated datePublished" datetime="2026-05-03T12:34:52+00:00">2026-05-03</time>
+      <time title="创建时间：2026-05-03 12:36:03" itemprop="dateCreated datePublished" datetime="2026-05-03T12:36:03+00:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
