@@ -20,26 +20,24 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ehnotgod.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="题目情境 Python代码实现1234567891011121314151617181920212223242526272829303132# http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2976def check(x):    s &#x3D; 0    for i in range(1, n + 1):        c[i] &#x3D; a[i] - x * b[i]    c[1:n+1] &#x3D; so">
+    <meta name="description" content="题目情境分数规划用途：求分数的最值。 问题：每种物品有两个权值 $a_i$ 和 $b_i$，选出若干个物品使得 $\dfrac{\sum a_i}{\sum b_i}$ 最大&#x2F;最小。 等价：给出 $a_i$ 和 $b_i$，求一组 $w_i \in {0,1}$，最大化或最小化 $\dfrac{\sum w_i \cdot a_i}{\sum w_i \cdot b_i}$。 若干个物品：满足给定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A7 分数规划">
-<meta property="og:url" content="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A7%20%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/index.html">
+<meta property="og:url" content="https://ehnotgod.github.io/2026/05/06/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A7%20%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
-<meta property="og:description" content="题目情境 Python代码实现1234567891011121314151617181920212223242526272829303132# http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2976def check(x):    s &#x3D; 0    for i in range(1, n + 1):        c[i] &#x3D; a[i] - x * b[i]    c[1:n+1] &#x3D; so">
+<meta property="og:description" content="题目情境分数规划用途：求分数的最值。 问题：每种物品有两个权值 $a_i$ 和 $b_i$，选出若干个物品使得 $\dfrac{\sum a_i}{\sum b_i}$ 最大&#x2F;最小。 等价：给出 $a_i$ 和 $b_i$，求一组 $w_i \in {0,1}$，最大化或最小化 $\dfrac{\sum w_i \cdot a_i}{\sum w_i \cdot b_i}$。 若干个物品：满足给定">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A7-1.png">
-<meta property="article:published_time" content="2026-04-25T08:22:07.102Z">
-<meta property="article:modified_time" content="2026-04-27T05:48:50.160Z">
+<meta property="article:published_time" content="2026-05-06T08:22:37.726Z">
+<meta property="article:modified_time" content="2026-05-06T08:31:36.809Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="基础算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A7-1.png">
 
 
-<link rel="canonical" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A7%20%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/">
+<link rel="canonical" href="https://ehnotgod.github.io/2026/05/06/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A7%20%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A7%20%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/","path":"2026/04/25/算法竞赛/A 基础算法/A7 分数规划/","title":"A7 分数规划"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/05/06/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A7%20%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/","path":"2026/05/06/算法竞赛/A 基础算法/A7 分数规划/","title":"A7 分数规划"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>A7 分数规划 | EH's Blog</title>
@@ -167,7 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%83%85%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">题目情境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">Python代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">C++代码实现</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%83%85%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">题目情境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92"><span class="nav-number">2.</span> <span class="nav-text">分数规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">算法解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">Python代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">C++代码实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,7 +241,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A7%20%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/06/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A7%20%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -271,15 +269,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-27 13:48:50" itemprop="dateModified" datetime="2026-04-27T13:48:50+08:00">2026-04-27</time>
+      <time title="创建时间：2026-05-06 16:22:37 / 修改时间：16:31:36" itemprop="dateCreated datePublished" datetime="2026-05-06T16:22:37+08:00">2026-05-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,14 +301,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -326,10 +318,21 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/算法竞赛/A/A7-1.png" alt="image-20250416084038519"></p>
+    <div class="post-body" itemprop="articleBody"><h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><h3 id="分数规划"><a href="#分数规划" class="headerlink" title="分数规划"></a>分数规划</h3><p>用途：求分数的最值。</p>
+<p>问题：每种物品有两个权值 $a_i$ 和 $b_i$，选出若干个物品使得 $\dfrac{\sum a_i}{\sum b_i}$ 最大/最小。</p>
+<p>等价：给出 $a_i$ 和 $b_i$，求一组 $w_i \in {0,1}$，最大化或最小化 $\dfrac{\sum w_i \cdot a_i}{\sum w_i \cdot b_i}$。</p>
+<p>若干个物品：满足给定约束条件的物品。</p>
+<h3 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h3><p>最大化：二分一个答案 $x$，</p>
+<script type="math/tex; mode=display">
+\frac{\sum w_i \cdot a_i}{\sum w_i \cdot b_i} \ge x</script><script type="math/tex; mode=display">
+\sum w_i \cdot a_i - x\sum w_i \cdot b_i \ge 0</script><script type="math/tex; mode=display">
+\sum w_i \cdot (a_i - xb_i) \ge 0</script><p>如果和式 $\ge 0$，说明 $x$ 是可行的，否则不可行。</p>
+<p>最小化：二分一个答案 $x$，</p>
+<script type="math/tex; mode=display">
+\frac{\sum w_i \cdot a_i}{\sum w_i \cdot b_i} \le x</script><script type="math/tex; mode=display">
+\sum w_i \cdot (a_i - xb_i) \le 0</script><p>如果和式 $\le 0$，说明 $x$ 是可行的，否则不可行。</p>
 <h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://poj.org/problem?id=2976</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check</span>(<span class="params">x</span>):</span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        c[i] = a[i] - x * b[i]</span><br><span class="line">    c[<span class="number">1</span>:n+<span class="number">1</span>] = <span class="built_in">sorted</span>(c[<span class="number">1</span>:n+<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k + <span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        s += c[i]</span><br><span class="line">    <span class="keyword">return</span> s &gt;= <span class="number">0</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>():</span><br><span class="line">    l = <span class="number">0</span></span><br><span class="line">    r = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> r - l &gt; <span class="number">1e-4</span>:</span><br><span class="line">        mid = (l + r) / <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> check(mid):</span><br><span class="line">            l = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = mid</span><br><span class="line">    <span class="keyword">return</span> l</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span> <span class="keyword">and</span> k == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    b = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    a.insert(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    b.insert(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    c = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;0:.0f&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">100</span> * find()))</span><br></pre></td></tr></table></figure>
 <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分数规划+二分+排序 复杂度：nlogn*log(1e4)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line"><span class="type">double</span> a[N], b[N], c[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;</span><br><span class="line">  <span class="type">double</span> s=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)c[i]=a[i]-x*b[i];</span><br><span class="line">  <span class="built_in">sort</span>(c<span class="number">+1</span>, c+n<span class="number">+1</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=k<span class="number">+1</span>;i&lt;=n;++i) s+=c[i];</span><br><span class="line">  <span class="keyword">return</span> s&gt;=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">find</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">double</span> l=<span class="number">0</span>, r=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(r-l&gt;<span class="number">1e-4</span>)&#123;</span><br><span class="line">    <span class="type">double</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) l=mid;<span class="comment">//最大化</span></span><br><span class="line">    <span class="keyword">else</span> r=mid;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k),n)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>,&amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>,&amp;b[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.0lf\n&quot;</span>, <span class="number">100</span>*<span class="built_in">find</span>());</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
     </div>
 
     
@@ -345,14 +348,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A6%20%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" rel="prev" title="A6 二分答案">
-                  <i class="fa fa-angle-left"></i> A6 二分答案
+                <a href="/2026/04/27/torch/torch%E5%AD%A6%E4%B9%A0/" rel="prev" title="torch语法学习1">
+                  <i class="fa fa-angle-left"></i> torch语法学习1
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A8%20%E5%89%8D%E7%BC%80%E5%92%8C/" rel="next" title="A8 前缀和">
-                  A8 前缀和 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -383,13 +383,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">187k</span>
+    <span title="站点总字数">188k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:50</span>
+    <span title="站点阅读时长">2:51</span>
   </span>
 </div>
 <div class="busuanzi-count">
