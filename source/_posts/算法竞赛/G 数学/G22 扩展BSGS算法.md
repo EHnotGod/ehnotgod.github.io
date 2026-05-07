@@ -1,4 +1,4 @@
-﻿---
+---
 title: "G22 扩展BSGS算法"
 categories:
 - [算法, G 数学]
@@ -10,7 +10,7 @@ tags:
 
 ![image-20250808181703985](/images/算法竞赛/G/G22-1.png)
 
-时间复杂度：${O(\sqrt{p})}$
+时间复杂度：$${O(\sqrt{p})}$$
 
 ### Python代码实现
 
