@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ehnotgod.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="题目情境P4254 [JSOI2008] Blue Mary 开公司（精简版） 问题描述 Blue Mary 开公司，会陆续收到若干金融顾问的经营方案。每个顾问给出一个等差日收益序列：  Project S P 表示第 (T) 天的收益为$f(T)&#x3D;S+(T−1)⋅P$ 初始时没有方案，任意天的最大收益为 0。  当收到若干方案后，Blue Mary 会进行若干次询问：  Query T 要求返回">
+    <meta name="description" content="题目情境P4254 [JSOI2008] Blue Mary 开公司（精简版） 问题描述 Blue Mary 开公司，会陆续收到若干金融顾问的经营方案。每个顾问给出一个等差日收益序列：  Project S P 表示第 (T) 天的收益为f(T)&#x3D;S+(T−1)⋅P 初始时没有方案，任意天的最大收益为 0。  当收到若干方案后，Blue Mary 会进行若干次询问：  Query T 要求返回当前">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C118 李超线段树">
 <meta property="og:url" content="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C118%20%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
-<meta property="og:description" content="题目情境P4254 [JSOI2008] Blue Mary 开公司（精简版） 问题描述 Blue Mary 开公司，会陆续收到若干金融顾问的经营方案。每个顾问给出一个等差日收益序列：  Project S P 表示第 (T) 天的收益为$f(T)&#x3D;S+(T−1)⋅P$ 初始时没有方案，任意天的最大收益为 0。  当收到若干方案后，Blue Mary 会进行若干次询问：  Query T 要求返回">
+<meta property="og:description" content="题目情境P4254 [JSOI2008] Blue Mary 开公司（精简版） 问题描述 Blue Mary 开公司，会陆续收到若干金融顾问的经营方案。每个顾问给出一个等差日收益序列：  Project S P 表示第 (T) 天的收益为f(T)&#x3D;S+(T−1)⋅P 初始时没有方案，任意天的最大收益为 0。  当收到若干方案后，Blue Mary 会进行若干次询问：  Query T 要求返回当前">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-25T08:22:07.185Z">
-<meta property="article:modified_time" content="2026-04-25T08:22:07.185Z">
+<meta property="article:modified_time" content="2026-05-06T09:02:16.096Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -274,6 +274,13 @@
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-06 17:02:16" itemprop="dateModified" datetime="2026-05-06T17:02:16+08:00">2026-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -300,7 +307,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>425</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -321,7 +328,7 @@
 <p><strong>问题描述</strong></p>
 <p>Blue Mary 开公司，会陆续收到若干金融顾问的经营方案。每个顾问给出一个等差日收益序列：</p>
 <ul>
-<li><code>Project S P</code> 表示第 (T) 天的收益为$f(T)=S+(T−1)⋅P$</li>
+<li><code>Project S P</code> 表示第 (T) 天的收益为<script type="math/tex">f(T)=S+(T−1)⋅P</script></li>
 <li>初始时没有方案，任意天的最大收益为 0。</li>
 </ul>
 <p>当收到若干方案后，Blue Mary 会进行若干次询问：</p>
@@ -333,8 +340,7 @@
 <p><strong>输出格式</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">0</span><br><span class="line">0</span><br><span class="line">0</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
 <p><strong>数据范围</strong></p>
-<p>$1≤N≤105，1≤T≤5×10^4，0&lt;P&lt;100，∣S∣≤10^5$</p>
-<p>能用就行了，银牌题难度。</p>
+<script type="math/tex; mode=display">1≤N≤105，1≤T≤5×10^4，0<P<100，∣S∣≤10^5</script><p>能用就行了，银牌题难度。</p>
 <hr>
 <h2 id="D-图论"><a href="#D-图论" class="headerlink" title="D 图论"></a>D 图论</h2><h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 李超线段树 O(nlogn)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 50005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ls u&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rs u&lt;&lt;1|1</span></span><br><span class="line"><span class="type">int</span> n,cnt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">line</span>&#123;</span><br><span class="line">  <span class="type">double</span> k,b; <span class="comment">//斜率,截距</span></span><br><span class="line">&#125;p[N*<span class="number">2</span>];</span><br><span class="line"><span class="type">int</span> tr[N*<span class="number">4</span>]; <span class="comment">//线段编号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Y</span><span class="params">(<span class="type">int</span> id,<span class="type">int</span> x)</span></span>&#123; <span class="comment">//求Y值</span></span><br><span class="line">  <span class="keyword">return</span> p[id].k*x+p[id].b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">change</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> id)</span></span>&#123; <span class="comment">//修改  int mid=(l+r)&gt;&gt;1;</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">Y</span>(id,mid)&gt;<span class="built_in">Y</span>(tr[u],mid)) <span class="built_in">swap</span>(id,tr[u]);</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">Y</span>(id,l)&gt;<span class="built_in">Y</span>(tr[u],l)) <span class="built_in">change</span>(ls,l,mid,id);</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">Y</span>(id,r)&gt;<span class="built_in">Y</span>(tr[u],r)) <span class="built_in">change</span>(rs,mid<span class="number">+1</span>,r,id);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">query</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> x)</span></span>&#123; <span class="comment">//查询</span></span><br><span class="line">  <span class="keyword">if</span>(l==r) <span class="keyword">return</span> <span class="built_in">Y</span>(tr[u],x);</span><br><span class="line">  <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">  <span class="type">double</span> t=<span class="built_in">Y</span>(tr[u],x);</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=mid) <span class="keyword">return</span> <span class="built_in">max</span>(t,<span class="built_in">query</span>(ls,l,mid,x));</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">max</span>(t,<span class="built_in">query</span>(rs,mid<span class="number">+1</span>,r,x));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="type">char</span> op[<span class="number">10</span>]; <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,op);</span><br><span class="line">    <span class="keyword">if</span>(op[<span class="number">0</span>]==<span class="string">&#x27;P&#x27;</span>)&#123;</span><br><span class="line">      <span class="type">double</span> b,k; <span class="built_in">scanf</span>(<span class="string">&quot;%lf%lf&quot;</span>,&amp;b,&amp;k);</span><br><span class="line">      p[++cnt]=&#123;k,b-k&#125;;</span><br><span class="line">      <span class="built_in">change</span>(<span class="number">1</span>,<span class="number">1</span>,N,cnt);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="type">int</span> x; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,(<span class="type">int</span>)<span class="built_in">query</span>(<span class="number">1</span>,<span class="number">1</span>,N,x)/<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -391,13 +397,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">188k</span>
+    <span title="站点总字数">179k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:51</span>
+    <span title="站点阅读时长">2:43</span>
   </span>
 </div>
 <div class="busuanzi-count">

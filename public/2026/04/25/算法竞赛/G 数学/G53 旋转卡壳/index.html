@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ehnotgod.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="题目情境题目描述 给定平面上 $n$ 个点，求凸包直径。 输入格式 第一行一个正整数 $n$。接下来 $n$ 行，每行两个整数 $x,y$，表示一个点的坐标。保证所有点的坐标两两不同。 输出格式 输出一行一个整数，表示答案的平方。 输入输出样例 #1 输入 #1 1234540 00 11 11 0 输出 #1 12 对于 $100\%$ 的数据，$2\le n \le 50000$，$|x|,|">
+    <meta name="description" content="题目情境题目描述 给定平面上 n 个点，求凸包直径。 输入格式 第一行一个正整数 n。接下来 n 行，每行两个整数 x,y，表示一个点的坐标。保证所有点的坐标两两不同。 输出格式 输出一行一个整数，表示答案的平方。 输入输出样例 #1 输入 #1 1234540 00 11 11 0 输出 #1 12 对于 100\% 的数据，2\le n \le 50000，|x|,|y| \le 10^4。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="G53 旋转卡壳">
 <meta property="og:url" content="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G53%20%E6%97%8B%E8%BD%AC%E5%8D%A1%E5%A3%B3/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
-<meta property="og:description" content="题目情境题目描述 给定平面上 $n$ 个点，求凸包直径。 输入格式 第一行一个正整数 $n$。接下来 $n$ 行，每行两个整数 $x,y$，表示一个点的坐标。保证所有点的坐标两两不同。 输出格式 输出一行一个整数，表示答案的平方。 输入输出样例 #1 输入 #1 1234540 00 11 11 0 输出 #1 12 对于 $100\%$ 的数据，$2\le n \le 50000$，$|x|,|">
+<meta property="og:description" content="题目情境题目描述 给定平面上 n 个点，求凸包直径。 输入格式 第一行一个正整数 n。接下来 n 行，每行两个整数 x,y，表示一个点的坐标。保证所有点的坐标两两不同。 输出格式 输出一行一个整数，表示答案的平方。 输入输出样例 #1 输入 #1 1234540 00 11 11 0 输出 #1 12 对于 100\% 的数据，2\le n \le 50000，|x|,|y| \le 10^4。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-25T08:22:07.472Z">
-<meta property="article:modified_time" content="2026-04-25T08:22:07.472Z">
+<meta property="article:modified_time" content="2026-05-06T09:02:16.446Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -274,6 +274,13 @@
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-06 17:02:16" itemprop="dateModified" datetime="2026-05-06T17:02:16+08:00">2026-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -318,9 +325,9 @@
     
     
     <div class="post-body" itemprop="articleBody"><h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>给定平面上 $n$ 个点，求凸包直径。</p>
+<p>给定平面上 <script type="math/tex">n</script> 个点，求凸包直径。</p>
 <p><strong>输入格式</strong></p>
-<p>第一行一个正整数 $n$。<br>接下来 $n$ 行，每行两个整数 $x,y$，表示一个点的坐标。保证所有点的坐标两两不同。</p>
+<p>第一行一个正整数 <script type="math/tex">n</script>。<br>接下来 <script type="math/tex">n</script> 行，每行两个整数 <script type="math/tex">x,y</script>，表示一个点的坐标。保证所有点的坐标两两不同。</p>
 <p><strong>输出格式</strong></p>
 <p>输出一行一个整数，表示答案的平方。</p>
 <p><strong>输入输出样例 #1</strong></p>
@@ -328,7 +335,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0 0</span><br><span class="line">0 1</span><br><span class="line">1 1</span><br><span class="line">1 0</span><br></pre></td></tr></table></figure>
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-<p>对于 $100\%$ 的数据，$2\le n \le 50000$，$|x|,|y| \le 10^4$。</p>
+<p>对于 <script type="math/tex">100\%</script> 的数据，<script type="math/tex">2\le n \le 50000</script>，<script type="math/tex">|x|,|y| \le 10^4</script>。</p>
 <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 50010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> y second</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> Point pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line">Point p[N],s[N];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cross</span><span class="params">(Point a,Point b,Point c)</span></span>&#123; <span class="comment">//叉积</span></span><br><span class="line">  <span class="keyword">return</span> (b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dis</span><span class="params">(Point a, Point b)</span></span>&#123; <span class="comment">//距离平方</span></span><br><span class="line">  <span class="keyword">return</span> (a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Andrew</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">sort</span>(p<span class="number">+1</span>,p+n<span class="number">+1</span>);</span><br><span class="line">  <span class="type">int</span> t=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123; <span class="comment">//下凸包</span></span><br><span class="line">    <span class="keyword">while</span>(t&gt;<span class="number">1</span>&amp;&amp;<span class="built_in">cross</span>(s[t<span class="number">-1</span>],s[t],p[i])&lt;=<span class="number">0</span>)t--;</span><br><span class="line">    s[++t]=p[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">int</span> k=t;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>; i&gt;=<span class="number">1</span>; i--)&#123; <span class="comment">//上凸包</span></span><br><span class="line">    <span class="keyword">while</span>(t&gt;k&amp;&amp;<span class="built_in">cross</span>(s[t<span class="number">-1</span>],s[t],p[i])&lt;=<span class="number">0</span>)t--;</span><br><span class="line">    s[++t]=p[i];</span><br><span class="line">  &#125;</span><br><span class="line">  n=t<span class="number">-1</span>; <span class="comment">//n为凸包上的点数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">rotating_calipers</span><span class="params">()</span></span>&#123; <span class="comment">//旋转卡壳</span></span><br><span class="line">  <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">2</span>; i&lt;=n; i++)&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cross</span>(s[i],s[i<span class="number">+1</span>],s[j])&lt;<span class="built_in">cross</span>(s[i],s[i<span class="number">+1</span>],s[j<span class="number">+1</span>]))j=j%n<span class="number">+1</span>;</span><br><span class="line">    res=<span class="built_in">max</span>(res,<span class="built_in">max</span>(<span class="built_in">dis</span>(s[i],s[j]),<span class="built_in">dis</span>(s[i<span class="number">+1</span>],s[j])));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;p[i].x,&amp;p[i].y);</span><br><span class="line">  <span class="built_in">Andrew</span>();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">rotating_calipers</span>());</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -384,13 +391,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">188k</span>
+    <span title="站点总字数">179k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:51</span>
+    <span title="站点阅读时长">2:43</span>
   </span>
 </div>
 <div class="busuanzi-count">

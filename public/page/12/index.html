@@ -236,7 +236,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A43%20%E5%8D%95%E8%B0%83%E6%A0%88/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A12%20%E5%8D%95%E8%B0%83%E6%A0%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -254,7 +254,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A43%20%E5%8D%95%E8%B0%83%E6%A0%88/" class="post-title-link" itemprop="url">A43 单调栈</a>
+          <a href="/2026/04/25/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A12%20%E5%8D%95%E8%B0%83%E6%A0%88/" class="post-title-link" itemprop="url">A12 单调栈</a>
         </h2>
 
         <div class="post-meta-container">
@@ -266,6 +266,13 @@
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2026-04-25 16:22:07" itemprop="dateCreated datePublished" datetime="2026-04-25T16:22:07+08:00">2026-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-08 12:34:31" itemprop="dateModified" datetime="2026-05-08T12:34:31+08:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -288,7 +295,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>460</span>
+      <span>633</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -307,21 +314,29 @@
     
     <div class="post-body" itemprop="articleBody">
           <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>给出项数为 $n$ 的整数数列 $a_{1 \dots n}$。</p>
-<p>定义函数 $f(i)$ 代表数列中第 $i$ 个元素之后第一个大于 $a<em>i$ 的元素的<strong>下标</strong>，即 $f(i)=\min</em>{i<j\leq n, a_j > a_i} {j}$。若不存在，则 $f(i)=0$。</p>
-<p>试求出 $f(1\dots n)$。</p>
+<p>给出项数为 <script type="math/tex">n</script> 的整数数列 <script type="math/tex">a_{1 \dots n}</script>。</p>
+<p>定义函数 <script type="math/tex">f(i)</script> 代表数列中第 <script type="math/tex">i</script> 个元素之后第一个大于 <script type="math/tex">a_i</script> 的元素的<strong>下标</strong>，即 <script type="math/tex">f(i)=\min_{i<j\leq n, a_j > a_i} \{j\}</script>。若不存在，则 <script type="math/tex">f(i)=0</script>。</p>
+<p>试求出 <script type="math/tex">f(1\dots n)</script>。</p>
 <p><strong>输入格式</strong></p>
-<p>第一行一个正整数 $n$。</p>
-<p>第二行 $n$ 个正整数 $a_{1\dots n}$。</p>
+<p>第一行一个正整数 <script type="math/tex">n</script>。</p>
+<p>第二行 <script type="math/tex">n</script> 个正整数 <script type="math/tex">a_{1\dots n}</script>。</p>
 <p><strong>输出格式</strong></p>
-<p>一行 $n$ 个整数表示 $f(1), f(2), \dots, f(n)$ 的值。</p>
+<p>一行 <script type="math/tex">n</script> 个整数表示 <script type="math/tex">f(1), f(2), \dots, f(n)</script> 的值。</p>
 <p>输入 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 4 2 3 5</span><br></pre></td></tr></table></figure>
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 5 4 5 0</span><br></pre></td></tr></table></figure>
-<p>对于 $100\%$ 的数据，$1 \le n\leq 3\times 10^6$，$1\leq a_i\leq 10^9$。</p>
-<hr>
-<h2 id="B-搜索算法"><a href="#B-搜索算法" class="headerlink" title="B-搜索算法"></a>B-搜索算法</h2><h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">f = [<span class="number">0</span>] * n</span><br><span class="line">q = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">while</span> q <span class="keyword">and</span> a[q[-<span class="number">1</span>]] &lt; a[i]:</span><br><span class="line">        q.pop()</span><br><span class="line">    <span class="keyword">if</span> q:</span><br><span class="line">        f[i] = q[-<span class="number">1</span>]</span><br><span class="line">    q.append(i)</span><br><span class="line"><span class="built_in">print</span>(*f)</span><br></pre></td></tr></table></figure>
+<p>对于 <script type="math/tex">100\%</script> 的数据，<script type="math/tex">1 \le n\leq 3\times 10^6</script>，<script type="math/tex">1\leq a_i\leq 10^9</script>。</p>
+<h3 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h3><p><strong>单调栈</strong>是一种维护元素单调性的栈结构，用于高效求解”下一个更大/更小元素”类问题。</p>
+<p><strong>核心思路：</strong> 从右向左遍历数组，维护一个<strong>单调递减栈</strong>（栈底到栈顶递减），栈中存储下标。</p>
+<p>对于每个位置 <script type="math/tex">i</script>：</p>
+<ol>
+<li>弹出栈中所有值 <script type="math/tex">\leq a_i</script> 的元素（它们不可能成为 <script type="math/tex">i</script> 左侧任何元素的答案）；</li>
+<li>若栈非空，则栈顶下标即为 <script type="math/tex">f(i)</script>（第一个大于 <script type="math/tex">a_i</script> 的元素）；</li>
+<li>将 <script type="math/tex">i</script> 压入栈中。</li>
+</ol>
+<p><strong>复杂度：</strong> 每个元素至多入栈、出栈各一次，时间复杂度为 <script type="math/tex">O(n)</script>，空间复杂度为 <script type="math/tex">O(n)</script>。</p>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">f = [<span class="number">0</span>] * n</span><br><span class="line">q = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">while</span> q <span class="keyword">and</span> a[q[-<span class="number">1</span>]] &lt; a[i]:</span><br><span class="line">        q.pop()</span><br><span class="line">    <span class="keyword">if</span> q:</span><br><span class="line">        f[i] = q[-<span class="number">1</span>]</span><br><span class="line">    q.append(i)</span><br><span class="line"><span class="built_in">print</span>(*f)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -488,6 +503,13 @@
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-06 17:02:16" itemprop="dateModified" datetime="2026-05-06T17:02:16+08:00">2026-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -507,7 +529,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>310</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -526,17 +548,17 @@
     
     <div class="post-body" itemprop="articleBody">
           <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>给定 $n$ 个二次函数 $f_1(x),f_2(x),\dots,f_n(x)$（均形如 $ax^2+bx+c$），设 $F(x)=\max{f_1(x),f_2(x),…,f_n(x)}$，求 $F(x)$ 在区间 $[0,1000]$ 上的最小值。</p>
+<p>给定 <script type="math/tex">n</script> 个二次函数 <script type="math/tex">f_1(x),f_2(x),\dots,f_n(x)</script>（均形如 <script type="math/tex">ax^2+bx+c</script>），设 <script type="math/tex">F(x)=\max\{f_1(x),f_2(x),...,f_n(x)\}</script>，求 <script type="math/tex">F(x)</script> 在区间 <script type="math/tex">[0,1000]</script> 上的最小值。</p>
 <p><strong>输入格式</strong></p>
-<p>输入第一行为正整数 $T$，表示有 $T$ 组数据。</p>
-<p>每组数据第一行一个正整数 $n$，接着 $n$ 行，每行 $3$ 个整数 $a,b,c$，用来表示每个二次函数的 $3$ 个系数，注意二次函数有可能退化成一次。</p>
+<p>输入第一行为正整数 <script type="math/tex">T</script>，表示有 <script type="math/tex">T</script> 组数据。</p>
+<p>每组数据第一行一个正整数 <script type="math/tex">n</script>，接着 <script type="math/tex">n</script> 行，每行 <script type="math/tex">3</script> 个整数 <script type="math/tex">a,b,c</script>，用来表示每个二次函数的 <script type="math/tex">3</script> 个系数，注意二次函数有可能退化成一次。</p>
 <p><strong>输出格式</strong></p>
-<p>每组数据输出一行，表示 $F(x)$ 的在区间 $[0,1000]$ 上的最小值。答案精确到小数点后四位，四舍五入。</p>
+<p>每组数据输出一行，表示 <script type="math/tex">F(x)</script> 的在区间 <script type="math/tex">[0,1000]</script> 上的最小值。答案精确到小数点后四位，四舍五入。</p>
 <p>输入 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">2 0 0</span><br><span class="line">2</span><br><span class="line">2 0 0</span><br><span class="line">2 -4 2</span><br></pre></td></tr></table></figure>
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.0000</span><br><span class="line">0.5000</span><br></pre></td></tr></table></figure>
-<p>对于 $100\%$ 的数据，$T&lt;10$，$\ n\le 10^4$，$0\le a\le 100$，$|b| \le 5\times 10^3$，$|c| \le 5\times 10^3$。</p>
+<p>对于 <script type="math/tex">100\%</script> 的数据，<script type="math/tex">T<10</script>，<script type="math/tex">\ n\le 10^4</script>，<script type="math/tex">0\le a\le 100</script>，<script type="math/tex">|b| \le 5\times 10^3</script>，<script type="math/tex">|c| \le 5\times 10^3</script>。</p>
 <h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">INF = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">EPS = <span class="number">1e-9</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x, n, a, b, c</span>):</span><br><span class="line">    maxn = -INF</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        val = a[i] * x * x + b[i] * x + c[i]</span><br><span class="line">        maxn = <span class="built_in">max</span>(maxn, val)</span><br><span class="line">    <span class="keyword">return</span> maxn</span><br><span class="line"></span><br><span class="line">t = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(t):</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    a = []</span><br><span class="line">    b = []</span><br><span class="line">    c = []</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        ai, bi, ci = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        a.append(ai)</span><br><span class="line">        b.append(bi)</span><br><span class="line">        c.append(ci)</span><br><span class="line"></span><br><span class="line">    l = <span class="number">0.0</span></span><br><span class="line">    r = <span class="number">1000.0</span></span><br><span class="line">    <span class="keyword">while</span> r - l &gt; EPS:</span><br><span class="line">        m1 = (<span class="number">2</span> * l + r) / <span class="number">3</span></span><br><span class="line">        m2 = (l + <span class="number">2</span> * r) / <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> f(m1, n, a, b, c) &lt; f(m2, n, a, b, c):</span><br><span class="line">            r = m2</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            l = m1</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;f(l, n, a, b, c):<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">114514</span>,inf=INT_MAX;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps=<span class="number">1e-9</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N],b[N],c[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;</span><br><span class="line">	<span class="type">double</span> maxn=-inf;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		maxn=<span class="built_in">max</span>(maxn,a[i]*x*x+b[i]*x+c[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> maxn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		cin&gt;&gt;n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			cin&gt;&gt;a[i]&gt;&gt;b[i]&gt;&gt;c[i];</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="type">double</span> l=<span class="number">0</span>,r=<span class="number">1000</span>;</span><br><span class="line">		<span class="keyword">while</span>(r-l&gt;eps)&#123;</span><br><span class="line">			<span class="type">double</span> m1=(<span class="number">2</span>*l+r)/<span class="number">3</span>;</span><br><span class="line">			<span class="type">double</span> m2=(l<span class="number">+2</span>*r)/<span class="number">3</span>;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">f</span>(m1)&lt;<span class="built_in">f</span>(m2))&#123;</span><br><span class="line">				r=m2;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				l=m1;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">4</span>)&lt;&lt;<span class="built_in">f</span>(l)&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1324,13 +1346,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">188k</span>
+    <span title="站点总字数">179k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:51</span>
+    <span title="站点阅读时长">2:43</span>
   </span>
 </div>
 <div class="busuanzi-count">
