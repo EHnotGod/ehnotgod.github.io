@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ehnotgod.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="题目情境题目描述 输入 n 个数字 a_i，输出这些数字中第 k 小的数。最小的数是第 0 小。 请尽量不要使用 nth_element 来写本题，因为本题的重点在于练习分治算法。 输入格式 第一行有两个整数，分别表示 n 和 k。 第二行有 n 个整数，第 i 个数表示 a_i。 输出格式 一个整数，表示第 k 小的数。 输入 #1 1235 14 3 2 1 5 输出 #1 122 说明&#x2F;提示">
+    <meta name="description" content="题目情境题目描述 灵梦有 n 个单词想要背，但她想通过一篇文章中的一段来记住这些单词。 文章由 m 个单词构成，她想在文章中找出连续的一段，其中包含最多的她想要背的单词（重复的只算一个）。并且在背诵的单词量尽量多的情况下，还要使选出的文章段落尽量短，这样她就可以用尽量短的时间学习尽可能多的单词了。 每个单词仅包含小写字母。 输入格式 第 1 行一个数 n，接下来 n 行每行是一个长度不超过 10">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A13 快速排序、第k小的数">
-<meta property="og:url" content="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A13%20%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E3%80%81%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/index.html">
+<meta property="og:title" content="A19 双指针 动态窗口">
+<meta property="og:url" content="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A19%20%E5%8F%8C%E6%8C%87%E9%92%88%20%E5%8A%A8%E6%80%81%E7%AA%97%E5%8F%A3/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
-<meta property="og:description" content="题目情境题目描述 输入 n 个数字 a_i，输出这些数字中第 k 小的数。最小的数是第 0 小。 请尽量不要使用 nth_element 来写本题，因为本题的重点在于练习分治算法。 输入格式 第一行有两个整数，分别表示 n 和 k。 第二行有 n 个整数，第 i 个数表示 a_i。 输出格式 一个整数，表示第 k 小的数。 输入 #1 1235 14 3 2 1 5 输出 #1 122 说明&#x2F;提示">
+<meta property="og:description" content="题目情境题目描述 灵梦有 n 个单词想要背，但她想通过一篇文章中的一段来记住这些单词。 文章由 m 个单词构成，她想在文章中找出连续的一段，其中包含最多的她想要背的单词（重复的只算一个）。并且在背诵的单词量尽量多的情况下，还要使选出的文章段落尽量短，这样她就可以用尽量短的时间学习尽可能多的单词了。 每个单词仅包含小写字母。 输入格式 第 1 行一个数 n，接下来 n 行每行是一个长度不超过 10">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-08T04:53:30.167Z">
-<meta property="article:modified_time" content="2026-05-08T04:53:30.167Z">
+<meta property="article:published_time" content="2026-05-08T05:50:37.788Z">
+<meta property="article:modified_time" content="2026-05-08T05:50:37.788Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="基础算法">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A13%20%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E3%80%81%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/">
+<link rel="canonical" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A19%20%E5%8F%8C%E6%8C%87%E9%92%88%20%E5%8A%A8%E6%80%81%E7%AA%97%E5%8F%A3/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A13%20%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E3%80%81%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/","path":"2026/05/08/算法竞赛/A 基础算法/A13 快速排序、第k小的数/","title":"A13 快速排序、第k小的数"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A19%20%E5%8F%8C%E6%8C%87%E9%92%88%20%E5%8A%A8%E6%80%81%E7%AA%97%E5%8F%A3/","path":"2026/05/08/算法竞赛/A 基础算法/A19 双指针 动态窗口/","title":"A19 双指针 动态窗口"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>A13 快速排序、第k小的数 | EH's Blog</title>
+<title>A19 双指针 动态窗口 | EH's Blog</title>
   
 
 
@@ -180,7 +180,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -241,7 +241,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A13%20%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E3%80%81%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A19%20%E5%8F%8C%E6%8C%87%E9%92%88%20%E5%8A%A8%E6%80%81%E7%AA%97%E5%8F%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -254,12 +254,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="A13 快速排序、第k小的数 | EH's Blog">
+      <meta itemprop="name" content="A19 双指针 动态窗口 | EH's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          A13 快速排序、第k小的数
+          A19 双指针 动态窗口
         </h1>
 
         <div class="post-meta-container">
@@ -270,7 +270,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -300,14 +300,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>180</span>
+      <span>2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -318,23 +318,45 @@
     
     
     <div class="post-body" itemprop="articleBody"><h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>输入 <script type="math/tex">n</script> 个数字 <script type="math/tex">a_i</script>，输出这些数字中第 <script type="math/tex">k</script> 小的数。最小的数是第 <script type="math/tex">0</script> 小。</p>
-<p>请尽量不要使用 <code>nth_element</code> 来写本题，因为本题的重点在于练习分治算法。</p>
+<p>灵梦有 <script type="math/tex">n</script> 个单词想要背，但她想通过一篇文章中的一段来记住这些单词。</p>
+<p>文章由 <script type="math/tex">m</script> 个单词构成，她想在文章中找出连续的一段，其中包含最多的她想要背的单词（重复的只算一个）。并且在背诵的单词量尽量多的情况下，还要使选出的文章段落尽量短，这样她就可以用尽量短的时间学习尽可能多的单词了。</p>
+<p>每个单词仅包含小写字母。</p>
 <p><strong>输入格式</strong></p>
-<p>第一行有两个整数，分别表示 <script type="math/tex">n</script> 和 <script type="math/tex">k</script>。</p>
-<p>第二行有 <script type="math/tex">n</script> 个整数，第 <script type="math/tex">i</script> 个数表示 <script type="math/tex">a_i</script>。</p>
+<p>第 <script type="math/tex">1</script> 行一个数 <script type="math/tex">n</script>，接下来 <script type="math/tex">n</script> 行每行是一个长度不超过 <script type="math/tex">10</script> 的字符串，表示一个要背的单词。</p>
+<p>接着是一个数 <script type="math/tex">m</script>，然后是 <script type="math/tex">m</script> 行长度不超过 <script type="math/tex">10</script> 的字符串，每个表示文章中的一个单词。</p>
 <p><strong>输出格式</strong></p>
-<p>一个整数，表示第 <script type="math/tex">k</script> 小的数。</p>
+<p>输出文件共 <script type="math/tex">2</script> 行。第 <script type="math/tex">1</script> 行为文章中最多包含的要背的单词数，第 <script type="math/tex">2</script> 行表示在文章中包含最多要背单词的最短的连续段的长度。</p>
 <p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5 1</span><br><span class="line">4 3 2 1 5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">hot</span><br><span class="line">dog</span><br><span class="line">milk</span><br><span class="line">5</span><br><span class="line">hot</span><br><span class="line">dog</span><br><span class="line">dog</span><br><span class="line">milk</span><br><span class="line">hot</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>说明/提示</strong></p>
-<p>对于 <script type="math/tex">100\%</script> 的数据，<script type="math/tex">1\le a_i<{10}^9</script>，<script type="math/tex">1 \le n < 5\times 10^6</script>，且 <script type="math/tex">n</script> 为奇数。</p>
-<h3 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h3><p>QuickSelect（快速选择）算法，用来在无序数组中快速找到第 k 小的元素。它先选一个基准值 <code>x</code>，像快速排序一样把数组划分成“左边 ≤ x、右边 ≥ x”两部分，但不会递归处理两边，而是只进入包含第 <code>k</code> 小元素的那一边继续查找，因此平均时间复杂度是 <code>O(n)</code>，比完整排序的 <code>O(n log n)</code> 更快。</p>
-<p>C++里可以直接使用nth_element(begin, nth, end)</p>
-<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P1923 【深基9.例4】求第 k 小的数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.setrecursionlimit(<span class="number">5000000</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">qnth_element</span>(<span class="params">l, r</span>):</span><br><span class="line">    <span class="keyword">global</span> a</span><br><span class="line">    <span class="keyword">if</span> l == r:</span><br><span class="line">        <span class="keyword">return</span> a[l]</span><br><span class="line">    i = l - <span class="number">1</span></span><br><span class="line">    j = r + <span class="number">1</span></span><br><span class="line">    x = a[(l + r) // <span class="number">2</span>]</span><br><span class="line">    <span class="keyword">while</span> i &lt; j:</span><br><span class="line">        <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> a[i] &lt; x:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> a[j] &gt; x:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> i &lt; j:</span><br><span class="line">            a[i], a[j] = a[j], a[i]</span><br><span class="line">    <span class="keyword">if</span> k &lt;= j:</span><br><span class="line">        <span class="keyword">return</span> qnth_element(l, j)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> qnth_element(j + <span class="number">1</span>, r)</span><br><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"><span class="built_in">print</span>(qnth_element(<span class="number">0</span>, n - <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,k,a[<span class="number">5000010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qnth_element</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(l==r) <span class="keyword">return</span> a[l];</span><br><span class="line">  <span class="type">int</span> i=l<span class="number">-1</span>, j=r<span class="number">+1</span>, x=a[(l+r)/<span class="number">2</span>];</span><br><span class="line">  <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">    <span class="keyword">do</span> i++; <span class="keyword">while</span>(a[i]&lt;x); <span class="comment">//向右找&gt;=x的数</span></span><br><span class="line">    <span class="keyword">do</span> j--; <span class="keyword">while</span>(a[j]&gt;x); <span class="comment">//向左找&lt;=x的数</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;j) <span class="built_in">swap</span>(a[i],a[j]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(k&lt;=j) <span class="keyword">return</span> <span class="built_in">qnth_element</span>(l,j);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">qnth_element</span>(j<span class="number">+1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">qnth_element</span>(<span class="number">0</span>,n<span class="number">-1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于 <script type="math/tex">30\%</script> 的数据，<script type="math/tex">n \le 50</script>，<script type="math/tex">m \le 500</script>；</li>
+<li>对于 <script type="math/tex">60\%</script> 的数据，<script type="math/tex">n \le 300</script>，<script type="math/tex">m \le 5000</script>；</li>
+<li>对于 <script type="math/tex">100\%</script> 的数据，<script type="math/tex">1 \le n \le 1000</script>，<script type="math/tex">1 \le m \le 10^5</script>。</li>
+</ul>
+<h3 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h3><p>本题使用双指针滑动窗口维护当前文章段的左右端点 <script type="math/tex">i</script> 和 <script type="math/tex">j</script>，并统计当前窗口内目标单词的出现次数。</p>
+<ul>
+<li>使用 <code>word</code> 集合标记要背的单词；</li>
+<li>使用 <code>cnt</code> 记录当前区间内每个目标单词的出现次数；</li>
+<li><code>sum</code> 表示当前窗口内不同目标单词的个数；</li>
+<li><code>len</code> 记录在目标单词数量最大时的最短窗口长度。</li>
+</ul>
+<p>当新的单词 <script type="math/tex">s[j]</script> 进入窗口时：</p>
+<ol>
+<li>如果它是目标单词，则 <code>cnt[s[j]]++</code>；若 <code>cnt[s[j]]==1</code>，说明当前窗口新增了一个不同目标单词；</li>
+<li>在窗口右扩后，尝试收缩左端点 <script type="math/tex">i</script>：<ul>
+<li>若 <script type="math/tex">s[i]</script> 是非目标单词，则直接移动 <script type="math/tex">i</script>；</li>
+<li>若 <script type="math/tex">s[i]</script> 是目标单词且 <code>cnt[s[i]]&gt;=2</code>，则可以将其出现次数减一并移动 <script type="math/tex">i</script>；</li>
+<li>若 <code>cnt[s[i]]==1</code>，则不能再收缩，否则会丢失一个目标单词；</li>
+</ul>
+</li>
+<li>每次收缩后，用当前窗口长度更新最短长度 <code>len</code>。</li>
+</ol>
+<p>这样可以在保证目标单词数量不减少的前提下，使窗口尽可能短。整个过程中，左右指针均最多移动 <script type="math/tex">O(m)</script> 次，时间复杂度为 <script type="math/tex">O(m)</script>。</p>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P1381 单词背诵</span></span><br><span class="line"><span class="comment"># 24年新星赛-小猪的纸花</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">word = defaultdict(<span class="built_in">bool</span>)</span><br><span class="line">cnt = defaultdict(<span class="built_in">int</span>)</span><br><span class="line"><span class="built_in">len</span> = <span class="number">0</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    s1 = <span class="built_in">input</span>()</span><br><span class="line">    word[s1] = <span class="literal">True</span></span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">s = [<span class="number">0</span>] * (m + <span class="number">1</span>)</span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m + <span class="number">1</span>):</span><br><span class="line">    s[j] = <span class="built_in">input</span>()</span><br><span class="line">    <span class="keyword">if</span> word[s[j]]:</span><br><span class="line">        cnt[s[j]] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> cnt[s[j]] == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">sum</span> += <span class="number">1</span></span><br><span class="line">        <span class="built_in">len</span> = j - i + <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i &lt;= j:</span><br><span class="line">        <span class="keyword">if</span> cnt[s[i]] == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> cnt[s[i]] &gt;= <span class="number">2</span>:</span><br><span class="line">            cnt[s[i]] -= <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> word[s[i]]:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">    <span class="built_in">len</span> = <span class="built_in">min</span>(<span class="built_in">len</span>, j - i + <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line">string s[<span class="number">100005</span>],s1;</span><br><span class="line">map&lt;string,<span class="type">bool</span>&gt; word;</span><br><span class="line">map&lt;string,<span class="type">int</span>&gt; cnt;</span><br><span class="line"><span class="type">int</span> sum,len;</span><br><span class="line"><span class="comment">//s[] 记录文章中的单词</span></span><br><span class="line"><span class="comment">//word[] 记录单词表中的单词</span></span><br><span class="line"><span class="comment">//cnt[] 记录文章当前区间内单词出现次数</span></span><br><span class="line"><span class="comment">//sum 记录文章中出现单词表的单词数</span></span><br><span class="line"><span class="comment">//len 记录包含表中单词最多的区间的最短长度</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;s1,word[s1]=<span class="number">1</span>;</span><br><span class="line">  cin&gt;&gt;m;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>,i=<span class="number">1</span>; j&lt;=m; j++)&#123;  <span class="comment">//i&lt;=j</span></span><br><span class="line">    cin&gt;&gt;s[j];</span><br><span class="line">    <span class="keyword">if</span>(word[s[j]]) cnt[s[j]]++;</span><br><span class="line">    <span class="keyword">if</span>(cnt[s[j]]==<span class="number">1</span>) sum++, len=j-i<span class="number">+1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=j)&#123;</span><br><span class="line">      <span class="keyword">if</span>(cnt[s[i]]==<span class="number">1</span>) <span class="keyword">break</span>; <span class="comment">//保持i指针位置不动</span></span><br><span class="line">      <span class="keyword">if</span>(cnt[s[i]]&gt;=<span class="number">2</span>) cnt[s[i]]--,i++; <span class="comment">//去重,更优</span></span><br><span class="line">      <span class="keyword">if</span>(!word[s[i]]) i++; <span class="comment">//去掉非目标单词,更优</span></span><br><span class="line">    &#125;</span><br><span class="line">    len=<span class="built_in">min</span>(len,j-i<span class="number">+1</span>); <span class="comment">//更新</span></span><br><span class="line">  &#125;</span><br><span class="line">  cout&lt;&lt;sum&lt;&lt;endl&lt;&lt;len&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -351,13 +373,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="prev" title="A14 归并排序、逆序对">
-                  <i class="fa fa-angle-left"></i> A14 归并排序、逆序对
+                <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A2%20%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%87%8F%E6%B3%95/" rel="prev" title="A2 高精度减法">
+                  <i class="fa fa-angle-left"></i> A2 高精度减法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A12%20%E5%8D%95%E8%B0%83%E6%A0%88/" rel="next" title="A12 单调栈">
-                  A12 单调栈 <i class="fa fa-angle-right"></i>
+                <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A18%20%E5%8F%8C%E6%8C%87%E9%92%88%20%E5%B0%BA%E5%8F%96%E6%B3%95/" rel="next" title="A18 双指针 尺取法">
+                  A18 双指针 尺取法 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -389,13 +411,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">179k</span>
+    <span title="站点总字数">183k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:46</span>
   </span>
 </div>
 <div class="busuanzi-count">

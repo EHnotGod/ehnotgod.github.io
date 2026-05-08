@@ -176,7 +176,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -236,6 +236,330 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D13%20%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D13%20%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB/" class="post-title-link" itemprop="url">D13 树上距离</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/算法竞赛/D/D13-1.png" alt="image-20250418092643205"></p>
+<p>解析：无，LCA板子题举例而已。</p>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## https://loj.ac/p/10130</span></span><br><span class="line"><span class="comment"># 相比树链剖分板子，只在有标注“#距离”处修改了</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.setrecursionlimit(<span class="built_in">int</span>(<span class="number">1e7</span>))</span><br><span class="line">N = <span class="number">100010</span></span><br><span class="line">fa = [<span class="number">0</span>] * N</span><br><span class="line">son = [<span class="number">0</span>] * N</span><br><span class="line">dep = [<span class="number">0</span>] * N</span><br><span class="line">siz = [<span class="number">0</span>] * N</span><br><span class="line">top = [<span class="number">0</span>] * N</span><br><span class="line"><span class="comment"># 距离</span></span><br><span class="line">dis = [<span class="number">0</span>] * N</span><br><span class="line">e = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs1</span>(<span class="params">u, f</span>):</span><br><span class="line">    fa[u] = f</span><br><span class="line">    siz[u] = <span class="number">1</span></span><br><span class="line">    dep[u] = dep[f] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> e[u]:</span><br><span class="line">        <span class="keyword">if</span> v == f:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="comment"># 距离</span></span><br><span class="line">        dis[v] = dis[u] + <span class="number">1</span></span><br><span class="line">        dfs1(v, u)</span><br><span class="line">        siz[u] += siz[v]</span><br><span class="line">        <span class="keyword">if</span> siz[son[u]] &lt; siz[v]:</span><br><span class="line">            son[u] = v</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs2</span>(<span class="params">u, t</span>):</span><br><span class="line">    top[u] = t</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> son[u]:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    dfs2(son[u], t)</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> e[u]:</span><br><span class="line">        <span class="keyword">if</span> v == fa[u] <span class="keyword">or</span> v == son[u]:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        dfs2(v, v)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lca</span>(<span class="params">u, v</span>):</span><br><span class="line">    <span class="keyword">while</span> top[u] != top[v]:</span><br><span class="line">        <span class="keyword">if</span> dep[top[u]] &lt; dep[top[v]]:</span><br><span class="line">            u, v = v, u</span><br><span class="line">        u = fa[top[u]]</span><br><span class="line">    <span class="keyword">if</span> dep[u] &lt; dep[v]:</span><br><span class="line">        <span class="keyword">return</span> u</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> v</span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">    a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    e[a].append(b)</span><br><span class="line">    e[b].append(a)</span><br><span class="line">dfs1(<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">dfs2(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    <span class="comment"># 距离</span></span><br><span class="line">    d = dis[a] + dis[b] - dis[lca(a, b)] * <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(d)</span><br></pre></td></tr></table></figure>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b,c;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N];</span><br><span class="line"><span class="type">int</span> dep[N],fa[N],son[N],sz[N],dis[N];</span><br><span class="line"><span class="type">int</span> top[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs1</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> father)</span></span>&#123;</span><br><span class="line">  fa[u]=father,dep[u]=dep[father]<span class="number">+1</span>,sz[u]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> v:e[u])&#123;</span><br><span class="line">    <span class="keyword">if</span>(v==father) <span class="keyword">continue</span>;</span><br><span class="line">    dis[v]=dis[u]<span class="number">+1</span>;</span><br><span class="line">    <span class="built_in">dfs1</span>(v,u);</span><br><span class="line">    sz[u]+=sz[v];</span><br><span class="line">    <span class="keyword">if</span>(sz[son[u]]&lt;sz[v])son[u]=v;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs2</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> t)</span></span>&#123;</span><br><span class="line">  top[u]=t;</span><br><span class="line">  <span class="keyword">if</span>(!son[u]) <span class="keyword">return</span>;</span><br><span class="line">  <span class="built_in">dfs2</span>(son[u],t);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> v:e[u])&#123;</span><br><span class="line">    <span class="keyword">if</span>(v==fa[u]||v==son[u])<span class="keyword">continue</span>;</span><br><span class="line">    <span class="built_in">dfs2</span>(v,v);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lca</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(top[x]!=top[y])&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[top[x]]&lt;dep[top[y]])<span class="built_in">swap</span>(x,y);</span><br><span class="line">    x=fa[top[x]];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dep[x]&lt;dep[y]?x:y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;n; i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    e[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">    e[b].<span class="built_in">push_back</span>(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">dfs1</span>(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">  <span class="built_in">dfs2</span>(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">  <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="type">int</span> d=dis[a]+dis[b]-dis[<span class="built_in">lca</span>(a,b)]*<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,d);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D14%20%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8FTarjan%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D14%20%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8FTarjan%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">D14 强连通分量Tarjan算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P2863 [USACO06JAN] The Cow Prom S</p>
+<p><strong>题目描述</strong></p>
+<p>有一个 <script type="math/tex">n</script> 个点，<script type="math/tex">m</script> 条边的有向图，请求出这个图点数大于 <script type="math/tex">1</script> 的强连通分量个数。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行为两个整数 <script type="math/tex">n</script> 和 <script type="math/tex">m</script>。</p>
+<p>第二行至 <script type="math/tex">m+1</script> 行，每一行有两个整数 <script type="math/tex">a</script> 和 <script type="math/tex">b</script>，表示有一条从 <script type="math/tex">a</script> 到 <script type="math/tex">b</script> 的有向边。</p>
+<p><strong>输出格式</strong></p>
+<p>仅一行，表示点数大于 <script type="math/tex">1</script> 的强连通分量个数。</p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5 4</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">1 2</span><br><span class="line">4 1</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>对于全部的测试点，保证 <script type="math/tex">2\le n \le 10^4</script>，<script type="math/tex">2\le m\le 5\times 10^4</script>，<script type="math/tex">1 \leq a, b \leq n</script>。</p>
+<p><img src="/images/算法竞赛/D/D14-1.png" alt="image-20250817142047464"></p>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tarjan算法 O(n+m)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b,ans;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N]; </span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,stk[N],ins[N],top,scc[N],siz[N],cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim; <span class="comment">//时间戳 追溯值</span></span><br><span class="line">  stk[++top]=x,ins[x]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y:e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123; <span class="comment">//若y尚未访问</span></span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); <span class="comment">//因y是儿子</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(ins[y]) <span class="comment">//若y已访问且在栈中</span></span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]); <span class="comment">//因y是祖先或左子树点</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(dfn[x]==low[x])&#123; <span class="comment">//若x是SCC的根</span></span><br><span class="line">    ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="type">int</span> y=stk[top--]; ins[y]=<span class="number">0</span>;</span><br><span class="line">      scc[y]=cnt; <span class="comment">//SCC的编号</span></span><br><span class="line">      ++siz[cnt]; <span class="comment">//SCC的大小</span></span><br><span class="line">      <span class="keyword">if</span>(y==x) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m--)</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b, e[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="comment">//可能不连通</span></span><br><span class="line">    <span class="keyword">if</span>(!dfn[i]) <span class="built_in">tarjan</span>(i);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)</span><br><span class="line">     <span class="keyword">if</span>(siz[i]&gt;<span class="number">1</span>) ans++;</span><br><span class="line">  cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D15%20Tarjan%20SCC%E7%BC%A9%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D15%20Tarjan%20SCC%E7%BC%A9%E7%82%B9/" class="post-title-link" itemprop="url">D15 Tarjan SCC缩点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P3387 【模板】缩点</p>
+<p><strong>题目描述</strong></p>
+<p>给定一个 <script type="math/tex">n</script> 个点 <script type="math/tex">m</script> 条边有向图，每个点有一个权值，求一条路径，使路径经过的点权值之和最大。你只需要求出这个权值和。</p>
+<p>允许多次经过一条边或者一个点，但是，重复经过的点，权值只计算一次。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行两个正整数 <script type="math/tex">n,m</script>。</p>
+<p>第二行 <script type="math/tex">n</script> 个整数，其中第 <script type="math/tex">i</script> 个数 <script type="math/tex">a_i</script> 表示点 <script type="math/tex">i</script> 的点权。</p>
+<p>第三至 <script type="math/tex">m+2</script> 行，每行两个整数 <script type="math/tex">u,v</script>，表示一条 <script type="math/tex">u\rightarrow v</script> 的有向边。</p>
+<p><strong>输出格式</strong></p>
+<p>共一行，最大的点权之和。</p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br><span class="line">1 1</span><br><span class="line">1 2</span><br><span class="line">2 1</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<p>对于 <script type="math/tex">100\%</script> 的数据，<script type="math/tex">1\le n \le 10^4</script>，<script type="math/tex">1\le m \le 10^5</script>，<script type="math/tex">0\le a_i\le 10^3</script>。</p>
+<p><img src="/images/算法竞赛/D/D15-1.png" alt="image-20250817142544858"></p>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N],ne[N]; </span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,stk[N],top,scc[N],cnt;</span><br><span class="line"><span class="type">int</span> w[N],nw[N],d[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim; </span><br><span class="line">  stk[++top]=x;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y : e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123;</span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(!scc[y])</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(dfn[x]==low[x])&#123;</span><br><span class="line">    ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="type">int</span> y=stk[top--];</span><br><span class="line">      scc[y]=cnt;</span><br><span class="line">      <span class="keyword">if</span>(y==x) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) cin&gt;&gt;w[i];</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    e[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="comment">//缩点</span></span><br><span class="line">    <span class="keyword">if</span>(!dfn[i]) <span class="built_in">tarjan</span>(i); </span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">1</span>;x&lt;=n;x++)&#123; <span class="comment">//建拓扑图</span></span><br><span class="line">    nw[scc[x]]+=w[x];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> y:e[x])</span><br><span class="line">      <span class="keyword">if</span>(scc[x]!=scc[y]) ne[scc[x]].<span class="built_in">push_back</span>(scc[y]);</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> x=cnt;x;x--)&#123; <span class="comment">//求最长路</span></span><br><span class="line">    <span class="keyword">if</span>(d[x]==<span class="number">0</span>) d[x]=nw[x]; <span class="comment">//起点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> y:ne[x])</span><br><span class="line">      d[y]=<span class="built_in">max</span>(d[y],d[x]+nw[y]);</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++) ans=<span class="built_in">max</span>(ans,d[i]);</span><br><span class="line">  cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D16%20Tarjan%E5%89%B2%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -265,7 +589,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -378,7 +702,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -464,117 +788,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D14%20%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8FTarjan%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D14%20%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8FTarjan%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">D14 强连通分量Tarjan算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>P2863 [USACO06JAN] The Cow Prom S</p>
-<p><strong>题目描述</strong></p>
-<p>有一个 <script type="math/tex">n</script> 个点，<script type="math/tex">m</script> 条边的有向图，请求出这个图点数大于 <script type="math/tex">1</script> 的强连通分量个数。</p>
-<p><strong>输入格式</strong></p>
-<p>第一行为两个整数 <script type="math/tex">n</script> 和 <script type="math/tex">m</script>。</p>
-<p>第二行至 <script type="math/tex">m+1</script> 行，每一行有两个整数 <script type="math/tex">a</script> 和 <script type="math/tex">b</script>，表示有一条从 <script type="math/tex">a</script> 到 <script type="math/tex">b</script> 的有向边。</p>
-<p><strong>输出格式</strong></p>
-<p>仅一行，表示点数大于 <script type="math/tex">1</script> 的强连通分量个数。</p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5 4</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">1 2</span><br><span class="line">4 1</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
-<p>对于全部的测试点，保证 <script type="math/tex">2\le n \le 10^4</script>，<script type="math/tex">2\le m\le 5\times 10^4</script>，<script type="math/tex">1 \leq a, b \leq n</script>。</p>
-<p><img src="/images/算法竞赛/D/D14-1.png" alt="image-20250817142047464"></p>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tarjan算法 O(n+m)</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b,ans;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; e[N]; </span><br><span class="line"><span class="type">int</span> dfn[N],low[N],tim,stk[N],ins[N],top,scc[N],siz[N],cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">  dfn[x]=low[x]=++tim; <span class="comment">//时间戳 追溯值</span></span><br><span class="line">  stk[++top]=x,ins[x]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> y:e[x])&#123;</span><br><span class="line">    <span class="keyword">if</span>(!dfn[y])&#123; <span class="comment">//若y尚未访问</span></span><br><span class="line">      <span class="built_in">tarjan</span>(y);</span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],low[y]); <span class="comment">//因y是儿子</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(ins[y]) <span class="comment">//若y已访问且在栈中</span></span><br><span class="line">      low[x]=<span class="built_in">min</span>(low[x],dfn[y]); <span class="comment">//因y是祖先或左子树点</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(dfn[x]==low[x])&#123; <span class="comment">//若x是SCC的根</span></span><br><span class="line">    ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="type">int</span> y=stk[top--]; ins[y]=<span class="number">0</span>;</span><br><span class="line">      scc[y]=cnt; <span class="comment">//SCC的编号</span></span><br><span class="line">      ++siz[cnt]; <span class="comment">//SCC的大小</span></span><br><span class="line">      <span class="keyword">if</span>(y==x) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="keyword">while</span>(m--)</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b, e[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="comment">//可能不连通</span></span><br><span class="line">    <span class="keyword">if</span>(!dfn[i]) <span class="built_in">tarjan</span>(i);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)</span><br><span class="line">     <span class="keyword">if</span>(siz[i]&gt;<span class="number">1</span>) ans++;</span><br><span class="line">  cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D18%20Tarjan%20eDCC%E7%BC%A9%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -604,7 +817,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -691,6 +904,139 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D2%20%E7%8B%84%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D2%20%E7%8B%84%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">D2 狄克斯特拉算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
+<p>如题，给出一个有向图，请输出从某一点出发到所有点的最短路径长度。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行包含三个整数 <script type="math/tex">n,m,s</script>，分别表示点的个数、有向边的个数、出发点的编号。</p>
+<p>接下来 <script type="math/tex">m</script> 行每行包含三个整数 <script type="math/tex">u,v,w</script>，表示一条 <script type="math/tex">u \to v</script> 的，长度为 <script type="math/tex">w</script> 的边。</p>
+<p><strong>输出格式</strong></p>
+<p>输出一行 <script type="math/tex">n</script> 个整数，第 <script type="math/tex">i</script> 个表示 <script type="math/tex">s</script> 到第 <script type="math/tex">i</script> 个点的最短路径，若不能到达则输出 <script type="math/tex">2^{31}-1</script>。</p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">4 6 1</span><br><span class="line">1 2 2</span><br><span class="line">2 3 2</span><br><span class="line">2 4 1</span><br><span class="line">1 3 5</span><br><span class="line">3 4 3</span><br><span class="line">1 4 4</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 4 3</span><br></pre></td></tr></table></figure>
+<p>对于 <script type="math/tex">100\%</script> 的数据：<script type="math/tex">1 \le n \le 10^4</script>，<script type="math/tex">1\le m \le 5\times 10^5</script>，<script type="math/tex">1\le u,v\le n</script>，<script type="math/tex">w\ge 0</script>，<script type="math/tex">\sum w< 2^{31}</script>，保证数据随机。</p>
+<p><strong>解析：</strong>时间复杂度：<script type="math/tex">O(n^2)</script></p>
+<p><img src="/images/算法竞赛/D/D2-1.png" alt="image-20250418090828454"></p>
+<p><strong>堆优化版：</strong></p>
+<p><strong>题目描述</strong></p>
+<p>给定一个 <script type="math/tex">n</script> 个点，<script type="math/tex">m</script> 条有向边的带非负权图，请你计算从 <script type="math/tex">s</script> 出发，到每个点的距离。</p>
+<p>数据保证你能从 <script type="math/tex">s</script> 出发到任意点。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行为三个正整数 <script type="math/tex">n, m, s</script>。<br>第二行起 <script type="math/tex">m</script> 行，每行三个非负整数 <script type="math/tex">u_i, v_i, w_i</script>，表示从 <script type="math/tex">u_i</script> 到 <script type="math/tex">v_i</script> 有一条权值为 <script type="math/tex">w_i</script> 的有向边。</p>
+<p><strong>输出格式</strong></p>
+<p>输出一行 <script type="math/tex">n</script> 个空格分隔的非负整数，表示 <script type="math/tex">s</script> 到每个点的距离。</p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">4 6 1</span><br><span class="line">1 2 2</span><br><span class="line">2 3 2</span><br><span class="line">2 4 1</span><br><span class="line">1 3 5</span><br><span class="line">3 4 3</span><br><span class="line">1 4 4</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 4 3</span><br></pre></td></tr></table></figure>
+<p><script type="math/tex">1 \leq n \leq 10^5</script>；</p>
+<p><script type="math/tex">1 \leq m \leq 2\times 10^5</script>；</p>
+<p><script type="math/tex">s = 1</script>；</p>
+<p><script type="math/tex">1 \leq u_i, v_i\leq n</script>；</p>
+<p><script type="math/tex">0 \leq w_i \leq 10 ^ 9</script>,</p>
+<p><script type="math/tex">0 \leq \sum w_i \leq 10 ^ 9</script>。</p>
+<p><img src="/images/算法竞赛/D/D2-2.png" alt="image-20250418091036262"></p>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Edge</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, v, w</span>):</span><br><span class="line">        <span class="variable language_">self</span>.v = v</span><br><span class="line">        <span class="variable language_">self</span>.w = w</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dijkstra</span>(<span class="params">s</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        d[i] = <span class="built_in">int</span>(<span class="number">2</span> ** <span class="number">31</span> - <span class="number">1</span>)</span><br><span class="line">    d[s] = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">        u = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> vis[j] <span class="keyword">and</span> d[j] &lt; d[u]:</span><br><span class="line">                u = j</span><br><span class="line">        vis[u] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> ed <span class="keyword">in</span> e[u]:</span><br><span class="line">            v = ed.v</span><br><span class="line">            w = ed.w</span><br><span class="line">            <span class="keyword">if</span> d[v] &gt; d[u] + w:</span><br><span class="line">                d[v] = d[u] + w</span><br><span class="line"></span><br><span class="line">n, m, s = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">e = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line">d = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">vis = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    e[a].append(Edge(b, c))</span><br><span class="line"></span><br><span class="line">dijkstra(s)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(d[i], end=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Edge</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, v, w</span>):</span><br><span class="line">        <span class="variable language_">self</span>.v = v</span><br><span class="line">        <span class="variable language_">self</span>.w = w</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dijkstra</span>(<span class="params">s</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        d[i] = <span class="built_in">int</span>(<span class="number">1e20</span>)</span><br><span class="line">    d[s] = <span class="number">0</span></span><br><span class="line">    q = []</span><br><span class="line">    heapq.heappush(q, [<span class="number">0</span>, s])</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(q) &gt; <span class="number">0</span>:</span><br><span class="line">        t = heapq.heappop(q)</span><br><span class="line">        u = t[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> vis[u]:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        vis[u] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> ed <span class="keyword">in</span> e[u]:</span><br><span class="line">            v = ed.v</span><br><span class="line">            w = ed.w</span><br><span class="line">            <span class="keyword">if</span> d[v] &gt; d[u] + w:</span><br><span class="line">                d[v] = d[u] + w</span><br><span class="line">                heapq.heappush(q, [d[v], v])</span><br><span class="line"></span><br><span class="line">n, m, s = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">e = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line">d = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">vis = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    e[a].append(Edge(b, c))</span><br><span class="line"></span><br><span class="line">dijkstra(s)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(d[i], end=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dijkstra</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 2147483647</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,s,a,b,c;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,w;&#125;;</span><br><span class="line">vector&lt;edge&gt; e[N];</span><br><span class="line"><span class="type">int</span> d[N], vis[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=n;i++)d[i]=inf;</span><br><span class="line">  d[s]=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;<span class="comment">//枚举次数</span></span><br><span class="line">    <span class="type">int</span> u=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)<span class="comment">//枚举点</span></span><br><span class="line">      <span class="keyword">if</span>(!vis[j]&amp;&amp;d[j]&lt;d[u]) u=j;</span><br><span class="line">    vis[u]=<span class="number">1</span>; <span class="comment">//标记u已出圈</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> ed:e[u])&#123;<span class="comment">//枚举邻边</span></span><br><span class="line">      <span class="type">int</span> v=ed.v, w=ed.w;</span><br><span class="line">      <span class="keyword">if</span>(d[v]&gt;d[u]+w)&#123;</span><br><span class="line">        d[v]=d[u]+w;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">    e[a].<span class="built_in">push_back</span>(&#123;b,c&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">dijkstra</span>(s);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,d[i]);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//堆优化Dijkstra</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n,m,s,a,b,c;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,w;&#125;;</span><br><span class="line">vector&lt;edge&gt; e[N];</span><br><span class="line"><span class="type">int</span> d[N],vis[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d); d[s]=<span class="number">0</span>;</span><br><span class="line">  priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; q;</span><br><span class="line">  q.<span class="built_in">push</span>(&#123;<span class="number">0</span>,s&#125;);</span><br><span class="line">  <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="keyword">auto</span> t=q.<span class="built_in">top</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="type">int</span> u=t.second;</span><br><span class="line">    <span class="keyword">if</span>(vis[u])<span class="keyword">continue</span>; <span class="comment">//再出队跳过</span></span><br><span class="line">    vis[u]=<span class="number">1</span>; <span class="comment">//标记u已出队</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> ed : e[u])&#123;</span><br><span class="line">      <span class="type">int</span> v=ed.v, w=ed.w;</span><br><span class="line">      <span class="keyword">if</span>(d[v]&gt;d[u]+w)&#123;</span><br><span class="line">        d[v]=d[u]+w;</span><br><span class="line">        q.<span class="built_in">push</span>(&#123;-d[v],v&#125;); <span class="comment">//大根堆</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c, e[a].<span class="built_in">push_back</span>(&#123;b,c&#125;);</span><br><span class="line">  <span class="built_in">dijkstra</span>(s);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,d[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D19%20Tarjan%20vDCC%E7%BC%A9%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -720,7 +1066,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -842,7 +1188,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -926,139 +1272,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D2%20%E7%8B%84%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D2%20%E7%8B%84%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">D2 狄克斯特拉算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>如题，给出一个有向图，请输出从某一点出发到所有点的最短路径长度。</p>
-<p><strong>输入格式</strong></p>
-<p>第一行包含三个整数 <script type="math/tex">n,m,s</script>，分别表示点的个数、有向边的个数、出发点的编号。</p>
-<p>接下来 <script type="math/tex">m</script> 行每行包含三个整数 <script type="math/tex">u,v,w</script>，表示一条 <script type="math/tex">u \to v</script> 的，长度为 <script type="math/tex">w</script> 的边。</p>
-<p><strong>输出格式</strong></p>
-<p>输出一行 <script type="math/tex">n</script> 个整数，第 <script type="math/tex">i</script> 个表示 <script type="math/tex">s</script> 到第 <script type="math/tex">i</script> 个点的最短路径，若不能到达则输出 <script type="math/tex">2^{31}-1</script>。</p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">4 6 1</span><br><span class="line">1 2 2</span><br><span class="line">2 3 2</span><br><span class="line">2 4 1</span><br><span class="line">1 3 5</span><br><span class="line">3 4 3</span><br><span class="line">1 4 4</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 4 3</span><br></pre></td></tr></table></figure>
-<p>对于 <script type="math/tex">100\%</script> 的数据：<script type="math/tex">1 \le n \le 10^4</script>，<script type="math/tex">1\le m \le 5\times 10^5</script>，<script type="math/tex">1\le u,v\le n</script>，<script type="math/tex">w\ge 0</script>，<script type="math/tex">\sum w< 2^{31}</script>，保证数据随机。</p>
-<p><strong>解析：</strong>时间复杂度：<script type="math/tex">O(n^2)</script></p>
-<p><img src="/images/算法竞赛/D/D2-1.png" alt="image-20250418090828454"></p>
-<p><strong>堆优化版：</strong></p>
-<p><strong>题目描述</strong></p>
-<p>给定一个 <script type="math/tex">n</script> 个点，<script type="math/tex">m</script> 条有向边的带非负权图，请你计算从 <script type="math/tex">s</script> 出发，到每个点的距离。</p>
-<p>数据保证你能从 <script type="math/tex">s</script> 出发到任意点。</p>
-<p><strong>输入格式</strong></p>
-<p>第一行为三个正整数 <script type="math/tex">n, m, s</script>。<br>第二行起 <script type="math/tex">m</script> 行，每行三个非负整数 <script type="math/tex">u_i, v_i, w_i</script>，表示从 <script type="math/tex">u_i</script> 到 <script type="math/tex">v_i</script> 有一条权值为 <script type="math/tex">w_i</script> 的有向边。</p>
-<p><strong>输出格式</strong></p>
-<p>输出一行 <script type="math/tex">n</script> 个空格分隔的非负整数，表示 <script type="math/tex">s</script> 到每个点的距离。</p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">4 6 1</span><br><span class="line">1 2 2</span><br><span class="line">2 3 2</span><br><span class="line">2 4 1</span><br><span class="line">1 3 5</span><br><span class="line">3 4 3</span><br><span class="line">1 4 4</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 4 3</span><br></pre></td></tr></table></figure>
-<p><script type="math/tex">1 \leq n \leq 10^5</script>；</p>
-<p><script type="math/tex">1 \leq m \leq 2\times 10^5</script>；</p>
-<p><script type="math/tex">s = 1</script>；</p>
-<p><script type="math/tex">1 \leq u_i, v_i\leq n</script>；</p>
-<p><script type="math/tex">0 \leq w_i \leq 10 ^ 9</script>,</p>
-<p><script type="math/tex">0 \leq \sum w_i \leq 10 ^ 9</script>。</p>
-<p><img src="/images/算法竞赛/D/D2-2.png" alt="image-20250418091036262"></p>
-<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Edge</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, v, w</span>):</span><br><span class="line">        <span class="variable language_">self</span>.v = v</span><br><span class="line">        <span class="variable language_">self</span>.w = w</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dijkstra</span>(<span class="params">s</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        d[i] = <span class="built_in">int</span>(<span class="number">2</span> ** <span class="number">31</span> - <span class="number">1</span>)</span><br><span class="line">    d[s] = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">        u = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> vis[j] <span class="keyword">and</span> d[j] &lt; d[u]:</span><br><span class="line">                u = j</span><br><span class="line">        vis[u] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> ed <span class="keyword">in</span> e[u]:</span><br><span class="line">            v = ed.v</span><br><span class="line">            w = ed.w</span><br><span class="line">            <span class="keyword">if</span> d[v] &gt; d[u] + w:</span><br><span class="line">                d[v] = d[u] + w</span><br><span class="line"></span><br><span class="line">n, m, s = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">e = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line">d = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">vis = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    e[a].append(Edge(b, c))</span><br><span class="line"></span><br><span class="line">dijkstra(s)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(d[i], end=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Edge</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, v, w</span>):</span><br><span class="line">        <span class="variable language_">self</span>.v = v</span><br><span class="line">        <span class="variable language_">self</span>.w = w</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dijkstra</span>(<span class="params">s</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        d[i] = <span class="built_in">int</span>(<span class="number">1e20</span>)</span><br><span class="line">    d[s] = <span class="number">0</span></span><br><span class="line">    q = []</span><br><span class="line">    heapq.heappush(q, [<span class="number">0</span>, s])</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(q) &gt; <span class="number">0</span>:</span><br><span class="line">        t = heapq.heappop(q)</span><br><span class="line">        u = t[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> vis[u]:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        vis[u] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> ed <span class="keyword">in</span> e[u]:</span><br><span class="line">            v = ed.v</span><br><span class="line">            w = ed.w</span><br><span class="line">            <span class="keyword">if</span> d[v] &gt; d[u] + w:</span><br><span class="line">                d[v] = d[u] + w</span><br><span class="line">                heapq.heappush(q, [d[v], v])</span><br><span class="line"></span><br><span class="line">n, m, s = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">e = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line">d = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">vis = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    e[a].append(Edge(b, c))</span><br><span class="line"></span><br><span class="line">dijkstra(s)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(d[i], end=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dijkstra</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 2147483647</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,s,a,b,c;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,w;&#125;;</span><br><span class="line">vector&lt;edge&gt; e[N];</span><br><span class="line"><span class="type">int</span> d[N], vis[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=n;i++)d[i]=inf;</span><br><span class="line">  d[s]=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;<span class="comment">//枚举次数</span></span><br><span class="line">    <span class="type">int</span> u=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)<span class="comment">//枚举点</span></span><br><span class="line">      <span class="keyword">if</span>(!vis[j]&amp;&amp;d[j]&lt;d[u]) u=j;</span><br><span class="line">    vis[u]=<span class="number">1</span>; <span class="comment">//标记u已出圈</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> ed:e[u])&#123;<span class="comment">//枚举邻边</span></span><br><span class="line">      <span class="type">int</span> v=ed.v, w=ed.w;</span><br><span class="line">      <span class="keyword">if</span>(d[v]&gt;d[u]+w)&#123;</span><br><span class="line">        d[v]=d[u]+w;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">    e[a].<span class="built_in">push_back</span>(&#123;b,c&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">dijkstra</span>(s);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,d[i]);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//堆优化Dijkstra</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n,m,s,a,b,c;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,w;&#125;;</span><br><span class="line">vector&lt;edge&gt; e[N];</span><br><span class="line"><span class="type">int</span> d[N],vis[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d); d[s]=<span class="number">0</span>;</span><br><span class="line">  priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; q;</span><br><span class="line">  q.<span class="built_in">push</span>(&#123;<span class="number">0</span>,s&#125;);</span><br><span class="line">  <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="keyword">auto</span> t=q.<span class="built_in">top</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="type">int</span> u=t.second;</span><br><span class="line">    <span class="keyword">if</span>(vis[u])<span class="keyword">continue</span>; <span class="comment">//再出队跳过</span></span><br><span class="line">    vis[u]=<span class="number">1</span>; <span class="comment">//标记u已出队</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> ed : e[u])&#123;</span><br><span class="line">      <span class="type">int</span> v=ed.v, w=ed.w;</span><br><span class="line">      <span class="keyword">if</span>(d[v]&gt;d[u]+w)&#123;</span><br><span class="line">        d[v]=d[u]+w;</span><br><span class="line">        q.<span class="built_in">push</span>(&#123;-d[v],v&#125;); <span class="comment">//大根堆</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c, e[a].<span class="built_in">push_back</span>(&#123;b,c&#125;);</span><br><span class="line">  <span class="built_in">dijkstra</span>(s);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,d[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D23%20%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81EK/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1088,7 +1301,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
+      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1169,214 +1382,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D27%20%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D27%20%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" class="post-title-link" itemprop="url">D27 二分图最大匹配</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
-<p>给定一个二分图，其左部点的个数为 <script type="math/tex">n</script>，右部点的个数为 <script type="math/tex">m</script>，边数为 <script type="math/tex">e</script>，求其最大匹配的边数。</p>
-<p>左部点从 <script type="math/tex">1</script> 至 <script type="math/tex">n</script> 编号，右部点从 <script type="math/tex">1</script> 至 <script type="math/tex">m</script> 编号。</p>
-<p><strong>输入格式</strong></p>
-<p>输入的第一行是三个整数，分别代表 <script type="math/tex">n</script>，<script type="math/tex">m</script> 和 <script type="math/tex">e</script>。</p>
-<p>接下来 <script type="math/tex">e</script> 行，每行两个整数 <script type="math/tex">u, v</script>，表示存在一条连接左部点 <script type="math/tex">u</script> 和右部点 <script type="math/tex">v</script> 的边。</p>
-<p><strong>输出格式</strong></p>
-<p>输出一行一个整数，代表二分图最大匹配的边数。</p>
-<p>输入 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 1 1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
-<p>输出 #1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 1010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> M 2000010</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,k,S,T;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;<span class="type">int</span> v,c,ne;&#125;e[M];</span><br><span class="line"><span class="type">int</span> h[N],idx=<span class="number">1</span>; <span class="comment">//从2,3开始配对</span></span><br><span class="line"><span class="type">int</span> d[N],cur[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c)</span></span>&#123;</span><br><span class="line">  e[++idx]=&#123;b,c,h[a]&#125;;</span><br><span class="line">  h[a]=idx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123; <span class="comment">//对点分层，找增广路</span></span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">  queue&lt;<span class="type">int</span>&gt;q; </span><br><span class="line">  q.<span class="built_in">push</span>(S); d[S]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="type">int</span> u=q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=h[u];i;i=e[i].ne)&#123;</span><br><span class="line">      <span class="type">int</span> v=e[i].v;</span><br><span class="line">      <span class="keyword">if</span>(d[v]==<span class="number">0</span> &amp;&amp; e[i].c)&#123;</span><br><span class="line">        d[v]=d[u]<span class="number">+1</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(v);</span><br><span class="line">        <span class="keyword">if</span>(v==T)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> mf)</span></span>&#123; <span class="comment">//多路增广</span></span><br><span class="line">  <span class="keyword">if</span>(u==T) <span class="keyword">return</span> mf;</span><br><span class="line">  <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=cur[u];i;i=e[i].ne)&#123;</span><br><span class="line">    cur[u]=i; <span class="comment">//当前弧优化</span></span><br><span class="line">    <span class="type">int</span> v=e[i].v;</span><br><span class="line">    <span class="keyword">if</span>(d[v]==d[u]<span class="number">+1</span> &amp;&amp; e[i].c)&#123;</span><br><span class="line">      <span class="type">int</span> f=<span class="built_in">dfs</span>(v,<span class="built_in">min</span>(mf,e[i].c));</span><br><span class="line">      e[i].c-=f; </span><br><span class="line">      e[i^<span class="number">1</span>].c+=f; <span class="comment">//更新残留网</span></span><br><span class="line">      sum+=f; <span class="comment">//累加u的流出流量</span></span><br><span class="line">      mf-=f;  <span class="comment">//减少u的剩余流量</span></span><br><span class="line">      <span class="keyword">if</span>(mf==<span class="number">0</span>)<span class="keyword">break</span>;<span class="comment">//余量优化</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(sum==<span class="number">0</span>) d[u]=<span class="number">0</span>; <span class="comment">//残枝优化</span></span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dinic</span><span class="params">()</span></span>&#123; <span class="comment">//累加可行流</span></span><br><span class="line">  <span class="type">int</span> flow=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">bfs</span>())&#123;</span><br><span class="line">    <span class="built_in">memcpy</span>(cur, h, <span class="keyword">sizeof</span> h);</span><br><span class="line">    flow+=<span class="built_in">dfs</span>(S,<span class="number">1e9</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> a,b,c;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">  <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="built_in">add</span>(a,b+n,<span class="number">1</span>);<span class="built_in">add</span>(b+n,a,<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  S=<span class="number">0</span>;T=n+m<span class="number">+1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="built_in">add</span>(S,i,<span class="number">1</span>),<span class="built_in">add</span>(i,S,<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    <span class="built_in">add</span>(i+n,T,<span class="number">1</span>),<span class="built_in">add</span>(T,i+n,<span class="number">0</span>); </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">dinic</span>());</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D4%20%E6%9C%80%E7%9F%AD%E8%B7%AF%20Floyd%20%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="EH">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EH's Blog">
-      <meta itemprop="description" content="A blog about programming, technology, and life.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | EH's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D4%20%E6%9C%80%E7%9F%AD%E8%B7%AF%20Floyd%20%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">D4 最短路 Floyd 算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-08 04:53:30" itemprop="dateCreated datePublished" datetime="2026-05-08T04:53:30+00:00">2026-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/D-%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">D 图论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>994</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/算法竞赛/D/D4-1.png" alt="image-20250418091227375"></p>
-<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">floyd</span>():</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">                d[i][j] = <span class="built_in">min</span>(d[i][j], d[i][k] + d[k][j])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n, m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">d = [[<span class="built_in">int</span>(<span class="number">1e20</span>) <span class="keyword">for</span> __ <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    d[i][i] = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    d[a][b] = <span class="built_in">min</span>(d[a][b], c)</span><br><span class="line">    floyd()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(*d[i][<span class="number">1</span>:])</span><br></pre></td></tr></table></figure>
-<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">210</span>,M=<span class="number">20010</span>;</span><br><span class="line"><span class="type">int</span> n,m,a,b,c;</span><br><span class="line"><span class="type">int</span> d[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">floyd</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>; k&lt;=n; k++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>; j&lt;=n; j++)</span><br><span class="line">        d[i][j]=<span class="built_in">min</span>(d[i][j],d[i][k]+d[k][j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)d[i][i]=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">    d[a][b]=<span class="built_in">min</span>(d[a][b],c); <span class="comment">//重边</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">floyd</span>();</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,d[i][j]);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1400,13 +1405,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">179k</span>
+    <span title="站点总字数">183k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:46</span>
   </span>
 </div>
 <div class="busuanzi-count">
