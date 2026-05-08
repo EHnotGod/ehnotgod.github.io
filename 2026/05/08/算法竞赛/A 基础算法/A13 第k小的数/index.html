@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ehnotgod.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="题目情境题目描述 输入 n 个数字 a_i，输出这些数字中第 k 小的数。最小的数是第 0 小。 请尽量不要使用 nth_element 来写本题，因为本题的重点在于练习分治算法。 输入格式 第一行有两个整数，分别表示 n 和 k。 第二行有 n 个整数，第 i 个数表示 a_i。 输出格式 一个整数，表示第 k 小的数。 输入 #1 1235 14 3 2 1 5 输出 #1 122 说明&#x2F;提示">
+    <meta name="description" content="题目情境题目描述 输入 n 个数字 a_i，输出这些数字中第 k 小的数。最小的数是第 0 小。 请尽量不要使用 nth_element 来写本题，因为本题的重点在于练习分治算法。 输入格式 第一行有两个整数，分别表示 n 和 k。 第二行有 n 个整数，第 i 个数表示 a_i。 输出格式 一个整数，表示第 k 小的数。输入输出样例输入 #1 1235 14 3 2 1 5 输出 #1 122">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A13 第k小的数">
 <meta property="og:url" content="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A13%20%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
-<meta property="og:description" content="题目情境题目描述 输入 n 个数字 a_i，输出这些数字中第 k 小的数。最小的数是第 0 小。 请尽量不要使用 nth_element 来写本题，因为本题的重点在于练习分治算法。 输入格式 第一行有两个整数，分别表示 n 和 k。 第二行有 n 个整数，第 i 个数表示 a_i。 输出格式 一个整数，表示第 k 小的数。 输入 #1 1235 14 3 2 1 5 输出 #1 122 说明&#x2F;提示">
+<meta property="og:description" content="题目情境题目描述 输入 n 个数字 a_i，输出这些数字中第 k 小的数。最小的数是第 0 小。 请尽量不要使用 nth_element 来写本题，因为本题的重点在于练习分治算法。 输入格式 第一行有两个整数，分别表示 n 和 k。 第二行有 n 个整数，第 i 个数表示 a_i。 输出格式 一个整数，表示第 k 小的数。输入输出样例输入 #1 1235 14 3 2 1 5 输出 #1 122">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-08T05:50:37.788Z">
-<meta property="article:modified_time" content="2026-05-08T05:50:37.788Z">
+<meta property="article:published_time" content="2026-05-08T05:55:53.397Z">
+<meta property="article:modified_time" content="2026-05-08T05:55:53.397Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="基础算法">
 <meta name="twitter:card" content="summary">
@@ -270,7 +270,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 05:50:37" itemprop="dateCreated datePublished" datetime="2026-05-08T05:50:37+00:00">2026-05-08</time>
+      <time title="创建时间：2026-05-08 05:55:53" itemprop="dateCreated datePublished" datetime="2026-05-08T05:55:53+00:00">2026-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -300,7 +300,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>180</span>
+      <span>186</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -324,8 +324,7 @@
 <p>第一行有两个整数，分别表示 <script type="math/tex">n</script> 和 <script type="math/tex">k</script>。</p>
 <p>第二行有 <script type="math/tex">n</script> 个整数，第 <script type="math/tex">i</script> 个数表示 <script type="math/tex">a_i</script>。</p>
 <p><strong>输出格式</strong></p>
-<p>一个整数，表示第 <script type="math/tex">k</script> 小的数。</p>
-<p>输入 #1</p>
+<p>一个整数，表示第 <script type="math/tex">k</script> 小的数。<br><strong>输入输出样例</strong><br>输入 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5 1</span><br><span class="line">4 3 2 1 5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -395,7 +394,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:46</span>
+    <span title="站点阅读时长">2:47</span>
   </span>
 </div>
 <div class="busuanzi-count">
