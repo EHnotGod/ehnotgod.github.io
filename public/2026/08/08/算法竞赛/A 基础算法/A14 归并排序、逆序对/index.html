@@ -23,21 +23,21 @@
     <meta name="description" content="题目情境题目描述 猫猫 TOM 和小老鼠 JERRY 最近又较量上了，但是毕竟都是成年人，他们已经不喜欢再玩那种你追我赶的游戏，现在他们喜欢玩统计。 最近，TOM 老猫查阅到一个人类称之为“逆序对”的东西，这东西是这样定义的：对于给定的一段正整数序列，逆序对就是序列中 a_i&gt;a_j 且 i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A14 归并排序、逆序对">
-<meta property="og:url" content="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/index.html">
+<meta property="og:url" content="https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
 <meta property="og:description" content="题目情境题目描述 猫猫 TOM 和小老鼠 JERRY 最近又较量上了，但是毕竟都是成年人，他们已经不喜欢再玩那种你追我赶的游戏，现在他们喜欢玩统计。 最近，TOM 老猫查阅到一个人类称之为“逆序对”的东西，这东西是这样定义的：对于给定的一段正整数序列，逆序对就是序列中 a_i&gt;a_j 且 i">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-08T06:14:20.948Z">
-<meta property="article:modified_time" content="2026-05-08T06:14:20.948Z">
+<meta property="article:published_time" content="2026-08-08T02:05:06.178Z">
+<meta property="article:modified_time" content="2026-08-08T02:05:06.178Z">
 <meta property="article:author" content="EH">
 <meta property="article:tag" content="基础算法">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/">
+<link rel="canonical" href="https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/","path":"2026/05/08/算法竞赛/A 基础算法/A14 归并排序、逆序对/","title":"A14 归并排序、逆序对"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/","path":"2026/08/08/算法竞赛/A 基础算法/A14 归并排序、逆序对/","title":"A14 归并排序、逆序对"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>A14 归并排序、逆序对 | EH's Blog</title>
@@ -180,18 +180,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -241,7 +241,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A14%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%86%E5%BA%8F%E5%AF%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -270,7 +270,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-08 14:14:20" itemprop="dateCreated datePublished" datetime="2026-05-08T14:14:20+08:00">2026-05-08</time>
+      <time title="创建时间：2026-08-08 10:05:06" itemprop="dateCreated datePublished" datetime="2026-08-08T10:05:06+08:00">2026-08-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -325,7 +325,8 @@
 <p>第二行 <script type="math/tex">n</script> 个数，表示给定的序列。序列中每个数字不超过 <script type="math/tex">10^9</script>。</p>
 <p><strong>输出格式</strong></p>
 <p>输出序列中逆序对的数目。</p>
-<p><strong>输入输出样例</strong><br>输入 #1</p>
+<p><strong>输入输出样例</strong></p>
+<p>输入 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">5 4 2 6 3 1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>输出 #1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure>
@@ -356,13 +357,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A16%20%E5%AF%B9%E9%A1%B6%E5%A0%86/" rel="prev" title="A16 对顶堆">
-                  <i class="fa fa-angle-left"></i> A16 对顶堆
+                <a href="/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A13%20%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/" rel="prev" title="A13 第k小的数">
+                  <i class="fa fa-angle-left"></i> A13 第k小的数
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A13%20%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/" rel="next" title="A13 第k小的数">
-                  A13 第k小的数 <i class="fa fa-angle-right"></i>
+                <a href="/2026/08/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k-means/" rel="next" title="k-means算法">
+                  k-means算法 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -394,13 +395,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:47</span>
+    <span title="站点阅读时长">2:48</span>
   </span>
 </div>
 <div class="busuanzi-count">

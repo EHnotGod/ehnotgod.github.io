@@ -20,24 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ehnotgod.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="A blog about programming, technology, and life.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="EH&#39;s Blog">
-<meta property="og:url" content="https://ehnotgod.github.io/archives/2026/05/page/14/index.html">
+    <meta name="description" content="题目情境题目描述 给出项数为 n 的整数数列 a_{1 \dots n}。 定义函数 f(i) 代表数列中第 i 个元素之后第一个大于 a_i 的元素的下标，即 f(i)&#x3D;\min_{i a_i} \{j\}。若不存在，则 f(i)&#x3D;0。 试求出 f(1\dots n)。 输入格式 第一行一个正整数 n。 第二行 n 个正整数 a_{1\dots n}。 输出格式 一行 n 个整数表示 f(1),">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A12 单调栈">
+<meta property="og:url" content="https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A12%20%E5%8D%95%E8%B0%83%E6%A0%88/index.html">
 <meta property="og:site_name" content="EH&#39;s Blog">
-<meta property="og:description" content="A blog about programming, technology, and life.">
+<meta property="og:description" content="题目情境题目描述 给出项数为 n 的整数数列 a_{1 \dots n}。 定义函数 f(i) 代表数列中第 i 个元素之后第一个大于 a_i 的元素的下标，即 f(i)&#x3D;\min_{i a_i} \{j\}。若不存在，则 f(i)&#x3D;0。 试求出 f(1\dots n)。 输入格式 第一行一个正整数 n。 第二行 n 个正整数 a_{1\dots n}。 输出格式 一行 n 个整数表示 f(1),">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-08-08T02:05:06.175Z">
+<meta property="article:modified_time" content="2026-08-08T02:05:06.175Z">
 <meta property="article:author" content="EH">
+<meta property="article:tag" content="基础算法">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ehnotgod.github.io/archives/2026/05/page/14/">
+<link rel="canonical" href="https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A12%20%E5%8D%95%E8%B0%83%E6%A0%88/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2026/05/page/14/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A12%20%E5%8D%95%E8%B0%83%E6%A0%88/","path":"2026/08/08/算法竞赛/A 基础算法/A12 单调栈/","title":"A12 单调栈"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | EH's Blog</title>
+<title>A12 单调栈 | EH's Blog</title>
   
 
 
@@ -95,7 +98,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">EH's Blog</h1>
+      <p class="site-title">EH's Blog</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">EH is not god, but EH</p>
@@ -149,7 +152,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -162,6 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%83%85%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">题目情境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">算法解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">Python代码实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -176,18 +180,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -226,93 +230,152 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A12%20%E5%8D%95%E8%B0%83%E6%A0%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EH's Blog">
+      <meta itemprop="description" content="A blog about programming, technology, and life.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="A12 单调栈 | EH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          A12 单调栈
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-08-08 10:05:06" itemprop="dateCreated datePublished" datetime="2026-08-08T10:05:06+08:00">2026-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/A-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">A 基础算法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>639</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><strong>题目描述</strong></p>
+<p>给出项数为 <script type="math/tex">n</script> 的整数数列 <script type="math/tex">a_{1 \dots n}</script>。</p>
+<p>定义函数 <script type="math/tex">f(i)</script> 代表数列中第 <script type="math/tex">i</script> 个元素之后第一个大于 <script type="math/tex">a_i</script> 的元素的<strong>下标</strong>，即 <script type="math/tex">f(i)=\min_{i<j\leq n, a_j > a_i} \{j\}</script>。若不存在，则 <script type="math/tex">f(i)=0</script>。</p>
+<p>试求出 <script type="math/tex">f(1\dots n)</script>。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行一个正整数 <script type="math/tex">n</script>。</p>
+<p>第二行 <script type="math/tex">n</script> 个正整数 <script type="math/tex">a_{1\dots n}</script>。</p>
+<p><strong>输出格式</strong></p>
+<p>一行 <script type="math/tex">n</script> 个整数表示 <script type="math/tex">f(1), f(2), \dots, f(n)</script> 的值。</p>
+<p><strong>输入输出样例</strong></p>
+<p>输入 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 4 2 3 5</span><br></pre></td></tr></table></figure>
+<p>输出 #1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 5 4 5 0</span><br></pre></td></tr></table></figure>
+<p>对于 <script type="math/tex">100\%</script> 的数据，<script type="math/tex">1 \le n\leq 3\times 10^6</script>，<script type="math/tex">1\leq a_i\leq 10^9</script>。</p>
+<h3 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h3><p><strong>单调栈</strong>是一种维护元素单调性的栈结构，用于高效求解”下一个更大/更小元素”类问题。</p>
+<p><strong>核心思路：</strong> 从右向左遍历数组，维护一个<strong>单调递减栈</strong>（栈底到栈顶递减），栈中存储下标。</p>
+<p>对于每个位置 <script type="math/tex">i</script>：</p>
+<ol>
+<li>弹出栈中所有值 <script type="math/tex">\leq a_i</script> 的元素（它们不可能成为 <script type="math/tex">i</script> 左侧任何元素的答案）；</li>
+<li>若栈非空，则栈顶下标即为 <script type="math/tex">f(i)</script>（第一个大于 <script type="math/tex">a_i</script> 的元素）；</li>
+<li>将 <script type="math/tex">i</script> 压入栈中。</li>
+</ol>
+<p><strong>复杂度：</strong> 每个元素至多入栈、出栈各一次，时间复杂度为 <script type="math/tex">O(n)</script>，空间复杂度为 <script type="math/tex">O(n)</script>。</p>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">f = [<span class="number">0</span>] * n</span><br><span class="line">q = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">while</span> q <span class="keyword">and</span> a[q[-<span class="number">1</span>]] &lt; a[i]:</span><br><span class="line">        q.pop()</span><br><span class="line">    <span class="keyword">if</span> q:</span><br><span class="line">        f[i] = q[-<span class="number">1</span>]</span><br><span class="line">    q.append(i)</span><br><span class="line"><span class="built_in">print</span>(*f)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag"># 基础算法</a>
+          </div>
+
         
-        <span class="collection-header">非常好! 目前共计 133 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2026<span class="collection-year-count">133</span></span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-05-08T14:14:20+08:00"
-              content="2026-05-08">
-          05-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/08/torch/torch%E5%AD%A6%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">torch语法学习1</span>
-          </a>
-      </div>
-
-      
-    </header>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/I%20%E5%85%B8%E9%A2%98/I3%20%E7%99%BE%E6%85%95%E5%A4%A7%E4%B8%89%E8%A7%92/" rel="prev" title="I3 百慕大三角">
+                  <i class="fa fa-angle-left"></i> I3 百慕大三角
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A13%20%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/" rel="next" title="A13 第k小的数">
+                  A13 第k小的数 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-05-08T14:14:20+08:00"
-              content="2026-05-08">
-          05-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/08/Dezero%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%94%B9%E8%BF%9B/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" itemprop="url">
-            <span itemprop="name">自动微分与反向传播</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-05-08T14:14:20+08:00"
-              content="2026-05-08">
-          05-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A%20%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/A1%20%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/" itemprop="url">
-            <span itemprop="name">A1 高精度加法</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/archives/2026/05/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2026/05/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2026/05/page/13/">13</a><span class="page-number current">14</span>
-  </nav>
+
+
+
 
 </div>
   </main>
@@ -333,13 +396,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:47</span>
+    <span title="站点阅读时长">2:48</span>
   </span>
 </div>
 <div class="busuanzi-count">
