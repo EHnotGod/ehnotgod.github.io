@@ -1422,7 +1422,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff285e;
+    background: #f25787;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3071,7 +3071,7 @@ body {
 .main-inner > .tabs-comment,
 .main-inner > .comments,
 .main-inner > .pagination {
-  background: rgba(255,255,255,0.8);
+  background: #fff;
 }
 body {
   font-size: 15px;
@@ -3086,7 +3086,7 @@ body {
   opacity: 0.8;
 }
 .main-inner {
-  background-color: rgba(255,255,255,0.85);
+  background-color: #fff;
   padding: 0px 20px 20px 20px;
 }
 .category-all .category-list {
