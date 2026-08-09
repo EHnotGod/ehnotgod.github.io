@@ -5,10 +5,9 @@ body {
     background-size: cover;      //填充
     background-position: center;
 }
-//文章背板的颜色rgb
+//文章背板的颜色：跟随主题（亮色白色 / 暗色深灰），保证文字可读
 .main-inner > .sub-menu, .main-inner > .post-block, .main-inner > .tabs-comment, .main-inner > .comments, .main-inner > .pagination{
-  background: rgba(255, 255, 255, 1);      //此处使用十六进制颜色代码，         也可以使用rgba进行调色，
-                                //实际效果为白色透明色底板              rgba的第四参数即为透明度
+  background: var(--content-bg-color);
 }
 body{               //修改主体字体颜色
   font-size: 15px;  //整体字体稍微变小
@@ -19,9 +18,9 @@ body{               //修改主体字体颜色
   opacity: 0.85;
 }
 
-//菜单栏的调色
+//菜单栏的调色（跟随主题亮暗模式）
 .header-inner {     
-  background: rgba(255,255,255,0.85);
+  background: var(--content-bg-color);
 }
 //搜索框透明
 .popup {        
@@ -29,7 +28,7 @@ body{               //修改主体字体颜色
 }
 
 .main-inner {
-  background-color: rgba(255, 255, 255, 1);  //主体背景更不透明
+  background-color: var(--content-bg-color);  //主体背景跟随主题亮暗模式
     padding: 0px 20px 20px 20px;  //调整组件位置
 }
 

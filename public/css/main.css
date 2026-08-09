@@ -1422,7 +1422,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f25787;
+    background: #26facf;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3071,7 +3071,7 @@ body {
 .main-inner > .tabs-comment,
 .main-inner > .comments,
 .main-inner > .pagination {
-  background: #fff;
+  background: var(--content-bg-color);
 }
 body {
   font-size: 15px;
@@ -3080,13 +3080,13 @@ body {
   opacity: 0.85;
 }
 .header-inner {
-  background: rgba(255,255,255,0.85);
+  background: var(--content-bg-color);
 }
 .popup {
   opacity: 0.8;
 }
 .main-inner {
-  background-color: #fff;
+  background-color: var(--content-bg-color);
   padding: 0px 20px 20px 20px;
 }
 .category-all .category-list {

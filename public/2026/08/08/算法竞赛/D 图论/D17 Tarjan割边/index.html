@@ -352,13 +352,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D16%20Tarjan%E5%89%B2%E7%82%B9/" rel="prev" title="D16 Tarjan割点">
-                  <i class="fa fa-angle-left"></i> D16 Tarjan割点
+                <a href="/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D15%20Tarjan%20SCC%E7%BC%A9%E7%82%B9/" rel="prev" title="D15 Tarjan SCC缩点">
+                  <i class="fa fa-angle-left"></i> D15 Tarjan SCC缩点
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D18%20Tarjan%20eDCC%E7%BC%A9%E7%82%B9/" rel="next" title="D18 Tarjan eDCC缩点">
-                  D18 Tarjan eDCC缩点 <i class="fa fa-angle-right"></i>
+                <a href="/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D%20%E5%9B%BE%E8%AE%BA/D16%20Tarjan%E5%89%B2%E7%82%B9/" rel="next" title="D16 Tarjan割点">
+                  D16 Tarjan割点 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -464,16 +464,43 @@
       el.parentNode.replaceChild(div, el);
     });
 
-    // 2. 处理 $...$ 原样保留在文本里的公式（用 auto-render）
-    if (typeof renderMathInElement === 'function') {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$',  right: '$',  display: false }
-        ],
-        throwOnError: false
-      });
-    }
+    // 2. 手动渲染 $...$ 行内公式（不依赖 auto-render，避免兼容问题）
+    renderInlineMath();
+  }
+
+  // 遍历文本节点，把 $...$ 渲染为行内公式
+  function renderInlineMath() {
+    if (typeof katex === 'undefined') return;
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [], node;
+    while ((node = walker.nextNode())) nodes.push(node);
+
+    nodes.forEach(function(node) {
+      // 跳过代码块、脚本以及已渲染的 KaTeX 内部文本
+      var parent = node.parentNode;
+      if (parent && parent.closest && parent.closest('pre, code, .katex, script, style, textarea')) return;
+
+      var text = node.nodeValue;
+      var regex = /\$([^$\n]+?)\$/g;
+      if (!regex.test(text)) return;
+      regex.lastIndex = 0;
+
+      var frag = document.createDocumentFragment();
+      var last = 0, m;
+      while ((m = regex.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        try {
+          katex.render(m[1].trim(), span, { throwOnError: false, displayMode: false });
+        } catch (e) {
+          span.textContent = m[0];
+        }
+        frag.appendChild(span);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
   }
 
   function loadScript(src, onload) {
@@ -485,15 +512,9 @@
 
   function init() {
     if (typeof katex !== 'undefined') {
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMath();
-      } else {
-        loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js', renderMath);
-      }
+      renderMath();
     } else {
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js', function() {
-        loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js', renderMath);
-      });
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js', renderMath);
     }
   }
 
