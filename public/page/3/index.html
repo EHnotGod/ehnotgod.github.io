@@ -236,7 +236,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G45+G46%20%E7%AC%AC%E4%B8%80%E3%80%81%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://ehnotgod.github.io/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G49%20%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -254,7 +254,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G45+G46%20%E7%AC%AC%E4%B8%80%E3%80%81%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0/" class="post-title-link" itemprop="url">G45+G46 第一、二类斯特林数</a>
+          <a href="/2026/08/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G%20%E6%95%B0%E5%AD%A6/G49%20%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">G49 向量运算</a>
         </h2>
 
         <div class="post-meta-container">
@@ -288,7 +288,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>20</span>
+      <span>475</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -306,8 +306,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p>不讲解，打表找到规律后直接使用！</p>
-<p><img src="/images/算法竞赛/G/G45-1.png" alt="image-20250808230305575"></p>
+          <h3 id="题目情境"><a href="#题目情境" class="headerlink" title="题目情境"></a>题目情境</h3><p><img src="/images/算法竞赛/G/G49-1.png" alt="image-20250517204844570"></p>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x, y</span>):</span><br><span class="line">        <span class="variable language_">self</span>.x = x</span><br><span class="line">        <span class="variable language_">self</span>.y = y</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dot</span>(<span class="params">a, b</span>):  <span class="comment"># 求点积</span></span><br><span class="line">    <span class="keyword">return</span> a.x * b.x + a.y * b.y</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">length</span>(<span class="params">a</span>):  <span class="comment"># 求模长</span></span><br><span class="line">    <span class="keyword">return</span> math.sqrt(a.x * a.x + a.y * a.y)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">angle</span>(<span class="params">a, b</span>):  <span class="comment"># 求夹角（单位：弧度）</span></span><br><span class="line">    <span class="keyword">return</span> math.acos(dot(a, b) / (length(a) * length(b)))</span><br></pre></td></tr></table></figure>
+<h3 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">dot</span><span class="params">(Point a, Point b)</span> </span>&#123; <span class="comment">// 求点积</span></span><br><span class="line">    <span class="keyword">return</span> a.x * b.x + a.y * b.y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">len</span><span class="params">(Point a)</span> </span>&#123; <span class="comment">// 求模长</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>(a.x * a.x + a.y * a.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">angle</span><span class="params">(Point a, Point b)</span> </span>&#123; <span class="comment">// 求夹角</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">acos</span>(<span class="built_in">dot</span>(a, b) / <span class="built_in">len</span>(a) / <span class="built_in">len</span>(b));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
