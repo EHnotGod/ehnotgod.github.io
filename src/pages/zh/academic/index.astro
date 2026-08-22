@@ -11,22 +11,21 @@ const headings = [
   { depth: 2, slug: 'about-me', text: 'About Me' },
   { depth: 2, slug: 'research-interests', text: 'Research Interests' },
   { depth: 2, slug: 'publications', text: 'Publications' },
-  { depth: 2, slug: 'competitions', text: 'Competitions' },
+  { depth: 2, slug: 'competitions', text: '竞赛经历' },
   { depth: 2, slug: 'open-source-projects', text: 'Open-source Projects' }
 ]
 ---
 
-<PageLayout title='Academic' {headings} info={{ slug: '/en/academic', hideComment: true }}>
+<PageLayout title='Academic' {headings} info={{ slug: '/academic', hideComment: true }}>
   <h2 id='about-me'>About Me<a class='anchor' href='#about-me'>#</a></h2>
   <p>
-    I'm Yihang Liu (EH), an undergraduate in Statistics (Data Science & AI) at Shandong University.
-    As a competitive programmer, I've won a silver medal at the ICPC Asia Regional Contest and a
-    gold medal at CCPC. I'm currently doing research on generative AI and large models, covering
-    image generation, multimodality and 3D trajectory prediction.
+    我是刘艺航（EH），山东大学数学与统计学院统计学（数据科学与人工智能）专业本科生。
+    算法竞赛选手，曾获 ICPC 亚洲区域赛银牌、CCPC 全国邀请赛金牌、蓝桥杯全国总决赛一等奖。
+    目前在生成式 AI 与大模型方向做科研，重点关注图像生成、多模态与 3D 轨迹预测等方向。
   </p>
   <p>
-    I'm interested in preserving visual quality and structural consistency in generative models,
-    as well as building more reliable and auditable evaluation frameworks. Feel free to reach out.
+    我关注如何在生成模型中同时保证视觉质量与结构一致性，以及如何构建更可靠、可审计的评测与
+    评估框架。欢迎交流合作。
   </p>
 
   <h2 id='research-interests'>Research Interests<a class='anchor' href='#research-interests'>#</a></h2>
@@ -34,18 +33,18 @@ const headings = [
     {
       [
         {
-          title: 'Image Generation & Texture Editing',
-          description: 'Text-driven image / texture editing, structure preservation, RL in generative models.',
+          title: '图像生成与纹理编辑',
+          description: '文本驱动的图像 / 纹理编辑、结构保持、强化学习在生成模型中的应用。',
           icon: 'pytorch'
         },
         {
-          title: 'Multimodal LLM Auditing',
-          description: 'Prompt-level generation quality prediction, benchmark construction, robustness analysis.',
+          title: '多模态大模型审计',
+          description: '提示级生成质量预测、评测基准构建、评分系统鲁棒性分析。',
           icon: 'huggingface'
         },
         {
-          title: '3D Trajectory Prediction',
-          description: 'SE(3)-equivariant Flow Matching, geometric deep learning, trajectory uncertainty modeling.',
+          title: '3D 轨迹预测',
+          description: 'SE(3)-等变 Flow Matching、几何深度学习、轨迹不确定性建模。',
           icon: 'ros'
         }
       ].map((interest) => (
@@ -74,79 +73,79 @@ const headings = [
     publications={[
       {
         title: 'TexEditor: Structure-Preserving Text-Driven Texture Editing',
-        authors: [{ name: 'Yihang Liu', isMe: true }],
+        authors: [{ name: '刘艺航', isMe: true }],
         venue: 'ICML',
         year: '2026',
         type: 'conference',
         abstract:
-          'Built on Qwen-Image, introducing a high-quality supervised dataset TexBlender with structural priors and an RL method StructureNFT that transfers structural constraints to real-world generation; also constructs the TexBench benchmark. Achieves SOTA on the main test set.',
+          '以 Qwen-Image 为基础模型，构建高质量监督数据集 TexBlender 引入结构先验，设计强化学习方法 StructureNFT，将结构约束从合成场景迁移至真实世界生成任务；并构建真实场景评测基准 TexBench。在主测试集上取得 SOTA 性能。',
         links: [{ type: 'website', href: '#' }],
         status: 'accepted'
       },
       {
         title: 'GSE-Flow: Geometric SE(3)-Equivariant Flow Matching for 3D Trajectory Prediction',
-        authors: [{ name: 'Yihang Liu', isMe: true }],
+        authors: [{ name: '刘艺航', isMe: true }],
         venue: 'ICML',
         year: '2026',
         type: 'conference',
         abstract:
-          'SE(3)-equivariant Flow Matching framework for 3D trajectory prediction; responsible for baseline reproduction, multi-dataset comparisons, hyperparameter sensitivity and ablation studies. Achieves SOTA on MD17, MD22 and CMU MoCap.',
+          '基于 Flow Matching 的 SE(3)-等变 3D 轨迹预测框架，负责基线模型复现、多数据集对比实验、超参数敏感性分析与组件消融实验。在 MD17、MD22 与 CMU MoCap 三个基准上取得 SOTA 性能。',
         links: [{ type: 'website', href: '#' }],
         status: 'accepted'
       },
       {
-        title: 'A Critical Look at Prompt-Level Performance Prediction "Illusion" in Modern T2I Models',
-        authors: [{ name: 'Yihang Liu', isMe: true }],
+        title: '对现代 T2I 图像生成模型中提示级性能预测「幻象」的审视',
+        authors: [{ name: '刘艺航', isMe: true }],
         venue: 'ICLR',
         year: '2026',
         type: 'conference',
         abstract:
-          'An auditing framework covering models such as Qwen, FLUX and Boogu under various sampling configs, jointly analyzing GM/AM scores, R² across samples, extreme-sample detection and budget-constrained routing. Finds that high overall R² largely comes from coarse recognition of clearly-failed samples.',
+          '构建覆盖 Qwen、FLUX、Boogu 等模型及多种采样配置的审计框架，联合分析 GM/AM 评分、全样本与中间区间 R²、极端样本检测及预算约束路由。发现较高的整体 R² 主要来自对明显失败样本的粗粒度识别。',
         links: [{ type: 'website', href: '#' }],
         status: 'under-review'
       },
       {
-        title: 'LLM-based Operational Risk Assessment and Inference for Power Systems',
-        authors: [{ name: 'Yihang Liu', isMe: true }],
-        venue: 'Automation of Electric Power Systems',
+        title: '基于大语言模型的电力系统运行风险评估与推演方法',
+        authors: [{ name: '刘艺航', isMe: true }],
+        venue: '电力系统自动化',
         year: '2026',
         type: 'journal',
         abstract:
-          'LLM-based power system operational risk assessment, responsible for risk assessment strategy design, GRPO reinforcement learning training, experimental validation and writing, improving risk-classification accuracy and reasoning ability.',
+          '基于大语言模型的电力系统运行风险评估研究，负责风险评估策略设计、GRPO 强化学习训练、实验验证及论文撰写，提升模型风险定级准确性与推理能力。',
         links: [{ type: 'website', href: '#' }],
         status: 'published'
       }
     ]}
   />
 
-  <h2 id='competitions'>Competitions<a class='anchor' href='#competitions'>#</a></h2>
+  <h2 id='competitions'>竞赛经历<a class='anchor' href='#competitions'>#</a></h2>
   <ResearchProjectSection
     projects={[
       {
-        title: '2026 CCPC National Invitational (Fuzhou)',
-        description: 'China Collegiate Programming Contest, national first prize (Gold).',
-        category: 'Competitive Programming',
+        title: '2026 CCPC 全国邀请赛（福州）',
+        description: '中国大学生程序设计竞赛全国邀请赛，国家一等奖（金牌）。',
+        category: '算法竞赛',
         status: 'completed',
         links: []
       },
       {
-        title: '50th ICPC Asia Regional (Shenyang)',
-        description: 'International Collegiate Programming Contest Asia Regional, national second prize (Silver).',
-        category: 'Competitive Programming',
+        title: '第 50 届 ICPC 亚洲区域赛（沈阳）',
+        description: '国际大学生程序设计竞赛亚洲区域赛，国家二等奖（银牌）。',
+        category: '算法竞赛',
         status: 'completed',
         links: []
       },
       {
-        title: '16th Blue Bridge Cup National Finals',
-        description: 'National Software & IT Professional Talent Contest, national first prize.',
-        category: 'Competitive Programming',
+        title: '第十六届蓝桥杯全国总决赛',
+        description: '全国软件和信息技术专业人才大赛，国家一等奖。',
+        category: '算法竞赛',
         status: 'completed',
         links: []
       },
       {
-        title: 'ASC25 Student Supercomputer Challenge',
-        description: 'Asia regional round, national second prize.',
-        category: 'High Performance Computing',
+        title: 'ASC25 世界大学生超算竞赛',
+        description: '世界大学生超级计算机竞赛亚洲区预选赛，国家二等奖。',
+        category: '高性能计算',
         status: 'completed',
         links: []
       }
@@ -157,8 +156,8 @@ const headings = [
   <ResearchProjectSection
     projects={[
       {
-        title: 'EH Algorithm Template Library',
-        description: 'Data structures / graph theory / number theory / string templates accumulated in competitive programming, continuously updated.',
+        title: 'EH 算法竞赛板子库',
+        description: '在算法竞赛中沉淀的数据结构 / 图论 / 数论 / 字符串模板与实现，持续更新。',
         category: 'Competitive Programming',
         status: 'active',
         links: [{ type: 'github', href: 'https://github.com/ehnotgod', label: 'Code' }]

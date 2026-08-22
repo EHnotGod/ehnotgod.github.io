@@ -17,7 +17,7 @@ back: '/terms/list'
 
 <p>These Terms of Service (“Terms”, “Terms of Service”) govern your use of our website located at <b>[Your Domain]</b> (together or individually “Service”) operated by <b>[Your Name]</b>.</p>	 	 
 
-<p>Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here <a href="/en/terms/privacy-policy">Privacy Policy</a>.</p>	 	 
+<p>Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here <a href="/terms/privacy-policy">Privacy Policy</a>.</p>	 	 
 
 <p>Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood Agreements, and agree to be bound of them.</p>	 	 
 

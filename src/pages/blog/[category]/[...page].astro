@@ -3,7 +3,7 @@ import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
 import { Paginator, PostPreview, CollectionPreview } from '@/components/pages'
-import { getBlogCollection, getUniqueCategories, getCollectionsByCategory, getUniqueTags, sortMDByDate, getPostCollections } from '@/server'
+import { getBlogCollectionEn, getUniqueCategories, getCollectionsByCategory, getUniqueTags, sortMDByDate, getPostCollections } from '@/server'
 import { Button, Icon } from '@/components/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import config from '@/site-config'
@@ -12,14 +12,14 @@ export const prerender = true
 
 export const getStaticPaths = (async ({ paginate }) => {
   const categoryMap: Record<string, string> = {
-    'algo': '算法竞赛',
-    'ml': '机器学习',
-    'dl': '深度学习'
+    'algo': 'Algorithm Contest',
+    'ml': 'Machine Learning',
+    'dl': 'Deep Learning'
   }
   
   const categoryOrder = ['algo', 'ml', 'dl']
   
-  const allCollections = await getBlogCollection()
+  const allCollections = await getBlogCollectionEn()
   const allUniqueCategories = getUniqueCategories(allCollections)
   
   const uniqueCategories = categoryOrder.filter(cat => allUniqueCategories.includes(cat))
@@ -44,7 +44,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths
 
 interface Props {
-  page: Page<CollectionEntry<'blog'>>
+  page: Page<CollectionEntry<'blogEn'>>
   uniqueTags: string[]
   collectionsCount: number
   category: string
@@ -102,15 +102,15 @@ const meta = {
               </span>
               <div class='flex items-center gap-3'>
                 <label class='flex items-center gap-2 text-muted-foreground'>
-                  <span>排序</span>
+                  <span>Sort</span>
                   <select
                     id='post-sort'
                     class='cursor-pointer appearance-none rounded-md border border-border bg-background py-1 pe-7 ps-2 text-sm text-foreground outline-none transition-colors hover:border-foreground/25 focus:border-primary'
                   >
-                    <option value='date-desc'>时间（新 → 旧）</option>
-                    <option value='date-asc'>时间（旧 → 新）</option>
-                    <option value='title-asc'>标题（A → Z）</option>
-                    <option value='title-desc'>标题（Z → A）</option>
+                    <option value='date-desc'>Date (New → Old)</option>
+                    <option value='date-asc'>Date (Old → New)</option>
+                    <option value='title-asc'>Title (A → Z)</option>
+                    <option value='title-desc'>Title (Z → A)</option>
                   </select>
                 </label>
                 <a aria-label='View all blog by years' href='/archives' data-astro-prefetch>
@@ -177,7 +177,7 @@ const meta = {
 </PageLayout>
 
 <script>
-  // 博客列表排序（纯前端，仅作用于当前分页内的条目，不改变服务端渲染）
+  // Blog list sorting (client-side only, works on current page items)
   const sortSelect = document.getElementById('post-sort') as HTMLSelectElement | null
   const postList = document.getElementById('blog-post-list')
   if (sortSelect && postList) {
@@ -203,7 +203,6 @@ const meta = {
         const da = a.dataset.date || ''
         const db = b.dataset.date || ''
         if (mode === 'title-asc' || mode === 'title-desc') {
-          // numeric: true 实现自然排序，A2 < A11
           const c = ta.localeCompare(tb, undefined, { numeric: true, sensitivity: 'base' })
           return mode === 'title-asc' ? c : -c
         }
@@ -219,7 +218,7 @@ const meta = {
 </script>
 
 <style>
-  /* 排序下拉框：显式继承站点字体 + 自定义箭头，与整体风格一致 */
+  /* Sort dropdown: inherit site font + custom arrow for consistent look */
   #post-sort {
     font-family: inherit;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");

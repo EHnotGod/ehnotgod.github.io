@@ -15,12 +15,10 @@ export async function getStaticPaths() {
 }
 
 const { collection } = Astro.props
-const posts = await getPostsForCollection(collection)
+const posts = await getPostsForCollection(collection, true)
 
-const isEn = Astro.currentLocale === 'en'
-const title = isEn && collection.data.title_en ? collection.data.title_en : collection.data.title
-const description =
-  isEn && collection.data.description_en ? collection.data.description_en : collection.data.description
+const title = collection.data.title_en || collection.data.title
+const description = collection.data.description_en || collection.data.description
 
 const meta = {
   title,

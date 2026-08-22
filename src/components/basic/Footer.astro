@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n'
 import config from '@/site-config'
 
 import { Icon } from '@/components/user'
@@ -10,6 +11,15 @@ const footerConf = config.footer || {}
 const socialLinks = {
   ...(footerConf.social || {}),
   rss: '/rss.xml'
+}
+
+// 语言感知链接（/terms/list 在中文路由下应为 /zh/terms/list）
+function getLocalizedUrl(locale: string | undefined, path: string) {
+  let url = getRelativeLocaleUrl(locale || 'en', path)
+  if (url !== '/' && url.endsWith('/')) {
+    url = url.slice(0, -1)
+  }
+  return url
 }
 ---
 
@@ -57,7 +67,7 @@ const socialLinks = {
         <span>
           © {year}
           {config.author} &
-          <a href='/terms/list'>Site policy</a>
+          <a href={getLocalizedUrl(Astro.currentLocale, '/terms/list')}>Site policy</a>
         </span>
         {
           footerConf.credits && (
