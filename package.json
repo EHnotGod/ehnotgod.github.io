@@ -2,6 +2,7 @@
   "name": "ehnotgod-blog",
   "type": "module",
   "version": "1.0.0",
+  "packageManager": "pnpm@11.22.0",
   "scripts": {
     "dev": "astro dev",
     "dev:check": "astro check --watch & astro dev",
