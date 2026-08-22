@@ -1,0 +1,106 @@
+---
+title: "A15 堆"
+publishDate: 2026-08-08
+description: "给定一个数列，初始为空，请支持下面三种操作："
+category: algo
+tags:
+  - 基础算法
+language: zh
+---
+
+### 题目情境
+
+**题目描述**
+
+给定一个数列，初始为空，请支持下面三种操作：
+
+1. 给定一个整数 $$x$$，请将 $$x$$ 加入到数列中。
+2. 输出数列中最小的数。
+3. 删除数列中最小的数（如果有多个数最小，只删除 $1$ 个）。
+
+**输入格式**
+
+第一行是一个整数，表示操作的次数 $$n$$。  
+接下来 $$n$$ 行，每行表示一次操作。每行首先有一个整数 $$op$$ 表示操作类型。
+- 若 $$op = 1$$，则后面有一个整数 $$x$$，表示要将 $$x$$ 加入数列。
+- 若 $$op = 2$$，则表示要求输出数列中的最小数。
+- 若 $$op = 3$$，则表示删除数列中的最小数。如果有多个数最小，只删除 $$1$$ 个。
+
+**输出格式**
+
+对于每个操作 $$2$$，输出一行一个整数表示答案。
+
+**输入输出样例**
+
+输入 #1
+
+```
+5
+1 2
+1 5
+2
+3
+2
+
+```
+
+输出 #1
+
+```
+2
+5
+```
+
+**说明/提示**
+
+- 对于 $$100\%$$ 的数据，保证 $$1 \leq n \leq 10^6$$，$$1 \leq x \lt 2^{31}$$，$$op \in \{1, 2, 3\}$$。
+
+
+### 算法解析
+
+py里的堆可以用heapq高效实现，你不需要知道它是什么，什么是堆（优先队列）。这样吧，你把一个py里的列表q想象成一个盒子，你每次花费logn的时间往里面丢东西（heapq.heappush(q, ai)），它总是会弹出盒子里最小那个数，查询方式为q[0]。你也可以花费logn的时间把这个最小数取出来（heapq.heappop(q)），此时其他数会成为最小的数并置顶。
+
+heapq默认小根堆（弹出最小数），你可以通过加个负号让它变成大根堆。
+
+### Python代码实现
+
+```python
+# P3378 【模板】堆
+
+import heapq
+
+n = int(input())
+q = []
+while n:
+    n -= 1
+    op = list(map(int, input().split()))
+    if op[0] == 1:
+        heapq.heappush(q, op[1])
+    elif op[0] == 2:
+        print(q[0])
+    else:
+        heapq.heappop(q)
+```
+
+### C++代码实现
+
+```c++
+// STL代码
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+#include <queue>
+using namespace std;
+
+priority_queue<int,vector<int>,greater<int> > q;
+
+int main(){
+  int n; scanf("%d",&n); //操作次数
+  while(n--){
+    int op,x; scanf("%d",&op);
+    if(op==1) scanf("%d",&x), q.push(x);
+    else if(op==2) printf("%d\n",q.top());
+    else q.pop();
+  }
+}
+```

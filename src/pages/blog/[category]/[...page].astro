@@ -1,0 +1,234 @@
+---
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+import { Paginator, PostPreview, CollectionPreview } from '@/components/pages'
+import { getBlogCollection, getUniqueCategories, getCollectionsByCategory, getUniqueTags, sortMDByDate, getPostCollections } from '@/server'
+import { Button, Icon } from '@/components/user'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import config from '@/site-config'
+
+export const prerender = true
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const categoryMap: Record<string, string> = {
+    'algo': '算法竞赛',
+    'ml': '机器学习',
+    'dl': '深度学习'
+  }
+  
+  const categoryOrder = ['algo', 'ml', 'dl']
+  
+  const allCollections = await getBlogCollection()
+  const allUniqueCategories = getUniqueCategories(allCollections)
+  
+  const uniqueCategories = categoryOrder.filter(cat => allUniqueCategories.includes(cat))
+  
+  return uniqueCategories.flatMap((category, index) => {
+    const collections = sortMDByDate(getCollectionsByCategory(allCollections, category))
+    const uniqueTags = getUniqueTags(collections)
+    const collectionsCount = collections.length
+    
+    // Get previous and next categories (circular navigation)
+    const prevIndex = index === 0 ? uniqueCategories.length - 1 : index - 1
+    const nextIndex = index === uniqueCategories.length - 1 ? 0 : index + 1
+    const prevCategory = uniqueCategories[prevIndex]
+    const nextCategory = uniqueCategories[nextIndex]
+    
+    return paginate(collections, {
+      params: { category },
+      pageSize: config.content?.blogPageSize || 8,
+      props: { uniqueTags, collectionsCount, category, prevCategory, nextCategory, categoryMap }
+    })
+  })
+}) satisfies GetStaticPaths
+
+interface Props {
+  page: Page<CollectionEntry<'blog'>>
+  uniqueTags: string[]
+  collectionsCount: number
+  category: string
+  prevCategory: string
+  nextCategory: string
+  categoryMap: Record<string, string>
+}
+
+const { page, uniqueTags, collectionsCount, category, prevCategory, nextCategory, categoryMap: categoryMapProp } = Astro.props
+
+const categoryDisplayName = categoryMapProp[category] || category
+const postCollections = await getPostCollections()
+
+const meta = {
+  description: `Posts in category: ${categoryDisplayName}`,
+  title: `${categoryDisplayName} - Blog`
+}
+---
+
+<PageLayout {meta}>
+  <main class='mt-6 lg:mt-10'>
+    <div id='content-header' class='animate'>
+      <div class='category-nav-wrapper mb-6 mt-6 sm:mt-10'>
+        <h1 class='inline-block text-3xl font-medium'>{categoryDisplayName}</h1>
+        <div class='category-nav-arrows ml-3 inline-flex gap-1 align-middle'>
+          <a 
+            href={`/blog/${prevCategory}`}
+            class='flex h-8 w-8 items-center justify-center transition-colors hover:text-primary'
+            title={`Previous: ${categoryMapProp[prevCategory]}`}
+            aria-label={`Go to ${categoryMapProp[prevCategory]}`}
+          >
+            <Icon name='up' class='size-5' />
+          </a>
+          <a 
+            href={`/blog/${nextCategory}`}
+            class='flex h-8 w-8 items-center justify-center transition-colors hover:text-primary'
+            title={`Next: ${categoryMapProp[nextCategory]}`}
+            aria-label={`Go to ${categoryMapProp[nextCategory]}`}
+          >
+            <Icon name='chevron-down' class='size-5' />
+          </a>
+        </div>
+      </div>
+    </div>
+    {
+      page.data.length === 0 ? (
+        <p>No posts yet.</p>
+      ) : (
+        <div class='grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8'>
+          <section aria-label='Blog posts list' class='animate' id='content'>
+            {/* header */}
+            <div class='mb-3 flex flex-col justify-between gap-2 text-sm sm:mb-5 sm:flex-row'>
+              <span class='text-muted-foreground'>
+                Page {page.currentPage} - Showing {page.data.length} of {collectionsCount} posts
+              </span>
+              <div class='flex items-center gap-3'>
+                <label class='flex items-center gap-2 text-muted-foreground'>
+                  <span>排序</span>
+                  <select
+                    id='post-sort'
+                    class='cursor-pointer appearance-none rounded-md border border-border bg-background py-1 pe-7 ps-2 text-sm text-foreground outline-none transition-colors hover:border-foreground/25 focus:border-primary'
+                  >
+                    <option value='date-desc'>时间（新 → 旧）</option>
+                    <option value='date-asc'>时间（旧 → 新）</option>
+                    <option value='title-asc'>标题（A → Z）</option>
+                    <option value='title-desc'>标题（Z → A）</option>
+                  </select>
+                </label>
+                <a aria-label='View all blog by years' href='/archives' data-astro-prefetch>
+                  View all posts by years →
+                </a>
+              </div>
+            </div>
+            {/* posts */}
+            <ul id='blog-post-list' class='flex flex-col gap-y-4 text-start'>
+              {page.data.map((post) => (
+                <PostPreview {post} detailed />
+              ))}
+            </ul>
+            <Paginator currentPage={page.currentPage} lastPage={page.lastPage} url={page.url} />
+          </section>
+
+          {/* sidebar */}
+          {(!!uniqueTags.length || !!postCollections.length) && (
+            <aside class='animate' id='sidebar'>
+              {!!postCollections.length && (
+                <div class='mb-8'>
+                  <h2 class='mb-4 flex items-center text-lg font-semibold'>
+                    <Icon name='package' class='me-2' />
+                    Collections
+                  </h2>
+                  <ul class='flex flex-col gap-2'>
+                    {postCollections.slice(0, 5).map((collection) => (
+                      <CollectionPreview {collection} minimal />
+                    ))}
+                  </ul>
+                  <span class='mt-4 block sm:text-end'>
+                      <a aria-label='View all collections' href='/collection' data-astro-prefetch>
+                      View all →
+                      </a>
+                  </span>
+                </div>
+              )}
+              {!!uniqueTags.length && (
+                <div>
+                  <h2 class='mb-4 flex items-center text-lg font-semibold'>
+                    <Icon name='tag-2' class='me-2' />
+                    Tags
+                  </h2>
+                  <ul class='text-bgColor flex flex-wrap gap-2'>
+                    {uniqueTags.map((tag) => (
+                      <li>
+                        <Button title={tag} href={`/tags/${tag}`} style='pill' />
+                      </li>
+                    ))}
+                  </ul>
+                  <span class='mt-4 block sm:text-end'>
+                    <a aria-label='View all blog categories' href='/tags' data-astro-prefetch>
+                      View all →
+                    </a>
+                  </span>
+                </div>
+              )}
+            </aside>
+          )}
+        </div>
+      )
+    }
+  </main>
+</PageLayout>
+
+<script>
+  // 博客列表排序（纯前端，仅作用于当前分页内的条目，不改变服务端渲染）
+  const sortSelect = document.getElementById('post-sort') as HTMLSelectElement | null
+  const postList = document.getElementById('blog-post-list')
+  if (sortSelect && postList) {
+    const KEY = 'blog-post-sort'
+    try {
+      const saved = localStorage.getItem(KEY)
+      if (saved) sortSelect.value = saved
+    } catch (e) {
+      /* ignore */
+    }
+
+    const applySort = () => {
+      const mode = sortSelect.value
+      try {
+        localStorage.setItem(KEY, mode)
+      } catch (e) {
+        /* ignore */
+      }
+      const items = Array.from(postList.children) as HTMLElement[]
+      items.sort((a, b) => {
+        const ta = a.dataset.title || ''
+        const tb = b.dataset.title || ''
+        const da = a.dataset.date || ''
+        const db = b.dataset.date || ''
+        if (mode === 'title-asc' || mode === 'title-desc') {
+          // numeric: true 实现自然排序，A2 < A11
+          const c = ta.localeCompare(tb, undefined, { numeric: true, sensitivity: 'base' })
+          return mode === 'title-asc' ? c : -c
+        }
+        const c = da.localeCompare(db)
+        return mode === 'date-desc' ? -c : c
+      })
+      items.forEach((li) => postList.appendChild(li))
+    }
+
+    sortSelect.addEventListener('change', applySort)
+    applySort()
+  }
+</script>
+
+<style>
+  /* 排序下拉框：显式继承站点字体 + 自定义箭头，与整体风格一致 */
+  #post-sort {
+    font-family: inherit;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+    background-position: right 6px center;
+    background-repeat: no-repeat;
+  }
+  #post-sort option {
+    font-family: inherit;
+    color: inherit;
+    background: hsl(var(--background));
+  }
+</style>

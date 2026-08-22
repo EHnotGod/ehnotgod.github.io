@@ -1,0 +1,103 @@
+---
+title: "A1 高精度加法"
+publishDate: 2026-08-08
+description: "高精度加法，相当于 a+b problem， 不用考虑负数 。"
+category: algo
+tags:
+  - 基础算法
+language: zh
+---
+
+### 题目情境
+
+链接：https://www.luogu.com.cn/problem/P1601
+
+**题目描述：**
+
+高精度加法，相当于 a+b problem，**不用考虑负数**。
+
+**输入格式：**
+
+分两行输入。*a*,*b*<=$$10^{500}$$。
+
+**输出格式：**
+
+输出只有一行，代表 *a*+*b* 的值。
+
+**输入输出样例：**
+
+输入 #1
+
+```
+1
+1
+```
+
+输出 #1
+
+```
+2
+```
+
+输入 #2
+
+```
+1001
+9099
+```
+
+输出 #2
+
+```
+10100
+```
+
+### 算法解析
+
+高精度计算实际上用数组存储和模拟运算。
+
+高精度加法的步骤：
+1. 高精度数字利用字符串读入；
+2. 把字符串**翻转存入**两个整型数组 A,B；
+3. 从低位到高位，累加，进位，存余；
+4. 把数组 C 从高位到低位依次输出。
+
+时间复杂度O(n)
+### Python代码实现
+
+```python
+# P1601 高精度加法
+
+a = int(input())
+b = int(input())
+print(a + b)
+```
+
+### C++代码实现
+
+```c++
+#include <iostream>
+using namespace std;
+
+const int N=505;
+int a[N],b[N],c[N];
+int la,lb,lc;
+
+void add(int a[],int b[],int c[]){ //a+b=c
+    for(int i=1; i<=lc; i++){
+        c[i]+=a[i]+b[i]; //求和
+        c[i+1]+=c[i]/10; //进位
+        c[i]%=10;        //存余
+    }
+    if(c[lc+1]) lc++;  //最高位
+}
+int main(){
+    string sa,sb; cin>>sa>>sb;
+    la=sa.size(),lb=sb.size(),lc=max(la,lb);
+    for(int i=1; i<=la; i++) a[i]=sa[la-i]-'0';
+    for(int i=1; i<=lb; i++) b[i]=sb[lb-i]-'0';
+    add(a,b,c);
+    for(int i=lc; i; i--) printf("%d",c[i]);
+    return 0;
+}
+```

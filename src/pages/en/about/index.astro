@@ -1,0 +1,73 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+import AlgorithmShowcase from '@/components/about/AlgorithmShowcase.astro'
+import ToolSection from '@/components/about/ToolSection.astro'
+import { Comment } from '@/components/advanced'
+import { Spoiler } from '@/components/user'
+
+const headings = [
+  { depth: 2, slug: 'tools', text: 'Tools' },
+  { depth: 2, slug: 'copyright', text: 'Copyright' },
+  { depth: 2, slug: 'theme', text: 'Theme' }
+]
+---
+
+<PageLayout title='About' {headings} info='/en/about'>
+  <p>Undergraduate in Statistics at Shandong University / <Spoiler>ICPC Asia Regional silver medalist, working on generative AI research</Spoiler></p>
+  <p>
+    Hi, I'm Yihang Liu (EH). I'm an undergraduate in Statistics (Data Science & AI) at Shandong
+    University. As a competitive programmer, I've won a silver medal at the ICPC Asia Regional
+    Contest and a gold medal at CCPC. Currently I'm doing research on generative AI and large
+    models, covering image generation, multimodality and 3D trajectory prediction.
+    This blog documents my competitive programming notes (data structures, graph theory, dynamic
+    programming, number theory, strings, etc.) as well as my journey into machine learning and
+    deep learning internals (Dezero / PyTorch).
+  </p>
+
+  <h2 id='tools'>Tools<a class='anchor' href='#tools'>#</a></h2>
+  <ToolSection
+    class='mb-5'
+    title='Productivity'
+    tools={[
+      {
+        name: 'VS Code',
+        description: 'Code Editor',
+        href: 'https://code.visualstudio.com/',
+        icon: import('@/assets/tools/vscode.svg?raw')
+      },
+      {
+        name: 'Cursor',
+        description: 'AI-powered Code Editor',
+        href: 'https://cursor.com',
+        icon: import('@/assets/tools/cursor.svg?raw')
+      },
+      {
+        name: 'Chrome',
+        description: 'Web Browser',
+        href: 'https://www.google.com/chrome/',
+        icon: import('@/assets/tools/chrome.svg?raw')
+      }
+    ]}
+  />
+
+  <h2 id='copyright'>Copyright<a class='anchor' href='#copyright'>#</a></h2>
+  <p>
+    All original content on this site, unless otherwise noted, is licensed under the <a
+      href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a
+    > license. You are free to share and remix the content, provided you give appropriate credit
+    and do not use it for commercial purposes.
+  </p>
+
+  <h2 id='theme'>Theme<a class='anchor' href='#theme'>#</a></h2>
+  <p>
+    This site is built on <a href='https://github.com/Axi404/Axi-Theme'>Axi-Theme</a> (Apache 2.0),
+    which is derived from the Astro <a href='https://astro-pure.js.org/docs'>Pure</a>,
+    <a href='https://github.com/chrismwilliams/astro-theme-cactus'>Cactus</a> and
+    <a href='https://astro-theme-resume.vercel.app/'>Resume</a> themes, featuring dark mode, i18n,
+    full-text search and KaTeX rendering.
+  </p>
+
+  <AlgorithmShowcase class='my-8' />
+
+  <Comment slot='bottom' />
+</PageLayout>

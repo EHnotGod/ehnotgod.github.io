@@ -1,0 +1,74 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+import AlgorithmShowcase from '@/components/about/AlgorithmShowcase.astro'
+import ToolSection from '@/components/about/ToolSection.astro'
+import { Comment } from '@/components/advanced'
+import { Spoiler } from '@/components/user'
+
+const headings = [
+  { depth: 2, slug: 'tools', text: '工具' },
+  { depth: 2, slug: 'copyright', text: '版权' },
+  { depth: 2, slug: 'theme', text: '主题' }
+]
+---
+
+<PageLayout title='About' {headings} info='/about'>
+  <p>山东大学统计学本科生 / <Spoiler>ICPC 亚洲区域赛银牌、CCPC 金牌，正在搞生成式 AI 科研</Spoiler></p>
+  <p>
+    你好，我是刘艺航（EH）。山东大学数学与统计学院统计学（数据科学与人工智能）专业本科生，
+    算法竞赛选手，曾获 ICPC 亚洲区域赛银牌、CCPC 全国邀请赛金牌、蓝桥杯全国总决赛一等奖。
+    目前在生成式 AI 与大模型方向做科研，涉及图像生成、多模态与 3D 轨迹预测。
+    这个博客记录我的算法竞赛刷题笔记（数据结构、图论、动态规划、数论、字符串等），
+    以及机器学习与深度学习底层的学习过程（Dezero / PyTorch）。
+  </p>
+
+  <h2 id='tools'>工具<a class='anchor' href='#tools'>#</a></h2>
+  <ToolSection
+    class='mb-5'
+    title='Productivity'
+    tools={[
+      {
+        name: 'VS Code',
+        description: 'Code Editor',
+        href: 'https://code.visualstudio.com/',
+        icon: import('@/assets/tools/vscode.svg?raw')
+      },
+      {
+        name: 'Cursor',
+        description: 'AI-powered Code Editor',
+        href: 'https://cursor.com',
+        icon: import('@/assets/tools/cursor.svg?raw')
+      },
+      {
+        name: 'Chrome',
+        description: 'Web Browser',
+        href: 'https://www.google.com/chrome/',
+        icon: import('@/assets/tools/chrome.svg?raw')
+      }
+    ]}
+  />
+
+  <h2 id='copyright'>版权<a class='anchor' href='#copyright'>#</a></h2>
+  <p>
+    本站中的所有原创内容，除非特别说明，均使用 <a
+      href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a
+    > 协议进行授权。您可以自由地分享、复制本作品的内容及基于本作品内容进行创作，但必须注明原作者和链接，并且不得用于任何商业目的。
+  </p>
+  <p>
+    本站中使用的部分图片等素材来自互联网，均归属它们各自的权利持有人所有，并无意侵犯其版权。
+    如果本站中存在侵犯您权益的内容，请联系我，我将尽快予以删除。
+  </p>
+
+  <h2 id='theme'>主题<a class='anchor' href='#theme'>#</a></h2>
+  <p>
+    本站基于 <a href='https://github.com/Axi404/Axi-Theme'>Axi-Theme</a>（Apache 2.0）
+    构建。Axi-Theme 基于 Astro 的 <a href='https://astro-pure.js.org/docs'>Pure</a>、
+    <a href='https://github.com/chrismwilliams/astro-theme-cactus'>Cactus</a> 以及
+    <a href='https://astro-theme-resume.vercel.app/'>Resume</a> 主题改造而来，支持
+    深色模式、i18n、站内搜索与 KaTeX 公式渲染。
+  </p>
+
+  <AlgorithmShowcase class='my-8' />
+
+  <Comment slot='bottom' />
+</PageLayout>

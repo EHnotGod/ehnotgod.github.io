@@ -1,0 +1,190 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+import {
+  PublicationSection,
+  ResearchProjectSection,
+  SimpleIcon
+} from '@/components/user'
+import config from '@/site-config'
+
+const headings = [
+  { depth: 2, slug: 'about-me', text: 'About Me' },
+  { depth: 2, slug: 'research-interests', text: 'Research Interests' },
+  { depth: 2, slug: 'publications', text: 'Publications' },
+  { depth: 2, slug: 'competitions', text: 'Competitions' },
+  { depth: 2, slug: 'open-source-projects', text: 'Open-source Projects' }
+]
+---
+
+<PageLayout title='Academic' {headings} info={{ slug: '/en/academic', hideComment: true }}>
+  <h2 id='about-me'>About Me<a class='anchor' href='#about-me'>#</a></h2>
+  <p>
+    I'm Yihang Liu (EH), an undergraduate in Statistics (Data Science & AI) at Shandong University.
+    As a competitive programmer, I've won a silver medal at the ICPC Asia Regional Contest and a
+    gold medal at CCPC. I'm currently doing research on generative AI and large models, covering
+    image generation, multimodality and 3D trajectory prediction.
+  </p>
+  <p>
+    I'm interested in preserving visual quality and structural consistency in generative models,
+    as well as building more reliable and auditable evaluation frameworks. Feel free to reach out.
+  </p>
+
+  <h2 id='research-interests'>Research Interests<a class='anchor' href='#research-interests'>#</a></h2>
+  <div class='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+    {
+      [
+        {
+          title: 'Image Generation & Texture Editing',
+          description: 'Text-driven image / texture editing, structure preservation, RL in generative models.',
+          icon: 'pytorch'
+        },
+        {
+          title: 'Multimodal LLM Auditing',
+          description: 'Prompt-level generation quality prediction, benchmark construction, robustness analysis.',
+          icon: 'huggingface'
+        },
+        {
+          title: '3D Trajectory Prediction',
+          description: 'SE(3)-equivariant Flow Matching, geometric deep learning, trajectory uncertainty modeling.',
+          icon: 'ros'
+        }
+      ].map((interest) => (
+        <div class='group relative overflow-hidden rounded-xl border border-border bg-card p-4 transition-all hover:border-foreground/25 hover:shadow-md'>
+          <div class='flex items-start gap-4'>
+            <div class='flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20'>
+              <SimpleIcon
+                class='size-5 text-primary transition-transform duration-300 group-hover:scale-110'
+                name={interest.icon}
+              />
+            </div>
+            <div class='flex-1'>
+              <p class='text-xl font-medium leading-tight text-foreground transition-colors group-hover:text-primary'>
+                {interest.title}
+              </p>
+              <p class='text-sm leading-relaxed text-muted-foreground'>{interest.description}</p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <h2 id='publications'>Publications<a class='anchor' href='#publications'>#</a></h2>
+  <PublicationSection
+    publications={[
+      {
+        title: 'TexEditor: Structure-Preserving Text-Driven Texture Editing',
+        authors: [{ name: 'Yihang Liu', isMe: true }],
+        venue: 'ICML',
+        year: '2026',
+        type: 'conference',
+        abstract:
+          'Built on Qwen-Image, introducing a high-quality supervised dataset TexBlender with structural priors and an RL method StructureNFT that transfers structural constraints to real-world generation; also constructs the TexBench benchmark. Achieves SOTA on the main test set.',
+        links: [{ type: 'website', href: '#' }],
+        status: 'accepted'
+      },
+      {
+        title: 'GSE-Flow: Geometric SE(3)-Equivariant Flow Matching for 3D Trajectory Prediction',
+        authors: [{ name: 'Yihang Liu', isMe: true }],
+        venue: 'ICML',
+        year: '2026',
+        type: 'conference',
+        abstract:
+          'SE(3)-equivariant Flow Matching framework for 3D trajectory prediction; responsible for baseline reproduction, multi-dataset comparisons, hyperparameter sensitivity and ablation studies. Achieves SOTA on MD17, MD22 and CMU MoCap.',
+        links: [{ type: 'website', href: '#' }],
+        status: 'accepted'
+      },
+      {
+        title: 'A Critical Look at Prompt-Level Performance Prediction "Illusion" in Modern T2I Models',
+        authors: [{ name: 'Yihang Liu', isMe: true }],
+        venue: 'ICLR',
+        year: '2026',
+        type: 'conference',
+        abstract:
+          'An auditing framework covering models such as Qwen, FLUX and Boogu under various sampling configs, jointly analyzing GM/AM scores, R² across samples, extreme-sample detection and budget-constrained routing. Finds that high overall R² largely comes from coarse recognition of clearly-failed samples.',
+        links: [{ type: 'website', href: '#' }],
+        status: 'under-review'
+      },
+      {
+        title: 'LLM-based Operational Risk Assessment and Inference for Power Systems',
+        authors: [{ name: 'Yihang Liu', isMe: true }],
+        venue: 'Automation of Electric Power Systems',
+        year: '2026',
+        type: 'journal',
+        abstract:
+          'LLM-based power system operational risk assessment, responsible for risk assessment strategy design, GRPO reinforcement learning training, experimental validation and writing, improving risk-classification accuracy and reasoning ability.',
+        links: [{ type: 'website', href: '#' }],
+        status: 'published'
+      }
+    ]}
+  />
+
+  <h2 id='competitions'>Competitions<a class='anchor' href='#competitions'>#</a></h2>
+  <ResearchProjectSection
+    projects={[
+      {
+        title: '2026 CCPC National Invitational (Fuzhou)',
+        description: 'China Collegiate Programming Contest, national first prize (Gold).',
+        category: 'Competitive Programming',
+        status: 'completed',
+        links: []
+      },
+      {
+        title: '50th ICPC Asia Regional (Shenyang)',
+        description: 'International Collegiate Programming Contest Asia Regional, national second prize (Silver).',
+        category: 'Competitive Programming',
+        status: 'completed',
+        links: []
+      },
+      {
+        title: '16th Blue Bridge Cup National Finals',
+        description: 'National Software & IT Professional Talent Contest, national first prize.',
+        category: 'Competitive Programming',
+        status: 'completed',
+        links: []
+      },
+      {
+        title: 'ASC25 Student Supercomputer Challenge',
+        description: 'Asia regional round, national second prize.',
+        category: 'High Performance Computing',
+        status: 'completed',
+        links: []
+      }
+    ]}
+  />
+
+  <h2 id='open-source-projects'>Open-source Projects<a class='anchor' href='#open-source-projects'>#</a></h2>
+  <ResearchProjectSection
+    projects={[
+      {
+        title: 'EH Algorithm Template Library',
+        description: 'Data structures / graph theory / number theory / string templates accumulated in competitive programming, continuously updated.',
+        category: 'Competitive Programming',
+        status: 'active',
+        links: [{ type: 'github', href: 'https://github.com/ehnotgod', label: 'Code' }]
+      }
+    ]}
+  />
+</PageLayout>
+
+<script
+  is:inline
+  type='module'
+  data-astro-rerun
+  define:vars={{ npmCDN: config.npmCDN, walineServer: config.integ.waline.server }}
+>
+  const normalizePath = (path) => {
+    if (path === '/') return path
+    return path.endsWith('/') ? path.slice(0, -1) : path
+  }
+
+  const loadPageviewCount = async () => {
+    const pageview = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
+    pageview.pageviewCount({
+      serverURL: walineServer,
+      path: normalizePath(window.location.pathname)
+    })
+  }
+
+  await loadPageviewCount()
+</script>

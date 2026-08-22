@@ -1,0 +1,33 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+import ProjectSection from '@/components/projects/ProjectSection.astro'
+
+const headings = [
+  { depth: 2, slug: 'projects', text: 'Projects' }
+]
+---
+
+<PageLayout title='Projects' {headings} info='/projects'>
+  <div class='mb-8'>
+    <p class='text-muted-foreground'>
+      这里收录我做过的一些项目。目前整理中，后续会补充。
+    </p>
+  </div>
+
+  <h2 id='projects' class='mb-8 text-2xl font-semibold'>Projects</h2>
+  <!-- 在此添加你的项目，例如：
+  <ProjectSection
+    project={[
+      {
+        name: '项目名称',
+        description: '项目简介',
+        image: 'lumina.webp',
+        links: [
+          { type: 'github', href: '#' },
+          { type: 'site', href: '#' }
+        ]
+      }
+    ]}
+  />
+  -->
+</PageLayout>
