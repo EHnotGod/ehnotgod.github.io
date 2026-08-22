@@ -18,27 +18,19 @@ const safeCurrentLocale = (currentLocale === 'zh' || currentLocale === 'en') ? c
 const targetLocale = safeCurrentLocale === 'zh' ? 'en' : 'zh'
 
 // 获取当前页面路径（不包含语言前缀）
+// 路由：英文为默认语言在根目录（无前缀），中文在 /zh/ 下
 const currentPath = Astro.url.pathname
-let pagePath = ''
+let pagePath = currentPath
 
-if (safeCurrentLocale === 'en') {
-  if (currentPath === '/en') {
-    // 英文首页
+if (safeCurrentLocale === 'zh') {
+  // 中文页面位于 /zh/ 下，去掉 /zh 前缀得到通用路径
+  if (currentPath === '/zh') {
     pagePath = '/'
-  } else if (currentPath.startsWith('/en/')) {
-    // 英文其他页面，移除 /en/ 前缀
+  } else if (currentPath.startsWith('/zh/')) {
     pagePath = currentPath.slice(3) || '/'
-  } else {
-    // 默认情况
-    pagePath = currentPath
   }
-} else if (safeCurrentLocale === 'zh') {
-  // 如果是中文页面，直接使用路径
-  pagePath = currentPath
-} else {
-  // 默认情况
-  pagePath = currentPath
 }
+// 英文是默认语言在根目录，pagePath 保持原样
 
 // 生成目标语言的 URL
 let targetUrl = getRelativeLocaleUrl(targetLocale, pagePath)
