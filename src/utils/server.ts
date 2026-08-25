@@ -111,6 +111,31 @@ export function groupCollectionsByYear<T extends BlogPostEntry>(
 }
 
 
+/** 自然排序：把标题拆成数字/非数字段，数字按数值比较（A2 < A10） */
+export function naturalCompare(a: string, b: string): number {
+  const pa = a.match(/\d+|\D+/g) ?? []
+  const pb = b.match(/\d+|\D+/g) ?? []
+  const len = Math.max(pa.length, pb.length)
+  for (let i = 0; i < len; i++) {
+    const xa = pa[i]
+    const xb = pb[i]
+    if (xa === undefined) return -1
+    if (xb === undefined) return 1
+    const na = /^\d+$/.test(xa)
+    const nb = /^\d+$/.test(xb)
+    let cmp: number
+    if (na && nb) {
+      const ai = BigInt(xa)
+      const bi = BigInt(xb)
+      cmp = ai < bi ? -1 : ai > bi ? 1 : xa.length - xb.length
+    } else {
+      cmp = xa < xb ? -1 : xa > xb ? 1 : 0
+    }
+    if (cmp !== 0) return cmp
+  }
+  return 0
+}
+
 export function sortMDByDate<T extends BlogPostEntry>(collections: T[]): T[] {
   return [...collections].sort((a, b) => {
     const aUpdatedDate = a.data.updatedDate ? new Date(a.data.updatedDate).valueOf() : 0
@@ -120,7 +145,11 @@ export function sortMDByDate<T extends BlogPostEntry>(collections: T[]): T[] {
     }
     const aPublishDate = a.data.publishDate ? new Date(a.data.publishDate).valueOf() : 0
     const bPublishDate = b.data.publishDate ? new Date(b.data.publishDate).valueOf() : 0
-    return bPublishDate - aPublishDate
+    if (aPublishDate !== bPublishDate) {
+      return bPublishDate - aPublishDate
+    }
+    // 日期相同时按标题自然序（A2 < A10），避免同天文章退化为字典序
+    return naturalCompare(a.data.title, b.data.title)
   })
 }
 
