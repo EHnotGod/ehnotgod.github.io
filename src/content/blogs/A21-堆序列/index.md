@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P1631
+
 **题目描述**
 
 有两个长度为 $$N$$ 的**单调不降**序列 $$A,B$$，在 $$A,B$$ 中各取一个数相加可以得到 $$N^2$$ 个和，求这 $$N^2$$ 个和中最小的 $$N$$ 个。
@@ -68,8 +70,6 @@ N: A[1] + B[N] ≤ A[2] + B[N] ≤ … ≤ A[N] + B[N]
 ### Python代码实现
 
 ```python
-# P1631 序列合并
-
 import heapq
 n = int(input())
 q = []

@@ -53,8 +53,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# P1480 A/B Problem
-
 a = int(input())
 b = int(input())
 print(a // b)

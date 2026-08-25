@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P1496
+
 **题目描述**
 
 曹操平定北方以后，公元 208 年，率领大军南下，进攻刘表。他的人马还没有到荆州，刘表已经病死。他的儿子刘琮听到曹军声势浩大，吓破了胆，先派人求降了。
@@ -69,7 +71,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# 对应题目：https://www.luogu.com.cn/problem/P1496
 # py代码大概率超时，这是洛谷的问题，不要在意，其他地方py给开额外时间的。
 
 n = int(input())

@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P7072
+
 **题目描述**
 
 NOI2130 即将举行。为了增加观赏性，CCF 决定逐一评出每个选手的成绩，并直播即时的获奖分数线。本次竞赛的获奖率为 $w\%$，即当前排名前 $$w\%$$ 的选手的最低成绩就是即时的分数线。
@@ -62,7 +64,6 @@ NOI2130 即将举行。为了增加观赏性，CCF 决定逐一评出每个选�
 ### Python代码实现
 
 ```python
-# 对应题目：https://www.luogu.com.cn/problem/P7072
 
 import heapq
 a = [] # 大根堆

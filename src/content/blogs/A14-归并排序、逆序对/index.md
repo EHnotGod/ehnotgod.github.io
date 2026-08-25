@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P1908
+
 **题目描述**
 
 猫猫 TOM 和小老鼠 JERRY 最近又较量上了，但是毕竟都是成年人，他们已经不喜欢再玩那种你追我赶的游戏，现在他们喜欢玩统计。
@@ -57,7 +59,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# P1908 逆序对
 
 import sys
 sys.setrecursionlimit(1000000)

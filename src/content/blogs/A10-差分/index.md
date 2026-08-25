@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P4552
+
 **题目描述**
 
 给定一个长度为 $$n$$ 的数列 $${a_1,a_2,\cdots,a_n}$$，每次可以选择一个区间$$[l,r]$$，使这个区间内的数都加 $$1$$ 或者都减 $$1$$。 
@@ -63,7 +65,6 @@ $$b$$: 1 1 1 -2 1 1
 ### Python代码实现
 
 ```python
-# P4552 [Poetize6] IncDec Sequence
 
 n = int(input())
 a = [0]

@@ -59,8 +59,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# P2249 查找
-
 import bisect
 n, m = map(int, input().split())
 lis = list(map(int, input().split()))

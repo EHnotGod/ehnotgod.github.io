@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P1147
+
 **题目描述**
 
 给定一个正整数 $$M$$，求出所有的连续的正整数段（每一段至少有两个数），使得这些连续的正整数段中的全部数之和为 $$M$$。
@@ -62,7 +64,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# P1147 连续自然数和
 
 m = int(input())
 i = 1

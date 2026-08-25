@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P1387
+
 **题目描述**
 
 在一个 $$n\times m$$ 的只包含 $$0$$ 和 $$1$$ 的矩阵里找出一个不包含 $$0$$ 的最大正方形，输出边长。
@@ -50,8 +52,6 @@ EH在偷偷开摆
 ### Python代码实现
 
 ```python
-# P1387 最大正方形
-
 a = [[0 for i in range(103)] for j in range(103)]
 b = [[0 for i in range(103)] for j in range(103)]
 n, m = map(int, input().split())

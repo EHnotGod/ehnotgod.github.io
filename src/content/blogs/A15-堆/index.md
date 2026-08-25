@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P3378
+
 **题目描述**
 
 给定一个数列，初始为空，请支持下面三种操作：
@@ -65,8 +67,6 @@ heapq默认小根堆（弹出最小数），你可以通过加个负号让它变
 ### Python代码实现
 
 ```python
-# P3378 【模板】堆
-
 import heapq
 
 n = int(input())

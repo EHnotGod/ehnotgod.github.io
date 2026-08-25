@@ -64,8 +64,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# P2440 木材加工
-
 def check(x):
     y = 0
     for i in range(1, n + 1):

@@ -10,17 +10,21 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://codeforces.com/problemset/problem/1486/B
+
 ![image-20250416092236944](/images/算法竞赛/A/A17-1.png)
 
 ### 算法解析
 
-这更像是一个数学题？反正取中间就行了
+中位数性质：使各点距离和最小的点恰是中位数。
+
+因为求的是曼哈顿距离，我们可以把x和y分开看，然后分别找到各自的x和y即为所求点。
+
+本题的本质是贪心。
 
 ### Python代码实现
 
 ```python
-# CF1486B Eastern Exhibition
-
 t = int(input())
 for _ in range(t):
     n = int(input())

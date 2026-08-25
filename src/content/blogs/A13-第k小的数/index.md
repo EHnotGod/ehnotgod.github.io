@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+https://www.luogu.com.cn/problem/P1923
+
 **题目描述**
 
 输入 $$n$$ 个数字 $$a_i$$，输出这些数字中第 $$k$$ 小的数。最小的数是第 $$0$$ 小。
@@ -56,7 +58,6 @@ C++里可以直接使用nth_element(begin, nth, end)
 ### Python代码实现
 
 ```python
-# P1923 【深基9.例4】求第 k 小的数
 
 import sys
 sys.setrecursionlimit(5000000)

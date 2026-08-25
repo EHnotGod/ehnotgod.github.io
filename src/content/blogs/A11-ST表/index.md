@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P3865
+
 **题目描述**
 
 给定一个长度为 $$N$$ 的数列，和 $$ M $$ 次询问，求出每一次询问的区间内数字的最大值。
@@ -69,7 +71,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# P3865 【模板】ST 表 && RMQ 问题
 
 import math
 n, m = map(int, input().split())

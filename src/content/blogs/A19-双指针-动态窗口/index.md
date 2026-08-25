@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P1381
+
 **题目描述**
 
 灵梦有 $$n$$ 个单词想要背，但她想通过一篇文章中的一段来记住这些单词。

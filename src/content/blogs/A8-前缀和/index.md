@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P8218
+
 **题目描述**
 
 给定 $$n$$ 个正整数组成的数列 $$a_1, a_2, \cdots, a_n$$ 和 $$m$$ 个区间 $$[l_i,r_i]$$，分别求这 $$m$$ 个区间的区间和。
@@ -62,8 +64,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# P8218 【深进1.例1】求区间和
-
 n = int(input())
 a = list(map(int, input().split()))
 s = [0] * (n + 1)
