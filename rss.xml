@@ -2429,10 +2429,9 @@ int main(){
   int T; cin&gt;&gt;T;
   while(T--) cin&gt;&gt;x&gt;&gt;y, bfs();
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>B30 01BFS</title><link>https://ehnotgod.github.io/blog/b30-01bfs</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/b30-01bfs</guid><description>01BFS：边权为 0/1 的最短路，用双端队列优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;相当于可以节约一个log的，只有01路径的dij算法，使用deque而不是pri_que。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>B3 01BFS</title><link>https://ehnotgod.github.io/blog/b3-01bfs</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/b3-01bfs</guid><description>01BFS：边权为 0/1 的最短路，用双端队列优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://ac.nowcoder.com/acm/contest/115184/D&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B30-1.png&quot; alt=&quot;image-20250930163432863&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B3-1.png&quot; alt=&quot;image-20250930163432863&quot;&gt;&lt;/p&gt;
 &lt;p&gt;输入&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;1
 3 3 2
