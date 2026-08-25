@@ -72,6 +72,31 @@ const meta = {
 
 <script>
   // 标签页排序（纯前端，作用于当前分页内的条目）
+  // 自然排序：把标题拆成数字/非数字段，数字按数值比较（A2 < A10）
+  function naturalCompare(a: string, b: string): number {
+    const pa = a.match(/\d+|\D+/g) ?? []
+    const pb = b.match(/\d+|\D+/g) ?? []
+    const len = Math.max(pa.length, pb.length)
+    for (let i = 0; i < len; i++) {
+      const xa = pa[i]
+      const xb = pb[i]
+      if (xa === undefined) return -1
+      if (xb === undefined) return 1
+      const na = /^\d+$/.test(xa)
+      const nb = /^\d+$/.test(xb)
+      let cmp: number
+      if (na && nb) {
+        const ai = BigInt(xa)
+        const bi = BigInt(xb)
+        cmp = ai < bi ? -1 : ai > bi ? 1 : xa.length - xb.length
+      } else {
+        cmp = xa < xb ? -1 : xa > xb ? 1 : 0
+      }
+      if (cmp !== 0) return cmp
+    }
+    return 0
+  }
+
   const sortSelect = document.getElementById('post-sort') as HTMLSelectElement | null
   const postList = document.getElementById('blog-post-list')
   if (sortSelect && postList) {
@@ -97,7 +122,7 @@ const meta = {
         const da = a.dataset.date || ''
         const db = b.dataset.date || ''
         if (mode === 'title-asc' || mode === 'title-desc') {
-          const c = ta.localeCompare(tb, undefined, { numeric: true, sensitivity: 'base' })
+          const c = naturalCompare(ta, tb)
           return mode === 'title-asc' ? c : -c
         }
         const c = da.localeCompare(db)
