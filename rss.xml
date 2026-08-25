@@ -2431,7 +2431,7 @@ int main(){
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>B30 01BFS</title><link>https://ehnotgod.github.io/blog/b30-01bfs</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/b30-01bfs</guid><description>01BFS：边权为 0/1 的最短路，用双端队列优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;相当于可以节约一个log的，只有01路径的dij算法，使用deque而不是pri_que。&lt;/p&gt;
-&lt;p&gt;https://ac.nowcoder.com/acm/contest/115184/D&lt;/p&gt;
+&lt;p&gt;题目链接：https://ac.nowcoder.com/acm/contest/115184/D&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B30-1.png&quot; alt=&quot;image-20250930163432863&quot;&gt;&lt;/p&gt;
 &lt;p&gt;输入&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;1
@@ -2443,7 +2443,61 @@ UUL
 &lt;p&gt;输出&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;YES
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;C-数据结构&lt;/h2&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;把网格中的每个格子看成图上的一个点，从当前格子出发可以向上下左右移动：若移动方向与格子上的字符（R/L/U/D）一致，边权为 0；否则边权为 1。求从起点 $(0,0)$ 走到终点 $(n-1,m-1)$ 的最少改变方向次数，若不超过 $k$ 则可行。&lt;/p&gt;
+&lt;p&gt;边权只有 0 和 1，用 01BFS 优化：边权为 0 的边从队头插入，边权为 1 的边从队尾插入，队列始终按距离递增排列，每个点第一次出队时即得到最短路。相当于把 Dijkstra 的优先队列换成 deque，省掉一个 log。&lt;/p&gt;
+&lt;h3&gt;Python代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from collections import deque
+
+t = int(input())
+for _ in range(t):
+    n, m, k = map(int, input().split())
+    e = [[] for _ in range(n * m)]
+    for i in range(n):
+        s = input()
+        for j in range(m):
+            idx = i * m + j
+            if i &gt; 0:
+                if s[j] == &apos;U&apos;:
+                    e[idx].append((idx - m, 0))
+                else:
+                    e[idx].append((idx - m, 1))
+            if j &gt; 0:
+                if s[j] == &apos;L&apos;:
+                    e[idx].append((idx - 1, 0))
+                else:
+                    e[idx].append((idx - 1, 1))
+            if i &amp;#x3C; n - 1:
+                if s[j] == &apos;D&apos;:
+                    e[idx].append((idx + m, 0))
+                else:
+                    e[idx].append((idx + m, 1))
+            if j &amp;#x3C; m - 1:
+                if s[j] == &apos;R&apos;:
+                    e[idx].append((idx + 1, 0))
+                else:
+                    e[idx].append((idx + 1, 1))
+
+    q = deque()
+    vis = [-1] * (n * m)
+    q.append((0, 0))
+    while q:
+        u, dis = q.popleft()
+        if vis[u] != -1:
+            continue
+        vis[u] = dis
+        for v, le in e[u]:
+            if vis[v] == -1:
+                if le == 0:
+                    q.appendleft((v, dis))
+                else:
+                    q.append((v, dis + 1))
+
+    if vis[n * m - 1] &gt; k:
+        print(&quot;NO&quot;)
+    else:
+        print(&quot;YES&quot;)
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;bits/stdc++.h&gt;
 using namespace std;
