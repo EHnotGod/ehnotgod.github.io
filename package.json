@@ -8,6 +8,7 @@
     "dev:check": "astro check --watch & astro dev",
     "build:base": "astro check && astro build",
     "build": "npm run build:base",
+    "build:clean": "rm -rf .astro node_modules/.astro dist && pnpm build",
     "build:vercel": "npm run build:base",
     "build:cloudflare": "npm run build:base",
     "build:github": "npm run build:base",
