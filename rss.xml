@@ -2328,8 +2328,26 @@ int main(){
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>B15 BFS广搜</title><link>https://ehnotgod.github.io/blog/b15-bfs%E5%B9%BF%E6%90%9C</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/b15-bfs%E5%B9%BF%E6%90%9C</guid><description>BFS 广度优先搜索：队列逐层扩展求最短路。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B15-1.png&quot; alt=&quot;image-20250416093032988&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B15-2.png&quot; alt=&quot;image-20250825223816587&quot;&gt;&lt;/p&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1588&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;FJ 丢了一头牛，决定将其找回。FJ 和牛位于数轴上，初始位置分别为 $x$ 和 $y$，牛保持不动。每次移动时，若 FJ 处于位置 $x$，他可移动至 $x+1$、$x-1$ 或 $2x$。计算 FJ 抓住牛所需的最少移动次数。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B15-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B15-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行为一个整数 $T$，表示数据组数；接下来每行包含两个正整数 $x,y$，分别表示 FJ 和牛的坐标。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于每组数据，输出最少步数，每组数据间用换行隔开。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1
+5 17
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于 $100%$ 的数据，$0 \le x,y \le 10^5$。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;把数轴上的每个位置看作图上的一个点，从起点 $x$ 出发，每次可移动到 $x+1$、$x-1$ 或 $2x$，用 BFS 逐层向外扩展。BFS 第一次访问到终点 $y$ 时，经过的层数就是最少步数——每一层都代表当前步数内的所有可达位置，先到即最优。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1588 [USACO07OPEN] Catch That Cow S
 
