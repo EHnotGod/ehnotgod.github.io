@@ -2231,10 +2231,36 @@ int main() {
     }
 }
 // 64 位输出请用 printf(&quot;%lld&quot;)
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>B6 DFS深搜</title><link>https://ehnotgod.github.io/blog/b6-dfs%E6%B7%B1%E6%90%9C</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/b6-dfs%E6%B7%B1%E6%90%9C</guid><description>DFS 深度优先搜索：递归遍历所有状态。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B6-1.png&quot; alt=&quot;image-20250416092841158&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B6-2.png&quot; alt=&quot;image-20250416092956833&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B6-3.png&quot; alt=&quot;image-20250825223847899&quot;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>B1 DFS深搜</title><link>https://ehnotgod.github.io/blog/b1-dfs%E6%B7%B1%E6%90%9C</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/b1-dfs%E6%B7%B1%E6%90%9C</guid><description>DFS 深度优先搜索：递归遍历所有状态。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1219&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个如下的 $6 \times 6$ 的跳棋棋盘，有六个棋子被放置在棋盘上，使得每行、每列有且只有一个，每条对角线（包括两条主对角线的所有平行线）上至多有一个棋子。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/image_hosting/3h71x0yf.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;上面的布局可以用序列 $2\ 4\ 6\ 1\ 3\ 5$ 来描述，第 $i$ 个数字表示在第 $i$ 行的相应位置有一个棋子，如下：&lt;/p&gt;
+&lt;p&gt;行号 $1\ 2\ 3\ 4\ 5\ 6$&lt;/p&gt;
+&lt;p&gt;列号 $2\ 4\ 6\ 1\ 3\ 5$&lt;/p&gt;
+&lt;p&gt;这只是棋子放置的一个解。请编一个程序找出所有棋子放置的解。&lt;br&gt;
+并把它们以上面的序列方法输出，解按字典顺序排列。&lt;br&gt;
+请输出前 $3$ 个解。最后一行是解的总个数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一行一个正整数 $n$，表示棋盘是 $n \times n$ 大小的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;前三行为前三个解，每个解的两个数字之间用一个空格隔开。第四行只有一个数字，表示解的总数。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;6
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2 4 6 1 3 5
+3 6 2 5 1 4
+4 1 5 2 6 3
+4
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于 $100%$ 的数据，$6 \le n \le 13$。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;一行一行地放下去，假如某一行能放下这个棋子，就立刻跳到下一行遍历，寻找可放的位置，暴力枚举整个棋盘，对于每一种可行的方案都进行打印，此为dfs&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1219 [USACO1.5] 八皇后 Checker Challenge
 
