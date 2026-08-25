@@ -1,7 +1,7 @@
 ---
 title: "D4 最短路 Floyd 算法"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "Floyd 最短路：O(n³) 全源最短路与传递闭包。"
 category: algo
 tags:
   - 图论

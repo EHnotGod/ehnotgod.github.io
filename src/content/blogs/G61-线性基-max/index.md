@@ -1,7 +1,7 @@
 ---
 title: "G61 线性基-max"
 publishDate: 2026-08-08
-description: "给定 n 个整数（数字可能重复），求在这些数中选取任意个，使得他们的异或和最大。"
+description: "线性基：求最大异或和。"
 category: algo
 tags:
   - 数学

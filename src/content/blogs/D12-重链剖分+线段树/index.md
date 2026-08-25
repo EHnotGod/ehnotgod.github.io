@@ -1,7 +1,7 @@
 ---
 title: "D12 重链剖分+线段树"
 publishDate: 2026-08-08
-description: "P3384 【模板】重链剖分/树链剖分"
+description: "树链剖分 + 线段树：树上路径修改与查询。"
 category: algo
 tags:
   - 图论

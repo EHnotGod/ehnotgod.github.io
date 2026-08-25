@@ -1,7 +1,7 @@
 ---
 title: "A15 堆"
 publishDate: 2026-08-08
-description: "给定一个数列，初始为空，请支持下面三种操作："
+description: "堆（优先队列）模板：支持插入、删除、取最值。"
 category: algo
 tags:
   - 基础算法

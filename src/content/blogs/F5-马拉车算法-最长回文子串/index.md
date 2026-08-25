@@ -1,7 +1,7 @@
 ---
 title: "F5 马拉车算法-最长回文子串"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "Manacher 马拉车：O(n) 求最长回文子串。"
 category: algo
 tags:
   - 字符串

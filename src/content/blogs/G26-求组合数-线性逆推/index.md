@@ -1,7 +1,7 @@
 ---
 title: "G26 求组合数-线性逆推"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "组合数：线性递推求逆元计算 C(n,k)。"
 category: algo
 tags:
   - 数学

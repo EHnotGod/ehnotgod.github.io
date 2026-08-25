@@ -1,7 +1,7 @@
 ---
 title: "D23 最小费用最大流EK"
 publishDate: 2026-08-08
-description: "给出一个包含 n 个点和 m 条边的有向图（下面称其为网络） G=(V,E)，该网络上所有点分别编号为 1 ~ n，所有边分别编号为 1~ m，其中该网络的源点为 s，汇点为 t，网络上的每条边 (u,v) 都有一个流量限制 w(u,v) 和单位流量的费用 c(u,v)。"
+description: "最小费用最大流：EK + SPFA 增广。"
 category: algo
 tags:
   - 图论

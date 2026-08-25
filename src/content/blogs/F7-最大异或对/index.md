@@ -1,7 +1,7 @@
 ---
 title: "F7 最大异或对"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "Trie + 贪心：求最大异或对。"
 category: algo
 tags:
   - 字符串

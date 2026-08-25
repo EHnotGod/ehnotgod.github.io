@@ -1,7 +1,7 @@
 ---
 title: "F6 Trie字典树"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "Trie 字典树：多模式串前缀匹配。"
 category: algo
 tags:
   - 字符串

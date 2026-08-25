@@ -1,7 +1,7 @@
 ---
 title: "E18 树上背包"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "树上背包：在树上做依赖背包（树形 DP）。"
 category: algo
 tags:
   - 动态规划

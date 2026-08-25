@@ -1,7 +1,7 @@
 ---
 title: "I2 反转字符串"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "典题：字符串反转的各种实现。"
 category: algo
 tags:
   - 典题

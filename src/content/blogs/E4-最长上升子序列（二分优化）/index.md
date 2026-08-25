@@ -1,7 +1,7 @@
 ---
 title: "E4 最长上升子序列（二分优化）"
 publishDate: 2026-08-08
-description: "给出一个由 n(n≤ 5000) 个不超过 10^6 的正整数组成的序列。请输出这个序列的 最长上升子序列 的长度。"
+description: "LIS 最长上升子序列：二分 + 贪心 O(n log n)。"
 category: algo
 tags:
   - 动态规划

@@ -1,7 +1,7 @@
 ---
 title: "B6 DFS深搜"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "DFS 深度优先搜索：递归遍历所有状态。"
 category: algo
 tags:
   - 搜索算法

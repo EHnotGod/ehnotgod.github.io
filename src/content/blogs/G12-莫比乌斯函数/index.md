@@ -1,7 +1,7 @@
 ---
 title: "G12 莫比乌斯函数"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "莫比乌斯函数：线性筛求 μ(n)。"
 category: algo
 tags:
   - 数学

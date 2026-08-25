@@ -1,7 +1,7 @@
 ---
 title: "A17 距离之和最小、中位数"
 publishDate: 2026-08-08
-description: "这更像是一个数学题？反正取中间就行了"
+description: "中位数性质：使各点距离和最小的点恰是中位数。"
 category: algo
 tags:
   - 基础算法

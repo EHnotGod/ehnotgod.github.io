@@ -1,7 +1,7 @@
 ---
 title: "D19 Tarjan vDCC缩点"
 publishDate: 2026-08-08
-description: "P8435 【模板】点双连通分量"
+description: "点双连通分量缩点（vDCC）。"
 category: algo
 tags:
   - 图论

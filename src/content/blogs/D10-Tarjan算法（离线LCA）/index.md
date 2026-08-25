@@ -1,7 +1,7 @@
 ---
 title: "D10 Tarjan算法（离线LCA）"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "Tarjan 离线 LCA：并查集 + DFS 一次遍历。"
 category: algo
 tags:
   - 图论

@@ -1,7 +1,7 @@
 ---
 title: "D17 Tarjan割边"
 publishDate: 2026-08-08
-description: "A 国派出将军 uim，对 B 国进行战略性措施，以解救涂炭的生灵。"
+description: "Tarjan 割边（桥）：无向图桥判定。"
 category: algo
 tags:
   - 图论

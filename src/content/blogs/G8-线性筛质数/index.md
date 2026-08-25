@@ -1,7 +1,7 @@
 ---
 title: "G8 线性筛质数"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "线性筛（欧拉筛）：O(n) 筛质数。"
 category: algo
 tags:
   - 数学

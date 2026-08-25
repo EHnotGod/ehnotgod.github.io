@@ -1,7 +1,7 @@
 ---
 title: "G32 卡特兰数"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "卡特兰数：入栈出栈 / 括号匹配等计数。"
 category: algo
 tags:
   - 数学

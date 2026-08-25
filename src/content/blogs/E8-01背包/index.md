@@ -1,7 +1,7 @@
 ---
 title: "E8 01背包"
 publishDate: 2026-08-08
-description: "有 N 件物品和一个容量为 M 的背包。第 i 件物品的重量是 W i，价值是 D i。求解将哪些物品装入背包可使这些物品的重量总和不超过背包容量，且价值总和最大。"
+description: "01 背包：每件物品选或不选，滚动数组优化。"
 category: algo
 tags:
   - 动态规划

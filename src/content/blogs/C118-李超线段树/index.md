@@ -1,7 +1,7 @@
 ---
 title: "C118 李超线段树"
 publishDate: 2026-08-08
-description: "P4254 [JSOI2008] Blue Mary 开公司（精简版）"
+description: "李超线段树：维护一次函数最值。"
 category: algo
 tags:
   - 数据结构

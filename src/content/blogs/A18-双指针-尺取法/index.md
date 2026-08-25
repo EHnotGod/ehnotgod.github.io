@@ -1,7 +1,7 @@
 ---
 title: "A18 双指针 尺取法"
 publishDate: 2026-08-08
-description: "给定一个正整数 M，求出所有的连续的正整数段（每一段至少有两个数），使得这些连续的正整数段中的全部数之和为 M。"
+description: "双指针尺取法：随端点单调移动维护区间。"
 category: algo
 tags:
   - 基础算法

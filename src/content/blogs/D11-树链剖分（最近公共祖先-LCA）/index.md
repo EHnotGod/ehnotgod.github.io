@@ -1,7 +1,7 @@
 ---
 title: "D11 树链剖分（最近公共祖先 LCA）"
 publishDate: 2026-08-08
-description: "如题，给定一棵有根多叉树，请求出指定两个点直接最近的公共祖先。"
+description: "树链剖分：重链剖分求 LCA 与路径操作。"
 category: algo
 tags:
   - 图论

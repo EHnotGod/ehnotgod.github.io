@@ -1,7 +1,7 @@
 ---
 title: "C1 并查集"
 publishDate: 2026-08-08
-description: "如题，现在有一个并查集，你需要完成合并和查询操作。"
+description: "并查集模板：维护集合的合并与查询。"
 category: algo
 tags:
   - 数据结构

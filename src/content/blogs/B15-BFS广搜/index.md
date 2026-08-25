@@ -1,7 +1,7 @@
 ---
 title: "B15 BFS广搜"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "BFS 广度优先搜索：队列逐层扩展求最短路。"
 category: algo
 tags:
   - 搜索算法

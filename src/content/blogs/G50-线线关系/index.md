@@ -1,7 +1,7 @@
 ---
 title: "G50 线线关系"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "计算几何：直线与线段的位置关系。"
 category: algo
 tags:
   - 数学

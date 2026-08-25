@@ -1,7 +1,7 @@
 ---
 title: "G23 高斯消元法"
 publishDate: 2026-08-08
-description: "给定一个线性方程组，对其求解。"
+description: "高斯消元：解线性方程组。"
 category: algo
 tags:
   - 数学

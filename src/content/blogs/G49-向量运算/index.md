@@ -1,7 +1,7 @@
 ---
 title: "G49 向量运算"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "向量运算：点积、叉积、模长等。"
 category: algo
 tags:
   - 数学

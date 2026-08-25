@@ -1,7 +1,7 @@
 ---
 title: "C0 树状数组"
 publishDate: 2026-08-08
-description: "如题，已知一个数列，你需要进行下面两种操作："
+description: "树状数组模板：单点修改 + 区间求和。"
 category: algo
 tags:
   - 数据结构

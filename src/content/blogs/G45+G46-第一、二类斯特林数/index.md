@@ -1,7 +1,7 @@
 ---
 title: "G45+G46 第一、二类斯特林数"
 publishDate: 2026-08-08
-description: "不讲解，打表找到规律后直接使用！"
+description: "第一 / 二类斯特林数：排列与划分计数。"
 category: algo
 tags:
   - 数学

@@ -1,7 +1,7 @@
 ---
 title: "A23 三分小数"
 publishDate: 2026-08-08
-description: "给定 n 个二次函数 f 1(x),f 2(x),…,f n(x)（均形如 ax^2+bx+c），设 F(x)=max1(x),f 2(x),...,f n(x)，求 F(x) 在区间 [0,1000] 上的最小值。"
+description: "三分模板（实数）：求单峰函数的极值。"
 category: algo
 tags:
   - 基础算法

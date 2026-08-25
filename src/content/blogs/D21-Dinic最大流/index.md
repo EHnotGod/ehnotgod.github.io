@@ -1,7 +1,7 @@
 ---
 title: "D21 Dinic最大流"
 publishDate: 2026-08-08
-description: "如题，给出一个网络图，以及其源点和汇点，求出其网络最大流。"
+description: "Dinic 最大流：分层图 + 阻塞流。"
 category: algo
 tags:
   - 图论

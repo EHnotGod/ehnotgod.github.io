@@ -1,7 +1,7 @@
 ---
 title: "A21 堆序列"
 publishDate: 2026-08-08
-description: "有两个长度为 N 的 单调不降 序列 A,B，在 A,B 中各取一个数相加可以得到 N^2 个和，求这 N^2 个和中最小的 N 个。"
+description: "堆+贪心：多路归并求最小的 N 个和。"
 category: algo
 tags:
   - 基础算法

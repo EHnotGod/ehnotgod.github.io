@@ -1,7 +1,7 @@
 ---
 title: "G10 筛法求因数个数"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "线性筛求每个数的因数个数。"
 category: algo
 tags:
   - 数学

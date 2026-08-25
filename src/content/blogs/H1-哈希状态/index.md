@@ -1,7 +1,7 @@
 ---
 title: "H1 哈希状态"
 publishDate: 2026-08-08
-description: "解析：时间复杂度O(nlogn))"
+description: "哈希技巧：状态压缩 / 字符串哈希。"
 category: algo
 tags:
   - 邪教

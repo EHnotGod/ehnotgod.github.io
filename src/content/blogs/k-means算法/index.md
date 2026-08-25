@@ -1,7 +1,7 @@
 ---
 title: "k-means算法"
 publishDate: 2026-08-08
-description: "k-means 是一种 无监督学习 中的 聚类（Clustering） 算法。它的目标很简单："
+description: "k-means 聚类：无监督学习，迭代更新簇中心。"
 category: ml
 tags:
   - 机器学习

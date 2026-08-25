@@ -1,7 +1,7 @@
 ---
 title: "B30 01BFS"
 publishDate: 2026-08-08
-description: "相当于可以节约一个log的，只有01路径的dij算法，使用deque而不是pri que。"
+description: "01BFS：边权为 0/1 的最短路，用双端队列优化。"
 category: algo
 tags:
   - 搜索算法

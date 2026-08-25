@@ -1,7 +1,7 @@
 ---
 title: "E20 背包具体方案"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "背包具体方案：回溯输出选择的物品。"
 category: algo
 tags:
   - 动态规划

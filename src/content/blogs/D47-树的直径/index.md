@@ -1,7 +1,7 @@
 ---
 title: "D47 树的直径"
 publishDate: 2026-08-08
-description: "给定一棵 n 个结点的树，树没有边权。请求出树的直径是多少，即树上最长的不重复经过一个点的路径长度是多少。"
+description: "树的直径：两次 DFS/BFS 求最远点对。"
 category: algo
 tags:
   - 图论

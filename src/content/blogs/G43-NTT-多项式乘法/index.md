@@ -1,7 +1,7 @@
 ---
 title: "G43 NTT-多项式乘法"
 publishDate: 2026-08-08
-description: "同上，但是整数、取模，支持dp的优化。"
+description: "NTT：数论变换做多项式乘法。"
 category: algo
 tags:
   - 数学

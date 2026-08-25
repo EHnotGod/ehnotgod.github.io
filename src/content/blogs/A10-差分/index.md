@@ -1,7 +1,7 @@
 ---
 title: "A10 差分"
 publishDate: 2026-08-08
-description: "给定一个长度为 n 的数列 a 1,a 2,…,a n，每次可以选择一个区间[l,r]，使这个区间内的数都加 1 或者都减 1。"
+description: "差分模板：区间加/减操作 O(1) 完成，再求前缀还原。"
 category: algo
 tags:
   - 基础算法

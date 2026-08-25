@@ -1,7 +1,7 @@
 ---
 title: "G74 拉格朗日插值法"
 publishDate: 2026-08-08
-description: "P4781 【模板】拉格朗日插值"
+description: "拉格朗日插值：求多项式在任意点的值。"
 category: algo
 tags:
   - 数学

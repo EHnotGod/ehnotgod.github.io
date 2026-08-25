@@ -1,7 +1,7 @@
 ---
 title: "G60 有向图博弈-SG函数"
 publishDate: 2026-08-08
-description: "给定一个有 N 个节点的有向无环图，图中某些节点上有棋子，两名玩家交替移动棋子。"
+description: "SG 函数：有向图博弈的胜负判定。"
 category: algo
 tags:
   - 数学

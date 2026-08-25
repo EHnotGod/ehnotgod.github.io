@@ -1,7 +1,7 @@
 ---
 title: "E37 Windy数"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "数位 DP：相邻数字差不小于 2 的数。"
 category: algo
 tags:
   - 动态规划

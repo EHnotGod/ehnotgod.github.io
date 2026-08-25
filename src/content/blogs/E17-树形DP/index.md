@@ -1,7 +1,7 @@
 ---
 title: "E17 树形DP"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "树形 DP：以子树为状态的树上动态规划。"
 category: algo
 tags:
   - 动态规划

@@ -1,7 +1,7 @@
 ---
 title: "E11 滑动窗口"
 publishDate: 2026-08-08
-description: "有一个长为 n 的序列 a，以及一个大小为 k 的窗口。现在这个从左边开始向右滑动，每次滑动一个单位，求出每次滑动后窗口中的最大值和最小值。"
+description: "滑动窗口：双端队列（单调队列）维护区间最值。"
 category: algo
 tags:
   - 动态规划

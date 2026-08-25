@@ -1,7 +1,7 @@
 ---
 title: "G13 费马小定理"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "费马小定理：a^(p-1) ≡ 1 (mod p)。"
 category: algo
 tags:
   - 数学

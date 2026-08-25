@@ -1,7 +1,7 @@
 ---
 title: "A3 高精度乘法"
 publishDate: 2026-08-08
-description: "两个非负整数 a, b，求它们的乘积。"
+description: "高精度乘法模板：模拟竖式逐位相乘并累加。"
 category: algo
 tags:
   - 基础算法

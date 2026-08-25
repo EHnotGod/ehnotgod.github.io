@@ -1,7 +1,7 @@
 ---
 title: "自动微分与反向传播"
 publishDate: 2026-08-08
-description: "我们先从最核心的部分开始——变量类（Variable）。"
+description: "自动微分与反向传播：从零实现 Variable 与梯度计算。"
 category: dl
 tags:
   - 深度学习底层学习

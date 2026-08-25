@@ -1,7 +1,7 @@
 ---
 title: "A14 归并排序、逆序对"
 publishDate: 2026-08-08
-description: "猫猫 TOM 和小老鼠 JERRY 最近又较量上了，但是毕竟都是成年人，他们已经不喜欢再玩那种你追我赶的游戏，现在他们喜欢玩统计。"
+description: "归并排序模板：排序同时统计逆序对数量。"
 category: algo
 tags:
   - 基础算法

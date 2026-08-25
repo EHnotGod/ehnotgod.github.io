@@ -1,7 +1,7 @@
 ---
 title: "I1 共同上升"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "典题：最长公共上升子序列（LCIS）。"
 category: algo
 tags:
   - 典题

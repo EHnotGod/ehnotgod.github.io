@@ -1,7 +1,7 @@
 ---
 title: "E36 数位DP"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "数位 DP：按位枚举统计满足条件的数字。"
 category: algo
 tags:
   - 动态规划

@@ -1,7 +1,7 @@
 ---
 title: "E29 区间DP-环形石子"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "区间 DP：环形石子合并，破环成链。"
 category: algo
 tags:
   - 动态规划

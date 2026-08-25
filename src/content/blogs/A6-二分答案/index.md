@@ -1,7 +1,7 @@
 ---
 title: "A6 二分答案"
 publishDate: 2026-08-08
-description: "木材厂有 n 根原木，现在想把这些木头切割成 k 段长度 均 为 l 的小段木头（木头有可能有剩余）。请求出 l 的最大值。"
+description: "二分答案模板：把木头切成 k 段等长小段，二分求每段最大长度。"
 category: algo
 tags:
   - 基础算法
@@ -9,6 +9,8 @@ language: zh
 ---
 
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P2440
 
 **题目描述**
 

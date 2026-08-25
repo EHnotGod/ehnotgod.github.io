@@ -1,7 +1,7 @@
 ---
 title: "E32 树的重心"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "树的重心：删去后最大子树最小。"
 category: algo
 tags:
   - 动态规划

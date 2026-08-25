@@ -1,7 +1,7 @@
 ---
 title: "A4 高精度除法"
 publishDate: 2026-08-08
-description: "输入两个整数 a, b，输出它们的商。"
+description: "高精度除法模板：高精除以低精，模拟除法过程。"
 category: algo
 tags:
   - 基础算法

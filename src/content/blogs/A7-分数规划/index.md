@@ -1,7 +1,7 @@
 ---
 title: "A7 分数规划"
 publishDate: 2026-08-08
-description: "问题：每种物品有两个权值 a i 和 b i，选出若干个物品使得 ∑ a i∑ b i 最大/最小。"
+description: "分数规划：二分答案比值，最大化/最小化目标函数。"
 category: algo
 tags:
   - 基础算法
@@ -9,6 +9,8 @@ language: zh
 ---
 
 ### 题目情境
+
+题目链接：http://poj.org/problem?id=2976
 
 用途：求分数的最值。
 
@@ -43,7 +45,6 @@ $$
 ### Python代码实现
 
 ```python
-# http://poj.org/problem?id=2976
 
 def check(x):
     s = 0

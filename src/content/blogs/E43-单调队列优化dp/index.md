@@ -1,7 +1,7 @@
 ---
 title: "E43 单调队列优化dp"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "单调队列优化 DP：维护滑动窗口最值转移。"
 category: algo
 tags:
   - 动态规划

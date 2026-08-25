@@ -1,7 +1,7 @@
 ---
 title: "E51 斜率优化DP"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "斜率优化 DP：凸包维护转移斜率。"
 category: algo
 tags:
   - 动态规划

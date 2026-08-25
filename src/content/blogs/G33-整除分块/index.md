@@ -1,7 +1,7 @@
 ---
 title: "G33 整除分块"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "整除分块：对 ⌊n/i⌋ 相同的区间合并计算。"
 category: algo
 tags:
   - 数学

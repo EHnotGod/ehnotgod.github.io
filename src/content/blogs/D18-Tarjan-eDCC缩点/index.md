@@ -1,7 +1,7 @@
 ---
 title: "D18 Tarjan eDCC缩点"
 publishDate: 2026-08-08
-description: "P8436 【模板】边双连通分量"
+description: "边双连通分量缩点（eDCC）。"
 category: algo
 tags:
   - 图论

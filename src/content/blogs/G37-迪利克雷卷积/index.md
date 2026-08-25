@@ -1,7 +1,7 @@
 ---
 title: "G37 迪利克雷卷积"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "狄利克雷卷积：积性函数卷积运算。"
 category: algo
 tags:
   - 数学

@@ -1,7 +1,7 @@
 ---
 title: "D3 SPFA算法"
 publishDate: 2026-08-08
-description: "给定一个 n 个点的有向图，请求出图中是否存在 从顶点 1 出发能到达 的负环。"
+description: "SPFA 最短路：队列优化的 Bellman-Ford。"
 category: algo
 tags:
   - 图论

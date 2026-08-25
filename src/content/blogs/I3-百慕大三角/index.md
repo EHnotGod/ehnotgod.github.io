@@ -1,7 +1,7 @@
 ---
 title: "I3 百慕大三角"
 publishDate: 2026-08-08
-description: "冷知识：使用中国剩余定理以及拓展欧几里得定理时，最好保证一下互质，严格一点。"
+description: "典题：计算几何综合练习。"
 category: algo
 tags:
   - 典题

@@ -1,7 +1,7 @@
 ---
 title: "E23 线性DP K笔买卖"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "线性 DP：最多 k 笔股票买卖的最大收益。"
 category: algo
 tags:
   - 动态规划

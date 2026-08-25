@@ -1,7 +1,7 @@
 ---
 title: "E25 TSP-状压DP"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "状压 DP：旅行商问题（TSP）。"
 category: algo
 tags:
   - 动态规划

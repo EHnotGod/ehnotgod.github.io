@@ -1,7 +1,7 @@
 ---
 title: "A11 ST表"
 publishDate: 2026-08-08
-description: "给定一个长度为 N 的数列，和 M 次询问，求出每一次询问的区间内数字的最大值。"
+description: "ST 表模板：倍增预处理，O(1) 查询区间最大值。"
 category: algo
 tags:
   - 基础算法

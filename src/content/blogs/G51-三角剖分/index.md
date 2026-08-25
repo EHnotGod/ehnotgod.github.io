@@ -1,7 +1,7 @@
 ---
 title: "G51 三角剖分"
 publishDate: 2026-08-08
-description: "个人感觉考的不多，就不写代码了，考到了的话，赛场上自己再写吧。"
+description: "计算几何：多边形三角剖分。"
 category: algo
 tags:
   - 数学

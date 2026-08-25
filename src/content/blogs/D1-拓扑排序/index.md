@@ -1,7 +1,7 @@
 ---
 title: "D1 拓扑排序"
 publishDate: 2026-08-08
-description: "B3644 【模板】拓扑排序 / 家谱树"
+description: "拓扑排序：有向无环图的线性排序。"
 category: algo
 tags:
   - 图论

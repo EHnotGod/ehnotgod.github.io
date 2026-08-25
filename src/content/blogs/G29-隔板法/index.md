@@ -1,7 +1,7 @@
 ---
 title: "G29 隔板法"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "隔板法：组合计数的经典技巧。"
 category: algo
 tags:
   - 数学

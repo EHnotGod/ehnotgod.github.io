@@ -1,7 +1,7 @@
 ---
 title: "G52 凸包算法"
 publishDate: 2026-08-08
-description: "没有py代码，因为EH还不会。"
+description: "凸包：Andrew / Graham 扫描求点集凸包。"
 category: algo
 tags:
   - 数学

@@ -1,7 +1,7 @@
 ---
 title: "G17 拓展欧几里得-不定方程"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "扩展欧几里得：求解 ax+by=gcd(a,b)。"
 category: algo
 tags:
   - 数学

@@ -1,7 +1,7 @@
 ---
 title: "E16 分组背包"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "分组背包：每组最多选一个。"
 category: algo
 tags:
   - 动态规划

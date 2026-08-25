@@ -1,7 +1,7 @@
 ---
 title: "D2 狄克斯特拉算法"
 publishDate: 2026-08-08
-description: "如题，给出一个有向图，请输出从某一点出发到所有点的最短路径长度。"
+description: "Dijkstra 最短路：非负权，堆优化。"
 category: algo
 tags:
   - 图论

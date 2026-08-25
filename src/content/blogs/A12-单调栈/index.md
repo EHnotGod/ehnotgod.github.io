@@ -1,7 +1,7 @@
 ---
 title: "A12 单调栈"
 publishDate: 2026-08-08
-description: "给出项数为 n 的整数数列 a 1 … n。"
+description: "单调栈模板：求每个数右边第一个比它大的数的下标。"
 category: algo
 tags:
   - 基础算法

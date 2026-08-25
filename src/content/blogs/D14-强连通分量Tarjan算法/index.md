@@ -1,7 +1,7 @@
 ---
 title: "D14 强连通分量Tarjan算法"
 publishDate: 2026-08-08
-description: "P2863 [USACO06JAN] The Cow Prom S"
+description: "Tarjan 强连通分量：有向图 SCC。"
 category: algo
 tags:
   - 图论

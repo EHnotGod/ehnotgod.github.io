@@ -1,7 +1,7 @@
 ---
 title: "A1 高精度加法"
 publishDate: 2026-08-08
-description: "高精度加法，相当于 a+b problem，不用考虑负数。"
+description: "高精度加法模板：模拟竖式逐位相加并进位。"
 category: algo
 tags:
   - 基础算法

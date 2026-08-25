@@ -1,7 +1,7 @@
 ---
 title: "E6 最长公共子串"
 publishDate: 2026-08-08
-description: "给出一个长度为n(n≤ 5000) 的字符串序列。请输出这个序列的 最长公共子串 及其长度。"
+description: "最长公共子串：DP / 后缀自动机。"
 category: algo
 tags:
   - 动态规划

@@ -1,7 +1,7 @@
 ---
 title: "C13 树上点分治"
 publishDate: 2026-08-08
-description: "P3806 【模板】点分治 1"
+description: "点分治：树上路径统计问题的经典分治。"
 category: algo
 tags:
   - 数据结构

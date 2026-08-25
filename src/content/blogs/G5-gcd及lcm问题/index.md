@@ -1,7 +1,7 @@
 ---
 title: "G5 gcd及lcm问题"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "gcd / lcm：欧几里得算法及相关性质。"
 category: algo
 tags:
   - 数学

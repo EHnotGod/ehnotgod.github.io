@@ -1,7 +1,7 @@
 ---
 title: "A16 对顶堆"
 publishDate: 2026-08-08
-description: "NOI2130 即将举行。为了增加观赏性，CCF 决定逐一评出每个选手的成绩，并直播即时的获奖分数线。本次竞赛的获奖率为 w%，即当前排名前 w% 的选手的最低成绩就是即时的分数线。"
+description: "对顶堆模板：动态维护序列中位数/第 k 大。"
 category: algo
 tags:
   - 基础算法

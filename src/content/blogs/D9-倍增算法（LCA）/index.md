@@ -1,7 +1,7 @@
 ---
 title: "D9 倍增算法（LCA）"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "倍增法求 LCA：树上最近公共祖先。"
 category: algo
 tags:
   - 图论

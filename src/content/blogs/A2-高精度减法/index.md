@@ -1,7 +1,7 @@
 ---
 title: "A2 高精度减法"
 publishDate: 2026-08-08
-description: "两个整数 a, b （第二个可能比第一个大）。"
+description: "高精度减法模板：模拟竖式逐位相减并借位。"
 category: algo
 tags:
   - 基础算法

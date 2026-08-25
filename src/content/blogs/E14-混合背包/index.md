@@ -1,7 +1,7 @@
 ---
 title: "E14 混合背包"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "混合背包：01 / 完全 / 多重背包组合。"
 category: algo
 tags:
   - 动态规划

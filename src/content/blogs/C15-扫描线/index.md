@@ -1,7 +1,7 @@
 ---
 title: "C15 扫描线"
 publishDate: 2026-08-08
-description: "P5490 【模板】扫描线 & 矩形面积并"
+description: "扫描线：矩形面积并 / 周长并。"
 category: algo
 tags:
   - 数据结构

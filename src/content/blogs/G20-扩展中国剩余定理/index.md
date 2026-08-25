@@ -1,7 +1,7 @@
 ---
 title: "G20 扩展中国剩余定理"
 publishDate: 2026-08-08
-description: "时间复杂度：O(nlog(m 1))"
+description: "扩展中国剩余定理：模数不互质的同余方程组。"
 category: algo
 tags:
   - 数学

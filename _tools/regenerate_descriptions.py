@@ -46,7 +46,15 @@ def math_to_text(s: str) -> str:
     return s.strip()
 
 
-def make_description(body: str, max_len: int = 150) -> str:
+# 剧情铺垫特征（人名 / 年份 / 拟人角色等），首句含这些词时跳过
+_FLAVOR = re.compile(
+    r"曹操|刘表|农夫|猫猫|灵梦|小新|奶牛|Farmer|TOM|JERRY|CCF|评委|NOI\d+|公元|"
+    r"百度|谷歌|小B|小A|路人|小红|小明|毕业|举办|比赛即将|王国|国王|骑士|海盗|"
+    r"有n个|有一|从前|很久|传说|神话|故事"
+)
+
+
+def make_description(body: str, max_len: int = 70) -> str:
     text = re.sub(r"```.*?```", " ", body, flags=re.S)  # 去代码块
     text = re.sub(r"!\[.*?\]\(.*?\)", " ", text)  # 去图片
     text = re.sub(r"`[^`]*`", " ", text)  # 去行内代码
@@ -55,8 +63,11 @@ def make_description(body: str, max_len: int = 150) -> str:
     # 数学公式 -> 可读文本（保留变量名）
     text = re.sub(r"\$\$(.*?)\$\$", lambda m: math_to_text(m.group(1)), text, flags=re.S)
     text = re.sub(r"\$([^$]+)\$", lambda m: math_to_text(m.group(1)), text)
+    # 去掉括号注释（如"（就是后面的数字不小于前面的数字）"这类补充说明）
+    text = re.sub(r"（[^）]{0,24}）", "", text)
+    text = re.sub(r"\([^)]{0,24}\)", "", text)
+
     def is_link_line(p: str) -> bool:
-        # 跳过纯链接/"题目链接：https://..." 这类行，不适合当描述
         if re.match(r"^https?://", p):
             return True
         if re.match(r"^[^\n：:]*[：:]\s*https?://", p):
@@ -69,13 +80,26 @@ def make_description(body: str, max_len: int = 150) -> str:
         for p in text.split("\n")
         if p.strip()
         and not p.strip().startswith("#")
-        and len(p.strip()) >= 15
+        and len(p.strip()) >= 12
         and not is_link_line(p.strip())
     ]
-    desc = paragraphs[0] if paragraphs else ""
-    # 清理空白与中文标点前后空格
+    para = paragraphs[0] if paragraphs else ""
+
+    # 分句
+    sentences = [s.strip() for s in re.split(r"[。！？]", para) if s.strip()]
+    if not sentences:
+        return "算法学习笔记"
+
+    # 若第一句是剧情铺垫（含人名/年份等），跳过它，用后续句子（通常是真正的题目）
+    if _FLAVOR.search(sentences[0]) and len(sentences) > 1:
+        desc = "。".join(sentences[1:])
+    else:
+        desc = sentences[0]
+
+    # 清理空白与中文标点前后空格、中文间多余空格
     desc = re.sub(r"\s+", " ", desc).strip()
     desc = re.sub(r"\s*([，。；：！？、])\s*", r"\1", desc)
+    desc = re.sub(r"(?<=[\u4e00-\u9fff])\s+(?=[\u4e00-\u9fff])", "", desc)
     desc = re.sub(r"\s+([,.;:!?])", r"\1", desc)
     if len(desc) > max_len:
         desc = desc[:max_len].rstrip() + "…"

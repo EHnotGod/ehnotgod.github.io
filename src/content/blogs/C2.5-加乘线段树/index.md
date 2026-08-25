@@ -1,7 +1,7 @@
 ---
 title: "C2.5 加乘线段树"
 publishDate: 2026-08-08
-description: "如题，已知一个数列 a，你需要进行下面三种操作："
+description: "线段树进阶：区间加法与乘法混合懒标记。"
 category: algo
 tags:
   - 数据结构

@@ -1,7 +1,7 @@
 ---
 title: "C2 线段树"
 publishDate: 2026-08-08
-description: "如题，已知一个数列 i，你需要进行下面两种操作："
+description: "线段树模板：区间修改 + 区间查询（加法）。"
 category: algo
 tags:
   - 数据结构

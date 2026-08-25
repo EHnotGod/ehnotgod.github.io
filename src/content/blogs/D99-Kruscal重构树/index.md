@@ -1,7 +1,7 @@
 ---
 title: "D99 Kruscal重构树"
 publishDate: 2026-08-08
-description: "给定一张 N 个点的无向图，记为 1… N。"
+description: "Kruscal 重构树：最小瓶颈 / 连通性离线问题。"
 category: algo
 tags:
   - 图论

@@ -1,7 +1,7 @@
 ---
 title: "D13 树上距离"
 publishDate: 2026-08-08
-description: "解析：无，LCA板子题举例而已。"
+description: "树上前缀和/差分：求树上两点距离与路径和。"
 category: algo
 tags:
   - 图论

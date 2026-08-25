@@ -1,7 +1,7 @@
 ---
 title: "E9 完全背包"
 publishDate: 2026-08-08
-description: "题目不码了，跟上题一样，只不过是把只能拿一件物品改为可以拿任意件。"
+description: "完全背包：物品可无限选取，正序递推。"
 category: algo
 tags:
   - 动态规划

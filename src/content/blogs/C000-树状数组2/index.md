@@ -1,7 +1,7 @@
 ---
 title: "C000 树状数组2"
 publishDate: 2026-08-08
-description: "如题，已知一个数列，你需要进行下面两种操作："
+description: "树状数组进阶：区间修改 + 区间查询。"
 category: algo
 tags:
   - 数据结构

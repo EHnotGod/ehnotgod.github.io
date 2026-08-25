@@ -1,7 +1,7 @@
 ---
 title: "G22 扩展BSGS算法"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "扩展 BSGS：模数不互质时的离散对数。"
 category: algo
 tags:
   - 数学

@@ -1,7 +1,7 @@
 ---
 title: "A19 双指针 动态窗口"
 publishDate: 2026-08-08
-description: "灵梦有 n 个单词想要背，但她想通过一篇文章中的一段来记住这些单词。"
+description: "双指针滑动窗口：动态调整窗口覆盖目标。"
 category: algo
 tags:
   - 基础算法

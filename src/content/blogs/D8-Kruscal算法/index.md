@@ -1,7 +1,7 @@
 ---
 title: "D8 Kruscal算法"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "Kruscal 最小生成树：按边权排序 + 并查集。"
 category: algo
 tags:
   - 图论

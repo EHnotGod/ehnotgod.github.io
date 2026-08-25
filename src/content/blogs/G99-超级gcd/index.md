@@ -1,7 +1,7 @@
 ---
 title: "G99 超级gcd"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "超级 gcd：求多个数的最大公约数。"
 category: algo
 tags:
   - 数学

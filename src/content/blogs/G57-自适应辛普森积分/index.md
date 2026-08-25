@@ -1,7 +1,7 @@
 ---
 title: "G57 自适应辛普森积分"
 publishDate: 2026-08-08
-description: "P4525 【模板】自适应辛普森法 1"
+description: "自适应辛普森积分：数值积分求面积。"
 category: algo
 tags:
   - 数学

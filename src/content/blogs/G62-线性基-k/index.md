@@ -1,7 +1,7 @@
 ---
 title: "G62 线性基-k"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "线性基：求第 k 小异或值。"
 category: algo
 tags:
   - 数学

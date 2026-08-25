@@ -1,7 +1,7 @@
 ---
 title: "E19 背包方案数"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "背包方案数：求达到容量限制的方案数。"
 category: algo
 tags:
   - 动态规划

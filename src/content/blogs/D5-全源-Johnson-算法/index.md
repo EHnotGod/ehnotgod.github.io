@@ -1,7 +1,7 @@
 ---
 title: "D5 全源 Johnson 算法"
 publishDate: 2026-08-08
-description: "给定一个包含 n 个结点和 m 条带权边的有向图，求所有点对间的最短路径长度，一条路径的长度定义为这条路径上所有边的权值和。"
+description: "Johnson 全源最短路：重赋权 + 多次 Dijkstra。"
 category: algo
 tags:
   - 图论

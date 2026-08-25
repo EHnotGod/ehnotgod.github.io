@@ -1,7 +1,7 @@
 ---
 title: "torch语法学习1"
 publishDate: 2026-08-08
-description: "建议和Dezero相关内容一起食用，效果更佳，更能理解。"
+description: "PyTorch 语法笔记：优化器、梯度与常用 API。"
 category: dl
 tags:
   - 深度学习底层学习

@@ -1,7 +1,7 @@
 ---
 title: "F3 KMP算法"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "KMP 字符串匹配：next 数组加速匹配。"
 category: algo
 tags:
   - 字符串

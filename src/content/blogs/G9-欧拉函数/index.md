@@ -1,7 +1,7 @@
 ---
 title: "G9 欧拉函数"
 publishDate: 2026-08-08
-description: "算法学习笔记"
+description: "欧拉函数：1~n 中与 n 互质的数个数。"
 category: algo
 tags:
   - 数学

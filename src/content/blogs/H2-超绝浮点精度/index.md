@@ -1,7 +1,7 @@
 ---
 title: "H2 超绝浮点精度"
 publishDate: 2026-08-08
-description: "本邪教为py邪教，方法是使用python的Decimal提升精度，在WA与T之间徘徊。"
+description: "浮点精度：数值稳定性与误差处理技巧。"
 category: algo
 tags:
   - 邪教

@@ -1,7 +1,7 @@
 ---
 title: "C8 可持续化线段树"
 publishDate: 2026-08-08
-description: "这是个非常经典的可持久化权值线段树入门题——静态区间第 k 小。"
+description: "可持久化线段树（主席树）：静态区间第 k 小。"
 category: algo
 tags:
   - 数据结构

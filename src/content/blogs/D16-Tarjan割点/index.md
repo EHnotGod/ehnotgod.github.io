@@ -1,7 +1,7 @@
 ---
 title: "D16 Tarjan割点"
 publishDate: 2026-08-08
-description: "P3388 【模板】割点（割顶）"
+description: "Tarjan 割点：无向图割点判定。"
 category: algo
 tags:
   - 图论
