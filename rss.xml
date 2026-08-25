@@ -383,8 +383,7 @@ print(&quot;随机森林预测 70m²:&quot;, reg_forest.predict([[70]]))
 &lt;/ol&gt;
 &lt;p&gt;时间复杂度O(n)&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1601 高精度加法
-
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 a = int(input())
 b = int(input())
 print(a + b)
@@ -440,9 +439,7 @@ int main(){
 &lt;p&gt;把数组 C 从高位到低位依次输出。&lt;/p&gt;
 &lt;p&gt;时间复杂度O(n)&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P2142 高精度减法
-
-a = int(input())
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = int(input())
 b = int(input())
 print(a - b)
 &lt;/code&gt;&lt;/pre&gt;
@@ -504,9 +501,7 @@ int main(){
 &lt;/ol&gt;
 &lt;p&gt;时间复杂度O($$n^{2}$$)&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt; # P1303 A*B Problem
-
-a = int(input())
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = int(input())
 b = int(input())
 print(a * b)
 &lt;/code&gt;&lt;/pre&gt;
@@ -569,9 +564,7 @@ int main(){
 时间复杂度O($$n$$)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1480 A/B Problem
-
-a = int(input())
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = int(input())
 b = int(input())
 print(a // b)
 &lt;/code&gt;&lt;/pre&gt;
@@ -631,9 +624,7 @@ int main(){
 &lt;/ol&gt;
 &lt;p&gt;时间复杂度：$$O(n\log max(a_i))$$&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P2249 查找
-
-import bisect
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import bisect
 n, m = map(int, input().split())
 lis = list(map(int, input().split()))
 q_lis = list(map(int, input().split()))
@@ -697,9 +688,7 @@ int main(){
 &lt;p&gt;原理是：长度为 len 的情况下如果可以分到的段数比 k 多，返回true,否则返回 false&lt;/p&gt;
 &lt;p&gt;时间复杂度O($$nlog(max(L_i))$$)&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P2440 木材加工
-
-def check(x):
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def check(x):
     y = 0
     for i in range(1, n + 1):
         y += a[i] // x
@@ -845,6 +834,7 @@ int main(){
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A8 前缀和</title><link>https://ehnotgod.github.io/blog/a8-%E5%89%8D%E7%BC%80%E5%92%8C</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a8-%E5%89%8D%E7%BC%80%E5%92%8C</guid><description>前缀和模板：预处理前缀和，O(1) 求任意区间和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P8218&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $$n$$ 个正整数组成的数列 $$a_1, a_2, \cdots, a_n$$ 和 $$m$$ 个区间 $$[l_i,r_i]$$，分别求这 $$m$$ 个区间的区间和。&lt;/p&gt;
 &lt;p&gt;对于所有测试数据，$$n,m\le10^5,a_i\le 10^4$$&lt;/p&gt;
@@ -874,9 +864,7 @@ int main(){
 &lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A8-1.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度$$O(n+m)$$&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P8218 【深进1.例1】求区间和
-
-n = int(input())
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n = int(input())
 a = list(map(int, input().split()))
 s = [0] * (n + 1)
 for i in range(1, n + 1):
@@ -909,6 +897,7 @@ int main(){
     }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A9 二维前缀和</title><link>https://ehnotgod.github.io/blog/a9-%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a9-%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C</guid><description>二维前缀和模板：O(1) 求子矩阵和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1387&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;在一个 $$n\times m$$ 的只包含 $$0$$ 和 $$1$$ 的矩阵里找出一个不包含 $$0$$ 的最大正方形，输出边长。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -931,9 +920,7 @@ int main(){
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A9-1.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A9-2.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1387 最大正方形
-
-a = [[0 for i in range(103)] for j in range(103)]
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = [[0 for i in range(103)] for j in range(103)]
 b = [[0 for i in range(103)] for j in range(103)]
 n, m = map(int, input().split())
 for i in range(1, n + 1):
@@ -975,6 +962,7 @@ int main(){
   cout&amp;#x3C;&amp;#x3C;ans;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A10 差分</title><link>https://ehnotgod.github.io/blog/a10-%E5%B7%AE%E5%88%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a10-%E5%B7%AE%E5%88%86</guid><description>差分模板：区间加/减操作 O(1) 完成，再求前缀还原。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4552&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个长度为 $$n$$ 的数列 $${a_1,a_2,\cdots,a_n}$$，每次可以选择一个区间$$[l,r]$$，使这个区间内的数都加 $$1$$ 或者都减 $$1$$。&lt;/p&gt;
 &lt;p&gt;请问至少需要多少次操作才能使数列中的所有数都一样，并求出在保证最少次数的前提下，最终得到的数列有多少种。&lt;/p&gt;
@@ -1006,8 +994,7 @@ int main(){
 $$a$$: 1 2 3 1 2 3
 $$b$$: 1 1 1 -2 1 1&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P4552 [Poetize6] IncDec Sequence
-
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 n = int(input())
 a = [0]
 b = [0] * (n + 1)
@@ -1046,6 +1033,7 @@ int main(){
   cout&amp;#x3C;&amp;#x3C;max(p,q)&amp;#x3C;&amp;#x3C;&apos;\n&apos;&amp;#x3C;&amp;#x3C;abs(p-q)+1;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A11 ST表</title><link>https://ehnotgod.github.io/blog/a11-st%E8%A1%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a11-st%E8%A1%A8</guid><description>ST 表模板：倍增预处理，O(1) 查询区间最大值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3865&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个长度为 $$N$$ 的数列，和 $$ M $$ 次询问，求出每一次询问的区间内数字的最大值。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -1085,8 +1073,7 @@ int main(){
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A11-1.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A11-2.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P3865 【模板】ST 表 &amp;#x26;&amp;#x26; RMQ 问题
-
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 import math
 n, m = map(int, input().split())
 h = list(map(int, input().split()))
@@ -1200,6 +1187,7 @@ int main() {
     return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A13 第k小的数</title><link>https://ehnotgod.github.io/blog/a13-%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a13-%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0</guid><description>快速选择：求序列中第 k 小的数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;https://www.luogu.com.cn/problem/P1923&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;输入 $$n$$ 个数字 $$a_i$$，输出这些数字中第 $$k$$ 小的数。最小的数是第 $$0$$ 小。&lt;/p&gt;
 &lt;p&gt;请尽量不要使用 &lt;code&gt;nth_element&lt;/code&gt; 来写本题，因为本题的重点在于练习分治算法。&lt;/p&gt;
@@ -1224,8 +1212,7 @@ int main() {
 &lt;p&gt;QuickSelect（快速选择）算法，用来在无序数组中快速找到第 k 小的元素。它先选一个基准值 &lt;code&gt;x&lt;/code&gt;，像快速排序一样把数组划分成“左边 ≤ x、右边 ≥ x”两部分，但不会递归处理两边，而是只进入包含第 &lt;code&gt;k&lt;/code&gt; 小元素的那一边继续查找，因此平均时间复杂度是 &lt;code&gt;O(n)&lt;/code&gt;，比完整排序的 &lt;code&gt;O(n log n)&lt;/code&gt; 更快。&lt;/p&gt;
 &lt;p&gt;C++里可以直接使用nth_element(begin, nth, end)&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1923 【深基9.例4】求第 k 小的数
-
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 import sys
 sys.setrecursionlimit(5000000)
 def qnth_element(l, r):
@@ -1278,6 +1265,7 @@ int main(){
   printf(&quot;%d\n&quot;,qnth_element(0,n-1));
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A14 归并排序、逆序对</title><link>https://ehnotgod.github.io/blog/a14-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E9%80%86%E5%BA%8F%E5%AF%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a14-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E9%80%86%E5%BA%8F%E5%AF%B9</guid><description>归并排序模板：排序同时统计逆序对数量。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1908&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;猫猫 TOM 和小老鼠 JERRY 最近又较量上了，但是毕竟都是成年人，他们已经不喜欢再玩那种你追我赶的游戏，现在他们喜欢玩统计。&lt;/p&gt;
 &lt;p&gt;最近，TOM 老猫查阅到一个人类称之为“逆序对”的东西，这东西是这样定义的：对于给定的一段正整数序列，逆序对就是序列中 $$a_i&gt;a_j$$ 且 $$i&amp;#x3C;j$$ 的有序对。知道这概念后，他们就比赛谁先算出给定的一段正整数序列中逆序对的数目。注意序列中可能有重复数字。&lt;/p&gt;
@@ -1306,8 +1294,7 @@ int main(){
 &lt;li&gt;重复以上两个过程，直到递归结束。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1908 逆序对
-
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 import sys
 sys.setrecursionlimit(1000000)
 
@@ -1374,6 +1361,7 @@ int main(){
   printf(&quot;%lld\n&quot;,res);
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A15 堆</title><link>https://ehnotgod.github.io/blog/a15-%E5%A0%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a15-%E5%A0%86</guid><description>堆（优先队列）模板：支持插入、删除、取最值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3378&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个数列，初始为空，请支持下面三种操作：&lt;/p&gt;
 &lt;ol&gt;
@@ -1413,9 +1401,7 @@ int main(){
 &lt;p&gt;py里的堆可以用heapq高效实现，你不需要知道它是什么，什么是堆（优先队列）。这样吧，你把一个py里的列表q想象成一个盒子，你每次花费logn的时间往里面丢东西（heapq.heappush(q, ai)），它总是会弹出盒子里最小那个数，查询方式为q[0]。你也可以花费logn的时间把这个最小数取出来（heapq.heappop(q)），此时其他数会成为最小的数并置顶。&lt;/p&gt;
 &lt;p&gt;heapq默认小根堆（弹出最小数），你可以通过加个负号让它变成大根堆。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P3378 【模板】堆
-
-import heapq
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import heapq
 
 n = int(input())
 q = []
@@ -1449,6 +1435,7 @@ int main(){
   }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A16 对顶堆</title><link>https://ehnotgod.github.io/blog/a16-%E5%AF%B9%E9%A1%B6%E5%A0%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a16-%E5%AF%B9%E9%A1%B6%E5%A0%86</guid><description>对顶堆模板：动态维护序列中位数/第 k 大。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P7072&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;NOI2130 即将举行。为了增加观赏性，CCF 决定逐一评出每个选手的成绩，并直播即时的获奖分数线。本次竞赛的获奖率为 $w%$，即当前排名前 $$w%$$ 的选手的最低成绩就是即时的分数线。&lt;/p&gt;
 &lt;p&gt;更具体地，若当前已评出了 $$p$$ 个选手的成绩，则当前计划获奖人数为 $$\max(1, \lfloor p \times w %\rfloor)$$，其中 $$w$$ 是获奖百分比，$$\lfloor x \rfloor$$ 表示对 $$x$$ 向下取整，$$\max(x,y)$$ 表示 $$x$$ 和 $$y$$ 中较大的数。如有选手成绩相同，则所有成绩并列的选手都能获奖，因此实际获奖人数可能比计划中多。&lt;/p&gt;
@@ -1477,8 +1464,7 @@ int main(){
 &lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A16-2.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# 对应题目：https://www.luogu.com.cn/problem/P7072
-
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 import heapq
 a = [] # 大根堆
 b = [] # 小根堆
@@ -1521,13 +1507,14 @@ int main(){
   }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A17 距离之和最小、中位数</title><link>https://ehnotgod.github.io/blog/a17-%E8%B7%9D%E7%A6%BB%E4%B9%8B%E5%92%8C%E6%9C%80%E5%B0%8F%E4%B8%AD%E4%BD%8D%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a17-%E8%B7%9D%E7%A6%BB%E4%B9%8B%E5%92%8C%E6%9C%80%E5%B0%8F%E4%B8%AD%E4%BD%8D%E6%95%B0</guid><description>中位数性质：使各点距离和最小的点恰是中位数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://codeforces.com/problemset/problem/1486/B&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A17-1.png&quot; alt=&quot;image-20250416092236944&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
-&lt;p&gt;这更像是一个数学题？反正取中间就行了&lt;/p&gt;
+&lt;p&gt;中位数性质：使各点距离和最小的点恰是中位数。&lt;/p&gt;
+&lt;p&gt;因为求的是曼哈顿距离，我们可以把x和y分开看，然后分别找到各自的x和y即为所求点。&lt;/p&gt;
+&lt;p&gt;本题的本质是贪心。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# CF1486B Eastern Exhibition
-
-t = int(input())
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;t = int(input())
 for _ in range(t):
     n = int(input())
     a = [0] * n
@@ -1563,6 +1550,7 @@ int main(){
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A18 双指针 尺取法</title><link>https://ehnotgod.github.io/blog/a18-%E5%8F%8C%E6%8C%87%E9%92%88-%E5%B0%BA%E5%8F%96%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a18-%E5%8F%8C%E6%8C%87%E9%92%88-%E5%B0%BA%E5%8F%96%E6%B3%95</guid><description>双指针尺取法：随端点单调移动维护区间。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1147&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个正整数 $$M$$，求出所有的连续的正整数段（每一段至少有两个数），使得这些连续的正整数段中的全部数之和为 $$M$$。&lt;/p&gt;
 &lt;p&gt;例如，$$1998+1999+2000+2001+2002=10000$$，所以从 $$1998$$ 到 $$2002$$ 的一个正整数段为 $$M=10000$$ 的一个解。&lt;/p&gt;
@@ -1595,8 +1583,7 @@ int main(){
 &lt;/ul&gt;
 &lt;p&gt;由于每个指针最多右移 $$O(n)$$ 次，整体时间复杂度为 $$O(n)$$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1147 连续自然数和
-
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 m = int(input())
 i = 1
 j = 1
@@ -1631,6 +1618,7 @@ int main(){
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A19 双指针 动态窗口</title><link>https://ehnotgod.github.io/blog/a19-%E5%8F%8C%E6%8C%87%E9%92%88-%E5%8A%A8%E6%80%81%E7%AA%97%E5%8F%A3</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a19-%E5%8F%8C%E6%8C%87%E9%92%88-%E5%8A%A8%E6%80%81%E7%AA%97%E5%8F%A3</guid><description>双指针滑动窗口：动态调整窗口覆盖目标。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1381&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;灵梦有 $$n$$ 个单词想要背，但她想通过一篇文章中的一段来记住这些单词。&lt;/p&gt;
 &lt;p&gt;文章由 $$m$$ 个单词构成，她想在文章中找出连续的一段，其中包含最多的她想要背的单词（重复的只算一个）。并且在背诵的单词量尽量多的情况下，还要使选出的文章段落尽量短，这样她就可以用尽量短的时间学习尽可能多的单词了。&lt;/p&gt;
@@ -1753,6 +1741,7 @@ int main(){
   cout&amp;#x3C;&amp;#x3C;sum&amp;#x3C;&amp;#x3C;endl&amp;#x3C;&amp;#x3C;len&amp;#x3C;&amp;#x3C;endl;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A20 双指针区间合并</title><link>https://ehnotgod.github.io/blog/a20-%E5%8F%8C%E6%8C%87%E9%92%88%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a20-%E5%8F%8C%E6%8C%87%E9%92%88%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6</guid><description>双指针区间合并：合并相交/相邻的区间。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1496&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;曹操平定北方以后，公元 208 年，率领大军南下，进攻刘表。他的人马还没有到荆州，刘表已经病死。他的儿子刘琮听到曹军声势浩大，吓破了胆，先派人求降了。&lt;/p&gt;
 &lt;p&gt;孙权任命周瑜为都督，拨给他三万水军，叫他同刘备协力抵抗曹操。&lt;/p&gt;
@@ -1790,8 +1779,7 @@ int main(){
 &lt;/ol&gt;
 &lt;p&gt;这种做法只需一次排序加一次线性扫描，时间复杂度为 $$O(n \log n)$$，空间复杂度为 $$O(n)$$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# 对应题目：https://www.luogu.com.cn/problem/P1496
-# py代码大概率超时，这是洛谷的问题，不要在意，其他地方py给开额外时间的。
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# py代码大概率超时，这是洛谷的问题，不要在意，其他地方py给开额外时间的。
 
 n = int(input())
 lis = []
@@ -1860,6 +1848,7 @@ int main(){
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A21 堆序列</title><link>https://ehnotgod.github.io/blog/a21-%E5%A0%86%E5%BA%8F%E5%88%97</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a21-%E5%A0%86%E5%BA%8F%E5%88%97</guid><description>堆+贪心：多路归并求最小的 N 个和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1631&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;有两个长度为 $$N$$ 的&lt;strong&gt;单调不降&lt;/strong&gt;序列 $$A,B$$，在 $$A,B$$ 中各取一个数相加可以得到 $$N^2$$ 个和，求这 $$N^2$$ 个和中最小的 $$N$$ 个。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -1893,9 +1882,7 @@ N: A[1] + B[N] ≤ A[2] + B[N] ≤ … ≤ A[N] + B[N]&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;时间复杂度：O(NlogN)。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1631 序列合并
-
-import heapq
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import heapq
 n = int(input())
 q = []
 a = list(map(int, input().split()))
@@ -1942,6 +1929,7 @@ int main(){
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A22 贪心</title><link>https://ehnotgod.github.io/blog/a22-%E8%B4%AA%E5%BF%83</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a22-%E8%B4%AA%E5%BF%83</guid><description>贪心模板：局部最优策略推出全局最优。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;https://www.luogu.com.cn/problem/P1842&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Farmer John 养了 $$N$$ 头牛，她们已经按 $$1\sim N$$ 依次编上了号。FJ 所不知道的是，他的所有牛都梦想着从农场逃走，去参加马戏团的演出。可奶牛们很快发现她们那笨拙的蹄子根本无法在钢丝或晃动的秋千上站稳（她们还尝试过把自己装在大炮里发射出去，但可想而知，结果是悲惨的）。最终，她们决定练习一种最简单的杂技：把所有牛都摞在一起，比如说，第一头牛站在第二头的身上，同时第二头牛又站在第三头牛的身上……最底下的是第 $$N$$ 头牛。&lt;/p&gt;
 &lt;p&gt;每头牛都有自己的体重以及力量，编号为 $$i$$ 的奶牛的体重为 $$W_i$$，力量为 $$S_i$$。&lt;/p&gt;
@@ -1977,9 +1965,7 @@ int main(){
 &lt;p&gt;具体做法：先按照 $$W_i+S_i$$ 升序排序所有奶牛，然后依次将它们放到塔上，记录当前已放入的上层牛总重 $$t$$，并更新压扁指数为 $$t-S_i$$ 的最大值，最终得到最小的总压扁指数。&lt;/p&gt;
 &lt;p&gt;这种排序+扫描的过程时间复杂度为 $$O(N \log N)$$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Luogu P1842
-
-n = int(input())
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n = int(input())
 a = []
 for i in range(n):
     w, s = map(int, input().split())
@@ -2020,6 +2006,7 @@ int main(){
   cout&amp;#x3C;&amp;#x3C;res&amp;#x3C;&amp;#x3C;endl;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A23 三分小数</title><link>https://ehnotgod.github.io/blog/a23-%E4%B8%89%E5%88%86%E5%B0%8F%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a23-%E4%B8%89%E5%88%86%E5%B0%8F%E6%95%B0</guid><description>三分模板（实数）：求单峰函数的极值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1883&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $$n$$ 个二次函数 $$f_1(x),f_2(x),\dots,f_n(x)$$（均形如 $$ax^2+bx+c$$），设 $$F(x)=\max{f_1(x),f_2(x),...,f_n(x)}$$，求 $$F(x)$$ 在区间 $$[0,1000]$$ 上的最小值。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -2130,6 +2117,7 @@ signed main() {
 	return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A24 三分整数</title><link>https://ehnotgod.github.io/blog/a24-%E4%B8%89%E5%88%86%E6%95%B4%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a24-%E4%B8%89%E5%88%86%E6%95%B4%E6%95%B0</guid><description>三分模板（整数）：求单峰函数的极值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;暂无题目链接，本题为后续自行补充的，使用极其广泛，正确性已验证&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;定义含绝对值的一元一次函数 $$f(x)=|kx+a|+b$$ ($x\in \mathbb{Z}$)，其中 $$k$$ 为由外部给定的正整数，$$a,b$$ 为整数。&lt;/p&gt;
 &lt;p&gt;现在，对于给定的 $$n$$ 个含绝对值的一元一次函数，定义&lt;/p&gt;
