@@ -38,20 +38,90 @@ const meta = {
 ---
 
 <PageLayout {meta}>
-  <Button title='Back' href='/' style='back' />
+  <Button title='Back' href='/zh' style='back' />
   <main class='mt-6 lg:mt-10'>
     <div id='content-header' class='animate'>
-      <h1 class='mb-6 flex items-end gap-x-2 text-3xl font-medium'>
-        Tags:
-        <span class='text-2xl'>#{tag}</span>
-      </h1>
+      <div class='mb-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-2'>
+        <h1 class='flex items-end gap-x-2 text-3xl font-medium'>
+          Tags:
+          <span class='text-2xl'>#{tag}</span>
+        </h1>
+        <label class='flex items-center gap-2 text-sm text-muted-foreground'>
+          <span>排序</span>
+          <select
+            id='post-sort'
+            class='cursor-pointer appearance-none rounded-md border border-border bg-background py-1 pe-7 ps-2 text-sm text-foreground outline-none transition-colors hover:border-foreground/25 focus:border-primary'
+          >
+            <option value='date-desc'>时间（新 → 旧）</option>
+            <option value='date-asc'>时间（旧 → 新）</option>
+            <option value='title-asc'>标题（A → Z）</option>
+            <option value='title-desc'>标题（Z → A）</option>
+          </select>
+        </label>
+      </div>
     </div>
 
     <section id='content' class='animate' aria-label='Blog post list'>
-      <ul class='flex flex-col gap-y-3 text-start'>
+      <ul id='blog-post-list' class='flex flex-col gap-y-3 text-start'>
         {page.data.map((post) => <PostPreview as='h2' {post} detailed />)}
       </ul>
       <Paginator currentPage={page.currentPage} lastPage={page.lastPage} url={page.url} />
     </section>
   </main>
 </PageLayout>
+
+<script>
+  // 标签页排序（纯前端，作用于当前分页内的条目）
+  const sortSelect = document.getElementById('post-sort') as HTMLSelectElement | null
+  const postList = document.getElementById('blog-post-list')
+  if (sortSelect && postList) {
+    const KEY = 'blog-post-sort'
+    try {
+      const saved = localStorage.getItem(KEY)
+      if (saved) sortSelect.value = saved
+    } catch (e) {
+      /* ignore */
+    }
+
+    const applySort = () => {
+      const mode = sortSelect.value
+      try {
+        localStorage.setItem(KEY, mode)
+      } catch (e) {
+        /* ignore */
+      }
+      const items = Array.from(postList.children) as HTMLElement[]
+      items.sort((a, b) => {
+        const ta = a.dataset.title || ''
+        const tb = b.dataset.title || ''
+        const da = a.dataset.date || ''
+        const db = b.dataset.date || ''
+        if (mode === 'title-asc' || mode === 'title-desc') {
+          const c = ta.localeCompare(tb, undefined, { numeric: true, sensitivity: 'base' })
+          return mode === 'title-asc' ? c : -c
+        }
+        const c = da.localeCompare(db)
+        return mode === 'date-desc' ? -c : c
+      })
+      items.forEach((li) => postList.appendChild(li))
+    }
+
+    sortSelect.addEventListener('change', applySort)
+    applySort()
+  }
+</script>
+
+<style>
+  /* 排序下拉框：显式继承站点字体 + 自定义箭头 */
+  #post-sort {
+    font-family: inherit;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+    background-position: right 6px center;
+    background-repeat: no-repeat;
+  }
+  #post-sort option {
+    font-family: inherit;
+    color: inherit;
+    background: hsl(var(--background));
+  }
+</style>
