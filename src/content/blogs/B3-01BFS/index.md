@@ -1,5 +1,5 @@
 ---
-title: "B30 01BFS"
+title: "B3 01BFS"
 publishDate: 2026-08-08
 description: "01BFS：边权为 0/1 的最短路，用双端队列优化。"
 category: algo
@@ -10,11 +10,9 @@ language: zh
 
 ### 题目情境
 
-相当于可以节约一个log的，只有01路径的dij算法，使用deque而不是pri_que。
-
 题目链接：https://ac.nowcoder.com/acm/contest/115184/D
 
-![image-20250930163432863](/images/算法竞赛/B/B30-1.png)
+![image-20250930163432863](/images/算法竞赛/B/B3-1.png)
 
 输入
 
