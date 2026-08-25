@@ -1,7 +1,7 @@
 ---
 title: "D27 二分图最大匹配"
 publishDate: 2026-08-08
-description: "给定一个二分图，其左部点的个数为 ，右部点的个数为 ，边数为 ，求其最大匹配的边数。"
+description: "给定一个二分图，其左部点的个数为 n，右部点的个数为 m，边数为 e，求其最大匹配的边数。"
 category: algo
 tags:
   - 图论

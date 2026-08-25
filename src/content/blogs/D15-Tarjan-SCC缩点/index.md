@@ -1,7 +1,7 @@
 ---
 title: "D15 Tarjan SCC缩点"
 publishDate: 2026-08-08
-description: "给定一个 个点 条边有向图，每个点有一个权值，求一条路径，使路径经过的点权值之和最大。你只需要求出这个权值和。"
+description: "给定一个 n 个点 m 条边有向图，每个点有一个权值，求一条路径，使路径经过的点权值之和最大。你只需要求出这个权值和。"
 category: algo
 tags:
   - 图论

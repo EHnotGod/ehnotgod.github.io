@@ -1,7 +1,7 @@
 ---
 title: "G3 矩阵快速幂"
 publishDate: 2026-08-08
-description: "给定 的矩阵 ，求 。"
+description: "给定 n× n 的矩阵 A，求 A^k。"
 category: algo
 tags:
   - 数学

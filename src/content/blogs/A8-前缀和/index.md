@@ -1,7 +1,7 @@
 ---
 title: "A8 前缀和"
 publishDate: 2026-08-08
-description: "给定 个正整数组成的数列 和 个区间 ，分别求这 个区间的区间和。"
+description: "给定 n 个正整数组成的数列 a 1, a 2, …, a n 和 m 个区间 [l i,r i]，分别求这 m 个区间的区间和。"
 category: algo
 tags:
   - 基础算法

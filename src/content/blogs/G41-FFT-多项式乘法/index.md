@@ -1,7 +1,7 @@
 ---
 title: "G41 FFT-多项式乘法"
 publishDate: 2026-08-08
-description: "给定一个 次多项式 ，和一个 次多项式 。"
+description: "给定一个 n 次多项式 F(x)，和一个 m 次多项式 G(x)。"
 category: algo
 tags:
   - 数学

@@ -1,7 +1,7 @@
 ---
 title: "A10 差分"
 publishDate: 2026-08-08
-description: "给定一个长度为 的数列 ，每次可以选择一个区间，使这个区间内的数都加 或者都减 。"
+description: "给定一个长度为 n 的数列 a 1,a 2,…,a n，每次可以选择一个区间[l,r]，使这个区间内的数都加 1 或者都减 1。"
 category: algo
 tags:
   - 基础算法

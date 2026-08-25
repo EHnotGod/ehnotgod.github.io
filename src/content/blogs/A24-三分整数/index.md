@@ -1,7 +1,7 @@
 ---
 title: "A24 三分整数"
 publishDate: 2026-08-08
-description: "定义含绝对值的一元一次函数 ()，其中 为由外部给定的正整数， 为整数。"
+description: "定义含绝对值的一元一次函数 f(x)=|kx+a|+b (x∈ Z)，其中 k 为由外部给定的正整数，a,b 为整数。"
 category: algo
 tags:
   - 基础算法

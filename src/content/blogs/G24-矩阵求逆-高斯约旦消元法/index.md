@@ -1,7 +1,7 @@
 ---
 title: "G24 矩阵求逆-高斯约旦消元法"
 publishDate: 2026-08-08
-description: "时间复杂度："
+description: "算法学习笔记"
 category: algo
 tags:
   - 数学

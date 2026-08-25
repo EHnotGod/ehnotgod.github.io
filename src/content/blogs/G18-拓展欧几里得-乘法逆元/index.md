@@ -1,7 +1,7 @@
 ---
 title: "G18 拓展欧几里得-乘法逆元"
 publishDate: 2026-08-08
-description: "时间复杂度："
+description: "算法学习笔记"
 category: algo
 tags:
   - 数学

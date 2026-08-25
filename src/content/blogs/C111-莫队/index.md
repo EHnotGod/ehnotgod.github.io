@@ -1,7 +1,7 @@
 ---
 title: "C111 莫队"
 publishDate: 2026-08-08
-description: "小B 有一个长为 的整数序列 ，值域为 。 他一共有 个询问，每个询问给定一个区间 ，求："
+description: "小B 有一个长为 n 的整数序列 a，值域为 [1,k]。他一共有 m 个询问，每个询问给定一个区间 [l,r]，求：∑i=1^k c i^2"
 category: algo
 tags:
   - 数据结构

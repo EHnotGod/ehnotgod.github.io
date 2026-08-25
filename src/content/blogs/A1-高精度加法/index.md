@@ -1,7 +1,7 @@
 ---
 title: "A1 高精度加法"
 publishDate: 2026-08-08
-description: "高精度加法，相当于 a+b problem， 不用考虑负数 。"
+description: "高精度加法，相当于 a+b problem，不用考虑负数。"
 category: algo
 tags:
   - 基础算法
@@ -10,7 +10,7 @@ language: zh
 
 ### 题目情境
 
-链接：https://www.luogu.com.cn/problem/P1601
+题目链接：https://www.luogu.com.cn/problem/P1601
 
 **题目描述：**
 

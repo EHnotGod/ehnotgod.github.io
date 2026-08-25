@@ -1,7 +1,7 @@
 ---
 title: "A13 第k小的数"
 publishDate: 2026-08-08
-description: "输入 个数字 ，输出这些数字中第 小的数。最小的数是第 小。"
+description: "输入 n 个数字 a i，输出这些数字中第 k 小的数。最小的数是第 0 小。"
 category: algo
 tags:
   - 基础算法

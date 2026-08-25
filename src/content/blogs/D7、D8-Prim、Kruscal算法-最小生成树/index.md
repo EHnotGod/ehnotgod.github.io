@@ -1,7 +1,7 @@
 ---
 title: "D7、D8 Prim、Kruscal算法-最小生成树"
 publishDate: 2026-08-08
-description: "如题，给出一个无向图，求出最小生成树，如果该图不连通，则输出 。"
+description: "如题，给出一个无向图，求出最小生成树，如果该图不连通，则输出。"
 category: algo
 tags:
   - 图论

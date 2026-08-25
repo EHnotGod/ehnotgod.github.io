@@ -1,7 +1,7 @@
 ---
 title: "A9 二维前缀和"
 publishDate: 2026-08-08
-description: "在一个 的只包含 和 的矩阵里找出一个不包含 的最大正方形，输出边长。"
+description: "在一个 n× m 的只包含 0 和 1 的矩阵里找出一个不包含 0 的最大正方形，输出边长。"
 category: algo
 tags:
   - 基础算法

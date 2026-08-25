@@ -1,7 +1,7 @@
 ---
 title: "A7 分数规划"
 publishDate: 2026-08-08
-description: "问题：每种物品有两个权值 和 ，选出若干个物品使得 最大/最小。"
+description: "问题：每种物品有两个权值 a i 和 b i，选出若干个物品使得 ∑ a i∑ b i 最大/最小。"
 category: algo
 tags:
   - 基础算法

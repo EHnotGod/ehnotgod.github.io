@@ -1,7 +1,7 @@
 ---
 title: "E5 最长公共子序列"
 publishDate: 2026-08-08
-description: "给出一个长度为 的字符串序列。请输出这个序列的 最长公共子序列 及其长度。"
+description: "给出一个长度为n(n≤ 5000) 的字符串序列。请输出这个序列的 最长公共子序列 及其长度。"
 category: algo
 tags:
   - 动态规划

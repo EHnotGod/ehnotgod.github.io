@@ -1,7 +1,7 @@
 ---
 title: "D99 Kruscal重构树"
 publishDate: 2026-08-08
-description: "给定一张 个点的无向图，记为 。"
+description: "给定一张 N 个点的无向图，记为 1… N。"
 category: algo
 tags:
   - 图论

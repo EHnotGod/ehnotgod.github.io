@@ -1,7 +1,7 @@
 ---
 title: "C5 普通平衡树"
 publishDate: 2026-08-08
-description: "您需要动态地维护一个可重集合 ，并且提供以下操作："
+description: "您需要动态地维护一个可重集合 M，并且提供以下操作："
 category: algo
 tags:
   - 数据结构

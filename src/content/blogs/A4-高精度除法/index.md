@@ -1,7 +1,7 @@
 ---
 title: "A4 高精度除法"
 publishDate: 2026-08-08
-description: "输入两个整数 a , b ，输出它们的商。"
+description: "输入两个整数 a, b，输出它们的商。"
 category: algo
 tags:
   - 基础算法
@@ -9,6 +9,8 @@ language: zh
 ---
 
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P1480
 
 **题目描述**
 

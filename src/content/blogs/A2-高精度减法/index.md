@@ -1,7 +1,7 @@
 ---
 title: "A2 高精度减法"
 publishDate: 2026-08-08
-description: "两个整数 a , b （第二个可能比第一个大）。"
+description: "两个整数 a, b （第二个可能比第一个大）。"
 category: algo
 tags:
   - 基础算法
@@ -9,6 +9,8 @@ language: zh
 ---
 
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P2142
 
 **题目描述**
 

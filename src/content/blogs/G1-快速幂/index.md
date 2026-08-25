@@ -1,7 +1,7 @@
 ---
 title: "G1 快速幂"
 publishDate: 2026-08-08
-description: "给你三个整数 ，求 。"
+description: "给你三个整数 a,b,p，求 a^b p。"
 category: algo
 tags:
   - 数学

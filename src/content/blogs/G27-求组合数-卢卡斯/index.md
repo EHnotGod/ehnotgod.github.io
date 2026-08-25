@@ -1,7 +1,7 @@
 ---
 title: "G27 求组合数-卢卡斯"
 publishDate: 2026-08-08
-description: "时间复杂度："
+description: "时间复杂度：O(plogp+log pn)"
 category: algo
 tags:
   - 数学

@@ -1,7 +1,7 @@
 ---
 title: "A3 高精度乘法"
 publishDate: 2026-08-08
-description: "两个非负整数 a , b ，求它们的乘积。"
+description: "两个非负整数 a, b，求它们的乘积。"
 category: algo
 tags:
   - 基础算法
@@ -9,6 +9,8 @@ language: zh
 ---
 
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P1303
 
 **题目描述**
 

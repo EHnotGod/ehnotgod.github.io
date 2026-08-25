@@ -1,7 +1,7 @@
 ---
 title: "G53 旋转卡壳"
 publishDate: 2026-08-08
-description: "给定平面上 个点，求凸包直径。"
+description: "给定平面上 n 个点，求凸包直径。"
 category: algo
 tags:
   - 数学

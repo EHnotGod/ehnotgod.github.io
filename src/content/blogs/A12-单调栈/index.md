@@ -1,7 +1,7 @@
 ---
 title: "A12 单调栈"
 publishDate: 2026-08-08
-description: "给出项数为 的整数数列 。"
+description: "给出项数为 n 的整数数列 a 1 … n。"
 category: algo
 tags:
   - 基础算法
@@ -9,6 +9,8 @@ language: zh
 ---
 
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P5788
 
 **题目描述**
 
@@ -71,4 +73,31 @@ for i in range(n - 1, -1, -1):
         f[i] = q[-1]
     q.append(i)
 print(*f)
+```
+
+### C++代码实现
+
+```cpp
+#include <cstdio>
+using namespace std;
+
+const int N = 3000005;
+int a[N], f[N], stk[N];
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) scanf("%d", &a[i]);
+
+    int top = 0;
+    // 从右往左，维护单调递减栈，求每个位置右边第一个更大元素的下标
+    for (int i = n; i >= 1; i--) {
+        while (top && a[stk[top]] <= a[i]) top--;  // 弹出所有不大于 a[i] 的元素
+        f[i] = top ? stk[top] : 0;                // 栈顶即答案，空栈则为 0
+        stk[++top] = i;                            // 当前下标入栈
+    }
+
+    for (int i = 1; i <= n; i++) printf("%d ", f[i]);
+    return 0;
+}
 ```
