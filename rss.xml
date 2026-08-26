@@ -2611,7 +2611,7 @@ signed main() {
 &lt;p&gt;【数据范围】对于 $$100%$$ 的数据，$$1\le n,m \le 5\times 10^5$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;树状数组（Fenwick Tree）用 $O(\log n)$ 维护&quot;单点修改 + 区间求和&quot;。核心是 $lowbit(x) = x\ &amp;#x26;\ (-x)$，它取 $x$ 二进制最低位的 $1$ 对应的值：&lt;code&gt;change&lt;/code&gt; 修改时沿 $x + lowbit(x)$ 向上传播，&lt;code&gt;query&lt;/code&gt; 查询时沿 $x - lowbit(x)$ 向下累加前缀和，区间 $[l,r]$ 的和就是 $query(r)-query(l-1)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C0-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C1-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
 input = sys.stdin.readline
@@ -2962,10 +2962,7 @@ int main(){
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C2-3.png&quot; alt=&quot;image-20250417171654545&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C2-4.png&quot; alt=&quot;image-20250417171714474&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# 对应题目：https://www.luogu.com.cn/problem/P3372
-# py代码100%超时，这是洛谷的问题，不要在意，其他地方py给开额外时间的。
-
-class Node:
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Node:
     def __init__(self, l, r, he, add):
         self.l = l
         self.r = r
