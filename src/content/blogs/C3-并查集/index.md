@@ -1,5 +1,5 @@
 ---
-title: "C1 并查集"
+title: "C3 并查集"
 publishDate: 2026-08-08
 description: "并查集模板：维护集合的合并与查询。"
 category: algo
@@ -9,6 +9,8 @@ language: zh
 ---
 
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P3367
 
 **题目描述**
 
@@ -53,21 +55,19 @@ Y
 
 对于 $$100\%$$ 的数据，$$1\le N\le 2\times 10^5$$，$$1\le M\le 10^6$$，$$1 \le X_i, Y_i \le N$$，$$Z_i \in \{ 1, 2 \}$$。
 
-**解析：**
+### 算法解析
 
-这个应用非常广泛，上述题目的正解的时间复杂度为$$O(n)$$，以下为解释：
+一般我们使用“合并”即可，按秩合并不太需要
 
-![image-20250417165010912](/images/算法竞赛/C/C1-1.png)
+![image-20250417165010912](/images/算法竞赛/C/C3-1.png)
 
-![image-20250417165040782](/images/算法竞赛/C/C1-2.png)
+![image-20250417165040782](/images/算法竞赛/C/C3-2.png)
 
-![image-20250417165059357](/images/算法竞赛/C/C1-3.png)
+![image-20250417165059357](/images/算法竞赛/C/C3-3.png)
 
 ### Python代码实现
 
 ```python
-# https://www.luogu.com.cn/problem/P3367
-
 n, m = map(int, input().split())
 pa = [i for i in range(n + 1)]
 def find(x):
