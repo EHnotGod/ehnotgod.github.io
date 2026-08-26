@@ -55,6 +55,12 @@ language: zh
 
 【数据范围】对于 $$100\%$$ 的数据，$$1\le n,m \le 5\times 10^5$$。
 
+### 算法解析：
+
+树状数组（Fenwick Tree）用 $O(\log n)$ 维护"单点修改 + 区间求和"。核心是 $lowbit(x) = x\ \&\ (-x)$，它取 $x$ 二进制最低位的 $1$ 对应的值：`change` 修改时沿 $x + lowbit(x)$ 向上传播，`query` 查询时沿 $x - lowbit(x)$ 向下累加前缀和，区间 $[l,r]$ 的和就是 $query(r)-query(l-1)$。
+
+![](/images/算法竞赛/C/C0-1.png)
+
 ### Python代码实现
 
 ```python
