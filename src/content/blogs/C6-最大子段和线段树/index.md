@@ -1,5 +1,5 @@
 ---
-title: "C2.8 最大子段和线段树"
+title: "C6 最大子段和线段树"
 publishDate: 2026-08-08
 description: "线段树进阶：维护区间最大子段和。"
 category: algo

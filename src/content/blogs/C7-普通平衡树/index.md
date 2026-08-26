@@ -1,5 +1,5 @@
 ---
-title: "C5 普通平衡树"
+title: "C7 普通平衡树"
 publishDate: 2026-08-08
 description: "平衡树（Treap/Splay）模板：动态维护有序集合。"
 category: algo

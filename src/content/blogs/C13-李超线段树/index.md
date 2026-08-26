@@ -1,5 +1,5 @@
 ---
-title: "C118 李超线段树"
+title: "C13 李超线段树"
 publishDate: 2026-08-08
 description: "李超线段树：维护一次函数最值。"
 category: algo

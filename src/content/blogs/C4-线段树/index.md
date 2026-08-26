@@ -1,5 +1,5 @@
 ---
-title: "C2 线段树"
+title: "C4 线段树"
 publishDate: 2026-08-08
 description: "线段树模板：区间修改 + 区间查询（加法）。"
 category: algo
@@ -9,6 +9,8 @@ language: zh
 ---
 
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P3372
 
 **题目描述**
 
@@ -59,13 +61,13 @@ language: zh
 
 ![](https://cdn.luogu.com.cn/upload/pic/2251.png)
 
-**解析：**
+### 算法解析
 
-![image-20250417171455028](/images/算法竞赛/C/C2-2.png)
+![image-20250417171455028](/images/算法竞赛/C/C4-2.png)
 
-![image-20250417171654545](/images/算法竞赛/C/C2-3.png)
+![image-20250417171654545](/images/算法竞赛/C/C4-3.png)
 
-![image-20250417171714474](/images/算法竞赛/C/C2-4.png)
+![image-20250417171714474](/images/算法竞赛/C/C4-4.png)
 
 ### Python代码实现
 

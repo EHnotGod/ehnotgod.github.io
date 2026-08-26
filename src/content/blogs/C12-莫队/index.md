@@ -1,5 +1,5 @@
 ---
-title: "C111 莫队"
+title: "C12 莫队"
 publishDate: 2026-08-08
 description: "莫队算法：离线区间查询，分块排序优化。"
 category: algo
@@ -52,7 +52,7 @@ language: zh
 
 思路：
 
-![image-20250519115428164](/images/算法竞赛/C/C111-1.png)
+![image-20250519115428164](/images/算法竞赛/C/C12-1.png)
 
 不证明了，无所谓。
 

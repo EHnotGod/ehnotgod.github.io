@@ -1,5 +1,5 @@
 ---
-title: "C13 树上点分治"
+title: "C9 树上点分治"
 publishDate: 2026-08-08
 description: "点分治：树上路径统计问题的经典分治。"
 category: algo
@@ -46,9 +46,9 @@ AYE
 
 对于 $$100\%$$ 的数据，保证 $$1 \leq n\leq 10^4$$，$$1 \leq m\leq 100$$，$$1 \leq k \leq 10^7$$，$$1 \leq u, v \leq n$$，$$1 \leq w \leq 10^4$$。
 
-![image-20250826121151602](/images/算法竞赛/C/C13-1.png)
+![image-20250826121151602](/images/算法竞赛/C/C9-1.png)
 
-![image-20250826121209201](/images/算法竞赛/C/C13-2.png)
+![image-20250826121209201](/images/算法竞赛/C/C9-2.png)
 
 ### C++代码实现
 

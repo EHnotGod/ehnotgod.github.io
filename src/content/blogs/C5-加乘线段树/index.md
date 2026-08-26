@@ -1,5 +1,5 @@
 ---
-title: "C2.5 加乘线段树"
+title: "C5 加乘线段树"
 publishDate: 2026-08-08
 description: "线段树进阶：区间加法与乘法混合懒标记。"
 category: algo
