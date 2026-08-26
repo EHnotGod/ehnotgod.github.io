@@ -2570,92 +2570,6 @@ signed main() {
 	}
 	return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C1 并查集</title><link>https://ehnotgod.github.io/blog/c1-%E5%B9%B6%E6%9F%A5%E9%9B%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c1-%E5%B9%B6%E6%9F%A5%E9%9B%86</guid><description>并查集模板：维护集合的合并与查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如题，现在有一个并查集，你需要完成合并和查询操作。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;第一行包含两个整数 $$N,M$$ ,表示共有 $$N$$ 个元素和 $$M$$ 个操作。&lt;/p&gt;
-&lt;p&gt;接下来 $$M$$ 行，每行包含三个整数 $$Z_i,X_i,Y_i$$ 。&lt;/p&gt;
-&lt;p&gt;当 $$Z_i=1$$ 时，将 $$X_i$$ 与 $$Y_i$$ 所在的集合合并。&lt;/p&gt;
-&lt;p&gt;当 $$Z_i=2$$ 时，输出 $$X_i$$ 与 $$Y_i$$ 是否在同一集合内，是的输出
-&lt;code&gt;Y&lt;/code&gt; ；否则输出 &lt;code&gt;N&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;对于每一个 $$Z_i=2$$ 的操作，都有一行输出，每行包含一个大写字母，为 &lt;code&gt;Y&lt;/code&gt; 或者 &lt;code&gt;N&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;输入 #1&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;4 7
-2 1 2
-1 1 2
-2 1 2
-1 3 4
-2 1 4
-1 2 3
-2 1 4
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输出 #1&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;N
-Y
-N
-Y
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对于 $$100%$$ 的数据，$$1\le N\le 2\times 10^5$$，$$1\le M\le 10^6$$，$$1 \le X_i, Y_i \le N$$，$$Z_i \in { 1, 2 }$$。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;解析：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这个应用非常广泛，上述题目的正解的时间复杂度为$$O(n)$$，以下为解释：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C1-1.png&quot; alt=&quot;image-20250417165010912&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C1-2.png&quot; alt=&quot;image-20250417165040782&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C1-3.png&quot; alt=&quot;image-20250417165059357&quot;&gt;&lt;/p&gt;
-&lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# https://www.luogu.com.cn/problem/P3367
-
-n, m = map(int, input().split())
-pa = [i for i in range(n + 1)]
-def find(x):
-    if pa[x] == x:
-        return x
-    pa[x] = find(pa[x])
-    return pa[x]
-def union(x, y):
-    pa[find(x)] = find(y)
-
-for _ in range(m):
-    z, x, y = map(int, input().split())
-    if z == 1:
-        union(x, y)
-    else:
-        if find(x) == find(y):
-            print(&quot;Y&quot;)
-        else:
-            print(&quot;N&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;C++代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;//并查集 路径压缩
-#include &amp;#x3C;iostream&gt;
-#include &amp;#x3C;cstring&gt;
-#include &amp;#x3C;algorithm&gt;
-using namespace std;
-
-const int N=10005;
-int n,m,x,y,z;
-int pa[N];
-
-int find(int x){
-  if(pa[x]==x) return x;
-  return pa[x]=find(pa[x]);
-}
-void unset(int x,int y){
-  pa[find(x)]=find(y);
-}
-int main(){
-  cin&gt;&gt;n&gt;&gt;m;
-  for(int i=1;i&amp;#x3C;=n;i++) pa[i]=i;
-  while(m --){
-    cin&gt;&gt;z&gt;&gt;x&gt;&gt;y;
-    if(z==1) unset(x,y);
-    else{
-      if(find(x)==find(y)) puts(&quot;Y&quot;);
-      else puts(&quot;N&quot;);
-    }
-  }
-}
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C1 树状数组-点修区查</title><link>https://ehnotgod.github.io/blog/c1-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-%E7%82%B9%E4%BF%AE%E5%8C%BA%E6%9F%A5</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c1-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-%E7%82%B9%E4%BF%AE%E5%8C%BA%E6%9F%A5</guid><description>树状数组模板：单点修改 + 区间求和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，已知一个数列，你需要进行下面两种操作：&lt;/p&gt;
@@ -3440,6 +3354,91 @@ signed main(){
             }
         }
     }
+}
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C3 并查集</title><link>https://ehnotgod.github.io/blog/c3-%E5%B9%B6%E6%9F%A5%E9%9B%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c3-%E5%B9%B6%E6%9F%A5%E9%9B%86</guid><description>并查集模板：维护集合的合并与查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3367&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如题，现在有一个并查集，你需要完成合并和查询操作。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行包含两个整数 $$N,M$$ ,表示共有 $$N$$ 个元素和 $$M$$ 个操作。&lt;/p&gt;
+&lt;p&gt;接下来 $$M$$ 行，每行包含三个整数 $$Z_i,X_i,Y_i$$ 。&lt;/p&gt;
+&lt;p&gt;当 $$Z_i=1$$ 时，将 $$X_i$$ 与 $$Y_i$$ 所在的集合合并。&lt;/p&gt;
+&lt;p&gt;当 $$Z_i=2$$ 时，输出 $$X_i$$ 与 $$Y_i$$ 是否在同一集合内，是的输出
+&lt;code&gt;Y&lt;/code&gt; ；否则输出 &lt;code&gt;N&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于每一个 $$Z_i=2$$ 的操作，都有一行输出，每行包含一个大写字母，为 &lt;code&gt;Y&lt;/code&gt; 或者 &lt;code&gt;N&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;4 7
+2 1 2
+1 1 2
+2 1 2
+1 3 4
+2 1 4
+1 2 3
+2 1 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;N
+Y
+N
+Y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于 $$100%$$ 的数据，$$1\le N\le 2\times 10^5$$，$$1\le M\le 10^6$$，$$1 \le X_i, Y_i \le N$$，$$Z_i \in { 1, 2 }$$。&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
+&lt;p&gt;一般我们使用“合并”即可，按秩合并不太需要&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-1.png&quot; alt=&quot;image-20250417165010912&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-2.png&quot; alt=&quot;image-20250417165040782&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-3.png&quot; alt=&quot;image-20250417165059357&quot;&gt;&lt;/p&gt;
+&lt;h3&gt;Python代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n, m = map(int, input().split())
+pa = [i for i in range(n + 1)]
+def find(x):
+    if pa[x] == x:
+        return x
+    pa[x] = find(pa[x])
+    return pa[x]
+def union(x, y):
+    pa[find(x)] = find(y)
+
+for _ in range(m):
+    z, x, y = map(int, input().split())
+    if z == 1:
+        union(x, y)
+    else:
+        if find(x) == find(y):
+            print(&quot;Y&quot;)
+        else:
+            print(&quot;N&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;C++代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;//并查集 路径压缩
+#include &amp;#x3C;iostream&gt;
+#include &amp;#x3C;cstring&gt;
+#include &amp;#x3C;algorithm&gt;
+using namespace std;
+
+const int N=10005;
+int n,m,x,y,z;
+int pa[N];
+
+int find(int x){
+  if(pa[x]==x) return x;
+  return pa[x]=find(pa[x]);
+}
+void unset(int x,int y){
+  pa[find(x)]=find(y);
+}
+int main(){
+  cin&gt;&gt;n&gt;&gt;m;
+  for(int i=1;i&amp;#x3C;=n;i++) pa[i]=i;
+  while(m --){
+    cin&gt;&gt;z&gt;&gt;x&gt;&gt;y;
+    if(z==1) unset(x,y);
+    else{
+      if(find(x)==find(y)) puts(&quot;Y&quot;);
+      else puts(&quot;N&quot;);
+    }
+  }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C5 普通平衡树</title><link>https://ehnotgod.github.io/blog/c5-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c5-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91</guid><description>平衡树（Treap/Splay）模板：动态维护有序集合。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
