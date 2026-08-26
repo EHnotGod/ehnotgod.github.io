@@ -1,5 +1,5 @@
 ---
-title: "C0 树状数组"
+title: "C1 树状数组-点修区查"
 publishDate: 2026-08-08
 description: "树状数组模板：单点修改 + 区间求和。"
 category: algo
