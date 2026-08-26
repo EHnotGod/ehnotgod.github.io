@@ -3180,6 +3180,7 @@ int main(){
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C5 加乘线段树</title><link>https://ehnotgod.github.io/blog/c5-%E5%8A%A0%E4%B9%98%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c5-%E5%8A%A0%E4%B9%98%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树进阶：区间加法与乘法混合懒标记。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3373&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，已知一个数列 $$a$$，你需要进行下面三种操作：&lt;/p&gt;
 &lt;ul&gt;
@@ -3210,6 +3211,8 @@ int main(){
 2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;【数据范围】对于 $$100%$$ 的数据：$$1 \le n \le 10^5$$，$$1 \le q \le 10^5,1\le a_i,k\le 10^4$$。&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C5-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 洛谷P3373
 #include &amp;#x3C;cstring&gt;
