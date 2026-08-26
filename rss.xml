@@ -2570,116 +2570,6 @@ signed main() {
 	}
 	return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C000 树状数组2</title><link>https://ehnotgod.github.io/blog/c000-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%842</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c000-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%842</guid><description>树状数组进阶：区间修改 + 区间查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如题，已知一个数列，你需要进行下面两种操作：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;将某区间每一个数加上 $$x$$；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;求出某一个数的值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;第一行包含两个整数 $$N$$、$$M$$，分别表示该数列数字的个数和操作的总个数。&lt;/p&gt;
-&lt;p&gt;第二行包含 $$N$$ 个用空格分隔的整数，其中第 $$i$$ 个数字表示数列第 $$i $$ 项的初始值。&lt;/p&gt;
-&lt;p&gt;接下来 $$M$$ 行每行包含 $$2$$ 或 $$4$$ 个整数，表示一个操作，具体如下：&lt;/p&gt;
-&lt;p&gt;操作 $$1$$： 格式：&lt;code&gt;1 x y k&lt;/code&gt; 含义：将区间 $$[x,y]$$ 内每个数加上 $$k$$；&lt;/p&gt;
-&lt;p&gt;操作 $$2$$： 格式：&lt;code&gt;2 x&lt;/code&gt; 含义：输出第 $$x$$ 个数的值。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;输出包含若干行整数，即为所有操作 $$2$$ 的结果。&lt;/p&gt;
-&lt;p&gt;输入 #1&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;5 5
-1 5 4 2 3
-1 2 4 2
-2 3
-1 1 5 -1
-1 3 5 7
-2 4
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输出 #1&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;6
-10
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对于 $$100%$$ 的数据：$$1 \leq N, M\le 500000$$，$$1 \leq x, y \leq n$$，保证任意时刻序列中任意元素的绝对值都不大于 $$2^{30}$$。&lt;/p&gt;
-&lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
-input = sys.stdin.readline
-
-class BIT:
-    def __init__(self, n):
-        self.n = n
-        self.s = [0] * (n + 1)
-
-    def change(self, x, w):
-        while x &amp;#x3C;= self.n:
-            self.s[x] += w
-            x += x &amp;#x26; -x
-
-    def query(self, x):
-        res = 0
-        while x &gt; 0:
-            res += self.s[x]
-            x -= x &amp;#x26; -x
-        return res
-
-if __name__ == &quot;__main__&quot;:
-    n, m = map(int, input().split())
-    T = BIT(n)
-
-    a = list(map(int, input().split()))
-    # 用差分数组初始化：d[1]=a1, d[i]=a[i]-a[i-1]
-    prev = 0
-    for i, val in enumerate(a, 1):  # 下标从1开始
-        d = val - prev
-        T.change(i, d)
-        prev = val
-
-    for _ in range(m):
-        op, *rest = map(int, input().split())
-        if op == 1:  # 区间修改： op=1 l r k
-            l, r, k = rest
-            T.change(l, k)
-            if r + 1 &amp;#x3C;= n:
-                T.change(r + 1, -k)
-        else:        # 点查询： op=2 x
-            x = rest[0]
-            print(T.query(x))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;C++代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 树状数组 区修+点查 O(nlogn)
-#include&amp;#x3C;bits/stdc++.h&gt;
-using namespace std;
-
-const int N=500010;
-int n,m,a[N];
-
-struct BIT{
-  int s[N]; //差分的区间和
-  void change(int x,int w){
-    for(;x&amp;#x3C;=n;x+=x&amp;#x26;-x) s[x]+=w;
-  }
-  int query(int x){
-    int res=0;
-    for(;x;x-=x&amp;#x26;-x) res+=s[x];
-    return res;
-  }
-}T;
-int main(){
-  ios::sync_with_stdio(0);
-  cin&gt;&gt;n&gt;&gt;m; int op,x,y,k;
-  for(int i=1;i&amp;#x3C;=n;i++) cin&gt;&gt;a[i];
-  for(int i=1;i&amp;#x3C;=m;i++){
-    cin&gt;&gt;op&gt;&gt;x;
-    if(op==1){
-      cin&gt;&gt;y&gt;&gt;k;
-      T.change(x,k);
-      T.change(y+1,-k); //差分
-    }
-    else cout&amp;#x3C;&amp;#x3C;T.query(x)+a[x]&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
-  }
-}
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C1 并查集</title><link>https://ehnotgod.github.io/blog/c1-%E5%B9%B6%E6%9F%A5%E9%9B%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c1-%E5%B9%B6%E6%9F%A5%E9%9B%86</guid><description>并查集模板：维护集合的合并与查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，现在有一个并查集，你需要完成合并和查询操作。&lt;/p&gt;
@@ -3005,6 +2895,119 @@ int main(){
             cout &amp;#x3C;&amp;#x3C; query(1, x, y) &amp;#x3C;&amp;#x3C; endl;
         }
     }
+}
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C2 树状数组-区修点查</title><link>https://ehnotgod.github.io/blog/c2-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-%E5%8C%BA%E4%BF%AE%E7%82%B9%E6%9F%A5</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c2-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-%E5%8C%BA%E4%BF%AE%E7%82%B9%E6%9F%A5</guid><description>树状数组进阶：区间修改 + 单点查询（差分）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3368&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如题，已知一个数列，你需要进行下面两种操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;将某区间每一个数加上 $$x$$；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;求出某一个数的值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行包含两个整数 $$N$$、$$M$$，分别表示该数列数字的个数和操作的总个数。&lt;/p&gt;
+&lt;p&gt;第二行包含 $$N$$ 个用空格分隔的整数，其中第 $$i$$ 个数字表示数列第 $$i $$ 项的初始值。&lt;/p&gt;
+&lt;p&gt;接下来 $$M$$ 行每行包含 $$2$$ 或 $$4$$ 个整数，表示一个操作，具体如下：&lt;/p&gt;
+&lt;p&gt;操作 $$1$$： 格式：&lt;code&gt;1 x y k&lt;/code&gt; 含义：将区间 $$[x,y]$$ 内每个数加上 $$k$$；&lt;/p&gt;
+&lt;p&gt;操作 $$2$$： 格式：&lt;code&gt;2 x&lt;/code&gt; 含义：输出第 $$x$$ 个数的值。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输出包含若干行整数，即为所有操作 $$2$$ 的结果。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;5 5
+1 5 4 2 3
+1 2 4 2
+2 3
+1 1 5 -1
+1 3 5 7
+2 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;6
+10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于 $$100%$$ 的数据：$$1 \leq N, M\le 500000$$，$$1 \leq x, y \leq n$$，保证任意时刻序列中任意元素的绝对值都不大于 $$2^{30}$$。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;区间修改、单点查询可以用树状数组维护差分数组 $d$：$d_1=a_1$，$d_i=a_i-a_{i-1}$。对原数组区间 $[l,r]$ 加上 $k$，等价于在差分数组上做两个单点修改 $d_l += k$、$d_{r+1} -= k$；查询第 $x$ 个数的值就是差分数组的前缀和 $a_x=\sum_{i=1}^{x}d_i$。树状数组恰好支持 $O(\log n)$ 的单点修改和前缀和查询，所以总复杂度为 $O((n+m)\log n)$。&lt;/p&gt;
+&lt;h3&gt;Python代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
+input = sys.stdin.readline
+
+class BIT:
+    def __init__(self, n):
+        self.n = n
+        self.s = [0] * (n + 1)
+
+    def change(self, x, w):
+        while x &amp;#x3C;= self.n:
+            self.s[x] += w
+            x += x &amp;#x26; -x
+
+    def query(self, x):
+        res = 0
+        while x &gt; 0:
+            res += self.s[x]
+            x -= x &amp;#x26; -x
+        return res
+
+if __name__ == &quot;__main__&quot;:
+    n, m = map(int, input().split())
+    T = BIT(n)
+
+    a = list(map(int, input().split()))
+    # 用差分数组初始化：d[1]=a1, d[i]=a[i]-a[i-1]
+    prev = 0
+    for i, val in enumerate(a, 1):  # 下标从1开始
+        d = val - prev
+        T.change(i, d)
+        prev = val
+
+    for _ in range(m):
+        op, *rest = map(int, input().split())
+        if op == 1:  # 区间修改： op=1 l r k
+            l, r, k = rest
+            T.change(l, k)
+            if r + 1 &amp;#x3C;= n:
+                T.change(r + 1, -k)
+        else:        # 点查询： op=2 x
+            x = rest[0]
+            print(T.query(x))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;C++代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 树状数组 区修+点查 O(nlogn)
+#include&amp;#x3C;bits/stdc++.h&gt;
+using namespace std;
+
+const int N=500010;
+int n,m,a[N];
+
+struct BIT{
+  int s[N]; //差分的区间和
+  void change(int x,int w){
+    for(;x&amp;#x3C;=n;x+=x&amp;#x26;-x) s[x]+=w;
+  }
+  int query(int x){
+    int res=0;
+    for(;x;x-=x&amp;#x26;-x) res+=s[x];
+    return res;
+  }
+}T;
+int main(){
+  ios::sync_with_stdio(0);
+  cin&gt;&gt;n&gt;&gt;m; int op,x,y,k;
+  for(int i=1;i&amp;#x3C;=n;i++) cin&gt;&gt;a[i];
+  for(int i=1;i&amp;#x3C;=m;i++){
+    cin&gt;&gt;op&gt;&gt;x;
+    if(op==1){
+      cin&gt;&gt;y&gt;&gt;k;
+      T.change(x,k);
+      T.change(y+1,-k); //差分
+    }
+    else cout&amp;#x3C;&amp;#x3C;T.query(x)+a[x]&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
+  }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C2 线段树</title><link>https://ehnotgod.github.io/blog/c2-%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c2-%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树模板：区间修改 + 区间查询（加法）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
