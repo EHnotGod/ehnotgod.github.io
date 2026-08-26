@@ -70,9 +70,6 @@ language: zh
 ### Python代码实现
 
 ```python
-# 对应题目：https://www.luogu.com.cn/problem/P3372
-# py代码100%超时，这是洛谷的问题，不要在意，其他地方py给开额外时间的。
-
 class Node:
     def __init__(self, l, r, he, add):
         self.l = l
