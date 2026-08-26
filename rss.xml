@@ -2923,7 +2923,93 @@ int main(){
     else cout&amp;#x3C;&amp;#x3C;T.query(x)+a[x]&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
   }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C2 线段树</title><link>https://ehnotgod.github.io/blog/c2-%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c2-%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树模板：区间修改 + 区间查询（加法）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C3 并查集</title><link>https://ehnotgod.github.io/blog/c3-%E5%B9%B6%E6%9F%A5%E9%9B%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c3-%E5%B9%B6%E6%9F%A5%E9%9B%86</guid><description>并查集模板：维护集合的合并与查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3367&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如题，现在有一个并查集，你需要完成合并和查询操作。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行包含两个整数 $$N,M$$ ,表示共有 $$N$$ 个元素和 $$M$$ 个操作。&lt;/p&gt;
+&lt;p&gt;接下来 $$M$$ 行，每行包含三个整数 $$Z_i,X_i,Y_i$$ 。&lt;/p&gt;
+&lt;p&gt;当 $$Z_i=1$$ 时，将 $$X_i$$ 与 $$Y_i$$ 所在的集合合并。&lt;/p&gt;
+&lt;p&gt;当 $$Z_i=2$$ 时，输出 $$X_i$$ 与 $$Y_i$$ 是否在同一集合内，是的输出
+&lt;code&gt;Y&lt;/code&gt; ；否则输出 &lt;code&gt;N&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于每一个 $$Z_i=2$$ 的操作，都有一行输出，每行包含一个大写字母，为 &lt;code&gt;Y&lt;/code&gt; 或者 &lt;code&gt;N&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;4 7
+2 1 2
+1 1 2
+2 1 2
+1 3 4
+2 1 4
+1 2 3
+2 1 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;N
+Y
+N
+Y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于 $$100%$$ 的数据，$$1\le N\le 2\times 10^5$$，$$1\le M\le 10^6$$，$$1 \le X_i, Y_i \le N$$，$$Z_i \in { 1, 2 }$$。&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
+&lt;p&gt;一般我们使用“合并”即可，按秩合并不太需要&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-1.png&quot; alt=&quot;image-20250417165010912&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-2.png&quot; alt=&quot;image-20250417165040782&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-3.png&quot; alt=&quot;image-20250417165059357&quot;&gt;&lt;/p&gt;
+&lt;h3&gt;Python代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n, m = map(int, input().split())
+pa = [i for i in range(n + 1)]
+def find(x):
+    if pa[x] == x:
+        return x
+    pa[x] = find(pa[x])
+    return pa[x]
+def union(x, y):
+    pa[find(x)] = find(y)
+
+for _ in range(m):
+    z, x, y = map(int, input().split())
+    if z == 1:
+        union(x, y)
+    else:
+        if find(x) == find(y):
+            print(&quot;Y&quot;)
+        else:
+            print(&quot;N&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;C++代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;//并查集 路径压缩
+#include &amp;#x3C;iostream&gt;
+#include &amp;#x3C;cstring&gt;
+#include &amp;#x3C;algorithm&gt;
+using namespace std;
+
+const int N=10005;
+int n,m,x,y,z;
+int pa[N];
+
+int find(int x){
+  if(pa[x]==x) return x;
+  return pa[x]=find(pa[x]);
+}
+void unset(int x,int y){
+  pa[find(x)]=find(y);
+}
+int main(){
+  cin&gt;&gt;n&gt;&gt;m;
+  for(int i=1;i&amp;#x3C;=n;i++) pa[i]=i;
+  while(m --){
+    cin&gt;&gt;z&gt;&gt;x&gt;&gt;y;
+    if(z==1) unset(x,y);
+    else{
+      if(find(x)==find(y)) puts(&quot;Y&quot;);
+      else puts(&quot;N&quot;);
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C4 线段树</title><link>https://ehnotgod.github.io/blog/c4-%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c4-%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树模板：区间修改 + 区间查询（加法）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3372&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，已知一个数列 $${a_i}$$，你需要进行下面两种操作：&lt;/p&gt;
 &lt;ol&gt;
@@ -2957,10 +3043,10 @@ int main(){
 &lt;p&gt;对于 $$100%$$ 的数据：$$1 \le n, m \le {10}^5$$，$$a_i,k$$ 为正数，且任意时刻数列的和不超过 $$2\times 10^{18}$$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;【样例解释】&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/2251.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;解析：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C2-2.png&quot; alt=&quot;image-20250417171455028&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C2-3.png&quot; alt=&quot;image-20250417171654545&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C2-4.png&quot; alt=&quot;image-20250417171714474&quot;&gt;&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C4-2.png&quot; alt=&quot;image-20250417171455028&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C4-3.png&quot; alt=&quot;image-20250417171654545&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C4-4.png&quot; alt=&quot;image-20250417171714474&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Node:
     def __init__(self, l, r, he, add):
@@ -3093,7 +3179,7 @@ int main(){
   }
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C2.5 加乘线段树</title><link>https://ehnotgod.github.io/blog/c25-%E5%8A%A0%E4%B9%98%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c25-%E5%8A%A0%E4%B9%98%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树进阶：区间加法与乘法混合懒标记。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C5 加乘线段树</title><link>https://ehnotgod.github.io/blog/c5-%E5%8A%A0%E4%B9%98%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c5-%E5%8A%A0%E4%B9%98%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树进阶：区间加法与乘法混合懒标记。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，已知一个数列 $$a$$，你需要进行下面三种操作：&lt;/p&gt;
 &lt;ul&gt;
@@ -3225,7 +3311,7 @@ signed main(){
   }
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C2.8 最大子段和线段树</title><link>https://ehnotgod.github.io/blog/c28-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c28-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树进阶：维护区间最大子段和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C6 最大子段和线段树</title><link>https://ehnotgod.github.io/blog/c6-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c6-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树进阶：维护区间最大子段和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;在小新家附近有一条“公园路”，路的一边从南到北依次排着 $$n$$ 个公园，小白早就看花了眼，自己也不清楚该去哪些公园玩了。&lt;/p&gt;
 &lt;p&gt;一开始，小白就根据公园的风景给每个公园打了分。小新为了省事，每次遛狗的时候都会事先规定一个范围，小白只可以选择第 $$a$$ 个和第 $$b$$ 个公园之间（包括 $$a, b$$ 两个公园）选择连续的一些公园玩。小白当然希望选出的公园的分数总和尽量高咯。同时，由于一些公园的景观会有所改变，所以，小白的打分也可能会有一些变化。&lt;/p&gt;
@@ -3352,92 +3438,7 @@ signed main(){
         }
     }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C3 并查集</title><link>https://ehnotgod.github.io/blog/c3-%E5%B9%B6%E6%9F%A5%E9%9B%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c3-%E5%B9%B6%E6%9F%A5%E9%9B%86</guid><description>并查集模板：维护集合的合并与查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3367&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如题，现在有一个并查集，你需要完成合并和查询操作。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;第一行包含两个整数 $$N,M$$ ,表示共有 $$N$$ 个元素和 $$M$$ 个操作。&lt;/p&gt;
-&lt;p&gt;接下来 $$M$$ 行，每行包含三个整数 $$Z_i,X_i,Y_i$$ 。&lt;/p&gt;
-&lt;p&gt;当 $$Z_i=1$$ 时，将 $$X_i$$ 与 $$Y_i$$ 所在的集合合并。&lt;/p&gt;
-&lt;p&gt;当 $$Z_i=2$$ 时，输出 $$X_i$$ 与 $$Y_i$$ 是否在同一集合内，是的输出
-&lt;code&gt;Y&lt;/code&gt; ；否则输出 &lt;code&gt;N&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;对于每一个 $$Z_i=2$$ 的操作，都有一行输出，每行包含一个大写字母，为 &lt;code&gt;Y&lt;/code&gt; 或者 &lt;code&gt;N&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;输入 #1&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;4 7
-2 1 2
-1 1 2
-2 1 2
-1 3 4
-2 1 4
-1 2 3
-2 1 4
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输出 #1&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;N
-Y
-N
-Y
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对于 $$100%$$ 的数据，$$1\le N\le 2\times 10^5$$，$$1\le M\le 10^6$$，$$1 \le X_i, Y_i \le N$$，$$Z_i \in { 1, 2 }$$。&lt;/p&gt;
-&lt;h3&gt;算法解析&lt;/h3&gt;
-&lt;p&gt;一般我们使用“合并”即可，按秩合并不太需要&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-1.png&quot; alt=&quot;image-20250417165010912&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-2.png&quot; alt=&quot;image-20250417165040782&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-3.png&quot; alt=&quot;image-20250417165059357&quot;&gt;&lt;/p&gt;
-&lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n, m = map(int, input().split())
-pa = [i for i in range(n + 1)]
-def find(x):
-    if pa[x] == x:
-        return x
-    pa[x] = find(pa[x])
-    return pa[x]
-def union(x, y):
-    pa[find(x)] = find(y)
-
-for _ in range(m):
-    z, x, y = map(int, input().split())
-    if z == 1:
-        union(x, y)
-    else:
-        if find(x) == find(y):
-            print(&quot;Y&quot;)
-        else:
-            print(&quot;N&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;C++代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;//并查集 路径压缩
-#include &amp;#x3C;iostream&gt;
-#include &amp;#x3C;cstring&gt;
-#include &amp;#x3C;algorithm&gt;
-using namespace std;
-
-const int N=10005;
-int n,m,x,y,z;
-int pa[N];
-
-int find(int x){
-  if(pa[x]==x) return x;
-  return pa[x]=find(pa[x]);
-}
-void unset(int x,int y){
-  pa[find(x)]=find(y);
-}
-int main(){
-  cin&gt;&gt;n&gt;&gt;m;
-  for(int i=1;i&amp;#x3C;=n;i++) pa[i]=i;
-  while(m --){
-    cin&gt;&gt;z&gt;&gt;x&gt;&gt;y;
-    if(z==1) unset(x,y);
-    else{
-      if(find(x)==find(y)) puts(&quot;Y&quot;);
-      else puts(&quot;N&quot;);
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C5 普通平衡树</title><link>https://ehnotgod.github.io/blog/c5-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c5-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91</guid><description>平衡树（Treap/Splay）模板：动态维护有序集合。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C7 普通平衡树</title><link>https://ehnotgod.github.io/blog/c7-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c7-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91</guid><description>平衡树（Treap/Splay）模板：动态维护有序集合。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;您需要动态地维护一个可重集合 $$M$$，并且提供以下操作：&lt;/p&gt;
 &lt;ol&gt;
@@ -3910,7 +3911,7 @@ int main(){
     printf(&quot;%d\n&quot;,b[id]);
   }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C13 树上点分治</title><link>https://ehnotgod.github.io/blog/c13-%E6%A0%91%E4%B8%8A%E7%82%B9%E5%88%86%E6%B2%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c13-%E6%A0%91%E4%B8%8A%E7%82%B9%E5%88%86%E6%B2%BB</guid><description>点分治：树上路径统计问题的经典分治。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C9 树上点分治</title><link>https://ehnotgod.github.io/blog/c9-%E6%A0%91%E4%B8%8A%E7%82%B9%E5%88%86%E6%B2%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c9-%E6%A0%91%E4%B8%8A%E7%82%B9%E5%88%86%E6%B2%BB</guid><description>点分治：树上路径统计问题的经典分治。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;不会做，只需要使用板子即可。&lt;/p&gt;
 &lt;p&gt;P3806 【模板】点分治 1&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -3930,8 +3931,8 @@ int main(){
 &lt;pre&gt;&lt;code&gt;AYE
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，保证 $$1 \leq n\leq 10^4$$，$$1 \leq m\leq 100$$，$$1 \leq k \leq 10^7$$，$$1 \leq u, v \leq n$$，$$1 \leq w \leq 10^4$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C13-1.png&quot; alt=&quot;image-20250826121151602&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C13-2.png&quot; alt=&quot;image-20250826121209201&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C9-1.png&quot; alt=&quot;image-20250826121151602&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C9-2.png&quot; alt=&quot;image-20250826121209201&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&amp;#x3C;iostream&gt;
 #include&amp;#x3C;algorithm&gt;
@@ -4026,7 +4027,7 @@ int main(){
     ans[i]?puts(&quot;AYE&quot;):puts(&quot;NAY&quot;);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C15 扫描线</title><link>https://ehnotgod.github.io/blog/c15-%E6%89%AB%E6%8F%8F%E7%BA%BF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c15-%E6%89%AB%E6%8F%8F%E7%BA%BF</guid><description>扫描线：矩形面积并 / 周长并。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C10 扫描线</title><link>https://ehnotgod.github.io/blog/c10-%E6%89%AB%E6%8F%8F%E7%BA%BF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c10-%E6%89%AB%E6%8F%8F%E7%BA%BF</guid><description>扫描线：矩形面积并 / 周长并。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;P5490 【模板】扫描线 &amp;#x26; 矩形面积并&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;求 $$n$$ 个四边平行于坐标轴的矩形的面积并。&lt;/p&gt;
@@ -4044,7 +4045,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;18000
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \le n \le {10}^5$$，$$0 \le x_1 &amp;#x3C; x_2 \le {10}^9$$，$$0 \le y_1 &amp;#x3C; y_2 \le {10}^9$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C15-1.png&quot; alt=&quot;image-20250826121538028&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C10-1.png&quot; alt=&quot;image-20250826121538028&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 扫描线+线段树+离散化 1.4s
 #include &amp;#x3C;iostream&gt;
@@ -4100,7 +4101,7 @@ int main(){
   }
   printf(&quot;%lld\n&quot;,ans);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C19 KD树</title><link>https://ehnotgod.github.io/blog/c19-kd%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c19-kd%E6%A0%91</guid><description>KD 树：多维最近点对 / 最近邻查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C11 KD树</title><link>https://ehnotgod.github.io/blog/c11-kd%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c11-kd%E6%A0%91</guid><description>KD 树：多维最近点对 / 最近邻查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定平面上 $$n$$ 个点，找出其中的一对点的距离，使得在这 $$n$$ 个点的所有点对中，该距离为所有点对中最小的&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -4195,7 +4196,7 @@ int main(){
   for(cur=1; cur&amp;#x3C;=n; cur++) query(root);
   printf(&quot;%.4lf\n&quot;,sqrt(ans));
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C111 莫队</title><link>https://ehnotgod.github.io/blog/c111-%E8%8E%AB%E9%98%9F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c111-%E8%8E%AB%E9%98%9F</guid><description>莫队算法：离线区间查询，分块排序优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C12 莫队</title><link>https://ehnotgod.github.io/blog/c12-%E8%8E%AB%E9%98%9F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c12-%E8%8E%AB%E9%98%9F</guid><description>莫队算法：离线区间查询，分块排序优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;小B 有一个长为 $$n$$ 的整数序列 $$a$$，值域为 $$[1,k]$$。  他一共有 $$m$$ 个询问，每个询问给定一个区间 $$[l,r]$$，求：  $$\sum\limits_{i=1}^k c_i^2$$&lt;/p&gt;
 &lt;p&gt;其中 $$c_i$$ 表示数字 $$i$$ 在 $$[l,r]$$ 中的出现次数。  小B请你帮助他回答询问。&lt;/p&gt;
@@ -4221,7 +4222,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\le n,m,k \le 5\times 10^4$$。&lt;/p&gt;
 &lt;p&gt;思路：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C111-1.png&quot; alt=&quot;image-20250519115428164&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C12-1.png&quot; alt=&quot;image-20250519115428164&quot;&gt;&lt;/p&gt;
 &lt;p&gt;不证明了，无所谓。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
@@ -4326,7 +4327,7 @@ int main(){
   }
   for(int i=1;i&amp;#x3C;=m;++i)printf(&quot;%d\n&quot;,ans[i]);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C118 李超线段树</title><link>https://ehnotgod.github.io/blog/c118-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c118-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>李超线段树：维护一次函数最值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C13 李超线段树</title><link>https://ehnotgod.github.io/blog/c13-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c13-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>李超线段树：维护一次函数最值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;P4254 [JSOI2008] Blue Mary 开公司（精简版）&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;问题描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Blue Mary 开公司，会陆续收到若干金融顾问的经营方案。每个顾问给出一个等差日收益序列：&lt;/p&gt;
