@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P3369
+
 **题目描述**
 
 您需要动态地维护一个可重集合 $$M$$，并且提供以下操作：
@@ -57,6 +59,10 @@ language: zh
 
 【数据范围】
 对于 $$100\%$$ 的数据，$$1\le n \le 10^5$$，$$|x| \le 10^7$$
+
+### 算法解析
+
+过难，略
 
 ### Python代码实现
 
@@ -345,5 +351,61 @@ int main(){
     else if(op==5) printf("%d\n",tr[getpre(x)].v);
     else printf("%d\n",tr[getsuc(x)].v);
   }
+}
+```
+
+更好的写法：
+
+```c++
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+
+using pii = pair<int,int>;
+
+tree<
+    pii,
+    null_type,
+    less<pii>,
+    rb_tree_tag,
+    tree_order_statistics_node_update
+> tr;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n; cin >> n;
+    int id = 0;
+    const int INF = 1e9;
+
+    while(n--){
+        int op, x; cin >> op >> x;
+
+        if(op == 1){                     // 插入 x
+            tr.insert({x, ++id});
+        }
+        else if(op == 2){                // 删除一个 x
+            auto it = tr.lower_bound({x, -INF});
+            if(it != tr.end() && it->first == x) tr.erase(it);
+        }
+        else if(op == 3){                // x 的排名
+            cout << tr.order_of_key({x, -INF}) + 1 << '\n';
+        }
+        else if(op == 4){                // 第 x 小
+            cout << tr.find_by_order(x - 1)->first << '\n';
+        }
+        else if(op == 5){                // x 的前驱
+            auto it = tr.lower_bound({x, -INF});
+            --it;
+            cout << it->first << '\n';
+        }
+        else if(op == 6){                // x 的后继
+            auto it = tr.lower_bound({x, INF});
+            cout << it->first << '\n';
+        }
+    }
 }
 ```

@@ -63,6 +63,168 @@ language: zh
 
 ![](/images/算法竞赛/C/C5-1.png)
 
+### py代码实现
+
+有两种实现：第一种是class的，跟C++格式一样，但是常数比较大；第二种是直接全局数组接管的，快多了。
+
+**第一种：**
+
+```python
+import sys
+input = sys.stdin.readline
+
+class Tree:
+    def __init__(self):
+        self.l = self.r = self.sum = self.add = 0
+        self.mul = 1
+
+class SegmentTree:
+    def __init__(self, w, mod):
+        self.n, self.w, self.mod = len(w) - 1, w, mod
+        self.tr = [Tree() for _ in range(self.n * 4 + 5)]
+        self.build(1, 1, self.n)
+
+    def lc(self, u): return u << 1
+    def rc(self, u): return u << 1 | 1
+    def length(self, u): return self.tr[u].r - self.tr[u].l + 1
+
+    def pushup(self, u):
+        self.tr[u].sum = (self.tr[self.lc(u)].sum + self.tr[self.rc(u)].sum) % self.mod
+
+    def apply(self, u, mulv, addv):
+        mulv %= self.mod; addv %= self.mod
+        self.tr[u].sum = (self.tr[u].sum * mulv + addv * self.length(u)) % self.mod
+        self.tr[u].mul = self.tr[u].mul * mulv % self.mod
+        self.tr[u].add = (self.tr[u].add * mulv + addv) % self.mod
+
+    def pushdown(self, u):
+        if self.tr[u].mul != 1 or self.tr[u].add != 0:
+            self.apply(self.lc(u), self.tr[u].mul, self.tr[u].add)
+            self.apply(self.rc(u), self.tr[u].mul, self.tr[u].add)
+            self.tr[u].mul, self.tr[u].add = 1, 0
+
+    def build(self, u, l, r):
+        self.tr[u].l, self.tr[u].r = l, r
+        if l == r:
+            self.tr[u].sum = self.w[l] % self.mod
+            return
+        mid = (l + r) >> 1
+        self.build(self.lc(u), l, mid)
+        self.build(self.rc(u), mid + 1, r)
+        self.pushup(u)
+
+    def change(self, u, l, r, k):  # 区间加
+        if l <= self.tr[u].l and self.tr[u].r <= r:
+            self.apply(u, 1, k); return
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        self.pushdown(u)
+        if l <= mid: self.change(self.lc(u), l, r, k)
+        if r > mid: self.change(self.rc(u), l, r, k)
+        self.pushup(u)
+
+    def change2(self, u, l, r, k):  # 区间乘
+        if l <= self.tr[u].l and self.tr[u].r <= r:
+            self.apply(u, k, 0); return
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        self.pushdown(u)
+        if l <= mid: self.change2(self.lc(u), l, r, k)
+        if r > mid: self.change2(self.rc(u), l, r, k)
+        self.pushup(u)
+
+    def query(self, u, l, r):
+        if l <= self.tr[u].l and self.tr[u].r <= r: return self.tr[u].sum
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        self.pushdown(u)
+        ans = 0
+        if l <= mid: ans += self.query(self.lc(u), l, r)
+        if r > mid: ans += self.query(self.rc(u), l, r)
+        return ans % self.mod
+
+n, m, mod = map(int, input().split())
+w = [0] + list(map(int, input().split()))
+seg = SegmentTree(w, mod)
+
+for _ in range(m):
+    op = list(map(int, input().split()))
+    if op[0] == 1: seg.change2(1, op[1], op[2], op[3])
+    elif op[0] == 2: seg.change(1, op[1], op[2], op[3])
+    else: print(seg.query(1, op[1], op[2]))
+```
+
+```python
+import sys
+input = sys.stdin.readline
+
+n, m, mod = map(int, input().split())
+w = [0] + list(map(int, input().split()))
+N = 4 * n + 5
+L = [0] * N
+R = [0] * N
+SUM = [0] * N
+ADD = [0] * N
+MUL = [1] * N
+
+def length(u):
+    return R[u] - L[u] + 1
+
+def pushup(u):
+    SUM[u] = (SUM[u << 1] + SUM[u << 1 | 1]) % mod
+
+def apply(u, mulv, addv):
+    mulv %= mod; addv %= mod
+    SUM[u] = (SUM[u] * mulv + addv * length(u)) % mod
+    MUL[u] = MUL[u] * mulv % mod
+    ADD[u] = (ADD[u] * mulv + addv) % mod
+
+def pushdown(u):
+    if MUL[u] == 1 and ADD[u] == 0: return
+    apply(u << 1, MUL[u], ADD[u])
+    apply(u << 1 | 1, MUL[u], ADD[u])
+    MUL[u] = 1; ADD[u] = 0
+
+def build(u, l, r):
+    L[u] = l; R[u] = r
+    if l == r:
+        SUM[u] = w[l] % mod
+        return
+    mid = (l + r) >> 1
+    build(u << 1, l, mid); build(u << 1 | 1, mid + 1, r)
+    pushup(u)
+
+def change(u, l, r, k):
+    if l <= L[u] and R[u] <= r:
+        apply(u, 1, k)
+        return
+    pushdown(u); mid = (L[u] + R[u]) >> 1
+    if l <= mid: change(u << 1, l, r, k)
+    if r > mid: change(u << 1 | 1, l, r, k)
+    pushup(u)
+
+def change2(u, l, r, k):
+    if l <= L[u] and R[u] <= r:
+        apply(u, k, 0)
+        return
+    pushdown(u); mid = (L[u] + R[u]) >> 1
+    if l <= mid: change2(u << 1, l, r, k)
+    if r > mid: change2(u << 1 | 1, l, r, k)
+    pushup(u)
+
+def query(u, l, r):
+    if l <= L[u] and R[u] <= r: return SUM[u]
+    pushdown(u); mid = (L[u] + R[u]) >> 1; ans = 0
+    if l <= mid: ans += query(u << 1, l, r)
+    if r > mid: ans += query(u << 1 | 1, l, r)
+    return ans % mod
+
+build(1, 1, n)
+
+for _ in range(m):
+    op = list(map(int, input().split()))
+    if op[0] == 1: change2(1, op[1], op[2], op[3])
+    elif op[0] == 2: change(1, op[1], op[2], op[3])
+    else: print(query(1, op[1], op[2]))
+```
+
 ### C++代码实现
 
 ```c++
