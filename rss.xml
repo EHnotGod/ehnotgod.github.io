@@ -4240,7 +4240,7 @@ int main(){
     printf(&quot;%d\n&quot;,b[id]);
   }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C10 扫描线</title><link>https://ehnotgod.github.io/blog/c10-%E6%89%AB%E6%8F%8F%E7%BA%BF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c10-%E6%89%AB%E6%8F%8F%E7%BA%BF</guid><description>扫描线：矩形面积并 / 周长并。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C9 扫描线</title><link>https://ehnotgod.github.io/blog/c9-%E6%89%AB%E6%8F%8F%E7%BA%BF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c9-%E6%89%AB%E6%8F%8F%E7%BA%BF</guid><description>扫描线：矩形面积并 / 周长并。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;P5490 【模板】扫描线 &amp;#x26; 矩形面积并&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;求 $$n$$ 个四边平行于坐标轴的矩形的面积并。&lt;/p&gt;
@@ -4258,7 +4258,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;18000
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \le n \le {10}^5$$，$$0 \le x_1 &amp;#x3C; x_2 \le {10}^9$$，$$0 \le y_1 &amp;#x3C; y_2 \le {10}^9$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C10-1.png&quot; alt=&quot;image-20250826121538028&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C9-1.png&quot; alt=&quot;image-20250826121538028&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 扫描线+线段树+离散化 1.4s
 #include &amp;#x3C;iostream&gt;
@@ -4314,7 +4314,7 @@ int main(){
   }
   printf(&quot;%lld\n&quot;,ans);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C11 KD树</title><link>https://ehnotgod.github.io/blog/c11-kd%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c11-kd%E6%A0%91</guid><description>KD 树：多维最近点对 / 最近邻查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C10 KD树</title><link>https://ehnotgod.github.io/blog/c10-kd%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c10-kd%E6%A0%91</guid><description>KD 树：多维最近点对 / 最近邻查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定平面上 $$n$$ 个点，找出其中的一对点的距离，使得在这 $$n$$ 个点的所有点对中，该距离为所有点对中最小的&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -4409,7 +4409,7 @@ int main(){
   for(cur=1; cur&amp;#x3C;=n; cur++) query(root);
   printf(&quot;%.4lf\n&quot;,sqrt(ans));
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C12 莫队</title><link>https://ehnotgod.github.io/blog/c12-%E8%8E%AB%E9%98%9F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c12-%E8%8E%AB%E9%98%9F</guid><description>莫队算法：离线区间查询，分块排序优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C11 莫队</title><link>https://ehnotgod.github.io/blog/c11-%E8%8E%AB%E9%98%9F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c11-%E8%8E%AB%E9%98%9F</guid><description>莫队算法：离线区间查询，分块排序优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;小B 有一个长为 $$n$$ 的整数序列 $$a$$，值域为 $$[1,k]$$。  他一共有 $$m$$ 个询问，每个询问给定一个区间 $$[l,r]$$，求：  $$\sum\limits_{i=1}^k c_i^2$$&lt;/p&gt;
 &lt;p&gt;其中 $$c_i$$ 表示数字 $$i$$ 在 $$[l,r]$$ 中的出现次数。  小B请你帮助他回答询问。&lt;/p&gt;
@@ -4435,7 +4435,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\le n,m,k \le 5\times 10^4$$。&lt;/p&gt;
 &lt;p&gt;思路：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C12-1.png&quot; alt=&quot;image-20250519115428164&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C11-1.png&quot; alt=&quot;image-20250519115428164&quot;&gt;&lt;/p&gt;
 &lt;p&gt;不证明了，无所谓。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
@@ -4540,7 +4540,7 @@ int main(){
   }
   for(int i=1;i&amp;#x3C;=m;++i)printf(&quot;%d\n&quot;,ans[i]);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C13 李超线段树</title><link>https://ehnotgod.github.io/blog/c13-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c13-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>李超线段树：维护一次函数最值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C12 李超线段树</title><link>https://ehnotgod.github.io/blog/c12-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c12-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>李超线段树：维护一次函数最值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;P4254 [JSOI2008] Blue Mary 开公司（精简版）&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;问题描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Blue Mary 开公司，会陆续收到若干金融顾问的经营方案。每个顾问给出一个等差日收益序列：&lt;/p&gt;
