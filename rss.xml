@@ -3213,6 +3213,161 @@ int main(){
 &lt;p&gt;【数据范围】对于 $$100%$$ 的数据：$$1 \le n \le 10^5$$，$$1 \le q \le 10^5,1\le a_i,k\le 10^4$$。&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C5-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3&gt;py代码实现&lt;/h3&gt;
+&lt;p&gt;有两种实现：第一种是class的，跟C++格式一样，但是常数比较大；第二种是直接全局数组接管的，快多了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一种：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
+input = sys.stdin.readline
+
+class Tree:
+    def __init__(self):
+        self.l = self.r = self.sum = self.add = 0
+        self.mul = 1
+
+class SegmentTree:
+    def __init__(self, w, mod):
+        self.n, self.w, self.mod = len(w) - 1, w, mod
+        self.tr = [Tree() for _ in range(self.n * 4 + 5)]
+        self.build(1, 1, self.n)
+
+    def lc(self, u): return u &amp;#x3C;&amp;#x3C; 1
+    def rc(self, u): return u &amp;#x3C;&amp;#x3C; 1 | 1
+    def length(self, u): return self.tr[u].r - self.tr[u].l + 1
+
+    def pushup(self, u):
+        self.tr[u].sum = (self.tr[self.lc(u)].sum + self.tr[self.rc(u)].sum) % self.mod
+
+    def apply(self, u, mulv, addv):
+        mulv %= self.mod; addv %= self.mod
+        self.tr[u].sum = (self.tr[u].sum * mulv + addv * self.length(u)) % self.mod
+        self.tr[u].mul = self.tr[u].mul * mulv % self.mod
+        self.tr[u].add = (self.tr[u].add * mulv + addv) % self.mod
+
+    def pushdown(self, u):
+        if self.tr[u].mul != 1 or self.tr[u].add != 0:
+            self.apply(self.lc(u), self.tr[u].mul, self.tr[u].add)
+            self.apply(self.rc(u), self.tr[u].mul, self.tr[u].add)
+            self.tr[u].mul, self.tr[u].add = 1, 0
+
+    def build(self, u, l, r):
+        self.tr[u].l, self.tr[u].r = l, r
+        if l == r:
+            self.tr[u].sum = self.w[l] % self.mod
+            return
+        mid = (l + r) &gt;&gt; 1
+        self.build(self.lc(u), l, mid)
+        self.build(self.rc(u), mid + 1, r)
+        self.pushup(u)
+
+    def change(self, u, l, r, k):  # 区间加
+        if l &amp;#x3C;= self.tr[u].l and self.tr[u].r &amp;#x3C;= r:
+            self.apply(u, 1, k); return
+        mid = (self.tr[u].l + self.tr[u].r) &gt;&gt; 1
+        self.pushdown(u)
+        if l &amp;#x3C;= mid: self.change(self.lc(u), l, r, k)
+        if r &gt; mid: self.change(self.rc(u), l, r, k)
+        self.pushup(u)
+
+    def change2(self, u, l, r, k):  # 区间乘
+        if l &amp;#x3C;= self.tr[u].l and self.tr[u].r &amp;#x3C;= r:
+            self.apply(u, k, 0); return
+        mid = (self.tr[u].l + self.tr[u].r) &gt;&gt; 1
+        self.pushdown(u)
+        if l &amp;#x3C;= mid: self.change2(self.lc(u), l, r, k)
+        if r &gt; mid: self.change2(self.rc(u), l, r, k)
+        self.pushup(u)
+
+    def query(self, u, l, r):
+        if l &amp;#x3C;= self.tr[u].l and self.tr[u].r &amp;#x3C;= r: return self.tr[u].sum
+        mid = (self.tr[u].l + self.tr[u].r) &gt;&gt; 1
+        self.pushdown(u)
+        ans = 0
+        if l &amp;#x3C;= mid: ans += self.query(self.lc(u), l, r)
+        if r &gt; mid: ans += self.query(self.rc(u), l, r)
+        return ans % self.mod
+
+n, m, mod = map(int, input().split())
+w = [0] + list(map(int, input().split()))
+seg = SegmentTree(w, mod)
+
+for _ in range(m):
+    op = list(map(int, input().split()))
+    if op[0] == 1: seg.change2(1, op[1], op[2], op[3])
+    elif op[0] == 2: seg.change(1, op[1], op[2], op[3])
+    else: print(seg.query(1, op[1], op[2]))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
+input = sys.stdin.readline
+
+n, m, mod = map(int, input().split())
+w = [0] + list(map(int, input().split()))
+N = 4 * n + 5
+L = [0] * N
+R = [0] * N
+SUM = [0] * N
+ADD = [0] * N
+MUL = [1] * N
+
+def length(u):
+    return R[u] - L[u] + 1
+
+def pushup(u):
+    SUM[u] = (SUM[u &amp;#x3C;&amp;#x3C; 1] + SUM[u &amp;#x3C;&amp;#x3C; 1 | 1]) % mod
+
+def apply(u, mulv, addv):
+    mulv %= mod; addv %= mod
+    SUM[u] = (SUM[u] * mulv + addv * length(u)) % mod
+    MUL[u] = MUL[u] * mulv % mod
+    ADD[u] = (ADD[u] * mulv + addv) % mod
+
+def pushdown(u):
+    if MUL[u] == 1 and ADD[u] == 0: return
+    apply(u &amp;#x3C;&amp;#x3C; 1, MUL[u], ADD[u])
+    apply(u &amp;#x3C;&amp;#x3C; 1 | 1, MUL[u], ADD[u])
+    MUL[u] = 1; ADD[u] = 0
+
+def build(u, l, r):
+    L[u] = l; R[u] = r
+    if l == r:
+        SUM[u] = w[l] % mod
+        return
+    mid = (l + r) &gt;&gt; 1
+    build(u &amp;#x3C;&amp;#x3C; 1, l, mid); build(u &amp;#x3C;&amp;#x3C; 1 | 1, mid + 1, r)
+    pushup(u)
+
+def change(u, l, r, k):
+    if l &amp;#x3C;= L[u] and R[u] &amp;#x3C;= r:
+        apply(u, 1, k)
+        return
+    pushdown(u); mid = (L[u] + R[u]) &gt;&gt; 1
+    if l &amp;#x3C;= mid: change(u &amp;#x3C;&amp;#x3C; 1, l, r, k)
+    if r &gt; mid: change(u &amp;#x3C;&amp;#x3C; 1 | 1, l, r, k)
+    pushup(u)
+
+def change2(u, l, r, k):
+    if l &amp;#x3C;= L[u] and R[u] &amp;#x3C;= r:
+        apply(u, k, 0)
+        return
+    pushdown(u); mid = (L[u] + R[u]) &gt;&gt; 1
+    if l &amp;#x3C;= mid: change2(u &amp;#x3C;&amp;#x3C; 1, l, r, k)
+    if r &gt; mid: change2(u &amp;#x3C;&amp;#x3C; 1 | 1, l, r, k)
+    pushup(u)
+
+def query(u, l, r):
+    if l &amp;#x3C;= L[u] and R[u] &amp;#x3C;= r: return SUM[u]
+    pushdown(u); mid = (L[u] + R[u]) &gt;&gt; 1; ans = 0
+    if l &amp;#x3C;= mid: ans += query(u &amp;#x3C;&amp;#x3C; 1, l, r)
+    if r &gt; mid: ans += query(u &amp;#x3C;&amp;#x3C; 1 | 1, l, r)
+    return ans % mod
+
+build(1, 1, n)
+
+for _ in range(m):
+    op = list(map(int, input().split()))
+    if op[0] == 1: change2(1, op[1], op[2], op[3])
+    elif op[0] == 2: change(1, op[1], op[2], op[3])
+    else: print(query(1, op[1], op[2]))
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 洛谷P3373
 #include &amp;#x3C;cstring&gt;
@@ -3315,6 +3470,7 @@ signed main(){
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C6 最大子段和线段树</title><link>https://ehnotgod.github.io/blog/c6-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c6-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树进阶：维护区间最大子段和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4513&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;在小新家附近有一条“公园路”，路的一边从南到北依次排着 $$n$$ 个公园，小白早就看花了眼，自己也不清楚该去哪些公园玩了。&lt;/p&gt;
 &lt;p&gt;一开始，小白就根据公园的风景给每个公园打了分。小新为了省事，每次遛狗的时候都会事先规定一个范围，小白只可以选择第 $$a$$ 个和第 $$b$$ 个公园之间（包括 $$a, b$$ 两个公园）选择连续的一些公园玩。小白当然希望选出的公园的分数总和尽量高咯。同时，由于一些公园的景观会有所改变，所以，小白的打分也可能会有一些变化。&lt;/p&gt;
@@ -3345,6 +3501,24 @@ signed main(){
 -1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \le n \le 5 \times 10^5$$，$$1 \le m \le 10^5$$，所有打分都是绝对值不超过 $$1000$$ 的整数。&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
+&lt;p&gt;我们知道，求一段序列的最大子段和是O（n）的，但是这样是显然会超时的。&lt;/p&gt;
+&lt;p&gt;我们需要一个数据结构来支持修改和计算的操作，对于这种修改一个而查询区间的问题，考虑使用线段树。&lt;/p&gt;
+&lt;p&gt;在线段树中，除了左端点，右端点，左儿子指针，右儿子指针之外，新开4个域——max，maxl，maxr，sum，其中sum为该区间的和，max为该区间上的最大子段和，maxl为必须包含左端点的最大子段和，maxr为必须包含右端点的最大子段和。&lt;/p&gt;
+&lt;p&gt;可以用线段树来统计了注意求得的最大子段和中至少包含1个元素，所以出现了样例那样的输出负值。&lt;/p&gt;
+&lt;p&gt;修改时：&lt;/p&gt;
+&lt;p&gt;1、若左儿子的maxr和右儿子的maxl都为负，就从中取较大的为该节点的max（防止一个都不取），反之取二者中正的（都正就都取）。&lt;/p&gt;
+&lt;p&gt;2、将该节点的max用左右儿子的max更新。&lt;/p&gt;
+&lt;p&gt;3、该节点的maxl为左儿子的maxl与左儿子sum和右儿子maxl和的最大值。&lt;/p&gt;
+&lt;p&gt;4、该节点的maxr为右儿子的maxr与右儿子sum和左儿子maxr和的最大值。&lt;/p&gt;
+&lt;p&gt;5、该节点的sum为左右儿子的sum和。&lt;/p&gt;
+&lt;p&gt;查询时：&lt;/p&gt;
+&lt;p&gt;1、如果查询区间覆盖这一节点，将该节点信息返回。&lt;/p&gt;
+&lt;p&gt;2、如果只与一个儿子有交集，就返回在那个儿子中查找到的信息。&lt;/p&gt;
+&lt;p&gt;3、如果与两个儿子都有交集，就先分别计算出两个儿子的信息，然后按修改的方式将两个信息合并，然后返回。&lt;/p&gt;
+&lt;p&gt;4、最后返回的max值即为答案。&lt;/p&gt;
+&lt;h3&gt;py代码实现&lt;/h3&gt;
+&lt;p&gt;略，再用py写这种题纯属想不开&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;//洛谷P4513
 
@@ -3442,6 +3616,7 @@ signed main(){
     }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C7 普通平衡树</title><link>https://ehnotgod.github.io/blog/c7-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c7-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91</guid><description>平衡树（Treap/Splay）模板：动态维护有序集合。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3369&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;您需要动态地维护一个可重集合 $$M$$，并且提供以下操作：&lt;/p&gt;
 &lt;ol&gt;
@@ -3477,6 +3652,8 @@ signed main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;【数据范围】
 对于 $$100%$$ 的数据，$$1\le n \le 10^5$$，$$|x| \le 10^7$$&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
+&lt;p&gt;过难，略&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
 
@@ -3760,6 +3937,59 @@ int main(){
     else printf(&quot;%d\n&quot;,tr[getsuc(x)].v);
   }
 }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;更好的写法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;bits/stdc++.h&gt;
+#include &amp;#x3C;ext/pb_ds/assoc_container.hpp&gt;
+#include &amp;#x3C;ext/pb_ds/tree_policy.hpp&gt;
+using namespace std;
+using namespace __gnu_pbds;
+
+using pii = pair&amp;#x3C;int,int&gt;;
+
+tree&amp;#x3C;
+    pii,
+    null_type,
+    less&amp;#x3C;pii&gt;,
+    rb_tree_tag,
+    tree_order_statistics_node_update
+&gt; tr;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n; cin &gt;&gt; n;
+    int id = 0;
+    const int INF = 1e9;
+
+    while(n--){
+        int op, x; cin &gt;&gt; op &gt;&gt; x;
+
+        if(op == 1){                     // 插入 x
+            tr.insert({x, ++id});
+        }
+        else if(op == 2){                // 删除一个 x
+            auto it = tr.lower_bound({x, -INF});
+            if(it != tr.end() &amp;#x26;&amp;#x26; it-&gt;first == x) tr.erase(it);
+        }
+        else if(op == 3){                // x 的排名
+            cout &amp;#x3C;&amp;#x3C; tr.order_of_key({x, -INF}) + 1 &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+        }
+        else if(op == 4){                // 第 x 小
+            cout &amp;#x3C;&amp;#x3C; tr.find_by_order(x - 1)-&gt;first &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+        }
+        else if(op == 5){                // x 的前驱
+            auto it = tr.lower_bound({x, -INF});
+            --it;
+            cout &amp;#x3C;&amp;#x3C; it-&gt;first &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+        }
+        else if(op == 6){                // x 的后继
+            auto it = tr.lower_bound({x, INF});
+            cout &amp;#x3C;&amp;#x3C; it-&gt;first &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+        }
+    }
+}
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C8 可持续化线段树</title><link>https://ehnotgod.github.io/blog/c8-%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c8-%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>可持久化线段树（主席树）：静态区间第 k 小。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目背景&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;这是个非常经典的可持久化权值线段树入门题——静态区间第 $$k$$ 小。&lt;/p&gt;
@@ -3790,7 +4020,103 @@ int main(){
 &lt;ul&gt;
 &lt;li&gt;对于 $$100%$$ 的数据，满足 $$1 \leq n,m \leq 2\times 10^5$$，$$0\le a_i \leq 10^9$$，$$1 \leq l \leq r \leq n$$，$$1 \leq k \leq r - l + 1$$。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;解析：时间复杂度：$$O(nlogn)$$，$$logn$$查询，原理不解释，毕竟EH看不懂。&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. 每棵树维护什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;普通线段树一般维护数组下标区间，而主席树这里维护的是&lt;strong&gt;值域&lt;/strong&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;struct node{
+    int l,r,s;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;l&lt;/code&gt;：左儿子编号&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;r&lt;/code&gt;：右儿子编号&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s&lt;/code&gt;：当前值域内有多少个数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;          [1,4] s=4
+         /          \
+    [1,2] s=2    [3,4] s=2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也就是说，它本质上是一棵&lt;strong&gt;统计每个值出现次数的线段树&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;code&gt;root[i]&lt;/code&gt; 是什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;root[i]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;表示：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;前 $i$ 个数形成的值域线段树。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;a = [3,1,4,2]
+
+root[0] = []
+root[1] = [3]
+root[2] = [3,1]
+root[3] = [3,1,4]
+root[4] = [3,1,4,2]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;3. 怎么查询第 k 小？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;查询：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;query(root[l-1],root[r],1,bn,k);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;核心代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;int s=tr[lc(y)].s-tr[lc(x)].s;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;x = root[l-1]
+y = root[r]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;所以 &lt;code&gt;s&lt;/code&gt; 表示：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;[l,r]&lt;/code&gt; 中有多少个数落在当前值域的左半边。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不断对值域二分，直到找到答案。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 为什么要有很多版本？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;每加入一个新数，就产生一个新版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;insert(root[i-1],root[i],1,bn,id);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也就是：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;root[0]
+   ↓ 插入 a1
+root[1]
+   ↓ 插入 a2
+root[2]
+   ↓ 插入 a3
+root[3]
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是不会把整棵树复制一遍。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. 新版本是怎么产生的？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;核心：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;void insert(int x,int &amp;#x26;y,int l,int r,int pos){
+    y=++idx;
+    tr[y]=tr[x];
+    tr[y].s++;
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;x = 旧版本节点
+y = 新版本节点
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最重要的是：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;y=++idx;      // 新建节点
+tr[y]=tr[x];  // 复制旧节点
+tr[y].s++;    // 只修改新节点
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也就是说：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;旧节点不修改，先复制一份，再修改副本。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因此一次插入只增加：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;O(log n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;个节点，而不是复制整棵树。&lt;/p&gt;
+&lt;p&gt;复杂度：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;建树：O(n log n)
+单次查询：O(log n)
+空间：O(n log n)
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import bisect
 
