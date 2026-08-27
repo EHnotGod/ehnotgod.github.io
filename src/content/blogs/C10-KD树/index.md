@@ -1,5 +1,5 @@
 ---
-title: "C11 KD树"
+title: "C10 KD树"
 publishDate: 2026-08-08
 description: "KD 树：多维最近点对 / 最近邻查询。"
 category: algo
