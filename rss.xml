@@ -5370,7 +5370,7 @@ int main(){
     }
     return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D7、D8 Prim、Kruscal算法-最小生成树</title><link>https://ehnotgod.github.io/blog/d7d8-primkruscal%E7%AE%97%E6%B3%95-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d7d8-primkruscal%E7%AE%97%E6%B3%95-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91</guid><description>最小生成树：Prim（加点）与 Kruscal（加边）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D6 最小生成树-Prim与Kruscal</title><link>https://ehnotgod.github.io/blog/d6-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91-prim%E4%B8%8Ekruscal</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d6-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91-prim%E4%B8%8Ekruscal</guid><description>最小生成树：Prim（加点）与 Kruscal（加边）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3366&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，给出一个无向图，求出最小生成树，如果该图不连通，则输出 &lt;code&gt;orz&lt;/code&gt;。&lt;/p&gt;
@@ -5397,9 +5397,9 @@ int main(){
 &lt;p&gt;所以最小生成树的总边权为 $$2+2+3=7$$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解析：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Prim算法（$$O(n^2)$$）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D7-2.png&quot; alt=&quot;image-20250418091937605&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D6-2.png&quot; alt=&quot;image-20250418091937605&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Kruscal算法（$$O(mlogm)$$）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D7-3.png&quot; alt=&quot;image-20250418092200766&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D6-3.png&quot; alt=&quot;image-20250418092200766&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Kruskal 求最小生成树：把所有边按边权升序排序，依次尝试加入，若边的两端点当前不连通（并查集不同集合）则加入，直到连成 $n-1$ 条边；若最终边数不足 $n-1$ 说明图不连通（输出 orz）。复杂度 $O(m\log m)$。Prim 则从一点出发，每次用堆取当前到集合的最小边加点，适合稠密图。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -5487,7 +5487,7 @@ int main(){
   else printf(&quot;%d\n&quot;,ans);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D8 Kruscal算法</title><link>https://ehnotgod.github.io/blog/d8-kruscal%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d8-kruscal%E7%AE%97%E6%B3%95</guid><description>Kruscal 最小生成树：按边权排序 + 并查集。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D7 Kruscal算法</title><link>https://ehnotgod.github.io/blog/d7-kruscal%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d7-kruscal%E7%AE%97%E6%B3%95</guid><description>Kruscal 最小生成树：按边权排序 + 并查集。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3366&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，给出一个无向图，求出最小生成树（Kruskal：按边权从小到大排序，用并查集维护连通性）。&lt;/p&gt;
@@ -5574,11 +5574,11 @@ int main(){
   else printf(&quot;%d\n&quot;,ans);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D9 倍增算法（LCA）</title><link>https://ehnotgod.github.io/blog/d9-%E5%80%8D%E5%A2%9E%E7%AE%97%E6%B3%95lca</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d9-%E5%80%8D%E5%A2%9E%E7%AE%97%E6%B3%95lca</guid><description>倍增法求 LCA：树上最近公共祖先。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D8 倍增算法（LCA）</title><link>https://ehnotgod.github.io/blog/d8-%E5%80%8D%E5%A2%9E%E7%AE%97%E6%B3%95lca</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d8-%E5%80%8D%E5%A2%9E%E7%AE%97%E6%B3%95lca</guid><description>倍增法求 LCA：树上最近公共祖先。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3379&lt;/p&gt;
 &lt;p&gt;题面同D11&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D9-1.png&quot; alt=&quot;image-20250727163659755&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D9-2.png&quot; alt=&quot;image-20250727163753894&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D8-1.png&quot; alt=&quot;image-20250727163659755&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D8-2.png&quot; alt=&quot;image-20250727163753894&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;倍增法求 LCA：先用 DFS 预处理每个点的深度 $dep[u]$ 和 $2^i$ 级祖先 $f[u][i]$（$f[u][i]=f[f[u][i-1]][i-1]$）。查询时先把较深的点跳到与另一个同深度，再一起向上跳，最后跳到 LCA 的下一个点。单次查询 $O(\log n)$，预处理 $O(n\log n)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -5718,10 +5718,10 @@ int main(){
     printf(&quot;%d\n&quot;,lca(a,b));
   }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D10 Tarjan算法（离线LCA）</title><link>https://ehnotgod.github.io/blog/d10-tarjan%E7%AE%97%E6%B3%95%E7%A6%BB%E7%BA%BFlca</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d10-tarjan%E7%AE%97%E6%B3%95%E7%A6%BB%E7%BA%BFlca</guid><description>Tarjan 离线 LCA：并查集 + DFS 一次遍历。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D9 Tarjan算法（离线LCA）</title><link>https://ehnotgod.github.io/blog/d9-tarjan%E7%AE%97%E6%B3%95%E7%A6%BB%E7%BA%BFlca</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d9-tarjan%E7%AE%97%E6%B3%95%E7%A6%BB%E7%BA%BFlca</guid><description>Tarjan 离线 LCA：并查集 + DFS 一次遍历。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3379&lt;/p&gt;
 &lt;p&gt;题面同D11&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D10-1.png&quot; alt=&quot;image-20250727163932059&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D9-1.png&quot; alt=&quot;image-20250727163932059&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Tarjan 离线求 LCA：DFS 遍历树，回溯时把当前点并入其父节点所在的集合（并查集）。当某个询问的两个点都已被访问到时，它们的 LCA 就是其中一个点在并查集中的根。离线处理所有询问，总复杂度 $O((n+m)\alpha)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -5841,7 +5841,7 @@ int main(){
   for(int i=1; i&amp;#x3C;=m; i++)
     printf(&quot;%d\n&quot;,ans[i]);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D11 树链剖分（最近公共祖先 LCA）</title><link>https://ehnotgod.github.io/blog/d11-%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88-lca</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d11-%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88-lca</guid><description>树链剖分：重链剖分求 LCA 与路径操作。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D10 树链剖分（最近公共祖先 LCA）</title><link>https://ehnotgod.github.io/blog/d10-%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88-lca</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d10-%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88-lca</guid><description>树链剖分：重链剖分求 LCA 与路径操作。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3379&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，给定一棵有根多叉树，请求出指定两个点直接最近的公共祖先。&lt;/p&gt;
@@ -5882,7 +5882,7 @@ int main(){
 &lt;p&gt;第五次询问：$$4, 5$$ 的最近公共祖先，故为 $$4$$。&lt;/p&gt;
 &lt;p&gt;故输出依次为 $$4, 4, 1, 4, 4$$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解析：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D11-2.png&quot; alt=&quot;image-20250418092432087&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D10-2.png&quot; alt=&quot;image-20250418092432087&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;树链剖分求 LCA：先做两遍 DFS，求出每个点的重儿子、深度、链顶 $top$。查询时比较两点的链顶，深度深的往上跳到其链顶的父节点，直到两点在同一条链上，深度浅者即为 LCA。单次查询 $O(\log n)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -5988,7 +5988,7 @@ int main(){
   }
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D12 重链剖分+线段树</title><link>https://ehnotgod.github.io/blog/d12-%E9%87%8D%E9%93%BE%E5%89%96%E5%88%86%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d12-%E9%87%8D%E9%93%BE%E5%89%96%E5%88%86%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>树链剖分 + 线段树：树上路径修改与查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D11 重链剖分+线段树</title><link>https://ehnotgod.github.io/blog/d11-%E9%87%8D%E9%93%BE%E5%89%96%E5%88%86%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d11-%E9%87%8D%E9%93%BE%E5%89%96%E5%88%86%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>树链剖分 + 线段树：树上路径修改与查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3384&lt;/p&gt;
 &lt;p&gt;P3384 【模板】重链剖分/树链剖分&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -6040,7 +6040,7 @@ int main(){
 &lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/2320.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;故输出应依次为 $$2$$ 和 $$21$$。&lt;/p&gt;
 &lt;p&gt;树链剖分部分和上面一样，多了一个“同链打标记”，可以使用线段树维护。总时间复杂度：$${O(mlog^2n)}$$&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D12-3.png&quot; alt=&quot;image-20250816213622059&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D11-3.png&quot; alt=&quot;image-20250816213622059&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;重链剖分把树上的路径操作转化为区间操作：用两遍 DFS 求出重儿子、链顶和 dfs 序，使每条重链上的点在 dfs 序中连续，再用线段树维护区间加与区间和。路径 $x\to y$ 的修改/查询，通过不断跳到链顶上方完成，复杂度 $O(\log^2 n)$。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -6162,9 +6162,9 @@ signed main(){
     else cout&amp;#x3C;&amp;#x3C;query_tree(a)%P&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
   }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D13 树上距离</title><link>https://ehnotgod.github.io/blog/d13-%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d13-%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB</guid><description>树上前缀和/差分：求树上两点距离与路径和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D12 树上距离</title><link>https://ehnotgod.github.io/blog/d12-%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d12-%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB</guid><description>树上前缀和/差分：求树上两点距离与路径和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://loj.ac/p/10130&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D13-1.png&quot; alt=&quot;image-20250418092643205&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D12-1.png&quot; alt=&quot;image-20250418092643205&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;树上两点距离 $dis(u,v)=dep[u]+dep[v]-2\cdot dep[lca(u,v)]$。先用 DFS 预处理深度和倍增祖先（或树链剖分），再用 LCA 求距离。本题为 LOJ 10130（树上距离板子）。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -6281,7 +6281,7 @@ int main(){
   }
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D14 强连通分量Tarjan算法</title><link>https://ehnotgod.github.io/blog/d14-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8Ftarjan%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d14-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8Ftarjan%E7%AE%97%E6%B3%95</guid><description>Tarjan 强连通分量：有向图 SCC。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D13 强连通分量Tarjan算法</title><link>https://ehnotgod.github.io/blog/d13-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8Ftarjan%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d13-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8Ftarjan%E7%AE%97%E6%B3%95</guid><description>Tarjan 强连通分量：有向图 SCC。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P2863&lt;/p&gt;
 &lt;p&gt;P2863 [USACO06JAN] The Cow Prom S&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -6302,7 +6302,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于全部的测试点，保证 $$2\le n \le 10^4$$，$$2\le m\le 5\times 10^4$$，$$1 \leq a, b \leq n$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D14-1.png&quot; alt=&quot;image-20250817142047464&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D13-1.png&quot; alt=&quot;image-20250817142047464&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Tarjan 强连通分量：DFS 时给每个点记录 $dfn$（访问序）和 $low$（子树内能回溯到的最早 $dfn$），用栈维护当前 SCC 候选。当 $low[u]==dfn[u]$ 时，$u$ 是 SCC 的根，把栈顶到 $u$ 的节点全部弹出作为一个 SCC。复杂度 $O(n+m)$。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -6348,7 +6348,7 @@ int main(){
      if(siz[i]&gt;1) ans++;
   cout&amp;#x3C;&amp;#x3C;ans;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D15 Tarjan SCC缩点</title><link>https://ehnotgod.github.io/blog/d15-tarjan-scc%E7%BC%A9%E7%82%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d15-tarjan-scc%E7%BC%A9%E7%82%B9</guid><description>SCC 缩点：把强连通分量缩成 DAG。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D14 Tarjan SCC缩点</title><link>https://ehnotgod.github.io/blog/d14-tarjan-scc%E7%BC%A9%E7%82%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d14-tarjan-scc%E7%BC%A9%E7%82%B9</guid><description>SCC 缩点：把强连通分量缩成 DAG。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3387&lt;/p&gt;
 &lt;p&gt;P3387 【模板】缩点&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -6370,7 +6370,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\le n \le 10^4$$，$$1\le m \le 10^5$$，$$0\le a_i\le 10^3$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D15-1.png&quot; alt=&quot;image-20250817142544858&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D14-1.png&quot; alt=&quot;image-20250817142544858&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;先把有向图缩点成 DAG：对每个 SCC 合并为一个新点，权值为内部点权之和；缩点后的图是有向无环图，可对其做拓扑排序 DP，求路径点权和最大的一条路径。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -6427,7 +6427,7 @@ int main(){
   for(int i=1;i&amp;#x3C;=cnt;i++) ans=max(ans,d[i]);
   cout&amp;#x3C;&amp;#x3C;ans;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D16 Tarjan割点</title><link>https://ehnotgod.github.io/blog/d16-tarjan%E5%89%B2%E7%82%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d16-tarjan%E5%89%B2%E7%82%B9</guid><description>Tarjan 割点：无向图割点判定。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D15 Tarjan割点</title><link>https://ehnotgod.github.io/blog/d15-tarjan%E5%89%B2%E7%82%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d15-tarjan%E5%89%B2%E7%82%B9</guid><description>Tarjan 割点：无向图割点判定。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3388&lt;/p&gt;
 &lt;p&gt;P3388 【模板】割点（割顶）&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -6496,7 +6496,7 @@ int main(){
   cout&amp;#x3C;&amp;#x3C;ans&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
   for(int i=1;i&amp;#x3C;=n;i++) if(cut[i]) cout&amp;#x3C;&amp;#x3C;i&amp;#x3C;&amp;#x3C;&quot; &quot;;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D17 Tarjan割边</title><link>https://ehnotgod.github.io/blog/d17-tarjan%E5%89%B2%E8%BE%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d17-tarjan%E5%89%B2%E8%BE%B9</guid><description>Tarjan 割边（桥）：无向图桥判定。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D16 Tarjan割边</title><link>https://ehnotgod.github.io/blog/d16-tarjan%E5%89%B2%E8%BE%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d16-tarjan%E5%89%B2%E8%BE%B9</guid><description>Tarjan 割边（桥）：无向图桥判定。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1656&lt;/p&gt;
 &lt;p&gt;P1656 炸铁路&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -6570,7 +6570,7 @@ int main(){
   for(int i=0;i&amp;#x3C;cnt;i++)
     cout&amp;#x3C;&amp;#x3C;bri[i].x&amp;#x3C;&amp;#x3C;&quot; &quot;&amp;#x3C;&amp;#x3C;bri[i].y&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D18 Tarjan eDCC缩点</title><link>https://ehnotgod.github.io/blog/d18-tarjan-edcc%E7%BC%A9%E7%82%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d18-tarjan-edcc%E7%BC%A9%E7%82%B9</guid><description>边双连通分量缩点（eDCC）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D17 Tarjan eDCC缩点</title><link>https://ehnotgod.github.io/blog/d17-tarjan-edcc%E7%BC%A9%E7%82%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d17-tarjan-edcc%E7%BC%A9%E7%82%B9</guid><description>边双连通分量缩点（eDCC）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P8436&lt;/p&gt;
 &lt;p&gt;P8436 【模板】边双连通分量&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -6657,7 +6657,7 @@ int main(){
     cout&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
   }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D19 Tarjan vDCC缩点</title><link>https://ehnotgod.github.io/blog/d19-tarjan-vdcc%E7%BC%A9%E7%82%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d19-tarjan-vdcc%E7%BC%A9%E7%82%B9</guid><description>点双连通分量缩点（vDCC）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D18 Tarjan vDCC缩点</title><link>https://ehnotgod.github.io/blog/d18-tarjan-vdcc%E7%BC%A9%E7%82%B9</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d18-tarjan-vdcc%E7%BC%A9%E7%82%B9</guid><description>点双连通分量缩点（vDCC）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P8435&lt;/p&gt;
 &lt;p&gt;P8435 【模板】点双连通分量&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -6758,7 +6758,7 @@ int main(){
     cout&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
   }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D21 Dinic最大流</title><link>https://ehnotgod.github.io/blog/d21-dinic%E6%9C%80%E5%A4%A7%E6%B5%81</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d21-dinic%E6%9C%80%E5%A4%A7%E6%B5%81</guid><description>Dinic 最大流：分层图 + 阻塞流。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D19 Dinic最大流</title><link>https://ehnotgod.github.io/blog/d19-dinic%E6%9C%80%E5%A4%A7%E6%B5%81</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d19-dinic%E6%9C%80%E5%A4%A7%E6%B5%81</guid><description>Dinic 最大流：分层图 + 阻塞流。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3376&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，给出一个网络图，以及其源点和汇点，求出其网络最大流。&lt;/p&gt;
@@ -6858,7 +6858,7 @@ int main(){
   printf(&quot;%lld\n&quot;,dinic());
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D23 最小费用最大流EK</title><link>https://ehnotgod.github.io/blog/d23-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81ek</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d23-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81ek</guid><description>最小费用最大流：EK + SPFA 增广。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D20 最小费用最大流EK</title><link>https://ehnotgod.github.io/blog/d20-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81ek</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d20-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81ek</guid><description>最小费用最大流：EK + SPFA 增广。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3381&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给出一个包含 $$n$$ 个点和 $$m$$ 条边的有向图（下面称其为网络） $$G=(V,E)$$，该网络上所有点分别编号为 $$1 \sim n$$，所有边分别编号为 $$1\sim m$$，其中该网络的源点为 $$s$$，汇点为 $$t$$，网络上的每条边 $$(u,v)$$ 都有一个流量限制 $$w(u,v)$$ 和单位流量的费用 $$c(u,v)$$。&lt;/p&gt;
@@ -6887,7 +6887,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;50 280
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \leq n \leq 5\times 10^3$$，$$1 \leq m \leq 5 \times 10^4$$，$$1 \leq s,t \leq n$$，$$u_i \neq v_i$$，$$0 \leq w_i,c_i \leq 10^3$$，且该网络的最大流和最小费用 $$\leq 2^{31}-1$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D23-1.png&quot; alt=&quot;image-20251101160808199&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D20-1.png&quot; alt=&quot;image-20251101160808199&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;最小费用最大流：在 EK 框架下，每次用 SPFA 在残量网络上找费用最小的增广路，沿最短路增广并累加费用，直到找不到增广路。因为残量网络中存在负费用反向边，用 SPFA 而非 Dijkstra。复杂度 $O(F\cdot nm)$。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -6955,7 +6955,7 @@ int main(){
   printf(&quot;%d %d\n&quot;,flow,cost);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D27 二分图最大匹配</title><link>https://ehnotgod.github.io/blog/d27-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d27-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D</guid><description>二分图最大匹配：匈牙利算法。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D21 二分图最大匹配</title><link>https://ehnotgod.github.io/blog/d21-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d21-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D</guid><description>二分图最大匹配：匈牙利算法。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3386&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个二分图，其左部点的个数为 $$n$$，右部点的个数为 $$m$$，边数为 $$e$$，求其最大匹配的边数。&lt;/p&gt;
@@ -7051,7 +7051,7 @@ int main(){
   printf(&quot;%lld\n&quot;,dinic());
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D47 树的直径</title><link>https://ehnotgod.github.io/blog/d47-%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d47-%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84</guid><description>树的直径：两次 DFS/BFS 求最远点对。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D22 树的直径</title><link>https://ehnotgod.github.io/blog/d22-%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d22-%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84</guid><description>树的直径：两次 DFS/BFS 求最远点对。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/B4016&lt;/p&gt;
 &lt;p&gt;B4016 树的直径&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -7072,7 +7072,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;3
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;数据保证，$$1 \leq n \leq 10^5$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D47-1.png&quot; alt=&quot;image-20250816214118195&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D22-1.png&quot; alt=&quot;image-20250816214118195&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;树的直径即树上最长路径。方法：任选一点出发 DFS/BFS 找到最远点 $p$，再从 $p$ 出发 DFS/BFS 找到最远点 $q$，则 $p$ 到 $q$ 的路径就是直径（原理：从任意点出发的最远点必是直径的一个端点）。无负边权时也可用树形 DP 求。复杂度 $O(n)$。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -7131,7 +7131,7 @@ int main(){
   dfs(1,0);
   cout&amp;#x3C;&amp;#x3C;mxd;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D99 Kruscal重构树</title><link>https://ehnotgod.github.io/blog/d99-kruscal%E9%87%8D%E6%9E%84%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d99-kruscal%E9%87%8D%E6%9E%84%E6%A0%91</guid><description>Kruscal 重构树：最小瓶颈 / 连通性离线问题。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D23 Kruscal重构树</title><link>https://ehnotgod.github.io/blog/d23-kruscal%E9%87%8D%E6%9E%84%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d23-kruscal%E9%87%8D%E6%9E%84%E6%A0%91</guid><description>Kruscal 重构树：最小瓶颈 / 连通性离线问题。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一张 $$N$$ 个点的无向图，记为 $$1\cdots N$$ 。&lt;/p&gt;
 &lt;p&gt;图中有 $$M$$ 条边，第 $$j$$ 条边的长度为 $$d_j$$ 。&lt;/p&gt;
