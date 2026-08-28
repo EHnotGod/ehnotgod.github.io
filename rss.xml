@@ -3991,6 +3991,7 @@ int main(){
     }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C8 可持续化线段树</title><link>https://ehnotgod.github.io/blog/c8-%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c8-%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>可持久化线段树（主席树）：静态区间第 k 小。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3834&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目背景&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;这是个非常经典的可持久化权值线段树入门题——静态区间第 $$k$$ 小。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -4043,9 +4044,7 @@ int main(){
 &lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;root[i]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;表示：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;前 $i$ 个数形成的值域线段树。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;前 &lt;code&gt;i&lt;/code&gt; 个数形成的值域线段树。&lt;/p&gt;
 &lt;p&gt;例如：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;a = [3,1,4,2]
 
@@ -4112,7 +4111,8 @@ tr[y].s++;    // 只修改新节点
 &lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;O(log n)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;个节点，而不是复制整棵树。&lt;/p&gt;
-&lt;p&gt;复杂度：&lt;/p&gt;
+&lt;p&gt;注意&lt;code&gt;int &amp;#x26;y&lt;/code&gt;，它可以让父节点的lc(y)自动附到对应的子节点。&lt;/p&gt;
+&lt;p&gt;总体复杂度：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;建树：O(n log n)
 单次查询：O(log n)
 空间：O(n log n)
@@ -4240,8 +4240,21 @@ int main(){
     printf(&quot;%d\n&quot;,b[id]);
   }
 }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查询x是第几小的话，参考如下代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;int query_rank(int x,int y,int l,int r,int pos){
+  if(l==r) return 1;
+  int m=l+r&gt;&gt;1;
+  if(pos&amp;#x3C;=m) return query_rank(lc(x),lc(y),l,m,pos);
+  int s=tr[lc(y)].s-tr[lc(x)].s;
+  return s+query_rank(rc(x),rc(y),m+1,r,pos);
+}
+
+int pos=lower_bound(b+1,b+bn+1,v)-b;
+int rk=query_rank(root[l-1],root[r],1,bn,pos);
+printf(&quot;%d\n&quot;,rk);
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C9 扫描线</title><link>https://ehnotgod.github.io/blog/c9-%E6%89%AB%E6%8F%8F%E7%BA%BF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c9-%E6%89%AB%E6%8F%8F%E7%BA%BF</guid><description>扫描线：矩形面积并 / 周长并。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;P5490 【模板】扫描线 &amp;#x26; 矩形面积并&lt;/p&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P5490&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;求 $$n$$ 个四边平行于坐标轴的矩形的面积并。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -4258,7 +4271,9 @@ int main(){
 &lt;pre&gt;&lt;code&gt;18000
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \le n \le {10}^5$$，$$0 \le x_1 &amp;#x3C; x_2 \le {10}^9$$，$$0 \le y_1 &amp;#x3C; y_2 \le {10}^9$$。&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C9-1.png&quot; alt=&quot;image-20250826121538028&quot;&gt;&lt;/p&gt;
+&lt;p&gt;核心思路是把每个矩形拆成两条水平边：下边记 &lt;code&gt;+1&lt;/code&gt; 表示矩形开始，上边记 &lt;code&gt;-1&lt;/code&gt; 表示矩形结束，然后按 &lt;code&gt;y&lt;/code&gt; 从小到大扫描。扫描到某条边时，就在线段树中给它对应的 &lt;code&gt;x&lt;/code&gt; 区间加上或减去覆盖次数；线段树的 &lt;code&gt;len[1]&lt;/code&gt; 始终表示当前所有矩形在 x 轴上的总覆盖长度，重叠部分只算一次。因此从当前高度 &lt;code&gt;L[i].y&lt;/code&gt; 到下一条边 &lt;code&gt;L[i+1].y&lt;/code&gt; 之间的面积就是 &lt;code&gt;len[1] * (L[i+1].y-L[i].y)&lt;/code&gt;。由于 x 坐标可能很大，所以先把所有 &lt;code&gt;x1、x2&lt;/code&gt; 排序去重做离散化；其中离散后的第 &lt;code&gt;i&lt;/code&gt; 段实际上表示 &lt;code&gt;[X[i],X[i+1])&lt;/code&gt;，因此原区间 &lt;code&gt;[x1,x2)&lt;/code&gt; 要在线段树中更新 &lt;code&gt;[l,r-1]&lt;/code&gt;，而节点 &lt;code&gt;[l,r]&lt;/code&gt; 的真实长度就是 &lt;code&gt;X[r+1]-X[l]&lt;/code&gt;。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 扫描线+线段树+离散化 1.4s
 #include &amp;#x3C;iostream&gt;
