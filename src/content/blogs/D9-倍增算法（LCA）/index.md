@@ -10,11 +10,17 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P3379
+
 题面同D11
 
 ![image-20250727163659755](/images/算法竞赛/D/D9-1.png)
 
 ![image-20250727163753894](/images/算法竞赛/D/D9-2.png)
+
+### 算法解析：
+
+倍增法求 LCA：先用 DFS 预处理每个点的深度 $dep[u]$ 和 $2^i$ 级祖先 $f[u][i]$（$f[u][i]=f[f[u][i-1]][i-1]$）。查询时先把较深的点跳到与另一个同深度，再一起向上跳，最后跳到 LCA 的下一个点。单次查询 $O(\log n)$，预处理 $O(n\log n)$。
 
 ### Python代码实现
 

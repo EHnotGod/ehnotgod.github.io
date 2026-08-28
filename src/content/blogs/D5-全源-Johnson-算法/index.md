@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P5905
+
 **题目描述**
 
 给定一个包含 $$n$$ 个结点和 $$m$$ 条带权边的有向图，求所有点对间的最短路径长度，一条路径的长度定义为这条路径上所有边的权值和。
@@ -78,7 +80,9 @@ language: zh
 
 对于 $$100\%$$ 的数据，$$1\leq n\leq 3\times 10^3,\ \ 1\leq m\leq 6\times 10^3,\ \ 1\leq u,v\leq n,\ \ -3\times 10^5\leq w\leq 3\times 10^5$$。
 
-**解析：**EH不会，只是默默地放图片说明一切。
+### 算法解析：
+
+Johnson 解决含负权边的全源最短路：先加一个超级源点向所有点连权为 0 的边，用 SPFA 求出势能 $h[v]$（同时判负环）；再把每条边权重改为 $w'=w+h[u]-h[v]$（非负），这样 $n$ 次 Dijkstra 即可求全源最短路，最后还原 $dis'=dis-h[u]+h[v]$。复杂度 $O(nm+n\cdot m\log n)$。
 
 ![image-20250418091441310](/images/算法竞赛/D/D5-1.png)
 

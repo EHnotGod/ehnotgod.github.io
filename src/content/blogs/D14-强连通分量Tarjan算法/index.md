@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P2863
+
 P2863 [USACO06JAN] The Cow Prom S
 
 **题目描述**
@@ -45,6 +47,10 @@ P2863 [USACO06JAN] The Cow Prom S
 对于全部的测试点，保证 $$2\le n \le 10^4$$，$$2\le m\le 5\times 10^4$$，$$1 \leq a, b \leq n$$。
 
 ![image-20250817142047464](/images/算法竞赛/D/D14-1.png)
+
+### 算法解析：
+
+Tarjan 强连通分量：DFS 时给每个点记录 $dfn$（访问序）和 $low$（子树内能回溯到的最早 $dfn$），用栈维护当前 SCC 候选。当 $low[u]==dfn[u]$ 时，$u$ 是 SCC 的根，把栈顶到 $u$ 的节点全部弹出作为一个 SCC。复杂度 $O(n+m)$。
 
 ### C++代码实现
 

@@ -10,9 +10,13 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://loj.ac/p/10130
+
 ![image-20250418092643205](/images/算法竞赛/D/D13-1.png)
 
-解析：无，LCA板子题举例而已。
+### 算法解析：
+
+树上两点距离 $dis(u,v)=dep[u]+dep[v]-2\cdot dep[lca(u,v)]$。先用 DFS 预处理深度和倍增祖先（或树链剖分），再用 LCA 求距离。本题为 LOJ 10130（树上距离板子）。
 
 ### Python代码实现
 
