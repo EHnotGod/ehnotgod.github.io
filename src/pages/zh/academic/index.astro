@@ -83,7 +83,7 @@ const headings = [
         year: '2026',
         type: 'conference',
         abstract:
-          '以 Qwen-Image 为基础模型，构建高质量监督数据集 TexBlender 引入结构先验，设计强化学习方法 StructureNFT，将结构约束从合成场景迁移至真实世界生成任务；并构建真实场景评测基准 TexBench。在主测试集上取得 SOTA 性能。',
+          '文本引导的纹理编辑旨在修改物体外观的同时保持其底层几何结构。然而，我们的实证分析表明，即使是 SOTA 编辑模型在纹理编辑中也常常难以保持结构一致性，尽管预期的修改纯粹与外观相关。基于这一观察，我们从数据和训练两个角度联合增强结构保持，构建了基于 Qwen-Image-Edit-2509 的专用纹理编辑模型 TexEditor。首先，我们构建了由 Blender 生成的高质量 SFT 数据集 TexBlender，为冷启动提供强结构先验；其次，我们引入基于强化学习的方法 StructureNFT，将结构保持损失整合进来，把 SFT 阶段学到的结构先验迁移到真实场景；此外，由于现有基准在真实性和评测覆盖上的局限，我们构建了面向文本引导纹理编辑的通用真实场景基准 TexBench。在现有基于 Blender 的纹理基准和我们的 TexBench 上的大量实验表明，TexEditor 一致地优于 Nano Banana Pro 等强基线；同时我们在通用基准 ImgEdit 上评估 TexEditor 以验证其泛化性。代码与数据见 https://github.com/KlingAIResearch/TexEditor。',
         links: [{ type: 'website', href: 'https://arxiv.org/abs/2603.18488' }],
         status: 'accepted'
       },
@@ -99,7 +99,7 @@ const headings = [
         year: '2026',
         type: 'conference',
         abstract:
-          '基于 Flow Matching 的 SE(3)-等变 3D 轨迹预测框架，负责基线模型复现、多数据集对比实验、超参数敏感性分析与组件消融实验。在 MD17、MD22 与 CMU MoCap 三个基准上取得 SOTA 性能。',
+          '3D 几何轨迹预测需要在保持物理对称性的同时捕获复杂的时空依赖。虽然 flow matching 提供了强大的生成范式，但由于确定性历史与随机演化流之间固有的差距，将其扩展到 SE(3)-等变动力学仍具挑战。为此，我们提出 GSE-Flow，一个 SE(3)-等变的 flow matching 框架。我们首先提出 Coherent Sequence Encoding 与 Time-Modulated Embedding 策略，通过等变仿射变换融合速度与流动时间来统一历史流与演化流，引导连续演化；随后设计 Geometry-Feature Tensorization 机制，将节点状态投影到张量积空间，借助 Context-Flow Fusion 用历史上下文引导轨迹演化。GSE-Flow 在理论上保证 SE(3)-等变性，并在 MD17、MD22 与 CMU MoCap 几何轨迹预测基准上取得 SOTA 精度，同时通过增强确定性基线展示了其通用性。代码见 https://github.com/aegine/GSE-Flow。',
         links: [
           { type: 'arxiv', href: 'https://openreview.net/forum?id=EBujA4tldV' },
           { type: 'website', href: 'https://icml.cc/virtual/2026/poster/65379' },
@@ -133,7 +133,7 @@ const headings = [
         year: '2026',
         type: 'journal',
         abstract:
-          '基于大语言模型的电力系统运行风险评估研究，负责风险评估策略设计、GRPO 强化学习训练、实验验证及论文撰写，提升模型风险定级准确性与推理能力。',
+          '高比例新能源接入背景下电力系统运行的不确定性与复杂性显著增加，电力系统运行风险链条长且关联因素多，传统依赖于规则库与专家经验的风险评估方法难以适应跨场景、强约束的实时运行需求。通用大语言模型在问答领域展现出较强理解与生成能力，但在电力系统风险评估任务中，面临人工经验依赖度高、专业语义准确率低、电网拓扑理解不足等问题，难以适应新型电力系统的安全运行与灵活调度需求。为此，提出一种基于知识迁移与思维链结构化增强的电力系统运行风险评估与推演方法。该方法首先通过辅助标注与专家规则约束，构建覆盖拓扑扰动和风险定级的多场景数据集，实现通用模型向电力领域的高效迁移；其次，采用文本化拓扑注入方式提升模型的拓扑感知与约束一致性；然后，基于组相对策略优化方法设计可编程奖励信号，对推演链完整性、术语一致性和定级准确率进行联合优化；最后，通过消融实验与对比实验验证了所提方法的有效性。结果表明，该方法在多步推演的连贯性与风险定级的准确性方面均优于现有大语言模型，能够为新型电力系统的安全稳定运行提供智能化支撑。',
         links: [{ type: 'website', href: 'https://kns.cnki.net/kcms2/article/abstract?v=jXpGf_Tis3BO7y3TyZruUOK4DTQA5k7-c4YVlxn6-g-K10dRgZu67wrfTJA6yg9exDs8aiF8MkQYtZG6msQfv2aAIrUdzYJ3XCLsVKbu95n9RK-sOUDFGXVJNUCFpZp1LUMV2DieHCFFuMYHbu2Y00Yfd-KSRAf_&uniplatform=NZKPT' }],
         status: 'published'
       },
@@ -153,7 +153,7 @@ const headings = [
         year: '2025',
         type: 'preprint',
         abstract:
-          '面向医学视觉问答（Med-VQA）的跨模态临床知识蒸馏框架 ClinKD：增强图像-文本对齐与医学知识迁移，使多模态大模型在缺乏先验医学知识时也能更好应对多任务医学图像场景，在多个 Med-VQA 挑战性数据集上取得 SOTA。',
+          '医学视觉问答（Med-VQA）是通用 VQA 领域中一个关键且具挑战性的子任务。尽管通用 VQA 已取得显著进展，多模态大语言模型（MLLM）在处理多任务 VQA 场景时仍存在明显局限，主要表现为对医学图像的错误空间定位与误读，这主要源于两个根本问题：图像-文本对齐不足，以及医学应用领域知识缺乏。为解决这些问题，我们提出跨模态临床知识蒸馏器 ClinKD，一个旨在增强图像-文本对齐、建立更有效的医学知识转化机制的创新框架，使 MLLM 即便缺乏先验医学知识也能表现得更好。大量实验评估表明，ClinKD 在多个具有挑战性的 Med-VQA 数据集上达到 SOTA 性能，不仅显著改善了图像-文本对齐，还使 MLLM 能有效适配医学知识。源码见 https://github.com/overloadedHenry/ClinKD。',
         links: [
           { type: 'arxiv', href: 'https://arxiv.org/abs/2502.05928' },
           { type: 'github', href: 'https://github.com/overloadedHenry/ClinKD' }
