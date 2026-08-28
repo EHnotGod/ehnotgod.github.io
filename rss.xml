@@ -4748,81 +4748,72 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Kahn 算法：统计每个点的入度，把入度为 0 的点入队；每次取出队首加入拓扑序列，并把其后继的入度减 1，若减到 0 则入队。若队列空时还没遍历完所有点，说明图中有环。复杂度 $O(n+m)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;### kahn算法
-import sys
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# 拓扑排序 Kahn算法 O(V+E)
 from collections import deque
-
-def toposort():
+N = 110
+n = int(input())
+rd = [0] * N          # 入度
+e = [[] for _ in range(N)]   # 邻接表
+tp = []               # 拓扑序
+def topo():
     q = deque()
+    # 入度为0的点全部入队
     for i in range(1, n + 1):
-        if din[i] == 0:
+        if rd[i] == 0:
             q.append(i)
     while q:
-        x = q.popleft()
-        tp.append(x)
-        for y in e[x]:
-            din[y] -= 1
-            if din[y] == 0:
-                q.append(y)
+        u = q.popleft()     # 出队
+        tp.append(u)        # 记录拓扑序
+        for v in e[u]:
+            rd[v] -= 1      # 删除 u-&gt;v 这条边
+            if rd[v] == 0:
+                q.append(v)
     return len(tp) == n
-
-# 读取 n, m
-n, m = map(int, sys.stdin.readline().split())
-# 初始化邻接表和入度数组
-e = [[] for _ in range(n + 1)]
-din = [0] * (n + 1)
-tp = []
-
-# 读取边信息
-for _ in range(m):
-    a, b = map(int, sys.stdin.readline().split())
-    e[a].append(b)
-    din[b] += 1
-
-# 执行拓扑排序并输出结果
-if not toposort():
-    print(-1)
-else:
-    print(*tp)
+for i in range(1, n + 1):
+    a = list(map(int, input().split()))
+    for j in a:
+        if j == 0:
+            break
+        e[i].append(j)
+        rd[j] += 1
+topo()
+print(*tp)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// Kahn算法 O(n)
-#include &amp;#x3C;iostream&gt;
-#include &amp;#x3C;cstring&gt;
-#include &amp;#x3C;algorithm&gt;
-#include &amp;#x3C;queue&gt;
+// 拓扑排序 Kahn算法 O(V+E)
+#include&amp;#x3C;bits/stdc++.h&gt;
 using namespace std;
-const int N = 100010;
-int n,m,a,b;
-vector&amp;#x3C;int&gt; e[N], tp;
-int din[N];
 
-bool toposort(){
+const int N=110;
+int n,rd[N];
+vector&amp;#x3C;int&gt; e[N],tp;
+
+bool topo(){
   queue&amp;#x3C;int&gt; q;
-  for(int i = 1; i &amp;#x3C;= n; i++)
-    if(din[i]==0) q.push(i);
+  for(int i=1; i&amp;#x3C;=n; i++) if(!rd[i]) q.push(i); //入度为0的点均入队
   while(q.size()){
-    int x=q.front(); q.pop();
-    tp.push_back(x);
-    for(auto y : e[x]){
-      if(--din[y]==0) q.push(y);
-    }
+    int u=q.front(); q.pop(); //出队
+    tp.push_back(u); //记录拓扑序
+    for(auto v:e[u]) if(--rd[v]==0) q.push(v); //入队
   }
-  return tp.size() == n;
+  return tp.size()==n;
 }
 int main(){
-  cin &gt;&gt; n &gt;&gt; m;
-  for(int i=0; i&amp;#x3C;m; i++){
-    cin &gt;&gt; a &gt;&gt; b;
-    e[a].push_back(b);
-    din[b]++;
+  cin&gt;&gt;n;
+  for(int i=1,j; i&amp;#x3C;=n; i++){
+    while(cin&gt;&gt;j,j){
+      e[i].push_back(j);
+      rd[j]++; //入度
+    }
   }
-  if(!toposort()) puts(&quot;-1&quot;);
-  else for(auto x:tp)printf(&quot;%d &quot;,x);
-  return 0;
+  topo();
+  for(int i=0; i&amp;#x3C;n; i++) cout&amp;#x3C;&amp;#x3C;tp[i]&amp;#x3C;&amp;#x3C;&quot; &quot;;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D2 狄克斯特拉算法</title><link>https://ehnotgod.github.io/blog/d2-%E7%8B%84%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d2-%E7%8B%84%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95</guid><description>Dijkstra 最短路：非负权，堆优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4779&lt;/p&gt;
+&lt;p&gt;题目链接：&lt;/p&gt;
+&lt;p&gt;https://www.luogu.com.cn/problem/P3371&lt;/p&gt;
+&lt;p&gt;https://www.luogu.com.cn/problem/P4779&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如题，给出一个有向图，请输出从某一点出发到所有点的最短路径长度。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -4843,9 +4834,8 @@ int main(){
 &lt;pre&gt;&lt;code&gt;0 2 4 3
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据：$$1 \le n \le 10^4$$，$$1\le m \le 5\times 10^5$$，$$1\le u,v\le n$$，$$w\ge 0$$，$$\sum w&amp;#x3C; 2^{31}$$，保证数据随机。&lt;/p&gt;
-&lt;p&gt;**解析：**时间复杂度：$$O(n^2)$$&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D2-1.png&quot; alt=&quot;image-20250418090828454&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;堆优化版：&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;堆优化版题目：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个 $$n$$ 个点，$$m$$ 条有向边的带非负权图，请你计算从 $$s$$ 出发，到每个点的距离。&lt;/p&gt;
 &lt;p&gt;数据保证你能从 $$s$$ 出发到任意点。&lt;/p&gt;
@@ -4872,9 +4862,10 @@ int main(){
 &lt;p&gt;$$1 \leq u_i, v_i\leq n$$；&lt;/p&gt;
 &lt;p&gt;$$0 \leq w_i \leq 10 ^ 9$$,&lt;/p&gt;
 &lt;p&gt;$$0 \leq \sum w_i \leq 10 ^ 9$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D2-2.png&quot; alt=&quot;image-20250418091036262&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;Dijkstra 用于边权非负的图。维护一个“已确定最短路”的集合，每次从未确定的点中选距离最小的点 $u$，用它松弛所有出边 $(u,v,w)$（$dis[v]=\min(dis[v],dis[u]+w)$），直到所有点确定。朴素实现每次线性找最小点，复杂度 $O(n^2)$；用优先队列维护最小值可优化到 $O(m\log n)$。注意不能处理负权边。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D2-1.png&quot; alt=&quot;image-20250418090828454&quot;&gt;&lt;/p&gt;
+&lt;p&gt;堆优化版：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D2-2.png&quot; alt=&quot;image-20250418091036262&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Edge():
     def __init__(self, v, w):
@@ -5067,6 +5058,8 @@ YES
 &lt;/ul&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;SPFA 是队列优化的 Bellman-Ford，适合含负权边的图。维护队列，松弛成功的点入队；同时记录最短路经过的边数 $cnt[v]$，若 $cnt[v]\ge n$，说明从起点可达一条负环。也可用入队次数判断：某点入队超过 $n$ 次即有负环。最坏复杂度 $O(nm)$。&lt;/p&gt;
+&lt;h3&gt;py代码实现：&lt;/h3&gt;
+&lt;p&gt;略&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;bits/stdc++.h&gt;
 using namespace std;
@@ -5120,8 +5113,32 @@ int main() {
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D4 最短路 Floyd 算法</title><link>https://ehnotgod.github.io/blog/d4-%E6%9C%80%E7%9F%AD%E8%B7%AF-floyd-%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d4-%E6%9C%80%E7%9F%AD%E8%B7%AF-floyd-%E7%AE%97%E6%B3%95</guid><description>Floyd 最短路：O(n³) 全源最短路与传递闭包。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/B3647&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D4-1.png&quot; alt=&quot;image-20250418091227375&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;给出一张由 $n$ 个点 $m$ 条边组成的无向连通图。&lt;/p&gt;
+&lt;p&gt;求出所有点对 $(i,j)$ 之间的最短路径。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行为两个整数 $n,m$，分别代表点的个数和边的条数。&lt;/p&gt;
+&lt;p&gt;接下来 $m$ 行，每行三个整数 $u,v,w$，代表 $u,v$ 之间存在一条边权为 $w$ 的边。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输出 $n$ 行每行 $n$ 个整数。&lt;/p&gt;
+&lt;p&gt;第 $i$ 行的第 $j$ 个整数代表从 $i$ 到 $j$ 的最短路径。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;4 4
+1 2 1
+2 3 1
+3 4 1
+4 1 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;0 1 2 1
+1 0 1 2
+2 1 0 1
+1 2 1 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于 $100%$ 的数据，$n \le 100$，$m \le 4500$，任意一条边的权值 $w$ 是正整数且 $1 \leqslant w \leqslant 1000$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数据中可能存在重边。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D4-1.png&quot; alt=&quot;image-20250418091227375&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Floyd 是动态规划求全源最短路：$d[k][i][j]$ 表示只允许经过前 $k$ 个中间点时 $i$ 到 $j$ 的最短路，滚动后即为 $d[i][j]=\min(d[i][j],d[i][k]+d[k][j])$。三重循环 $O(n^3)$，可处理负权边但不能有负环；也用于求传递闭包。注意 $k$ 在最外层。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def floyd():
@@ -5444,6 +5461,44 @@ if not prim(1):
 else:
     print(ans)
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Kruskal 版（Python）&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Edge():
+    def __init__(self, u, v, w):
+        self.u = u
+        self.v = v
+        self.w = w
+
+def find(x):
+    if fa[x] == x:
+        return x
+    fa[x] = find(fa[x])
+    return fa[x]
+def union(x, y):
+    fa[find(x)] = find(y)
+def kruskal():
+    global ans, cnt
+    e.sort(key=lambda k:k.w)
+    for i in range(m):
+        x = find(e[i].u)
+        y = find(e[i].v)
+        if x != y:
+            union(x, y)
+            ans += e[i].w
+            cnt += 1
+    return cnt == n - 1
+
+n, m = map(int, input().split())
+fa = [i for i in range(n + 1)]
+ans, cnt = 0, 0
+e = []
+for i in range(m):
+    u, v, w = map(int, input().split())
+    e.append(Edge(u, v, w))
+if not kruskal():
+    print(&quot;orz&quot;)
+else:
+    print(ans)
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// Luogu P3366 【模板】最小生成树
 #include &amp;#x3C;iostream&gt;
@@ -5487,52 +5542,8 @@ int main(){
   else printf(&quot;%d\n&quot;,ans);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D7 Kruscal算法</title><link>https://ehnotgod.github.io/blog/d7-kruscal%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d7-kruscal%E7%AE%97%E6%B3%95</guid><description>Kruscal 最小生成树：按边权排序 + 并查集。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3366&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如题，给出一个无向图，求出最小生成树（Kruskal：按边权从小到大排序，用并查集维护连通性）。&lt;/p&gt;
-&lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;Kruskal 求最小生成树：把所有边按边权升序排序，依次尝试加入，若边的两端点当前不连通（并查集不同集合）则加入，直到连成 $n-1$ 条边；若最终边数不足 $n-1$ 说明图不连通（输出 orz）。复杂度 $O(m\log m)$。&lt;/p&gt;
-&lt;h3&gt;Python代码实现&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Edge():
-    def __init__(self, u, v, w):
-        self.u = u
-        self.v = v
-        self.w = w
-
-def find(x):
-    if fa[x] == x:
-        return x
-    fa[x] = find(fa[x])
-    return fa[x]
-def union(x, y):
-    fa[find(x)] = find(y)
-def kruskal():
-    global ans, cnt
-    e.sort(key=lambda k:k.w)
-    for i in range(m):
-        x = find(e[i].u)
-        y = find(e[i].v)
-        if x != y:
-            union(x, y)
-            ans += e[i].w
-            cnt += 1
-    return cnt == n - 1
-
-
-n, m = map(int, input().split())
-fa = [i for i in range(n + 1)]
-ans, cnt = 0, 0
-e = []
-for i in range(m):
-    u, v, w = map(int, input().split())
-    e.append(Edge(u, v, w))
-if not kruskal():
-    print(&quot;orz&quot;)
-else:
-    print(ans)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;C++代码实现&lt;/h3&gt;
+&lt;h3&gt;Kruskal 版（C++）&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// Luogu P3366 【模板】最小生成树
 #include &amp;#x3C;iostream&gt;
 #include &amp;#x3C;cstring&gt;
