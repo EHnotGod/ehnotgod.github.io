@@ -1,17 +1,11 @@
 ---
 import PageLayout from '@/layouts/CommonPage.astro'
-import {
-  PublicationSection,
-  ResearchProjectSection,
-  SimpleIcon
-} from '@/components/user'
+import { PublicationSection } from '@/components/user'
 import config from '@/site-config'
 
 const headings = [
   { depth: 2, slug: 'about-me', text: 'About Me' },
-  { depth: 2, slug: 'research-interests', text: 'Research Interests' },
-  { depth: 2, slug: 'publications', text: 'Publications' },
-  { depth: 2, slug: 'open-source-projects', text: 'Open-source Projects' }
+  { depth: 2, slug: 'publications', text: 'Publications' }
 ]
 ---
 
@@ -25,46 +19,6 @@ const headings = [
     我关注如何在生成模型中同时保证视觉质量与结构一致性，以及如何构建更可靠、可审计的评测与
     评估框架。欢迎交流合作。
   </p>
-
-  <h2 id='research-interests'>Research Interests<a class='anchor' href='#research-interests'>#</a></h2>
-  <div class='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-    {
-      [
-        {
-          title: '图像生成与纹理编辑',
-          description: '文本驱动的图像 / 纹理编辑、结构保持、强化学习在生成模型中的应用。',
-          icon: 'pytorch'
-        },
-        {
-          title: '多模态大模型审计',
-          description: '提示级生成质量预测、评测基准构建、评分系统鲁棒性分析。',
-          icon: 'huggingface'
-        },
-        {
-          title: '3D 轨迹预测',
-          description: 'SE(3)-等变 Flow Matching、几何深度学习、轨迹不确定性建模。',
-          icon: 'ros'
-        }
-      ].map((interest) => (
-        <div class='group relative overflow-hidden rounded-xl border border-border bg-card p-4 transition-all hover:border-foreground/25 hover:shadow-md'>
-          <div class='flex items-start gap-4'>
-            <div class='flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20'>
-              <SimpleIcon
-                class='size-5 text-primary transition-transform duration-300 group-hover:scale-110'
-                name={interest.icon}
-              />
-            </div>
-            <div class='flex-1'>
-              <p class='text-xl font-medium leading-tight text-foreground transition-colors group-hover:text-primary'>
-                {interest.title}
-              </p>
-              <p class='text-sm leading-relaxed text-muted-foreground'>{interest.description}</p>
-            </div>
-          </div>
-        </div>
-      ))
-    }
-  </div>
 
   <h2 id='publications'>Publications<a class='anchor' href='#publications'>#</a></h2>
   <PublicationSection
@@ -163,18 +117,6 @@ const headings = [
     ]}
   />
 
-  <h2 id='open-source-projects'>Open-source Projects<a class='anchor' href='#open-source-projects'>#</a></h2>
-  <ResearchProjectSection
-    projects={[
-      {
-        title: 'EH 算法竞赛板子库',
-        description: '在算法竞赛中沉淀的数据结构 / 图论 / 数论 / 字符串模板与实现，持续更新。',
-        category: 'Competitive Programming',
-        status: 'active',
-        links: [{ type: 'github', href: 'https://github.com/ehnotgod', label: 'Code' }]
-      }
-    ]}
-  />
 </PageLayout>
 
 <script
