@@ -48,6 +48,70 @@ language: zh
 
 核心思路是把每个矩形拆成两条水平边：下边记 `+1` 表示矩形开始，上边记 `-1` 表示矩形结束，然后按 `y` 从小到大扫描。扫描到某条边时，就在线段树中给它对应的 `x` 区间加上或减去覆盖次数；线段树的 `len[1]` 始终表示当前所有矩形在 x 轴上的总覆盖长度，重叠部分只算一次。因此从当前高度 `L[i].y` 到下一条边 `L[i+1].y` 之间的面积就是 `len[1] * (L[i+1].y-L[i].y)`。由于 x 坐标可能很大，所以先把所有 `x1、x2` 排序去重做离散化；其中离散后的第 `i` 段实际上表示 `[X[i],X[i+1])`，因此原区间 `[x1,x2)` 要在线段树中更新 `[l,r-1]`，而节点 `[l,r]` 的真实长度就是 `X[r+1]-X[l]`。
 
+### py代码实现
+
+```python
+# 扫描线 + 线段树 + 离散化
+
+from bisect import bisect_left
+import sys
+input = sys.stdin.readline
+N = 200005
+# L[i] = [x1, x2, y, tag]
+L = []
+# 线段树
+cnt = [0] * (N * 8)
+length = [0] * (N * 8)
+# X 坐标，保持 1 下标
+X = [0] * (N * 2)
+def pushup(u, l, r):
+    if cnt[u]:
+        length[u] = X[r + 1] - X[l]   # r → X[r+1]
+    else:
+        length[u] = length[u << 1] + length[u << 1 | 1]
+def change(u, l, r, a, b, tag):
+    if a > r or b < l:
+        return  # 越界
+    if a <= l and r <= b:
+        cnt[u] += tag
+        pushup(u, l, r)
+        return
+    m = (l + r) >> 1
+    change(u << 1, l, m, a, b, tag)          # 裂开
+    change(u << 1 | 1, m + 1, r, a, b, tag)
+    pushup(u, l, r)
+
+def main():
+    n = int(input())
+    xs = []
+    for i in range(1, n + 1):
+        x1, y1, x2, y2 = map(int, input().split())
+        L.append([x1, x2, y1, 1])
+        L.append([x1, x2, y2, -1])
+        xs.append(x1)
+        xs.append(x2)
+
+    n *= 2
+    # 扫描线排序
+    L.sort(key=lambda x: x[2])
+    # X 坐标排序 + 去重
+    xs = sorted(set(xs))
+    s = len(xs)
+    for i in range(s):
+        X[i + 1] = xs[i]
+    ans = 0
+    for i in range(n - 1):
+        l = bisect_left(xs, L[i][0]) + 1
+        r = bisect_left(xs, L[i][1]) + 1
+        # x2 → r-1
+        change(1, 1, s, l, r - 1, L[i][3])
+        ans += (L[i + 1][2] - L[i][2]) * length[1]
+    print(ans)
+
+
+if __name__ == "__main__":
+    main()
+```
 
 ### C++代码实现
 
