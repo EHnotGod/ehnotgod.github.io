@@ -4274,6 +4274,68 @@ printf(&quot;%d\n&quot;,rk);
 &lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C9-1.png&quot; alt=&quot;image-20250826121538028&quot;&gt;&lt;/p&gt;
 &lt;p&gt;核心思路是把每个矩形拆成两条水平边：下边记 &lt;code&gt;+1&lt;/code&gt; 表示矩形开始，上边记 &lt;code&gt;-1&lt;/code&gt; 表示矩形结束，然后按 &lt;code&gt;y&lt;/code&gt; 从小到大扫描。扫描到某条边时，就在线段树中给它对应的 &lt;code&gt;x&lt;/code&gt; 区间加上或减去覆盖次数；线段树的 &lt;code&gt;len[1]&lt;/code&gt; 始终表示当前所有矩形在 x 轴上的总覆盖长度，重叠部分只算一次。因此从当前高度 &lt;code&gt;L[i].y&lt;/code&gt; 到下一条边 &lt;code&gt;L[i+1].y&lt;/code&gt; 之间的面积就是 &lt;code&gt;len[1] * (L[i+1].y-L[i].y)&lt;/code&gt;。由于 x 坐标可能很大，所以先把所有 &lt;code&gt;x1、x2&lt;/code&gt; 排序去重做离散化；其中离散后的第 &lt;code&gt;i&lt;/code&gt; 段实际上表示 &lt;code&gt;[X[i],X[i+1])&lt;/code&gt;，因此原区间 &lt;code&gt;[x1,x2)&lt;/code&gt; 要在线段树中更新 &lt;code&gt;[l,r-1]&lt;/code&gt;，而节点 &lt;code&gt;[l,r]&lt;/code&gt; 的真实长度就是 &lt;code&gt;X[r+1]-X[l]&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;py代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# 扫描线 + 线段树 + 离散化
+
+from bisect import bisect_left
+import sys
+input = sys.stdin.readline
+N = 200005
+# L[i] = [x1, x2, y, tag]
+L = []
+# 线段树
+cnt = [0] * (N * 8)
+length = [0] * (N * 8)
+# X 坐标，保持 1 下标
+X = [0] * (N * 2)
+def pushup(u, l, r):
+    if cnt[u]:
+        length[u] = X[r + 1] - X[l]   # r → X[r+1]
+    else:
+        length[u] = length[u &amp;#x3C;&amp;#x3C; 1] + length[u &amp;#x3C;&amp;#x3C; 1 | 1]
+def change(u, l, r, a, b, tag):
+    if a &gt; r or b &amp;#x3C; l:
+        return  # 越界
+    if a &amp;#x3C;= l and r &amp;#x3C;= b:
+        cnt[u] += tag
+        pushup(u, l, r)
+        return
+    m = (l + r) &gt;&gt; 1
+    change(u &amp;#x3C;&amp;#x3C; 1, l, m, a, b, tag)          # 裂开
+    change(u &amp;#x3C;&amp;#x3C; 1 | 1, m + 1, r, a, b, tag)
+    pushup(u, l, r)
+
+def main():
+    n = int(input())
+    xs = []
+    for i in range(1, n + 1):
+        x1, y1, x2, y2 = map(int, input().split())
+        L.append([x1, x2, y1, 1])
+        L.append([x1, x2, y2, -1])
+        xs.append(x1)
+        xs.append(x2)
+
+    n *= 2
+    # 扫描线排序
+    L.sort(key=lambda x: x[2])
+    # X 坐标排序 + 去重
+    xs = sorted(set(xs))
+    s = len(xs)
+    for i in range(s):
+        X[i + 1] = xs[i]
+    ans = 0
+    for i in range(n - 1):
+        l = bisect_left(xs, L[i][0]) + 1
+        r = bisect_left(xs, L[i][1]) + 1
+        # x2 → r-1
+        change(1, 1, s, l, r - 1, L[i][3])
+        ans += (L[i + 1][2] - L[i][2]) * length[1]
+    print(ans)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 扫描线+线段树+离散化 1.4s
 #include &amp;#x3C;iostream&gt;
@@ -4330,6 +4392,7 @@ int main(){
   printf(&quot;%lld\n&quot;,ans);
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C10 KD树</title><link>https://ehnotgod.github.io/blog/c10-kd%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c10-kd%E6%A0%91</guid><description>KD 树：多维最近点对 / 最近邻查询。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1429&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定平面上 $$n$$ 个点，找出其中的一对点的距离，使得在这 $$n$$ 个点的所有点对中，该距离为所有点对中最小的&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -4348,6 +4411,13 @@ int main(){
 &lt;pre&gt;&lt;code&gt;1.0000
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;数据保证 $$0\le x,y\le 10^9$$&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
+&lt;p&gt;KD-Tree 可以理解成一棵“按坐标不断切分平面”的二叉树。建树时，第一层按 x 坐标找中位数作为根，下一层按 y 坐标，再下一层又按 x，交替进行。这样每个节点既代表一个点，也代表它整棵子树中所有点所在的一个矩形区域，也就是包围盒 &lt;code&gt;L[] ~ U[]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;查询一个点最近的已有点时，从根开始 DFS。每到一个节点，先计算查询点到当前节点的真实距离，用它更新当前最优答案 &lt;code&gt;ans&lt;/code&gt;。然后分别计算查询点到左、右子树包围盒的最小可能距离 &lt;code&gt;dl、dr&lt;/code&gt;。这个值表示：即使子树里存在最理想的点，它也不可能比这个距离更近。&lt;/p&gt;
+&lt;p&gt;如果某个子树的包围盒最小距离已经 &lt;code&gt;&gt;= ans&lt;/code&gt;，说明这棵子树里的所有点都不可能成为更优答案，可以直接剪枝；否则继续递归。通常先搜索 &lt;code&gt;dl、dr&lt;/code&gt; 较小的一边，这样更容易提前找到更小的 &lt;code&gt;ans&lt;/code&gt;，从而剪掉另一边更多节点。&lt;/p&gt;
+&lt;p&gt;你现在把任意查询点放进 &lt;code&gt;t[0]&lt;/code&gt;，再设 &lt;code&gt;cur=0&lt;/code&gt;，就可以直接复用原来的 &lt;code&gt;dis()&lt;/code&gt;、&lt;code&gt;dis2()&lt;/code&gt; 和 &lt;code&gt;query()&lt;/code&gt;。因此整个算法核心就是：&lt;strong&gt;KD-Tree 建树负责把点划分成区域，query 通过“点到包围盒的距离下界”进行剪枝，从而快速找到最近点。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;py代码实现&lt;/h3&gt;
+&lt;p&gt;略&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 交替建树 970ms
 #include &amp;#x3C;cstdio&gt;
@@ -4424,7 +4494,18 @@ int main(){
   for(cur=1; cur&amp;#x3C;=n; cur++) query(root);
   printf(&quot;%.4lf\n&quot;,sqrt(ans));
 }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用以下代码可以查任意点到点群的最近距离：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;double queryPoint(double x,double y){
+  t[0].v[0]=x;
+  t[0].v[1]=y;
+  cur=0;
+  ans=2e18;
+  query(root);
+  return sqrt(ans);
+}
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C11 莫队</title><link>https://ehnotgod.github.io/blog/c11-%E8%8E%AB%E9%98%9F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c11-%E8%8E%AB%E9%98%9F</guid><description>莫队算法：离线区间查询，分块排序优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P2709&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;小B 有一个长为 $$n$$ 的整数序列 $$a$$，值域为 $$[1,k]$$。  他一共有 $$m$$ 个询问，每个询问给定一个区间 $$[l,r]$$，求：  $$\sum\limits_{i=1}^k c_i^2$$&lt;/p&gt;
 &lt;p&gt;其中 $$c_i$$ 表示数字 $$i$$ 在 $$[l,r]$$ 中的出现次数。  小B请你帮助他回答询问。&lt;/p&gt;
@@ -4449,9 +4530,8 @@ int main(){
 2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\le n,m,k \le 5\times 10^4$$。&lt;/p&gt;
-&lt;p&gt;思路：&lt;/p&gt;
+&lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C11-1.png&quot; alt=&quot;image-20250519115428164&quot;&gt;&lt;/p&gt;
-&lt;p&gt;不证明了，无所谓。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
 import math
@@ -4556,18 +4636,20 @@ int main(){
   for(int i=1;i&amp;#x3C;=m;++i)printf(&quot;%d\n&quot;,ans[i]);
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C12 李超线段树</title><link>https://ehnotgod.github.io/blog/c12-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c12-%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>李超线段树：维护一次函数最值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;P4254 [JSOI2008] Blue Mary 开公司（精简版）&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;问题描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4254&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Blue Mary 开公司，会陆续收到若干金融顾问的经营方案。每个顾问给出一个等差日收益序列：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Project S P&lt;/code&gt; 表示第 (T) 天的收益为$$f(T)=S+(T−1)⋅P$$&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Project S P&lt;/code&gt; 表示第 $T$ 天的收益为 $f(T)=S+(T-1)\cdot P$；&lt;/li&gt;
 &lt;li&gt;初始时没有方案，任意天的最大收益为 0。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;当收到若干方案后，Blue Mary 会进行若干次询问：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Query T&lt;/code&gt; 要求返回当前已知所有方案在第 (T) 天的&lt;strong&gt;最大收益&lt;/strong&gt;（与 0 比较取较大者），并&lt;strong&gt;以百元为单位向下取整&lt;/strong&gt;输出（例如：210 或 290 都输出 &lt;code&gt;2&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Query T&lt;/code&gt; 要求返回当前已知所有方案在第 $T$ 天的&lt;strong&gt;最大收益&lt;/strong&gt;（与 0 比较取较大者），并&lt;strong&gt;以百元为单位向下取整&lt;/strong&gt;输出（例如：210 或 290 都输出 &lt;code&gt;2&lt;/code&gt;）。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行一个整数 $N$，表示操作总数；接下来 $N$ 行每行为一个操作，格式如题。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;10
 Project 5.10200 0.65000
 Project 2.76200 1.43000
@@ -4580,18 +4662,23 @@ Query 1
 Project 4.58200 0.91000
 Project 5.36200 0.39000
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;0
 0
 0
 0
 0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;数据范围&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;$$1≤N≤105，1≤T≤5×10^4，0&amp;#x3C;P&amp;#x3C;100，∣S∣≤10^5$$&lt;/p&gt;
-&lt;p&gt;能用就行了，银牌题难度。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2&gt;D 图论&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于 $100%$ 的数据，$1\le N\le 10^5$，$1\le T\le 5\times 10^4$，$0&amp;#x3C;P&amp;#x3C;100$，$|S|\le 10^5$。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;李超线段树用来维护若干一次函数（直线）在某个横坐标上的最值。本题中每个经营方案对应一条直线 $f(T)=S+(T-1)\cdot P$，需要在某一天 $T$ 上查询所有方案取值的最大值。&lt;/p&gt;
+&lt;p&gt;线段树每个结点存一条&quot;优势直线&quot;（在当前区间中点上取值最大的一条）。插入新直线时，若新直线在中点更优则与当前直线交换，再根据左右端点的比较结果向对应的儿子递归；查询时沿根到叶子的路径取所有经过结点直线在 $x$ 处的最大值。单次插入与查询均为 $O(\log V)$（$V$ 为坐标范围）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C12-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;本题为银牌难度，实现细节较多，建议先理解&quot;优势直线&quot;的维护思想。&lt;/p&gt;
+&lt;h3&gt;Python代码实现&lt;/h3&gt;
+&lt;p&gt;太难，略。&lt;/p&gt;
+&lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 李超线段树 O(nlogn)
 #include &amp;#x3C;iostream&gt;
@@ -4611,7 +4698,8 @@ int tr[N*4]; //线段编号
 double Y(int id,int x){ //求Y值
   return p[id].k*x+p[id].b;
 }
-void change(int u,int l,int r,int id){ //修改  int mid=(l+r)&gt;&gt;1;
+void change(int u,int l,int r,int id){ //修改
+  int mid=(l+r)&gt;&gt;1;
   if(Y(id,mid)&gt;Y(tr[u],mid)) swap(id,tr[u]);
   if(Y(id,l)&gt;Y(tr[u],l)) change(ls,l,mid,id);
   if(Y(id,r)&gt;Y(tr[u],r)) change(rs,mid+1,r,id);
