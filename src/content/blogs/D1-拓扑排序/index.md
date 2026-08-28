@@ -48,80 +48,69 @@ Kahn 算法：统计每个点的入度，把入度为 0 的点入队；每次取
 ### Python代码实现
 
 ```python
-### kahn算法
-import sys
+# 拓扑排序 Kahn算法 O(V+E)
 from collections import deque
-
-def toposort():
+N = 110
+n = int(input())
+rd = [0] * N          # 入度
+e = [[] for _ in range(N)]   # 邻接表
+tp = []               # 拓扑序
+def topo():
     q = deque()
+    # 入度为0的点全部入队
     for i in range(1, n + 1):
-        if din[i] == 0:
+        if rd[i] == 0:
             q.append(i)
     while q:
-        x = q.popleft()
-        tp.append(x)
-        for y in e[x]:
-            din[y] -= 1
-            if din[y] == 0:
-                q.append(y)
+        u = q.popleft()     # 出队
+        tp.append(u)        # 记录拓扑序
+        for v in e[u]:
+            rd[v] -= 1      # 删除 u->v 这条边
+            if rd[v] == 0:
+                q.append(v)
     return len(tp) == n
-
-# 读取 n, m
-n, m = map(int, sys.stdin.readline().split())
-# 初始化邻接表和入度数组
-e = [[] for _ in range(n + 1)]
-din = [0] * (n + 1)
-tp = []
-
-# 读取边信息
-for _ in range(m):
-    a, b = map(int, sys.stdin.readline().split())
-    e[a].append(b)
-    din[b] += 1
-
-# 执行拓扑排序并输出结果
-if not toposort():
-    print(-1)
-else:
-    print(*tp)
+for i in range(1, n + 1):
+    a = list(map(int, input().split()))
+    for j in a:
+        if j == 0:
+            break
+        e[i].append(j)
+        rd[j] += 1
+topo()
+print(*tp)
 ```
 
 ### C++代码实现
 
 ```c++
 // Kahn算法 O(n)
-#include <iostream>
-#include <cstring>
-#include <algorithm>
-#include <queue>
+// 拓扑排序 Kahn算法 O(V+E)
+#include<bits/stdc++.h>
 using namespace std;
-const int N = 100010;
-int n,m,a,b;
-vector<int> e[N], tp;
-int din[N];
 
-bool toposort(){
+const int N=110;
+int n,rd[N];
+vector<int> e[N],tp;
+
+bool topo(){
   queue<int> q;
-  for(int i = 1; i <= n; i++)
-    if(din[i]==0) q.push(i);
+  for(int i=1; i<=n; i++) if(!rd[i]) q.push(i); //入度为0的点均入队
   while(q.size()){
-    int x=q.front(); q.pop();
-    tp.push_back(x);
-    for(auto y : e[x]){
-      if(--din[y]==0) q.push(y);
-    }
+    int u=q.front(); q.pop(); //出队
+    tp.push_back(u); //记录拓扑序
+    for(auto v:e[u]) if(--rd[v]==0) q.push(v); //入队
   }
-  return tp.size() == n;
+  return tp.size()==n;
 }
 int main(){
-  cin >> n >> m;
-  for(int i=0; i<m; i++){
-    cin >> a >> b;
-    e[a].push_back(b);
-    din[b]++;
+  cin>>n;
+  for(int i=1,j; i<=n; i++){
+    while(cin>>j,j){
+      e[i].push_back(j);
+      rd[j]++; //入度
+    }
   }
-  if(!toposort()) puts("-1");
-  else for(auto x:tp)printf("%d ",x);
-  return 0;
+  topo();
+  for(int i=0; i<n; i++) cout<<tp[i]<<" ";
 }
 ```

@@ -57,7 +57,6 @@ CURATED = {
     "D4-最短路-Floyd-算法": "Floyd 最短路：O(n³) 全源最短路与传递闭包。",
     "D5-全源-Johnson-算法": "Johnson 全源最短路：重赋权 + 多次 Dijkstra。",
     "D6-最小生成树-Prim与Kruscal": "最小生成树：Prim（加点）与 Kruscal（加边）。",
-    "D7-Kruscal算法": "Kruscal 最小生成树：按边权排序 + 并查集。",
     "D8-倍增算法（LCA）": "倍增法求 LCA：树上最近公共祖先。",
     "D9-Tarjan算法（离线LCA）": "Tarjan 离线 LCA：并查集 + DFS 一次遍历。",
     "D10-树链剖分（最近公共祖先-LCA）": "树链剖分：重链剖分求 LCA 与路径操作。",

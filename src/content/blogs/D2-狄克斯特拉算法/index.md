@@ -10,7 +10,11 @@ language: zh
 
 ### 题目情境
 
-题目链接：https://www.luogu.com.cn/problem/P4779
+题目链接：
+
+https://www.luogu.com.cn/problem/P3371
+
+https://www.luogu.com.cn/problem/P4779
 
 **题目描述**
 
@@ -46,11 +50,9 @@ language: zh
 
 对于 $$100\%$$ 的数据：$$1 \le n \le 10^4$$，$$1\le m \le 5\times 10^5$$，$$1\le u,v\le n$$，$$w\ge 0$$，$$\sum w< 2^{31}$$，保证数据随机。
 
-**解析：**时间复杂度：$$O(n^2)$$
+---
 
-![image-20250418090828454](/images/算法竞赛/D/D2-1.png)
-
-**堆优化版：**
+**堆优化版题目：**
 
 **题目描述**
 
@@ -97,11 +99,14 @@ $$0 \leq w_i \leq 10 ^ 9$$,
 
 $$0 \leq \sum w_i \leq 10 ^ 9$$。
 
-![image-20250418091036262](/images/算法竞赛/D/D2-2.png)
-
 ### 算法解析：
 
-Dijkstra 用于边权非负的图。维护一个“已确定最短路”的集合，每次从未确定的点中选距离最小的点 $u$，用它松弛所有出边 $(u,v,w)$（$dis[v]=\min(dis[v],dis[u]+w)$），直到所有点确定。朴素实现每次线性找最小点，复杂度 $O(n^2)$；用优先队列维护最小值可优化到 $O(m\log n)$。注意不能处理负权边。
+![image-20250418090828454](/images/算法竞赛/D/D2-1.png)
+
+堆优化版：
+
+![image-20250418091036262](/images/算法竞赛/D/D2-2.png)
+
 
 ### Python代码实现
 
