@@ -11,7 +11,6 @@ const headings = [
   { depth: 2, slug: 'about-me', text: 'About Me' },
   { depth: 2, slug: 'research-interests', text: 'Research Interests' },
   { depth: 2, slug: 'publications', text: 'Publications' },
-  { depth: 2, slug: 'competitions', text: 'Competitions' },
   { depth: 2, slug: 'open-source-projects', text: 'Open-source Projects' }
 ]
 ---
@@ -20,9 +19,8 @@ const headings = [
   <h2 id='about-me'>About Me<a class='anchor' href='#about-me'>#</a></h2>
   <p>
     I'm Yihang Liu (EH), an undergraduate in Statistics (Data Science & AI) at Shandong University.
-    As a competitive programmer, I've won a silver medal at the ICPC Asia Regional Contest and a
-    gold medal at CCPC. I'm currently doing research on generative AI and large models, covering
-    image generation, multimodality and 3D trajectory prediction.
+    I'm currently doing research on generative AI and large models, covering image generation,
+    multimodality and 3D trajectory prediction.
   </p>
   <p>
     I'm interested in preserving visual quality and structural consistency in generative models,
@@ -80,7 +78,7 @@ const headings = [
         type: 'conference',
         abstract:
           'Built on Qwen-Image, introducing a high-quality supervised dataset TexBlender with structural priors and an RL method StructureNFT that transfers structural constraints to real-world generation; also constructs the TexBench benchmark. Achieves SOTA on the main test set.',
-        links: [{ type: 'website', href: '#' }],
+        links: [{ type: 'website', href: 'https://arxiv.org/abs/2603.18488' }],
         status: 'accepted'
       },
       {
@@ -113,42 +111,8 @@ const headings = [
         type: 'journal',
         abstract:
           'LLM-based power system operational risk assessment, responsible for risk assessment strategy design, GRPO reinforcement learning training, experimental validation and writing, improving risk-classification accuracy and reasoning ability.',
-        links: [{ type: 'website', href: '#' }],
+        links: [{ type: 'website', href: 'https://kns.cnki.net/kcms2/article/abstract?v=jXpGf_Tis3BO7y3TyZruUOK4DTQA5k7-c4YVlxn6-g-K10dRgZu67wrfTJA6yg9exDs8aiF8MkQYtZG6msQfv2aAIrUdzYJ3XCLsVKbu95n9RK-sOUDFGXVJNUCFpZp1LUMV2DieHCFFuMYHbu2Y00Yfd-KSRAf_&uniplatform=NZKPT' }],
         status: 'published'
-      }
-    ]}
-  />
-
-  <h2 id='competitions'>Competitions<a class='anchor' href='#competitions'>#</a></h2>
-  <ResearchProjectSection
-    projects={[
-      {
-        title: '2026 CCPC National Invitational (Fuzhou)',
-        description: 'China Collegiate Programming Contest, national first prize (Gold).',
-        category: 'Competitive Programming',
-        status: 'completed',
-        links: []
-      },
-      {
-        title: '50th ICPC Asia Regional (Shenyang)',
-        description: 'International Collegiate Programming Contest Asia Regional, national second prize (Silver).',
-        category: 'Competitive Programming',
-        status: 'completed',
-        links: []
-      },
-      {
-        title: '16th Blue Bridge Cup National Finals',
-        description: 'National Software & IT Professional Talent Contest, national first prize.',
-        category: 'Competitive Programming',
-        status: 'completed',
-        links: []
-      },
-      {
-        title: 'ASC25 Student Supercomputer Challenge',
-        description: 'Asia regional round, national second prize.',
-        category: 'High Performance Computing',
-        status: 'completed',
-        links: []
       }
     ]}
   />

@@ -10,6 +10,8 @@ language: zh
 
 ### 题目情境
 
+题目链接：https://www.luogu.com.cn/problem/P3834
+
 **题目背景**
 
 这是个非常经典的可持久化权值线段树入门题——静态区间第 $$k$$ 小。
@@ -88,7 +90,7 @@ root[i]
 
 表示：
 
-> 前 $i$ 个数形成的值域线段树。
+前 `i` 个数形成的值域线段树。
 
 例如：
 
@@ -192,7 +194,9 @@ O(log n)
 
 个节点，而不是复制整棵树。
 
-复杂度：
+注意`int &y`，它可以让父节点的lc(y)自动附到对应的子节点。
+
+总体复杂度：
 
 ```text
 建树：O(n log n)
@@ -328,4 +332,19 @@ int main(){
     printf("%d\n",b[id]);
   }
 }
+```
+
+查询x是第几小的话，参考如下代码：
+```c++
+int query_rank(int x,int y,int l,int r,int pos){
+  if(l==r) return 1;
+  int m=l+r>>1;
+  if(pos<=m) return query_rank(lc(x),lc(y),l,m,pos);
+  int s=tr[lc(y)].s-tr[lc(x)].s;
+  return s+query_rank(rc(x),rc(y),m+1,r,pos);
+}
+
+int pos=lower_bound(b+1,b+bn+1,v)-b;
+int rk=query_rank(root[l-1],root[r],1,bn,pos);
+printf("%d\n",rk);
 ```

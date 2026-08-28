@@ -11,7 +11,6 @@ const headings = [
   { depth: 2, slug: 'about-me', text: 'About Me' },
   { depth: 2, slug: 'research-interests', text: 'Research Interests' },
   { depth: 2, slug: 'publications', text: 'Publications' },
-  { depth: 2, slug: 'competitions', text: '竞赛经历' },
   { depth: 2, slug: 'open-source-projects', text: 'Open-source Projects' }
 ]
 ---
@@ -20,7 +19,6 @@ const headings = [
   <h2 id='about-me'>About Me<a class='anchor' href='#about-me'>#</a></h2>
   <p>
     我是刘艺航（EH），山东大学数学与统计学院统计学（数据科学与人工智能）专业本科生。
-    算法竞赛选手，曾获 ICPC 亚洲区域赛银牌、CCPC 全国邀请赛金牌、蓝桥杯全国总决赛一等奖。
     目前在生成式 AI 与大模型方向做科研，重点关注图像生成、多模态与 3D 轨迹预测等方向。
   </p>
   <p>
@@ -79,7 +77,7 @@ const headings = [
         type: 'conference',
         abstract:
           '以 Qwen-Image 为基础模型，构建高质量监督数据集 TexBlender 引入结构先验，设计强化学习方法 StructureNFT，将结构约束从合成场景迁移至真实世界生成任务；并构建真实场景评测基准 TexBench。在主测试集上取得 SOTA 性能。',
-        links: [{ type: 'website', href: '#' }],
+        links: [{ type: 'website', href: 'https://arxiv.org/abs/2603.18488' }],
         status: 'accepted'
       },
       {
@@ -112,42 +110,8 @@ const headings = [
         type: 'journal',
         abstract:
           '基于大语言模型的电力系统运行风险评估研究，负责风险评估策略设计、GRPO 强化学习训练、实验验证及论文撰写，提升模型风险定级准确性与推理能力。',
-        links: [{ type: 'website', href: '#' }],
+        links: [{ type: 'website', href: 'https://kns.cnki.net/kcms2/article/abstract?v=jXpGf_Tis3BO7y3TyZruUOK4DTQA5k7-c4YVlxn6-g-K10dRgZu67wrfTJA6yg9exDs8aiF8MkQYtZG6msQfv2aAIrUdzYJ3XCLsVKbu95n9RK-sOUDFGXVJNUCFpZp1LUMV2DieHCFFuMYHbu2Y00Yfd-KSRAf_&uniplatform=NZKPT' }],
         status: 'published'
-      }
-    ]}
-  />
-
-  <h2 id='competitions'>竞赛经历<a class='anchor' href='#competitions'>#</a></h2>
-  <ResearchProjectSection
-    projects={[
-      {
-        title: '2026 CCPC 全国邀请赛（福州）',
-        description: '中国大学生程序设计竞赛全国邀请赛，国家一等奖（金牌）。',
-        category: '算法竞赛',
-        status: 'completed',
-        links: []
-      },
-      {
-        title: '第 50 届 ICPC 亚洲区域赛（沈阳）',
-        description: '国际大学生程序设计竞赛亚洲区域赛，国家二等奖（银牌）。',
-        category: '算法竞赛',
-        status: 'completed',
-        links: []
-      },
-      {
-        title: '第十六届蓝桥杯全国总决赛',
-        description: '全国软件和信息技术专业人才大赛，国家一等奖。',
-        category: '算法竞赛',
-        status: 'completed',
-        links: []
-      },
-      {
-        title: 'ASC25 世界大学生超算竞赛',
-        description: '世界大学生超级计算机竞赛亚洲区预选赛，国家二等奖。',
-        category: '高性能计算',
-        status: 'completed',
-        links: []
       }
     ]}
   />
