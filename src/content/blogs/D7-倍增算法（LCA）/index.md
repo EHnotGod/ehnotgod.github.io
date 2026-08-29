@@ -12,13 +12,55 @@ language: zh
 
 题目链接：https://www.luogu.com.cn/problem/P3379
 
-题面同D11
+**题目描述**
+
+如题，给定一棵有根多叉树，请求出指定两个点之间最近的公共祖先。
+
+**输入格式**
+
+第一行包含三个正整数 $N,M,S$，分别表示树的结点个数、询问的个数和树根结点的序号。
+
+接下来 $N-1$ 行每行包含两个正整数 $x, y$，表示 $x$ 结点和 $y$ 结点之间有一条直接连接的边（数据保证可以构成树）。
+
+接下来 $M$ 行每行包含两个正整数 $a, b$，表示询问 $a$ 结点和 $b$ 结点的最近公共祖先。
+
+**输出格式**
+
+输出包含 $M$ 行，每行包含一个正整数，依次为每一个询问的结果。
+
+输入 #1
+
+```
+5 5 4
+3 1
+2 4
+5 1
+1 4
+2 4
+3 2
+3 5
+1 2
+4 5
+```
+
+输出 #1
+
+```
+4
+4
+1
+4
+4
+
+```
+
+对于 $100\%$ 的数据，$1 \leq N,M\leq 5\times10^5$，$1 \leq x, y,a ,b \leq N$，**不保证** $a \neq b$。
+
+### 算法解析：
 
 ![image-20250727163659755](/images/算法竞赛/D/D7-1.png)
 
 ![image-20250727163753894](/images/算法竞赛/D/D7-2.png)
-
-### 算法解析：
 
 倍增法求 LCA：先用 DFS 预处理每个点的深度 $dep[u]$ 和 $2^i$ 级祖先 $f[u][i]$（$f[u][i]=f[f[u][i-1]][i-1]$）。查询时先把较深的点跳到与另一个同深度，再一起向上跳，最后跳到 LCA 的下一个点。单次查询 $O(\log n)$，预处理 $O(n\log n)$。
 
@@ -44,23 +86,10 @@ dep = [0] * N
 
 
 def dfs(u: int, parent: int) -> None:
-    """
-    从 u 开始对整棵树做一次深度优先遍历，顺便预处理二倍祖先 f[u][i] 和深度 dep[u]。
-
-    参数:
-      u      - 当前节点
-      parent - u 的父节点（0 表示虚拟根）
-    """
-    # 初始化 u 的 2^0 祖先（也就是父节点）和深度
     f[u][0] = parent
     dep[u] = dep[parent] + 1
-
-    # 依次计算 f[u][1..LOG]，即 2^1、2^2、…、2^LOG 级祖先
     for i in range(1, LOG + 1):
-        # f[u][i] = f[ f[u][i-1] ][i-1]
         f[u][i] = f[f[u][i - 1]][i - 1]
-
-    # 遍历所有相邻的孩子 v，继续 dfs
     for v in edges[u]:
         if v == parent:
             continue
@@ -68,56 +97,25 @@ def dfs(u: int, parent: int) -> None:
 
 
 def lca(u: int, v: int) -> int:
-    """
-    计算节点 u 和 v 的最近公共祖先（Lowest Common Ancestor）。
-
-    思路：
-      1. 如果 u、v 深度不一致，先把深度较深的节点提升到与另一节点同层。
-      2. 如果此时 u == v，则直接返回。
-      3. 否则，从最高位开始尝试让 u、v 同时往上跳，直到它们的父节点相同为止。
-      4. 最后返回它们共同的父节点。
-    """
-    # 保证 dep[u] ≥ dep[v]
     if dep[u] < dep[v]:
         u, v = v, u
-
-    # 先把 u 提升到与 v 相同的深度
     diff = dep[u] - dep[v]
     for i in range(LOG + 1):
         if diff & (1 << i):
             u = f[u][i]
-
-    # 如果相等，则这个节点就是 LCA
     if u == v:
         return u
-
-    # 从最高位开始，若 u、v 的 2^i 祖先不同，则同时跳上去
     for i in reversed(range(LOG + 1)):
         if f[u][i] != f[v][i]:
             u = f[u][i]
             v = f[v][i]
-
-    # 此时 u、v 的父节点就是 LCA
     return f[u][0]
-
-
-# ------------------------------
-# 读取输入、构建树并回答查询
-# ------------------------------
-
-# n: 节点数； m: 查询次数； s: 以 s 为根的 LCA 树
 n, m, s = map(int, input().split())
-
-# 读取 n-1 条边，建立无向树
 for _ in range(n - 1):
     a, b = map(int, input().split())
     edges[a].append(b)
     edges[b].append(a)
-
-# 从根 s 开始 dfs 预处理
 dfs(s, 0)
-
-# 处理 m 次 LCA 查询
 for _ in range(m):
     u, v = map(int, input().split())
     print(lca(u, v))

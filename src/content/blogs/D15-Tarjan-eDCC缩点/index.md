@@ -1,5 +1,5 @@
 ---
-title: "D16 Tarjan eDCC缩点"
+title: "D15 Tarjan eDCC缩点"
 publishDate: 2026-08-08
 description: "边双连通分量缩点（eDCC）。"
 category: algo

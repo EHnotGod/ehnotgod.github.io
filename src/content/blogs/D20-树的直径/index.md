@@ -1,5 +1,5 @@
 ---
-title: "D21 树的直径"
+title: "D20 树的直径"
 publishDate: 2026-08-08
 description: "树的直径：两次 DFS/BFS 求最远点对。"
 category: algo
@@ -46,7 +46,7 @@ B4016 树的直径
 
 数据保证，$$1 \leq n \leq 10^5$$。
 
-![image-20250816214118195](/images/算法竞赛/D/D21-1.png)
+![image-20250816214118195](/images/算法竞赛/D/D20-1.png)
 
 ### 算法解析：
 

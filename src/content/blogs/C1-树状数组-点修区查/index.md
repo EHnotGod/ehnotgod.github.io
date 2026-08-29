@@ -176,6 +176,21 @@ struct BIT {
         for (; x; x -= x & -x) res += s[x];
         return res;
     }
+    int kth(int k) {
+        int pos = 0;
+        int sum = 0;
+        int step = 1;
+        while ((step << 1) < (int)s.size())
+            step <<= 1;
+        for (; step; step >>= 1) {
+            int nxt = pos + step;
+            if (nxt < (int)s.size() && sum + s[nxt] < k) {
+                pos = nxt;
+                sum += s[nxt];
+            }
+        }
+        return pos + 1;
+    }
 };
 int main() {
     ios::sync_with_stdio(0);
@@ -200,6 +215,11 @@ int main() {
 }
 ```
 
+上文的kth其实可以不用，那个是树状数组上二分的过程。
+
+它返回：最小的 pos，满足 query(pos) >= k。
+
+另外，有小线段树：
 ```c++
 //洛谷P3374
 #include<bits/stdc++.h>

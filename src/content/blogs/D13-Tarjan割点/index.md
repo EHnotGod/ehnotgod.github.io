@@ -1,5 +1,5 @@
 ---
-title: "D14 Tarjan割点"
+title: "D13 Tarjan割点"
 publishDate: 2026-08-08
 description: "Tarjan 割点：无向图割点判定。"
 category: algo

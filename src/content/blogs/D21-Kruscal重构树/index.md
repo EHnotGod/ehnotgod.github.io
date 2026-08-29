@@ -1,5 +1,5 @@
 ---
-title: "D22 Kruscal重构树"
+title: "D21 Kruscal重构树"
 publishDate: 2026-08-08
 description: "Kruscal 重构树：最小瓶颈 / 连通性离线问题。"
 category: algo

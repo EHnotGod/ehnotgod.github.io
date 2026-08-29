@@ -1,5 +1,5 @@
 ---
-title: "D18 Dinic最大流"
+title: "D17 Dinic最大流"
 publishDate: 2026-08-08
 description: "Dinic 最大流：分层图 + 阻塞流。"
 category: algo

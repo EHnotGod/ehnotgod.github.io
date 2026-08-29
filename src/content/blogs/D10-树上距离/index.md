@@ -1,5 +1,5 @@
 ---
-title: "D11 树上距离"
+title: "D10 树上距离"
 publishDate: 2026-08-08
 description: "树上前缀和/差分：求树上两点距离与路径和。"
 category: algo
@@ -12,7 +12,7 @@ language: zh
 
 题目链接：https://loj.ac/p/10130
 
-![image-20250418092643205](/images/算法竞赛/D/D11-1.png)
+![image-20250418092643205](/images/算法竞赛/D/D10-1.png)
 
 ### 算法解析：
 

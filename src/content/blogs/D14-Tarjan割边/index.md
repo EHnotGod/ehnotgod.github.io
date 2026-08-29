@@ -1,5 +1,5 @@
 ---
-title: "D15 Tarjan割边"
+title: "D14 Tarjan割边"
 publishDate: 2026-08-08
 description: "Tarjan 割边（桥）：无向图桥判定。"
 category: algo

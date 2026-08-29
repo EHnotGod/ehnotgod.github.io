@@ -1,5 +1,5 @@
 ---
-title: "D9 树链剖分（最近公共祖先 LCA）"
+title: "D8 树链剖分（最近公共祖先 LCA）"
 publishDate: 2026-08-08
 description: "树链剖分：重链剖分求 LCA 与路径操作。"
 category: algo
@@ -78,7 +78,7 @@ language: zh
 
 **解析：**
 
-![image-20250418092432087](/images/算法竞赛/D/D9-2.png)
+![image-20250418092432087](/images/算法竞赛/D/D8-2.png)
 
 ### 算法解析：
 

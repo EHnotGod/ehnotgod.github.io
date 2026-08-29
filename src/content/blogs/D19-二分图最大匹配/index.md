@@ -1,5 +1,5 @@
 ---
-title: "D20 二分图最大匹配"
+title: "D19 二分图最大匹配"
 publishDate: 2026-08-08
 description: "二分图最大匹配：匈牙利算法。"
 category: algo

@@ -1,5 +1,5 @@
 ---
-title: "D13 Tarjan SCC缩点"
+title: "D12 Tarjan SCC缩点"
 publishDate: 2026-08-08
 description: "SCC 缩点：把强连通分量缩成 DAG。"
 category: algo
@@ -49,7 +49,7 @@ P3387 【模板】缩点
 
 对于 $$100\%$$ 的数据，$$1\le n \le 10^4$$，$$1\le m \le 10^5$$，$$0\le a_i\le 10^3$$。
 
-![image-20250817142544858](/images/算法竞赛/D/D13-1.png)
+![image-20250817142544858](/images/算法竞赛/D/D12-1.png)
 
 ### 算法解析：
 

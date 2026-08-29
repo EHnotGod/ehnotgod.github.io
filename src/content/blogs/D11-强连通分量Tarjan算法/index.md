@@ -1,5 +1,5 @@
 ---
-title: "D12 强连通分量Tarjan算法"
+title: "D11 强连通分量Tarjan算法"
 publishDate: 2026-08-08
 description: "Tarjan 强连通分量：有向图 SCC。"
 category: algo
@@ -46,7 +46,7 @@ P2863 [USACO06JAN] The Cow Prom S
 
 对于全部的测试点，保证 $$2\le n \le 10^4$$，$$2\le m\le 5\times 10^4$$，$$1 \leq a, b \leq n$$。
 
-![image-20250817142047464](/images/算法竞赛/D/D12-1.png)
+![image-20250817142047464](/images/算法竞赛/D/D11-1.png)
 
 ### 算法解析：
 
