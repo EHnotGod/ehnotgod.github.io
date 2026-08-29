@@ -5929,9 +5929,28 @@ int main(){
 &lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/2320.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;故输出应依次为 $$2$$ 和 $$21$$。&lt;/p&gt;
 &lt;p&gt;树链剖分部分和上面一样，多了一个“同链打标记”，可以使用线段树维护。总时间复杂度：$${O(mlog^2n)}$$&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D9-3.png&quot; alt=&quot;image-20250816213622059&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;重链剖分把树上的路径操作转化为区间操作：用两遍 DFS 求出重儿子、链顶和 dfs 序，使每条重链上的点在 dfs 序中连续，再用线段树维护区间加与区间和。路径 $x\to y$ 的修改/查询，通过不断跳到链顶上方完成，复杂度 $O(\log^2 n)$。&lt;/p&gt;
+&lt;p&gt;重链剖分的核心思想是&lt;strong&gt;把树拍平成一个序列&lt;/strong&gt;，用 dfs 序把树上的路径/子树操作变成线段树上的区间操作。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一遍 DFS（dfs1）&lt;/strong&gt;，自底向上求出每个点的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$fa[u]$：父节点&lt;/li&gt;
+&lt;li&gt;$dep[u]$：深度&lt;/li&gt;
+&lt;li&gt;$siz[u]$：子树大小&lt;/li&gt;
+&lt;li&gt;$son[u]$：&lt;strong&gt;重儿子&lt;/strong&gt;，即子树最大的那个儿子（若有多个取其一）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;第二遍 DFS（dfs2）&lt;/strong&gt;，按&quot;&lt;strong&gt;先走重儿子&lt;/strong&gt;&quot;的顺序给每个点分配 dfs 序 $dfn[u]$，并记录 $top[u]$（所在重链的链顶）。因为每次优先进入重儿子，所以&lt;strong&gt;同一条重链上的点在 $dfn$ 中是连续的一段区间&lt;/strong&gt;——这正是&quot;一条链 = 一段区间&quot;的关键。&lt;/p&gt;
+&lt;p&gt;剖分完成后：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;子树操作&lt;/strong&gt;：以 $x$ 为根的子树，其所有点在 $dfn$ 中恰好是连续区间 $[dfn[x],\ dfn[x]+siz[x]-1]$，直接对线段树做一次区间加/区间和即可，$O(\log n)$。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;路径操作&lt;/strong&gt;（$x\to y$）：不断把 $x,y$ 中链顶更深的那个&quot;整条链&quot;一起处理：
+&lt;ol&gt;
+&lt;li&gt;若 $top[x]\neq top[y]$，比较 $dep[top[x]]$ 与 $dep[top[y]]$，取更深的一方（假设是 $x$），对区间 $[dfn[top[x]], dfn[x]]$ 做线段树区间操作，然后 $x=fa[top[x]]$（跳到链顶的父节点）；&lt;/li&gt;
+&lt;li&gt;重复直到 $x,y$ 位于同一条重链；&lt;/li&gt;
+&lt;li&gt;最后对 $[dfn[x],dfn[y]]$（深度小的在前）做一次区间操作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为每次跳链都会让链顶深度至少减半，最多跳 $O(\log n)$ 条链，每次线段树操作 $O(\log n)$，所以单次路径操作复杂度 $O(\log^2 n)$。线段树只需支持区间加与区间求和即可（本题是纯加法，不需要处理懒标记下传顺序；加乘混合时才要特殊处理）。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 树链剖分 O(mlognlogn)
 #include&amp;#x3C;bits/stdc++.h&gt;
