@@ -88,6 +88,10 @@ language: zh
 
 点双连通分量（vDCC）：Tarjan 时用栈维护，当发现割点 $u$ 且子节点 $v$ 满足 $low[v] \ge dfn[u]$ 时，从栈中弹出直到 $v$，连同 $u$ 构成一个 vDCC（注意 $u$ 可能属于多个 vDCC，vDCC 之间通过割点相连）。复杂度 $O(n+m)$。
 
+### py代码实现
+
+略，涉及到dfs的都不适合写python。
+
 ### C++代码实现
 
 ```c++
