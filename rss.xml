@@ -6624,6 +6624,8 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D16-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;点双连通分量（vDCC）：Tarjan 时用栈维护，当发现割点 $u$ 且子节点 $v$ 满足 $low[v] \ge dfn[u]$ 时，从栈中弹出直到 $v$，连同 $u$ 构成一个 vDCC（注意 $u$ 可能属于多个 vDCC，vDCC 之间通过割点相连）。复杂度 $O(n+m)$。&lt;/p&gt;
+&lt;h3&gt;py代码实现&lt;/h3&gt;
+&lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&amp;#x3C;bits/stdc++.h&gt;
 using namespace std;
@@ -6705,6 +6707,9 @@ int main(){
 &lt;p&gt;二分图上的Dinic更快。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Dinic 最大流：每次用 BFS 建分层图（按到源点距离分层），再在当前分层图上用 DFS 找阻塞流（一次可增广多条路径，配合当前弧优化），反复执行直到 BFS 无法到达汇点。复杂度 $O(n^2m)$，实际表现很快。&lt;/p&gt;
+&lt;p&gt;太难了，不讲具体了。&lt;/p&gt;
+&lt;h3&gt;py代码实现&lt;/h3&gt;
+&lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// Luogu P3376 【模板】网络最大流
 #include &amp;#x3C;iostream&gt;
@@ -6807,9 +6812,11 @@ int main(){
 &lt;pre&gt;&lt;code&gt;50 280
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \leq n \leq 5\times 10^3$$，$$1 \leq m \leq 5 \times 10^4$$，$$1 \leq s,t \leq n$$，$$u_i \neq v_i$$，$$0 \leq w_i,c_i \leq 10^3$$，且该网络的最大流和最小费用 $$\leq 2^{31}-1$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D18-1.png&quot; alt=&quot;image-20251101160808199&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D18-1.png&quot; alt=&quot;image-20251101160808199&quot;&gt;&lt;/p&gt;
 &lt;p&gt;最小费用最大流：在 EK 框架下，每次用 SPFA 在残量网络上找费用最小的增广路，沿最短路增广并累加费用，直到找不到增广路。因为残量网络中存在负费用反向边，用 SPFA 而非 Dijkstra。复杂度 $O(F\cdot nm)$。&lt;/p&gt;
+&lt;h3&gt;py代码实现&lt;/h3&gt;
+&lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// Luogu P3381 【模板】最小费用最大流
 #include &amp;#x3C;iostream&gt;
@@ -6894,6 +6901,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;匈牙利算法求二分图最大匹配：对每个左部点尝试匹配一个右部点，若该右部点已被匹配，则递归尝试让它的原配重新寻找新的右部点（即寻找增广路），成功则匹配数 +1。复杂度 $O(ne)$。&lt;/p&gt;
+&lt;p&gt;Dinic算法的复杂度少一个根号n。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;//
 #include &amp;#x3C;iostream&gt;
@@ -6971,9 +6979,83 @@ int main(){
   printf(&quot;%lld\n&quot;,dinic());
   return 0;
 }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;dinic:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;//
+#include&amp;#x3C;bits/stdc++.h&gt;
+#define N 1010
+#define M 2000010
+using namespace std;
+
+int n,m,k,S,T;
+struct edge{int v,c,ne;}e[M];
+int h[N],idx=1; //从2,3开始配对
+int d[N],cur[N];
+
+void add(int a,int b,int c){
+  e[++idx]={b,c,h[a]};
+  h[a]=idx;
+}
+bool bfs(){ //对点分层，找增广路
+  memset(d,0,sizeof d);
+  queue&amp;#x3C;int&gt;q; 
+  q.push(S); d[S]=1;
+  while(q.size()){
+    int u=q.front(); q.pop();
+    for(int i=h[u];i;i=e[i].ne){
+      int v=e[i].v;
+      if(d[v]==0 &amp;#x26;&amp;#x26; e[i].c){
+        d[v]=d[u]+1;
+        q.push(v);
+        if(v==T)return true;
+      }
+    }
+  }
+  return false;
+}
+int dfs(int u, int mf){ //多路增广
+  if(u==T) return mf;
+  int sum=0;
+  for(int i=cur[u];i;i=e[i].ne){
+    cur[u]=i; //当前弧优化
+    int v=e[i].v;
+    if(d[v]==d[u]+1 &amp;#x26;&amp;#x26; e[i].c){
+      int f=dfs(v,min(mf,e[i].c));
+      e[i].c-=f; 
+      e[i^1].c+=f; //更新残留网
+      sum+=f; //累加u的流出流量
+      mf-=f;  //减少u的剩余流量
+      if(mf==0)break;//余量优化
+    }
+  }
+  if(sum==0) d[u]=0; //残枝优化
+  return sum;
+}
+int dinic(){ //累加可行流
+  int flow=0;
+  while(bfs()){
+    memcpy(cur, h, sizeof h);
+    flow+=dfs(S,1e9);
+  }
+  return flow;
+}
+int main(){
+  int a,b,c;
+  scanf(&quot;%d%d%d&quot;,&amp;#x26;n,&amp;#x26;m,&amp;#x26;k);
+  while(k--){
+    scanf(&quot;%d%d&quot;,&amp;#x26;a,&amp;#x26;b);
+    add(a,b+n,1);add(b+n,a,0);
+  }
+  S=0;T=n+m+1;
+  for(int i=1;i&amp;#x3C;=n;i++)
+    add(S,i,1),add(i,S,0);
+  for(int i=1;i&amp;#x3C;=m;i++)
+    add(i+n,T,1),add(T,i+n,0); 
+  printf(&quot;%lld\n&quot;,dinic());
+  return 0;
+}
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D20 树的直径</title><link>https://ehnotgod.github.io/blog/d20-%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d20-%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84</guid><description>树的直径：两次 DFS/BFS 求最远点对。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/B4016&lt;/p&gt;
-&lt;p&gt;B4016 树的直径&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一棵 $$n$$ 个结点的树，树没有边权。请求出树的直径是多少，即树上最长的不重复经过一个点的路径长度是多少。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -6992,9 +7074,11 @@ int main(){
 &lt;pre&gt;&lt;code&gt;3
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;数据保证，$$1 \leq n \leq 10^5$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D20-1.png&quot; alt=&quot;image-20250816214118195&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D20-1.png&quot; alt=&quot;image-20250816214118195&quot;&gt;&lt;/p&gt;
 &lt;p&gt;树的直径即树上最长路径。方法：任选一点出发 DFS/BFS 找到最远点 $p$，再从 $p$ 出发 DFS/BFS 找到最远点 $q$，则 $p$ 到 $q$ 的路径就是直径（原理：从任意点出发的最远点必是直径的一个端点）。无负边权时也可用树形 DP 求。复杂度 $O(n)$。&lt;/p&gt;
+&lt;h3&gt;py代码实现&lt;/h3&gt;
+&lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 树的直径 正边权 两次DFS O(n)
 #include&amp;#x3C;bits/stdc++.h&gt;
@@ -7052,6 +7136,7 @@ int main(){
   cout&amp;#x3C;&amp;#x3C;mxd;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D21 Kruscal重构树</title><link>https://ehnotgod.github.io/blog/d21-kruscal%E9%87%8D%E6%9E%84%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d21-kruscal%E9%87%8D%E6%9E%84%E6%A0%91</guid><description>Kruscal 重构树：最小瓶颈 / 连通性离线问题。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/U201076&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一张 $$N$$ 个点的无向图，记为 $$1\cdots N$$ 。&lt;/p&gt;
 &lt;p&gt;图中有 $$M$$ 条边，第 $$j$$ 条边的长度为 $$d_j$$ 。&lt;/p&gt;
@@ -7094,10 +7179,18 @@ int main(){
 &lt;p&gt;$$1 \leq M \leq 30000$$&lt;/p&gt;
 &lt;p&gt;$$1 \leq D_j \leq 10^9$$&lt;/p&gt;
 &lt;p&gt;$$1 \leq K \leq 15000$$&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2&gt;E-动态规划&lt;/h2&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Kruskal 重构树：按边权从小到大做 Kruskal，每次合并两个连通块时新建一个权值为该边权的虚点作为两者的父节点。这样得到一棵二叉重构树，其中任意两点的 LCA 权值就是这两点间所有路径中最大边权的最小值（最小瓶颈路）。查询用 LCA 即可。&lt;/p&gt;
+&lt;p&gt;具体算法流程：&lt;/p&gt;
+&lt;p&gt;对于此题来说，将边权从小到大排序
+用并查集维护两点的联通性，若祖先不相同，那么新建一个节点，权值为边权。左右儿子分别为两个点
+这样建出来的树，我们称之为Kruskal重构树&lt;/p&gt;
+&lt;p&gt;它有许多美妙的性质&lt;/p&gt;
+&lt;p&gt;是一颗二叉树
+两点的LCA的点权为原图中最大值最小的路径上的最大值
+任意点的权值大于左右儿子的权值，是一个大根堆
+对于此题的样例来说，建出来的图大概长这样&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D21-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;/*EHnotgod————
 ..............#######.....#.....#..............
