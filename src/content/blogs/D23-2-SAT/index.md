@@ -1,5 +1,5 @@
 ---
-title: "D22 2-SAT"
+title: "D23 2-SAT"
 publishDate: 2026-08-08
 description: "2-SAT：变量拆点 + Tarjan 强连通判定与构造。"
 category: algo

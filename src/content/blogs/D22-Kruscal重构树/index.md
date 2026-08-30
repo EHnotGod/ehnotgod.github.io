@@ -1,5 +1,5 @@
 ---
-title: "D21 Kruscal重构树"
+title: "D22 Kruscal重构树"
 publishDate: 2026-08-08
 description: "Kruscal 重构树：最小瓶颈 / 连通性离线问题。"
 category: algo
@@ -92,7 +92,7 @@ Kruskal 重构树：按边权从小到大做 Kruskal，每次合并两个连通�
 任意点的权值大于左右儿子的权值，是一个大根堆
 对于此题的样例来说，建出来的图大概长这样
 
-![](/images/算法竞赛/D/D21-1.png)
+![](/images/算法竞赛/D/D22-1.png)
 
 ### py代码实现
 

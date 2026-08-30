@@ -1,10 +1,10 @@
 ---
-title: "E18 树的重心"
+title: "D21 树的重心"
 publishDate: 2026-08-08
 description: "树的重心：删去后最大子树最小。"
 category: algo
 tags:
-  - 动态规划
+  - 图论
 language: zh
 ---
 

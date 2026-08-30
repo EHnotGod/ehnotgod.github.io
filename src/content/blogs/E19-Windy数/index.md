@@ -1,5 +1,5 @@
 ---
-title: "E20 Windy数"
+title: "E19 Windy数"
 publishDate: 2026-08-08
 description: "数位 DP：相邻数字差不小于 2 的数。"
 category: algo
