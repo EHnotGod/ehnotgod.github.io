@@ -8,6 +8,14 @@ tags:
 language: zh
 ---
 
+### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P1364
+
+### 算法解析：
+
+树的重心：删去某点后，剩余连通块中最大者最小。DFS 求每个点的子树大小 $siz[u]$，则删去 $u$ 后最大子树为 $\max(儿子们的 siz,\ n-siz[u])$（$n-siz[u]$ 是上方部分），取所有点的最小值即重心对应的值。复杂度 $O(n)$。
+
 ### Python代码实现
 
 ```python

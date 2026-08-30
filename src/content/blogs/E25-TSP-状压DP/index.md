@@ -8,6 +8,14 @@ tags:
 language: zh
 ---
 
+### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P1171
+
+### 算法解析：
+
+TSP 状压 DP：$dp[mask][j]$ 表示已访问集合为 $mask$、当前在城市 $j$ 的最小路程。转移：从任意 $k\in mask$（$k\ne j$）走来，$dp[mask][j]=\min(dp[mask \oplus 2^j][k]+s[k][j])$。最后回到起点，$ans=\min_j(dp[2^n-1][j]+s[j][0])$。复杂度 $O(2^n\cdot n^2)$。
+
 ### Python代码实现
 
 ```python

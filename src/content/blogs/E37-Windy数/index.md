@@ -8,6 +8,14 @@ tags:
 language: zh
 ---
 
+### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P2657
+
+### 算法解析：
+
+Windy 数（相邻数字差 $\ge 2$）数位 DP：预处理 $f[i][j]$ 表示共 $i$ 位、最高位为 $j$ 的 Windy 数个数（$f[i][j]=\sum f[i-1][k]$，其中 $|j-k|\ge 2$）。求 $\le x$ 的个数时按位枚举，$last$ 记录上一位保证相邻差 $\ge 2$，同时处理前导零（位数不足的单独统计）。区间 $[l,r]$ 用 $f(r)-f(l-1)$。复杂度 $O(位数\times 10\times 10)$。
+
 ### Python代码实现
 
 ```python
