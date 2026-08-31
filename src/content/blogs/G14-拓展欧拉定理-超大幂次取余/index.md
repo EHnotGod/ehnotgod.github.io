@@ -7,6 +7,7 @@ tags:
   - 数学
 language: zh
 ---
+
 ### 题目情境
 
 **题目描述**
@@ -20,8 +21,6 @@ language: zh
 ### 算法解析：
 
 扩展欧拉定理：当 $b\ge\varphi(m)$ 时 $a^b\equiv a^{b\bmod\varphi(m)+\varphi(m)}\pmod m$（$a$ 与 $m$ 互质时指数取 $b\bmod\varphi(m)$）。用于超大幂次取模降幂：先求 $\varphi(m)$，再把指数降下来快速幂。
-
-### 备注
 
 没啥好说的，这个只需要记住公式就行了。
 
