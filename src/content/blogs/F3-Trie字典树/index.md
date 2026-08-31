@@ -10,7 +10,7 @@ language: zh
 
 ### 题目情境
 
-（题目链接待补充：Trie 字典树——统计每个字符串出现的次数）
+题目链接：https://www.luogu.com.cn/problem/P8306
 
 **题目描述**
 

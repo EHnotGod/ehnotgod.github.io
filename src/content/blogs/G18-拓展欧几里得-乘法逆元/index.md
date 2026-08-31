@@ -7,8 +7,21 @@ tags:
   - 数学
 language: zh
 ---
-
 ### 题目情境
+
+**题目描述**
+
+给定 $a,b,m$，求解同余方程 $ax\equiv b\pmod m$。
+
+**说明/提示**
+
+本页为算法笔记。
+
+### 算法解析：
+
+exgcd 求逆元：$ax\equiv b\pmod m$ 即 $ax+my=b$。用扩展欧几里得求 $ax+my=\gcd(a,m)$ 的特解，若 $b$ 能被 $\gcd$ 整除则 $x=b/d\cdot x_0\bmod m$ 为解，否则无解。当 $b=1$ 时即求 $a$ 的乘法逆元。
+
+### 备注
 
 ![image-20250808150258351](/images/算法竞赛/G/G18-1.png)
 

@@ -7,8 +7,23 @@ tags:
   - 数学
 language: zh
 ---
-
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P4777
+
+**题目描述**
+
+给定 $n$ 组 $(m_i,r_i)$，求满足 $x\equiv r_i\pmod{m_i}$ 的最小非负整数解（模数不保证互质）。
+
+**说明/提示**
+
+本页为算法笔记。
+
+### 算法解析：
+
+扩展中国剩余定理（EXCRT）：模数不互质时两两合并。对 $x\equiv r_1\pmod{m_1}$ 与 $x\equiv r_2\pmod{m_2}$，解 $m_1p+m_2q=\gcd$，若 $(r_2-r_1)\%d\ne0$ 无解；否则得特解并合并为 $x\equiv r'\pmod{\operatorname{lcm}(m_1,m_2)}$。逐对合并到只剩一个同余式。
+
+### 备注
 
 ![image-20250808181543528](/images/算法竞赛/G/G20-1.png)
 

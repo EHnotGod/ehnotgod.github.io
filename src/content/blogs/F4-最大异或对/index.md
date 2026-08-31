@@ -10,7 +10,7 @@ language: zh
 
 ### 题目情境
 
-（题目链接待补充：01 Trie 最大异或对，经典模板 AcWing 143 / 洛谷 P4551 子问题）
+题目链接：https://www.luogu.com.cn/problem/P10471
 
 **题目描述**
 

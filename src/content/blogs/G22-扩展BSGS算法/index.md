@@ -7,8 +7,23 @@ tags:
   - 数学
 language: zh
 ---
-
 ### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P4195
+
+**题目描述**
+
+多组询问，求解离散对数 $a^x\equiv b\pmod p$（$a,p$ 不一定互质）。
+
+**说明/提示**
+
+本页为算法笔记。
+
+### 算法解析：
+
+扩展 BSGS：模数不互质时，先不断除去 $\gcd(a,p)$（每除一次指数加 1），化为 $A\cdot a^{x-k}\equiv b'\pmod{p'}$ 且互质，再套用标准 BSGS 分块：$m=\lceil\sqrt p\rceil$，baby step 存 $b'\cdot a^j$，giant step 查 $a^{im}$，拼接得 $x$。无解返回 -1。
+
+### 备注
 
 ![image-20250808181703985](/images/算法竞赛/G/G22-1.png)
 

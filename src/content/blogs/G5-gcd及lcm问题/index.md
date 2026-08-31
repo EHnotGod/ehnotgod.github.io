@@ -7,6 +7,21 @@ tags:
   - 数学
 language: zh
 ---
+### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P1029
+
+**题目描述**
+
+给定 $x,y$，求有多少对正整数 $(p,q)$ 满足 $\gcd(p,q)=x$ 且 $\operatorname{lcm}(p,q)=y$。
+
+**说明/提示**
+
+本页为算法笔记。
+
+### 算法解析：
+
+利用性质 $\gcd(p,q)\cdot\operatorname{lcm}(p,q)=p\cdot q$：令 $t=x\cdot y$，枚举 $i$ 满足 $i\mid t$ 且 $\gcd(i,t/i)=x$，则 $(i,t/i)$ 为一组解，对称计数加 2；$x=y$ 时去掉重复的一次。复杂度 $O(\sqrt{t})$。
 
 ### Python代码实现
 

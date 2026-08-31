@@ -7,10 +7,23 @@ tags:
   - 数学
 language: zh
 ---
+### 题目情境
 
-### C++代码实现
+**题目描述**
 
-```c++
+给定 $n$，输出 $1\sim n$ 每个数的欧拉函数 $\varphi(i)$（$1\sim i$ 中与 $i$ 互质的个数）。
+
+**说明/提示**
+
+本页为算法笔记。
+
+### 算法解析：
+
+线性筛求欧拉函数：$\varphi(1)=1$；质数 $p$ 的 $\varphi(p)=p-1$；对合数 $m=i\cdot p$：若 $p\mid i$ 则 $\varphi(m)=p\cdot\varphi(i)$，否则 $\varphi(m)=(p-1)\cdot\varphi(i)$。用数组 $\varphi$ 记录并输出。复杂度 $O(n)$。
+
+### Python代码实现
+
+```python
 import sys
 
 def get_phi(n):
@@ -42,6 +55,8 @@ phi = get_phi(n)
 out = '\n'.join(str(phi[i]) for i in range(1, n + 1))
 sys.stdout.write(out)
 ```
+
+### C++代码实现
 
 ```c++
 #include <iostream>
