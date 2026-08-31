@@ -11,11 +11,7 @@ language: zh
 
 **题目描述**
 
-给定 $n$，输出 $1\sim n$ 每个数的莫比乌斯函数 $\mu(i)$。
-
-**说明/提示**
-
-本页为算法笔记。
+题目链接：https://www.luogu.com.cn/problem/T320132
 
 ### 算法解析：
 

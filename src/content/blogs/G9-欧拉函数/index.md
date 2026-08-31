@@ -11,11 +11,33 @@ language: zh
 
 **题目描述**
 
-给定 $n$，输出 $1\sim n$ 每个数的欧拉函数 $\varphi(i)$（$1\sim i$ 中与 $i$ 互质的个数）。
+题目链接：https://www.luogu.com.cn/problem/U629802
 
-**说明/提示**
+欧拉函数就是小于 $x$ 的正整数中与 $x$ 互质的数的个数，一般用 $φ(x)$ 表示。特殊的，$φ(1)=1$。
 
-本页为算法笔记。
+现在需要你求出 $1-n$ 的欧拉函数。
+
+**输入格式**
+
+输入一行一个整数 $n$。
+
+**输出格式**
+
+输出一行 $n$ 个整数表示 $1-n$ 的欧拉函数，用空格分隔。
+
+输入 #1
+
+```
+10
+```
+
+输出 #1
+
+```
+1 1 2 2 4 2 6 4 6 4
+```
+
+对于 $100\%$ 的数据，保证 $1≤n≤2×10^6$。
 
 ### 算法解析：
 
@@ -52,7 +74,7 @@ data = sys.stdin.read().split()
 n = int(data[0])
 phi = get_phi(n)
 # 输出 1..n
-out = '\n'.join(str(phi[i]) for i in range(1, n + 1))
+out = ' '.join(str(phi[i]) for i in range(1, n + 1))
 sys.stdout.write(out)
 ```
 
@@ -90,7 +112,7 @@ int main(){
   cin >> n;
   get_phi(n);
   for(int i=1; i<=n; i++)
-    printf("%d\n", phi[i]);
+    printf("%d ", phi[i]);
   return 0;
 }
 ```
