@@ -13,10 +13,6 @@ language: zh
 
 求组合数 $C(n,k)$（模 $10^9+7$）。
 
-**说明/提示**
-
-本页为算法笔记。
-
 ### 算法解析：
 
 线性逆推求组合数：预处理阶乘 $fac$ 与逆阶乘 $inv$。$fac[n]$ 用快速幂求逆得 $inv[n]$，再倒推 $inv[i-1]=inv[i]\cdot i$。则 $C(n,k)=fac[n]\cdot inv[k]\cdot inv[n-k]\bmod p$。查询 $O(1)$，预处理 $O(N)$。
