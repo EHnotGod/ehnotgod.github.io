@@ -9518,13 +9518,6 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G1 快速幂</title><link>https://ehnotgod.github.io/blog/g1-%E5%BF%AB%E9%80%9F%E5%B9%82</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g1-%E5%BF%AB%E9%80%9F%E5%B9%82</guid><description>快速幂：二分求 a^b mod p。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1226&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $a,b,p$，求 $a^b \bmod p$。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
-&lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;快速幂：把指数 $b$ 按二进制拆分，$a^b$ 由 $a^{2^i}$ 的乘积组成。从低位到高位检查 $b$ 的每一位，当前位为 1 就乘上 $a^{2^i}$，同时 $a$ 每次自乘平方（$a^{2^i}=(a^{2^{i-1}})^2$）。每次运算对 $p$ 取模。复杂度 $O(\log b)$。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给你三个整数 $$a,b,p$$，求 $$a^b \bmod p$$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;输入只有一行三个整数，分别代表 $$a,b,p$$。&lt;/p&gt;
@@ -9537,6 +9530,8 @@ int main(){
 &lt;pre&gt;&lt;code&gt;2^10 mod 9=7
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，保证 $$0\le a,b &amp;#x3C; 2^{31}$$，$$a+b&gt;0$$，$$2 \leq p \lt 2^{31}$$。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;快速幂：把指数 $b$ 按二进制拆分，$a^b$ 由 $a^{2^i}$ 的乘积组成。从低位到高位检查 $b$ 的每一位，当前位为 1 就乘上 $a^{2^i}$，同时 $a$ 每次自乘平方（$a^{2^i}=(a^{2^{i-1}})^2$）。每次运算对 $p$ 取模。复杂度 $O(\log b)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a, b, p = map(int, input().split())
 ans = pow(a, b, p)
@@ -9568,13 +9563,6 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G2 高精度快速幂</title><link>https://ehnotgod.github.io/blog/g2-%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%BF%AB%E9%80%9F%E5%B9%82</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g2-%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%BF%AB%E9%80%9F%E5%B9%82</guid><description>高精度 + 快速幂：求超大整数幂。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1045&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $P$，求 $2^P-1$ 的位数及最后 500 位。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
-&lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;麦森数：位数由 $\lfloor P\log_{10}2\rfloor+1$ 计算。后 500 位用高精度数组 + 快速幂：乘法按位逐位计算并进位，幂次按二进制拆分，最后个位减 1（$2^P-1$）。输出分 10 行，每行 50 位。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;形如 $$2^{P}-1$$ 的素数称为麦森数，这时 $$P$$ 一定也是个素数。但反过来不一定，即如果 $$P$$ 是个素数，$$2^{P}-1$$ 不一定也是素数。到 1998 年底，人们已找到了 37 个麦森数。最大的一个是 $$P=3021377$$，它有 909526 位。麦森数有许多重要应用，它与完全数密切相关。&lt;/p&gt;
 &lt;p&gt;任务：输入 $$P(1000&amp;#x3C;P&amp;#x3C;3100000)$$，计算 $$2^{P}-1$$ 的位数和最后 $$500$$ 位数字（用十进制高精度数表示）&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -9600,6 +9588,8 @@ int main(){
 46662248318909188018470682222031405210266984354887
 32958028878050869736186900714720710555703168729087
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;麦森数：位数由 $\lfloor P\log_{10}2\rfloor+1$ 计算。后 500 位用高精度数组 + 快速幂：乘法按位逐位计算并进位，幂次按二进制拆分，最后个位减 1（$2^P-1$）。输出分 10 行，每行 50 位。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
 N = 500
@@ -9682,13 +9672,6 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G3 矩阵快速幂</title><link>https://ehnotgod.github.io/blog/g3-%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g3-%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82</guid><description>矩阵快速幂：加速线性递推。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3390&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n,k$ 和 $n\times n$ 矩阵 $A$，求 $A^k \bmod (10^9+7)$。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
-&lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;矩阵快速幂：把标量快速幂推广到矩阵。初始为单位矩阵，转移矩阵自乘平方，指数 $k$ 按二进制拆分，当前位为 1 则乘上对应矩阵。矩阵乘法三重循环 $O(n^3)$，总复杂度 $O(n^3\log k)$，模 $10^9+7$。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $$n\times n$$ 的矩阵 $$A$$，求 $$A^k$$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;第一行两个整数 $$n,k$$。&lt;br&gt;
@@ -9717,6 +9700,8 @@ int main(){
 429948 528282 626616
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\le n \le 100$$，$$0 \le k \le 10^{12}$$，$$|A_{i,j}| \le 1000$$。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;矩阵快速幂：把标量快速幂推广到矩阵。初始为单位矩阵，转移矩阵自乘平方，指数 $k$ 按二进制拆分，当前位为 1 则乘上对应矩阵。矩阵乘法三重循环 $O(n^3)$，总复杂度 $O(n^3\log k)$，模 $10^9+7$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
 MOD = 10**9 + 7
@@ -9799,9 +9784,29 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G5 gcd及lcm问题</title><link>https://ehnotgod.github.io/blog/g5-gcd%E5%8F%8Alcm%E9%97%AE%E9%A2%98</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g5-gcd%E5%8F%8Alcm%E9%97%AE%E9%A2%98</guid><description>gcd / lcm：欧几里得算法及相关性质。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1029&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $x,y$，求有多少对正整数 $(p,q)$ 满足 $\gcd(p,q)=x$ 且 $\operatorname{lcm}(p,q)=y$。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;输入两个正整数 $x_0, y_0$，求出满足下列条件的 $P, Q$ 的个数：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$P,Q$ 是正整数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;要求 $P, Q$ 以 $x_0$ 为最大公约数，以 $y_0$ 为最小公倍数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;试求：满足条件的所有可能的 $P, Q$ 的个数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一行两个正整数 $x_0, y_0$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一行一个数，表示求出满足条件的 $P, Q$ 的个数。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;3 60
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;4
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于 $100%$ 的数据，$2 \le x_0, y_0 \le {10}^5$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;利用性质 $\gcd(p,q)\cdot\operatorname{lcm}(p,q)=p\cdot q$：令 $t=x\cdot y$，枚举 $i$ 满足 $i\mid t$ 且 $\gcd(i,t/i)=x$，则 $(i,t/i)$ 为一组解，对称计数加 2；$x=y$ 时去掉重复的一次。复杂度 $O(\sqrt{t})$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -9842,9 +9847,32 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G8 线性筛质数</title><link>https://ehnotgod.github.io/blog/g8-%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g8-%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0</guid><description>线性筛（欧拉筛）：O(n) 筛质数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3383&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n,q$ 和 $q$ 次询问，每次询问第 $k$ 小的质数。&lt;/p&gt;
+&lt;p&gt;本题已更新，从判断素数改为了查询第 $k$ 小的素数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如题，给定一个范围 $n$，有 $q$ 个询问，每次输出第 $k$ 小的素数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行包含两个正整数 $n,q$，分别表示查询的范围和查询的个数。&lt;/p&gt;
+&lt;p&gt;接下来 $q$ 行每行一个正整数 $k$，表示查询第 $k$ 小的素数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输出 $q$ 行，每行一个正整数表示答案。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;100 5
+1
+2
+3
+4
+5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2
+3
+5
+7
+11
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;【数据范围】&lt;br&gt;
+对于 $100%$ 的数据，$n = 10^8$，$1 \le q \le 10^6$，保证查询的素数不大于 $n$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;欧拉筛（线性筛）：每个合数只被其最小质因子筛掉一次。枚举 $i$，若未被标记则是质数加入表；再枚举已有质数 $p$，标记 $i\cdot p$，当 $i%p==0$ 时 break（保证每个合数只被最小质因子筛）。$O(n)$ 得质数表后直接回答第 $k$ 小质数。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -9899,9 +9927,20 @@ int main(){
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G9 欧拉函数</title><link>https://ehnotgod.github.io/blog/g9-%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g9-%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0</guid><description>欧拉函数：1~n 中与 n 互质的数个数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n$，输出 $1\sim n$ 每个数的欧拉函数 $\varphi(i)$（$1\sim i$ 中与 $i$ 互质的个数）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/U629802&lt;/p&gt;
+&lt;p&gt;欧拉函数就是小于 $x$ 的正整数中与 $x$ 互质的数的个数，一般用 $φ(x)$ 表示。特殊的，$φ(1)=1$。&lt;/p&gt;
+&lt;p&gt;现在需要你求出 $1-n$ 的欧拉函数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输入一行一个整数 $n$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输出一行 $n$ 个整数表示 $1-n$ 的欧拉函数，用空格分隔。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1 1 2 2 4 2 6 4 6 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于 $100%$ 的数据，保证 $1≤n≤2×10^6$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;线性筛求欧拉函数：$\varphi(1)=1$；质数 $p$ 的 $\varphi(p)=p-1$；对合数 $m=i\cdot p$：若 $p\mid i$ 则 $\varphi(m)=p\cdot\varphi(i)$，否则 $\varphi(m)=(p-1)\cdot\varphi(i)$。用数组 $\varphi$ 记录并输出。复杂度 $O(n)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -9933,7 +9972,7 @@ data = sys.stdin.read().split()
 n = int(data[0])
 phi = get_phi(n)
 # 输出 1..n
-out = &apos;\n&apos;.join(str(phi[i]) for i in range(1, n + 1))
+out = &apos; &apos;.join(str(phi[i]) for i in range(1, n + 1))
 sys.stdout.write(out)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -9968,14 +10007,25 @@ int main(){
   cin &gt;&gt; n;
   get_phi(n);
   for(int i=1; i&amp;#x3C;=n; i++)
-    printf(&quot;%d\n&quot;, phi[i]);
+    printf(&quot;%d &quot;, phi[i]);
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G10 筛法求因数个数</title><link>https://ehnotgod.github.io/blog/g10-%E7%AD%9B%E6%B3%95%E6%B1%82%E5%9B%A0%E6%95%B0%E4%B8%AA%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g10-%E7%AD%9B%E6%B3%95%E6%B1%82%E5%9B%A0%E6%95%B0%E4%B8%AA%E6%95%B0</guid><description>线性筛求每个数的因数个数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n$，输出 $1\sim n$ 每个数的约数个数 $d(i)$。&lt;/p&gt;
+&lt;p&gt;给定一个正整数 $n$，请输出 $1\sim n$ 中每个数的约数个数 $d(i)$。&lt;/p&gt;
+&lt;p&gt;例如 $n=6$ 时：$d(1)=1,d(2)=2,d(3)=2,d(4)=3,d(5)=2,d(6)=4$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输入一行一个正整数 $n$（$1\le n\le 10^6$）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输出一行 $n$ 个整数，第 $i$ 个整数表示 $d(i)$，相邻整数用一个空格隔开。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1 2 2 3 2 4
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;$d(i)$ 表示 $i$ 的正因数个数，如 $d(6)=4$（因数为 $1,2,3,6$）。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;线性筛求约数个数：额外维护 $a[i]$ 表示 $i$ 的最小质因子次数。质数 $d=2$；合数 $m=i\cdot p$：若 $p\mid i$ 则 $a[m]=a[i]+1,\ d[m]=d[i]/a[m]\cdot(a[m]+1)$，否则 $a[m]=1,\ d[m]=2d[i]$。复杂度 $O(n)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -10045,17 +10095,9 @@ int main(){
     printf(&quot;%d\n&quot;, d[i]);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G11 筛法求约数和</title><link>https://ehnotgod.github.io/blog/g11-%E7%AD%9B%E6%B3%95%E6%B1%82%E7%BA%A6%E6%95%B0%E5%92%8C</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g11-%E7%AD%9B%E6%B3%95%E6%B1%82%E7%BA%A6%E6%95%B0%E5%92%8C</guid><description>线性筛求每个数的约数和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G12 莫比乌斯函数</title><link>https://ehnotgod.github.io/blog/g12-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g12-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0</guid><description>莫比乌斯函数：线性筛求 μ(n)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n$，输出 $1\sim n$ 每个数的约数和 $\sigma(i)$。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
-&lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;线性筛求约数和：质数 $\sigma(p)=p+1$；合数 $m=i\cdot p$：若 $p\mid i$ 用 $\sigma(m)=\sigma(i)\cdot(p^{a+1}-1)/(p-1)$ 合并，否则 $\sigma(m)=\sigma(i)\cdot(p+1)$。本篇代码待补充，思路同线性筛维护最小质因子次数。&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G12 莫比乌斯函数</title><link>https://ehnotgod.github.io/blog/g12-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g12-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0</guid><description>莫比乌斯函数：线性筛求 μ(n)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n$，输出 $1\sim n$ 每个数的莫比乌斯函数 $\mu(i)$。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/T320132&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;线性筛求莫比乌斯函数：$\mu(1)=1$；质数 $\mu(p)=-1$；合数 $m=i\cdot p$：若 $p\mid i$ 则 $\mu(m)=0$（含平方因子），否则 $\mu(m)=-\mu(i)$。复杂度 $O(n)$，是莫比乌斯反演的基础。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
