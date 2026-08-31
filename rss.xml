@@ -10151,11 +10151,7 @@ int main(){
     printf(&quot;%d\n&quot;,mu[i]);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G14 拓展欧拉定理-超大幂次取余</title><link>https://ehnotgod.github.io/blog/g14-%E6%8B%93%E5%B1%95%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B6%85%E5%A4%A7%E5%B9%82%E6%AC%A1%E5%8F%96%E4%BD%99</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g14-%E6%8B%93%E5%B1%95%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B6%85%E5%A4%A7%E5%B9%82%E6%AC%A1%E5%8F%96%E4%BD%99</guid><description>扩展欧拉定理：超大幂次取模降幂。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;求超大幂次 $a^b \bmod m$（$b$ 极大，无法直接读入）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G14 拓展欧拉定理-超大幂次取余</title><link>https://ehnotgod.github.io/blog/g14-%E6%8B%93%E5%B1%95%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B6%85%E5%A4%A7%E5%B9%82%E6%AC%A1%E5%8F%96%E4%BD%99</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g14-%E6%8B%93%E5%B1%95%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B6%85%E5%A4%A7%E5%B9%82%E6%AC%A1%E5%8F%96%E4%BD%99</guid><description>扩展欧拉定理：超大幂次取模降幂。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;本页为算法笔记。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;扩展欧拉定理：当 $b\ge\varphi(m)$ 时 $a^b\equiv a^{b\bmod\varphi(m)+\varphi(m)}\pmod m$（$a$ 与 $m$ 互质时指数取 $b\bmod\varphi(m)$）。用于超大幂次取模降幂：先求 $\varphi(m)$，再把指数降下来快速幂。&lt;/p&gt;
 &lt;p&gt;没啥好说的，这个只需要记住公式就行了。&lt;/p&gt;
@@ -10226,14 +10222,28 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G20 扩展中国剩余定理</title><link>https://ehnotgod.github.io/blog/g20-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g20-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86</guid><description>扩展中国剩余定理：模数不互质的同余方程组。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4777&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n$ 组 $(m_i,r_i)$，求满足 $x\equiv r_i\pmod{m_i}$ 的最小非负整数解（模数不保证互质）。&lt;/p&gt;
+&lt;p&gt;给定 $n$ 组非负整数 $a_i, b_i$ ，求解关于 $x$ 的方程组的最小非负整数解。
+$$\begin{cases}x\equiv b_1\pmod{a_1}\x\equiv b_2\pmod{a_2}\\dots\x\equiv b_n\pmod{a_n}\end{cases}$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输入第一行包含整数 $n$。&lt;/p&gt;
+&lt;p&gt;接下来 $n$ 行，每行两个非负整数 $a_i, b_i$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输出一行，为满足条件的最小非负整数 $x$。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;3
+11 6
+25 9
+33 17
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;809
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;对于 $100 %$ 的数据，$1 \le n \le {10}^5$，$1 \le a_i \le {10}^{12}$，$0\leq b_i \leq 10^{12}$，保证所有 $a_i$ 的最小公倍数不超过 ${10}^{18}$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;扩展中国剩余定理（EXCRT）：模数不互质时两两合并。对 $x\equiv r_1\pmod{m_1}$ 与 $x\equiv r_2\pmod{m_2}$，解 $m_1p+m_2q=\gcd$，若 $(r_2-r_1)%d\ne0$ 无解；否则得特解并合并为 $x\equiv r&apos;\pmod{\operatorname{lcm}(m_1,m_2)}$。逐对合并到只剩一个同余式。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G20-1.png&quot; alt=&quot;image-20250808181543528&quot;&gt;&lt;/p&gt;
-&lt;p&gt;时间复杂度：$${O(nlog(m_1))}$$&lt;/p&gt;
+&lt;p&gt;扩展中国剩余定理（EXCRT）：模数不互质时两两合并。对 $x\equiv r_1\pmod{m_1}$ 与 $x\equiv r_2\pmod{m_2}$，解 $m_1p+m_2q=\gcd$，若 $(r_2-r_1)%d\ne0$ 无解；否则得特解并合并为 $x\equiv r&apos;\pmod{\operatorname{lcm}(m_1,m_2)}$。逐对合并到只剩一个同余式。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def exgcd(a, b):
     if b == 0:
@@ -10311,13 +10321,26 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G22 扩展BSGS算法</title><link>https://ehnotgod.github.io/blog/g22-%E6%89%A9%E5%B1%95bsgs%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g22-%E6%89%A9%E5%B1%95bsgs%E7%AE%97%E6%B3%95</guid><description>扩展 BSGS：模数不互质时的离散对数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4195&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;多组询问，求解离散对数 $a^x\equiv b\pmod p$（$a,p$ 不一定互质）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;给定 $a,p,b$，求满足 $a^x≡b \pmod p$ 的最小自然数 $x$ 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;每个测试文件中包含若干组测试数据，保证 $\sum \sqrt p\le 5\times 10^6$。&lt;/p&gt;
+&lt;p&gt;每组数据中，每行包含 $3$ 个正整数 $a,p,b$ 。&lt;/p&gt;
+&lt;p&gt;当 $a=p=b=0$ 时，表示测试数据读入结束。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于每组数据，输出一行。&lt;/p&gt;
+&lt;p&gt;如果无解，输出 &lt;code&gt;No Solution&lt;/code&gt;，否则输出最小自然数解。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;5 58 33
+2 4 3
+0 0 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;9
+No Solution
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于 $100%$ 的数据，$1\le a,p,b≤10^9$ 或 $a=p=b=0$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;扩展 BSGS：模数不互质时，先不断除去 $\gcd(a,p)$（每除一次指数加 1），化为 $A\cdot a^{x-k}\equiv b&apos;\pmod{p&apos;}$ 且互质，再套用标准 BSGS 分块：$m=\lceil\sqrt p\rceil$，baby step 存 $b&apos;\cdot a^j$，giant step 查 $a^{im}$，拼接得 $x$。无解返回 -1。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G22-1.png&quot; alt=&quot;image-20250808181703985&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度：$${O(\sqrt{p})}$$&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math
@@ -10451,13 +10474,6 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G23 高斯消元法</title><link>https://ehnotgod.github.io/blog/g23-%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g23-%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95</guid><description>高斯消元：解线性方程组。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3389&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n$ 元线性方程组（增广矩阵），求解或报告无解。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
-&lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;高斯消元：逐列选主元（当前列绝对值最大），与当前行交换，主元行归一化，再用行变换消去下方行的当前列；回代求各变量。若某列找不到非零主元且常数项非零则无解（No Solution），否则唯一解。复杂度 $O(n^3)$。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个线性方程组，对其求解。&lt;/p&gt;
 &lt;p&gt;$$ \begin{cases} a_{1, 1} x_1 + a_{1, 2} x_2 + \cdots + a_{1, n} x_n = b_1 \ a_{2, 1} x_1 + a_{2, 2} x_2 + \cdots + a_{2, n} x_n = b_2 \ \cdots \ a_{n,1} x_1 + a_{n, 2} x_2 + \cdots + a_{n, n} x_n = b_n \end{cases}$$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -10479,6 +10495,8 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;数据范围：$$1 \leq n \leq 100, \left | a_i \right| \leq {10}^4 , \left |b \right| \leq {10}^4 $$。保证数据若有解则所有解均满足 $$|x_i|\le 10^3$$，且 $$x_i\pm 10^{-6}$$ 和 $$x_i$$ 四舍五入后的结果相同（即不会因为较小的精度误差导致四舍五入后的结果不同）。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;高斯消元：逐列选主元（当前列绝对值最大），与当前行交换，主元行归一化，再用行变换消去下方行的当前列；回代求各变量。若某列找不到非零主元且常数项非零则无解（No Solution），否则唯一解。复杂度 $O(n^3)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 def gauss():
@@ -10578,12 +10596,36 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G24 矩阵求逆-高斯约旦消元法</title><link>https://ehnotgod.github.io/blog/g24-%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86-%E9%AB%98%E6%96%AF%E7%BA%A6%E6%97%A6%E6%B6%88%E5%85%83%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g24-%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86-%E9%AB%98%E6%96%AF%E7%BA%A6%E6%97%A6%E6%B6%88%E5%85%83%E6%B3%95</guid><description>高斯-约旦消元求矩阵逆。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4783&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n\times n$ 矩阵 $A$，求其逆矩阵 $\bmod(10^9+7)$，或报告不可逆。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;求一个 $N\times N$ 的矩阵的逆矩阵。答案对 ${10}^9+7$ 取模。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行有一个整数 $N$，代表矩阵的大小；&lt;/p&gt;
+&lt;p&gt;接下来 $N$ 行，每行 $N$ 个整数，其中第 $i$ 行第 $j$ 列的数代表矩阵中的元素 $a_{i j}$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;若矩阵可逆，则输出 $N$ 行，每行 $N$ 个整数，其中第 $i$ 行第 $j$ 列的数代表逆矩阵中的元素 $b_{i j}$，答案对 ${10}^9+7$ 取模；&lt;/p&gt;
+&lt;p&gt;否则只输出一行 &lt;code&gt;No Solution&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;3
+1 2 8
+2 5 6
+5 1 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;718750005 718750005 968750007
+171875001 671875005 296875002
+117187501 867187506 429687503
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输入 #2&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;3
+3 2 4
+7 2 9
+2 4 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #2&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;No Solution
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对 $100 %$ 的数据有 $N\le 400$，所有 $0 \le a_{i j} &amp;#x3C; {10}^9 + 7$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;高斯-约旦消元求逆：在 $A$ 右侧拼单位矩阵成 $[A\mid I]$，逐列选非零主元（$\bmod$ 下用逆元），把主元行归一化并消去&lt;strong&gt;其他所有行&lt;/strong&gt;的当前列，使左侧变为单位矩阵，右侧即 $A^{-1}$。主元为 0 则不可逆。复杂度 $O(n^3)$。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G24-1.png&quot; alt=&quot;image-20251113091739495&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度：$$O(n^3)$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -10643,8 +10685,6 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G26 求组合数-线性逆推</title><link>https://ehnotgod.github.io/blog/g26-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E7%BA%BF%E6%80%A7%E9%80%86%E6%8E%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g26-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E7%BA%BF%E6%80%A7%E9%80%86%E6%8E%A8</guid><description>组合数：线性递推求逆元计算 C(n,k)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;求组合数 $C(n,k)$（模 $10^9+7$）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;线性逆推求组合数：预处理阶乘 $fac$ 与逆阶乘 $inv$。$fac[n]$ 用快速幂求逆得 $inv[n]$，再倒推 $inv[i-1]=inv[i]\cdot i$。则 $C(n,k)=fac[n]\cdot inv[k]\cdot inv[n-k]\bmod p$。查询 $O(1)$，预处理 $O(N)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -10684,25 +10724,72 @@ def C(n, k):
 # 使用：
 print(C(10, 3))  # 输出 120
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G27 求组合数-卢卡斯</title><link>https://ehnotgod.github.io/blog/g27-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E5%8D%A2%E5%8D%A1%E6%96%AF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g27-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E5%8D%A2%E5%8D%A1%E6%96%AF</guid><description>Lucas 定理：大组合数取模。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3807&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;求大组合数 $C(n,k)\bmod p$（$n,k$ 很大，$p$ 为素数）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;给定整数 $n, m, p$ 的值，求出 $C_{n + m}^n \bmod p$ 的值。&lt;/p&gt;
+&lt;p&gt;输入数据保证 $p$ 为质数。&lt;/p&gt;
+&lt;p&gt;注: $C$ 表示组合数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行一个整数 $T$，表示数据组数。&lt;/p&gt;
+&lt;p&gt;对于每组数据:&lt;/p&gt;
+&lt;p&gt;一行，三个整数 $n, m, p$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于每组数据，输出一行，一个整数，表示所求的值。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2
+1 2 5
+2 1 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;3
+3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;说明/提示&lt;/p&gt;
+&lt;p&gt;对于 $100%$ 的数据，$1 \leq n, m, p \leq 10^5$，$1 \leq T \leq 10$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Lucas 定理：$C(n,k)\equiv C(n/p,k/p)\cdot C(n%p,k%p)\pmod p$（$p$ 为素数）。把 $n,k$ 按 $p$ 进制拆分逐位求组合数相乘。复杂度 $O(p\log_p n)$，适合 $p$ 较小而 $n,k$ 很大的情况。本篇为公式截图笔记，代码待补充。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G27-1.png&quot; alt=&quot;image-20250808184920383&quot;&gt;&lt;/p&gt;
-&lt;p&gt;时间复杂度：$${O(plogp+log_pn)}$$&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G29 隔板法</title><link>https://ehnotgod.github.io/blog/g29-%E9%9A%94%E6%9D%BF%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g29-%E9%9A%94%E6%9D%BF%E6%B3%95</guid><description>隔板法：组合计数的经典技巧。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;隔板法：组合计数的经典技巧。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
-&lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;隔板法：把 $n$ 个相同物品分成 $k$ 组（每组至少一个），等价于在 $n-1$ 个空隙中选 $k-1$ 个放隔板，方案数 $C(n-1,k-1)$；若允许空组，则先补 $k$ 个虚拟物品再插板，方案数 $C(n+k-1,k-1)$。用于正整数解/非负整数解计数。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;不是哥们，这还需要板子？&lt;/p&gt;
-&lt;p&gt;给一下吧哈哈&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G29-1.png&quot; alt=&quot;image-20250808223539886&quot;&gt;&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G32 卡特兰数</title><link>https://ehnotgod.github.io/blog/g32-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g32-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</guid><description>卡特兰数：入栈出栈 / 括号匹配等计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;h3&gt;c++代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
+using namespace std;
+
+typedef long long LL;
+const int N = 100010;
+LL f[N], g[N];
+
+LL qpow(LL a, int b, int p){
+  LL res = 1;
+  while(b){
+    if(b &amp;#x26; 1) res=res*a%p;
+    a = a*a%p;
+    b &gt;&gt;= 1;
+  }
+  return res;
+}
+void init(int p){
+  f[0] = g[0] = 1;
+  for(int i=1; i&amp;#x3C;=p; i++){
+    f[i] = f[i-1]*i%p;
+    g[i] = g[i-1]*qpow(i,p-2,p)%p;
+  }   
+}
+LL getC(int n, int m, int p){
+  return f[n]*g[m]*g[n-m]%p;
+}
+int lucas(LL n, LL m, int p){
+  if(m==0) return 1;
+  return lucas(n/p,m/p,p)*getC(n%p,m%p,p)%p;
+}
+int main(){
+  int q, n, m, p;
+  cin &gt;&gt; q;
+  while(q--){
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;
+    init(p);
+    printf(&quot;%d\n&quot;,lucas(n+m,n,p));
+  }
+  return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G32 卡特兰数</title><link>https://ehnotgod.github.io/blog/g32-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g32-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</guid><description>卡特兰数：入栈出栈 / 括号匹配等计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;卡特兰数：入栈出栈 / 括号匹配等计数。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
