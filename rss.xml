@@ -9781,7 +9781,7 @@ int main(){
     }
     return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G5 gcd及lcm问题</title><link>https://ehnotgod.github.io/blog/g5-gcd%E5%8F%8Alcm%E9%97%AE%E9%A2%98</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g5-gcd%E5%8F%8Alcm%E9%97%AE%E9%A2%98</guid><description>gcd / lcm：欧几里得算法及相关性质。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G4 gcd及lcm问题</title><link>https://ehnotgod.github.io/blog/g4-gcd%E5%8F%8Alcm%E9%97%AE%E9%A2%98</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g4-gcd%E5%8F%8Alcm%E9%97%AE%E9%A2%98</guid><description>gcd / lcm：欧几里得算法及相关性质。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1029&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;输入两个正整数 $x_0, y_0$，求出满足下列条件的 $P, Q$ 的个数：&lt;/p&gt;
@@ -9844,7 +9844,7 @@ int main(){
     cout &amp;#x3C;&amp;#x3C; ans;
     return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G8 线性筛质数</title><link>https://ehnotgod.github.io/blog/g8-%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g8-%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0</guid><description>线性筛（欧拉筛）：O(n) 筛质数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G5 线性筛质数</title><link>https://ehnotgod.github.io/blog/g5-%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g5-%E7%BA%BF%E6%80%A7%E7%AD%9B%E8%B4%A8%E6%95%B0</guid><description>线性筛（欧拉筛）：O(n) 筛质数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3383&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本题已更新，从判断素数改为了查询第 $k$ 小的素数。&lt;/p&gt;
@@ -9925,7 +9925,7 @@ int main(){
     }
     return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G9 欧拉函数</title><link>https://ehnotgod.github.io/blog/g9-%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g9-%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0</guid><description>欧拉函数：1~n 中与 n 互质的数个数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G6 欧拉函数</title><link>https://ehnotgod.github.io/blog/g6-%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g6-%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0</guid><description>欧拉函数：1~n 中与 n 互质的数个数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/U629802&lt;/p&gt;
 &lt;p&gt;欧拉函数就是小于 $x$ 的正整数中与 $x$ 互质的数的个数，一般用 $φ(x)$ 表示。特殊的，$φ(1)=1$。&lt;/p&gt;
@@ -10010,7 +10010,7 @@ int main(){
     printf(&quot;%d &quot;, phi[i]);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G10 筛法求因数个数</title><link>https://ehnotgod.github.io/blog/g10-%E7%AD%9B%E6%B3%95%E6%B1%82%E5%9B%A0%E6%95%B0%E4%B8%AA%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g10-%E7%AD%9B%E6%B3%95%E6%B1%82%E5%9B%A0%E6%95%B0%E4%B8%AA%E6%95%B0</guid><description>线性筛求每个数的因数个数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G7 筛法求因数个数</title><link>https://ehnotgod.github.io/blog/g7-%E7%AD%9B%E6%B3%95%E6%B1%82%E5%9B%A0%E6%95%B0%E4%B8%AA%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g7-%E7%AD%9B%E6%B3%95%E6%B1%82%E5%9B%A0%E6%95%B0%E4%B8%AA%E6%95%B0</guid><description>线性筛求每个数的因数个数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个正整数 $n$，请输出 $1\sim n$ 中每个数的约数个数 $d(i)$。&lt;/p&gt;
 &lt;p&gt;例如 $n=6$ 时：$d(1)=1,d(2)=2,d(3)=2,d(4)=3,d(5)=2,d(6)=4$。&lt;/p&gt;
@@ -10095,7 +10095,7 @@ int main(){
     printf(&quot;%d\n&quot;, d[i]);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G12 莫比乌斯函数</title><link>https://ehnotgod.github.io/blog/g12-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g12-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0</guid><description>莫比乌斯函数：线性筛求 μ(n)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G8 莫比乌斯函数</title><link>https://ehnotgod.github.io/blog/g8-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g8-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0</guid><description>莫比乌斯函数：线性筛求 μ(n)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/T320132&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -10151,11 +10151,11 @@ int main(){
     printf(&quot;%d\n&quot;,mu[i]);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G14 拓展欧拉定理-超大幂次取余</title><link>https://ehnotgod.github.io/blog/g14-%E6%8B%93%E5%B1%95%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B6%85%E5%A4%A7%E5%B9%82%E6%AC%A1%E5%8F%96%E4%BD%99</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g14-%E6%8B%93%E5%B1%95%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B6%85%E5%A4%A7%E5%B9%82%E6%AC%A1%E5%8F%96%E4%BD%99</guid><description>扩展欧拉定理：超大幂次取模降幂。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G9 拓展欧拉定理-超大幂次取余</title><link>https://ehnotgod.github.io/blog/g9-%E6%8B%93%E5%B1%95%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B6%85%E5%A4%A7%E5%B9%82%E6%AC%A1%E5%8F%96%E4%BD%99</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g9-%E6%8B%93%E5%B1%95%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B6%85%E5%A4%A7%E5%B9%82%E6%AC%A1%E5%8F%96%E4%BD%99</guid><description>扩展欧拉定理：超大幂次取模降幂。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;本页为算法笔记。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;扩展欧拉定理：当 $b\ge\varphi(m)$ 时 $a^b\equiv a^{b\bmod\varphi(m)+\varphi(m)}\pmod m$（$a$ 与 $m$ 互质时指数取 $b\bmod\varphi(m)$）。用于超大幂次取模降幂：先求 $\varphi(m)$，再把指数降下来快速幂。&lt;/p&gt;
 &lt;p&gt;没啥好说的，这个只需要记住公式就行了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G14-1.png&quot; alt=&quot;image-20250808145039890&quot;&gt;&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G17 拓展欧几里得-不定方程</title><link>https://ehnotgod.github.io/blog/g17-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g17-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B</guid><description>扩展欧几里得：求解 ax+by=gcd(a,b)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G9-1.png&quot; alt=&quot;image-20250808145039890&quot;&gt;&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G10 拓展欧几里得-不定方程</title><link>https://ehnotgod.github.io/blog/g10-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g10-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B</guid><description>扩展欧几里得：求解 ax+by=gcd(a,b)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $a,b,c$，求解不定方程 $ax+by=c$ 的一组整数解。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
@@ -10163,7 +10163,7 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;扩展欧几里得：递归求 $ax+by=\gcd(a,b)$ 的一组特解 $(x_0,y_0)$（$b=0$ 时 $x=1,y=0$）。若 $c$ 能被 $\gcd(a,b)$ 整除，则 $x=c/d\cdot x_0,\ y=c/d\cdot y_0$ 为解，否则无解。复杂度 $O(\log)$。&lt;/p&gt;
 &lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G17-1.png&quot; alt=&quot;image-20250808145533135&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G10-1.png&quot; alt=&quot;image-20250808145533135&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度：$${O(logn)}$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
@@ -10187,7 +10187,7 @@ int main(){
   else puts(&quot;none&quot;);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G18 拓展欧几里得-乘法逆元</title><link>https://ehnotgod.github.io/blog/g18-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g18-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83</guid><description>扩展欧几里得求乘法逆元。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G11 拓展欧几里得-乘法逆元</title><link>https://ehnotgod.github.io/blog/g11-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g11-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83</guid><description>扩展欧几里得求乘法逆元。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $a,b,m$，求解同余方程 $ax\equiv b\pmod m$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
@@ -10195,7 +10195,7 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;exgcd 求逆元：$ax\equiv b\pmod m$ 即 $ax+my=b$。用扩展欧几里得求 $ax+my=\gcd(a,m)$ 的特解，若 $b$ 能被 $\gcd$ 整除则 $x=b/d\cdot x_0\bmod m$ 为解，否则无解。当 $b=1$ 时即求 $a$ 的乘法逆元。&lt;/p&gt;
 &lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G18-1.png&quot; alt=&quot;image-20250808150258351&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G11-1.png&quot; alt=&quot;image-20250808150258351&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度：$${O(logn)}$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
@@ -10219,7 +10219,7 @@ int main(){
   else puts(&quot;none&quot;);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G20 扩展中国剩余定理</title><link>https://ehnotgod.github.io/blog/g20-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g20-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86</guid><description>扩展中国剩余定理：模数不互质的同余方程组。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G12 扩展中国剩余定理</title><link>https://ehnotgod.github.io/blog/g12-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g12-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86</guid><description>扩展中国剩余定理：模数不互质的同余方程组。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4777&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $n$ 组非负整数 $a_i, b_i$ ，求解关于 $x$ 的方程组的最小非负整数解。
@@ -10242,7 +10242,7 @@ $$\begin{cases}x\equiv b_1\pmod{a_1}\x\equiv b_2\pmod{a_2}\\dots\x\equiv b_n\pmo
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;对于 $100 %$ 的数据，$1 \le n \le {10}^5$，$1 \le a_i \le {10}^{12}$，$0\leq b_i \leq 10^{12}$，保证所有 $a_i$ 的最小公倍数不超过 ${10}^{18}$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G20-1.png&quot; alt=&quot;image-20250808181543528&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G12-1.png&quot; alt=&quot;image-20250808181543528&quot;&gt;&lt;/p&gt;
 &lt;p&gt;扩展中国剩余定理（EXCRT）：模数不互质时两两合并。对 $x\equiv r_1\pmod{m_1}$ 与 $x\equiv r_2\pmod{m_2}$，解 $m_1p+m_2q=\gcd$，若 $(r_2-r_1)%d\ne0$ 无解；否则得特解并合并为 $x\equiv r&apos;\pmod{\operatorname{lcm}(m_1,m_2)}$。逐对合并到只剩一个同余式。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def exgcd(a, b):
@@ -10318,7 +10318,7 @@ int main(){
   printf(&quot;%lld\n&quot;,EXCRT(m,r));
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G22 扩展BSGS算法</title><link>https://ehnotgod.github.io/blog/g22-%E6%89%A9%E5%B1%95bsgs%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g22-%E6%89%A9%E5%B1%95bsgs%E7%AE%97%E6%B3%95</guid><description>扩展 BSGS：模数不互质时的离散对数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G13 扩展BSGS算法</title><link>https://ehnotgod.github.io/blog/g13-%E6%89%A9%E5%B1%95bsgs%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g13-%E6%89%A9%E5%B1%95bsgs%E7%AE%97%E6%B3%95</guid><description>扩展 BSGS：模数不互质时的离散对数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4195&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $a,p,b$，求满足 $a^x≡b \pmod p$ 的最小自然数 $x$ 。&lt;/p&gt;
@@ -10471,7 +10471,7 @@ int main(){
   }
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G23 高斯消元法</title><link>https://ehnotgod.github.io/blog/g23-%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g23-%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95</guid><description>高斯消元：解线性方程组。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G14 高斯消元法</title><link>https://ehnotgod.github.io/blog/g14-%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g14-%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95</guid><description>高斯消元：解线性方程组。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3389&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个线性方程组，对其求解。&lt;/p&gt;
@@ -10593,7 +10593,7 @@ int main(){
   else for(int i=0; i&amp;#x3C;n; i++)
         printf(&quot;%.2lf\n&quot;,a[i][n]);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G24 矩阵求逆-高斯约旦消元法</title><link>https://ehnotgod.github.io/blog/g24-%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86-%E9%AB%98%E6%96%AF%E7%BA%A6%E6%97%A6%E6%B6%88%E5%85%83%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g24-%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86-%E9%AB%98%E6%96%AF%E7%BA%A6%E6%97%A6%E6%B6%88%E5%85%83%E6%B3%95</guid><description>高斯-约旦消元求矩阵逆。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G15 矩阵求逆-高斯约旦消元法</title><link>https://ehnotgod.github.io/blog/g15-%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86-%E9%AB%98%E6%96%AF%E7%BA%A6%E6%97%A6%E6%B6%88%E5%85%83%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g15-%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86-%E9%AB%98%E6%96%AF%E7%BA%A6%E6%97%A6%E6%B6%88%E5%85%83%E6%B3%95</guid><description>高斯-约旦消元求矩阵逆。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4783&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;求一个 $N\times N$ 的矩阵的逆矩阵。答案对 ${10}^9+7$ 取模。&lt;/p&gt;
@@ -10626,7 +10626,7 @@ int main(){
 &lt;p&gt;对 $100 %$ 的数据有 $N\le 400$，所有 $0 \le a_{i j} &amp;#x3C; {10}^9 + 7$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;高斯-约旦消元求逆：在 $A$ 右侧拼单位矩阵成 $[A\mid I]$，逐列选非零主元（$\bmod$ 下用逆元），把主元行归一化并消去&lt;strong&gt;其他所有行&lt;/strong&gt;的当前列，使左侧变为单位矩阵，右侧即 $A^{-1}$。主元为 0 则不可逆。复杂度 $O(n^3)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G24-1.png&quot; alt=&quot;image-20251113091739495&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G15-1.png&quot; alt=&quot;image-20251113091739495&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度：$$O(n^3)$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&amp;#x3C;iostream&gt;
@@ -10682,7 +10682,7 @@ int main(){
   else puts(&quot;No Solution&quot;);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G26 求组合数-线性逆推</title><link>https://ehnotgod.github.io/blog/g26-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E7%BA%BF%E6%80%A7%E9%80%86%E6%8E%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g26-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E7%BA%BF%E6%80%A7%E9%80%86%E6%8E%A8</guid><description>组合数：线性递推求逆元计算 C(n,k)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G16 求组合数-线性逆推</title><link>https://ehnotgod.github.io/blog/g16-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E7%BA%BF%E6%80%A7%E9%80%86%E6%8E%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g16-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E7%BA%BF%E6%80%A7%E9%80%86%E6%8E%A8</guid><description>组合数：线性递推求逆元计算 C(n,k)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;求组合数 $C(n,k)$（模 $10^9+7$）。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
@@ -10723,7 +10723,7 @@ def C(n, k):
 
 # 使用：
 print(C(10, 3))  # 输出 120
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G27 求组合数-卢卡斯</title><link>https://ehnotgod.github.io/blog/g27-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E5%8D%A2%E5%8D%A1%E6%96%AF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g27-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E5%8D%A2%E5%8D%A1%E6%96%AF</guid><description>Lucas 定理：大组合数取模。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G17 求组合数-卢卡斯</title><link>https://ehnotgod.github.io/blog/g17-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E5%8D%A2%E5%8D%A1%E6%96%AF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g17-%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0-%E5%8D%A2%E5%8D%A1%E6%96%AF</guid><description>Lucas 定理：大组合数取模。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3807&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定整数 $n, m, p$ 的值，求出 $C_{n + m}^n \bmod p$ 的值。&lt;/p&gt;
@@ -10789,7 +10789,7 @@ int main(){
   }
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G32 卡特兰数</title><link>https://ehnotgod.github.io/blog/g32-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g32-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</guid><description>卡特兰数：入栈出栈 / 括号匹配等计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G18 卡特兰数</title><link>https://ehnotgod.github.io/blog/g18-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g18-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</guid><description>卡特兰数：入栈出栈 / 括号匹配等计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1044&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/image_hosting/5qxy9fz2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -10817,7 +10817,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;卡特兰数：$Cat_n=\frac{1}{n+1}C(2n,n)=\sum_{i=0}^{n-1}Cat_i\cdot Cat_{n-1-i}$，$Cat_0=1$。计数对象包括：$n$ 对括号合法序列、$n$ 个元素入栈出栈序列、$n$ 个节点二叉树形态、凸多边形三角剖分数等。递推式 $Cat_{n+1}=\frac{4n+2}{n+2}Cat_n$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G32-1.png&quot; alt=&quot;image-20250808223834012&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G18-1.png&quot; alt=&quot;image-20250808223834012&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
 using namespace std;
@@ -10833,7 +10833,7 @@ int main(){
   cout &amp;#x3C;&amp;#x3C; f[n] &amp;#x3C;&amp;#x3C; endl;
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G33 整除分块</title><link>https://ehnotgod.github.io/blog/g33-%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g33-%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97</guid><description>整除分块：对 ⌊n/i⌋ 相同的区间合并计算。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G19 整除分块</title><link>https://ehnotgod.github.io/blog/g19-%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g19-%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97</guid><description>整除分块：对 ⌊n/i⌋ 相同的区间合并计算。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P2261&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给出正整数 $n$ 和 $k$，请计算&lt;/p&gt;
@@ -10853,8 +10853,8 @@ int main(){
 &lt;p&gt;对于 $100%$ 的数据，保证 $1 \leq n, k \leq 10^9$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;整除分块：$\lfloor n/i\rfloor$ 的取值只有 $O(\sqrt n)$ 段，段 $[l,r]$ 内值相同，其中 $r=\lfloor n/\lfloor n/l\rfloor\rfloor$。对形如 $\sum_{i=1}^n f(i)\cdot\lfloor n/i\rfloor$ 的求和，可按段累加 $f$ 的区间和。复杂度 $O(\sqrt n)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G33-1.png&quot; alt=&quot;image-20250808224555369&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G33-2.png&quot; alt=&quot;image-20250808224637154&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G19-1.png&quot; alt=&quot;image-20250808224555369&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G19-2.png&quot; alt=&quot;image-20250808224637154&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;c++代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&amp;#x3C;cstdio&gt;
 #include&amp;#x3C;algorithm&gt;
@@ -10874,7 +10874,7 @@ int main(){
   printf(&quot;%lld&quot;, res);
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G43 NTT-多项式乘法</title><link>https://ehnotgod.github.io/blog/g43-ntt-%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B9%98%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g43-ntt-%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B9%98%E6%B3%95</guid><description>NTT：数论变换做多项式乘法。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G20 NTT-多项式乘法</title><link>https://ehnotgod.github.io/blog/g20-ntt-%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B9%98%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g20-ntt-%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B9%98%E6%B3%95</guid><description>NTT：数论变换做多项式乘法。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3803&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个 $n$ 次多项式 $F(x)$，和一个 $m$ 次多项式 $G(x)$。&lt;/p&gt;
@@ -10945,7 +10945,7 @@ int main(){
   for(int i=0;i&amp;#x3C;=m;++i)
     printf(&quot;%d &quot;,A[i]*ni%P);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G45 第一类斯特林数</title><link>https://ehnotgod.github.io/blog/g45-%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g45-%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</guid><description>第一类斯特林数：圆排列计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G21 第一类斯特林数</title><link>https://ehnotgod.github.io/blog/g21-%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g21-%E7%AC%AC%E4%B8%80%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</guid><description>第一类斯特林数：圆排列计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;小 Z 是一个很有名的建筑师，有一天他接到了一个很奇怪的任务：在数轴上建 $n$ 个建筑，每个建筑的高度是 $1$ 到 $n$ 之间的一个整数。&lt;/p&gt;
 &lt;p&gt;小 Z 有很严重的强迫症，他不喜欢有两个建筑的高度相同。另外小 Z 觉得如果从最左边（所有建筑都在右边）看能看到 $A$ 个建筑，从最右边（所有建筑都在左边）看能看到 $B$ 个建筑，这样的建筑群有着独特的美感。现在，小 Z 想知道满足上述所有条件的建筑方案有多少种？&lt;/p&gt;
@@ -10968,7 +10968,7 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;第一类斯特林数 $s(n,k)$ 表示把 $n$ 个不同元素分成 $k$ 个非空圆排列的方案数。递推式：$s(n,k)=s(n-1,k-1)+(n-1)s(n-1,k)$——新元素单独成一个圆排列，或插入已有 $n-1$ 个元素的任意一个圆排列中（$n-1$ 种插入位置）。边界 $s(0,0)=1,\ s(n,0)=0\ (n&gt;0)$。&lt;/p&gt;
 &lt;p&gt;打表找到规律后直接使用。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G45-1.png&quot; alt=&quot;image-20250808230305575&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G21-1.png&quot; alt=&quot;image-20250808230305575&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码：&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
 #include &amp;#x3C;cstring&gt;
@@ -10997,7 +10997,7 @@ int main(){
     printf(&quot;%d\n&quot;, ans);
   }
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G46 第二类斯特林数</title><link>https://ehnotgod.github.io/blog/g46-%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g46-%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</guid><description>第二类斯特林数：集合划分计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G22 第二类斯特林数</title><link>https://ehnotgod.github.io/blog/g22-%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g22-%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</guid><description>第二类斯特林数：集合划分计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了自己的安全，小猪们又建造了一个新砖房。但是现在问题出现了，怎样把三个小猪分配到两个房子里呢？第三只小猪是三只小猪中最聪明的一只，为了不浪费任何一个房子，它总共考虑了三种方案，如下图&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/6862.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -11021,7 +11021,7 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;第二类斯特林数 $S(n,k)$ 表示把 $n$ 个不同元素分成 $k$ 个非空集合的方案数。递推式：$S(n,k)=S(n-1,k-1)+kS(n-1,k)$——新元素单独成一个集合，或放入已有 $k$ 个集合中的任意一个。边界 $S(0,0)=1,\ S(n,0)=0\ (n&gt;0)$。与第一类斯特林数的区别：集合无顺序，圆排列有顺序。&lt;/p&gt;
 &lt;p&gt;打表找到规律后直接使用。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G45-1.png&quot; alt=&quot;image-20250808230305575&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G21-1.png&quot; alt=&quot;image-20250808230305575&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码：&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&amp;#x3C;iostream&gt;
 #include&amp;#x3C;cmath&gt;
@@ -11053,12 +11053,12 @@ int main(){
   for(int i=L[n][m]-1; i&gt;=0; i--)
     cout&amp;#x3C;&amp;#x3C;S[n][m][i];
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G51 三角剖分</title><link>https://ehnotgod.github.io/blog/g51-%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g51-%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86</guid><description>计算几何：多边形三角剖分。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G23 三角剖分</title><link>https://ehnotgod.github.io/blog/g23-%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g23-%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86</guid><description>计算几何：多边形三角剖分。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;多边形三角剖分：把 $n$ 边形用不相交的对角线分成 $n-2$ 个三角形。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;多边形三角剖分：把 $n$ 边形用不相交的对角线分成 $n-2$ 个三角形。凸多边形的剖分方案数与卡特兰数相关；最优化剖分（如面积/周长和最小）可用区间 DP：$dp[l][r]=\min(dp[l][k]+dp[k][r]+cost(l,k,r))$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G51-1.png&quot; alt=&quot;image-20250930175859818&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G23-1.png&quot; alt=&quot;image-20250930175859818&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
 #include &amp;#x3C;cstring&gt;
@@ -11148,7 +11148,7 @@ int main(){
   }
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G52 凸包算法</title><link>https://ehnotgod.github.io/blog/g52-%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g52-%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95</guid><description>凸包：Andrew / Graham 扫描求点集凸包。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G24 凸包算法</title><link>https://ehnotgod.github.io/blog/g24-%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g24-%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95</guid><description>凸包：Andrew / Graham 扫描求点集凸包。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P2742&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;农夫约翰想要建造一个围栏用来围住他的奶牛，可是他资金匮乏。他建造的围栏必须包括他的奶牛喜欢吃草的所有地点。对于给出的这些地点的坐标，计算最短的能够围住这些点的围栏的长度。&lt;/p&gt;
@@ -11212,7 +11212,7 @@ int main(){
   printf(&quot;%.2lf\n&quot;, Andrew());
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G53 旋转卡壳</title><link>https://ehnotgod.github.io/blog/g53-%E6%97%8B%E8%BD%AC%E5%8D%A1%E5%A3%B3</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g53-%E6%97%8B%E8%BD%AC%E5%8D%A1%E5%A3%B3</guid><description>旋转卡壳：求凸包直径 / 最远点对。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G25 旋转卡壳</title><link>https://ehnotgod.github.io/blog/g25-%E6%97%8B%E8%BD%AC%E5%8D%A1%E5%A3%B3</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g25-%E6%97%8B%E8%BD%AC%E5%8D%A1%E5%A3%B3</guid><description>旋转卡壳：求凸包直径 / 最远点对。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1452&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定平面上 $$n$$ 个点，求凸包直径。&lt;/p&gt;
@@ -11283,7 +11283,7 @@ int main(){
   printf(&quot;%d\n&quot;,rotating_calipers());
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G57 自适应辛普森积分</title><link>https://ehnotgod.github.io/blog/g57-%E8%87%AA%E9%80%82%E5%BA%94%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g57-%E8%87%AA%E9%80%82%E5%BA%94%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86</guid><description>自适应辛普森积分：数值积分求面积。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G26 自适应辛普森积分</title><link>https://ehnotgod.github.io/blog/g26-%E8%87%AA%E9%80%82%E5%BA%94%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g26-%E8%87%AA%E9%80%82%E5%BA%94%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86</guid><description>自适应辛普森积分：数值积分求面积。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4525&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;试计算积分&lt;/p&gt;
@@ -11302,7 +11302,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;$$a,b,c,d\in[-10,10]$$，$$-100\le L&amp;#x3C;R\le 100$$ 且 $$R-L\ge1$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G57-1.png&quot; alt=&quot;image-20251010102351335&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G26-1.png&quot; alt=&quot;image-20251010102351335&quot;&gt;&lt;/p&gt;
 &lt;p&gt;自适应辛普森积分：用辛普森公式 $\int_l^r f\approx\frac{r-l}{6}(f(l)+4f(m)+f(r))$ 近似积分。递归比较区间整体与左右两半辛普森值的差，误差小于 $\epsilon$ 时停止，否则递归细分。适用于无法解析积分的一般函数。&lt;/p&gt;
 &lt;p&gt;时间复杂度：$${O(log(n / eps))}$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -11331,7 +11331,7 @@ int main(){
   printf(&quot;%.6lf&quot;,asr(l,r,simpson(l,r)));
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G60 有向图博弈-SG函数</title><link>https://ehnotgod.github.io/blog/g60-%E6%9C%89%E5%90%91%E5%9B%BE%E5%8D%9A%E5%BC%88-sg%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g60-%E6%9C%89%E5%90%91%E5%9B%BE%E5%8D%9A%E5%BC%88-sg%E5%87%BD%E6%95%B0</guid><description>SG 函数：有向图博弈的胜负判定。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G27 有向图博弈-SG函数</title><link>https://ehnotgod.github.io/blog/g27-%E6%9C%89%E5%90%91%E5%9B%BE%E5%8D%9A%E5%BC%88-sg%E5%87%BD%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g27-%E6%9C%89%E5%90%91%E5%9B%BE%E5%8D%9A%E5%BC%88-sg%E5%87%BD%E6%95%B0</guid><description>SG 函数：有向图博弈的胜负判定。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://loj.ac/p/10243&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定一个有 N 个节点的有向无环图，图中某些节点上有棋子，两名玩家交替移动棋子。&lt;/p&gt;
@@ -11345,7 +11345,7 @@ int main(){
 &lt;p&gt;若先手胜，输出 &lt;code&gt;win&lt;/code&gt;，否则输出 &lt;code&gt;lose&lt;/code&gt;。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;SG 函数：$sg(u)=\operatorname{mex}{sg(v)\mid v$ 为 $u$ 的后继$}$，$sg=0$ 为必败态。记忆化搜索求每个点 $sg$。多枚棋子时各棋子 $sg$ 值异或，非 0 先手胜（win），为 0 后手胜（lose）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G60-1.png&quot; alt=&quot;image-20251010103151069&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G27-1.png&quot; alt=&quot;image-20251010103151069&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;cstdio&gt;
 #include &amp;#x3C;cstring&gt;
@@ -11382,7 +11382,7 @@ int main(){
   if(res) puts(&quot;win&quot;);
   else puts(&quot;lose&quot;);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G61 线性基-max</title><link>https://ehnotgod.github.io/blog/g61-%E7%BA%BF%E6%80%A7%E5%9F%BA-max</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g61-%E7%BA%BF%E6%80%A7%E5%9F%BA-max</guid><description>线性基：求最大异或和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G28 线性基-max</title><link>https://ehnotgod.github.io/blog/g28-%E7%BA%BF%E6%80%A7%E5%9F%BA-max</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g28-%E7%BA%BF%E6%80%A7%E5%9F%BA-max</guid><description>线性基：求最大异或和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3812&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $$n$$ 个整数（数字可能重复），求在这些数中选取任意个，使得他们的异或和最大。&lt;/p&gt;
@@ -11441,16 +11441,8 @@ int main(){
   for(int i=63;i&gt;=0;i--) ans=max(ans,ans^p[i]);
   printf(&quot;%lld\n&quot;,ans);
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G74 拉格朗日插值法</title><link>https://ehnotgod.github.io/blog/g74-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g74-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95</guid><description>拉格朗日插值：求多项式在任意点的值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G29 拉格朗日插值法</title><link>https://ehnotgod.github.io/blog/g29-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g29-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95</guid><description>拉格朗日插值：求多项式在任意点的值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4781&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给定 $n$ 个点 $(x_i,y_i)$，求 $n-1$ 次多项式在 $k$ 处的取值（模 $998244353$）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
-&lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;拉格朗日插值：$f(k)=\sum_{i=1}^n y_i\prod_{j\ne i}\frac{k-x_j}{x_i-x_j}$。对每个 $i$，分子累乘 $(k-x_j)$、分母累乘 $(x_i-x_j)$，分母用逆元（费马小定理）处理模意义除法。$O(n^2)$。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;P4781 【模板】拉格朗日插值&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;对于 $$n$$ 个点 $$(x_i,y_i)$$，如果满足 $$\forall i\neq j, x_i\neq x_j$$，那么经过这 $$n$$ 个点可以唯一地确定一个 $$n-1$$ 次多项式 $$y = f(x)$$。&lt;/p&gt;
 &lt;p&gt;现在，给定这样 $$n$$ 个点，请你确定这个 $$n-1$$ 次多项式，并求出 $$f(k) \bmod 998244353$$ 的值。&lt;/p&gt;
@@ -11479,7 +11471,9 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
 &lt;p&gt;$$1 \le n \leq 2\times 10^3$$，$$1 \le x_i,y_i,k &amp;#x3C; 998244353$$，$$x_i$$ 两两不同。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;时间复杂度：$${O(n^2)}$$&lt;/p&gt;
+&lt;p&gt;拉格朗日插值：$f(k)=\sum_{i=1}^n y_i\prod_{j\ne i}\frac{k-x_j}{x_i-x_j}$。对每个 $i$，分子累乘 $(k-x_j)$、分母累乘 $(x_i-x_j)$，分母用逆元（费马小定理）处理模意义除法。&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 拉格朗日插值法 O(n^2)
 #include &amp;#x3C;iostream&gt;
@@ -11515,16 +11509,11 @@ int main(){
   }
   cout&amp;#x3C;&amp;#x3C;(ans+mod)%mod;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G99 超级gcd</title><link>https://ehnotgod.github.io/blog/g99-%E8%B6%85%E7%BA%A7gcd</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g99-%E8%B6%85%E7%BA%A7gcd</guid><description>超级 gcd：求多个数的最大公约数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G30 超级gcd</title><link>https://ehnotgod.github.io/blog/g30-%E8%B6%85%E7%BA%A7gcd</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g30-%E8%B6%85%E7%BA%A7gcd</guid><description>超级 gcd：求多个数的最大公约数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;多组询问 $\gcd(a^b,c^d)\bmod 998244353$。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G30-1.png&quot; alt=&quot;image-20250808230643738&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;超级 gcd：指数巨大，用扩展欧拉定理降幂。递归：$\gcd(a^b,c^d)=\gcd(g^{\min(b,d)}\cdot\ldots)$，逐步约去公共因子（$g=\gcd(a,c)$），指数超出 $\varphi$ 时取 $\bmod\varphi+\varphi$，快速幂相乘。详见代码。&lt;/p&gt;
-&lt;h3&gt;备注&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G99-1.png&quot; alt=&quot;image-20250808230643738&quot;&gt;&lt;/p&gt;
-&lt;h2&gt;H 邪教&lt;/h2&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
 import threading
