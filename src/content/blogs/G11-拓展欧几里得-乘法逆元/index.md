@@ -21,8 +21,6 @@ language: zh
 
 exgcd 求逆元：$ax\equiv b\pmod m$ 即 $ax+my=b$。用扩展欧几里得求 $ax+my=\gcd(a,m)$ 的特解，若 $b$ 能被 $\gcd$ 整除则 $x=b/d\cdot x_0\bmod m$ 为解，否则无解。当 $b=1$ 时即求 $a$ 的乘法逆元。
 
-### 备注
-
 ![image-20250808150258351](/images/算法竞赛/G/G11-1.png)
 
 时间复杂度：$${O(logn)}$$
