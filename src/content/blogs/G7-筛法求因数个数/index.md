@@ -1,0 +1,118 @@
+---
+title: "G7 筛法求因数个数"
+publishDate: 2026-08-08
+description: "线性筛求每个数的因数个数。"
+category: algo
+tags:
+  - 数学
+language: zh
+---
+### 题目情境
+
+**题目描述**
+
+给定一个正整数 $n$，请输出 $1\sim n$ 中每个数的约数个数 $d(i)$。
+
+例如 $n=6$ 时：$d(1)=1,d(2)=2,d(3)=2,d(4)=3,d(5)=2,d(6)=4$。
+
+**输入格式**
+
+输入一行一个正整数 $n$（$1\le n\le 10^6$）。
+
+**输出格式**
+
+输出一行 $n$ 个整数，第 $i$ 个整数表示 $d(i)$，相邻整数用一个空格隔开。
+
+输入 #1
+
+```
+6
+```
+
+输出 #1
+
+```
+1 2 2 3 2 4
+```
+
+**说明/提示**
+
+$d(i)$ 表示 $i$ 的正因数个数，如 $d(6)=4$（因数为 $1,2,3,6$）。
+
+### 算法解析：
+
+线性筛求约数个数：额外维护 $a[i]$ 表示 $i$ 的最小质因子次数。质数 $d=2$；合数 $m=i\cdot p$：若 $p\mid i$ 则 $a[m]=a[i]+1,\ d[m]=d[i]/a[m]\cdot(a[m]+1)$，否则 $a[m]=1,\ d[m]=2d[i]$。复杂度 $O(n)$。
+
+### Python代码实现
+
+```python
+n = int(input())
+p = [0] * (n + 1)
+vis = [0] * (n + 1)
+a = [0] * (n + 1)
+d = [0] * (n + 1)
+cnt = 0
+d[1] = 1
+for i in range(2, n + 1):
+    if not vis[i]:
+        cnt += 1; p[cnt] = i
+        a[i] = 1; d[i] = 2
+    for j in range(1, n + 1):
+        if i * p[j] > n:
+            break
+        m = i * p[j]
+        vis[m] = 1
+        if i % p[j] == 0:
+            a[m] = a[i] + 1
+            d[m] = d[i] // a[m] * (a[m] + 1)
+            break
+        else:
+            a[m] = 1
+            d[m] = d[i] * 2
+for i in range(1, n + 1):
+    print(d[i], end=" ")
+```
+
+### C++代码实现
+
+```c++
+#include <iostream>
+using namespace std;
+
+const int N = 1000010;
+int p[N], vis[N], cnt;
+int a[N]; //a[i]记录i的最小质因子的次数
+int d[N]; //d[i]记录i的约数个数
+
+void get_d(int n){ //筛法求约数个数
+  d[1] = 1;
+  for(int i=2; i<=n; i++){
+    if(!vis[i]){
+      p[++cnt] = i;
+      a[i] = 1;
+      d[i] = 2;
+    }
+    for(int j=1; i*p[j]<=n; j++){
+      int m = i*p[j];
+      vis[m] = 1;
+      if(i%p[j] == 0){
+        a[m] = a[i]+1;
+        d[m] = d[i]/a[m]*(a[m]+1);
+        break;
+      } 
+      else{
+        a[m] = 1;
+        d[m] = d[i]*2;
+      }
+    }
+  }
+}
+int main(){
+  int n;
+  cin >> n;
+  get_d(n);
+  for(int i=1; i<=n; i++)
+    printf("%d\n", d[i]);
+  return 0;
+}
+```

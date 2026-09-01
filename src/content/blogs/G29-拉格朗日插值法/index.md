@@ -1,0 +1,107 @@
+---
+title: "G29 拉格朗日插值法"
+publishDate: 2026-08-08
+description: "拉格朗日插值：求多项式在任意点的值。"
+category: algo
+tags:
+  - 数学
+language: zh
+---
+### 题目情境
+
+题目链接：https://www.luogu.com.cn/problem/P4781
+
+**题目描述**
+
+对于 $$n$$ 个点 $$(x_i,y_i)$$，如果满足 $$\forall i\neq j, x_i\neq x_j$$，那么经过这 $$n$$ 个点可以唯一地确定一个 $$n-1$$ 次多项式 $$y = f(x)$$。
+
+现在，给定这样 $$n$$ 个点，请你确定这个 $$n-1$$ 次多项式，并求出 $$f(k) \bmod 998244353$$ 的值。
+
+**输入格式**
+
+第一行两个整数 $$n,k$$。
+
+接下来 $$n$$ 行，第 $$i$$ 行两个整数 $$x_i,y_i$$。
+
+**输出格式**
+
+一行一个整数，表示 $$f(k) \bmod 998244353$$ 的值。
+
+输入 #1
+
+```
+3 100
+1 4
+2 9
+3 16
+```
+
+输出 #1
+
+```
+10201
+```
+
+输入 #2
+
+```
+3 100
+1 1
+2 2
+3 3
+```
+
+输出 #2
+
+```
+100
+```
+
+---
+
+$$1 \le n \leq 2\times 10^3$$，$$1 \le x_i,y_i,k < 998244353$$，$$x_i$$ 两两不同。
+
+### 算法解析：
+
+时间复杂度：$${O(n^2)}$$
+
+拉格朗日插值：$f(k)=\sum_{i=1}^n y_i\prod_{j\ne i}\frac{k-x_j}{x_i-x_j}$。对每个 $i$，分子累乘 $(k-x_j)$、分母累乘 $(x_i-x_j)$，分母用逆元（费马小定理）处理模意义除法。
+
+### C++代码实现
+
+```c++
+// 拉格朗日插值法 O(n^2)
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+using namespace std;
+
+#define LL long long
+const LL mod=998244353;
+LL n,k,ans;
+LL x[2005],y[2005];
+
+LL ksm(LL a,LL b){
+  LL s=1;
+  while(b){
+    if(b&1)s=s*a%mod;
+    a=a*a%mod;
+    b>>=1;
+  }
+  return s;
+}
+int main(){
+  cin>>n>>k;
+  for(int i=1;i<=n;i++)cin>>x[i]>>y[i];
+  for(int i=1;i<=n;i++){
+    LL a=y[i],b=1;
+    for(int j=1;j<=n;j++){
+      if(i==j) continue;
+      a=a*(k-x[j])%mod;
+      b=b*(x[i]-x[j])%mod;
+    }
+    ans=(ans+a*ksm(b,mod-2)%mod)%mod;
+  }
+  cout<<(ans+mod)%mod;
+}
+```
