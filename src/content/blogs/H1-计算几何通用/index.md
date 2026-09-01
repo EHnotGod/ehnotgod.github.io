@@ -4,6 +4,7 @@ publishDate: 2026-09-01
 description: "计算几何通用：向量、点、线、多边形等基础模板。"
 category: algo
 tags:
+  - 计算几何
   - 数学
 language: zh
 ---

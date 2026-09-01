@@ -4,6 +4,7 @@ publishDate: 2026-08-08
 description: "凸包：Andrew / Graham 扫描求点集凸包。"
 category: algo
 tags:
+  - 计算几何
   - 数学
 language: zh
 ---
