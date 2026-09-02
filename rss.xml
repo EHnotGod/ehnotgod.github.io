@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/scripts/pretty-feed-v3.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:h="http://www.w3.org/TR/html4/"><channel><title>EH&apos;s Blog</title><description>EH is not god, but EH</description><link>https://ehnotgod.github.io</link><item><title>H2 Fraction</title><link>https://ehnotgod.github.io/blog/h2-fraction</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h2-fraction</guid><description>Fraction：分数相关算法。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/scripts/pretty-feed-v3.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:h="http://www.w3.org/TR/html4/"><channel><title>EH&apos;s Blog</title><description>EH is not god, but EH</description><link>https://ehnotgod.github.io</link><item><title>G31 圆排列、错排数</title><link>https://ehnotgod.github.io/blog/g31-%E5%9C%86%E6%8E%92%E5%88%97%E9%94%99%E6%8E%92%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g31-%E5%9C%86%E6%8E%92%E5%88%97%E9%94%99%E6%8E%92%E6%95%B0</guid><description>圆排列与错排数：环形排列与全错位排列计数。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;圆排列：把 $n$ 个不同元素排成一圈（旋转视为同一种）的方案数；错排数 $D_n$：把 $n$ 个元素重新排列，使得每个元素都不在原来的位置上的方案数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本页为算法笔记。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;圆排列&lt;/strong&gt;：$n$ 个不同元素的直线排列有 $n!$ 种；排成一圈时，任意旋转后相同算同一种，且每 $n$ 个旋转对应一个圆排列，故圆排列数为 $\frac{n!}{n}=(n-1)!$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;错排数&lt;/strong&gt;：$D_n$ 表示 $n$ 个元素的错排数（每个元素都不在自己原位）。递推式 $D_n=(n-1)(D_{n-1}+D_{n-2})$，边界 $D_0=1,\ D_1=0$。含义：元素 $1$ 与某个 $i\ (i\ne1)$ 互换后，剩余 $n-2$ 个错排（$D_{n-2}$）；或 $1$ 与 $i$ 互换但 $i$ 仍可能错排（先看成 $n-1$ 规模的错排 $D_{n-1}$），共 $n-1$ 种选择。也可用容斥 $D_n=n!\sum_{i=0}^n\frac{(-1)^i}{i!}$。&lt;/p&gt;
+&lt;h3&gt;Python代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;MOD = 10**9 + 7
+
+# 圆排列：(n-1)!  mod MOD
+def circle(n):
+    res = 1
+    for i in range(2, n):
+        res = res * i % MOD
+    return res
+
+# 错排数：D_n = (n-1)(D_{n-1}+D_{n-2})
+def derange(n):
+    d = [0] * (n + 1)
+    d[0], d[1] = 1, 0  # D0 = 1, D1 = 0
+    for i in range(2, n + 1):
+        d[i] = (i - 1) * (d[i - 1] + d[i - 2]) % MOD
+    return d[n]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;C++代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;bits/stdc++.h&gt;
+using namespace std;
+
+typedef long long LL;
+const LL MOD = 1e9 + 7;
+
+LL circle(int n) { // 圆排列 (n-1)!
+  LL res = 1;
+  for (int i = 2; i &amp;#x3C; n; i++) res = res * i % MOD;
+  return res;
+}
+
+LL derange(int n) { // 错排数 D_n
+  vector&amp;#x3C;LL&gt; d(n + 1);
+  d[0] = 1; d[1] = 0;
+  for (int i = 2; i &amp;#x3C;= n; i++)
+    d[i] = (i - 1) * (d[i - 1] + d[i - 2]) % MOD;
+  return d[n];
+}
+
+int main() {
+  int n;
+  cin &gt;&gt; n;
+  cout &amp;#x3C;&amp;#x3C; &quot;圆排列: &quot; &amp;#x3C;&amp;#x3C; circle(n) &amp;#x3C;&amp;#x3C; &quot;\n&quot;;
+  cout &amp;#x3C;&amp;#x3C; &quot;错排数: &quot; &amp;#x3C;&amp;#x3C; derange(n) &amp;#x3C;&amp;#x3C; &quot;\n&quot;;
+  return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H2 Fraction</title><link>https://ehnotgod.github.io/blog/h2-fraction</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h2-fraction</guid><description>Fraction：分数相关算法。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;亿万富翁 Cai 有一个非常特别的执念：只有当他的双脚牢牢踩在瓷砖的&lt;strong&gt;边或顶点&lt;/strong&gt;上——也就是说，踩在地板瓷砖的边界上——他才会觉得舒服。&lt;/p&gt;
 &lt;p&gt;最近，他购入了一批完全相同的高档&lt;strong&gt;三角形地砖&lt;/strong&gt;，准备使用这些地砖铺满他新豪宅里一条又长又直的走廊。&lt;/p&gt;
