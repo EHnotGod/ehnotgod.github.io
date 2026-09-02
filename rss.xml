@@ -1307,9 +1307,9 @@ print(&quot;随机森林预测 70m²:&quot;, reg_forest.predict([[70]]))
 &lt;p&gt;&lt;strong&gt;题目描述：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;高精度加法，相当于 a+b problem，&lt;strong&gt;不用考虑负数&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;分两行输入。&lt;em&gt;a&lt;/em&gt;,&lt;em&gt;b&lt;/em&gt;&amp;#x3C;=$$10^{500}$$。&lt;/p&gt;
+&lt;p&gt;分两行输入。$a,b\le 10^{500}$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输出格式：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;输出只有一行，代表 &lt;em&gt;a&lt;/em&gt;+&lt;em&gt;b&lt;/em&gt; 的值。&lt;/p&gt;
+&lt;p&gt;输出只有一行，代表 $a+b$ 的值。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入输出样例：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;输入 #1&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;1
