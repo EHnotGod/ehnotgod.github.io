@@ -323,6 +323,55 @@ def solve():
 T = int(input())
 for _ in range(T):
     solve()
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H4 超绝浮点精度</title><link>https://ehnotgod.github.io/blog/h4-%E8%B6%85%E7%BB%9D%E6%B5%AE%E7%82%B9%E7%B2%BE%E5%BA%A6</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h4-%E8%B6%85%E7%BB%9D%E6%B5%AE%E7%82%B9%E7%B2%BE%E5%BA%A6</guid><description>高精度浮点：用 Decimal 处理精度极限。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：待补充&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&quot;荒泷卡牌天下第一斗&quot;酷爱卡牌，尤其是最近马上要上线的&quot;七圣召唤&quot;，荒泷一斗想在 2.3 版本前集齐全部种类的卡牌，但他不精于计算，所以他找来了你、战力第一的旅行者帮忙。&lt;/p&gt;
+&lt;p&gt;已知&quot;七圣召唤&quot;共有 $K$ 张不同的卡牌，荒泷一斗的资金够买 $N$ 个卡包。每个卡包能随机从 $K$ 种卡牌中抽到一张。现给出 $N$ 和 $K$，他想问你要集齐全部种类的卡牌所需的期望卡包数，以及 $N$ 个卡包能开出的期望卡牌种类数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行输入两个整数 $N$ 和 $K$。$N$ 表示卡包数，$K$ 表示卡牌种类数（$1\le N\le 10^6,\ 1\le K\le 10^6$）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一行输出两个浮点数，分别是集齐全部种类的卡牌所需的期望卡包数，和 $N$ 个卡包能开出的期望卡牌种类数，中间用空格间隔（答案与标准答案相差 $10^{-6}$ 以内就算正确）。&lt;/p&gt;
+&lt;p&gt;输入 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;3 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;5.50000000 2.11111111
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输入 #2&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;4 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出 #2&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;5.50000000 2.40740741
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本邪教为 py 邪教，方法是使用 Python 的 Decimal 提升精度，在 WA 与 T 之间徘徊。&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;两问本质都是期望计算：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;集齐全部 $K$ 种所需的期望卡包数&lt;/strong&gt;：经典优惠券收集问题。当已集齐 $i$ 种时，抽到新种类的概率为 $\frac{K-i}{K}$，期望还需 $\frac{K}{K-i}$ 包。故总期望 $=\sum_{i=0}^{K-1}\frac{K}{K-i}=K\sum_{j=1}^{K}\frac1j$。直接浮点累加 $K$ 项在 $K$ 大时误差累积，用高精度 &lt;code&gt;Decimal&lt;/code&gt; 提升精度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;$N$ 个卡包能开出的期望种类数&lt;/strong&gt;：对每种卡牌，$N$ 包都没开到的概率为 $\left(1-\frac1K\right)^N$，故至少开到一次的概率为 $1-\left(1-\frac1K\right)^N$，期望种类数 $=K\left(1-\left(1-\frac1K\right)^N\right)$。幂运算 &lt;code&gt;**&lt;/code&gt; 在 Decimal 下同样高精度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Python代码实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from decimal import Decimal, getcontext
+
+getcontext().prec = 200
+
+n, k = map(int, input().split())
+n = Decimal(n)
+k = Decimal(k)
+
+ans1 = Decimal(0)
+for i in range(int(k)):
+    ans1 += k / Decimal(i + 1)
+
+ans2 = k * (Decimal(1) - (Decimal(1) - Decimal(1) / k) ** n)
+
+print(ans1, ans2)
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H1 计算几何通用</title><link>https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</guid><description>计算几何通用：向量、点、线、多边形等基础模板。</description><pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;计算几何通用模板：向量运算、点与线、多边形、凸包、极角排序等基础内容（整理自&quot;计算几何专题讲座&quot;）。&lt;/p&gt;
