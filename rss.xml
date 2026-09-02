@@ -85,7 +85,304 @@
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-78.png&quot; alt=&quot;H1-78&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-79.png&quot; alt=&quot;H1-79&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-80.png&quot; alt=&quot;H1-80&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-81.png&quot; alt=&quot;H1-81&quot;&gt;&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>决策树算法</title><link>https://ehnotgod.github.io/blog/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95</guid><description>决策树：信息增益 / 基尼指数划分，可解释性强。</description><pubDate>Sun, 09 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;决策树算法（分类 + 回归）&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-81.png&quot; alt=&quot;H1-81&quot;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;/*EHnotgod————
+..............#######.....#.....#..............
+..............#...........#.....#..............
+..............#######.....#######..............
+..............#...........#.....#..............
+..............#######.....#.....#..............
+*/
+
+// 1.头文件(EH:?这也能算第一点?)
+#include &amp;#x3C;bits/stdc++.h&gt;
+using namespace std;
+#define endl &quot;\n&quot;
+#define int long long
+#define M_PI acos(-1)
+#define range(i, a, b) for (int i = (a); i &amp;#x3C; (b); ++i)
+typedef long double T;
+// template&amp;#x3C;class T&gt; string ts(const T&amp;#x26; v){
+//     stringstream ss; ss &amp;#x3C;&amp;#x3C; v; return ss.str();
+// }
+// template&amp;#x3C;class A,class B&gt; string ts(const pair&amp;#x3C;A,B&gt;&amp;#x26; p){ return &quot;(&quot;+ts(p.first)+&quot;,&quot;+ts(p.second)+&quot;)&quot;; }
+// template&amp;#x3C;class T&gt; string ts(const vector&amp;#x3C;T&gt;&amp;#x26; v){ string s=&quot;{&quot;; for (auto &amp;#x26;x:v) s += ts(x)+&quot;,&quot;; return s+&quot;}&quot;; }
+// template&amp;#x3C;class T, class C, class A&gt; string ts(const set&amp;#x3C;T,C,A&gt;&amp;#x26; v){ string s=&quot;{&quot;; for (auto &amp;#x26;x:v) s += ts(x)+&quot;,&quot;; return s+&quot;}&quot;; }
+// template&amp;#x3C;class T, class C, class A&gt; string ts(const multiset&amp;#x3C;T,C,A&gt;&amp;#x26; v){ string s=&quot;{&quot;; for (auto &amp;#x26;x:v) s += ts(x)+&quot;,&quot;; return s+&quot;}&quot;; }
+// template&amp;#x3C;class K,class V,class C, class A&gt; string ts(const map&amp;#x3C;K,V,C,A&gt;&amp;#x26; m){ string s=&quot;{&quot;; for (auto &amp;#x26;kv:m) s += ts(kv.first)+&quot;:&quot;+ts(kv.second)+&quot;,&quot;; return s+&quot;}&quot;; }
+// void dbg_out(){ cerr &amp;#x3C;&amp;#x3C; &quot;\n&quot;; }
+// template&amp;#x3C;class H, class...T&gt; void dbg_out(const H&amp;#x26; h, const T&amp;#x26;...t){
+//     cerr &amp;#x3C;&amp;#x3C; &quot; &quot; &amp;#x3C;&amp;#x3C; ts(h);
+//     dbg_out(t...);
+// }
+// #define debug(...) cerr&amp;#x3C;&amp;#x3C;&quot;[&quot;&amp;#x3C;&amp;#x3C;#__VA_ARGS__&amp;#x3C;&amp;#x3C;&quot;]:&quot;,dbg_out(__VA_ARGS__)
+
+// 2.1 点
+// 2.1.1基本定义
+struct pt{
+    T x, y;
+    pt operator+(pt p){return{x+p.x, y+p.y};}
+    pt operator-(pt p){return{x-p.x, y-p.y};}
+    pt operator*(T d){return{x*d, y*d};}
+    pt operator/(T d){return{x/d, y/d};} //注意不能除以0
+    bool operator&amp;#x3C;(const pt&amp;#x26; a) const {
+    if (x != a.x) return x &amp;#x3C; a.x;
+        return y &amp;#x3C; a.y;
+    }
+    bool operator==(const pt&amp;#x26; other) const { return x == other.x &amp;#x26;&amp;#x26; y == other.y; }
+    bool operator!=(const pt&amp;#x26; other) const { return !(*this == other); }
+};
+T sq(pt p) {return p.x*p.x+ p.y*p.y;}
+T absv(pt p){return sqrt(sq(p));}
+ostream&amp;#x26;operator&amp;#x3C;&amp;#x3C;(ostream&amp;#x26;os, pt p){
+    return os &amp;#x3C;&amp;#x3C;&quot;(&quot;&amp;#x3C;&amp;#x3C; p.x&amp;#x3C;&amp;#x3C;&quot;,&quot;&amp;#x3C;&amp;#x3C; p.y&amp;#x3C;&amp;#x3C;&quot;)&quot;;
+}
+int sgn(T x){return(T(0)&amp;#x3C; x)-(x &amp;#x3C;T(0));}
+// 2.1.3基本变换：平移
+pt translate(pt v, pt p){
+    return p + v;
+}
+// 2.1.4基本变换：缩放
+pt scale(pt c,T factor, pt p){
+    return c +(p - c)* factor;
+}
+// 2.1.5基本变换：旋转（逆时针）
+pt rot(pt p,T a){
+    return{p.x*cos(a)- p.y*sin(a), p.x*sin(a)+ p.y*cos(a)};}
+pt perp(pt p){
+    return{-p.y, p.x};
+}
+// 2.1.6 点积
+T dot(pt v, pt w){
+    return v.x* w.x+ v.y* w.y;
+}
+bool isPerp(pt v, pt w){
+    return dot(v, w)==0;
+}
+// 2.1.7 叉积
+T cross(pt v, pt w){return v.x* w.y- v.y* w.x;}
+T angle(pt v, pt w){
+    return abs(atan2(cross(v, w), dot(v, w)));
+}
+T orient(pt a, pt b, pt c){return cross(b - a, c - a);}
+bool inAngle(pt a, pt b, pt c, pt p){
+    assert(orient(a, b, c)!=0);
+	if(orient(a, b, c)&amp;#x3C;0)swap(b, c);
+	return orient(a, b, p)&gt;=0&amp;#x26;&amp;#x26;orient(a, c, p)&amp;#x3C;=0;
+}
+T orientedAngle(pt a, pt b, pt c){
+    if(orient(a, b, c)&gt;=0){return angle(b - a, c - a);}
+	else{return 2* M_PI -angle(b - a, c - a);
+}
+}
+// 2.1.8 极角排序
+bool half(pt p){
+	return p.y&gt;0||(p.y==0&amp;#x26;&amp;#x26; p.x&amp;#x3C;0);
+}
+void polarSort(vector&amp;#x3C;pt&gt;&amp;#x26;v){
+    sort(v.begin(), v.end(),[](pt v, pt w){
+        return make_tuple(half(v),0,sq(v))&amp;#x3C;
+            make_tuple(half(w),cross(v,w),sq(w));
+    });
+}
+
+// 2.2 直线
+// 2.2.1 基本定义
+struct line{
+    pt v; T c;
+    line(pt v, T c):v(v),c(c){} // 点斜式
+    line(T a, T b, T c):v({b,-a}),c(c){} // 标准式(ax+by+c=0)
+    line(pt p, pt q):v(q-p),c(cross(v,p)){} // 两点式
+};
+// 2.2.2点与直线的位置关系
+T side(line ln, pt p){
+    return cross(ln.v, p)- ln.c;}
+// 2.2.3点到直线的距离
+T dist(line ln, pt p){return abs(side(ln, p))/absv(ln.v);}
+// 2.2.4过一点的垂线
+line perpThrough(line ln, pt p){return{p, p +perp(ln.v)};}  
+// 2.2.5沿直线排序   
+bool cmpProj(line ln, pt p, pt q){return dot(ln.v, p)&amp;#x3C;dot(ln.v, q);}   
+// 2.2.6沿指定方向平移    
+line translate(line ln, pt t){return{ln.v, ln.c +cross(ln.v, t)};} 
+// 2.2.7直线交点  
+bool inter(line l1, line l2, pt &amp;#x26;out){
+    T d =cross(l1.v, l2.v); if(d == 0)return false;
+    out =(l2.v* l1.c- l1.v* l2.c)/ d;
+    return true;
+}
+// 2.2.8正交投影与反射
+pt proj(line ln, pt p){return p -perp(ln.v)*side(ln, p)/sq(ln.v);}
+pt refl(line ln, pt p){return p -perp(ln.v)*2*side(ln, p)/sq(ln.v);}
+// 2.2.9点到直线的平方距离
+T sqDist(line ln, pt p) {
+    return side(ln, p) * side(ln, p) / sq(ln.v); 
+}
+// 2.3 线段
+// 2.3.0 定义?没有定义，线段不TM就两个点吗
+// 2.3.1点在线段为直径的圆上    
+bool inDisk(pt a, pt b, pt p){return dot(a - p, b - p)&amp;#x3C;=0;}
+// 2.3.2点在线段上    
+bool onSegment(pt a, pt b, pt p){
+    return orient(a, b, p)==0 &amp;#x26;&amp;#x26; inDisk(a, b, p);
+}
+// 2.3.3线段与线段交点    
+bool properInter(pt a, pt b, pt c, pt d, pt &amp;#x26;out){    
+    T oa =orient(c, d, a), ob =orient(c, d, b),         
+      oc =orient(a, b, c), od =orient(a, b, d);
+	if(oa * ob &amp;#x3C;0&amp;#x26;&amp;#x26; oc * od &amp;#x3C;0){
+    	out =(a * ob - b * oa)/(ob - oa);
+    	return true;
+    }
+	return false;
+}
+set&amp;#x3C;pt&gt;inters(pt a, pt b, pt c, pt d){
+  pt out;        
+  if(properInter(a, b, c, d, out))return{out};  
+  set&amp;#x3C;pt&gt; s;      
+  if(onSegment(c, d, a)) s.insert(a);
+  if(onSegment(c, d, b)) s.insert(b);
+  if(onSegment(a, b, c)) s.insert(c);
+  if(onSegment(a, b, d)) s.insert(d);
+  return s;
+}// 如果|s|=1则只有一个交点；如果|s|=2则说明相交的区域是一条线段，并且中存的是其他两个端点
+
+// 2.3.4点到线段的距离
+T segPoint(pt a, pt b, pt p){
+    if(a != b){
+    	line l(a, b);
+    	if(cmpProj(l, a, p)&amp;#x26;&amp;#x26; cmpProj(l, p, b))
+            return dist(l, p);
+		return min(absv(p - a),absv(p - b));
+    }
+	return absv(p - a);
+}
+
+// 2.3.5线段到线段的距离  
+T segSeg(pt a, pt b, pt c, pt d){
+  pt dummy;    
+  if(properInter(a, b, c, d, dummy))return 0;
+  return min({segPoint(a, b, c),segPoint(a, b, d), 
+              segPoint(c, d, a),segPoint(c, d, b)});
+}
+
+// 2.4 多边形
+// 2.4.1多边形面积
+T areaPolygon(vector&amp;#x3C;pt&gt;p){
+    T area =0.0;
+	for(int i =0, n = p.size(); i &amp;#x3C; n; i++){
+    	area +=cross(p[i], p[(i +1)% n]);
+    }
+	return abs(area)/2.0;
+}
+// 2.4.2 射线法：判断点是否在多边形内部
+bool above(pt a, pt p){
+    return p.y&gt;= a.y;
+}
+bool crossesRay(pt a, pt p, pt q){
+    return(above(a, q)-above(a, p))*
+    	orient(a, p, q)&gt;0;
+}
+// 这个strict可以自己调控，如果 strict=true（默认值），点在边上返回 false。如果 strict=false，点在边上返回 true。
+bool inPolygon(vector&amp;#x3C;pt&gt;p, pt a, bool strict=true){
+    int numCrossings =0;
+	for(int i =0, n = p.size(); i &amp;#x3C; n; i++){
+        if(onSegment(p[i], p[(i +1)% n], a))return!strict;
+            numCrossings +=crossesRay(a, p[i], p[(i +1)% n]);
+    }
+    return numCrossings &amp;#x26; 1;
+}
+// 2.4.3凸包
+bool turn_left(pt a, pt b, pt c) { 
+    return sgn(cross(b - a, c - a)) &gt; 0; 
+}
+vector&amp;#x3C;pt&gt; convex_hull(vector&amp;#x3C;pt&gt; a) {
+    if (a.size() &amp;#x3C;= 2) return a;
+    pt base = *min_element(a.begin(), a.end());
+    sort(a.begin(), a.end(), [&amp;#x26;](auto u, auto v) {
+        return make_tuple(half(u - base), 0) &amp;#x3C; make_tuple(half(u - base), cross(u - base, v - base));
+    });
+    vector&amp;#x3C;pt&gt; ret;
+    for (auto i : a) {
+        while (ret.size() &gt; 1 &amp;#x26;&amp;#x26; !turn_left(ret[ret.size() - 2], ret[ret.size() - 1], i)) 
+            ret.pop_back();
+        ret.push_back(i);
+    }
+    return ret;
+}
+
+// 2.4.4 CCW判点-严格判断点 p 是否在凸多边形 A（CCW）内部，但是A必须逆时针排列
+bool pointInConvexStrict(const vector&amp;#x3C;pt&gt;&amp;#x26; A, const pt&amp;#x26; p) {
+    int n = (int)A.size();
+    if (n &amp;#x3C; 3) return false;
+    if (sgn(orient(A[0], A[1], p)) &amp;#x3C;= 0) return false;
+    if (sgn(orient(A[0], A[n-1], p)) &gt;= 0) return false;
+
+    int l = 1, r = n - 1;
+    while (r - l &gt; 1) {
+        int mid = (l + r) &gt;&gt; 1;
+        if (sgn(orient(A[0], A[mid], p)) &gt; 0) l = mid;
+        else r = mid;
+    }
+    return sgn(orient(A[l], A[l+1], p)) &gt; 0;
+}
+
+// 2.5圆
+// 2.5.1 外接圆，返回的是外心！别问我为啥不返回半径，要算的话，自己逮个点算不就得了
+pt circumCenter(pt a, pt b, pt c){
+  b = b - a, c = c - a;
+  assert(cross(b, c)!=0);
+  return a +perp(b *sq(c)- c *sq(b))/cross(b, c)/2;
+}
+
+// 2.5.2圆与直线的交点
+int circleLine(pt o,T r, line ln,pair&amp;#x3C;pt, pt&gt;&amp;#x26;out){
+    T h2 = r * r - sqDist(ln, o);
+	if(h2 &gt;= 0){
+    	pt p = proj(ln, o);
+    	pt h = ln.v*sqrt(h2)/absv(ln.v);
+        out = {p - h, p + h};
+    }
+	return 1+sgn(h2);
+}
+
+// 2.5.3圆与圆的交点
+int circleCircle(pt o1,T r1, pt o2,T r2, pair&amp;#x3C;pt, pt&gt;&amp;#x26;out){
+    pt d = o2 - o1;    
+    T d2 =sq(d);
+    if(d2 == 0){
+        assert(r1 != r2);
+		return 0;
+    }
+	T pd =(d2 + r1 * r1 - r2 * r2)/2;
+    T h2 = r1 * r1 - pd * pd / d2;
+    if(h2 &gt;=0){ pt p = o1 + d * pd / d2, h =perp(d)*sqrt(h2 / d2); out = {p - h, p + h};}
+    return 1 + sgn(h2);
+}
+
+// 快捷CV处
+// vector&amp;#x3C;int&gt; a(n, 0);
+// vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; dp(n + 1, vector&amp;#x3C;int&gt;(n + 1, 0));
+void solve() {
+	int n; cin &gt;&gt; n;
+	vector&amp;#x3C;pt&gt; a(n);
+	for (int i = 0; i &amp;#x3C; n; i++){
+		cin &gt;&gt; a[i].x; cin &gt;&gt; a[i].y;
+	}
+}
+
+signed main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+	int t;
+	cin &gt;&gt; t;
+	while (t--) {
+		solve();
+	}
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>决策树算法</title><link>https://ehnotgod.github.io/blog/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95</guid><description>决策树：信息增益 / 基尼指数划分，可解释性强。</description><pubDate>Sun, 09 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;决策树算法（分类 + 回归）&lt;/h1&gt;
 &lt;h2&gt;一、决策树到底在干嘛？&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;决策树&lt;/strong&gt;就是一种&quot;不断问问题&quot;的模型。它长成&lt;strong&gt;树&lt;/strong&gt;的样子，每个分叉点问一个问题，顺着答案往下走，最后走到&lt;strong&gt;叶子&lt;/strong&gt;得到一个结论。&lt;/p&gt;
 &lt;p&gt;先看一个生活化的例子——&lt;strong&gt;周末去不去打球&lt;/strong&gt;：&lt;/p&gt;
