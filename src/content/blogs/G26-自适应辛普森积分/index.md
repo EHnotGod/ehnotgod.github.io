@@ -4,7 +4,6 @@ publishDate: 2026-08-08
 description: "自适应辛普森积分：数值积分求面积。"
 category: algo
 tags:
-  - 计算几何
   - 数学
 language: zh
 ---

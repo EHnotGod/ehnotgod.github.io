@@ -4,7 +4,6 @@ publishDate: 2026-08-08
 description: "计算几何：多边形三角剖分。"
 category: algo
 tags:
-  - 计算几何
   - 数学
 language: zh
 ---
