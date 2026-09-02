@@ -458,6 +458,22 @@ int circleCircle(pt o1,T r1, pt o2,T r2, pair<pt, pt>&out){
     if(h2 >=0){ pt p = o1 + d * pd / d2, h =perp(d)*sqrt(h2 / d2); out = {p - h, p + h};}
     return 1 + sgn(h2);
 }
+bool inTri(pt a,pt b,pt c,pt p){
+ return orient(a,b,p)>=0&&orient(b,c,p)>=0&&orient(c,a,p)>=0;
+}
+vector<tuple<pt,pt,pt>> earCut(vector<pt>p){
+ int n=p.size(),c=n;vector<int>l(n),r(n),v(n,1);deque<int>q;
+ vector<tuple<pt,pt,pt>>z;
+ range(i,0,n)l[i]=(i+n-1)%n,r[i]=(i+1)%n,q.push_back(i);
+ auto E=[&](int x){if(!v[x]||orient(p[l[x]],p[x],p[r[x]])<=0)return 0;
+  range(i,0,n)if(v[i]&&i!=l[x]&&i!=x&&i!=r[x]&&inTri(p[l[x]],p[x],p[r[x]],p[i]))return 0;
+  return 1;};
+ while(c>3){int x=q.front();q.pop_front();if(!E(x))continue;
+  int L=l[x],R=r[x];z.push_back({p[L],p[x],p[R]});
+  v[x]=0;r[L]=R;l[R]=L;c--;q.push_back(L);q.push_back(R);}
+ range(i,0,n)if(v[i]){z.push_back({p[i],p[r[i]],p[r[r[i]]]});break;}
+ return z;
+}
 
 // 快捷CV处
 // vector<int> a(n, 0);
