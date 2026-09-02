@@ -52,7 +52,11 @@ int main() {
   cout &amp;#x3C;&amp;#x3C; &quot;错排数: &quot; &amp;#x3C;&amp;#x3C; derange(n) &amp;#x3C;&amp;#x3C; &quot;\n&quot;;
   return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H2 Fraction</title><link>https://ehnotgod.github.io/blog/h2-fraction</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h2-fraction</guid><description>Fraction：分数相关算法。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G32 莫比乌斯反演</title><link>https://ehnotgod.github.io/blog/g32-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g32-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94</guid><description>莫比乌斯反演：μ 函数与反演公式。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;（内容待补充）&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;（内容待补充）&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H2 Fraction</title><link>https://ehnotgod.github.io/blog/h2-fraction</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h2-fraction</guid><description>Fraction：分数相关算法。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;亿万富翁 Cai 有一个非常特别的执念：只有当他的双脚牢牢踩在瓷砖的&lt;strong&gt;边或顶点&lt;/strong&gt;上——也就是说，踩在地板瓷砖的边界上——他才会觉得舒服。&lt;/p&gt;
 &lt;p&gt;最近，他购入了一批完全相同的高档&lt;strong&gt;三角形地砖&lt;/strong&gt;，准备使用这些地砖铺满他新豪宅里一条又长又直的走廊。&lt;/p&gt;
