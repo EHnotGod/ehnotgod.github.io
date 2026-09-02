@@ -1,12 +1,328 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/scripts/pretty-feed-v3.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:h="http://www.w3.org/TR/html4/"><channel><title>EH&apos;s Blog</title><description>EH is not god, but EH</description><link>https://ehnotgod.github.io</link><item><title>H2 Fraction</title><link>https://ehnotgod.github.io/blog/h2-fraction</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h2-fraction</guid><description>Fraction：分数相关算法。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;（内容待补充）&lt;/p&gt;
+&lt;p&gt;亿万富翁 Cai 有一个非常特别的执念：只有当他的双脚牢牢踩在瓷砖的&lt;strong&gt;边或顶点&lt;/strong&gt;上——也就是说，踩在地板瓷砖的边界上——他才会觉得舒服。&lt;/p&gt;
+&lt;p&gt;最近，他购入了一批完全相同的高档&lt;strong&gt;三角形地砖&lt;/strong&gt;，准备使用这些地砖铺满他新豪宅里一条又长又直的走廊。&lt;/p&gt;
+&lt;p&gt;走廊可以视为二维笛卡尔平面上的一条&lt;strong&gt;无限长带状区域&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;为了满足 Cai 极其严格的要求，每一块三角形地砖都必须横跨走廊的整个宽度，也就是说：每一块三角形地砖都必须同时接触走廊的两条平行边界线。&lt;/p&gt;
+&lt;p&gt;这样可以形成一个连续的、单行的三角形铺砌。&lt;/p&gt;
+&lt;p&gt;其中有一块地砖必须恰好与 Cai 最喜欢的参考三角形&lt;/p&gt;
+&lt;p&gt;$$
+\triangle ABC
+$$&lt;/p&gt;
+&lt;p&gt;完全重合，而所有其他地砖都必须与它&lt;strong&gt;全等&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;Cai 目前正站在走廊中的一个固定位置。&lt;/p&gt;
+&lt;p&gt;经过一天漫长而疲惫的改造工作之后，他已经筋疲力尽，并且无论如何都不愿意再移动。&lt;/p&gt;
+&lt;p&gt;他希望这些瓷砖能够从参考三角形开始，自动向走廊两侧不断铺开，并且最终形成一个满足上述规则的铺砌。&lt;/p&gt;
+&lt;p&gt;当然，只有当：Cai 当前所在的点 (D) 恰好位于某块三角形地砖的&lt;strong&gt;一条边上或者一个顶点上&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;时，他才认为这次铺砌是成功的。&lt;/p&gt;
+&lt;p&gt;你的任务是判断：是否存在一种合法的走廊铺砌方式，使得点 (D) 恰好位于包含 (\triangle ABC) 的整个三角形铺砌中的某条边或某个顶点上？&lt;/p&gt;
+&lt;p&gt;走廊的两条边界定义为两条唯一确定的平行直线&lt;/p&gt;
+&lt;p&gt;$$
+l_1,\ l_2,
+$$&lt;/p&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(l_1) 经过点 (A) 和 (B)；&lt;/li&gt;
+&lt;li&gt;(l_2) 经过点 (C)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由 ((l_1,l_2)) 所形成的带状区域的一种&lt;strong&gt;铺砌（tessellation）&lt;/strong&gt;，指的是：使用与 (\triangle ABC) 全等的三角形，通过平移、旋转和翻转，将整个无限长带状区域恰好铺满，且所有三角形之间&lt;strong&gt;没有重叠，也没有空隙&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;**输入格式&lt;/p&gt;
+&lt;p&gt;有多组测试数据。&lt;/p&gt;
+&lt;p&gt;第一行包含一个整数&lt;/p&gt;
+&lt;p&gt;$$
+T\qquad(1\le T\le10^3),
+$$&lt;/p&gt;
+&lt;p&gt;表示测试用例数量。&lt;/p&gt;
+&lt;p&gt;对于每组测试数据：&lt;/p&gt;
+&lt;p&gt;第一行包含两个整数&lt;/p&gt;
+&lt;p&gt;$$
+x_a,\ y_a
+\qquad(-100\le x_a,y_a\le100),
+$$&lt;/p&gt;
+&lt;p&gt;表示点 (A) 的坐标。&lt;/p&gt;
+&lt;p&gt;第二行包含两个整数&lt;/p&gt;
+&lt;p&gt;$$
+x_b,\ y_b
+\qquad(-100\le x_b,y_b\le100),
+$$&lt;/p&gt;
+&lt;p&gt;表示点 (B) 的坐标。&lt;/p&gt;
+&lt;p&gt;第三行包含两个整数&lt;/p&gt;
+&lt;p&gt;$$
+x_c,\ y_c
+\qquad(-100\le x_c,y_c\le100),
+$$&lt;/p&gt;
+&lt;p&gt;表示点 (C) 的坐标。&lt;/p&gt;
+&lt;p&gt;第四行包含两个分数&lt;/p&gt;
+&lt;p&gt;$$
+\frac{x_{d1}}{x_{d2}}
+\qquad\text{和}\qquad
+\frac{y_{d1}}{y_{d2}},
+$$&lt;/p&gt;
+&lt;p&gt;其中&lt;/p&gt;
+&lt;p&gt;$$
+-10^7&amp;#x3C;x_{d1},y_{d1}&amp;#x3C;10^7,
+$$&lt;/p&gt;
+&lt;p&gt;并且&lt;/p&gt;
+&lt;p&gt;$$
+0&amp;#x3C;x_{d2},y_{d2}&amp;#x3C;10^7.
+$$&lt;/p&gt;
+&lt;p&gt;它们分别表示点 (D) 的 (x) 坐标与 (y) 坐标，即&lt;/p&gt;
+&lt;p&gt;$$
+D=
+\left(
+\frac{x_{d1}}{x_{d2}},
+\frac{y_{d1}}{y_{d2}}
+\right).
+$$&lt;/p&gt;
+&lt;p&gt;保证：&lt;/p&gt;
+&lt;p&gt;$$
+A,B,C
+$$&lt;/p&gt;
+&lt;p&gt;构成一个&lt;strong&gt;非退化三角形&lt;/strong&gt;，即三点不共线。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于每组测试数据：&lt;/p&gt;
+&lt;p&gt;如果存在一种合法铺砌，使得点 (D) 位于铺砌中的至少一个三角形的&lt;strong&gt;边或顶点&lt;/strong&gt;上，输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Yes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;否则输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;No
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;样例输入&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;4
+-2 1
+0 0
+0 2
+2/1 0/1
+-2 1
+0 0
+0 2
+1/1 0/1
+0 1
+-2 1
+0 2
+1/2 7/4
+0 1
+-2 1
+0 2
+-3/2 3/4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;样例输出&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Yes
+No
+Yes
+No
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;图中的前两个样例可以理解为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Case 1：Yes&lt;/strong&gt;：点 (D) 正好落在某条三角形边界上；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Case 2：No&lt;/strong&gt;：点 (D) 落在某个三角形的内部，因此不满足要求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这道题的核心其实不是一般意义上的“三角形铺砖搜索”，而是要研究：&lt;strong&gt;一个三角形横跨两条平行线以后，沿走廊方向不断翻折/镜像铺砌，其所有边界点会形成什么样的周期结构。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;（内容待补充）&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H3 Green公式</title><link>https://ehnotgod.github.io/blog/h3-green%E5%85%AC%E5%BC%8F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h3-green%E5%85%AC%E5%BC%8F</guid><description>Green 公式：格林公式。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;略，主要是介绍Fraction的用法&lt;/p&gt;
+&lt;h3&gt;py代码：&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import fractions
+t = int(input())
+
+def cross(a, b):
+    return a.x * b.y - b.x * a.y
+
+class pt:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, p):
+        return pt(self.x + p.x,
+                  self.y + p.y)
+    def __sub__(self, p):
+        return pt(self.x - p.x,
+                  self.y - p.y)
+    def __mul__(self, d):
+        return pt(self.x * d,
+                self.y * d)
+    def __truediv__(self, d):
+        return pt(self.x / d,
+                self.y / d)
+    def __str__(self):
+        return f&quot;({self.x}, {self.y})&quot;
+    def __eq__(self, p):
+        return self.x == p.x and self.y == p.y
+
+class line:
+    def __init__(self, p, q):
+        self.v = q - p
+        self.c = cross(self.v, p)
+
+def side(ln, p):
+    return cross(ln.v, p) - ln.c
+
+def inter(l1, l2):
+    d = cross(l1.v, l2.v)
+    return (l2.v * l1.c - l1.v * l2.c) / d
+
+def dot(v, w):
+    return v.x* w.x+ v.y* w.y
+
+
+
+
+def slave():
+    xa, ya = map(int, input().split())
+    xb, yb = map(int, input().split())
+    xc, yc = map(int, input().split())
+    xa_f = fractions.Fraction(xa, 1)
+    ya_f = fractions.Fraction(ya, 1)
+    xb_f = fractions.Fraction(xb, 1)
+    yb_f = fractions.Fraction(yb, 1)
+    xc_f = fractions.Fraction(xc, 1)
+    yc_f = fractions.Fraction(yc, 1)
+    a = pt(xa_f, ya_f)
+    b = pt(xb_f, yb_f)
+    c = pt(xc_f, yc_f)
+    xd, yd = input().split()
+    xd1, xd2 = map(int, xd.split(&quot;/&quot;))
+    yd1, yd2 = map(int, yd.split(&quot;/&quot;))
+    xd_f = fractions.Fraction(xd1, xd2)
+    yd_f = fractions.Fraction(yd1, yd2)
+    d = pt(xd_f, yd_f)
+
+    ln_ab = line(a, b)
+    ln_c = line(c, b - a + c)
+
+    # 看看在不在线上
+    if cross(a - b, a - d) == 0 or cross(a - b, c - d) == 0:
+        return 1
+    # 看看在不在线内
+    if side(ln_ab, d) * side(ln_c, d) &gt; 0:
+        return 0
+    ln1 = line(d, d + c - a)
+    ln2 = line(d, d + c - b)
+    h1 = inter(ln1, ln_c)
+    h2 = inter(ln2, ln_c)
+    def pan(h, can=c):
+        f1 = 0; f2 = 0
+        if (b - a).x == 0 or (h - can).x % abs((b - a).x) == 0:
+            f1 = 1
+        if (b - a).y == 0 or (h - can).y % abs((b - a).y) == 0:
+            f2 = 1
+        return f1 and f2
+
+    if pan(h1) or pan(h2):
+        return 1
+    if dot(a - b, a - c) == 0:
+        ln3 = line(d, d + c - a * 2+ b)
+        h3 = inter(ln3, ln_ab)
+        if h3 != a and pan(h3, a):
+            return 1
+    if dot(a - b, b - c) == 0:
+        ln3 = line(d, d + c + a - b * 2)
+        h3 = inter(ln3, ln_ab)
+        if h3 != b and pan(h3, b):
+            return 1
+
+    return 0
+
+for _ in range(t):
+    print(&quot;Yes&quot; if slave() else &quot;No&quot;)
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H3 Green公式</title><link>https://ehnotgod.github.io/blog/h3-green%E5%85%AC%E5%BC%8F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h3-green%E5%85%AC%E5%BC%8F</guid><description>Green 公式：格林公式。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;题目链接：https://qoj.ac/contest/2585/problem/14939&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;（内容待补充）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H3/H3-1.png&quot; alt=&quot;Problem D. 很多喷洒器&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;（内容待补充）&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H1 计算几何通用</title><link>https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</guid><description>计算几何通用：向量、点、线、多边形等基础模板。</description><pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;这题求多个圆的面积并。做法是枚举每个圆，计算它的圆周被其他圆覆盖的角度区间，将这些区间合并，剩下的“裸露圆弧”就是圆并边界。然后利用 &lt;strong&gt;Green 公式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$$
+S=\frac12\oint_{\partial\Omega}(x,dy-y,dx)
+$$&lt;/p&gt;
+&lt;p&gt;把边界积分转成面积。对圆心 ((x_0,y_0))、半径 (R) 的圆弧 (\theta\in[l,r])，参数化为&lt;/p&gt;
+&lt;p&gt;$$
+x=x_0+R\cos\theta,\quad y=y_0+R\sin\theta
+$$&lt;/p&gt;
+&lt;p&gt;代入 Green 公式，可得该圆弧的面积贡献&lt;/p&gt;
+&lt;p&gt;$$
+\frac12\left[R^2(r-l)+Rx_0(\sin r-\sin l)+Ry_0(\cos l-\cos r)\right].
+$$&lt;/p&gt;
+&lt;p&gt;把所有未被覆盖圆弧的贡献累加，即得到所有圆的并集面积。整体复杂度为&lt;/p&gt;
+&lt;p&gt;$$
+O(n^2\log n).
+$$&lt;/p&gt;
+&lt;h3&gt;py代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math
+
+PI = math.pi
+TAU = 2 * PI
+EPS = 1e-12
+
+def solve():
+    n = int(input())
+    c = [tuple(map(float, input().split())) for _ in range(n)]
+    ans = 0.0
+
+    def arc(x, y, R, l, r):
+        return (R*R*(r-l)
+                + R*x*(math.sin(r)-math.sin(l))
+                + R*y*(math.cos(l)-math.cos(r))) / 2
+
+    for i, (x, y, R) in enumerate(c):
+        seg = []
+        covered = False
+
+        for j, (X, Y, r) in enumerate(c):
+            if i == j:
+                continue
+
+            dx, dy = X-x, Y-y
+            d = math.hypot(dx, dy)
+
+            # 重合圆，只保留一个
+            if d &amp;#x3C; EPS and abs(R-r) &amp;#x3C; EPS:
+                if j &amp;#x3C; i:
+                    covered = True
+                    break
+                continue
+
+            # 当前圆被完全覆盖
+            if d + R &amp;#x3C;= r + EPS:
+                covered = True
+                break
+
+            # 相离，或另一个圆完全在当前圆内部
+            if d &gt;= R+r-EPS or d+r &amp;#x3C;= R+EPS:
+                continue
+
+            a = math.atan2(dy, dx)
+            co = (R*R + d*d - r*r) / (2*R*d)
+            b = math.acos(max(-1, min(1, co)))
+
+            l = (a-b) % TAU
+            rr = (a+b) % TAU
+
+            if l &amp;#x3C;= rr:
+                seg.append((l, rr))
+            else:
+                seg.append((l, TAU))
+                seg.append((0, rr))
+
+        if covered:
+            continue
+
+        seg.sort()
+        now = 0.0
+
+        for l, r in seg:
+            if l &gt; now:
+                ans += arc(x, y, R, now, l)
+            now = max(now, r)
+
+        if now &amp;#x3C; TAU:
+            ans += arc(x, y, R, now, TAU)
+
+    print(f&quot;{ans:.15f}&quot;)
+
+T = int(input())
+for _ in range(T):
+    solve()
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H1 计算几何通用</title><link>https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</guid><description>计算几何通用：向量、点、线、多边形等基础模板。</description><pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;计算几何通用模板：向量运算、点与线、多边形、凸包、极角排序等基础内容（整理自&quot;计算几何专题讲座&quot;）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
