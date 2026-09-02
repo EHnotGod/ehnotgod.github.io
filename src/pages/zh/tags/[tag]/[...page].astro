@@ -3,7 +3,7 @@ import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
 import { Paginator, PostPreview } from '@/components/pages'
-import { getBlogCollection, getUniqueTags, sortMDByDate } from '@/server'
+import { getBlogCollection, getUniqueTags, sortMDByTitle } from '@/server'
 import { Button } from '@/components/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import config from '@/site-config'
@@ -12,11 +12,11 @@ export const prerender = true
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const allPosts = await getBlogCollection()
-  const allPostsByDate = sortMDByDate(allPosts)
-  const uniqueTags = getUniqueTags(allPostsByDate)
+  const allPostsSorted = sortMDByTitle(allPosts)
+  const uniqueTags = getUniqueTags(allPostsSorted)
 
   return uniqueTags.flatMap((tag) => {
-    const filterPosts = allPostsByDate.filter((post) => post.data.tags.includes(tag))
+    const filterPosts = allPostsSorted.filter((post) => post.data.tags.includes(tag))
     return paginate(filterPosts, {
       pageSize: config.content?.blogPageSize || 8,
       params: { tag }
@@ -52,10 +52,10 @@ const meta = {
             id='post-sort'
             class='cursor-pointer appearance-none rounded-md border border-border bg-background py-1 pe-7 ps-2 text-sm text-foreground outline-none transition-colors hover:border-foreground/25 focus:border-primary'
           >
+            <option value='title-asc' selected>标题（A → Z）</option>
+            <option value='title-desc'>标题（Z → A）</option>
             <option value='date-desc'>时间（新 → 旧）</option>
             <option value='date-asc'>时间（旧 → 新）</option>
-            <option value='title-asc'>标题（A → Z）</option>
-            <option value='title-desc'>标题（Z → A）</option>
           </select>
         </label>
       </div>
@@ -100,21 +100,8 @@ const meta = {
   const sortSelect = document.getElementById('post-sort') as HTMLSelectElement | null
   const postList = document.getElementById('blog-post-list')
   if (sortSelect && postList) {
-    const KEY = 'blog-post-sort'
-    try {
-      const saved = localStorage.getItem(KEY)
-      if (saved) sortSelect.value = saved
-    } catch (e) {
-      /* ignore */
-    }
-
     const applySort = () => {
       const mode = sortSelect.value
-      try {
-        localStorage.setItem(KEY, mode)
-      } catch (e) {
-        /* ignore */
-      }
       const items = Array.from(postList.children) as HTMLElement[]
       items.sort((a, b) => {
         const ta = a.dataset.title || ''
@@ -132,7 +119,7 @@ const meta = {
     }
 
     sortSelect.addEventListener('change', applySort)
-    applySort()
+    // 服务端已按标题排序；仅当用户手动切换下拉时才重排当前页
   }
 </script>
 

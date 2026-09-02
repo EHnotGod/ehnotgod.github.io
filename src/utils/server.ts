@@ -153,6 +153,11 @@ export function sortMDByDate<T extends BlogPostEntry>(collections: T[]): T[] {
   })
 }
 
+/** Sort by title using natural order (G1 < G2 < ... < G10 < G31). */
+export function sortMDByTitle<T extends BlogPostEntry>(collections: T[]): T[] {
+  return [...collections].sort((a, b) => naturalCompare(a.data.title, b.data.title))
+}
+
 /** Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so. */
 export function getAllTags(collections: BlogPostEntry[]) {
   return collections.flatMap((collection) => [...collection.data.tags])
