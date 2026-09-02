@@ -54,9 +54,130 @@ int main() {
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G32 莫比乌斯反演</title><link>https://ehnotgod.github.io/blog/g32-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g32-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94</guid><description>莫比乌斯反演：μ 函数与反演公式。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;（内容待补充）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G32/G32-1.png&quot; alt=&quot;题目：企鹅收集石头&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;（内容待补充）&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H2 Fraction</title><link>https://ehnotgod.github.io/blog/h2-fraction</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h2-fraction</guid><description>Fraction：分数相关算法。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;设 $F(k)$ 为选出的 $m$ 个数都能被 $k$ 整除的方案数，则 $F(k)=\binom{\lfloor n/k\rfloor}{m}$（从 $k,2k,\dots$ 中选 $m$ 个）。设 $G(k)$ 为选出的 $m$ 个数 $\gcd$ &lt;strong&gt;恰等于&lt;/strong&gt; $k$ 的方案数，则 $F(k)=\sum_{k\mid d}G(d)$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;莫比乌斯反演&lt;/strong&gt;：由 $F(k)=\sum_{k\mid d}G(d)$ 反演得 $G(k)=\sum_{k\mid d}\mu(d/k)F(d)$。本题要求 $\gcd\ne1$，即总数减去 $\gcd=1$：&lt;/p&gt;
+&lt;p&gt;$$
+\text{ans}=\binom{n}{m}-\sum_{d=1}^{n}\mu(d)\binom{\lfloor n/d\rfloor}{m}
+$$&lt;/p&gt;
+&lt;p&gt;其中用到了 $\sum_{d\mid g}\mu(d)=[g=1]$ 这一核心恒等式。复杂度瓶颈在线性筛求 $\mu$ 与预处理阶乘/逆元到 $n$（$O(n)$），再 $O(n)$ 求和，可过 $n\le4\times10^7$。&lt;/p&gt;
+&lt;h3&gt;C++代码：&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;/*EHnotgod————
+..............#######.....#.....#..............
+..............#...........#.....#..............
+..............#######.....#######..............
+..............#...........#.....#..............
+..............#######.....#.....#..............
+*/
+#include &amp;#x3C;bits/stdc++.h&gt;
+using namespace std;
+// debug 宏：在编译时定义 -DLOCAL 会启用打印，否则为 no-op
+#ifdef LOCAL
+template&amp;#x3C;class T&gt; string ts(const T&amp;#x26; v){
+    stringstream ss; ss &amp;#x3C;&amp;#x3C; v; return ss.str();
+}
+template&amp;#x3C;class A,class B&gt; string ts(const pair&amp;#x3C;A,B&gt;&amp;#x26; p){ return &quot;(&quot;+ts(p.first)+&quot;,&quot;+ts(p.second)+&quot;)&quot;; }
+template&amp;#x3C;class T&gt; string ts(const vector&amp;#x3C;T&gt;&amp;#x26; v){ string s=&quot;{&quot;; for (auto &amp;#x26;x:v) s += ts(x)+&quot;,&quot;; return s+&quot;}&quot;; }
+template&amp;#x3C;class T, class C, class A&gt; string ts(const set&amp;#x3C;T,C,A&gt;&amp;#x26; v){ string s=&quot;{&quot;; for (auto &amp;#x26;x:v) s += ts(x)+&quot;,&quot;; return s+&quot;}&quot;; }
+template&amp;#x3C;class T, class C, class A&gt; string ts(const multiset&amp;#x3C;T,C,A&gt;&amp;#x26; v){ string s=&quot;{&quot;; for (auto &amp;#x26;x:v) s += ts(x)+&quot;,&quot;; return s+&quot;}&quot;; }
+template&amp;#x3C;class K,class V,class C, class A&gt; string ts(const map&amp;#x3C;K,V,C,A&gt;&amp;#x26; m){ string s=&quot;{&quot;; for (auto &amp;#x26;kv:m) s += ts(kv.first)+&quot;:&quot;+ts(kv.second)+&quot;,&quot;; return s+&quot;}&quot;; }
+
+void dbg_out(){ cerr &amp;#x3C;&amp;#x3C; &quot;\n&quot;; }
+template&amp;#x3C;class H, class...T&gt; void dbg_out(const H&amp;#x26; h, const T&amp;#x26;...t){
+    cerr &amp;#x3C;&amp;#x3C; &quot; &quot; &amp;#x3C;&amp;#x3C; ts(h);
+    dbg_out(t...);
+}
+#define debug(...) cerr&amp;#x3C;&amp;#x3C;&quot;[&quot;&amp;#x3C;&amp;#x3C;#__VA_ARGS__&amp;#x3C;&amp;#x3C;&quot;]:&quot;,dbg_out(__VA_ARGS__)
+#else
+#define debug(...) 114514
+#endif
+#define endl &quot;\n&quot;
+#define int long long
+#define range(i, a, b) for (int i = (a); i &amp;#x3C; (b); ++i)
+#define def(name, ...) auto name = [&amp;#x26;](__VA_ARGS__)
+
+
+const int N = 40000010;
+const int mod = 1000000007;
+int p[N], vis[N], cnt;
+int mu[N];
+int fac[N];
+int inv[N];
+
+
+int qpow(int a,int b,int p){ //快速幂
+  int s=1LL;
+  while(b){
+    if(b&amp;#x26;1) s=s*a%p;
+    a=a*a%p;
+    b&gt;&gt;=1LL;
+  }
+  return s;
+}
+void init(int n){
+    fac[0] = 1;
+    range(i, 1, n){
+        fac[i] = i * fac[i - 1] % mod;
+    }
+    inv[n - 1] = qpow(fac[n - 1], mod - 2, mod);
+    for (int i = n - 1; i &gt; 0; i--){
+        inv[i - 1] = inv[i] * i % mod;
+    }
+}
+int comb(int n, int r){
+    if (n &amp;#x3C; r){
+        return 0;
+    }
+    int ans = fac[n] * inv[r] % mod * inv[n - r] % mod;
+    return ans;
+}
+void get_mu(int n){//筛法求莫比乌斯函数
+  mu[1] = 1;
+  for(int i=2; i&amp;#x3C;=n; i++){
+    if(!vis[i]){
+      p[++cnt] = i;
+      mu[i] = -1;
+    }
+    for(int j=1; i*p[j]&amp;#x3C;=n; j++){
+      int m = i*p[j]; 
+      vis[m] = 1;
+      if(i%p[j] == 0){
+        mu[m] = 0;
+        break;
+      } 
+      else
+        mu[m] = -mu[i];
+    }
+  }
+}
+
+// vector&amp;#x3C;int&gt; a(n, 0);
+// vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; dp(n + 1, vector&amp;#x3C;int&gt;(n + 1, 0));
+void solve() {
+	int n, m; cin &gt;&gt; n &gt;&gt; m;
+	get_mu(n + 1);
+    init(n + 1);
+    int ans = comb(n, m);
+    range(i, 1, n + 1){
+        ans -= (mu[i] * comb(n/i, m) % mod);
+        ans %= mod;
+    }
+    cout &amp;#x3C;&amp;#x3C; (ans + mod) % mod;
+}
+
+signed main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+	int t;
+	t = 1;
+	while (t--) {
+		solve();
+	}
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H2 Fraction</title><link>https://ehnotgod.github.io/blog/h2-fraction</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h2-fraction</guid><description>Fraction：分数相关算法。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;亿万富翁 Cai 有一个非常特别的执念：只有当他的双脚牢牢踩在瓷砖的&lt;strong&gt;边或顶点&lt;/strong&gt;上——也就是说，踩在地板瓷砖的边界上——他才会觉得舒服。&lt;/p&gt;
 &lt;p&gt;最近，他购入了一批完全相同的高档&lt;strong&gt;三角形地砖&lt;/strong&gt;，准备使用这些地砖铺满他新豪宅里一条又长又直的走廊。&lt;/p&gt;
