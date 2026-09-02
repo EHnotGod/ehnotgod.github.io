@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/scripts/pretty-feed-v3.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:h="http://www.w3.org/TR/html4/"><channel><title>EH&apos;s Blog</title><description>EH is not god, but EH</description><link>https://ehnotgod.github.io</link><item><title>H1 计算几何通用</title><link>https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</guid><description>计算几何通用：向量、点、线、多边形等基础模板。</description><pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/scripts/pretty-feed-v3.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:h="http://www.w3.org/TR/html4/"><channel><title>EH&apos;s Blog</title><description>EH is not god, but EH</description><link>https://ehnotgod.github.io</link><item><title>H2 Fraction</title><link>https://ehnotgod.github.io/blog/h2-fraction</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h2-fraction</guid><description>Fraction：分数相关算法。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;（内容待补充）&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;（内容待补充）&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H3 Green公式</title><link>https://ehnotgod.github.io/blog/h3-green%E5%85%AC%E5%BC%8F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h3-green%E5%85%AC%E5%BC%8F</guid><description>Green 公式：格林公式。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;（内容待补充）&lt;/p&gt;
+&lt;h3&gt;算法解析：&lt;/h3&gt;
+&lt;p&gt;（内容待补充）&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H1 计算几何通用</title><link>https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</guid><description>计算几何通用：向量、点、线、多边形等基础模板。</description><pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;计算几何通用模板：向量运算、点与线、多边形、凸包、极角排序等基础内容（整理自&quot;计算几何专题讲座&quot;）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
@@ -358,6 +366,22 @@ int circleCircle(pt o1,T r1, pt o2,T r2, pair&amp;#x3C;pt, pt&gt;&amp;#x26;out){
     T h2 = r1 * r1 - pd * pd / d2;
     if(h2 &gt;=0){ pt p = o1 + d * pd / d2, h =perp(d)*sqrt(h2 / d2); out = {p - h, p + h};}
     return 1 + sgn(h2);
+}
+bool inTri(pt a,pt b,pt c,pt p){
+ return orient(a,b,p)&gt;=0&amp;#x26;&amp;#x26;orient(b,c,p)&gt;=0&amp;#x26;&amp;#x26;orient(c,a,p)&gt;=0;
+}
+vector&amp;#x3C;tuple&amp;#x3C;pt,pt,pt&gt;&gt; earCut(vector&amp;#x3C;pt&gt;p){
+ int n=p.size(),c=n;vector&amp;#x3C;int&gt;l(n),r(n),v(n,1);deque&amp;#x3C;int&gt;q;
+ vector&amp;#x3C;tuple&amp;#x3C;pt,pt,pt&gt;&gt;z;
+ range(i,0,n)l[i]=(i+n-1)%n,r[i]=(i+1)%n,q.push_back(i);
+ auto E=[&amp;#x26;](int x){if(!v[x]||orient(p[l[x]],p[x],p[r[x]])&amp;#x3C;=0)return 0;
+  range(i,0,n)if(v[i]&amp;#x26;&amp;#x26;i!=l[x]&amp;#x26;&amp;#x26;i!=x&amp;#x26;&amp;#x26;i!=r[x]&amp;#x26;&amp;#x26;inTri(p[l[x]],p[x],p[r[x]],p[i]))return 0;
+  return 1;};
+ while(c&gt;3){int x=q.front();q.pop_front();if(!E(x))continue;
+  int L=l[x],R=r[x];z.push_back({p[L],p[x],p[R]});
+  v[x]=0;r[L]=R;l[R]=L;c--;q.push_back(L);q.push_back(R);}
+ range(i,0,n)if(v[i]){z.push_back({p[i],p[r[i]],p[r[r[i]]]});break;}
+ return z;
 }
 
 // 快捷CV处
