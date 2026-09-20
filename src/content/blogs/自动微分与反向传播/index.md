@@ -2,7 +2,7 @@
 title: "自动微分与反向传播"
 publishDate: 2026-08-08
 description: "自动微分与反向传播：从零实现 Variable 与梯度计算。"
-category: dl
+category: technical
 tags:
   - 深度学习底层学习
   - 深度学习底层

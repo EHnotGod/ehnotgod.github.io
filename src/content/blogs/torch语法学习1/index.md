@@ -2,7 +2,7 @@
 title: "torch语法学习1"
 publishDate: 2026-08-08
 description: "PyTorch 语法笔记：优化器、梯度与常用 API。"
-category: dl
+category: technical
 tags:
   - 深度学习底层学习
   - 语法学习

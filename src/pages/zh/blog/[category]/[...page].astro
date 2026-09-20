@@ -12,12 +12,12 @@ export const prerender = true
 
 export const getStaticPaths = (async ({ paginate }) => {
   const categoryMap: Record<string, string> = {
-    'algo': '算法竞赛',
-    'ml': '机器学习',
-    'dl': '深度学习'
+    'algo': 'Algorithm Contest',
+    'technical': 'Technical',
+    'daily-life': 'Daily Life'
   }
   
-  const categoryOrder = ['algo', 'ml', 'dl']
+  const categoryOrder = ['algo', 'technical', 'daily-life']
   
   const allCollections = await getBlogCollection()
   const allUniqueCategories = getUniqueCategories(allCollections)

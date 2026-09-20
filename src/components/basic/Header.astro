@@ -11,13 +11,13 @@ const allCategories = getUniqueCategories(allCollections)
 
 // Define category display names and filter allowed categories
 const categoryMap: Record<string, string> = {
-  'algo': '算法竞赛',
-  'ml': '机器学习',
-  'dl': '深度学习'
+  'algo': 'Algorithm Contest',
+  'technical': 'Technical',
+  'daily-life': 'Daily Life'
 }
 
-// Define custom order (算法竞赛 first)
-const categoryOrder = ['algo', 'ml', 'dl']
+// Define custom order (Algorithm Contest first)
+const categoryOrder = ['algo', 'technical', 'daily-life']
 
 // Filter and map categories with custom order
 const categories = categoryOrder

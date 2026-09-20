@@ -2,7 +2,7 @@
 title: "随机森林"
 publishDate: 2026-08-09
 description: "随机森林：多棵决策树集成，降低过拟合。"
-category: ml
+category: technical
 tags:
   - 机器学习
 language: zh

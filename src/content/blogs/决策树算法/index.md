@@ -2,7 +2,7 @@
 title: "决策树算法"
 publishDate: 2026-08-09
 description: "决策树：信息增益 / 基尼指数划分，可解释性强。"
-category: ml
+category: technical
 tags:
   - 机器学习
 language: zh

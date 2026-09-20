@@ -39,6 +39,14 @@ export default defineConfig({
   // base: '/docs',
   trailingSlash: 'never',
 
+  // Legacy category slugs (ml/dl merged into technical)
+  redirects: {
+    '/blog/ml': '/blog/technical',
+    '/blog/dl': '/blog/technical',
+    '/zh/blog/ml': '/zh/blog/technical',
+    '/zh/blog/dl': '/zh/blog/technical'
+  },
+
   // Internationalization
   i18n: {
     locales: ['en', 'zh'],
