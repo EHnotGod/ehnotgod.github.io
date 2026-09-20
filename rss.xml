@@ -1,4 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/scripts/pretty-feed-v3.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:h="http://www.w3.org/TR/html4/"><channel><title>EH&apos;s Blog</title><description>EH is not god, but EH</description><link>https://ehnotgod.github.io</link><item><title>G31 圆排列、错排数</title><link>https://ehnotgod.github.io/blog/g31-%E5%9C%86%E6%8E%92%E5%88%97%E9%94%99%E6%8E%92%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g31-%E5%9C%86%E6%8E%92%E5%88%97%E9%94%99%E6%8E%92%E6%95%B0</guid><description>圆排列与错排数：环形排列与全错位排列计数。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/scripts/pretty-feed-v3.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:h="http://www.w3.org/TR/html4/"><channel><title>EH&apos;s Blog</title><description>EH is not god, but EH</description><link>https://ehnotgod.github.io</link><item><title>ACM生涯</title><link>https://ehnotgod.github.io/blog/acm%E7%94%9F%E6%B6%AF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/acm%E7%94%9F%E6%B6%AF</guid><description>EH与ACM的爱恨情仇</description><pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
+&lt;p&gt;我对 ACM 一直怀着两种近乎矛盾的态度。一方面，若能拿到区域赛银牌及以上的奖项，它确实会成为履历上相当漂亮的一笔；可另一方面，为了加训所付出的时间与精力，也注定会挤占掉大学生活中许多其他可能性。更何况，ACM 归根到底仍是一项带有“做题家”气质的竞赛，它无法替代真正的工程能力、科研积累。于我而言，“锦上添花”或许是对它最恰当的形容。&lt;/p&gt;
+&lt;p&gt;但无论如何，它终究是一段难忘的经历。它极大地丰富了我的大学生活，也让我遇见了许多志同道合的人。接下来，就简单讲讲我与 ACM 的这段缘分。&lt;/p&gt;
+&lt;h2&gt;大一学期——加入ACM校队&lt;/h2&gt;
+&lt;p&gt;第一次接触 ACM，是在大一参加“可达鸭杯”的时候。当时比赛通知刚发出来，还允许线上参赛，我便下意识以为这不过是一场“水赛”，没有任何准备，赛时连输入输出都得现场百度。写五子棋那道题时，我被各种边界情况卡得死去活来，最后遗憾无缘决赛。那大概是我第一次意识到：看似简单的题目，真写起来也未必那么简单。&lt;/p&gt;
+&lt;p&gt;到了大一下，我又看到了新星赛的通知。有了“可达鸭杯”的前车之鉴，这一次我提前准备了一些输入输出模板，算是稍微认真了些。可彼时我的主要精力仍放在数学建模上，编程语言也只会 Python。面对这种显然更利好 C++ 这种编程语言的程序设计竞赛，我多少有些硬着头皮上场的意味。所幸结果还不错，单纯凭借一些数学直觉和思维能力，我拿到了银奖，也顺利进入了 ACM 校队。也正是在校队里，我认识了另外两位来自数院的选手 ，后来他们便成了我的队友。&lt;/p&gt;
+&lt;p&gt;说来惭愧，我们的加训状态一度颇有些“三天打鱼，两天晒网”的味道。而在队伍里，我的水平又是最低的。平日训练赛中，我基本只能负责一些数学题、结论题；至于更复杂的算法实现，则常常只能在一旁望题兴叹。更要命的是，那时的我依旧只会 Python，很多时候连语言本身都像是一道额外的门槛。后来，我们参加了省赛选拔赛，毫无悬念地喜提 no 名额。不过老师仍然相信我们的潜力，建议我们以打星的身份参赛，提前感受一下正式比赛的氛围。&lt;/p&gt;
+&lt;p&gt;于是，便有了 2024 年山东省赛兼邀请赛之行。&lt;/p&gt;
+&lt;p&gt;那场比赛规模很大，大到光是告诉别人“我要去参加这样的比赛”，就已经是一件颇有面子的事情。真正坐到赛场上时，我们才发现自己仍然稚嫩得很：整场比赛只做出了 3 题，连二分都还不太会，成绩就算放在正式队里也获不了奖。现在回想起来，那多少有些狼狈，却也足够真实，“打印机”成了我们忘不了的一题（那题卡long long，而且刚需二分算法）。&lt;/p&gt;
+&lt;p&gt;不过，济南还是很好玩的。队友 A 是本地人，赛后便带着我们四处转了转。我们去了趵突泉，也顺路去了SDU趵突泉校区，还在大明湖畔吹了晚风。夜色、湖风、泉水、旧城，还有一群刚从赛场上败下阵来的ACMer——这些画面混在一起，反倒比比赛本身更清晰地留在了记忆里。&lt;/p&gt;
+&lt;h2&gt;大二学期——至暗时刻？&lt;/h2&gt;
+&lt;p&gt;2024 年上半年，其实还有蓝桥杯、天梯赛和百度之星。非常遗憾的是，这些比赛我都没有获奖（蓝桥杯没报）。也正因如此，后来的暑假加训多少也带着些“水水而已”的味道；至于区域赛名额，自然也没有轮到我们。对这样一支队伍来说，未来真的还有拿奖的可能吗？那时的我自己也很怀疑。也许属于我们的 ACM 之路，差不多就要到此为止了。&lt;/p&gt;
+&lt;p&gt;2024 年下半年的秋季选拔赛带来了一些我心态上的转变。那场比赛里，我作为老队员带榜，和我们学校同级的传奇新人 7_divided_by_3 同台竞技。那时我的加训题量还不到他的四分之一，可最后他也只是比我多做出了一题；甚至在比赛前期，领跑的还是我——不得不说，Python 写起来是真的快。也正是在那一刻，我感受到：原来在算法竞赛里打出一点名堂，好像也并没有想象中那么遥不可及。于是，我开始比较系统地加训，把过去欠下的漏洞一点点补上（B 站up董晓算法讲得不错）。也是在 2024 年底，我开始正式打 Codeforces，并成功上了青名。&lt;/p&gt;
+&lt;p&gt;大二下学期，我开始更加频繁地加训。Codeforces 被我打到了 1800 分，我们队也拿到了省赛银牌；我个人则拿到了蓝桥杯国一、百度之星省一。那时我的总刷题数其实也不过 600 左右。算不上多么夸张，却已经足够支撑我走到一个曾经不敢想的位置。我个人认为自己在这方面确实有点小天赋，按照同等水平来说的话，刷题量得在1000左右吧。&lt;/p&gt;
+&lt;h2&gt;大三学期——区域赛&lt;/h2&gt;
+&lt;p&gt;到了 2025 年下半年，我意识到，这大概会是我唯一一次打区域赛的机会了。因为我在积极地备战保研，而假如想让牌子发挥作用，只能依靠这个学期了，大四再拿就迟了。我们暑假的加训其实并不拼命，还是比较水水的状态，可能是还没经历过区域赛的毒打吧。因此，对于一支主要从大二才开始认真加训的队伍来说，想在区域赛拿牌，怎么看都有些不太现实，但我还是想试一试。好在天无绝人之路——我们选到了两个强度最低的 ICPC 站，以及一个强度最低的 CCPC 站。&lt;/p&gt;
+&lt;p&gt;第一站是西安站。那一场几乎是我一个人在开题、写题，题目分别是签到+二分+LCA+优先队列这么4题，硬是把队伍撑到了铜牌。其实那场我并没有那么高兴，我在反思，假如只靠我一个人发力，最好也只能是这样的成果了，那后续的赛站岂不是难度更大？银牌多半是没什么指望了。&lt;/p&gt;
+&lt;p&gt;第二站是哈尔滨站，这场是CCPC，难度偏高，我们的预期目标是拿到铜牌就行。让我意外的是，队友开始发力，把一道至关重要的“猜猜题”给过掉了，我们最后极限拿铜。&lt;/p&gt;
+&lt;p&gt;第三站是沈阳站，它居然提供 PyPy3，于是我们直接手速起飞。这场我和队友配合紧密，我负责写板子逻辑，他负责写主算法逻辑，一点错误都没犯。最后，队友还极限发力过掉了那道卡了半个场的结论题，我们破天荒地拿到了银牌。&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>大一生活</title><link>https://ehnotgod.github.io/blog/%E5%A4%A7%E4%B8%80%E7%94%9F%E6%B4%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/%E5%A4%A7%E4%B8%80%E7%94%9F%E6%B4%BB</guid><description>EH的大一生活，初识校园</description><pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;大一上 · 九月&lt;/h2&gt;
+&lt;p&gt;初到山东大学，映入眼帘的便是一座气势恢宏的校门。虽然这里是威海校区，但实话实说，它带给我的震撼丝毫不逊于本部。校园给人的第一印象很不错，而食堂也同样让人惊喜——饭菜确实很好吃。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/_astro/ff9c5b4ba293c5035d8823f58b4f2f69.BKCJidPa_Z1sJfBf.webp&quot; alt=&quot;alt text&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/_astro/3b05a37f740aa8eb66238cf9f2e6e07b.CGFoqCim_Z25KG7c.webp&quot; alt=&quot;alt text&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我们宿舍的氛围也特别好，闲的那会儿还和两个舍友一起开黑吃鸡，忙的那会儿整个宿舍齐心协力备战期末考。一个好的宿舍氛围真的很重要，它带来良好的生活习惯。&lt;/p&gt;
+&lt;p&gt;很快我迎来了数科班考试和泰山学堂考试，事实证明进入这个数科班是一个错误的选择，小班制带来的保研排名百分比劣势极其严重，但当时的我引以为荣，本身我对计算机就挺感兴趣的，数学+计算机真是一个巨大的诱惑。&lt;/p&gt;
+&lt;p&gt;我确实顺利进入了数科班，也通过了泰山学堂的笔试（数学方向），不过面试没过（这太难了）。由于是高考落榜来的山威，我并不认为自己有多差，反而有一种鹤立鸡群的优越感：“你看，我不需要多少努力就考进了数科班！”这也为后来的失败埋下了伏笔。&lt;/p&gt;
+&lt;p&gt;刚进入大学的我广交友，乐观开朗，短时间之内不少人就知道我是个“很有能力的人”，我因此感到沾沾自喜。&lt;/p&gt;
+&lt;p&gt;一起来&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>欢迎来到 Daily Life</title><link>https://ehnotgod.github.io/blog/hello-daily-life</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/hello-daily-life</guid><description>Daily Life 开栏第一篇：随手记录日常生活的随笔栏目。</description><pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;欢迎来到 Daily Life&lt;/h1&gt;
+&lt;p&gt;这里是 &lt;strong&gt;Daily Life&lt;/strong&gt; 栏目,用来随手记点日常生活:今天做了什么、想了什么、有什么值得留存的片段。比起算法笔记的严谨,这里更随意,可以当流水账,也可以写点碎碎念。&lt;/p&gt;
+&lt;p&gt;第一篇先当作「模板」——以后写日记,直接新建一个文件夹放 &lt;code&gt;index.md&lt;/code&gt; 即可,frontmatter 里把 &lt;code&gt;category&lt;/code&gt; 填成 &lt;code&gt;daily-life&lt;/code&gt; 就会自动归到这个分类下:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;---
+title: &quot;日记 · 2026-09-04&quot;
+publishDate: 2026-09-04
+description: &quot;一句话概括今天的流水账。&quot;
+category: daily-life
+tags:
+  - 日常
+language: zh
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;不用写得多好,能记下来就赢了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;2026-09-04&lt;/strong&gt;:把博客的栏目重新整理了一下,新开了这个 Daily Life,以后有生活点滴就往这里丢。&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G31 圆排列、错排数</title><link>https://ehnotgod.github.io/blog/g31-%E5%9C%86%E6%8E%92%E5%88%97%E9%94%99%E6%8E%92%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g31-%E5%9C%86%E6%8E%92%E5%88%97%E9%94%99%E6%8E%92%E6%95%B0</guid><description>圆排列与错排数：环形排列与全错位排列计数。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;圆排列：把 $n$ 个不同元素排成一圈（旋转视为同一种）的方案数；错排数 $D_n$：把 $n$ 个元素重新排列，使得每个元素都不在原来的位置上的方案数。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
