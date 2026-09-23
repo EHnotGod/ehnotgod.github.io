@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" class="astro-37fxchfa" style="--highlightColor: hsl(var(--primary) / var(--tw-text-opacity));"> <head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"><meta content="IE=edge" http-equiv="X-UA-Compatible"><title>H1 计算几何通用 • EH&#39;s Blog</title><link rel="icon" type="image/x-icon" href="/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-180x180.png"><link rel="manifest" href="/favicon/site.webmanifest"><link rel="preload" href="/fonts/Satoshi-Variable.ttf" as="font" type="font/ttf" crossorigin><link rel="preload" href="/fonts/Satoshi-VariableItalic.ttf" as="font" type="font/ttf" crossorigin><link rel="canonical" href="https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8"><meta content="H1 计算几何通用 • EH's Blog" name="title"><meta content="计算几何通用：向量、点、线、多边形等基础模板。" name="description"><meta content="EH" name="author"><meta content="" name="theme-color"><meta content="article" property="og:type"><meta content="H1 计算几何通用" property="og:title"><meta content="计算几何通用：向量、点、线、多边形等基础模板。" property="og:description"><meta content="https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8" property="og:url"><meta content="EH's Blog" property="og:site_name"><meta content="en_US" property="og:locale"><meta content="https://ehnotgod.github.io/images/social-card.png" property="og:image"><meta content="1200" property="og:image:width"><meta content="630" property="og:image:height"><meta content="EH" property="article:author"><meta content="2026-09-01T00:00:00.000Z" property="article:published_time"><meta content="summary_large_image" property="twitter:card"><meta content="https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8" property="twitter:url"><meta content="H1 计算几何通用" property="twitter:title"><meta content="计算几何通用：向量、点、线、多边形等基础模板。" property="twitter:description"><meta content="https://ehnotgod.github.io/images/social-card.png" property="twitter:image"><link href="/sitemap-index.xml" rel="sitemap"><link rel="alternate" type="application/rss+xml" title="EH's Blog" href="https://ehnotgod.github.io/rss.xml"><meta content="Astro v5.16.8" name="generator"><link rel="stylesheet" href="/styles/global.css"><!-- <ClientRouter /> --><!-- <script is:inline>
+<!DOCTYPE html><html lang="en" class="astro-37fxchfa" style="--highlightColor: hsl(var(--primary) / var(--tw-text-opacity));"> <head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"><meta content="IE=edge" http-equiv="X-UA-Compatible"><title>H1 计算几何通用 • EH&#39;s Blog</title><link rel="icon" type="image/x-icon" href="/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-180x180.png"><link rel="manifest" href="/favicon/site.webmanifest"><link rel="preload" href="/fonts/Satoshi-Variable.ttf" as="font" type="font/ttf" crossorigin><link rel="preload" href="/fonts/Satoshi-VariableItalic.ttf" as="font" type="font/ttf" crossorigin><link rel="canonical" href="https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8"><meta content="H1 计算几何通用 • EH's Blog" name="title"><meta content="计算几何通用：向量、点、线、多边形等基础模板。" name="description"><meta content="EH" name="author"><meta content="" name="theme-color"><meta content="article" property="og:type"><meta content="H1 计算几何通用" property="og:title"><meta content="计算几何通用：向量、点、线、多边形等基础模板。" property="og:description"><meta content="https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8" property="og:url"><meta content="EH's Blog" property="og:site_name"><meta content="en_US" property="og:locale"><meta content="https://ehnotgod.github.io/site/social-card.webp" property="og:image"><meta content="1200" property="og:image:width"><meta content="630" property="og:image:height"><meta content="EH" property="article:author"><meta content="2026-09-01T00:00:00.000Z" property="article:published_time"><meta content="summary_large_image" property="twitter:card"><meta content="https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8" property="twitter:url"><meta content="H1 计算几何通用" property="twitter:title"><meta content="计算几何通用：向量、点、线、多边形等基础模板。" property="twitter:description"><meta content="https://ehnotgod.github.io/site/social-card.webp" property="twitter:image"><link href="/sitemap-index.xml" rel="sitemap"><link rel="alternate" type="application/rss+xml" title="EH's Blog" href="https://ehnotgod.github.io/rss.xml"><meta content="Astro v5.16.8" name="generator"><link rel="stylesheet" href="/styles/global.css"><!-- <ClientRouter /> --><!-- <script is:inline>
   const style = document.createElement('style')
   style.textContent = `* { transition: none !important; }`
   document.addEventListener('astro:after-swap', () => {
@@ -23,7 +23,7 @@
   document.addEventListener('astro:page-load', () => simpleSetTheme())
 </script><script type="module" src="/_astro/ThemeProvider.astro_astro_type_script_index_0_lang.GXpnlEbF.js"></script><!-- 如需接入统计/分析，可在此添加脚本 --><link rel="stylesheet" href="/_astro/_id_.B2srU12c.css">
 <link rel="stylesheet" href="/_astro/_id_.DMGfYWoN.css">
-<link rel="stylesheet" href="/_astro/_id_.CezkLxYV.css">
+<link rel="stylesheet" href="/_astro/_id_.D09H4l-y.css">
 <style>.expand-conetent:where(.astro-jvehtkjd){grid-template-rows:0fr}.expanded:where(.astro-jvehtkjd) .expand-conetent:where(.astro-jvehtkjd){grid-template-rows:1fr}svg:where(.astro-p7sajfz3){color:var(--sl-icon-color);font-size:var(--sl-icon-size, 1em);width:1.5em;height:1.5em}.sl-steps{--bullet-size: 1.75rem ;--bullet-margin: .375rem;list-style:none!important;counter-reset:steps-counter var(--sl-steps-start, 0);padding-inline-start:0!important}.sl-steps>li{counter-increment:steps-counter;position:relative;padding-inline-start:calc(var(--bullet-size) + 1rem);padding-bottom:1px;min-height:calc(var(--bullet-size) + var(--bullet-margin))}.sl-steps>li+li{margin-top:0}.sl-steps>li:before{content:counter(steps-counter);position:absolute;top:0;inset-inline-start:0;width:var(--bullet-size);height:var(--bullet-size);line-height:var(--bullet-size);font-size:.8125rem;font-weight:600;text-align:center;color:hsl(var(--foreground) / var(--tw-text-opacity, 1));background-color:hsl(var(--primary-foreground) / var(--tw-bg-opacity, 1));border-radius:99rem;box-shadow:inset 0 0 0 1px hsl(var(--border) / var(--tw-border-opacity, 1))}.sl-steps>li:after{--guide-width: 1px;content:"";position:absolute;top:calc(var(--bullet-size) + var(--bullet-margin));bottom:var(--bullet-margin);inset-inline-start:calc((var(--bullet-size) - var(--guide-width)) / 2);width:var(--guide-width);background-color:hsl(var(--border) / var(--tw-border-opacity, 1))}.sl-steps>li>:first-child{--lh: 1.75em ;--shift-y: calc(.5 * (var(--bullet-size) - var(--lh)));margin-top:0;transform:translateY(var(--shift-y));margin-bottom:var(--shift-y);color:hsl(var(--foreground) / var(--tw-text-opacity, 1))}.sl-steps>li>:first-child:where(h1,h2,h3,h4,h5,h6){--lh: 1.2em }
 </style><script type="module" src="/_astro/page.D1uwR3nK.js"></script></head> <body class="flex justify-center bg-background astro-37fxchfa" style="--highlightColor: hsl(var(--primary) / var(--tw-text-opacity));"> <!-- <div
       id='gradient-background'
@@ -79,87 +79,87 @@
 <p>本页为计算几何通用笔记，逐页以图片形式呈现。</p>
 <h3 id="算法解析">算法解析：<a class="anchor" href="#算法解析">#</a></h3>
 <p>计算几何通用：以向量叉积、点积为核心，覆盖点的比较、直线相交、多边形面积/包含、凸包与旋转卡壳等基础模板。以下为完整笔记。</p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-01.png" alt="H1-01" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-02.png" alt="H1-02" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-03.png" alt="H1-03" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-04.png" alt="H1-04" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-05.png" alt="H1-05" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-06.png" alt="H1-06" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-07.png" alt="H1-07" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-08.png" alt="H1-08" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-09.png" alt="H1-09" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-10.png" alt="H1-10" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-11.png" alt="H1-11" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-12.png" alt="H1-12" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-13.png" alt="H1-13" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-14.png" alt="H1-14" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-15.png" alt="H1-15" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-16.png" alt="H1-16" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-17.png" alt="H1-17" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-18.png" alt="H1-18" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-19.png" alt="H1-19" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-20.png" alt="H1-20" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-21.png" alt="H1-21" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-22.png" alt="H1-22" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-23.png" alt="H1-23" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-24.png" alt="H1-24" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-25.png" alt="H1-25" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-26.png" alt="H1-26" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-27.png" alt="H1-27" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-28.png" alt="H1-28" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-29.png" alt="H1-29" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-30.png" alt="H1-30" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-31.png" alt="H1-31" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-32.png" alt="H1-32" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-33.png" alt="H1-33" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-34.png" alt="H1-34" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-35.png" alt="H1-35" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-36.png" alt="H1-36" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-37.png" alt="H1-37" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-38.png" alt="H1-38" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-39.png" alt="H1-39" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-40.png" alt="H1-40" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-41.png" alt="H1-41" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-42.png" alt="H1-42" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-43.png" alt="H1-43" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-44.png" alt="H1-44" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-45.png" alt="H1-45" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-46.png" alt="H1-46" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-47.png" alt="H1-47" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-48.png" alt="H1-48" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-49.png" alt="H1-49" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-50.png" alt="H1-50" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-51.png" alt="H1-51" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-52.png" alt="H1-52" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-53.png" alt="H1-53" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-54.png" alt="H1-54" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-55.png" alt="H1-55" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-56.png" alt="H1-56" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-57.png" alt="H1-57" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-58.png" alt="H1-58" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-59.png" alt="H1-59" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-60.png" alt="H1-60" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-61.png" alt="H1-61" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-62.png" alt="H1-62" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-63.png" alt="H1-63" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-64.png" alt="H1-64" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-65.png" alt="H1-65" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-66.png" alt="H1-66" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-67.png" alt="H1-67" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-68.png" alt="H1-68" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-69.png" alt="H1-69" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-70.png" alt="H1-70" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-71.png" alt="H1-71" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-72.png" alt="H1-72" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-73.png" alt="H1-73" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-74.png" alt="H1-74" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-75.png" alt="H1-75" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-76.png" alt="H1-76" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-77.png" alt="H1-77" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-78.png" alt="H1-78" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-79.png" alt="H1-79" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-80.png" alt="H1-80" class="zoomable"></p>
-<p><img src="/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-81.png" alt="H1-81" class="zoomable"></p>
+<p><img alt="H1-01" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-01.B5x4SL_c_ZN29TW.webp" ></p>
+<p><img alt="H1-02" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-02.hHHnVulq_DI5es.webp" ></p>
+<p><img alt="H1-03" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-03.K7ZYUOJQ_1B2HcC.webp" ></p>
+<p><img alt="H1-04" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-04.CgL2g-qY_Z2cJn6S.webp" ></p>
+<p><img alt="H1-05" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-05.DuqX2bw6_Nl4Xr.webp" ></p>
+<p><img alt="H1-06" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-06.CQCo-wUe_ZsstJK.webp" ></p>
+<p><img alt="H1-07" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-07.Cg92-hFy_Z18qasJ.webp" ></p>
+<p><img alt="H1-08" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-08.eL8A1p-M_19t3AJ.webp" ></p>
+<p><img alt="H1-09" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-09.C30vj0Ha_Z2sz8AN.webp" ></p>
+<p><img alt="H1-10" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-10.CUOtFn5P_16hO4x.webp" ></p>
+<p><img alt="H1-11" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-11.BMFqobvG_ZTwkAN.webp" ></p>
+<p><img alt="H1-12" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-12.DAyWXk3v_ZwN2KV.webp" ></p>
+<p><img alt="H1-13" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-13.BMKTWCOG_1IlsMm.webp" ></p>
+<p><img alt="H1-14" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-14.Bk1g1RKe_231PXn.webp" ></p>
+<p><img alt="H1-15" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-15.B_BUeKGo_Z2qhRTv.webp" ></p>
+<p><img alt="H1-16" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-16.kX0UfAop_2i97kl.webp" ></p>
+<p><img alt="H1-17" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-17.CP_dWuFI_Z2obybV.webp" ></p>
+<p><img alt="H1-18" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-18.BwizZUuo_u0CXz.webp" ></p>
+<p><img alt="H1-19" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-19.B9Dj_MD5_1AK10C.webp" ></p>
+<p><img alt="H1-20" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-20.DmAREjPx_ZWXse.webp" ></p>
+<p><img alt="H1-21" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-21.BpbtSqGz_fTfPE.webp" ></p>
+<p><img alt="H1-22" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-22.CZFOKmU1_v6MsP.webp" ></p>
+<p><img alt="H1-23" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-23.B8lSMCMb_t44Tj.webp" ></p>
+<p><img alt="H1-24" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-24.9Q6BATIA_219BzN.webp" ></p>
+<p><img alt="H1-25" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-25.BpWf6XSx_298u4s.webp" ></p>
+<p><img alt="H1-26" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-26.DxDXLJVe_195Ha5.webp" ></p>
+<p><img alt="H1-27" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-27.Qg6bJZF7_2anwH6.webp" ></p>
+<p><img alt="H1-28" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-28.trcMOujs_iC3si.webp" ></p>
+<p><img alt="H1-29" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-29.BxByBP-i_ZLSLrP.webp" ></p>
+<p><img alt="H1-30" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-30.DsjbUnn-_Z2g3e9I.webp" ></p>
+<p><img alt="H1-31" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-31.BEBOOshZ_2gFplp.webp" ></p>
+<p><img alt="H1-32" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-32.C5SnKLvx_1GN4QR.webp" ></p>
+<p><img alt="H1-33" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-33.Bfk6uf6R_Z1sixhF.webp" ></p>
+<p><img alt="H1-34" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-34.BrwxWhyB_2dO5Au.webp" ></p>
+<p><img alt="H1-35" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-35.adjEGohi_Z1V89rd.webp" ></p>
+<p><img alt="H1-36" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-36.BM3AWx3O_Z2o3niv.webp" ></p>
+<p><img alt="H1-37" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-37.BGqqvwjp_Z3b7G3.webp" ></p>
+<p><img alt="H1-38" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-38.By9tU6Io_Z24Tv77.webp" ></p>
+<p><img alt="H1-39" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-39.CLM3hX58_Z1Y2npb.webp" ></p>
+<p><img alt="H1-40" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-40.BpkezxNY_1RWFDl.webp" ></p>
+<p><img alt="H1-41" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-41.QITdErSC_2r1Huv.webp" ></p>
+<p><img alt="H1-42" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-42.ul_nVrzi_uSHvl.webp" ></p>
+<p><img alt="H1-43" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-43.DQN6ICo8_Z1KjlEw.webp" ></p>
+<p><img alt="H1-44" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-44.DtLkO5wt_1J0PCB.webp" ></p>
+<p><img alt="H1-45" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-45.CL2VVN_t_1e3Ny.webp" ></p>
+<p><img alt="H1-46" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-46.CDc3pLgT_ZbtAtB.webp" ></p>
+<p><img alt="H1-47" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-47.Dp4D0p2H_Z11kpzr.webp" ></p>
+<p><img alt="H1-48" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-48.WqQSh2ye_1XoECC.webp" ></p>
+<p><img alt="H1-49" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-49.C8Iog078_LJtKv.webp" ></p>
+<p><img alt="H1-50" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-50.BrysB6dv_1M0Yxf.webp" ></p>
+<p><img alt="H1-51" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-51.DAnp7ITY_2tQ6fc.webp" ></p>
+<p><img alt="H1-52" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-52.BpkBjOfW_Z21mW4J.webp" ></p>
+<p><img alt="H1-53" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-53.D2QhwSHP_XHwJk.webp" ></p>
+<p><img alt="H1-54" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-54.CQXUYfta_ZbXa0M.webp" ></p>
+<p><img alt="H1-55" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-55.N3WEZBkI_LmHQJ.webp" ></p>
+<p><img alt="H1-56" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-56.COV5_m58_Z2u00Xq.webp" ></p>
+<p><img alt="H1-57" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-57.DlwWEZyT_4d7Xh.webp" ></p>
+<p><img alt="H1-58" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-58.BvxUOjeV_Z1Mn06y.webp" ></p>
+<p><img alt="H1-59" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-59.VC7_zPOs_20Nq9N.webp" ></p>
+<p><img alt="H1-60" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-60.C6yH_iXD_1yr0Tb.webp" ></p>
+<p><img alt="H1-61" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-61.CEzeUuq8_Z1R2X3p.webp" ></p>
+<p><img alt="H1-62" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-62.Dq0ONq06_1iEG5L.webp" ></p>
+<p><img alt="H1-63" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-63.Duh6KIvL_Z2s7QD4.webp" ></p>
+<p><img alt="H1-64" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-64.I6N_pXks_zMKhs.webp" ></p>
+<p><img alt="H1-65" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-65.f0G9wd5I_21xA9z.webp" ></p>
+<p><img alt="H1-66" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-66.CpJcDTzo_188o9R.webp" ></p>
+<p><img alt="H1-67" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-67.DGTuTxL7_1UG9fJ.webp" ></p>
+<p><img alt="H1-68" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-68.5QQ4K1Nx_ZC2Pyu.webp" ></p>
+<p><img alt="H1-69" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-69.Dy6RZ-lV_VupO5.webp" ></p>
+<p><img alt="H1-70" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-70.mtuA3HaL_ZD6mNU.webp" ></p>
+<p><img alt="H1-71" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-71.bfqukZof_e6mco.webp" ></p>
+<p><img alt="H1-72" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-72.CJOD6HeJ_1kRNFq.webp" ></p>
+<p><img alt="H1-73" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-73.B1FbzfH4_25RgBq.webp" ></p>
+<p><img alt="H1-74" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-74.D7VkpJUU_1kAfDK.webp" ></p>
+<p><img alt="H1-75" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-75.B8So9-oM_Z2w4g0e.webp" ></p>
+<p><img alt="H1-76" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-76.4ZwMlyQP_1JRbL8.webp" ></p>
+<p><img alt="H1-77" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-77.BuvsRsqC_ZWVPqR.webp" ></p>
+<p><img alt="H1-78" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-78.CD8PycA-_HY9yW.webp" ></p>
+<p><img alt="H1-79" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-79.ChEKssNV_2cyocB.webp" ></p>
+<p><img alt="H1-80" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-80.DWgtpIUQ_Z230pr6.webp" ></p>
+<p><img alt="H1-81" class="zoomable" loading="lazy" decoding="async" fetchpriority="auto" width="1287" height="724" src="/_astro/H1-81.C4qE7O0p_Z1HNNtb.webp" ></p>
 <div class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><pre><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">/*EHnotgod————</span></span>
 <span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">..............#######.....#.....#..............</span></span>
 <span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">..............#...........#.....#..............</span></span>

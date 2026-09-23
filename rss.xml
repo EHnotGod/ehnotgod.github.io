@@ -4,59 +4,59 @@
 &lt;h2&gt;大一学期——加入ACM校队&lt;/h2&gt;
 &lt;p&gt;第一次接触 ACM，是在大一参加“可达鸭杯”的时候。当时比赛通知刚发出来，还允许线上参赛，我便下意识以为这不过是一场“水赛”，没有任何准备，赛时连输入输出都得现场百度。写五子棋那道题时，我被各种边界情况卡得死去活来，最后遗憾无缘决赛。那大概是我第一次意识到：看似简单的题目，真写起来也未必那么简单。&lt;/p&gt;
 &lt;p&gt;到了大一下，我又看到了新星赛的通知。有了“可达鸭杯”的前车之鉴，这一次我提前准备了一些输入输出模板，算是稍微认真了些。可彼时我的主要精力仍放在数学建模上，编程语言也只会 Python。面对这种显然更利好 C++ 这种编程语言的程序设计竞赛，我多少有些硬着头皮上场的意味。所幸结果还不错，单纯凭借一些数学直觉和思维能力，我拿到了银奖，也顺利进入了 ACM 校队。也正是在校队里，我认识了另外两位来自数院的选手 ，后来他们便成了我的队友。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;01-school-contest-silver.jpg&quot; alt=&quot;校赛银牌&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/01-school-contest-silver.jpg&quot; alt=&quot;校赛银牌&quot;&gt;&lt;/p&gt;
 &lt;p&gt;说来惭愧，我们的加训状态一度颇有些“三天打鱼，两天晒网”的味道。而在队伍里，我的水平又是最低的。平日训练赛中，我基本只能负责一些数学题、结论题；至于更复杂的算法实现，则常常只能在一旁望题兴叹。更要命的是，那时的我依旧只会 Python，很多时候连语言本身都像是一道额外的门槛。后来，我们参加了省赛选拔赛，毫无悬念地喜提 no 名额。不过老师仍然相信我们的潜力，建议我们以打星的身份参赛，提前感受一下正式比赛的氛围。&lt;/p&gt;
 &lt;p&gt;于是，便有了 2024 年山东省赛兼邀请赛之行。&lt;/p&gt;
 &lt;p&gt;那场比赛规模很大，大到光是告诉别人“我要去参加这样的比赛”，就已经是一件颇有面子的事情。真正坐到赛场上时，我们才发现自己仍然稚嫩得很：整场比赛只做出了 3 题，连二分都还不太会，成绩就算放在正式队里也获不了奖。现在回想起来，那多少有些狼狈，却也足够真实，“打印机”成了我们忘不了的一题（那题卡long long，而且刚需二分算法）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;02-jinan-venue.jpg&quot; alt=&quot;气派不气派&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/02-jinan-venue.jpg&quot; alt=&quot;气派不气派&quot;&gt;&lt;/p&gt;
 &lt;p&gt;不过，济南还是很好玩的。队友 A 是本地人，赛后便带着我们四处转了转。我们去了趵突泉，也顺路去了SDU趵突泉校区，还在大明湖畔吹了晚风。夜色、湖风、泉水、旧城，还有一群刚从赛场上败下阵来的ACMer——这些画面混在一起，反倒比比赛本身更清晰地留在了记忆里。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;03-daminghu.jpg&quot; alt=&quot;大明湖畔&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/03-daminghu.jpg&quot; alt=&quot;大明湖畔&quot;&gt;&lt;/p&gt;
 &lt;h2&gt;大二学期——至暗时刻？&lt;/h2&gt;
 &lt;p&gt;2024 年上半年，其实还有蓝桥杯、天梯赛和百度之星。非常遗憾的是，这些比赛我都没有获奖（蓝桥杯没报）。也正因如此，后来的暑假加训多少也带着些“水水而已”的味道；至于区域赛名额，自然也没有轮到我们。对这样一支队伍来说，未来真的还有拿奖的可能吗？那时的我自己也很怀疑。也许属于我们的 ACM 之路，差不多就要到此为止了。&lt;/p&gt;
 &lt;p&gt;2024 年下半年的秋季选拔赛带来了一些我心态上的转变。那场比赛里，我作为老队员带榜，和我们学校同级的传奇新人 7_divided_by_3 同台竞技。那时我的加训题量还不到他的四分之一，可最后他也只是比我多做出了一题；甚至在比赛前期，领跑的还是我——不得不说，Python 写起来是真的快。也正是在那一刻，我感受到：原来在算法竞赛里打出一点名堂，好像也并没有想象中那么遥不可及。于是，我开始比较系统地加训，把过去欠下的漏洞一点点补上（B 站up董晓算法讲得不错）。也是在 2024 年底，我开始正式打 Codeforces，并成功上了青名。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;04-autumn-selection.jpg&quot; alt=&quot;秋季选拔赛的趣事，我一直记得&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/04-autumn-selection.jpg&quot; alt=&quot;秋季选拔赛的趣事，我一直记得&quot;&gt;&lt;/p&gt;
 &lt;p&gt;大二下学期，我开始更加频繁地加训。Codeforces 被我打到了 1800 分，我们队也拿到了省赛银牌；我个人则拿到了蓝桥杯国一、百度之星省一。那时我的总刷题数其实也不过 600 左右。算不上多么夸张，却已经足够支撑我走到一个曾经不敢想的位置。我个人认为自己在这方面确实有点小天赋，按照同等水平来说的话，刷题量得在1000左右吧。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;05-lanqiao-zibo.jpg&quot; alt=&quot;蓝桥杯是在淄博的山东理工大学打的&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/05-lanqiao-zibo.jpg&quot; alt=&quot;蓝桥杯是在淄博的山东理工大学打的&quot;&gt;&lt;/p&gt;
 &lt;h2&gt;大三学期——区域赛&lt;/h2&gt;
 &lt;p&gt;到了 2025 年下半年，我意识到，这大概会是我唯一一次打区域赛的机会了。因为我在积极地备战保研，而假如想让牌子发挥作用，只能依靠这个学期了，大四再拿就迟了。我们暑假的加训其实并不拼命，还是比较水水的状态，可能是还没经历过区域赛的毒打吧。因此，对于一支主要从大二才开始认真加训的队伍来说，想在区域赛拿牌，怎么看都有些不太现实，但我还是想试一试。好在天无绝人之路——我们选到了两个强度最低的 ICPC 站，以及一个强度最低的 CCPC 站。&lt;/p&gt;
 &lt;p&gt;第一站是西安站。那一场几乎是我一个人在开题、写题，题目分别是签到+二分+LCA+优先队列这么4题，硬是把队伍撑到了铜牌。其实那场我并没有那么高兴，我在反思，假如只靠我一个人发力，最好也只能是这样的成果了，那后续的赛站岂不是难度更大？银牌多半是没什么指望了。&lt;/p&gt;
 &lt;p&gt;第二站是哈尔滨站，这场是CCPC，难度偏高，我们的预期目标是拿到铜牌就行。让我意外的是，队友开始发力，把一道至关重要的“猜猜题”给过掉了，我们最后极限拿铜。&lt;/p&gt;
 &lt;p&gt;第三站是沈阳站，它居然提供 PyPy3，于是我们直接手速起飞。这场我和队友配合紧密，我负责写板子逻辑，他负责写主算法逻辑，一点错误都没犯。最后，队友还极限发力过掉了那道卡了半个场的结论题，我们破天荒地拿到了银牌。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;06-xian.jpg&quot; alt=&quot;西安&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;07-harbin.jpg&quot; alt=&quot;哈尔滨&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;08-shenyang.jpg&quot; alt=&quot;沈阳&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/06-xian.jpg&quot; alt=&quot;西安&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/07-harbin.jpg&quot; alt=&quot;哈尔滨&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/08-shenyang.jpg&quot; alt=&quot;沈阳&quot;&gt;&lt;/p&gt;
 &lt;p&gt;沈阳站拿银的那一刻，可能是我整个 ACM 生涯里最开心的时候。回到学校后，我一边等 cpcfinder 更新，一边等洛谷的官方气球认证，还顺手兑现了之前在 73 群里立下的 flag。现在想想，那种快乐甚至有点幼稚，但也正因为幼稚才显得格外纯粹。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;09-flag.jpg&quot; alt=&quot;u1s1，我在女装方面是不是也很有天赋？&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/09-flag.jpg&quot; alt=&quot;u1s1，我在女装方面是不是也很有天赋？&quot;&gt;&lt;/p&gt;
 &lt;p&gt;然后就是百度之星了。此时我已无任何牵挂，反正拿银了，这个 astar 也不重要了，我就是去北京玩的！我在北京逛了好一大圈，还顺路去沙河校区打了 cacc。不过从这时候开始，我的水平就已经在走下坡路了——今年的 cacc 决赛我没有获奖，今年的省赛也只是拿到了银牌，太可惜了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;10-three-shames.jpg&quot; alt=&quot;拿牌后的三大耻辱&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/10-three-shames.jpg&quot; alt=&quot;拿牌后的三大耻辱&quot;&gt;&lt;/p&gt;
 &lt;p&gt;但仔细想想，也没有什么不能接受的。&lt;/p&gt;
 &lt;p&gt;我并不是一个多么合格的 ACMer。毕竟我没有 OI 经历，也没有全身心投入过，更没有那种“一上赛场就必须拿牌”的决心。我常常摇摆，常常偷懒，也常常在训练、学业与科研之间反复权衡。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;11-quanjuan.jpg&quot; alt=&quot;卷起来！&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/11-quanjuan.jpg&quot; alt=&quot;卷起来！&quot;&gt;&lt;/p&gt;
 &lt;p&gt;可我终究还是来过一趟。&lt;/p&gt;
 &lt;p&gt;我体验过和队友并肩作战时的全神贯注，体验过封榜后过题、最终拿到牌子的狂喜，也体验过凌晨归校的火车、赛后城市的晚风，以及无数次调不出 bug 时的怀疑人生。&lt;/p&gt;
 &lt;p&gt;这些就已经足够了。&lt;/p&gt;
 &lt;p&gt;ACM 没有定义我的大学生活，却实实在在地丰富了它。它让我认识了朋友，见过了更大的赛场，也在某些瞬间，让我相信自己并没有那么平庸。&lt;/p&gt;
 &lt;h2&gt;大四学期——新的起点&lt;/h2&gt;
 &lt;p&gt;随着队友陆续离开，我的心似乎也一点点退役了，因为 ACM 对我再无更多意义，我已经圆满了。不过，6 月的时候，因为队伍临时缺人，7_divided_by_3 把我拉去打了 CCPC 福州邀请赛。没想到，我们一路打下来，最后竟然拿到了金牌。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;12-f-rank.jpg&quot; alt=&quot;F题歪榜了&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/12-f-rank.jpg&quot; alt=&quot;F题歪榜了&quot;&gt;&lt;/p&gt;
 &lt;p&gt;那一刻，原本已经沉下去的心，好像又重新燃起了一点什么。&lt;/p&gt;
 &lt;p&gt;但后来想想，那其实也不太像“希望”。我很清楚，属于自己的竞赛生涯已经快走到尽头了，9 月就是网络赛，我也未必还在期待着靠最后几场比赛去证明什么。相比之下，那种感觉更像是“化作春泥更护花”。&lt;/p&gt;
 &lt;p&gt;我只是觉得，在真正离开之前，总还应该为校队做些什么。&lt;/p&gt;
 &lt;p&gt;而 73 队愿意接纳我，对我来说，也就不仅仅意味着又有了一支队伍、又有了一次比赛的机会。它更像是给了我一个最后继续留在赛场上的理由，也给了我一个能够把自己这些年积累下来的东西，再为校队贡献一点的平台。&lt;/p&gt;
 &lt;p&gt;然后，时间就来到了九月份的网络赛。那时候的我正忙着保研——其实说“忙”也不太准确。早在八月份，我就已经拿到了保底的 offer，按理说，这反而给了我相当充足的时间去准备网络赛。但我并没有怎么训练。保研顺利之后，整个人一下子松了下来，天天水群、刷视频，沉浸在一种“终于可以歇一歇了”的消遣里。校队上下倒是气势很足，第一场网络赛前还在群里叫嚣着要拿 1.5 倍名额，仿佛区域赛门票已经唾手可得。&lt;/p&gt;
 &lt;p&gt;结果现实很快就给了我们一记耳光。第一场 IC 网络赛，我们的发挥甚至还不如去年的自己。比赛结束后，整个校队加起来只拿到了两个区域赛名额。此前那些豪言壮语一下子全没了，群里的气氛肉眼可见地沉了下去，一时间颇有种“今年是不是要完蛋了”的感觉。好在第二场，我们顶住了压力，最终队排四百名出头，成功拿到了单倍名额……成绩当然谈不上多么亮眼，但它至少把校队从悬崖边上拽了回来。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;13-d-corner-cases.jpg&quot; alt=&quot;D是我写的，很多Corner case没有考虑到，自己真是老了&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/13-d-corner-cases.jpg&quot; alt=&quot;D是我写的，很多Corner case没有考虑到，自己真是老了&quot;&gt;&lt;/p&gt;
 &lt;p&gt;下一场是 CC 网络赛。不过彼时我和一个队友还在本部进行预推免面试，在网络赛前我极限赶了回来，但这次只有两个人打，有个队友没赶回来。前期 73 迅速地秒了 5 个签到题，随后我开出了拓扑排序 + dp，以及范德蒙德卷积 + 计数题，最后一题是计算几何，正好碰到我的长处，于是也迅速通过了，本场打出了最好战绩第 231 名，并拿到了一个额外名额。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;14-eight-problems.jpg&quot; alt=&quot;8题？省赛来了这是&quot;&gt;&lt;/p&gt;
-&lt;p&gt;接下来是区域赛，不过具体去哪一场“旅游”，还得看导师以及队友的时间安排嘛。&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>大一生活</title><link>https://ehnotgod.github.io/blog/%E5%A4%A7%E4%B8%80%E7%94%9F%E6%B4%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/%E5%A4%A7%E4%B8%80%E7%94%9F%E6%B4%BB</guid><description>EH的大一生活，初识校园</description><pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;大一上 · 九月&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;images/14-eight-problems.jpg&quot; alt=&quot;8题？省赛来了这是&quot;&gt;&lt;/p&gt;
+&lt;p&gt;接下来是区域赛，不过具体去哪一场“旅游”，还得看导师以及队友的时间安排嘛。&lt;/p&gt;</content:encoded><h:img src="/_astro/02-jinan-venue.CKvuj63w.jpg"/><enclosure url="/_astro/02-jinan-venue.CKvuj63w.jpg"/></item><item><title>大一生活</title><link>https://ehnotgod.github.io/blog/%E5%A4%A7%E4%B8%80%E7%94%9F%E6%B4%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/%E5%A4%A7%E4%B8%80%E7%94%9F%E6%B4%BB</guid><description>EH的大一生活，初识校园</description><pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;大一上 · 九月&lt;/h2&gt;
 &lt;p&gt;初到山东大学，映入眼帘的便是一座气势恢宏的校门。虽然这里是威海校区，但实话实说，它带给我的震撼丝毫不逊于本部。校园给人的第一印象很不错，而食堂也同样让人惊喜——饭菜确实很好吃。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/_astro/ff9c5b4ba293c5035d8823f58b4f2f69.BKCJidPa_Z1sJfBf.webp&quot; alt=&quot;alt text&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/_astro/3b05a37f740aa8eb66238cf9f2e6e07b.CGFoqCim_Z25KG7c.webp&quot; alt=&quot;alt text&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/_astro/01-campus-gate.BKCJidPa_1l4zMQ.webp&quot; alt=&quot;山东大学（威海）校门&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/_astro/02-canteen.CGFoqCim_ZtIFGk.webp&quot; alt=&quot;学生食堂&quot;&gt;&lt;/p&gt;
 &lt;p&gt;我们宿舍的氛围也特别好，闲的那会儿还和两个舍友一起开黑吃鸡，忙的那会儿整个宿舍齐心协力备战期末考。一个好的宿舍氛围真的很重要，它带来良好的生活习惯。&lt;/p&gt;
 &lt;p&gt;很快我迎来了数科班考试和泰山学堂考试，事实证明进入这个数科班是一个错误的选择，小班制带来的保研排名百分比劣势极其严重，但当时的我引以为荣，本身我对计算机就挺感兴趣的，数学+计算机真是一个巨大的诱惑。&lt;/p&gt;
 &lt;p&gt;我确实顺利进入了数科班，也通过了泰山学堂的笔试（数学方向），不过面试没过（这太难了）。由于是高考落榜来的山威，我并不认为自己有多差，反而有一种鹤立鸡群的优越感：“你看，我不需要多少努力就考进了数科班！”这也为后来的失败埋下了伏笔。&lt;/p&gt;
 &lt;p&gt;刚进入大学的我广交友，乐观开朗，短时间之内不少人就知道我是个“很有能力的人”，我因此感到沾沾自喜。&lt;/p&gt;
-&lt;p&gt;一起来&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>欢迎来到 Daily Life</title><link>https://ehnotgod.github.io/blog/hello-daily-life</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/hello-daily-life</guid><description>Daily Life 开栏第一篇：随手记录日常生活的随笔栏目。</description><pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;欢迎来到 Daily Life&lt;/h1&gt;
+&lt;p&gt;一起来&lt;/p&gt;</content:encoded><h:img src="/_astro/01-campus-gate.BKCJidPa.jpg"/><enclosure url="/_astro/01-campus-gate.BKCJidPa.jpg"/></item><item><title>欢迎来到 Daily Life</title><link>https://ehnotgod.github.io/blog/hello-daily-life</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/hello-daily-life</guid><description>Daily Life 开栏第一篇：随手记录日常生活的随笔栏目。</description><pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;欢迎来到 Daily Life&lt;/h1&gt;
 &lt;p&gt;这里是 &lt;strong&gt;Daily Life&lt;/strong&gt; 栏目,用来随手记点日常生活:今天做了什么、想了什么、有什么值得留存的片段。比起算法笔记的严谨,这里更随意,可以当流水账,也可以写点碎碎念。&lt;/p&gt;
 &lt;p&gt;第一篇先当作「模板」——以后写日记,直接新建一个文件夹放 &lt;code&gt;index.md&lt;/code&gt; 即可,frontmatter 里把 &lt;code&gt;category&lt;/code&gt; 填成 &lt;code&gt;daily-life&lt;/code&gt; 就会自动归到这个分类下:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;---
@@ -127,7 +127,7 @@ int main() {
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G32 莫比乌斯反演</title><link>https://ehnotgod.github.io/blog/g32-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g32-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94</guid><description>莫比乌斯反演：μ 函数与反演公式。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G32/G32-1.png&quot; alt=&quot;题目：企鹅收集石头&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G32-1.png&quot; alt=&quot;题目：企鹅收集石头&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;设 $F(k)$ 为选出的 $m$ 个数都能被 $k$ 整除的方案数，则 $F(k)=\binom{\lfloor n/k\rfloor}{m}$（从 $k,2k,\dots$ 中选 $m$ 个）。设 $G(k)$ 为选出的 $m$ 个数 $\gcd$ &lt;strong&gt;恰等于&lt;/strong&gt; $k$ 的方案数，则 $F(k)=\sum_{k\mid d}G(d)$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;莫比乌斯反演&lt;/strong&gt;：由 $F(k)=\sum_{k\mid d}G(d)$ 反演得 $G(k)=\sum_{k\mid d}\mu(d/k)F(d)$。本题要求 $\gcd\ne1$，即总数减去 $\gcd=1$：&lt;/p&gt;
@@ -370,7 +370,7 @@ No
 &lt;li&gt;&lt;strong&gt;Case 2：No&lt;/strong&gt;：点 (D) 落在某个三角形的内部，因此不满足要求。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这道题的核心其实不是一般意义上的“三角形铺砖搜索”，而是要研究：&lt;strong&gt;一个三角形横跨两条平行线以后，沿走廊方向不断翻折/镜像铺砌，其所有边界点会形成什么样的周期结构。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H2/H2-1.png&quot; alt=&quot;铺砌示意图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H2-1.png&quot; alt=&quot;铺砌示意图&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;略，主要是介绍Fraction的用法&lt;/p&gt;
 &lt;h3&gt;py代码：&lt;/h3&gt;
@@ -481,7 +481,7 @@ for _ in range(t):
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>H3 Green公式</title><link>https://ehnotgod.github.io/blog/h3-green%E5%85%AC%E5%BC%8F</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h3-green%E5%85%AC%E5%BC%8F</guid><description>Green 公式：格林公式。</description><pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://qoj.ac/contest/2585/problem/14939&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H3/H3-1.png&quot; alt=&quot;Problem D. 很多喷洒器&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H3-1.png&quot; alt=&quot;Problem D. 很多喷洒器&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;这题求多个圆的面积并。做法是枚举每个圆，计算它的圆周被其他圆覆盖的角度区间，将这些区间合并，剩下的“裸露圆弧”就是圆并边界。然后利用 &lt;strong&gt;Green 公式&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;$$
@@ -631,87 +631,87 @@ print(ans1, ans2)
 &lt;p&gt;本页为计算几何通用笔记，逐页以图片形式呈现。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;计算几何通用：以向量叉积、点积为核心，覆盖点的比较、直线相交、多边形面积/包含、凸包与旋转卡壳等基础模板。以下为完整笔记。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-01.png&quot; alt=&quot;H1-01&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-02.png&quot; alt=&quot;H1-02&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-03.png&quot; alt=&quot;H1-03&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-04.png&quot; alt=&quot;H1-04&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-05.png&quot; alt=&quot;H1-05&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-06.png&quot; alt=&quot;H1-06&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-07.png&quot; alt=&quot;H1-07&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-08.png&quot; alt=&quot;H1-08&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-09.png&quot; alt=&quot;H1-09&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-10.png&quot; alt=&quot;H1-10&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-11.png&quot; alt=&quot;H1-11&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-12.png&quot; alt=&quot;H1-12&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-13.png&quot; alt=&quot;H1-13&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-14.png&quot; alt=&quot;H1-14&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-15.png&quot; alt=&quot;H1-15&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-16.png&quot; alt=&quot;H1-16&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-17.png&quot; alt=&quot;H1-17&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-18.png&quot; alt=&quot;H1-18&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-19.png&quot; alt=&quot;H1-19&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-20.png&quot; alt=&quot;H1-20&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-21.png&quot; alt=&quot;H1-21&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-22.png&quot; alt=&quot;H1-22&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-23.png&quot; alt=&quot;H1-23&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-24.png&quot; alt=&quot;H1-24&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-25.png&quot; alt=&quot;H1-25&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-26.png&quot; alt=&quot;H1-26&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-27.png&quot; alt=&quot;H1-27&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-28.png&quot; alt=&quot;H1-28&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-29.png&quot; alt=&quot;H1-29&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-30.png&quot; alt=&quot;H1-30&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-31.png&quot; alt=&quot;H1-31&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-32.png&quot; alt=&quot;H1-32&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-33.png&quot; alt=&quot;H1-33&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-34.png&quot; alt=&quot;H1-34&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-35.png&quot; alt=&quot;H1-35&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-36.png&quot; alt=&quot;H1-36&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-37.png&quot; alt=&quot;H1-37&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-38.png&quot; alt=&quot;H1-38&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-39.png&quot; alt=&quot;H1-39&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-40.png&quot; alt=&quot;H1-40&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-41.png&quot; alt=&quot;H1-41&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-42.png&quot; alt=&quot;H1-42&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-43.png&quot; alt=&quot;H1-43&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-44.png&quot; alt=&quot;H1-44&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-45.png&quot; alt=&quot;H1-45&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-46.png&quot; alt=&quot;H1-46&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-47.png&quot; alt=&quot;H1-47&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-48.png&quot; alt=&quot;H1-48&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-49.png&quot; alt=&quot;H1-49&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-50.png&quot; alt=&quot;H1-50&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-51.png&quot; alt=&quot;H1-51&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-52.png&quot; alt=&quot;H1-52&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-53.png&quot; alt=&quot;H1-53&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-54.png&quot; alt=&quot;H1-54&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-55.png&quot; alt=&quot;H1-55&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-56.png&quot; alt=&quot;H1-56&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-57.png&quot; alt=&quot;H1-57&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-58.png&quot; alt=&quot;H1-58&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-59.png&quot; alt=&quot;H1-59&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-60.png&quot; alt=&quot;H1-60&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-61.png&quot; alt=&quot;H1-61&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-62.png&quot; alt=&quot;H1-62&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-63.png&quot; alt=&quot;H1-63&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-64.png&quot; alt=&quot;H1-64&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-65.png&quot; alt=&quot;H1-65&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-66.png&quot; alt=&quot;H1-66&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-67.png&quot; alt=&quot;H1-67&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-68.png&quot; alt=&quot;H1-68&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-69.png&quot; alt=&quot;H1-69&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-70.png&quot; alt=&quot;H1-70&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-71.png&quot; alt=&quot;H1-71&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-72.png&quot; alt=&quot;H1-72&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-73.png&quot; alt=&quot;H1-73&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-74.png&quot; alt=&quot;H1-74&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-75.png&quot; alt=&quot;H1-75&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-76.png&quot; alt=&quot;H1-76&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-77.png&quot; alt=&quot;H1-77&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-78.png&quot; alt=&quot;H1-78&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-79.png&quot; alt=&quot;H1-79&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-80.png&quot; alt=&quot;H1-80&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/H/H1/H1-81.png&quot; alt=&quot;H1-81&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-01.png&quot; alt=&quot;H1-01&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-02.png&quot; alt=&quot;H1-02&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-03.png&quot; alt=&quot;H1-03&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-04.png&quot; alt=&quot;H1-04&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-05.png&quot; alt=&quot;H1-05&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-06.png&quot; alt=&quot;H1-06&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-07.png&quot; alt=&quot;H1-07&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-08.png&quot; alt=&quot;H1-08&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-09.png&quot; alt=&quot;H1-09&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-10.png&quot; alt=&quot;H1-10&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-11.png&quot; alt=&quot;H1-11&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-12.png&quot; alt=&quot;H1-12&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-13.png&quot; alt=&quot;H1-13&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-14.png&quot; alt=&quot;H1-14&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-15.png&quot; alt=&quot;H1-15&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-16.png&quot; alt=&quot;H1-16&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-17.png&quot; alt=&quot;H1-17&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-18.png&quot; alt=&quot;H1-18&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-19.png&quot; alt=&quot;H1-19&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-20.png&quot; alt=&quot;H1-20&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-21.png&quot; alt=&quot;H1-21&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-22.png&quot; alt=&quot;H1-22&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-23.png&quot; alt=&quot;H1-23&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-24.png&quot; alt=&quot;H1-24&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-25.png&quot; alt=&quot;H1-25&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-26.png&quot; alt=&quot;H1-26&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-27.png&quot; alt=&quot;H1-27&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-28.png&quot; alt=&quot;H1-28&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-29.png&quot; alt=&quot;H1-29&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-30.png&quot; alt=&quot;H1-30&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-31.png&quot; alt=&quot;H1-31&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-32.png&quot; alt=&quot;H1-32&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-33.png&quot; alt=&quot;H1-33&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-34.png&quot; alt=&quot;H1-34&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-35.png&quot; alt=&quot;H1-35&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-36.png&quot; alt=&quot;H1-36&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-37.png&quot; alt=&quot;H1-37&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-38.png&quot; alt=&quot;H1-38&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-39.png&quot; alt=&quot;H1-39&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-40.png&quot; alt=&quot;H1-40&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-41.png&quot; alt=&quot;H1-41&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-42.png&quot; alt=&quot;H1-42&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-43.png&quot; alt=&quot;H1-43&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-44.png&quot; alt=&quot;H1-44&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-45.png&quot; alt=&quot;H1-45&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-46.png&quot; alt=&quot;H1-46&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-47.png&quot; alt=&quot;H1-47&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-48.png&quot; alt=&quot;H1-48&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-49.png&quot; alt=&quot;H1-49&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-50.png&quot; alt=&quot;H1-50&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-51.png&quot; alt=&quot;H1-51&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-52.png&quot; alt=&quot;H1-52&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-53.png&quot; alt=&quot;H1-53&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-54.png&quot; alt=&quot;H1-54&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-55.png&quot; alt=&quot;H1-55&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-56.png&quot; alt=&quot;H1-56&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-57.png&quot; alt=&quot;H1-57&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-58.png&quot; alt=&quot;H1-58&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-59.png&quot; alt=&quot;H1-59&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-60.png&quot; alt=&quot;H1-60&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-61.png&quot; alt=&quot;H1-61&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-62.png&quot; alt=&quot;H1-62&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-63.png&quot; alt=&quot;H1-63&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-64.png&quot; alt=&quot;H1-64&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-65.png&quot; alt=&quot;H1-65&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-66.png&quot; alt=&quot;H1-66&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-67.png&quot; alt=&quot;H1-67&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-68.png&quot; alt=&quot;H1-68&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-69.png&quot; alt=&quot;H1-69&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-70.png&quot; alt=&quot;H1-70&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-71.png&quot; alt=&quot;H1-71&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-72.png&quot; alt=&quot;H1-72&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-73.png&quot; alt=&quot;H1-73&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-74.png&quot; alt=&quot;H1-74&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-75.png&quot; alt=&quot;H1-75&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-76.png&quot; alt=&quot;H1-76&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-77.png&quot; alt=&quot;H1-77&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-78.png&quot; alt=&quot;H1-78&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-79.png&quot; alt=&quot;H1-79&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-80.png&quot; alt=&quot;H1-80&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/H1-81.png&quot; alt=&quot;H1-81&quot;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;/*EHnotgod————
 ..............#######.....#.....#..............
 ..............#...........#.....#..............
@@ -1887,7 +1887,7 @@ int main(){
 &lt;p&gt;对于 $$100 %$$ 的数据：$$1 \le n, m\le 10^5$$，$$1 \le a_i\le 10^4$$&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;把每项的和加起来，然后利用相减的方式得出和的值。适用于静态的区间求和，应用面非常广泛。
-&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A8-1.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;images/A8-1.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度$$O(n+m)$$&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n = int(input())
@@ -1943,8 +1943,8 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;EH在偷偷开摆&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A9-1.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A9-2.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/A9-1.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/A9-2.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = [[0 for i in range(103)] for j in range(103)]
 b = [[0 for i in range(103)] for j in range(103)]
@@ -2096,8 +2096,8 @@ int main(){
 &lt;p&gt;对于 $$70%$$ 的数据，满足 $$1\le N,M\le {10}^5$$。&lt;/p&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，满足 $$1\le N\le {10}^5$$，$$1\le M\le 2\times{10}^6$$，$$a_i\in[0,{10}^9]$$，$$1\le l_i\le r_i\le N$$。&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A11-1.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A11-2.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/A11-1.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/A11-2.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 import math
@@ -2488,7 +2488,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;100 100 600 600 600 600 100 100 100 100
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A16-2.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/A16-2.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
 import heapq
@@ -2534,7 +2534,7 @@ int main(){
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A17 距离之和最小、中位数</title><link>https://ehnotgod.github.io/blog/a17-%E8%B7%9D%E7%A6%BB%E4%B9%8B%E5%92%8C%E6%9C%80%E5%B0%8F%E4%B8%AD%E4%BD%8D%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a17-%E8%B7%9D%E7%A6%BB%E4%B9%8B%E5%92%8C%E6%9C%80%E5%B0%8F%E4%B8%AD%E4%BD%8D%E6%95%B0</guid><description>中位数性质：使各点距离和最小的点恰是中位数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://codeforces.com/problemset/problem/1486/B&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/A/A17-1.png&quot; alt=&quot;image-20250416092236944&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/A17-1.png&quot; alt=&quot;image-20250416092236944&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;中位数性质：使各点距离和最小的点恰是中位数。&lt;/p&gt;
 &lt;p&gt;因为求的是曼哈顿距离，我们可以把x和y分开看，然后分别找到各自的x和y即为所求点。&lt;/p&gt;
@@ -3261,7 +3261,7 @@ int main() {
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1219&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;一个如下的 $6 \times 6$ 的跳棋棋盘，有六个棋子被放置在棋盘上，使得每行、每列有且只有一个，每条对角线（包括两条主对角线的所有平行线）上至多有一个棋子。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/image_hosting/3h71x0yf.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/3h71x0yf.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;上面的布局可以用序列 $2\ 4\ 6\ 1\ 3\ 5$ 来描述，第 $i$ 个数字表示在第 $i$ 行的相应位置有一个棋子，如下：&lt;/p&gt;
 &lt;p&gt;行号 $1\ 2\ 3\ 4\ 5\ 6$&lt;/p&gt;
 &lt;p&gt;列号 $2\ 4\ 6\ 1\ 3\ 5$&lt;/p&gt;
@@ -3303,7 +3303,7 @@ int main() {
 &lt;p&gt;因为是逐行逐列搜的，先搜到的字典序一定最小。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B1-3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/B1-3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1219 [USACO1.5] 八皇后 Checker Challenge
 
@@ -3389,7 +3389,7 @@ int main(){
 &lt;p&gt;对于 $100%$ 的数据，$0 \le x,y \le 10^5$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;把数轴上的每个位置看作图上的一个点，从起点 $x$ 出发，每次可移动到 $x+1$、$x-1$ 或 $2x$，用 BFS 逐层向外扩展。BFS 第一次访问到终点 $y$ 时，经过的层数就是最少步数——每一层都代表当前步数内的所有可达位置，先到即最优。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B2-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/B2-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# P1588 [USACO07OPEN] Catch That Cow S
 
@@ -3457,7 +3457,7 @@ int main(){
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>B3 01BFS</title><link>https://ehnotgod.github.io/blog/b3-01bfs</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/b3-01bfs</guid><description>01BFS：边权为 0/1 的最短路，用双端队列优化。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://ac.nowcoder.com/acm/contest/115184/D&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/B/B3-1.png&quot; alt=&quot;image-20250930163432863&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/B3-1.png&quot; alt=&quot;image-20250930163432863&quot;&gt;&lt;/p&gt;
 &lt;p&gt;输入&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;1
 3 3 2
@@ -3637,7 +3637,7 @@ signed main() {
 &lt;p&gt;【数据范围】对于 $$100%$$ 的数据，$$1\le n,m \le 5\times 10^5$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;树状数组（Fenwick Tree）用 $O(\log n)$ 维护&quot;单点修改 + 区间求和&quot;。核心是 $lowbit(x) = x\ &amp;#x26;\ (-x)$，它取 $x$ 二进制最低位的 $1$ 对应的值：&lt;code&gt;change&lt;/code&gt; 修改时沿 $x + lowbit(x)$ 向上传播，&lt;code&gt;query&lt;/code&gt; 查询时沿 $x - lowbit(x)$ 向下累加前缀和，区间 $[l,r]$ 的和就是 $query(r)-query(l-1)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C1-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C1-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
 input = sys.stdin.readline
@@ -3998,9 +3998,9 @@ Y
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\le N\le 2\times 10^5$$，$$1\le M\le 10^6$$，$$1 \le X_i, Y_i \le N$$，$$Z_i \in { 1, 2 }$$。&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
 &lt;p&gt;一般我们使用“合并”即可，按秩合并不太需要&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-1.png&quot; alt=&quot;image-20250417165010912&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-2.png&quot; alt=&quot;image-20250417165040782&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C3-3.png&quot; alt=&quot;image-20250417165059357&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C3-1.png&quot; alt=&quot;image-20250417165010912&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C3-2.png&quot; alt=&quot;image-20250417165040782&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C3-3.png&quot; alt=&quot;image-20250417165059357&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n, m = map(int, input().split())
 pa = [i for i in range(n + 1)]
@@ -4086,11 +4086,11 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据：$$1 \le n, m \le {10}^5$$，$$a_i,k$$ 为正数，且任意时刻数列的和不超过 $$2\times 10^{18}$$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;【样例解释】&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/2251.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/2251.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C4-2.png&quot; alt=&quot;image-20250417171455028&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C4-3.png&quot; alt=&quot;image-20250417171654545&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C4-4.png&quot; alt=&quot;image-20250417171714474&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C4-2.png&quot; alt=&quot;image-20250417171455028&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C4-3.png&quot; alt=&quot;image-20250417171654545&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C4-4.png&quot; alt=&quot;image-20250417171714474&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Node:
     def __init__(self, l, r, he, add):
@@ -4256,7 +4256,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;【数据范围】对于 $$100%$$ 的数据：$$1 \le n \le 10^5$$，$$1 \le q \le 10^5,1\le a_i,k\le 10^4$$。&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C5-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C5-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;有两种实现：第一种是class的，跟C++格式一样，但是常数比较大；第二种是直接全局数组接管的，快多了。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第一种：&lt;/strong&gt;&lt;/p&gt;
@@ -5316,7 +5316,7 @@ printf(&quot;%d\n&quot;,rk);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \le n \le {10}^5$$，$$0 \le x_1 &amp;#x3C; x_2 \le {10}^9$$，$$0 \le y_1 &amp;#x3C; y_2 \le {10}^9$$。&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C9-1.png&quot; alt=&quot;image-20250826121538028&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C9-1.png&quot; alt=&quot;image-20250826121538028&quot;&gt;&lt;/p&gt;
 &lt;p&gt;核心思路是把每个矩形拆成两条水平边：下边记 &lt;code&gt;+1&lt;/code&gt; 表示矩形开始，上边记 &lt;code&gt;-1&lt;/code&gt; 表示矩形结束，然后按 &lt;code&gt;y&lt;/code&gt; 从小到大扫描。扫描到某条边时，就在线段树中给它对应的 &lt;code&gt;x&lt;/code&gt; 区间加上或减去覆盖次数；线段树的 &lt;code&gt;len[1]&lt;/code&gt; 始终表示当前所有矩形在 x 轴上的总覆盖长度，重叠部分只算一次。因此从当前高度 &lt;code&gt;L[i].y&lt;/code&gt; 到下一条边 &lt;code&gt;L[i+1].y&lt;/code&gt; 之间的面积就是 &lt;code&gt;len[1] * (L[i+1].y-L[i].y)&lt;/code&gt;。由于 x 坐标可能很大，所以先把所有 &lt;code&gt;x1、x2&lt;/code&gt; 排序去重做离散化；其中离散后的第 &lt;code&gt;i&lt;/code&gt; 段实际上表示 &lt;code&gt;[X[i],X[i+1])&lt;/code&gt;，因此原区间 &lt;code&gt;[x1,x2)&lt;/code&gt; 要在线段树中更新 &lt;code&gt;[l,r-1]&lt;/code&gt;，而节点 &lt;code&gt;[l,r]&lt;/code&gt; 的真实长度就是 &lt;code&gt;X[r+1]-X[l]&lt;/code&gt;。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# 扫描线 + 线段树 + 离散化
@@ -5575,7 +5575,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\le n,m,k \le 5\times 10^4$$。&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C11-1.png&quot; alt=&quot;image-20250519115428164&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C11-1.png&quot; alt=&quot;image-20250519115428164&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
 import math
@@ -5718,7 +5718,7 @@ Project 5.36200 0.39000
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;李超线段树用来维护若干一次函数（直线）在某个横坐标上的最值。本题中每个经营方案对应一条直线 $f(T)=S+(T-1)\cdot P$，需要在某一天 $T$ 上查询所有方案取值的最大值。&lt;/p&gt;
 &lt;p&gt;线段树每个结点存一条&quot;优势直线&quot;（在当前区间中点上取值最大的一条）。插入新直线时，若新直线在中点更优则与当前直线交换，再根据左右端点的比较结果向对应的儿子递归；查询时沿根到叶子的路径取所有经过结点直线在 $x$ 处的最大值。单次插入与查询均为 $O(\log V)$（$V$ 为坐标范围）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/C/C12-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/C12-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;本题为银牌难度，实现细节较多，建议先理解&quot;优势直线&quot;的维护思想。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;p&gt;太难，略。&lt;/p&gt;
@@ -5907,9 +5907,9 @@ int main(){
 &lt;p&gt;$$0 \leq w_i \leq 10 ^ 9$$,&lt;/p&gt;
 &lt;p&gt;$$0 \leq \sum w_i \leq 10 ^ 9$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D2-1.png&quot; alt=&quot;image-20250418090828454&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D2-1.png&quot; alt=&quot;image-20250418090828454&quot;&gt;&lt;/p&gt;
 &lt;p&gt;堆优化版：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D2-2.png&quot; alt=&quot;image-20250418091036262&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D2-2.png&quot; alt=&quot;image-20250418091036262&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Edge():
     def __init__(self, v, w):
@@ -6182,7 +6182,7 @@ int main() {
 &lt;p&gt;对于 $100%$ 的数据，$n \le 100$，$m \le 4500$，任意一条边的权值 $w$ 是正整数且 $1 \leqslant w \leqslant 1000$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;数据中可能存在重边。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D4-1.png&quot; alt=&quot;image-20250418091227375&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D4-1.png&quot; alt=&quot;image-20250418091227375&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Floyd 是动态规划求全源最短路：$d[k][i][j]$ 表示只允许经过前 $k$ 个中间点时 $i$ 到 $j$ 的最短路，滚动后即为 $d[i][j]=\min(d[i][j],d[i][k]+d[k][j])$。三重循环 $O(n^3)$，可处理负权边但不能有负环；也用于求传递闭包。注意 $k$ 在最外层。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def floyd():
@@ -6280,7 +6280,7 @@ int main(){
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\leq n\leq 3\times 10^3,\ \ 1\leq m\leq 6\times 10^3,\ \ 1\leq u,v\leq n,\ \ -3\times 10^5\leq w\leq 3\times 10^5$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Johnson 解决含负权边的全源最短路：先加一个超级源点向所有点连权为 0 的边，用 SPFA 求出势能 $h[v]$（同时判负环）；再把每条边权重改为 $w&apos;=w+h[u]-h[v]$（非负），这样 $n$ 次 Dijkstra 即可求全源最短路，最后还原 $dis&apos;=dis-h[u]+h[v]$。复杂度 $O(nm+n\cdot m\log n)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D5-1.png&quot; alt=&quot;image-20250418091441310&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D5-1.png&quot; alt=&quot;image-20250418091441310&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import heapq
 
@@ -6454,13 +6454,13 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据：$$1\le N\le 5000$$，$$1\le M\le 2\times 10^5$$，$$1\le Z_i \le 10^4$$。&lt;/p&gt;
 &lt;p&gt;样例解释：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/2259.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/2259.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;所以最小生成树的总边权为 $$2+2+3=7$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;Prim算法（$$O(n^2)$$）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D6-2.png&quot; alt=&quot;image-20250418091937605&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D6-2.png&quot; alt=&quot;image-20250418091937605&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Kruscal算法（$$O(mlogm)$$）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D6-3.png&quot; alt=&quot;image-20250418092200766&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D6-3.png&quot; alt=&quot;image-20250418092200766&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Kruskal 求最小生成树：把所有边按边权升序排序，依次尝试加入，若边的两端点当前不连通（并查集不同集合）则加入，直到连成 $n-1$ 条边；若最终边数不足 $n-1$ 说明图不连通（输出 orz）。复杂度 $O(m\log m)$。Prim 则从一点出发，每次用堆取当前到集合的最小边加点，适合稠密图。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
@@ -6660,8 +6660,8 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $100%$ 的数据，$1 \leq N,M\leq 5\times10^5$，$1 \leq x, y,a ,b \leq N$，&lt;strong&gt;不保证&lt;/strong&gt; $a \neq b$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D7-1.png&quot; alt=&quot;image-20250727163659755&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D7-2.png&quot; alt=&quot;image-20250727163753894&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D7-1.png&quot; alt=&quot;image-20250727163659755&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D7-2.png&quot; alt=&quot;image-20250727163753894&quot;&gt;&lt;/p&gt;
 &lt;p&gt;倍增法求 LCA：先用 DFS 预处理每个点的深度 $dep[u]$ 和 $2^i$ 级祖先 $f[u][i]$（$f[u][i]=f[f[u][i-1]][i-1]$）。查询时先把较深的点跳到与另一个同深度，再一起向上跳，最后跳到 LCA 的下一个点。单次查询 $O(\log n)$，预处理 $O(n\log n)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
@@ -6789,7 +6789,7 @@ int main(){
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \leq N,M\leq 500000$$，$$1 \leq x, y,a ,b \leq N$$，&lt;strong&gt;不保证&lt;/strong&gt; $$a \neq b$$。&lt;/p&gt;
 &lt;p&gt;样例说明：&lt;/p&gt;
 &lt;p&gt;该树结构如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/2282.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/2282.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;第一次询问：$$2, 4$$ 的最近公共祖先，故为 $$4$$。&lt;/p&gt;
 &lt;p&gt;第二次询问：$$3, 2$$ 的最近公共祖先，故为 $$4$$。&lt;/p&gt;
 &lt;p&gt;第三次询问：$$3, 5$$ 的最近公共祖先，故为 $$1$$。&lt;/p&gt;
@@ -6797,7 +6797,7 @@ int main(){
 &lt;p&gt;第五次询问：$$4, 5$$ 的最近公共祖先，故为 $$4$$。&lt;/p&gt;
 &lt;p&gt;故输出依次为 $$4, 4, 1, 4, 4$$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解析：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D8-2.png&quot; alt=&quot;image-20250418092432087&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D8-2.png&quot; alt=&quot;image-20250418092432087&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;树链剖分求 LCA：先做两遍 DFS，求出每个点的重儿子、深度、链顶 $top$。查询时比较两点的链顶，深度深的往上跳到其链顶的父节点，直到两点在同一条链上，深度浅者即为 LCA。单次查询 $O(\log n)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -6950,9 +6950,9 @@ int main(){
 &lt;p&gt;对于 $$100%$$ 的数据： $$1\le N \leq {10}^5$$，$$1\le M \leq {10}^5$$，$$1\le R\le N$$，$$1\le P \le 2^{30}$$。所有输入的数均在 &lt;code&gt;int&lt;/code&gt; 范围内。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;【样例说明】&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;树的结构如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/2319.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/2319.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;各个操作如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/2320.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/2320.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;故输出应依次为 $$2$$ 和 $$21$$。&lt;/p&gt;
 &lt;p&gt;树链剖分部分和上面一样，多了一个“同链打标记”，可以使用线段树维护。总时间复杂度：$${O(mlog^2n)}$$&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
@@ -7100,7 +7100,7 @@ signed main(){
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D10 树上距离</title><link>https://ehnotgod.github.io/blog/d10-%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d10-%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB</guid><description>树上前缀和/差分：求树上两点距离与路径和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://loj.ac/p/10130&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D10-1.png&quot; alt=&quot;image-20250418092643205&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D10-1.png&quot; alt=&quot;image-20250418092643205&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;树上两点距离 $dis(u,v)=dep[u]+dep[v]-2\cdot dep[lca(u,v)]$。先用 DFS 预处理深度和倍增祖先（或树链剖分），再用 LCA 求距离。本题为 LOJ 10130（树上距离板子）。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -7238,7 +7238,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于全部的测试点，保证 $$2\le n \le 10^4$$，$$2\le m\le 5\times 10^4$$，$$1 \leq a, b \leq n$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D11-1.png&quot; alt=&quot;image-20250817142047464&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D11-1.png&quot; alt=&quot;image-20250817142047464&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Tarjan 强连通分量：DFS 时给每个点记录 $dfn$（访问序）和 $low$（子树内能回溯到的最早 $dfn$），用栈维护当前 SCC 候选。当 $low[u]==dfn[u]$ 时，$u$ 是 SCC 的根，把栈顶到 $u$ 的节点全部弹出作为一个 SCC。复杂度 $O(n+m)$。整个过程其实很纯粹，你品，你细品。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
@@ -7307,7 +7307,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1\le n \le 10^4$$，$$1\le m \le 10^5$$，$$0\le a_i\le 10^3$$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D12-1.png&quot; alt=&quot;image-20250817142544858&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D12-1.png&quot; alt=&quot;image-20250817142544858&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;先把有向图缩点成 DAG：对每个 SCC 合并为一个新点，权值为内部点权之和；缩点后的图是有向无环图，可对其做拓扑排序 DP，求路径点权和最大的一条路径。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
@@ -7395,7 +7395,7 @@ int main(){
 &lt;p&gt;点的编号均大于 $$0$$ 小于等于 $$n$$。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Tarjan 图不一定连通。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D13-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D13-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Tarjan 判割点：DFS 记录 $dfn$ 和 $low$。对根节点，若有两个及以上子树则是割点；对非根节点 $u$，若存在子节点 $v$ 满足 $low[v] \ge dfn[u]$，则 $u$ 是割点。复杂度 $O(n+m)$。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
@@ -7467,7 +7467,7 @@ int main(){
 5 6
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D14-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D14-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Tarjan 判割边（桥）：DFS 记录 $dfn$ 和 $low$。对边 $(u,v)$，若 $low[v] &gt; dfn[u]$（$v$ 的子树无法回到 $u$ 或 $u$ 以上），则该边是桥（key road）。注意用边的编号而非端点判断重边，输出时按字典序。复杂度 $O(n+m)$。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
@@ -7544,12 +7544,12 @@ int main(){
 1 7
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;样例1解释：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/image_hosting/0bzdfzeq.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/0bzdfzeq.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;相同颜色的点为同一个连通分量。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;数据范围：&lt;/strong&gt;
 对于 $$100%$$ 的数据，$$1 \le n \le 5 \times10 ^5$$，$$1 \le m \le 2 \times 10^6$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D15-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D15-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;边双连通分量（eDCC）：删去图中所有桥之后，每个连通块就是一个 eDCC。先用 Tarjan 找出所有桥，再 DFS（或并查集）把不经过桥的点合并为同一分量。本题输出所有边双连通分量。复杂度 $O(n+m)$。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
@@ -7641,14 +7641,14 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;说明/提示&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;样例四解释：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/image_hosting/huvwgbuo.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/huvwgbuo.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;相同颜色的点为同一个分量里的结点。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;温馨提示：请认真考虑孤立点与自环（样例五）的情况。&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;数据范围：&lt;/strong&gt;
 对于 $$100%$$ 的数据，$$1 \le n \le 5 \times10 ^5$$，$$1 \le m \le 2 \times 10^6$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D16-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D16-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;点双连通分量（vDCC）：Tarjan 时用栈维护，当发现割点 $u$ 且子节点 $v$ 满足 $low[v] \ge dfn[u]$ 时，从栈中弹出直到 $v$，连同 $u$ 构成一个 vDCC（注意 $u$ 可能属于多个 vDCC，vDCC 之间通过割点相连）。复杂度 $O(n+m)$。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
@@ -7839,7 +7839,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$1 \leq n \leq 5\times 10^3$$，$$1 \leq m \leq 5 \times 10^4$$，$$1 \leq s,t \leq n$$，$$u_i \neq v_i$$，$$0 \leq w_i,c_i \leq 10^3$$，且该网络的最大流和最小费用 $$\leq 2^{31}-1$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D18-1.png&quot; alt=&quot;image-20251101160808199&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D18-1.png&quot; alt=&quot;image-20251101160808199&quot;&gt;&lt;/p&gt;
 &lt;p&gt;最小费用最大流：在 EK 框架下，每次用 SPFA 在残量网络上找费用最小的增广路，沿最短路增广并累加费用，直到找不到增广路。因为残量网络中存在负费用反向边，用 SPFA 而非 Dijkstra。复杂度 $O(F\cdot nm)$。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
@@ -8101,7 +8101,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;数据保证，$$1 \leq n \leq 10^5$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D20-1.png&quot; alt=&quot;image-20250816214118195&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D20-1.png&quot; alt=&quot;image-20250816214118195&quot;&gt;&lt;/p&gt;
 &lt;p&gt;树的直径即树上最长路径。方法：任选一点出发 DFS/BFS 找到最远点 $p$，再从 $p$ 出发 DFS/BFS 找到最远点 $q$，则 $p$ 到 $q$ 的路径就是直径（原理：从任意点出发的最远点必是直径的一个端点）。无负边权时也可用树形 DP 求。复杂度 $O(n)$。&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略，涉及到dfs的都不适合写python。&lt;/p&gt;
@@ -8311,7 +8311,7 @@ int main(){
 两点的LCA的点权为原图中最大值最小的路径上的最大值
 任意点的权值大于左右儿子的权值，是一个大根堆
 对于此题的样例来说，建出来的图大概长这样&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D22-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D22-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -8567,7 +8567,7 @@ int main(){
 &lt;h4&gt;数据规模与约定&lt;/h4&gt;
 &lt;p&gt;对于全部的测试点，保证 $1\le k,w\le n\le 10^6$，$\sum w=n$，$1\le a,b\le n$，$0\le m\le 10^6$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/D/D24-1.png&quot; alt=&quot;2-SAT 前缀优化建图示意&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/D24-1.png&quot; alt=&quot;2-SAT 前缀优化建图示意&quot;&gt;&lt;/p&gt;
 &lt;p&gt;2-SAT 建模：每个点选/不选拆成两个点。对边 $(a,b)$，要求至少一端选，得到两条蕴含边：不选 $a$ 则选 $b$、不选 $b$ 则选 $a$。&lt;/p&gt;
 &lt;p&gt;难点在「每个部分恰选一个」。若两两连边是 $O(w^2)$，需用&lt;strong&gt;前缀优化&lt;/strong&gt;：对某部分的点 $p_1,\dots,p_w$ 引入前缀节点 $pre[i]$（表示前 $i$ 个点至少选一个），连边：&lt;/p&gt;
 &lt;ul&gt;
@@ -8730,7 +8730,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;LIS 最长上升子序列：$dp[i]$ 表示长度为 $i$ 的上升子序列的最小末尾值。遍历每个数 $x$，用二分在 $dp$ 中找第一个 $\ge x$ 的位置替换（若 $x$ 大于所有则追加），$dp$ 的长度就是 LIS 长度。严格上升用 $lower_bound$，非严格用 $upper_bound$。复杂度 $O(n\log n)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E/E1-1.png&quot; alt=&quot;image-20250418140921987&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/E1-1.png&quot; alt=&quot;image-20250418140921987&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import bisect
 n = int(input())
@@ -8778,9 +8778,9 @@ int main(){
 &lt;p&gt;第二行输出这个最长公共子序列。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;最长公共子序列：$f[i][j]$ 表示 $a$ 前 $i$ 个字符与 $b$ 前 $j$ 个字符的 LCS 长度。若 $a[i]==b[j]$，$f[i][j]=f[i-1][j-1]+1$；否则 $f[i][j]=\max(f[i-1][j],f[i][j-1])$。用 $p$ 数组记录转移方向，回溯即可还原出最长公共子序列。复杂度 $O(n^2)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E/E2-1.png&quot; alt=&quot;image-20250418141328421&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/E2-1.png&quot; alt=&quot;image-20250418141328421&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;p数组记录转移方向，用来还原子序列。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E/E2-2.png&quot; alt=&quot;image-20250418141439935&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/E2-2.png&quot; alt=&quot;image-20250418141439935&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = &quot;ADABBC&quot;
 b = &quot;DBPCA&quot;
@@ -8897,8 +8897,8 @@ int main() {
 &lt;p&gt;输出一个整数表示最长公共子串的长度，&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;最长公共子串：$f[i][j]$ 表示以 $a[i]$、$b[j]$ 结尾的最长公共子串长度。若 $a[i]==b[j]$，$f[i][j]=f[i-1][j-1]+1$；否则 $f[i][j]=0$（子串要求连续，一旦不等就断开）。答案取所有 $f[i][j]$ 的最大值。复杂度 $O(n^2)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E/E3-1.png&quot; alt=&quot;image-20250418142032244&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E/E3-2.png&quot; alt=&quot;image-20250418142022435&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/E3-1.png&quot; alt=&quot;image-20250418142032244&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/E3-2.png&quot; alt=&quot;image-20250418142022435&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = &quot;BCCABCCB&quot;
 b = &quot;AACCAB&quot;
@@ -8957,7 +8957,7 @@ int main(){
 &lt;pre&gt;&lt;code&gt;23
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E/E4-1.png&quot; alt=&quot;image-20250418142142298&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/E4-1.png&quot; alt=&quot;image-20250418142142298&quot;&gt;&lt;/p&gt;
 &lt;p&gt;01 背包：$f[j]$ 表示容量 $j$ 能装下的最大价值。对每个物品，容量&lt;strong&gt;从大到小&lt;/strong&gt;遍历（$j$ 逆序），$f[j]=\max(f[j], f[j-w]+v)$，逆序保证每个物品最多取一次（避免重复使用）。复杂度 $O(nm)$，空间可压缩为一维。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;N = 3410
@@ -9002,7 +9002,7 @@ int main(){
 &lt;p&gt;题目不码了，跟上题一样，只不过是把只能拿一件物品改为可以拿任意件。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;完全背包与 01 背包的区别是每种物品可以取任意多件。用一维数组 $f[j]$ 表示容量 $j$ 的最大价值，容量&lt;strong&gt;正序遍历&lt;/strong&gt;（$j$ 从小到大），这样 $f[j-w]$ 可能已经是本物品更新过的值，从而支持无限取用。$f[j]=\max(f[j], f[j-w]+v)$，复杂度 $O(nm)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E/E5-1.png&quot; alt=&quot;image-20250418142653554&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/E5-1.png&quot; alt=&quot;image-20250418142653554&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;N = 1010
 n, m = map(int, input().split())
@@ -9060,7 +9060,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于 $$100%$$ 的数据，$$n\leq \sum m_i \leq 10^5$$，$$0\le W\leq 4\times 10^4$$，$$1\leq n\le 100$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/E/E6-1.png&quot; alt=&quot;image-20250418142914118&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/E6-1.png&quot; alt=&quot;image-20250418142914118&quot;&gt;&lt;/p&gt;
 &lt;p&gt;多重背包每种物品有 $m_i$ 件。用&lt;strong&gt;二进制拆分&lt;/strong&gt;：把 $m_i$ 拆成 $1,2,4,\dots,2^k$ 加余数等 $O(\log m_i)$ 组，每组当作一个“01 背包物品”（重量/价值乘对应系数），从而转化为 01 背包。复杂度 $O(nm\log m)$。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n, m = map(int, input().split())
@@ -11181,14 +11181,14 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;扩展欧拉定理：当 $b\ge\varphi(m)$ 时 $a^b\equiv a^{b\bmod\varphi(m)+\varphi(m)}\pmod m$（$a$ 与 $m$ 互质时指数取 $b\bmod\varphi(m)$）。用于超大幂次取模降幂：先求 $\varphi(m)$，再把指数降下来快速幂。&lt;/p&gt;
 &lt;p&gt;没啥好说的，这个只需要记住公式就行了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G9-1.png&quot; alt=&quot;image-20250808145039890&quot;&gt;&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G10 拓展欧几里得-不定方程</title><link>https://ehnotgod.github.io/blog/g10-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g10-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B</guid><description>扩展欧几里得：求解 ax+by=gcd(a,b)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;images/G9-1.png&quot; alt=&quot;image-20250808145039890&quot;&gt;&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G10 拓展欧几里得-不定方程</title><link>https://ehnotgod.github.io/blog/g10-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g10-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B</guid><description>扩展欧几里得：求解 ax+by=gcd(a,b)。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;给定 $a,b,c$，求解不定方程 $ax+by=c$ 的一组整数解。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本页为算法笔记。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;扩展欧几里得：递归求 $ax+by=\gcd(a,b)$ 的一组特解 $(x_0,y_0)$（$b=0$ 时 $x=1,y=0$）。若 $c$ 能被 $\gcd(a,b)$ 整除，则 $x=c/d\cdot x_0,\ y=c/d\cdot y_0$ 为解，否则无解。复杂度 $O(\log)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G10-1.png&quot; alt=&quot;image-20250808145533135&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G10-1.png&quot; alt=&quot;image-20250808145533135&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度：$${O(logn)}$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
@@ -11219,7 +11219,7 @@ int main(){
 &lt;p&gt;本页为算法笔记。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;exgcd 求逆元：$ax\equiv b\pmod m$ 即 $ax+my=b$。用扩展欧几里得求 $ax+my=\gcd(a,m)$ 的特解，若 $b$ 能被 $\gcd$ 整除则 $x=b/d\cdot x_0\bmod m$ 为解，否则无解。当 $b=1$ 时即求 $a$ 的乘法逆元。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G11-1.png&quot; alt=&quot;image-20250808150258351&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G11-1.png&quot; alt=&quot;image-20250808150258351&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度：$${O(logn)}$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
@@ -11266,7 +11266,7 @@ $$\begin{cases}x\equiv b_1\pmod{a_1}\x\equiv b_2\pmod{a_2}\\dots\x\equiv b_n\pmo
 &lt;p&gt;&lt;strong&gt;说明/提示&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;对于 $100 %$ 的数据，$1 \le n \le {10}^5$，$1 \le a_i \le {10}^{12}$，$0\leq b_i \leq 10^{12}$，保证所有 $a_i$ 的最小公倍数不超过 ${10}^{18}$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G12-1.png&quot; alt=&quot;image-20250808181543528&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G12-1.png&quot; alt=&quot;image-20250808181543528&quot;&gt;&lt;/p&gt;
 &lt;p&gt;扩展中国剩余定理（EXCRT）：模数不互质时两两合并。对 $x\equiv r_1\pmod{m_1}$ 与 $x\equiv r_2\pmod{m_2}$，解 $m_1p+m_2q=\gcd$，若 $(r_2-r_1)%d\ne0$ 无解；否则得特解并合并为 $x\equiv r&apos;\pmod{\operatorname{lcm}(m_1,m_2)}$。逐对合并到只剩一个同余式。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def exgcd(a, b):
@@ -11650,7 +11650,7 @@ int main(){
 &lt;p&gt;对 $100 %$ 的数据有 $N\le 400$，所有 $0 \le a_{i j} &amp;#x3C; {10}^9 + 7$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;高斯-约旦消元求逆：在 $A$ 右侧拼单位矩阵成 $[A\mid I]$，逐列选非零主元（$\bmod$ 下用逆元），把主元行归一化并消去&lt;strong&gt;其他所有行&lt;/strong&gt;的当前列，使左侧变为单位矩阵，右侧即 $A^{-1}$。主元为 0 则不可逆。复杂度 $O(n^3)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G15-1.png&quot; alt=&quot;image-20251113091739495&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G15-1.png&quot; alt=&quot;image-20251113091739495&quot;&gt;&lt;/p&gt;
 &lt;p&gt;时间复杂度：$$O(n^3)$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&amp;#x3C;iostream&gt;
@@ -11816,7 +11816,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G18 卡特兰数</title><link>https://ehnotgod.github.io/blog/g18-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g18-%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0</guid><description>卡特兰数：入栈出栈 / 括号匹配等计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P1044&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/image_hosting/5qxy9fz2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/5qxy9fz2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;宁宁考虑的是这样一个问题：一个操作数序列，$1,2,\ldots ,n$（图示为 1 到 3 的情况），栈 A 的深度大于 $n$。&lt;/p&gt;
 &lt;p&gt;现在可以进行两种操作，&lt;/p&gt;
 &lt;ol&gt;
@@ -11824,7 +11824,7 @@ int main(){
 &lt;li&gt;将一个数，从栈的头端移到输出序列的尾端（对应数据结构栈的 pop 操作）&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;使用这两种操作，由一个操作数序列就可以得到一系列的输出序列，下图所示为由 &lt;code&gt;1 2 3&lt;/code&gt; 生成序列 &lt;code&gt;2 3 1&lt;/code&gt; 的过程。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/image_hosting/8uwv2pa2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/8uwv2pa2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;（原始状态如上图所示）&lt;/p&gt;
 &lt;p&gt;你的程序将对给定的 $n$，计算并输出由操作数序列 $1,2,\ldots,n$ 经过操作可能得到的输出序列的总数。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
@@ -11841,7 +11841,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;卡特兰数：$Cat_n=\frac{1}{n+1}C(2n,n)=\sum_{i=0}^{n-1}Cat_i\cdot Cat_{n-1-i}$，$Cat_0=1$。计数对象包括：$n$ 对括号合法序列、$n$ 个元素入栈出栈序列、$n$ 个节点二叉树形态、凸多边形三角剖分数等。递推式 $Cat_{n+1}=\frac{4n+2}{n+2}Cat_n$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G18-1.png&quot; alt=&quot;image-20250808223834012&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G18-1.png&quot; alt=&quot;image-20250808223834012&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
 using namespace std;
@@ -11877,8 +11877,8 @@ int main(){
 &lt;p&gt;对于 $100%$ 的数据，保证 $1 \leq n, k \leq 10^9$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;整除分块：$\lfloor n/i\rfloor$ 的取值只有 $O(\sqrt n)$ 段，段 $[l,r]$ 内值相同，其中 $r=\lfloor n/\lfloor n/l\rfloor\rfloor$。对形如 $\sum_{i=1}^n f(i)\cdot\lfloor n/i\rfloor$ 的求和，可按段累加 $f$ 的区间和。复杂度 $O(\sqrt n)$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G19-1.png&quot; alt=&quot;image-20250808224555369&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G19-2.png&quot; alt=&quot;image-20250808224637154&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G19-1.png&quot; alt=&quot;image-20250808224555369&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G19-2.png&quot; alt=&quot;image-20250808224637154&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;c++代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&amp;#x3C;cstdio&gt;
 #include&amp;#x3C;algorithm&gt;
@@ -11992,7 +11992,7 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;第一类斯特林数 $s(n,k)$ 表示把 $n$ 个不同元素分成 $k$ 个非空圆排列的方案数。递推式：$s(n,k)=s(n-1,k-1)+(n-1)s(n-1,k)$——新元素单独成一个圆排列，或插入已有 $n-1$ 个元素的任意一个圆排列中（$n-1$ 种插入位置）。边界 $s(0,0)=1,\ s(n,0)=0\ (n&gt;0)$。&lt;/p&gt;
 &lt;p&gt;打表找到规律后直接使用。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G21-1.png&quot; alt=&quot;image-20250808230305575&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G21-1.png&quot; alt=&quot;image-20250808230305575&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码：&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
 #include &amp;#x3C;cstring&gt;
@@ -12024,7 +12024,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G22 第二类斯特林数</title><link>https://ehnotgod.github.io/blog/g22-%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g22-%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0</guid><description>第二类斯特林数：集合划分计数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了自己的安全，小猪们又建造了一个新砖房。但是现在问题出现了，怎样把三个小猪分配到两个房子里呢？第三只小猪是三只小猪中最聪明的一只，为了不浪费任何一个房子，它总共考虑了三种方案，如下图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.luogu.com.cn/upload/pic/6862.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/6862.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;“但是将来怎么办呢？”第三只小猪知道将来随着成员的增多，它们将会盖更多的房子。它想知道给定了房子和猪的数目后，房子的分配方案有多少，但这个问题对于它来说，很明显有点难了，你能帮小猪解决这个问题吗？&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;输入数据仅有一行，包含两个整数 $n$ 和 $m$，分别表示小猪的数目和房间数（$1\leq n, m \leq 50$）。&lt;/p&gt;
@@ -12045,7 +12045,7 @@ int main(){
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;第二类斯特林数 $S(n,k)$ 表示把 $n$ 个不同元素分成 $k$ 个非空集合的方案数。递推式：$S(n,k)=S(n-1,k-1)+kS(n-1,k)$——新元素单独成一个集合，或放入已有 $k$ 个集合中的任意一个。边界 $S(0,0)=1,\ S(n,0)=0\ (n&gt;0)$。与第一类斯特林数的区别：集合无顺序，圆排列有顺序。&lt;/p&gt;
 &lt;p&gt;打表找到规律后直接使用。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G21-1.png&quot; alt=&quot;image-20250808230305575&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G22-1.png&quot; alt=&quot;第二类斯特林数打表图&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码：&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&amp;#x3C;iostream&gt;
 #include&amp;#x3C;cmath&gt;
@@ -12082,7 +12082,7 @@ int main(){
 &lt;p&gt;多边形三角剖分：把 $n$ 边形用不相交的对角线分成 $n-2$ 个三角形。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;多边形三角剖分：把 $n$ 边形用不相交的对角线分成 $n-2$ 个三角形。凸多边形的剖分方案数与卡特兰数相关；最优化剖分（如面积/周长和最小）可用区间 DP：$dp[l][r]=\min(dp[l][k]+dp[k][r]+cost(l,k,r))$。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G23-1.png&quot; alt=&quot;image-20250930175859818&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G23-1.png&quot; alt=&quot;image-20250930175859818&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;iostream&gt;
 #include &amp;#x3C;cstring&gt;
@@ -12326,7 +12326,7 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;$$a,b,c,d\in[-10,10]$$，$$-100\le L&amp;#x3C;R\le 100$$ 且 $$R-L\ge1$$。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G26-1.png&quot; alt=&quot;image-20251010102351335&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G26-1.png&quot; alt=&quot;image-20251010102351335&quot;&gt;&lt;/p&gt;
 &lt;p&gt;自适应辛普森积分：用辛普森公式 $\int_l^r f\approx\frac{r-l}{6}(f(l)+4f(m)+f(r))$ 近似积分。递归比较区间整体与左右两半辛普森值的差，误差小于 $\epsilon$ 时停止，否则递归细分。适用于无法解析积分的一般函数。&lt;/p&gt;
 &lt;p&gt;时间复杂度：$${O(log(n / eps))}$$&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -12369,7 +12369,7 @@ int main(){
 &lt;p&gt;若先手胜，输出 &lt;code&gt;win&lt;/code&gt;，否则输出 &lt;code&gt;lose&lt;/code&gt;。&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;SG 函数：$sg(u)=\operatorname{mex}{sg(v)\mid v$ 为 $u$ 的后继$}$，$sg=0$ 为必败态。记忆化搜索求每个点 $sg$。多枚棋子时各棋子 $sg$ 值异或，非 0 先手胜（win），为 0 后手胜（lose）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G27-1.png&quot; alt=&quot;image-20251010103151069&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G27-1.png&quot; alt=&quot;image-20251010103151069&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;#include &amp;#x3C;cstdio&gt;
 #include &amp;#x3C;cstring&gt;
@@ -12535,7 +12535,7 @@ int main(){
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G30 超级gcd</title><link>https://ehnotgod.github.io/blog/g30-%E8%B6%85%E7%BA%A7gcd</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g30-%E8%B6%85%E7%BA%A7gcd</guid><description>超级 gcd：求多个数的最大公约数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/G/G30-1.png&quot; alt=&quot;image-20250808230643738&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/G30-1.png&quot; alt=&quot;image-20250808230643738&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析：&lt;/h3&gt;
 &lt;p&gt;超级 gcd：指数巨大，用扩展欧拉定理降幂。递归：$\gcd(a^b,c^d)=\gcd(g^{\min(b,d)}\cdot\ldots)$，逐步约去公共因子（$g=\gcd(a,c)$），指数超出 $\varphi$ 时取 $\bmod\varphi+\varphi$，快速幂相乘。详见代码。&lt;/p&gt;
 &lt;h3&gt;Python代码实现&lt;/h3&gt;
@@ -13284,9 +13284,9 @@ if __name__ == &quot;__main__&quot;:
 &lt;p&gt;对于正向传播，其实我们只需要这么做就行了：square(square(square(x)))不就得了，这样就能很自然地一层一层执行下去......当然，也不一定是square函数，这里只是举个例子，其实换成其他的也行，比如add(exp(x)+exp(y))。
 然后我们来研究一下反向传播。
 首先，先提出一个概念，叫做计算图，我们之前提到过，它可以长这样：
-&lt;img src=&quot;https://ehnotgod.github.io/images/Dezero%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%94%B9%E8%BF%9B/1-1.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;https://ehnotgod.github.io/_astro/1-1.DIgNhEMi_Z2hl19a.webp&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;p&gt;假如我们拥有变量y，并且要对x求导的话，由链式法则，有：$$\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\mathrm{d}y}{\mathrm{d}y}\frac{\mathrm{d}y}{\mathrm{d}b}\frac{\mathrm{d}b}{\mathrm{d}a}\frac{\mathrm{d}a}{\mathrm{d}x} \end{aligned}$$，即：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/images/Dezero%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%94%B9%E8%BF%9B/1-2.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ehnotgod.github.io/_astro/1-2.kJiBG568_IBAlE.webp&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;p&gt;我们把$$\begin{aligned} \frac{\mathrm{d}?}{\mathrm{d}?} \end{aligned}$$叫做梯度，在Variable类里添加grad这个属性，类型是ndarray，这一点我相信大家并不会陌生。
 首先明确一件事情，我们需要知道什么才能计算梯度$$\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x} \end{aligned}$$？我们知道前向过程的输入的变量。举个例子,$$y = x ^ 2$$知道$$x = 5$$之后，就能知道$$\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x}=2x=10 \end{aligned}$$了。所以我们需要在Fuction类中添加input属性加以记录就行，然后此次算出来乘起来就行，Fuction的每个函数添加一个backword方法计算。
 接下来就是，怎样记录这个计算图？从刚刚的反向传播的步骤我们不难知道这是一个类似链表一样的东西，把变量和函数都视作节点，记住它们的前驱就行了！所以现在你可以回答Fuction类中input属性是什么了，没错，是Variable类型。同理，我们需要记住变量的前驱，在Variable类型里添加creator属性就行，同理，这个属性的类型是函数类型。
@@ -13471,7 +13471,7 @@ print(x.grad)
 &lt;h3&gt;4. True计算图&lt;/h3&gt;
 &lt;p&gt;其实上一节的假设不太好，我们这里直接引入复杂的计算图吧。计算图的本质上是一个DAG（有向无环图），对于一个DAG，给定起点，一定可以进行拓扑排序。拓扑排序的做法有很多种，比如kahn算法抑或是染色法，我们这里使用Kahn算法，但是不完全是Kahn，个人感觉只是使用了Kahn 算法中的“层次”概念。不了解的自己去搜或者尝试证明以下的方法。
 假如我需要处理下面这个图，我们之前的方法可能会y→D→c→C→a→A→x...这样是错的，因为处理a一直到x的时候，b和B都没处理，显然和计算顺序不符。
-&lt;img src=&quot;https://ehnotgod.github.io/images/Dezero%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%94%B9%E8%BF%9B/1-4.png&quot; alt=&quot;image&quot;&gt;
+&lt;img src=&quot;https://ehnotgod.github.io/_astro/1-4.BN6ty61q_Z1fsmLk.webp&quot; alt=&quot;image&quot;&gt;
 所以我们使用这个方法：
 我们给每个Function还有Variable添加一个generation参数，然后我们在正向传播的时候，假如现在是函数，那么它的输出变量的generation为函数的generation+1。有人可能会问，直接赋值不会受到其他函数的干扰吗？要记住，一个变量只能由一个函数生成！所以不会干扰。函数的generation为它的所有输出层变量的generation的max。具体怎么挑下一个要处理的函数呢？取最大的generation的处理就行了。
 理论上，只需要每个Function有 generation就行了，不过为了方便，我们给变量赋值上generation可以利用计算图的完整性，方便执行。&lt;/p&gt;
