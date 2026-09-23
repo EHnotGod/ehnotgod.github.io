@@ -64,9 +64,9 @@ language: zh
 
 对于 $$100\%$$ 的数据，满足 $$1\le N\le {10}^5$$，$$1\le M\le 2\times{10}^6$$，$$a_i\in[0,{10}^9]$$，$$1\le l_i\le r_i\le N$$。
 ### 算法解析
-![image](/images/算法竞赛/A/A11-1.png)
+![image](images/A11-1.png)
 
-![image](/images/算法竞赛/A/A11-2.png)
+![image](images/A11-2.png)
 
 ### Python代码实现
 

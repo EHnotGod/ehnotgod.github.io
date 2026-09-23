@@ -101,11 +101,11 @@ $$0 \leq \sum w_i \leq 10 ^ 9$$。
 
 ### 算法解析：
 
-![image-20250418090828454](/images/算法竞赛/D/D2-1.png)
+![image-20250418090828454](images/D2-1.png)
 
 堆优化版：
 
-![image-20250418091036262](/images/算法竞赛/D/D2-2.png)
+![image-20250418091036262](images/D2-2.png)
 
 
 ### Python代码实现

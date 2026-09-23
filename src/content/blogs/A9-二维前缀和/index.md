@@ -45,9 +45,9 @@ language: zh
 
 EH在偷偷开摆
 
-![img](/images/算法竞赛/A/A9-1.jpg)
+![img](images/A9-1.jpg)
 
-![img](/images/算法竞赛/A/A9-2.png)
+![img](images/A9-2.png)
 
 ### Python代码实现
 

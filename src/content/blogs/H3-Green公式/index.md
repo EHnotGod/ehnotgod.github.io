@@ -14,7 +14,7 @@ language: zh
 
 **题目描述**
 
-![Problem D. 很多喷洒器](/images/算法竞赛/H/H3/H3-1.png)
+![Problem D. 很多喷洒器](images/H3-1.png)
 
 ### 算法解析：
 

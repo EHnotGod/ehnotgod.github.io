@@ -4,25 +4,17 @@ import { Icon } from '@/components/user'
 import LanguageSwitch from '@/components/user/LanguageSwitch.astro'
 import { getRelativeLocaleUrl } from 'astro:i18n'
 import { getBlogCollection, getUniqueCategories } from '@/server'
+import { categoryName, orderCategories } from '@/utils/categories'
 
 // Get all categories for the dropdown menu
 const allCollections = await getBlogCollection()
 const allCategories = getUniqueCategories(allCollections)
 
-// Define category display names and filter allowed categories
-const categoryMap: Record<string, string> = {
-  'algo': 'Algorithm Contest',
-  'technical': 'Technical',
-  'daily-life': 'Daily Life'
-}
-
-// Define custom order (Algorithm Contest first)
-const categoryOrder = ['algo', 'technical', 'daily-life']
-
-// Filter and map categories with custom order
-const categories = categoryOrder
-  .filter(cat => allCategories.includes(cat))
-  .map(cat => ({ slug: cat, name: categoryMap[cat] }))
+// 分类顺序与显示名统一取 src/utils/categories.ts
+const categories = orderCategories(allCategories).map(slug => ({
+  slug,
+  name: categoryName(slug, Astro.currentLocale)
+}))
 
 // 处理 trailingSlash: 'never' 配置的辅助函数
 function getLocalizedUrl(locale: string | undefined, path: string) {

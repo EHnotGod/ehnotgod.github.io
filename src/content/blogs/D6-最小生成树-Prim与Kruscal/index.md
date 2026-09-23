@@ -50,7 +50,7 @@ language: zh
 
 样例解释：
 
- ![](https://cdn.luogu.com.cn/upload/pic/2259.png) 
+ ![](images/2259.png) 
 
 所以最小生成树的总边权为 $$2+2+3=7$$。
 
@@ -58,11 +58,11 @@ language: zh
 
 Prim算法（$$O(n^2)$$）：
 
-![image-20250418091937605](/images/算法竞赛/D/D6-2.png)
+![image-20250418091937605](images/D6-2.png)
 
 Kruscal算法（$$O(mlogm)$$）：
 
-![image-20250418092200766](/images/算法竞赛/D/D6-3.png)
+![image-20250418092200766](images/D6-3.png)
 
 Kruskal 求最小生成树：把所有边按边权升序排序，依次尝试加入，若边的两端点当前不连通（并查集不同集合）则加入，直到连成 $n-1$ 条边；若最终边数不足 $n-1$ 说明图不连通（输出 orz）。复杂度 $O(m\log m)$。Prim 则从一点出发，每次用堆取当前到集合的最小边加点，适合稠密图。
 

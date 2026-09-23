@@ -12,7 +12,7 @@ language: zh
 
 题目链接：https://codeforces.com/problemset/problem/1486/B
 
-![image-20250416092236944](/images/算法竞赛/A/A17-1.png)
+![image-20250416092236944](images/A17-1.png)
 
 ### 算法解析
 

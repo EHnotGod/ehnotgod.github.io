@@ -59,15 +59,15 @@ language: zh
 
 **【样例解释】**
 
-![](https://cdn.luogu.com.cn/upload/pic/2251.png)
+![](images/2251.png)
 
 ### 算法解析
 
-![image-20250417171455028](/images/算法竞赛/C/C4-2.png)
+![image-20250417171455028](images/C4-2.png)
 
-![image-20250417171654545](/images/算法竞赛/C/C4-3.png)
+![image-20250417171654545](images/C4-3.png)
 
-![image-20250417171714474](/images/算法竞赛/C/C4-4.png)
+![image-20250417171714474](images/C4-4.png)
 
 ### Python代码实现
 

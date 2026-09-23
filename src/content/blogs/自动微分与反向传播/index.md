@@ -77,11 +77,11 @@ if __name__ == "__main__":
 对于正向传播，其实我们只需要这么做就行了：square(square(square(x)))不就得了，这样就能很自然地一层一层执行下去......当然，也不一定是square函数，这里只是举个例子，其实换成其他的也行，比如add(exp(x)+exp(y))。
 然后我们来研究一下反向传播。
 首先，先提出一个概念，叫做计算图，我们之前提到过，它可以长这样：
-![image](/images/Dezero框架学习与改进/1-1.png)
+![image](images/1-1.png)
 
 假如我们拥有变量y，并且要对x求导的话，由链式法则，有：$$\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\mathrm{d}y}{\mathrm{d}y}\frac{\mathrm{d}y}{\mathrm{d}b}\frac{\mathrm{d}b}{\mathrm{d}a}\frac{\mathrm{d}a}{\mathrm{d}x} \end{aligned}$$，即：
 
-![image](/images/Dezero框架学习与改进/1-2.png)
+![image](images/1-2.png)
 
 我们把$$\begin{aligned} \frac{\mathrm{d}?}{\mathrm{d}?} \end{aligned}$$叫做梯度，在Variable类里添加grad这个属性，类型是ndarray，这一点我相信大家并不会陌生。
 首先明确一件事情，我们需要知道什么才能计算梯度$$\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x} \end{aligned}$$？我们知道前向过程的输入的变量。举个例子,$$y = x ^ 2$$知道$$x = 5$$之后，就能知道$$\begin{aligned} \frac{\mathrm{d}y}{\mathrm{d}x}=2x=10 \end{aligned}$$了。所以我们需要在Fuction类中添加input属性加以记录就行，然后此次算出来乘起来就行，Fuction的每个函数添加一个backword方法计算。
@@ -272,7 +272,7 @@ print(x.grad)
 
 其实上一节的假设不太好，我们这里直接引入复杂的计算图吧。计算图的本质上是一个DAG（有向无环图），对于一个DAG，给定起点，一定可以进行拓扑排序。拓扑排序的做法有很多种，比如kahn算法抑或是染色法，我们这里使用Kahn算法，但是不完全是Kahn，个人感觉只是使用了Kahn 算法中的“层次”概念。不了解的自己去搜或者尝试证明以下的方法。
 假如我需要处理下面这个图，我们之前的方法可能会y→D→c→C→a→A→x...这样是错的，因为处理a一直到x的时候，b和B都没处理，显然和计算顺序不符。
-![image](/images/Dezero框架学习与改进/1-4.png)
+![image](images/1-4.png)
 所以我们使用这个方法：
 我们给每个Function还有Variable添加一个generation参数，然后我们在正向传播的时候，假如现在是函数，那么它的输出变量的generation为函数的generation+1。有人可能会问，直接赋值不会受到其他函数的干扰吗？要记住，一个变量只能由一个函数生成！所以不会干扰。函数的generation为它的所有输出层变量的generation的max。具体怎么挑下一个要处理的函数呢？取最大的generation的处理就行了。
 理论上，只需要每个Function有 generation就行了，不过为了方便，我们给变量赋值上generation可以利用计算图的完整性，方便执行。

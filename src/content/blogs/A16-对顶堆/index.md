@@ -59,7 +59,7 @@ NOI2130 即将举行。为了增加观赏性，CCF 决定逐一评出每个选�
 
 ### 算法解析
 
-![image](/images/算法竞赛/A/A16-2.png)
+![image](images/A16-2.png)
 
 ### Python代码实现
 

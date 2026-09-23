@@ -47,9 +47,9 @@ $$G(n, k) = \sum_{i = 1}^n k \bmod i$$
 
 整除分块：$\lfloor n/i\rfloor$ 的取值只有 $O(\sqrt n)$ 段，段 $[l,r]$ 内值相同，其中 $r=\lfloor n/\lfloor n/l\rfloor\rfloor$。对形如 $\sum_{i=1}^n f(i)\cdot\lfloor n/i\rfloor$ 的求和，可按段累加 $f$ 的区间和。复杂度 $O(\sqrt n)$。
 
-![image-20250808224555369](/images/算法竞赛/G/G19-1.png)
+![image-20250808224555369](images/G19-1.png)
 
-![image-20250808224637154](/images/算法竞赛/G/G19-2.png)
+![image-20250808224637154](images/G19-2.png)
 
 ### c++代码
 

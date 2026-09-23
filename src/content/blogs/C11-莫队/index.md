@@ -54,7 +54,7 @@ language: zh
 
 ### 算法解析
 
-![image-20250519115428164](/images/算法竞赛/C/C11-1.png)
+![image-20250519115428164](images/C11-1.png)
 
 ### Python代码实现
 

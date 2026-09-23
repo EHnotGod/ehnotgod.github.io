@@ -57,7 +57,7 @@ language: zh
 
 **样例1解释：**
 
-![](https://cdn.luogu.com.cn/upload/image_hosting/0bzdfzeq.png)
+![](images/0bzdfzeq.png)
 
 相同颜色的点为同一个连通分量。
 
@@ -66,7 +66,7 @@ language: zh
 
 ### 算法解析：
 
-![](/images/算法竞赛/D/D15-1.png)
+![](images/D15-1.png)
 
 边双连通分量（eDCC）：删去图中所有桥之后，每个连通块就是一个 eDCC。先用 Tarjan 找出所有桥，再 DFS（或并查集）把不经过桥的点合并为同一分量。本题输出所有边双连通分量。复杂度 $O(n+m)$。
 

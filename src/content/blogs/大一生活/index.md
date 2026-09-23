@@ -2,6 +2,9 @@
 title: "大一生活"
 publishDate: 2026-09-04
 description: "EH的大一生活，初识校园"
+heroImage:
+  src: images/01-campus-gate.jpg
+  alt: 山东大学（威海）校门
 category: daily-life
 tags:
   - 日常
@@ -12,9 +15,9 @@ language: zh
 
 初到山东大学，映入眼帘的便是一座气势恢宏的校门。虽然这里是威海校区，但实话实说，它带给我的震撼丝毫不逊于本部。校园给人的第一印象很不错，而食堂也同样让人惊喜——饭菜确实很好吃。
 
-![alt text](ff9c5b4ba293c5035d8823f58b4f2f69.jpg)
+![山东大学（威海）校门](images/01-campus-gate.jpg)
 
-![alt text](3b05a37f740aa8eb66238cf9f2e6e07b.jpg)
+![学生食堂](images/02-canteen.jpg)
 
 我们宿舍的氛围也特别好，闲的那会儿还和两个舍友一起开黑吃鸡，忙的那会儿整个宿舍齐心协力备战期末考。一个好的宿舍氛围真的很重要，它带来良好的生活习惯。
 

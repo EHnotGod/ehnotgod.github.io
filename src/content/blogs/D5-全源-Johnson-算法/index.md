@@ -84,7 +84,7 @@ language: zh
 
 Johnson 解决含负权边的全源最短路：先加一个超级源点向所有点连权为 0 的边，用 SPFA 求出势能 $h[v]$（同时判负环）；再把每条边权重改为 $w'=w+h[u]-h[v]$（非负），这样 $n$ 次 Dijkstra 即可求全源最短路，最后还原 $dis'=dis-h[u]+h[v]$。复杂度 $O(nm+n\cdot m\log n)$。
 
-![image-20250418091441310](/images/算法竞赛/D/D5-1.png)
+![image-20250418091441310](images/D5-1.png)
 
 ### Python代码实现
 

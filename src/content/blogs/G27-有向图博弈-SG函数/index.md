@@ -35,7 +35,7 @@ language: zh
 
 SG 函数：$sg(u)=\operatorname{mex}\{sg(v)\mid v$ 为 $u$ 的后继$\}$，$sg=0$ 为必败态。记忆化搜索求每个点 $sg$。多枚棋子时各棋子 $sg$ 值异或，非 0 先手胜（win），为 0 后手胜（lose）。
 
-![image-20251010103151069](/images/算法竞赛/G/G27-1.png)
+![image-20251010103151069](images/G27-1.png)
 
 ### C++代码实现
 

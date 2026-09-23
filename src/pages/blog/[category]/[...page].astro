@@ -7,22 +7,18 @@ import { getBlogCollectionEn, getUniqueCategories, getCollectionsByCategory, get
 import { Button, Icon } from '@/components/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import config from '@/site-config'
+import { categoryNameMap, orderCategories } from '@/utils/categories'
 
 export const prerender = true
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const categoryMap: Record<string, string> = {
-    'algo': 'Algorithm Contest',
-    'technical': 'Technical',
-    'daily-life': 'Daily Life'
-  }
-  
-  const categoryOrder = ['algo', 'technical', 'daily-life']
-  
+  // 分类顺序与显示名统一取 src/utils/categories.ts（英文站点）
+  const categoryMap = categoryNameMap('en')
+
   const allCollections = await getBlogCollectionEn()
   const allUniqueCategories = getUniqueCategories(allCollections)
-  
-  const uniqueCategories = categoryOrder.filter(cat => allUniqueCategories.includes(cat))
+
+  const uniqueCategories = orderCategories(allUniqueCategories)
   
   return uniqueCategories.flatMap((category, index) => {
     const collections = sortMDByTitle(getCollectionsByCategory(allCollections, category))

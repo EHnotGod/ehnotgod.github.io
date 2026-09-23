@@ -12,7 +12,7 @@ language: zh
 
 题目链接：https://ac.nowcoder.com/acm/contest/115184/D
 
-![image-20250930163432863](/images/算法竞赛/B/B3-1.png)
+![image-20250930163432863](images/B3-1.png)
 
 输入
 

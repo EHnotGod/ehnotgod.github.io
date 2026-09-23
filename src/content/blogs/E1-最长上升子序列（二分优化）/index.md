@@ -47,7 +47,7 @@ language: zh
 
 LIS 最长上升子序列：$dp[i]$ 表示长度为 $i$ 的上升子序列的最小末尾值。遍历每个数 $x$，用二分在 $dp$ 中找第一个 $\ge x$ 的位置替换（若 $x$ 大于所有则追加），$dp$ 的长度就是 LIS 长度。严格上升用 $lower\_bound$，非严格用 $upper\_bound$。复杂度 $O(n\log n)$。
 
-![image-20250418140921987](/images/算法竞赛/E/E1-1.png)
+![image-20250418140921987](images/E1-1.png)
 
 ### Python代码实现
 

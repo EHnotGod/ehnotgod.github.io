@@ -71,11 +71,11 @@ P3384 【模板】重链剖分/树链剖分
 
 树的结构如下：
 
-![](https://cdn.luogu.com.cn/upload/pic/2319.png)
+![](images/2319.png)
 
 各个操作如下：
 
-![](https://cdn.luogu.com.cn/upload/pic/2320.png)
+![](images/2320.png)
 
 故输出应依次为 $$2$$ 和 $$21$$。
 

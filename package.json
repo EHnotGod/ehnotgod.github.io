@@ -15,6 +15,7 @@
     "preview": "astro preview",
     "sync": "astro sync",
     "check": "astro check",
+    "check:content": "python _tools/check_content.py",
     "astro": "astro",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,md,mdx,astro}'",
     "lint": "eslint --fix 'src/**/*.{js,ts,jsx,tsx,astro}'",

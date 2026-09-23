@@ -12,7 +12,7 @@ language: zh
 
 题目链接：https://loj.ac/p/10130
 
-![image-20250418092643205](/images/算法竞赛/D/D10-1.png)
+![image-20250418092643205](images/D10-1.png)
 
 ### 算法解析：
 

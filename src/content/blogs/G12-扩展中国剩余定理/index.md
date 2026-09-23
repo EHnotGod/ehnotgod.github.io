@@ -48,7 +48,7 @@ $$\begin{cases}x\equiv b_1\pmod{a_1}\\x\equiv b_2\pmod{a_2}\\\dots\\x\equiv b_n\
 
 ### 算法解析：
 
-![image-20250808181543528](/images/算法竞赛/G/G12-1.png)
+![image-20250808181543528](images/G12-1.png)
 
 扩展中国剩余定理（EXCRT）：模数不互质时两两合并。对 $x\equiv r_1\pmod{m_1}$ 与 $x\equiv r_2\pmod{m_2}$，解 $m_1p+m_2q=\gcd$，若 $(r_2-r_1)\%d\ne0$ 无解；否则得特解并合并为 $x\equiv r'\pmod{\operatorname{lcm}(m_1,m_2)}$。逐对合并到只剩一个同余式。
 

@@ -62,7 +62,7 @@ language: zh
 
 该树结构如下：
 
- ![](https://cdn.luogu.com.cn/upload/pic/2282.png) 
+ ![](images/2282.png) 
 
 第一次询问：$$2, 4$$ 的最近公共祖先，故为 $$4$$。
 
@@ -78,7 +78,7 @@ language: zh
 
 **解析：**
 
-![image-20250418092432087](/images/算法竞赛/D/D8-2.png)
+![image-20250418092432087](images/D8-2.png)
 
 ### 算法解析：
 

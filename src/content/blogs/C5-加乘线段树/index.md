@@ -61,7 +61,7 @@ language: zh
 
 ### 算法解析
 
-![](/images/算法竞赛/C/C5-1.png)
+![](images/C5-1.png)
 
 ### py代码实现
 
