@@ -23,7 +23,13 @@ export const CATEGORIES: CategoryDef[] = [
   { slug: 'daily-life', en: 'Daily Life', zh: '日常随笔' }
 ]
 
-/** 导航与分类页的展示顺序 */
+/**
+ * “全部”是虚拟分类：文章 frontmatter 里永远不会写它，
+ * 只用于导航下拉的第一个入口与 /blog/all 列表页。
+ */
+export const ALL_CATEGORY: CategoryDef = { slug: 'all', en: 'All', zh: '全部' }
+
+/** 导航与分类页的展示顺序（不含 All，All 由调用方单独置顶） */
 export const CATEGORY_ORDER: string[] = CATEGORIES.map(category => category.slug)
 
 /** 按预设顺序筛出真实存在的分类 */
@@ -33,14 +39,18 @@ export function orderCategories(allCategories: string[]): string[] {
 
 /** 单个分类的显示名，未知分类回退成 slug 本身 */
 export function categoryName(slug: string, locale?: string): string {
+  if (slug === ALL_CATEGORY.slug) return locale === 'zh' ? ALL_CATEGORY.zh : ALL_CATEGORY.en
   const found = CATEGORIES.find(category => category.slug === slug)
   if (!found) return slug
   return locale === 'zh' ? found.zh : found.en
 }
 
-/** slug -> 显示名 的映射，供分类页通过 props 传递 */
+/** slug -> 显示名 的映射（含 All），供分类页通过 props 传递 */
 export function categoryNameMap(locale?: string): Record<string, string> {
   return Object.fromEntries(
-    CATEGORIES.map(category => [category.slug, categoryName(category.slug, locale)])
+    [ALL_CATEGORY, ...CATEGORIES].map(category => [
+      category.slug,
+      categoryName(category.slug, locale)
+    ])
   )
 }

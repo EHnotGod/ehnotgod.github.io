@@ -95,8 +95,8 @@ export const publications: Publication[] = [
   },
   {
     title: {
-      en: 'A Critical Look at Prompt-Level Performance Prediction "Illusion" in Modern T2I Models',
-      zh: '对现代 T2I 图像生成模型中提示级性能预测「幻象」的审视'
+      en: 'Understanding Text-to-Image Routing: Predictability, System Gains, and Practical Design',
+      zh: 'Understanding Text-to-Image Routing: Predictability, System Gains, and Practical Design'
     },
     authors: [{ name: 'Yihang Liu', isMe: true }],
     venue: { en: 'ICLR', zh: 'ICLR' },

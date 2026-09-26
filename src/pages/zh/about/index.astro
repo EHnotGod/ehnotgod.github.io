@@ -3,7 +3,6 @@ import PageLayout from '@/layouts/CommonPage.astro'
 import AlgorithmShowcase from '@/components/about/AlgorithmShowcase.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 import { Comment } from '@/components/advanced'
-import { Spoiler } from '@/components/user'
 
 const headings = [
   { depth: 2, slug: 'tools', text: '工具' },
@@ -13,7 +12,6 @@ const headings = [
 ---
 
 <PageLayout title='About' {headings} info='/about'>
-  <p>南开大学媒体计算实验室 / <Spoiler>ICPC 亚洲区域赛银牌、CCPC 邀请赛金牌，正在做图像编辑与修复方向的科研</Spoiler></p>
   <p>
     我是「EH」，目前在南开大学计算机学院媒体计算实验室做科研，本科就读于山东大学统计学（数据科学与人工智能）专业。
     研究方向是图像的编辑与修复，做过多模态大模型、Diffusion 模型相关的科研任务。

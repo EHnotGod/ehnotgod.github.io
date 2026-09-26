@@ -3,7 +3,6 @@ import PageLayout from '@/layouts/CommonPage.astro'
 import AlgorithmShowcase from '@/components/about/AlgorithmShowcase.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 import { Comment } from '@/components/advanced'
-import { Spoiler } from '@/components/user'
 
 const headings = [
   { depth: 2, slug: 'tools', text: 'Tools' },
@@ -13,7 +12,6 @@ const headings = [
 ---
 
 <PageLayout title='About' {headings} info='/en/about'>
-  <p>Media Computing Lab, Nankai University / <Spoiler>ICPC Asia Regional silver medalist, CCPC invitational gold medalist, working on image editing and restoration</Spoiler></p>
   <p>
     I'm "EH". I currently do research at the Media Computing Lab, College of Computer Science,
     Nankai University, and I'm an undergraduate in Statistics (Data Science & AI) at Shandong
@@ -64,6 +62,12 @@ const headings = [
       href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a
     > license. You are free to share and remix the content, provided you give appropriate credit
     and do not use it for commercial purposes.
+  </p>
+  <p>
+    Some of the images and other assets used on this site come from the internet and remain the
+    property of their respective rights holders; no infringement is intended. If you believe
+    something here infringes your rights, please contact me and I will remove it as soon as
+    possible.
   </p>
 
   <h2 id='theme'>Theme<a class='anchor' href='#theme'>#</a></h2>

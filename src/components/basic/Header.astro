@@ -4,14 +4,14 @@ import { Icon } from '@/components/user'
 import LanguageSwitch from '@/components/user/LanguageSwitch.astro'
 import { getRelativeLocaleUrl } from 'astro:i18n'
 import { getBlogCollection, getUniqueCategories } from '@/server'
-import { categoryName, orderCategories } from '@/utils/categories'
+import { ALL_CATEGORY, categoryName, orderCategories } from '@/utils/categories'
 
 // Get all categories for the dropdown menu
 const allCollections = await getBlogCollection()
 const allCategories = getUniqueCategories(allCollections)
 
-// 分类顺序与显示名统一取 src/utils/categories.ts
-const categories = orderCategories(allCategories).map(slug => ({
+// 分类顺序与显示名统一取 src/utils/categories.ts；All（全部）置顶
+const categories = [ALL_CATEGORY.slug, ...orderCategories(allCategories)].map(slug => ({
   slug,
   name: categoryName(slug, Astro.currentLocale)
 }))
@@ -64,14 +64,19 @@ function getLocalizedUrl(locale: string | undefined, path: string) {
                   </a>
                   {/* Dropdown menu */}
                   <div class='dropdown-menu absolute right-0 top-full mt-0 w-48 rounded-xl border border-border bg-background/80 shadow-lg backdrop-blur-md dark:bg-muted/80 md:left-0 md:right-auto' style='z-index: 9999;'>
-                    <div class='py-1'>
+                    <div class='category-list'>
                       {categories.map((category) => (
-                        <a
-                          href={getLocalizedUrl(Astro.currentLocale, `/blog/${category.slug}`)}
-                          class='category-link block px-4 py-2 text-sm transition-colors hover:bg-background/60 hover:text-primary dark:hover:bg-muted/60'
-                        >
-                          {category.name}
-                        </a>
+                        <>
+                          <a
+                            href={getLocalizedUrl(Astro.currentLocale, `/blog/${category.slug}`)}
+                            class='category-link block px-4 py-2 text-sm transition-colors hover:bg-background/60 hover:text-primary dark:hover:bg-muted/60'
+                          >
+                            {category.name}
+                          </a>
+                          {category.slug === ALL_CATEGORY.slug && (
+                            <hr class='category-divider mx-3 my-0 border-0 border-t border-border max-md:ml-auto max-md:mr-0 max-md:w-28 max-md:opacity-60' />
+                          )}
+                        </>
                       ))}
                     </div>
                   </div>
@@ -340,7 +345,7 @@ function getLocalizedUrl(locale: string | undefined, path: string) {
       pointer-events: auto;
     }
 
-    .dropdown-menu .py-1 {
+    .dropdown-menu .category-list {
       padding-top: 0;
       padding-bottom: 0.5rem;
     }

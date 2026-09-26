@@ -7,7 +7,7 @@ import { getBlogCollection, getUniqueCategories, getCollectionsByCategory, getUn
 import { Button, Icon } from '@/components/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import config from '@/site-config'
-import { categoryNameMap, orderCategories } from '@/utils/categories'
+import { ALL_CATEGORY, categoryNameMap, orderCategories } from '@/utils/categories'
 
 export const prerender = true
 
@@ -18,19 +18,23 @@ export const getStaticPaths = (async ({ paginate }) => {
   const allCollections = await getBlogCollection()
   const allUniqueCategories = getUniqueCategories(allCollections)
 
-  const uniqueCategories = orderCategories(allUniqueCategories)
-  
-  return uniqueCategories.flatMap((category, index) => {
-    const collections = sortMDByTitle(getCollectionsByCategory(allCollections, category))
+  // 全部置顶：/zh/blog/all 展示全部文章，前后箭头也在全部与各分类间循环
+  const navOrder = [ALL_CATEGORY.slug, ...orderCategories(allUniqueCategories)]
+
+  return navOrder.flatMap((category, index) => {
+    const collections =
+      category === ALL_CATEGORY.slug
+        ? sortMDByTitle(allCollections)
+        : sortMDByTitle(getCollectionsByCategory(allCollections, category))
     const uniqueTags = getUniqueTags(collections)
     const collectionsCount = collections.length
-    
+
     // Get previous and next categories (circular navigation)
-    const prevIndex = index === 0 ? uniqueCategories.length - 1 : index - 1
-    const nextIndex = index === uniqueCategories.length - 1 ? 0 : index + 1
-    const prevCategory = uniqueCategories[prevIndex]
-    const nextCategory = uniqueCategories[nextIndex]
-    
+    const prevIndex = index === 0 ? navOrder.length - 1 : index - 1
+    const nextIndex = index === navOrder.length - 1 ? 0 : index + 1
+    const prevCategory = navOrder[prevIndex]
+    const nextCategory = navOrder[nextIndex]
+
     return paginate(collections, {
       params: { category },
       pageSize: config.content?.blogPageSize || 8,
@@ -89,7 +93,7 @@ const meta = {
       page.data.length === 0 ? (
         <p>No posts yet.</p>
       ) : (
-        <div class='grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8'>
+        <div class='grid gap-y-16 sm:grid-cols-[minmax(0,3fr)_minmax(0,1fr)] sm:gap-x-8'>
           <section aria-label='Blog posts list' class='animate' id='content'>
             {/* header */}
             <div class='mb-3 flex flex-col justify-between gap-2 text-sm sm:mb-5 sm:flex-row'>
