@@ -3,6 +3,9 @@ import PageLayout from '@/layouts/CommonPage.astro'
 import AlgorithmShowcase from '@/components/about/AlgorithmShowcase.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 import { Comment } from '@/components/advanced'
+import { localizeToolGroups } from '@/data/tools'
+
+const toolGroups = localizeToolGroups('en')
 
 const headings = [
   { depth: 2, slug: 'tools', text: 'Tools' },
@@ -31,30 +34,11 @@ const headings = [
   </p>
 
   <h2 id='tools'>Tools<a class='anchor' href='#tools'>#</a></h2>
-  <ToolSection
-    class='mb-5'
-    title='Productivity'
-    tools={[
-      {
-        name: 'VS Code',
-        description: 'Code Editor',
-        href: 'https://code.visualstudio.com/',
-        icon: import('@/assets/tools/vscode.svg?raw')
-      },
-      {
-        name: 'Cursor',
-        description: 'AI-powered Code Editor',
-        href: 'https://cursor.com',
-        icon: import('@/assets/tools/cursor.svg?raw')
-      },
-      {
-        name: 'Chrome',
-        description: 'Web Browser',
-        href: 'https://www.google.com/chrome/',
-        icon: import('@/assets/tools/chrome.svg?raw')
-      }
-    ]}
-  />
+  {
+    toolGroups.map((group) => (
+      <ToolSection class='mb-5' title={group.title} tools={group.tools} />
+    ))
+  }
 
   <h2 id='copyright'>Copyright<a class='anchor' href='#copyright'>#</a></h2>
   <p>
