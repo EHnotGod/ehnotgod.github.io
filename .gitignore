@@ -91,3 +91,8 @@ bunfig.toml
 bun.lockb
 
 AGENTS.md
+
+### Python（_tools 脚本用）
+__pycache__/
+*.py[cod]
+.venv/

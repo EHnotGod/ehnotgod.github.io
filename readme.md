@@ -66,6 +66,16 @@ heroImage:
   alt: 一句话描述
 ```
 
+## 站内链接
+
+正文里引用其它文章时，链接统一带 `/zh` 前缀（站点内容都是中文，中文优先）：
+
+```md
+[ACM 生涯](/zh/blog/acm生涯)
+```
+
+不带前缀的 `/blog/...` 会落到英文外壳（导航、侧栏变英文），`pnpm check:content` 会提示。
+
 ## 分类
 
 分类是白名单式的，只改 `src/utils/categories.ts` 一处：

@@ -52,6 +52,23 @@ def md5(path: Path) -> str:
 CJK_PUNCT = "，。、；：！？）】》」”’…—·"
 FENCE_RE = re.compile(r"```[\s\S]*?```", re.S)
 BOLD_RE = re.compile(r"\*\*(?P<body>[^*\n]{1,120}?)\*\*")
+# 正文里的站内链接（markdown 语法），用来检查是否带了 /zh 前缀
+INTERNAL_LINK_RE = re.compile(r"\]\((/[^)\s]*)\)")
+# 站点内容全为中文，内链统一指到 /zh，避免落到英文外壳
+ZH_PREFIXED_RE = re.compile(r"^/zh/")
+
+
+def find_internal_links_missing_zh(text: str) -> list[str]:
+    """返回缺少 /zh 前缀的站内链接（图片路径不算）。"""
+    stripped = FENCE_RE.sub(lambda m: "\n" * m.group(0).count("\n"), text)
+    missing: list[str] = []
+    for match in INTERNAL_LINK_RE.finditer(stripped):
+        url = match.group(1)
+        if url.startswith("/_astro/") or ZH_PREFIXED_RE.match(url):
+            continue
+        if url.startswith(("/blog/", "/collection/", "/tags/", "/archives")):
+            missing.append(url)
+    return missing
 
 
 def find_broken_bold(text: str) -> list[tuple[int, str]]:
@@ -167,6 +184,10 @@ def main() -> int:
             warnings.append(
                 f"{label}:{line_no} 加粗可能不生效（收尾 ** 前是标点、后紧贴文字）-> {snippet}"
             )
+
+        # 站内链接应带 /zh 前缀（中文优先）
+        for url in find_internal_links_missing_zh(text):
+            warnings.append(f"{label}: 内链缺少 /zh 前缀（会落到英文外壳）-> {url}")
 
         # 封面图
         hero = re.search(r"heroImage:\s*\n(?:\s+.*\n)*?\s+src:\s*(\S+)", body)
