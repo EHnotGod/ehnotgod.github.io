@@ -6,6 +6,7 @@ import PageLayout from '@/layouts/BaseLayout.astro'
 import Section from '@/components/home/Section.astro'
 import BlogStats from '@/components/home/BlogStats.astro'
 import avatar from '@/assets/avatar.png'
+import { localizeEducation } from '@/data/education'
 import config from '@/site-config'
 ---
 
@@ -54,19 +55,22 @@ import config from '@/site-config'
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='About'>
         <p class='text-muted-foreground'>
-          这里是刘艺航（EH）的博客。山东大学统计学（数据科学与人工智能）专业，ICPC 亚洲区域赛银牌、CCPC 金牌得主，关注生成式 AI 与大模型。记录算法竞赛、机器学习与深度学习底层的学习笔记。
+          这里是 EH 的博客。山东大学统计学（数据科学与人工智能）专业本科生，现推免至南开大学，方向为图像的编辑与修复。
         </p>
         <Button title='More about me' class='w-fit self-end' href='/zh/about' style='ahead' />
       </Section>
       <Section title='Education'>
-        <Card
-          as='a'
-          heading='山东大学'
-          subheading='数学与统计学院 · 统计学（数据科学与人工智能）'
-          date='2023.09 - 至今'
-          href='/zh/about'
-        >
-        </Card>
+        {
+          localizeEducation('zh').map((entry) => (
+            <Card
+              as='a'
+              heading={entry.school}
+              subheading={entry.department}
+              date={entry.period}
+              href='/zh/about'
+            />
+          ))
+        }
       </Section>
       <Section title='Statistics'>
         <BlogStats blogStartDate={config.personal?.blogStartDate ? new Date(config.personal.blogStartDate) : new Date('2024-06-15')} />

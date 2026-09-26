@@ -1,10 +1,13 @@
 ---
 import PageLayout from '@/layouts/CommonPage.astro'
 import { PublicationSection } from '@/components/user'
+import { localizeEducation } from '@/data/education'
+import { localizePublications } from '@/data/publications'
 import config from '@/site-config'
 
 const headings = [
   { depth: 2, slug: 'about-me', text: 'About Me' },
+  { depth: 2, slug: 'education', text: 'Education' },
   { depth: 2, slug: 'publications', text: 'Publications' }
 ]
 ---
@@ -12,114 +15,37 @@ const headings = [
 <PageLayout title='Academic' {headings} info={{ slug: '/en/academic', hideComment: true }}>
   <h2 id='about-me'>About Me<a class='anchor' href='#about-me'>#</a></h2>
   <p>
-    I'm Yihang Liu (EH), an undergraduate in Statistics (Data Science & AI) at Shandong University.
-    I'm currently doing research on generative AI and large models, covering image generation,
-    multimodality and 3D trajectory prediction.
+    I'm EH, an undergraduate in Statistics (Data Science & AI) at Shandong University, currently
+    doing research at the Media Computing Lab, Nankai University. My research focuses on
+    image editing and restoration.
   </p>
   <p>
     I'm interested in preserving visual quality and structural consistency in generative models,
     as well as building more reliable and auditable evaluation frameworks. Feel free to reach out.
   </p>
 
-  <h2 id='publications'>Publications<a class='anchor' href='#publications'>#</a></h2>
-  <PublicationSection
-    publications={[
-      {
-        title: 'TexEditor: Structure-Preserving Text-Driven Texture Editing',
-        authors: [
-          { name: 'Bo Zhao' },
-          { name: 'Yihang Liu', isMe: true },
-          { name: 'Chenfeng Zhang' },
-          { name: 'Huan Yang' },
-          { name: 'Kun Gai' },
-          { name: 'Wei Ji' }
-        ],
-        venue: 'ICML',
-        year: '2026',
-        type: 'conference',
-        abstract:
-          'Text-guided texture editing aims to modify object appearance while preserving the underlying geometric structure. However, our empirical analysis reveals that even SOTA editing models frequently struggle to maintain structural consistency during texture editing, despite the intended changes being purely appearance-related. Motivated by this observation, we jointly enhance structure preservation from both data and training perspectives, and build TexEditor, a dedicated texture editing model based on Qwen-Image-Edit-2509. Firstly, we construct TexBlender, a high-quality SFT dataset generated with Blender, which provides strong structural priors for a cold start. Secondly, we introduce StructureNFT, a RL-based approach that integrates structure-preserving losses to transfer the structural priors learned during SFT to real-world scenes. Moreover, due to the limited realism and evaluation coverage of existing benchmarks, we introduce TexBench, a general-purpose real-world benchmark for text-guided texture editing. Extensive experiments on existing Blender-based texture benchmarks and our TexBench show that TexEditor consistently outperforms strong baselines such as Nano Banana Pro. In addition, we assess TexEditor on the general purpose benchmark ImgEdit to validate its generalization. Our code and data are available at https://github.com/KlingAIResearch/TexEditor.',
-        links: [{ type: 'arxiv', href: 'https://arxiv.org/abs/2603.18488' }, 
-        {type: 'website', href: 'https://icml.cc/virtual/2026/poster/61988'},
-        {type: 'github', href: 'https://github.com/KlingAIResearch/TexEditor'},
-        {type: 'modelscope', href: 'https://www.modelscope.cn/datasets/zhaohhh2000/TexBench'}],
-        status: 'accepted'
-      },
-      {
-        title: 'GSE-Flow: Geometric SE(3)-Equivariant Flow Matching for 3D Trajectory Prediction',
-        authors: [
-          { name: 'Junwei Wu' },
-          { name: 'Yihang Liu', isMe: true },
-          { name: 'Ruixuan Yu' },
-          { name: 'Jian Sun' }
-        ],
-        venue: 'ICML',
-        year: '2026',
-        type: 'conference',
-        abstract:
-          'Predicting 3D geometric trajectory requires capturing complex spatiotemporal dependencies while preserving physical symmetries. While flow matching offers a powerful generative paradigm, extending it to SE(3)-equivariant dynamics is challenging due to the inherent gap between deterministic history and stochastic evolving flows. To address this, we introduce GSE-Flow, an SE(3)-equivariant flow matching framework. We first propose a Coherent Sequence Encoding and Time-Modulated Embedding strategy that unifies historical and evolving streams, incorporating velocity and flow time via equivariant affine transformations to guide continuous evolution. We further design a Geometry-Feature Tensorization mechanism that projects node states into a tensor product space, enabling Context-Flow Fusion to guide trajectory evolution with historical context. GSE-Flow guarantees theoretical SE(3)-equivariance and achieves SOTA accuracy on MD17, MD22, and CMU MoCap benchmarks for geometric trajectory prediction, while demonstrating generality by enhancing deterministic baselines. Code is available at https://github.com/aegine/GSE-Flow.',
-        links: [
-          { type: 'website', href: 'https://icml.cc/virtual/2026/poster/65379' },
-          { type: 'github', href: 'https://github.com/aegine/GSE-Flow' }
-        ],
-        status: 'accepted'
-      },
-      {
-        title: 'A Critical Look at Prompt-Level Performance Prediction "Illusion" in Modern T2I Models',
-        authors: [],
-        venue: 'ICLR',
-        year: '2027',
-        type: 'conference',
-        abstract:
-          'An auditing framework covering models such as Qwen, FLUX and Boogu under various sampling configs, jointly analyzing GM/AM scores, R² across samples, extreme-sample detection and budget-constrained routing. Finds that high overall R² largely comes from coarse recognition of clearly-failed samples.',
-        links: [],
-        status: 'under-review'
-      },
-      {
-        title: 'LLM-based Operational Risk Assessment and Inference for Power Systems',
-        authors: [
-          { name: 'Wenqi Huang' },
-          { name: 'Bo Zhao' },
-          { name: 'Yihang Liu', isMe: true },
-          { name: 'Qiaoqiao Li' },
-          { name: 'Jiaxuan Hou' },
-          { name: 'Rui Su' },
-          { name: 'Zhen Zhao' }
-        ],
-        venue: 'Automation of Electric Power Systems',
-        year: '2026',
-        type: 'journal',
-        abstract:
-          'Under high-penetration renewable energy integration, the uncertainty and complexity of power system operation increase significantly, with long risk chains and many interacting factors; traditional rule-based and expert-experience-driven risk assessment methods struggle to meet the real-time operational needs of cross-scenario, strongly-constrained environments. General large language models show strong comprehension and generation in Q&A domains, but face high reliance on manual experience, low professional semantic accuracy, and insufficient understanding of grid topology in power system risk assessment, making them hard to adapt to the safe operation and flexible dispatch of new power systems. To this end, we propose an operational risk assessment and inference method for power systems based on knowledge transfer and structured chain-of-thought enhancement. The method first constructs multi-scenario datasets covering topology disturbances and risk grading via auxiliary annotation and expert-rule constraints, enabling efficient transfer from general models to the power domain; second, it adopts textual topology injection to improve topology awareness and constraint consistency; then, it designs programmable reward signals based on Group Relative Policy Optimization to jointly optimize inference-chain completeness, terminology consistency, and grading accuracy; finally, ablation and comparison experiments validate the effectiveness of the proposed method. Results show that the method outperforms existing large language models in both multi-step inference coherence and risk-grading accuracy, providing intelligent support for the safe and stable operation of new power systems.',
-        links: [{ type: 'website', href: 'https://kns.cnki.net/kcms2/article/abstract?v=jXpGf_Tis3BO7y3TyZruUOK4DTQA5k7-c4YVlxn6-g-K10dRgZu67wrfTJA6yg9exDs8aiF8MkQYtZG6msQfv2aAIrUdzYJ3XCLsVKbu95n9RK-sOUDFGXVJNUCFpZp1LUMV2DieHCFFuMYHbu2Y00Yfd-KSRAf_&uniplatform=NZKPT' }],
-        status: 'published'
-      },
-      {
-        title: 'ClinKD: Cross-Modal Clinical Knowledge Distiller For Multi-Task Medical Images',
-        authors: [
-          { name: 'Hongyu Ge' },
-          { name: 'Longkun Hao' },
-          { name: 'Zihui Xu' },
-          { name: 'Zhenxin Lin' },
-          { name: 'Bin Li' },
-          { name: 'Shoujun Zhou' },
-          { name: 'Hongjin Zhao' },
-          { name: 'Yihang Liu', isMe: true }
-        ],
-        venue: 'arXiv',
-        year: '2025',
-        type: 'preprint',
-        abstract:
-          'Medical Visual Question Answering (Med-VQA) represents a critical and challenging subtask within the general VQA domain. Despite significant advancements in general VQA, multimodal large language models (MLLMs) still exhibit substantial limitations when handling multi-task VQA scenarios. These limitations manifest through erroneous spatial localization and misinterpretation of medical images, which primarily arise from two fundamental issues: inadequate image-text alignment and insufficient domain-specified knowledge for medical applications. To address these issues, we introduce the Cross-Modal Clinical Knowledge Distiller (ClinKD), an innovative framework designed to enhance image-text alignment and establish more effective medical knowledge transformation mechanisms, which enables MLLMs to perform better even when lacking prior medical knowledge. Our extensive experimental evaluations demonstrate that the ClinKD achieves state-of-the-art performance on several datasets which are challenging for Med-VQA task. The results indicate that our approach not only significantly improves image-text alignment but also effectively enables MLLMs to adapt to the medical knowledge. The source code for ClinKD is available at https://github.com/overloadedHenry/ClinKD.',
-        links: [
-          { type: 'arxiv', href: 'https://arxiv.org/abs/2502.05928' },
-          { type: 'github', href: 'https://github.com/overloadedHenry/ClinKD' }
-        ],
-        status: 'preprint'
-      }
-    ]}
-  />
+  <h2 id='education'>Education<a class='anchor' href='#education'>#</a></h2>
+  {/* 教育经历统一放在 src/data/education.ts */}
+  <ul class='space-y-3'>
+    {
+      localizeEducation('en').map((entry) => (
+        <li class='rounded-lg border border-border px-4 py-3'>
+          <div class='flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1'>
+            <span class='font-medium'>{entry.school}</span>
+            <span class='text-sm text-muted-foreground'>{entry.period}</span>
+          </div>
+          <p class='mt-0.5 text-sm text-muted-foreground'>
+            {entry.department}
+            {entry.location && <span> · {entry.location}</span>}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
 
+  <h2 id='publications'>Publications<a class='anchor' href='#publications'>#</a></h2>
+  {/* 论文数据统一放在 src/data/publications.ts：改链接 / 加论文只改那一处，中英文页自动同步 */}
+  <PublicationSection publications={localizePublications('en')} />
 </PageLayout>
 
 <script
