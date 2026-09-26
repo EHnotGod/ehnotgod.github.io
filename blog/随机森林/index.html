@@ -75,7 +75,7 @@
 </a> </div> </div> </div>  <div class="mt-4 w-1/2 border-t max-lg:mx-auto sm:mt-6 sm:w-1/3"></div> <script type="module">const o=window.innerHeight,s=o/9,i=o*2/9,l=o*3/9,e=document.getElementById("blurImage");e&&window.addEventListener("scroll",()=>{const t=window.scrollY;t>=l?e.style.opacity="0.15":t>=i?e.style.opacity="0.3":t>=s&&(e.style.opacity="0.45")});</script> </div>  <div id="content" class="max-w-none animate mt-8 md:min-w-[45ch] break-words prose prose-axi dark:prose-invert dark:prose-axi prose-headings:font-medium">   <h1 id="随机森林random-forest">随机森林（Random Forest）<a class="anchor" href="#随机森林random-forest">#</a></h1>
 <blockquote>
 <p>上一篇学了决策树：它能画成一棵”不断问问题”的树，可解释性很强。但它有个大毛病——<strong>容易过拟合、还不稳定</strong>（训练数据稍微变一点，整棵树就大变样）。</p>
-<p><strong>随机森林</strong>就是专门治这个毛病的：种<strong>很多棵决策树</strong>，让它们”投票”做决定。这就是最经典的**集成学习（Ensemble Learning）**方法之一。</p>
+<p><strong>随机森林</strong>就是专门治这个毛病的：种<strong>很多棵决策树</strong>，让它们”投票”做决定。这就是最经典的<strong>集成学习</strong>（Ensemble Learning）方法之一。</p>
 </blockquote>
 <hr>
 <h2 id="一为什么要一堆树而不是一棵树">一、为什么要”一堆树”而不是”一棵树”？<a class="anchor" href="#一为什么要一堆树而不是一棵树">#</a></h2>
