@@ -29,15 +29,28 @@ interface Props {
   username: string
 }
 
-async function fetchData(username: string): Promise<GitHubActivityApiResponse> {
+async function fetchData(username: string): Promise<GitHubActivityApiResponse | null> {
   const apiUrl = 'https://github-contributions-api.jogruber.de/v4/'
-  const response = await fetch(`${apiUrl}${username}?y=last`)
-  const data = (await response.json()) as GitHubActivityApiResponse
-  if (!response.ok) {
-    const message = (data as any).error || 'Unknown error'
-    throw Error(`Fetching GitHub contribution data for "${username}" failed: ${message}`)
+  try {
+    const response = await fetch(`${apiUrl}${username}?y=last`, {
+      // 外网接口偶尔超时/限流，加个超时，避免拖住整个构建
+      signal: AbortSignal.timeout(8000)
+    })
+    const data = (await response.json()) as GitHubActivityApiResponse
+    if (!response.ok) {
+      console.warn(
+        `[GitHubActivityCalendar] 贡献数据接口返回异常（${response.status}），本次渲染跳过日历`
+      )
+      return null
+    }
+    return data
+  } catch (error) {
+    console.warn(
+      `[GitHubActivityCalendar] 拉取 "${username}" 的贡献数据失败，本次渲染跳过日历:`,
+      error instanceof Error ? error.message : error
+    )
+    return null
   }
-  return data
 }
 
 function fillHoles(activities: Array<GitHubActivityDay>): Array<GitHubActivityDay> {
@@ -97,9 +110,10 @@ function getMonthLabels(weeks: Array<Array<GitHubActivityDay>>) {
 const { username } = Astro.props as Props
 const data = await fetchData(username)
 
-const activities = data.contributions
-const totalCount = data.total.lastYear
-const activityYear = getYear(parseISO(activities[0].date))
+const activities = data?.contributions ?? []
+const hasData = activities.length > 0
+const totalCount = data?.total?.lastYear ?? 0
+const activityYear = hasData ? getYear(parseISO(activities[0].date)) : getYear(new Date())
 
 const blockSize = 12
 const blockMargin = 4
@@ -107,13 +121,23 @@ const blockRadius = 2
 const fontSize = 14
 const labelMargin = 8
 const labelHeight = fontSize + labelMargin
-const weeks = groupByWeeks(activities)
+const weeks = hasData ? groupByWeeks(activities) : []
 const width = weeks.length * (blockSize + blockMargin) - blockMargin
 const height = labelHeight + (blockSize + blockMargin) * 7 - blockMargin
-const monthLabels = getMonthLabels(weeks)
+const monthLabels = hasData ? getMonthLabels(weeks) : []
 ---
 
-<div class="overflow-x-auto w-full" style="max-width: 90vw;">
+{
+  !hasData && (
+    <p class='text-sm text-muted-foreground'>
+      贡献数据暂时拉取不到（接口超时或限流），先展示其余内容，下次构建会自动恢复。
+    </p>
+  )
+}
+<div
+  class:list={['overflow-x-auto w-full', !hasData && 'hidden']}
+  style='max-width: 90vw;'
+>
   <svg class='block' width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
     <g>
       {
@@ -161,7 +185,9 @@ const monthLabels = getMonthLabels(weeks)
     }
   </svg>
 </div>
-<footer class='flex items-center justify-between'>
+<footer
+  class:list={['flex items-center justify-between', !hasData && 'hidden']}
+>
   <div>{totalCount} contributions in {activityYear} ~ {activityYear + 1}</div>
   <div class='flex items-center gap-1'>
     <span>Less</span>

@@ -47,6 +47,42 @@ def md5(path: Path) -> str:
     return hashlib.md5(path.read_bytes()).hexdigest()
 
 
+# 中文标点 + ** 的坑：收尾 ** 前面是标点、后面又紧跟文字时，
+# CommonMark 判定它不是“右侧闭合”的定界符，整段加粗会失效。
+CJK_PUNCT = "，。、；：！？）】》」”’…—·"
+FENCE_RE = re.compile(r"```[\s\S]*?```", re.S)
+BOLD_RE = re.compile(r"\*\*(?P<body>[^*\n]{1,120}?)\*\*")
+
+
+def find_broken_bold(text: str) -> list[tuple[int, str]]:
+    """返回 (行号, 片段) 列表，标出会失效的加粗写法。"""
+    stripped = FENCE_RE.sub(lambda m: "\n" * m.group(0).count("\n"), text)
+    broken: list[tuple[int, str]] = []
+    for match in BOLD_RE.finditer(stripped):
+        body = match.group("body")
+        if not body:
+            continue
+        start, end = match.start(), match.end()
+        before = stripped[start - 1] if start > 0 else ""
+        after = stripped[end] if end < len(stripped) else ""
+        closing_bad = (
+            body[-1] in CJK_PUNCT
+            and after
+            and not after.isspace()
+            and after not in CJK_PUNCT
+        )
+        opening_bad = (
+            body[0] in CJK_PUNCT
+            and before
+            and not before.isspace()
+            and before not in CJK_PUNCT
+        )
+        if closing_bad or opening_bad:
+            line_no = stripped.count("\n", 0, start) + 1
+            broken.append((line_no, match.group(0)))
+    return broken
+
+
 # Astro 的 glob loader 会把目录名 slug 化（小写 + 去标点），全角括号、顿号都会消失，
 # 所以合集里写 bloglist 时必须用这个 slug，而不是文件夹名字面。
 NON_SLUG_CHARS = re.compile(r"[^a-z0-9\u4e00-\u9fff-]")
@@ -126,16 +162,28 @@ def main() -> int:
         if not SLUG_RE.match(slug):
             legacy_slugs.append(slug)
 
+        # 加粗写法（中文标点靠太近会失效）
+        for line_no, snippet in find_broken_bold(text):
+            warnings.append(
+                f"{label}:{line_no} 加粗可能不生效（收尾 ** 前是标点、后紧贴文字）-> {snippet}"
+            )
+
         # 封面图
         hero = re.search(r"heroImage:\s*\n(?:\s+.*\n)*?\s+src:\s*(\S+)", body)
+        hero_path: Path | None = None
         if hero:
             hero_src = hero.group(1).strip("'\"")
-            if not (post_dir / hero_src).exists():
+            hero_file = post_dir / hero_src
+            if not hero_file.exists():
                 errors.append(f"{label}: heroImage.src 不存在 -> {hero_src}")
+            else:
+                hero_path = hero_file.resolve()
 
         # 正文图片
         refs = IMG_RE.findall(text) + HTML_IMG_RE.findall(text)
         used: set[Path] = set()
+        if hero_path:
+            used.add(hero_path)
         for ref in refs:
             if ref.startswith(("http://", "https://")):
                 errors.append(f"{label}: 图片用了外链，建议下载到本地 -> {ref}")
@@ -148,7 +196,8 @@ def main() -> int:
                 errors.append(f"{label}: 图片不存在 -> {ref}")
                 continue
             used.add(target)
-            if target.parent != (post_dir / "images").resolve():
+            # 允许显式跨文章引用（如 ../ACM生涯/images/06-xian.jpg），其余情况要求放自己的 images/
+            if target.parent != (post_dir / "images").resolve() and not ref.startswith("../"):
                 warnings.append(f"{label}: 图片没放在 images/ 子目录 -> {ref}")
 
         # 孤儿图 & 重复图
