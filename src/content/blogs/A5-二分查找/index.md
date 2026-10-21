@@ -75,10 +75,12 @@ for i in range(m):
 ### C++代码实现
 
 ```c++
+#include <vector>
 // 我喜欢的板子
 #include<cstdio>
 using namespace std;
-int n,m,q,a[1000005];
+int n,m,q;
+vector<int> a;
 
 int find(int q){
     int l=0,r=n+1;//开区间
@@ -87,10 +89,11 @@ int find(int q){
         if(a[mid]>=q) r=mid; //最小化
         else l=mid;
     }
-    return a[r]==q ? r : -1;
+    return r<=n && a[r]==q ? r : -1;
 }
 int main(){
     scanf("%d %d",&n,&m);
+    a.assign(n+1,0);
     for(int i=1;i<=n;i++)scanf("%d",&a[i]);
     for(int i=1;i<=m;i++)
         scanf("%d",&q), printf("%d ",find(q));

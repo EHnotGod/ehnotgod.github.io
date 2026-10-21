@@ -68,19 +68,21 @@ KD-Tree 可以理解成一棵“按坐标不断切分平面”的二叉树。建
 #include <cstring>
 #include <algorithm>
 #include <cmath>
+#include <array>
 #define lc t[p].l
 #define rc t[p].r
+#include <vector>
 using namespace std;
 
-const int N=200010;
 double ans=2e18;
 int n,K,root,cur; //K维度,root根,cur当前节点
 struct KD{     //KD树节点信息
   int l,r;     //左右孩子
-  double v[2]; //点的坐标值
-  double L[2],U[2]; //子树区域的坐标范围
+  array<double, 2> v; //点的坐标值
+  array<double, 2> L,U; //子树区域的坐标范围
   bool operator<(const KD &b)const{return v[K]<b.v[K];}
-}t[N];
+};
+vector<KD> t;
 
 void pushup(int p){ //更新p子树区域的坐标范围
   for(int i=0;i<2;i++){
@@ -96,7 +98,7 @@ void pushup(int p){ //更新p子树区域的坐标范围
 int build(int l,int r,int k){ //交替建树
   if(l>r) return 0;
   int m=(l+r)>>1; 
-  K=k; nth_element(t+l,t+m,t+r+1); //中位数
+  K=k; nth_element(t.begin()+l,t.begin()+m,t.begin()+r+1); //中位数
   t[m].l=build(l,m-1,k^1);
   t[m].r=build(m+1,r,k^1);
   pushup(m);
@@ -132,6 +134,7 @@ void query(int p){ //查询当前点的最小距离
 }
 int main(){
   scanf("%d",&n);
+  t.assign(n + 1, KD{});
   for(int i=1; i<=n; i++)
     scanf("%lf%lf",&t[i].v[0],&t[i].v[1]);
   root=build(1,n,0);

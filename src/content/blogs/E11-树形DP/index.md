@@ -73,33 +73,22 @@ language: zh
 ```python
 import sys
 sys.setrecursionlimit(int(1e7))
-N = 6010
-head = [0] * N
-to = [0] * N
-ne = [0] * N
-idx = 0
-def add(a, b):
-    global idx
-    idx += 1
-    to[idx] = b; ne[idx] = head[a]; head[a] = idx
-w = [0] * N
-fa = [0] * N
-f = [[0 for i in range(2)] for j in range(N)]
+n = int(input())
+e = [[] for _ in range(n + 1)]
+w = [0] * (n + 1)
+fa = [0] * (n + 1)
+f = [[0, 0] for _ in range(n + 1)]
 def dfs(u):
     f[u][1] = w[u]
-    i = head[u]
-    while i != 0:
-        v = to[i]
+    for v in e[u]:
         dfs(v)
         f[u][0] += max(f[v][0], f[v][1])
         f[u][1] += f[v][0]
-        i = ne[i]
-n = int(input())
 for i in range(1, n + 1):
     w[i] = int(input())
 for i in range(n - 1):
     a, b = map(int, input().split())
-    add(b, a)
+    e[b].append(a)
     fa[a] = True
 root = 1
 while fa[root]:
@@ -112,22 +101,19 @@ print(max(f[root][0], f[root][1]))
 
 ```c++
 #include <iostream>
-#include <cstring>
 #include <algorithm>
+#include <vector>
+#include <array>
 using namespace std;
 
-const int N=6010;
-int head[N],to[N],ne[N],idx;
-void add(int a,int b){
-  to[++idx]=b,ne[idx]=head[a],head[a]=idx;
-}
-int n,w[N],fa[N];
-int f[N][2]; //0不选,1选
+int n;
+vector<vector<int>> e;
+vector<int> w,fa;
+vector<array<int, 2>> f; //0不选,1选
 
 void dfs(int u){
   f[u][1]=w[u];
-  for(int i=head[u];i;i=ne[i]){
-    int v=to[i];
+  for(int v:e[u]){
     dfs(v);
     f[u][0]+=max(f[v][0],f[v][1]);
     f[u][1]+=f[v][0];
@@ -135,10 +121,14 @@ void dfs(int u){
 }
 int main(){
   cin>>n;
+  e.assign(n + 1, vector<int>());
+  w.assign(n + 1, 0);
+  fa.assign(n + 1, 0);
+  f.assign(n + 1, array<int, 2>{0, 0});
   for(int i=1;i<=n;i++) cin>>w[i];
   for(int i=0,a,b;i<n-1;i++){
     cin>>a>>b;
-    add(b,a);
+    e[b].push_back(a);
     fa[a]=true;
   }
   int root=1;

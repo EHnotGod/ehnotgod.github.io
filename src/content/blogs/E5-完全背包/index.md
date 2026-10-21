@@ -23,11 +23,10 @@ language: zh
 ### Python代码实现
 
 ```python
-N = 1010
 n, m = map(int, input().split())
-v = [0] * N
-w = [0] * N
-f = [0] * N
+v = [0] * (n + 1)
+w = [0] * (n + 1)
+f = [0] * (m + 1)
 for i in range(n):
     v[i + 1], w[i + 1] = map(int, input().split())
 for i in range(1, n + 1):
@@ -43,14 +42,18 @@ print(f[m])
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-const int N=1010;
 int n, m;
-int v[N],w[N],f[N];
 
 int main(){
   scanf("%d%d",&n,&m);
+  vector<int> v,w;
+  v.assign(n + 1, 0);
+  w.assign(n + 1, 0);
+  vector<long long> f;
+  f.assign(m + 1, 0);
   for(int i=1; i<=n; i++)
     scanf("%d%d",&v[i],&w[i]);  //费用，价值
 
@@ -58,6 +61,6 @@ int main(){
     for(int j=v[i]; j<=m; j++)  //枚举体积
       f[j]=max(f[j],f[j-v[i]]+w[i]);
 
-  printf("%d\n",f[m]);
+  printf("%lld\n",f[m]);
 }
 ```

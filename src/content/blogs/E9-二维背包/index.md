@@ -80,15 +80,17 @@ language: zh
 ```c++
 //二维费用 01背包
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int f[110][110];
 // f[j,k]:前i个物品，体积≤j，重量≤k 的最大价值
 
 int main(){
   int n, V, W;    //物品 容量 承重
   int v, w, val;  //体积 重量 价值
   cin>>n>>V>>W;
+  vector<vector<int>> f;
+  f.assign(V + 1, vector<int>(W + 1, 0));
   for(int i=1; i<=n; i++){  //物品 
     cin>>v>>w>>val;
     for(int j=V; j>=v; j--) //体积

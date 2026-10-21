@@ -61,7 +61,7 @@ uim 为了尽快使该国的物流系统瘫痪，希望炸毁铁路，以达到�
 
 ![](images/D14-1.png)
 
-Tarjan 判割边（桥）：DFS 记录 $dfn$ 和 $low$。对边 $(u,v)$，若 $low[v] > dfn[u]$（$v$ 的子树无法回到 $u$ 或 $u$ 以上），则该边是桥（key road）。注意用边的编号而非端点判断重边，输出时按字典序。复杂度 $O(n+m)$。
+Tarjan 判割边（桥）：DFS 记录 $dfn$ 和 $low$。对 DFS 树边 $(u,v)$，若 $low[v] > dfn[u]$（$v$ 的子树无法回到 $u$ 或 $u$ 以上），则该边是桥（key road）。用 `vector<int>` 邻接表保存有向边编号，终点保存在 `to` 中；每条无向边的两个方向依次编号为 $2i$ 和 $2i+1$，编号异或 $1$ 就是反向边。DFS 只跳过进入当前节点的那条边的反向边，因此重边仍能更新 $low$，自环也不会被误判为桥。输出时先把每条桥的端点整理为 $a<b$，再按字典序排序。找桥的复杂度为 $O(n+m)$，若有 $k$ 条桥，排序的复杂度为 $O(k\log k)$。
 
 ### py代码实现
 
@@ -73,43 +73,44 @@ Tarjan 判割边（桥）：DFS 记录 $dfn$ 和 $low$。对边 $(u,v)$，若 $l
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=210,M=10010;
 int n,m,a,b;
-int h[N],to[M],ne[M],idx=1; //从2,3开始配对
-void add(int a,int b){
-  to[++idx]=b;ne[idx]=h[a];h[a]=idx;
-}
-int dfn[N],low[N],tim,cnt;
-struct bridge{
-  int x,y;
-  bool operator<(const bridge &t)const{
-    if(x==t.x) return y<t.y;
-    return x<t.x;
-  }
-}bri[M]; //割边
+vector<vector<int>> e;
+vector<int> to; //邻接表保存边编号，to[id] 保存终点
+vector<pair<int,int>> bri;
+vector<int> dfn,low;
+int tim;
 
-void tarjan(int x,int ine){
+void add_edge(int a,int b){
+  int id=static_cast<int>(to.size());
+  e[a].push_back(id); to.push_back(b);
+  e[b].push_back(id+1); to.push_back(a);
+}
+
+void tarjan(int x,int in_edge){
   dfn[x]=low[x]=++tim;
-  for(int i=h[x];i;i=ne[i]){
-    int y=to[i];
+  for(int id:e[x]){
+    if(in_edge!=-1&&id==(in_edge^1)) continue; //只跳过反向树边
+    int y=to[id];
     if(!dfn[y]){ //若y未访问
-      tarjan(y,i);
+      tarjan(y,id);
       low[x]=min(low[x],low[y]);
-      if(low[y]>dfn[x]) bri[cnt++]={x,y};
+      if(low[y]>dfn[x]) bri.push_back({min(x,y),max(x,y)});
     }
-    else if(i!=(ine^1)) //若y已访问且不是反边
+    else
       low[x]=min(low[x],dfn[y]);
   }
 }
 int main(){
+  ios::sync_with_stdio(false); cin.tie(nullptr);
   cin>>n>>m;
-  while(m--){
+  e.assign(n+1,{}); dfn.assign(n+1,0); low.assign(n+1,0);
+  to.reserve(2*m);
+  for(int i=0;i<m;i++){
     cin>>a>>b;
-    add(a,b),add(b,a);
+    add_edge(a,b);
   }
-  for(int i=1;i<=n;i++) if(!dfn[i])tarjan(i,0);
-  sort(bri,bri+cnt);
-  for(int i=0;i<cnt;i++)
-    cout<<bri[i].x<<" "<<bri[i].y<<"\n";
+  for(int i=1;i<=n;i++) if(!dfn[i])tarjan(i,-1);
+  sort(bri.begin(),bri.end());
+  for(auto [x,y]:bri) cout<<x<<" "<<y<<"\n";
 }
 ```

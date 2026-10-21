@@ -47,53 +47,65 @@ language: zh
 
 ### 算法解析：
 
-单调队列优化 DP：当转移式是 $f[i]=\max/\min(f[j])+w$ 且 $j$ 落在长度固定的滑动窗口内时，用单调队列维护候选 $j$ 的最值。本题从 $[i-m, i-1]$ 转移：队头弹出滑出窗口的下标，队尾保持 $f$ 单调，$f[i]=f[q[h]]+a[i]$，最后取能到达末尾的最小值。复杂度 $O(n)$。
+设 $f[i]$ 为停在格子 $i$ 时的最大冰冻指数，初始 $f[0]=a_0$，其余状态不可达。转移为 $f[i]=a_i+\max_{i-R\le j\le i-L}f[j]$。用单调队列维护这个区间：加入新下标 $i-L$，弹出小于 $i-R$ 的下标，队尾保持 $f$ 值递减，队头即最优前驱。最后从满足 $i+R>n$ 的可达格子中取最大值。每个下标最多入队、出队一次，时间和空间复杂度均为 $O(n)$。
 
 ### Python代码实现
 
 ```python
 from collections import deque
-n, m = map(int, input().split())
-a = [0] + list(map(int, input().split()))
+import sys
 
+data = list(map(int, sys.stdin.buffer.read().split()))
+n, L, R = data[:3]
+a = data[3:]
 q = deque()
-f = [0] * (n + 1)
-ans = float("inf")
+f = [float('-inf')] * (n + 1)
+f[0] = a[0]
 for i in range(1, n + 1):
-    while q and q[0] < i - m:
-        q.popleft()               # 弹出滑出窗口的下标
-    while q and f[q[-1]] >= f[i - 1]:
-        q.pop()                   # 队尾保持 f 单调
-    q.append(i - 1)
-    f[i] = f[q[0]] + a[i]         # 队头即窗口内 f 最小值
-    if i >= n - m + 1:
-        ans = min(ans, f[i])
-print(ans)
+    j = i - L
+    if j >= 0 and f[j] != float('-inf'):
+        while q and f[q[-1]] <= f[j]:
+            q.pop()
+        q.append(j)
+    while q and q[0] < i - R:
+        q.popleft()
+    if q:
+        f[i] = f[q[0]] + a[i]
+print(max(f[max(0, n - R + 1):]))
 ```
 
 ### C++代码实现
 
 ```c++
-// 单调队列+DP O(n)
-#include<bits/stdc++.h>
+// 单调队列优化区间最大值转移，O(n)
+#include <bits/stdc++.h>
 using namespace std;
 
-const int N=200010;
-int n,m,a[N];
-int q[N],f[N];
-
-int main(){
-  cin>>n>>m;
-  for(int i=1; i<=n; i++) cin>>a[i];
-  
-  int ans=2e9;
-  for(int i=1,h=1,t=0; i<=n; i++){
-    while(h<=t && q[h]<i-m) h++;
-    while(h<=t && f[q[t]]>=f[i-1]) t--;
-    q[++t]=i-1;
-    f[i]=f[q[h]]+a[i];
-    if(i>=n-m+1) ans=min(ans,f[i]);
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  int n,L,R;
+  cin >> n >> L >> R;
+  vector<int> a,q;
+  vector<long long> f;
+  a.assign(n+1,0);
+  q.assign(n+1,0);
+  const long long NEG=-(1LL<<60);
+  f.assign(n+1,NEG);
+  for (int i=0; i<=n; ++i) cin >> a[i];
+  f[0]=a[0];
+  int h=0,t=0;
+  for (int i=1; i<=n; ++i) {
+    int j=i-L; //新进入候选区间的状态
+    if (j>=0 && f[j]!=NEG) {
+      while (h<t && f[q[t-1]]<=f[j]) --t;
+      q[t++]=j;
+    }
+    while (h<t && q[h]<i-R) ++h;
+    if (h<t) f[i]=f[q[h]]+a[i];
   }
-  cout<<ans;
+  long long ans=NEG;
+  for (int i=max(0,n-R+1); i<=n; ++i) ans=max(ans,f[i]);
+  cout << ans << '\n';
 }
 ```

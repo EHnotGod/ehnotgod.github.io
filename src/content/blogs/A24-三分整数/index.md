@@ -85,7 +85,7 @@ def get_sum(f, x):
         total += abs(k * x + a) + b
     return total
 
- t = int(input())
+t = int(input())
 for _ in range(t):
     n, l, r = map(int, input().split())
     f = [tuple(map(int, input().split())) for _ in range(n)]

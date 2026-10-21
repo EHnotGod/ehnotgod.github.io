@@ -126,7 +126,7 @@ print(len)
 using namespace std;
 
 int n,m;
-string s[100005],s1;
+string s1;
 map<string,bool> word;
 map<string,int> cnt;
 int sum,len;
@@ -140,6 +140,7 @@ int main(){
   cin>>n;
   for(int i=1;i<=n;i++)cin>>s1,word[s1]=1;
   cin>>m;
+  vector<string> s(m+1);
   for(int j=1,i=1; j<=m; j++){  //i<=j
     cin>>s[j];
     if(word[s[j]]) cnt[s[j]]++;
@@ -147,7 +148,7 @@ int main(){
     while(i<=j){
       if(cnt[s[i]]==1) break; //保持i指针位置不动
       if(cnt[s[i]]>=2) cnt[s[i]]--,i++; //去重,更优
-      if(!word[s[i]]) i++; //去掉非目标单词,更优
+      if(i<=j && !word[s[i]]) i++; //去掉非目标单词,更优
     }
     len=min(len,j-i+1); //更新
   }

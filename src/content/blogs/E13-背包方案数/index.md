@@ -58,17 +58,19 @@ language: zh
 // 不超背包容量的方案数
 #include<iostream>
 #include<cstring>
+#include <vector>
 using namespace std;
 
-const int N=1010, mod=1e9+7;
-int f[N],c[N];
+const int mod=1e9+7;
 // f[i]表示背包容量为i时最优选法的总价值
 // c[i]表示背包容量为i时最优选法的方案数
 
 int main(){
   int n, m, v, w;   
-  scanf("%d%d", &n, &m);    
-  for(int i=0;i<=m;i++) c[i]=1;    
+  scanf("%d%d", &n, &m);
+  vector<int> f,c;
+  f.assign(m + 1, 0);
+  c.assign(m + 1, 1);
   
   for(int i=1; i<=n; i++){    //枚举物品
     scanf("%d%d",&v,&w);

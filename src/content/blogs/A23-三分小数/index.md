@@ -106,11 +106,11 @@ for _ in range(t):
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=114514,inf=INT_MAX;
+const int inf=INT_MAX;
 const double eps=1e-9;
 
 int n;
-int a[N],b[N],c[N];
+vector<int> a,b,c;
 inline double f(double x){
 	double maxn=-inf;
 	for(int i=1;i<=n;i++){
@@ -124,6 +124,7 @@ signed main() {
 	cin>>t;
 	while(t--){
 		cin>>n;
+		a.assign(n+1,0); b.assign(n+1,0); c.assign(n+1,0);
 		for(int i=1;i<=n;i++){
 			cin>>a[i]>>b[i]>>c[i];
 		}

@@ -64,13 +64,16 @@ https://www.luogu.com.cn/problem/U281153
 ```c++
 #include<iostream>
 #include<cstring>
+#include <array>
+#include <vector>
 using namespace std;
 
-const int N=100010, M=110;
-int w[N], f[N][M][2];
 
 int main(){
   int n, k; cin >> n >> k;
+  vector<int> w; w.assign(n + 1, 0);
+  vector<vector<array<int, 2>>> f;
+  f.assign(n + 1, vector<array<int, 2>>(k + 1, {0, 0}));
   for(int i=1; i<=n; i++) cin >> w[i];
   
   for(int j=0; j<=k; j++) f[0][j][1]=-1e6;

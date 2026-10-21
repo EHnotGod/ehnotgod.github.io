@@ -76,17 +76,21 @@ print(ans)
 ```c++
 // 01Trie 最大异或对
 #include <iostream>
+#include <vector>
+#include <array>
 using namespace std;
 
-const int N=100010;
-int n, a[N];
-int ch[N*31][2],cnt;
+vector<array<int,2>> ch;
 
 void insert(int x){
   int p=0;
   for(int i=30; i>=0; i--){
     int j=x>>i&1; //取出第i位
-    if(!ch[p][j])ch[p][j]=++cnt;
+    if(!ch[p][j]){
+      int next=ch.size();
+      ch[p][j]=next;
+      ch.push_back({0,0});
+    }
     p=ch[p][j];
   }
 }
@@ -103,7 +107,9 @@ int query(int x){
   return res;
 }
 int main(){
-  cin>>n;
+  int n; cin>>n;
+  vector<int> a(n+1);
+  ch.assign(1,{0,0});
   for(int i=1; i<=n; i++)
     cin>>a[i],insert(a[i]);
   int ans=0;

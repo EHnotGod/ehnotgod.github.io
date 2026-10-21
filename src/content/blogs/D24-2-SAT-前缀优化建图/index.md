@@ -64,9 +64,11 @@ TAK
 难点在「每个部分恰选一个」。若两两连边是 $O(w^2)$，需用**前缀优化**：对某部分的点 $p_1,\dots,p_w$ 引入前缀节点 $pre[i]$（表示前 $i$ 个点至少选一个），连边：
 - $p_i$ 选 $\rightarrow pre[i]$ 选
 - $pre[i-1]$ 选 $\rightarrow pre[i]$ 选（前缀传递）
-- $p_i$ 选 $\rightarrow pre[i-1]$ 不选（选 $p_i$ 则前 $i-1$ 个都不能选，保证恰一个）
+- $p_i$ 选 $\rightarrow pre[i-1]$ 不选（选 $p_i$ 则前 $i-1$ 个都不能选，保证至多一个）
 
-总点数 $4n$（选/不选/前缀选/前缀不选），边数 $O(n+m)$。建图后 Tarjan 判 SCC：若某个点选与不选在同一 SCC 则输出 `NIE`，否则 `TAK`。数据较大（$n\le 10^6$），Python 版仅用于理解，竞赛建议用 C++。
+每条蕴含同时加入其逆否命题。上述约束保证每部分至多选一个；如果某部分一个都没选，可任选其中一个补上，增加关键点不会破坏「每条边至少一端选」的条件，因此能补成每部分恰选一个。
+
+总点数 $4n$（选/不选/前缀选/前缀不选），用邻接表存图，时间与空间复杂度均为 $O(n+m)$。建图后 Tarjan 判 SCC：若某个点选与不选在同一 SCC 则输出 `NIE`，否则 `TAK`。数据较大（$n\le 10^6$），Python 版仅用于理解，竞赛建议用 C++。
 
 ### Python代码实现
 
@@ -151,21 +153,18 @@ using namespace std;
 #define x1(x) x+n   //反点
 #define p0(x) x+2*n //前缀点
 #define p1(x) x+3*n //前缀反点
-#define N 8000010
 int n,m,k,w;
-int dfn[N],low[N],scc[N],stk[N],tim,top,cnt;
-int head[N],to[N],ne[N],idx;
+vector<vector<int>> g;
+vector<int> dfn,low,scc,stk;
+int tim,cnt;
 
 void add(int a,int b){
-  to[++idx]=b;
-  ne[idx]=head[a];
-  head[a]=idx;
+  g[a].push_back(b);
 }
 void tarjan(int x){
   dfn[x]=low[x]=++tim;
-  stk[++top]=x;
-  for(int i=head[x];i;i=ne[i]){
-    int y=to[i];
+  stk.push_back(x);
+  for(int y:g[x]){
     if(!dfn[y]){ //若y尚未访问
       tarjan(y);
       low[x]=min(low[x],low[y]);
@@ -176,12 +175,21 @@ void tarjan(int x){
   
   if(low[x]==dfn[x]){ //若x是SCC的根
     ++cnt;
-    for(int y=-1;y!=x;)
-      scc[y=stk[top--]]=cnt;
+    int y;
+    do{
+      y=stk.back();
+      stk.pop_back();
+      scc[y]=cnt;
+    }while(y!=x);
   }
 }
 int main(){
   scanf("%d%d%d",&n,&m,&k);
+  g.resize(4*n+1);
+  dfn.resize(4*n+1);
+  low.resize(4*n+1);
+  scc.resize(4*n+1);
+  stk.reserve(4*n);
   for(int i=1,x,y;i<=m;++i){
     scanf("%d%d",&x,&y);
     add(x1(x),x0(y)); //不选x 则选y

@@ -77,7 +77,7 @@ n, m = map(int, input().split())
 h = list(map(int, input().split()))
 
 # 使用ST表处理最大值
-max_log = 20
+max_log = n.bit_length() - 1
 f = [[0] * (max_log + 1) for _ in range(n + 1)]
 for i in range(1, n + 1):
     f[i][0] = h[i - 1]
@@ -99,25 +99,27 @@ for i in range(m):
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 #include <cmath>
 using namespace std;
 
-int f[100005][22];
-
 int main(){
   int n,m; scanf("%d%d",&n,&m);
+  vector<int> lg(n+1);
+  for(int i=2;i<=n;i++) lg[i]=lg[i/2]+1;
+  vector<vector<int>> f(n+1,vector<int>(lg[n]+1));
 
   for(int i=1;i<=n;i++) scanf("%d",&f[i][0]);
-  for(int j=1;j<=20;j++) //枚举区间长度
+  for(int j=1;j<=lg[n];j++) //枚举区间长度
     for(int i=1;i+(1<<j)-1<=n;i++) //枚举起点
       f[i][j]=max(f[i][j-1],f[i+(1<<(j-1))][j-1]);
 
   for(int i=1,l,r;i<=m;i++){
     scanf("%d%d",&l,&r);
-    int k=log2(r-l+1); //区间长度的指数
+    int k=lg[r-l+1]; //区间长度的指数
     printf("%d\n",max(f[l][k],f[r-(1<<k)+1][k]));
   }
 }

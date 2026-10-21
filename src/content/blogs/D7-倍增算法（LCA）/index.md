@@ -72,17 +72,17 @@ import sys
 sys.setrecursionlimit(10 ** 7)
 input = sys.stdin.readline
 
-# 最大节点数和最大二进制位数（因为 2^20 > 10^6，足够应对 N ≤ 5e5）
-N = 500_005
-LOG = 20
+# 根据输入规模分配节点和倍增层数。
+n, m, s = map(int, input().split())
+LOG = max(1, n.bit_length())
 
 # 邻接表存储树的边
-edges = [[] for _ in range(N)]
+edges = [[] for _ in range(n + 1)]
 
 # f[u][i] 表示节点 u 的第 2^i 级祖先
 # dep[u] 存储节点 u 的深度（根节点深度为 1）
-f = [[0] * (LOG + 1) for _ in range(N)]
-dep = [0] * N
+f = [[0] * (LOG + 1) for _ in range(n + 1)]
+dep = [0] * (n + 1)
 
 
 def dfs(u: int, parent: int) -> None:
@@ -110,7 +110,6 @@ def lca(u: int, v: int) -> int:
             u = f[u][i]
             v = f[v][i]
     return f[u][0]
-n, m, s = map(int, input().split())
 for _ in range(n - 1):
     a, b = map(int, input().split())
     edges[a].append(b)
@@ -128,29 +127,34 @@ for _ in range(m):
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=500005;
-int n,m,s;
-vector<int> e[N];
-int f[N][22],dep[N];
+int n,m,s,LOG;
+vector<vector<int>> e;
+vector<vector<int>> f;
+vector<int> dep;
 
 void dfs(int u,int fa){
   f[u][0]=fa; dep[u]=dep[fa]+1;
-  for(int i=1;i<=20;i++) //u的2,4,8...祖先
+  for(int i=1;i<LOG;i++) //u的2,4,8...祖先
     f[u][i]=f[f[u][i-1]][i-1];
   for(int v:e[u])
     if(v!=fa) dfs(v,u);
 }
 int lca(int u,int v){
   if(dep[u]<dep[v]) swap(u,v);
-  for(int i=20;~i;i--) //u先大步后小步向上跳，直到与v同层
+  for(int i=LOG-1;~i;i--) //u先大步后小步向上跳，直到与v同层
     if(dep[f[u][i]]>=dep[v]) u=f[u][i];
   if(u==v) return v;
-  for(int i=20;~i;i--) //u,v一起向上跳，直到lca的下面
+  for(int i=LOG-1;~i;i--) //u,v一起向上跳，直到lca的下面
     if(f[u][i]!=f[v][i]) u=f[u][i],v=f[v][i];
   return f[u][0];
 }
 int main(){
   scanf("%d%d%d",&n,&m,&s);
+  LOG=1;
+  while((1LL<<LOG)<=n) ++LOG;
+  e.assign(n+1,{});
+  f.assign(n+1,vector<int>(LOG,0));
+  dep.assign(n+1,0);
   for(int i=1,a,b; i<n; i++){
     scanf("%d%d",&a,&b);
     e[a].push_back(b);

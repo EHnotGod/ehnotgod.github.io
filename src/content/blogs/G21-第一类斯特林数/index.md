@@ -55,30 +55,39 @@ language: zh
 
 ```c++
 #include <iostream>
-#include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
-const int N=50010, M=210, P=1e9+7;
-long long S[N][M], C[M][M];
 
-void init(){
-  S[0][0]=1;
-  for(int i=1; i<N; i++)
-    for(int j=1; j<M; j++)
-      S[i][j]=(S[i-1][j-1]+(i-1)*S[i-1][j])%P;
-  for(int i=0; i<M; i++) C[i][0]=1;
-  for(int i=1; i<M; i++)
-    for(int j=1; j<=i; j++)
-      C[i][j]=(C[i-1][j-1]+C[i-1][j])%P;  
-}
+const long long P=1000000007;
+struct Query{int n,a,b;};
+
 int main(){
-  init();
-  int T, n, a, b, ans;
-  scanf("%d", &T);
-  while(T--){
-    scanf("%d%d%d", &n, &a, &b);
-    ans=S[n-1][a+b-2]*C[a+b-2][a-1]%P;
-    printf("%d\n", ans);
+  ios::sync_with_stdio(false); cin.tie(nullptr);
+  int T; cin>>T;
+  vector<Query> queries;
+  queries.assign(T,Query{});
+  int max_n=0,max_k=0;
+  for(auto& q:queries){
+    cin>>q.n>>q.a>>q.b;
+    max_n=max(max_n,q.n-1);
+    if(q.a+q.b-2<=q.n-1) max_k=max(max_k,q.a+q.b-2);
+  }
+  //按本批询问的最大下标预处理，避免固定容量。
+  vector<vector<long long>> S,C;
+  S.assign(max_n+1,vector<long long>(max_k+1,0));
+  C.assign(max_k+1,vector<long long>(max_k+1,0));
+  S[0][0]=1;
+  for(int i=1;i<=max_n;i++)
+    for(int j=1;j<=min(i,max_k);j++)
+      S[i][j]=(S[i-1][j-1]+(i-1)*S[i-1][j])%P;
+  for(int i=0;i<=max_k;i++) C[i][0]=1;
+  for(int i=1;i<=max_k;i++)
+    for(int j=1;j<=i;j++) C[i][j]=(C[i-1][j-1]+C[i-1][j])%P;
+  for(const auto& q:queries){
+    int k=q.a+q.b-2;
+    long long ans=k>q.n-1?0:S[q.n-1][k]*C[k][q.a-1]%P;
+    cout<<ans<<'\n';
   }
 }
 ```

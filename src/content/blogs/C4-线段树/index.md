@@ -78,8 +78,6 @@ class Node:
         self.r = r
         self.he = he
         self.add = add
-N = 100005
-tr = [Node(0, 0, 0, 0) for i in range(N * 4)]
 def pushdown(p):
     lc = 2 * p
     rc = 2 * p + 1
@@ -123,6 +121,7 @@ def query(p, x, y):
         he += query(p * 2 + 1, x, y)
     return he
 n, m = map(int, input().split())
+tr = [Node(0, 0, 0, 0) for _ in range(n * 4 + 5)]
 w = list(map(int, input().split()))
 w.insert(0, 0)
 build(1, 1, n)
@@ -141,16 +140,17 @@ for i in range(m):
 #include <cstring>
 #include <iostream>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-#define N 100005
 #define LL long long
 #define lc u<<1
 #define rc u<<1|1
-LL w[N];
+vector<LL> w;
 struct Tree{ //线段树
   LL l,r,sum,add;
-}tr[N*4];
+};
+vector<Tree> tr;
 
 void pushup(LL u){ //上传
   tr[u].sum=tr[lc].sum+tr[rc].sum;
@@ -196,6 +196,8 @@ LL query(LL u,LL l,LL r){ //区查
 int main(){
   LL n,m,op,x,y,k;
   cin>>n>>m;
+  w.assign(n + 1, 0);
+  tr.assign(n * 4 + 5, Tree{});
   for(int i=1; i<=n; i ++) cin>>w[i];
 
   build(1,1,n);

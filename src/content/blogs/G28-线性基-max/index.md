@@ -66,11 +66,12 @@ $$ 1 \leq n \leq 50, 0 \leq S_i < 2 ^ {50} $$
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 typedef long long LL;
 int n;
-LL p[64];
+vector<LL> p;
 
 void insert(LL x){ //贪心法
   for(int i=63;i>=0;--i){
@@ -85,6 +86,7 @@ void insert(LL x){ //贪心法
 }
 int main(){
   scanf("%d",&n);
+  p.assign(64,0); //64 位整数的线性基
   for(int i=0;i<n;i++){
     LL x; scanf("%lld",&x);
     insert(x);

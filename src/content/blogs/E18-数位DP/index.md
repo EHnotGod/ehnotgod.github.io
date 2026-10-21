@@ -48,24 +48,27 @@ language: zh
 ### Python代码实现
 
 ```python
-N = 12
-a = [0] * N   # 把整数的每一位数字抠出来，存入数组
-f = [[0] * N for _ in range(N)]  # f[i][j] 表示一共有 i 位且最高位数字是 j 的不降数个数
+f = []  # f[i][j] 表示一共有 i 位且最高位数字是 j 的不降数个数
 
-def init():   # 预处理不降数的个数
+def init(digits):   # 预处理不降数的个数
+    global f
+    f = [[0] * 10 for _ in range(digits + 1)]
     for j in range(10):
         f[1][j] = 1  # 一位数
-    for i in range(2, N):        # 阶段：枚举位数
+    for i in range(2, digits + 1):        # 阶段：枚举位数
         for j in range(10):      # 状态：枚举最高位
             for k in range(j, 10):  # 决策：枚举次高位
                 f[i][j] += f[i - 1][k]
 
 def dp(n):
+    if n < 0:
+        return 0
     if not n:
         return 1   # 特判，n == 0 返回 1
+    a = [0]
     cnt = 0
     while n:
-        a[cnt + 1] = n % 10
+        a.append(n % 10)
         n //= 10
         cnt += 1
     res, last = 0, 0   # last 表示上一位数字
@@ -80,10 +83,10 @@ def dp(n):
             res += 1             # 特判，走到 a1 的情况
     return res
 
-init()  # 预处理不降数的个数
 while True:
     try:
         l, r = map(int, input().split())
+        init(len(str(r)))
         print(dp(r) - dp(l - 1))
     except EOFError:
         break
@@ -95,23 +98,26 @@ while True:
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <string>
+#include <vector>
 using namespace std;
 
-const int N=12;
-int a[N];     //把整数的每一位数字抠出来，存入数组 
-int f[N][N];  //f[i][j]表示一共有i位，且最高位数字是j的不降数的个数 
+vector<vector<int>> f; //f[i][j]表示一共有i位，且最高位数字是j的不降数的个数
 
-void init(){  //预处理不降数的个数  
+void init(int digits){  //预处理不降数的个数
+  f.assign(digits + 1, vector<int>(10, 0));
   for(int i=0; i<=9; i++) f[1][i]=1;  //一位数
-  for(int i=2; i<N; i++)        //阶段：枚举位数 
+  for(int i=2; i<=digits; i++)        //阶段：枚举位数
     for(int j=0; j<=9; j++)     //状态：枚举最高位 
       for(int k=j; k<=9; k++)   //决策：枚举次高位 
         f[i][j]+=f[i-1][k];
 }
 int dp(int n){
+  if(n<0) return 0;
   if(!n) return 1;              //特判，n==0返回1 
+  vector<int> a(1, 0);
   int cnt=0;
-  while(n) a[++cnt]=n%10, n/=10;//把每一位抠出来存入数组a      
+  while(n) a.push_back(n%10), ++cnt, n/=10;//把每一位抠出来存入数组a
   
   int res=0, last=0;            //last表示上一位数字
   for(int i=cnt; i>=1; --i){    //从高位到低位枚举 
@@ -125,9 +131,11 @@ int dp(int n){
   return res;
 }
 int main(){
-  init();     //预处理不降数的个数 
   int l,r;
-  while(cin>>l>>r) cout<<dp(r)-dp(l-1)<<endl;
+  while(cin>>l>>r){
+    init(to_string(r).size());
+    cout<<dp(r)-dp(l-1)<<endl;
+  }
   return 0;
 }
 ```

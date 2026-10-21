@@ -58,11 +58,11 @@ Lucas 定理：$C(n,k)\equiv C(n/p,k/p)\cdot C(n\%p,k\%p)\pmod p$（$p$ 为素�
 
 ```c++
 #include <iostream>
+#include <vector>
 using namespace std;
 
 typedef long long LL;
-const int N = 100010;
-LL f[N], g[N];
+vector<LL> f,g;
 
 LL qpow(LL a, int b, int p){
   LL res = 1;
@@ -74,6 +74,8 @@ LL qpow(LL a, int b, int p){
   return res;
 }
 void init(int p){
+  f.assign(p+1,0);
+  g.assign(p+1,0);
   f[0] = g[0] = 1;
   for(int i=1; i<=p; i++){
     f[i] = f[i-1]*i%p;
@@ -81,6 +83,7 @@ void init(int p){
   }   
 }
 LL getC(int n, int m, int p){
+  if(m>n) return 0;
   return f[n]*g[m]*g[n-m]%p;
 }
 int lucas(LL n, LL m, int p){

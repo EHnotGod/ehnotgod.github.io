@@ -67,9 +67,9 @@ language: zh
 #include <vector>
 using namespace std;
 
-const int N=305;
-vector<int> e[N];
-int n,m,w[N],f[N][N],siz[N];
+int n,m;
+vector<vector<int>> e,f;
+vector<int> w,siz;
 
 void dfs(int u){
   f[u][1]=w[u];siz[u]=1;
@@ -83,6 +83,10 @@ void dfs(int u){
 }
 int main(){
   scanf("%d%d",&n,&m);
+  e.assign(n + 1, vector<int>());
+  w.assign(n + 1, 0);
+  siz.assign(n + 1, 0);
+  f.assign(n + 1, vector<int>(m + 2, 0));
   for(int i=1,k; i<=n; i++){
     scanf("%d%d",&k,&w[i]);
     e[k].push_back(i);

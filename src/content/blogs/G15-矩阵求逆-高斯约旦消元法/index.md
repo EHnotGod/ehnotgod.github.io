@@ -75,11 +75,12 @@ No Solution
 #include<cstdio>
 #include<cmath>
 #define LL long long
+#include <vector>
 using namespace std;
 
-const int N=405,P=1e9+7;
+const int P=1e9+7;
 int n;
-LL a[N][N<<1];
+vector<vector<LL>> a;
 
 LL quickpow(LL a, LL b){
   LL ans = 1;
@@ -112,6 +113,7 @@ bool Gauss_Jordan(){
 }
 int main(){
   scanf("%d",&n);
+  a.assign(n+1,vector<LL>(2*n+1,0));
   for(int i=1; i<=n; ++i)
     for(int j=1; j<=n; ++j)
       scanf("%lld",&a[i][j]),a[i][i+n]=1;

@@ -68,13 +68,14 @@ $s_i=−1$ 表示第 $i$ 种物品只能用$1$次；$s_i=0$ 表示第 $i$ 种物
 
 ```c++
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int f[1010];
 
 int main(){
   int n, m, v, w, s;
   scanf("%d %d", &n, &m);
+  vector<int> f; f.assign(m + 1, 0);
   for(int i=1; i<=n; i++){  //枚举物品种类
     scanf("%d%d%d",&v,&w,&s);
     if(s!=0){               //01背包或多重背包

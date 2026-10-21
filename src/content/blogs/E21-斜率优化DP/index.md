@@ -51,22 +51,25 @@ P 教授要去看奥运，但他舍不下他的玩具，于是决定把所有的
 
 ### 算法解析：
 
-斜率优化 DP：当转移式中含 $f[j]+a[i]\cdot b[j]$ 这类项时，把候选 $j$ 看作平面上的点 $(dx,dy)$，用凸包维护最优斜率。用单调队列使相邻点斜率单调（下凸包），每次用当前斜率弹出队头不优的点，队头即最优转移。本题为玩具装箱（HNOI2008），复杂度 $O(n)$。
+令 $s_i=\sum_{k=1}^{i}(c_k+1)$，把第 $j+1$ 到第 $i$ 件玩具装进一个容器的费用为 $(s_i-s_j-L-1)^2$。设 $x_i=s_i-L-1$，则 $f[i]=x_i^2+\min_{j<i}(f[j]+s_j^2-2x_i s_j)$。把候选状态看成点 $(s_j,f[j]+s_j^2)$，维护下凸包。由于 $c_i>0$，横坐标和查询斜率都递增，可用单调队列在线性时间内完成所有转移。C++ 中平方与叉乘使用 `__int128` 中间值，避免前缀和平方溢出；状态数组在每组输入后按 $n$ 初始化。时间和空间复杂度均为 $O(n)$。
 
 ### Python代码实现
 
 ```python
 import sys
-input = sys.stdin.readline
 
+data = iter(map(int, sys.stdin.buffer.read().split()))
 while True:
-    line = input()
-    if not line:
+    try:
+        n = next(data)
+    except StopIteration:
         break
-    n, m = map(int, line.split())
-    s = [0] + list(map(int, input().split()))
+    L = next(data)
+    s = [0] * (n + 1)
+    f = [0] * (n + 1)
+    q = [0] * (n + 1)
     for i in range(1, n + 1):
-        s[i] += s[i - 1]
+        s[i] = s[i - 1] + next(data) + 1
 
     def dy(i, j):
         return f[i] + s[i] * s[i] - f[j] - s[j] * s[j]
@@ -74,51 +77,60 @@ while True:
     def dx(i, j):
         return s[i] - s[j]
 
-    f = [0] * (n + 1)
-    q = [0] * (n + 1)
-    h, t = 1, 0
+    h, t = 0, 1
     for i in range(1, n + 1):
-        while h < t and dy(i - 1, q[t]) * dx(q[t], q[t - 1]) <= dx(i - 1, q[t]) * dy(q[t], q[t - 1]):
-            t -= 1
-        t += 1
-        q[t] = i - 1
-        while h < t and dy(q[h + 1], q[h]) <= dx(q[h + 1], q[h]) * 2 * s[i]:
+        x = s[i] - L - 1
+        while h + 1 < t and dy(q[h + 1], q[h]) <= 2 * x * dx(q[h + 1], q[h]):
             h += 1
         j = q[h]
-        f[i] = f[j] + (s[i] - s[j]) * (s[i] - s[j]) + m
+        f[i] = f[j] + (x - s[j]) ** 2
+        while h + 1 < t and dy(q[t - 1], q[t - 2]) * dx(i, q[t - 1]) >= dy(i, q[t - 1]) * dx(q[t - 1], q[t - 2]):
+            t -= 1
+        q[t] = i
+        t += 1
     print(f[n])
 ```
 
 ### C++代码实现
 
 ```c++
-#include <iostream>
-#include <cstring>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-typedef long long LL;
-const int N = 500010;
-int n,m,q[N];
-LL s[N],f[N];
+using LL=long long;
+vector<LL> s,f;
+vector<int> q;
 
-LL dy(int i,int j){return f[i]+s[i]*s[i]-f[j]-s[j]*s[j];}
-LL dx(int i,int j){return s[i]-s[j];}
-int main(){
-  while(~scanf("%d%d",&n,&m)){
-    for(int i=1;i<=n;i++)scanf("%lld",&s[i]),s[i]+=s[i-1];
+__int128 dy(int i,int j) {
+  return (__int128)f[i]+(__int128)s[i]*s[i]-f[j]-(__int128)s[j]*s[j];
+}
+LL dx(int i,int j) { return s[i]-s[j]; }
 
-    int h=1,t=0;
-    for(int i=1;i<=n;i++){
-      while(h<t && dy(i-1,q[t])*dx(q[t],q[t-1])
-                 <=dx(i-1,q[t])*dy(q[t],q[t-1])) t--;
-      q[++t]=i-1;      
-      while(h<t && dy(q[h+1],q[h])
-                 <=dx(q[h+1],q[h])*2*s[i]) h++;
-      int j=q[h];
-      f[i]=f[j]+(s[i]-s[j])*(s[i]-s[j])+m;
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  int n;
+  LL L;
+  while (cin >> n >> L) {
+    s.assign(n+1,0);
+    f.assign(n+1,0);
+    q.assign(n+1,0);
+    for (int i=1; i<=n; ++i) {
+      LL c;
+      cin >> c;
+      s[i]=s[i-1]+c+1;
     }
-    printf("%lld\n",f[n]);
+    int h=0,t=1; //候选0已经入队
+    for (int i=1; i<=n; ++i) {
+      LL x=s[i]-L-1;
+      while (h+1<t && dy(q[h+1],q[h])<=(__int128)2*x*dx(q[h+1],q[h])) ++h;
+      int j=q[h];
+      LL d=x-s[j];
+      f[i]=(LL)((__int128)f[j]+(__int128)d*d);
+      while (h+1<t && dy(q[t-1],q[t-2])*dx(i,q[t-1])>=dy(i,q[t-1])*dx(q[t-1],q[t-2])) --t;
+      q[t++]=i;
+    }
+    cout << f[n] << '\n';
   }
 }
 ```

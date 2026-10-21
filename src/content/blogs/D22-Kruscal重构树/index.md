@@ -115,32 +115,32 @@ using namespace std;
 #define range(i, a, b) for (int i = (a); i < (b); ++i)
 #define def(name, ...) auto name = [&](__VA_ARGS__)
 
-const int N=200006;
-int n, m, q;
+int n, m, q, LOG;
 struct edge{
   int u,v,w;
   bool operator<(const edge &t)const
   {return w < t.w;}
-}edge[N];
-int fa2[N],ans,cnt;
-vector<int> value(N, 0);
-vector<vector<int>> e(N, vector<int>());
+};
+vector<edge> edges;
+int cnt;
+vector<int> fa2,value;
+vector<vector<int>> e;
 int find(int x){
   if(fa2[x]==x) return x;
   return fa2[x]=find(fa2[x]);
 }
 void kruskal(){
-  sort(edge,edge+m);
+  sort(edges.begin(),edges.end());
   cnt = n;
-  for(int i=1;i<N;i++)fa2[i]=i;
+  iota(fa2.begin(),fa2.end(),0);
   for(int i=0; i<m; i++){
-    int x = find(edge[i].u);
-    int y = find(edge[i].v);
+    int x = find(edges[i].u);
+    int y = find(edges[i].v);
     if(x!=y){
         cnt++;
         fa2[x]=cnt;
         fa2[y]=cnt;
-        value[cnt] = edge[i].w;
+        value[cnt] = edges[i].w;
 
         e[x].push_back(cnt);
         e[y].push_back(cnt);
@@ -149,21 +149,22 @@ void kruskal(){
     }
   }
 }
-int f[N][22],dep[N];
+vector<vector<int>> f;
+vector<int> dep;
 
 void dfs(int u,int fa){
   f[u][0]=fa; dep[u]=dep[fa]+1;
-  for(int i=1;i<=20;i++) //u的2,4,8...祖先
+  for(int i=1;i<LOG;i++) //u的2,4,8...祖先
     f[u][i]=f[f[u][i-1]][i-1];
   for(int v:e[u])
     if(v!=fa) dfs(v,u);
 }
 int lca(int u,int v){
   if(dep[u]<dep[v]) swap(u,v);
-  for(int i=20;~i;i--) //u先大步后小步向上跳，直到与v同层
+  for(int i=LOG-1;~i;i--) //u先大步后小步向上跳，直到与v同层
     if(dep[f[u][i]]>=dep[v]) u=f[u][i];
   if(u==v) return v;
-  for(int i=20;~i;i--) //u,v一起向上跳，直到lca的下面
+  for(int i=LOG-1;~i;i--) //u,v一起向上跳，直到lca的下面
     if(f[u][i]!=f[v][i]) u=f[u][i],v=f[v][i];
   return f[u][0];
 }
@@ -171,8 +172,14 @@ int lca(int u,int v){
 // vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
 void solve() {
 	cin >> n >> m >> q;
+	LOG=1;
+	while((1LL<<LOG)<=2*n) ++LOG;
+	edges.resize(m);
+	fa2.assign(2*n+1,0); value.assign(2*n+1,0);
+	e.assign(2*n+1,{});
+	f.assign(2*n+1,vector<int>(LOG,0)); dep.assign(2*n+1,0);
 	for (int i = 0; i < m; i++){
-		cin >> edge[i].u >> edge[i].v >> edge[i].w;
+		cin >> edges[i].u >> edges[i].v >> edges[i].w;
 	}
     kruskal();
 

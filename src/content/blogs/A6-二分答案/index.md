@@ -89,14 +89,15 @@ print(find())
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 using namespace std;
 
 typedef long long LL;
-const int N = 100005;
-int n, k, a[N];
+int n,k;
+vector<int> a;
 
 bool check(int x){
   LL y=0; //段数
@@ -114,6 +115,7 @@ int find(){
 }
 int main(){
   scanf("%d%d",&n,&k);
+  a.assign(n+1,0);
   for(int i=1; i<=n; i++)scanf("%d",&a[i]);
   printf("%d\n",find());
   return 0;

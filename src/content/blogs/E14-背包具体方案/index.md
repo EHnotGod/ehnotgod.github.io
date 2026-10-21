@@ -63,12 +63,16 @@ language: zh
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=1005;
-int n,m,v[N],w[N];
-int f[N][N],path[N];
+int n,m;
 
 int main(){
   cin>>n>>m;
+  vector<int> v,w,path;
+  vector<vector<int>> f;
+  v.assign(n + 1, 0);
+  w.assign(n + 1, 0);
+  path.assign(n + 1, 0);
+  f.assign(n + 2, vector<int>(m + 1, 0));
   for(int i=1;i<=n;i++)cin>>v[i]>>w[i];
   
   for(int i=n;i>=1;i--){

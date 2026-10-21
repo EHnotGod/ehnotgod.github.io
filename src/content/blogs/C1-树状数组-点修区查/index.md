@@ -147,8 +147,7 @@ def query(p, l, r):
 
 n, m = map(int, input().split())
 w = list(map(int, input().split()))
-N = n * 4 + 1
-tr = [Node(0, 0, 0) for _ in range(N * 4)]
+tr = [Node(0, 0, 0) for _ in range(n * 4 + 5)]
 build(1, 0, n - 1)
 for i in range(m):
     tmp = list(map(int, input().split()))
@@ -163,7 +162,6 @@ for i in range(m):
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 500010;
 int n, m;
 struct BIT {
     vector<int> s; // 用 vector 更灵活
@@ -228,11 +226,11 @@ using namespace std;
 #define range(i, a, b) for (int i = (a); i < (b); ++i)
 #define lc (p<<1)
 #define rc (p<<1|1)
-#define N 500005
-int n, w[N];
+vector<int> w;
 struct node {
     int l, r, sum;
-} tr[N * 4];
+};
+vector<node> tr;
 
 void build(int p, int l, int r) {
     tr[p].l = l;
@@ -271,6 +269,8 @@ int main(){
     cout.tie(0);
     int n, m;
     cin >> n >> m;
+    w.assign(n + 1, 0);
+    tr.assign(n * 4 + 5, node{});
     range(i, 0, n){
         cin >> w[i + 1];
     }

@@ -28,13 +28,15 @@ language: zh
 #include <cmath>
 #define x first
 #define y second
+#include <vector>
 using namespace std;
 
 typedef pair<double,double> Point;
 const double eps=1e-8;
 const double PI=acos(-1.0);
 double R;
-Point p[4],o; //顶点和圆心
+vector<Point> p;
+Point o; //顶点和圆心
 
 Point operator+(Point a,Point b){ //向量+
   return Point(a.x+b.x,a.y+b.y);
@@ -100,6 +102,7 @@ double getArea(Point a,Point b){ //面积的交
   return sector(a,pa)+pa*pb/2+sector(pb,b); //ab是割线
 }
 int main(){
+  p.assign(3,Point{});
   while(scanf("%lf%lf%lf%lf%lf%lf%lf%lf%lf",
   &p[0].x,&p[0].y,&p[1].x,&p[1].y,&p[2].x,&p[2].y,&o.x,&o.y,&R)!=-1){
     for(int i=0;i<3;i++) p[i].x-=o.x,p[i].y-=o.y; //三角形顶点平移

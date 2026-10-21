@@ -100,10 +100,12 @@ print(res)
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <iostream>
 using namespace std;
 
-int n,a[500010],b[500010];
+int n;
+vector<int> a,b;
 long long res;
 
 void merge(int l,int r){
@@ -124,6 +126,7 @@ void merge(int l,int r){
 
 int main(){
   cin>>n;
+  a.assign(n,0); b.assign(n,0);
   for(int i=0;i<n;i++) scanf("%d",&a[i]);
   merge(0,n-1);
   printf("%lld\n",res);

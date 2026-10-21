@@ -89,13 +89,13 @@ language: zh
 ```python
 import sys
 sys.setrecursionlimit(int(1e7))
-N = 500010
-fa = [0] * N
-son = [0] * N
-dep = [0] * N
-siz = [0] * N
-top = [0] * N
-e = [[] for i in range(N)]
+n, m, s = map(int, input().split())
+fa = [0] * (n + 1)
+son = [0] * (n + 1)
+dep = [0] * (n + 1)
+siz = [0] * (n + 1)
+top = [0] * (n + 1)
+e = [[] for i in range(n + 1)]
 def dfs1(u, f):
     fa[u] = f
     siz[u] = 1
@@ -125,7 +125,6 @@ def lca(u, v):
         return u
     else:
         return v
-n, m, s = map(int, input().split())
 for i in range(1, n):
     a, b = map(int, input().split())
     e[a].append(b)
@@ -147,10 +146,9 @@ for i in range(m):
 #include <vector>
 using namespace std;
 
-const int N=500010;
 int n,m,s,a,b;
-vector<int> e[N];
-int fa[N],son[N],dep[N],siz[N],top[N];
+vector<vector<int>> e;
+vector<int> fa,son,dep,siz,top;
 
 void dfs1(int u,int f){ //搞fa,son,dep
   fa[u]=f;siz[u]=1;dep[u]=dep[f]+1;
@@ -179,6 +177,9 @@ int lca(int u,int v){
 }
 int main(){
   scanf("%d%d%d",&n,&m,&s);
+  e.assign(n+1,{});
+  fa.assign(n+1,0); son.assign(n+1,0);
+  dep.assign(n+1,0); siz.assign(n+1,0); top.assign(n+1,0);
   for(int i=1; i<n; i++){
     scanf("%d%d",&a,&b);
     e[a].push_back(b);

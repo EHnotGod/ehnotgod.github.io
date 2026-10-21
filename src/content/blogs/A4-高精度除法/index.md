@@ -61,16 +61,17 @@ print(a // b)
 ### C++代码实现
 
 ```c++
+#include <string>
+#include <vector>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 using namespace std;
 
-const int N=5005;
-int a[N],b,c[N];
+int b;
 int len;
 
-void div(int a[],int b,int c[]){ //a/b=c
+void div(const vector<int>& a,int b,vector<int>& c){ //a/b=c
     long long t=0;
     for(int i=len;i>=1;i--){
         t=t*10+a[i];  //被除数
@@ -80,7 +81,8 @@ void div(int a[],int b,int c[]){ //a/b=c
     while(c[len]==0&&len>1) len--; //去0
 }
 int main(){
-    char A[N]; cin>>A>>b; len=strlen(A);
+    string A; cin>>A>>b; len=A.size();
+    vector<int> a(len+1),c(len+1);
     for(int i=1;i<=len;i++) a[i]=A[len-i]-'0';
     div(a,b,c);
     for(int i=len;i;i--) cout<<c[i];

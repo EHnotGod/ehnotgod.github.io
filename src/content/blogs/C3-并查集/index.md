@@ -96,11 +96,11 @@ for _ in range(m):
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-const int N=10005;
 int n,m,x,y,z;
-int pa[N];
+vector<int> pa;
 
 int find(int x){
   if(pa[x]==x) return x;
@@ -111,6 +111,7 @@ void unset(int x,int y){
 }
 int main(){
   cin>>n>>m;
+  pa.assign(n + 1, 0);
   for(int i=1;i<=n;i++) pa[i]=i;
   while(m --){
     cin>>z>>x>>y;

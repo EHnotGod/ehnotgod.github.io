@@ -107,45 +107,47 @@ sys.stdout.write('\n'.join(out))
 
 ```c++
 #include <iostream>
-#include <cstring>
-#include <algorithm>
+#include <vector>
 using namespace std;
 
-typedef long long LL;
-const int mod=1000000007;
-struct matrix{
-    LL c[101][101];
-    matrix(){memset(c, 0, sizeof c);}
-} A, res;
-LL n, k;
+using LL = long long;
+using Matrix = vector<vector<LL>>;
+const LL mod=1000000007;
 
-matrix operator*(matrix &x, matrix &y){ //矩阵乘法
-    matrix t; //临时矩阵
-    for(int i=1; i<=n; i++)
-      for(int j=1; j<=n; j++)
-        for(int k=1; k<=n; k++)
-          t.c[i][j]=(t.c[i][j]+x.c[i][k]*y.c[k][j])%mod;
-    return t;
+Matrix mul(const Matrix& a,const Matrix& b){
+  int n=static_cast<int>(a.size());
+  Matrix res(n,vector<LL>(n,0));
+  for(int i=0;i<n;i++)
+    for(int k=0;k<n;k++)
+      for(int j=0;j<n;j++)
+        res[i][j]=(res[i][j]+a[i][k]*b[k][j])%mod;
+  return res;
 }
-void quickpow(LL k){ //快速幂
-    for(int i=1; i<=n; i++) res.c[i][i]=1; //单位矩阵
-    while(k){
-        if(k & 1) res = res*A;
-        A = A*A;
-        k >>= 1;
-    }
+Matrix quickpow(Matrix a,LL k){
+  int n=static_cast<int>(a.size());
+  Matrix res(n,vector<LL>(n,0));
+  for(int i=0;i<n;i++) res[i][i]=1;
+  while(k){
+    if(k&1) res=mul(res,a);
+    a=mul(a,a);
+    k>>=1;
+  }
+  return res;
 }
 int main(){
-    scanf("%d%lld",&n,&k);
-    for(int i=1; i<=n; i++)
-        for(int j=1; j<=n; j++)
-            scanf("%d",&A.c[i][j]);
-    quickpow(k);
-    for(int i=1; i<=n; i++){
-        for(int j=1; j<=n; j++)
-            printf("%d ",res.c[i][j]);
-        puts("");
+  ios::sync_with_stdio(false); cin.tie(nullptr);
+  int n; LL k; cin>>n>>k;
+  Matrix a;
+  a.assign(n,vector<LL>(n,0));
+  for(auto& row:a)
+    for(LL& value:row){
+      cin>>value;
+      value=(value%mod+mod)%mod;
     }
-    return 0;
+  Matrix res=quickpow(a,k);
+  for(const auto& row:res){
+    for(LL value:row) cout<<value<<' ';
+    cout<<'\n';
+  }
 }
 ```

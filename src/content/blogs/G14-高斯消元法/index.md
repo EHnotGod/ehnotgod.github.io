@@ -104,12 +104,12 @@ else:
 #include <iostream>
 #include <algorithm>
 #include <cmath>
+#include <vector>
 using namespace std;
 
-const int N=110;
 const double eps=1e-6;
 int n;
-double a[N][N]; //增广矩阵
+vector<vector<double>> a; //增广矩阵
 
 int gauss(){
   int c,r;//当前列，当前行
@@ -147,6 +147,7 @@ int gauss(){
 }
 int main(){
   cin >> n;
+  a.assign(n,vector<double>(n+1,0));
   for(int i=0; i<n; i++)
     for(int j=0; j<=n; j++)
       cin >> a[i][j];

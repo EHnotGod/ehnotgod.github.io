@@ -41,34 +41,31 @@ SG 函数：$sg(u)=\operatorname{mex}\{sg(v)\mid v$ 为 $u$ 的后继$\}$，$sg=
 
 ```c++
 #include <cstdio>
-#include <cstring>
 #include <set>
+#include <vector>
 using namespace std;
 
-const int N=2005,M=10005;
 int n,m,k,a,b,x;
-int h[N],to[M],ne[M],tot; //邻接表
-int f[N];
+vector<vector<int>> e; //邻接表
+vector<int> f;
 
-void add(int a,int b){
-  to[++tot]=b,ne[tot]=h[a],h[a]=tot;
-}
 int sg(int u){
   // 记忆化搜索
   if(f[u]!=-1) return f[u]; 
   // 把子节点的sg值插入集合
   set<int> S;
-  for(int i=h[u];i;i=ne[i]) 
-    S.insert(sg(to[i]));
+  for(int v:e[u])
+    S.insert(sg(v));
   // mex运算求当前节点的sg值并记忆
   for(int i=0; ;i++) 
     if(!S.count(i)) return f[u]=i;
 }
 int main(){
   scanf("%d%d%d",&n,&m,&k);
+  e.assign(n+1,{});
+  f.assign(n+1,-1);
   for(int i=0;i<m;i++)
-    scanf("%d%d",&a,&b), add(a,b);
-  memset(f,-1,sizeof f); 
+    scanf("%d%d",&a,&b), e[a].push_back(b);
   int res=0;
   for(int i=0;i<k;i++)
     scanf("%d",&x),res^=sg(x);

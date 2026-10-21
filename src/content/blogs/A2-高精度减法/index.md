@@ -66,20 +66,20 @@ print(a - b)
 ### C++代码实现
 
 ```c++
+#include <string>
+#include <vector>
 #include <iostream>
 using namespace std;
 
-const int N=20000;
-int a[N],b[N],c[N];
 int la,lb,lc;
 
-bool cmp(int a[],int b[]){
+bool cmp(const vector<int>& a,const vector<int>& b){
     if(la!=lb) return la<lb;
     for(int i=la; i; i--)
         if(a[i]!=b[i]) return a[i]<b[i];
     return false;  //相等时,避免-0
 }
-void sub(int a[],int b[],int c[]){ //a-b=c
+void sub(vector<int>& a,const vector<int>& b,vector<int>& c){ //a-b=c
     for(int i=1; i<=lc; i++){
         if(a[i]<b[i]) a[i+1]--,a[i]+=10;
         c[i]=a[i]-b[i];
@@ -89,6 +89,7 @@ void sub(int a[],int b[],int c[]){ //a-b=c
 int main(){
     string sa,sb; cin>>sa>>sb;
     la=sa.size(),lb=sb.size(),lc=max(la,lb);
+    vector<int> a(lc+2),b(lc+2),c(lc+2);
     for(int i=1;i<=la;i++) a[i]=sa[la-i]-'0';
     for(int i=1;i<=lb;i++) b[i]=sb[lb-i]-'0';
     if(cmp(a,b)) swap(a,b),cout<<'-';

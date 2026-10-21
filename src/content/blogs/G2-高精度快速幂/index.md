@@ -107,7 +107,7 @@ using namespace std;
 
 const int N=500;
 typedef vector<int> VI;
-VI a(N),res(N);
+VI a,res;
 int p;
 
 VI mul(VI &a, VI &b){//高精度
@@ -131,6 +131,8 @@ void quickpow(int p){//快速幂
 }
 int main(){
   cin >> p;
+  a.assign(N,0);
+  res.assign(N,0);
   printf("%d\n",int(p*log10(2))+1);
   quickpow(p);
   for(int i=0, k=499; i<10; i++){

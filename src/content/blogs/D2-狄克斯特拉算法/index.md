@@ -197,10 +197,9 @@ for i in range(1, n + 1):
 using namespace std;
 
 int n,m,s,a,b,c;
-const int N=100010;
 struct edge{int v,w;};
-vector<edge> e[N];
-int d[N], vis[N];
+vector<vector<edge>> e;
+vector<int> d,vis;
 
 void dijkstra(int s){
   for(int i=0;i<=n;i++)d[i]=inf;
@@ -220,6 +219,9 @@ void dijkstra(int s){
 }
 int main(){
   cin>>n>>m>>s;
+  e.assign(n+1,{});
+  d.assign(n+1,0);
+  vis.assign(n+1,0);
   for(int i=0; i<m; i++){
     cin>>a>>b>>c;
     e[a].push_back({b,c});
@@ -239,14 +241,13 @@ int main(){
 #include <queue>
 using namespace std;
 
-const int N=100010;
 int n,m,s,a,b,c;
 struct edge{int v,w;};
-vector<edge> e[N];
-int d[N],vis[N];
+vector<vector<edge>> e;
+vector<int> d,vis;
 
 void dijkstra(int s){
-  memset(d,0x3f,sizeof d); d[s]=0;
+  fill(d.begin(),d.end(),0x3f3f3f3f); d[s]=0;
   priority_queue<pair<int,int>> q;
   q.push({0,s});
   while(q.size()){
@@ -265,6 +266,9 @@ void dijkstra(int s){
 }
 int main(){
   cin>>n>>m>>s;
+  e.assign(n+1,{});
+  d.assign(n+1,0);
+  vis.assign(n+1,0);
   for(int i=0; i<m; i++)
     cin>>a>>b>>c, e[a].push_back({b,c});
   dijkstra(s);

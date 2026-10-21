@@ -50,10 +50,9 @@ Kahn 算法：统计每个点的入度，把入度为 0 的点入队；每次取
 ```python
 # 拓扑排序 Kahn算法 O(V+E)
 from collections import deque
-N = 110
 n = int(input())
-rd = [0] * N          # 入度
-e = [[] for _ in range(N)]   # 邻接表
+rd = [0] * (n + 1)          # 入度
+e = [[] for _ in range(n + 1)]   # 邻接表
 tp = []               # 拓扑序
 def topo():
     q = deque()
@@ -88,9 +87,10 @@ print(*tp)
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=110;
-int n,rd[N];
-vector<int> e[N],tp;
+int n;
+vector<int> rd;
+vector<vector<int>> e;
+vector<int> tp;
 
 bool topo(){
   queue<int> q;
@@ -104,6 +104,8 @@ bool topo(){
 }
 int main(){
   cin>>n;
+  rd.assign(n+1,0);
+  e.assign(n+1,{});
   for(int i=1,j; i<=n; i++){
     while(cin>>j,j){
       e[i].push_back(j);

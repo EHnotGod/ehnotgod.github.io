@@ -81,20 +81,20 @@ while 1:
 ### C++代码实现
 
 ```c++
+#include <vector>
 //分数规划+二分+排序 复杂度：nlogn*log(1e4)
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 using namespace std;
 
-const int N=1010;
 int n,k;
-double a[N], b[N], c[N];
+vector<double> a,b,c;
 
 bool check(double x){
   double s=0;
   for(int i=1;i<=n;++i)c[i]=a[i]-x*b[i];
-  sort(c+1, c+n+1);
+  sort(c.begin()+1,c.end());
   for(int i=k+1;i<=n;++i) s+=c[i];
   return s>=0;
 }
@@ -108,7 +108,8 @@ double find(){
   return l;
 }
 int main(){
-  while(scanf("%d%d",&n,&k),n){
+  while(scanf("%d%d",&n,&k)==2 && n){
+    a.assign(n+1,0); b.assign(n+1,0); c.assign(n+1,0);
     for(int i=1;i<=n;i++)scanf("%lf",&a[i]);
     for(int i=1;i<=n;i++)scanf("%lf",&b[i]);
     printf("%.0lf\n", 100*find());

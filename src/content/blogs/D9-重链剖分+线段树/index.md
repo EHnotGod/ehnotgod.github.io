@@ -114,18 +114,20 @@ P3384 【模板】重链剖分/树链剖分
 using namespace std;
 
 #define int long long
-const int N=100010;
-int n,m,root,P,w[N],a,b,c,t;
-vector<int> e[N];
-int fa[N],dep[N],siz[N],son[N];
-int top[N],id[N],nw[N],cnt; //树链
+int n,m,root,P,a,b,c,t;
+vector<int> w;
+vector<vector<int>> e;
+vector<int> fa,dep,siz,son;
+vector<int> top,id,nw; //树链
+int cnt;
 
 #define lc u<<1
 #define rc u<<1|1
 struct tree{
   int l,r; 
   int sum,add;
-}tr[N*4]; //线段树
+};
+vector<tree> tr; //线段树
 
 void dfs1(int u,int f){ //搞fa,dep,siz,son
   fa[u]=f,dep[u]=dep[f]+1,siz[u]=1;
@@ -146,19 +148,19 @@ void dfs2(int u,int tp){ //搞top,id,nw
 }
 
 void pushup(int u){
-  tr[u].sum=tr[lc].sum+tr[rc].sum;
+  tr[u].sum=(tr[lc].sum+tr[rc].sum)%P;
 }
 void pushdown(int u){
   if(tr[u].add){
-    tr[lc].sum+=tr[u].add*(tr[lc].r-tr[lc].l+1);
-    tr[rc].sum+=tr[u].add*(tr[rc].r-tr[rc].l+1);
-    tr[lc].add+=tr[u].add;
-    tr[rc].add+=tr[u].add;
+    tr[lc].sum=(tr[lc].sum+tr[u].add*(tr[lc].r-tr[lc].l+1))%P;
+    tr[rc].sum=(tr[rc].sum+tr[u].add*(tr[rc].r-tr[rc].l+1))%P;
+    tr[lc].add=(tr[lc].add+tr[u].add)%P;
+    tr[rc].add=(tr[rc].add+tr[u].add)%P;
     tr[u].add=0;
   }
 }
 void build(int u,int l,int r){ //构建线段树
-  tr[u]={l,r,nw[l],0};
+  tr[u]={l,r,nw[l]%P,0};
   if(l==r) return;
   int mid=l+r>>1;
   build(lc,l,mid);
@@ -168,8 +170,8 @@ void build(int u,int l,int r){ //构建线段树
 void change(int u,int x,int y,int k){ //线段树修改
   if(x>tr[u].r||y<tr[u].l) return;
   if(x<=tr[u].l&&tr[u].r<=y){
-    tr[u].sum+=k*(tr[u].r-tr[u].l+1);
-    tr[u].add+=k;
+    tr[u].sum=(tr[u].sum+k*(tr[u].r-tr[u].l+1))%P;
+    tr[u].add=(tr[u].add+k)%P;
     return;
   }
   pushdown(u);
@@ -193,17 +195,17 @@ int query(int u,int x,int y){ //线段树查询
   if(x>tr[u].r||y<tr[u].l) return 0;
   if(x<=tr[u].l&&tr[u].r<=y) return tr[u].sum;
   pushdown(u);
-  return query(lc,x,y)+query(rc,x,y);
+  return (query(lc,x,y)+query(rc,x,y))%P;
 }
 int query_path(int u,int v){ //查询路径
   int res=0;
   while(top[u]!=top[v]){
     if(dep[top[u]]<dep[top[v]]) swap(u,v);
-    res+=query(1,id[top[u]],id[u]);
+    res=(res+query(1,id[top[u]],id[u]))%P;
     u=fa[top[u]];
   }
   if(dep[u]<dep[v]) swap(u,v);
-  res+=query(1,id[v],id[u]); //最后一段
+  res=(res+query(1,id[v],id[u]))%P; //最后一段
   return res;
 }
 int query_tree(int u){ //查询子树
@@ -212,6 +214,11 @@ int query_tree(int u){ //查询子树
 signed main(){
   ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
   cin>>n>>m>>root>>P;
+  e.assign(n+1,{}); w.assign(n+1,0);
+  fa.assign(n+1,0); dep.assign(n+1,0);
+  siz.assign(n+1,0); son.assign(n+1,0);
+  top.assign(n+1,0); id.assign(n+1,0); nw.assign(n+1,0);
+  tr.assign(4*n+4,{});
   for(int i=1; i<=n; i++) cin>>w[i];
   for(int i=0; i<n-1; i++){
     cin>>a>>b;

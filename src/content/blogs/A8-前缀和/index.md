@@ -78,16 +78,16 @@ for i in range(m):
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 using namespace std;
 
-int n,m;
-int a[100005],s[100005];
-
 int main(){
+    int n,m;
     scanf("%d",&n);
+    vector<int> a(n+1),s(n+1);
     for(int i=1;i<=n;i++){
       scanf("%d",&a[i]);
         s[i]=s[i-1]+a[i];

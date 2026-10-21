@@ -51,20 +51,20 @@ n<=1e7
 
 ```c++
 #include <iostream>
+#include <vector>
 using namespace std;
 
-const int N = 1000010;
-int p[N], vis[N], cnt;
-int mu[N];
+vector<int> p,mu;
+vector<unsigned char> vis;
 
 void get_mu(int n){//筛法求莫比乌斯函数
   mu[1] = 1;
   for(int i=2; i<=n; i++){
     if(!vis[i]){
-      p[++cnt] = i;
+      p.push_back(i);
       mu[i] = -1;
     }
-    for(int j=1; i*p[j]<=n; j++){
+    for(int j=1; j<static_cast<int>(p.size())&&1LL*i*p[j]<=n; j++){
       int m = i*p[j]; 
       vis[m] = 1;
       if(i%p[j] == 0){
@@ -79,6 +79,9 @@ void get_mu(int n){//筛法求莫比乌斯函数
 int main(){
   int n;
   cin >> n;
+  p.assign(1,0);
+  vis.assign(n+1,0);
+  mu.assign(n+1,0);
   get_mu(n);
   for(int i=1; i<=n; i++)
     printf("%d\n",mu[i]);

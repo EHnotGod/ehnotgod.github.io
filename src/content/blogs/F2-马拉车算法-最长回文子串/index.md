@@ -73,37 +73,31 @@ print(ans - 1)
 
 ```c++
 #include <iostream>
-#include <cstring>
+#include <string>
+#include <vector>
 #include <algorithm>
 using namespace std;
 
-const int N=3e7;
-char a[N],s[N];
-int d[N]; //回文半径函数 
-
-void get_d(char*s,int n){
-  d[1]=1;
-    for(int i=2,l,r=1;i<=n;i++){
-        if(i<=r)d[i]=min(d[r-i+l],r-i+1);
-        while(s[i-d[i]]==s[i+d[i]])d[i]++;
-        if(i+d[i]-1>r)l=i-d[i]+1,r=i+d[i]-1;
-        // printf("i=%d d=%d [%d %d]\n",i,d[i],l,r);
-    }  
+void get_d(const string& s,vector<int>& d){
+  int n=s.size()-2;
+  for(int i=1,l=0,r=0;i<=n;i++){
+    d[i]=i<=r ? min(d[l+r-i],r-i+1) : 1;
+    while(s[i-d[i]]==s[i+d[i]]) d[i]++;
+    if(i+d[i]-1>r) l=i-d[i]+1,r=i+d[i]-1;
+  }
 }
 int main(){
-  //改造串
-  scanf("%s",a+1);
-  int n=strlen(a+1),k=0;
-  s[0]='$',s[++k]='#';        
-  for(int i=1;i<=n;i++) 
-    s[++k]=a[i],s[++k]='#';
-  n=k;
-  
-  get_d(s,n);//计算d函数
+  string a; cin>>a;
+  // 改造串，并在两端放置不同的哨兵。
+  string s="^#";
+  s.reserve(2*a.size()+3);
+  for(char c:a) s+=c,s+='#';
+  s+='$';
+  vector<int> d(s.size()); // 按改造后的串长分配回文半径
+  get_d(s,d);
   int ans=0;
-  for(int i=1;i<=n;i++)
-    ans=max(ans,d[i]);
-  printf("%d\n",ans-1);
+  for(int i=1;i+1<(int)s.size();i++) ans=max(ans,d[i]-1);
+  cout<<ans<<'\n';
   return 0;
 }
 ```

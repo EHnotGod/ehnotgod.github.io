@@ -65,11 +65,11 @@ P3387 【模板】缩点
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=100010;
 int n,m,a,b;
-vector<int> e[N],ne[N]; 
-int dfn[N],low[N],tim,stk[N],top,scc[N],cnt;
-int w[N],nw[N],d[N];
+vector<vector<int>> e,ne;
+vector<int> dfn,low,stk,scc;
+int tim,top,cnt;
+vector<int> w,nw,d;
 
 void tarjan(int x){
   dfn[x]=low[x]=++tim; 
@@ -93,6 +93,10 @@ void tarjan(int x){
 }
 int main(){
   cin>>n>>m;
+  e.assign(n+1,{}); ne.assign(n+1,{});
+  dfn.assign(n+1,0); low.assign(n+1,0);
+  stk.assign(n+1,0); scc.assign(n+1,0);
+  w.assign(n+1,0); nw.assign(n+1,0); d.assign(n+1,0);
   for(int i=1;i<=n;i++) cin>>w[i];
   for(int i=1;i<=m;i++){
     cin>>a>>b;

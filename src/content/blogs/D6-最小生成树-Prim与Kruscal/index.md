@@ -70,14 +70,10 @@ Kruskal 求最小生成树：把所有边按边权升序排序，依次尝试加
 
 ```python
 
-N = 5010
-d = [0] * N
-vis = [0] * N
 class Edge():
     def __init__(self, v, w):
         self.v = v
         self.w = w
-e = [[] for i in range(N)]
 
 def prim(s):
     global ans, cnt
@@ -100,6 +96,9 @@ def prim(s):
                 d[v] = w
     return cnt == n
 n, m = map(int, input().split())
+d = [0] * (n + 1)
+vis = [0] * (n + 1)
+e = [[] for _ in range(n + 1)]
 ans, cnt = 0, 0
 for i in range(m):
     a, b, c = map(int, input().split())
@@ -164,10 +163,9 @@ else:
 using namespace std;
 
 int n,m,a,b,c,ans,cnt;
-const int N=5010;
 struct edge{int v,w;};
-vector<edge> e[N];
-int d[N], vis[N];
+vector<vector<edge>> e;
+vector<int> d,vis;
 
 bool prim(int s){
   for(int i=0;i<=n;i++)d[i]=inf;
@@ -188,6 +186,9 @@ bool prim(int s){
 }
 int main(){
   cin>>n>>m;
+  e.assign(n+1,{});
+  d.assign(n+1,0);
+  vis.assign(n+1,0);
   for(int i=0; i<m; i++){
     cin>>a>>b>>c;
     e[a].push_back({b,c});
@@ -206,23 +207,25 @@ int main(){
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-const int N=200006;
 int n, m;
 struct edge{
   int u,v,w;
   bool operator<(const edge &t)const
   {return w < t.w;}
-}e[N];
-int fa[N],ans,cnt;
+};
+vector<edge> e;
+vector<int> fa;
+int ans,cnt;
 
 int find(int x){
   if(fa[x]==x) return x;
   return fa[x]=find(fa[x]);
 }
 bool kruskal(){
-  sort(e,e+m);
+  sort(e.begin(),e.end());
   for(int i=1;i<=n;i++)fa[i]=i;
   for(int i=0; i<m; i++){
     int x=find(e[i].u);
@@ -237,6 +240,8 @@ bool kruskal(){
 }
 int main(){
   cin>>n>>m;
+  e.resize(m);
+  fa.assign(n+1,0);
   for(int i=0; i<m; i++)
     cin>>e[i].u>>e[i].v>>e[i].w;
   if(!kruskal()) puts("orz");

@@ -76,7 +76,8 @@ for i in range(1, n + 1):
 for i in range(m):
     a, b, c = map(int, input().split())
     d[a][b] = min(d[a][b], c)
-    floyd()
+    d[b][a] = min(d[b][a], c)
+floyd()
 for i in range(1, n + 1):
     print(*d[i][1:])
 ```
@@ -87,10 +88,10 @@ for i in range(1, n + 1):
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
-const int N=210,M=20010;
 int n,m,a,b,c;
-int d[N][N];
+vector<vector<int>> d;
 
 void floyd(){
   for(int k=1; k<=n; k++)
@@ -100,11 +101,12 @@ void floyd(){
 }
 int main(){
   cin>>n>>m;
-  memset(d,0x3f,sizeof d);
+  d.assign(n+1,vector<int>(n+1,0x3f3f3f3f));
   for(int i=1; i<=n; i++)d[i][i]=0;
   for(int i=0; i<m; i++){
     cin>>a>>b>>c;
     d[a][b]=min(d[a][b],c); //重边
+    d[b][a]=min(d[b][a],c); //无向图
   }
   floyd();
   for(int i=1;i<=n;i++){

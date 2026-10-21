@@ -54,21 +54,21 @@ FJ 丢了一头牛，决定将其找回。FJ 和牛位于数轴上，初始位�
 
 def bfs():
     global x, y
-    N = int(2e5 + 1)
-    dis = [-1 for i in range(N)]
+    limit = 2 * max(x, y) + 2
+    dis = [-1] * limit
     dis[x] = 0
     l = 0
     q = []; q.append(x)
     while l < len(q):
         x = q[l]
         l += 1
-        if x + 1 < N and dis[x + 1] == -1:
+        if x + 1 < limit and dis[x + 1] == -1:
             dis[x + 1] = dis[x] + 1
             q.append(x + 1)
-        if x - 1 > 0 and dis[x - 1] == -1:
+        if x - 1 >= 0 and dis[x - 1] == -1:
             dis[x - 1] = dis[x] + 1
             q.append(x - 1)
-        if 2 * x < N and dis[x * 2] == -1:
+        if 2 * x < limit and dis[x * 2] == -1:
             dis[x * 2] = dis[x] + 1
             q.append(x * 2)
         if x == y:
@@ -84,29 +84,30 @@ for i in range(t):
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <cstring>
 #include <iostream>
 #include <algorithm>
 #include <queue>
 using namespace std;
 
-const int N=100005;
-int x, y, dis[N];
+int x,y;
 
 void bfs(){
-  memset(dis,-1,sizeof dis); dis[x]=0;
+  int limit=2*max(x,y)+2;
+  vector<int> dis(limit,-1); dis[x]=0;
   queue<int> q; q.push(x);
   while(q.size()){
     int x=q.front(); q.pop();
-    if(x+1<N && dis[x+1]==-1){
+    if(x+1<limit && dis[x+1]==-1){
       dis[x+1]=dis[x]+1; //前进一步
       q.push(x+1);
     }
-    if(x-1>0 && dis[x-1]==-1){
+    if(x-1>=0 && dis[x-1]==-1){
       dis[x-1]=dis[x]+1; //后退一步
       q.push(x-1);
     }
-    if(2*x<N && dis[2*x]==-1){
+    if(2*x<limit && dis[2*x]==-1){
       dis[2*x]=dis[x]+1; //走到2x位置
       q.push(2*x);
     }

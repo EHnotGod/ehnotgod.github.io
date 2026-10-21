@@ -56,7 +56,7 @@ $1\leq n, m\leq 10^6$ , 前 $3$ 个点卡小错误，后面 $5$ 个点卡效率�
 - $\neg x_i^a \rightarrow x_j^b$（若 $x_i$ 不满足 $a$，则 $x_j$ 必须满足 $b$）
 - $\neg x_j^b \rightarrow x_i^a$（对称）
 
-建图后用 Tarjan 求强连通分量。若某个变量 $x_i$ 的两种取值（$i$ 与 $i+n$）在同一个 SCC 中，则矛盾无解，输出 `IMPOSSIBLE`；否则有解：对每个变量取 $scc$ 编号较大的那个取值（Tarjan 求出的 $scc$ 编号是拓扑序的逆序，取大者即取拓扑序靠后的可行值）。复杂度 $O(n+m)$。
+建图后用 Tarjan 求强连通分量。若某个变量 $x_i$ 的两种取值（$i$ 与 $i+n$）在同一个 SCC 中，则矛盾无解，输出 `IMPOSSIBLE`；否则有解：对每个变量取 $scc$ 编号较小的那个取值（Tarjan 按 SCC 出栈顺序编号，编号是拓扑序的逆序，较小者在拓扑序中靠后）。两版代码均用邻接表存图，时间与空间复杂度都是 $O(n+m)$。
 
 ### Python代码实现
 
@@ -65,10 +65,8 @@ import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
-def tarjan(sz, edges):
-    g = [[] for _ in range(sz)]
-    for u, v in edges:
-        g[u].append(v)
+def tarjan(g):
+    sz = len(g)
     dfn = [0] * sz; low = [0] * sz; scc = [0] * sz
     stk = []; in_stk = [False] * sz
     time = 0; cnt = 0
@@ -95,23 +93,23 @@ def tarjan(sz, edges):
     return scc
 
 n, m = map(int, input().split())
-edges = []
+g = [[] for _ in range(2 * n + 1)]
 for _ in range(m):
     i, a, j, b = map(int, input().split())
     xi = i if a == 1 else i + n      # xi 为 a 的结点
     xj = j if b == 1 else j + n      # xj 为 b 的结点
     xi_neg = i + n if a == 1 else i  # xi 不满足 a
     xj_neg = j + n if b == 1 else j  # xj 不满足 b
-    edges.append((xi_neg, xj))  # ¬xi_a -> xj_b
-    edges.append((xj_neg, xi))  # ¬xj_b -> xi_a
+    g[xi_neg].append(xj)  # ¬xi_a -> xj_b
+    g[xj_neg].append(xi)  # ¬xj_b -> xi_a
 
-scc = tarjan(2 * n + 1, edges)
+scc = tarjan(g)
 ans = []
 for i in range(1, n + 1):
     if scc[i] == scc[i + n]:
         print("IMPOSSIBLE")
         sys.exit()
-    ans.append('1' if scc[i] > scc[i + n] else '0')
+    ans.append('1' if scc[i] < scc[i + n] else '0')
 print("POSSIBLE")
 print(' '.join(ans))
 ```
@@ -123,19 +121,18 @@ print(' '.join(ans))
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=2000005;
 int n,m;
-int hd[N],to[N],ne[N],idx;
-int dfn[N],low[N],tim,stk[N],top,scc[N],cnt;
+vector<vector<int>> g;
+vector<int> dfn,low,stk,scc;
+int tim,cnt;
 
 void add(int a,int b){
-  to[++idx]=b,ne[idx]=hd[a],hd[a]=idx;
+  g[a].push_back(b);
 }
 void tarjan(int x){
   dfn[x]=low[x]=++tim;
-  stk[++top]=x;
-  for(int i=hd[x];i;i=ne[i]){
-    int y=to[i];
+  stk.push_back(x);
+  for(int y:g[x]){
     if(!dfn[y]){
       tarjan(y);
       low[x]=min(low[x],low[y]);
@@ -144,15 +141,27 @@ void tarjan(int x){
   }
   if(low[x]==dfn[x]){
     ++cnt;
-    for(int y=-1;y!=x;) scc[y=stk[top--]]=cnt;
+    int y;
+    do{
+      y=stk.back();
+      stk.pop_back();
+      scc[y]=cnt;
+    }while(y!=x);
   }
 }
 int main(){
   scanf("%d%d",&n,&m);
+  g.resize(2*n+1);
+  dfn.resize(2*n+1);
+  low.resize(2*n+1);
+  scc.resize(2*n+1);
+  stk.reserve(2*n);
   for(int i,a,j,b;m--;){
     scanf("%d%d%d%d",&i,&a,&j,&b);
-    add(i+!a*n,j+b*n); //xi拆成i和i+n
-    add(j+!b*n,i+a*n);
+    int xi=i+(a?0:n),xj=j+(b?0:n); //i表示真，i+n表示假
+    int xi_neg=i+(a?n:0),xj_neg=j+(b?n:0);
+    add(xi_neg,xj);
+    add(xj_neg,xi);
   }
   for(int i=1;i<=2*n;i++)if(!dfn[i]) tarjan(i);
   for(int i=1;i<=n;i++)if(scc[i]==scc[i+n]){
@@ -160,7 +169,7 @@ int main(){
     return 0;
   }
   puts("POSSIBLE");
-  for(int i=1;i<=n;i++)printf("%d ",scc[i]>scc[i+n]);
+  for(int i=1;i<=n;i++)printf("%d ",scc[i]<scc[i+n]);
   return 0;
 }
 ```

@@ -86,18 +86,18 @@ for j in range(n):
     i = q[0][1]
     heapq.heappop(q)
     id[i] += 1
-    heapq.heappush(q, [a[id[i]] + b[i], i])
+    if id[i] <= n:
+        heapq.heappush(q, [a[id[i]] + b[i], i])
 ```
 
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <cstdio>
 #include <queue>
 using namespace std;
 
-const int N=100005;
-int a[N],b[N],id[N];
 priority_queue<pair<int,int>,
        vector<pair<int,int>>,
        greater<pair<int,int>>>q;
@@ -106,16 +106,17 @@ priority_queue<pair<int,int>,
 
 int main(){
   int n; scanf("%d",&n);
+  vector<int> a(n+1),b(n+1),id(n+1);
   for(int i=1; i<=n; i++) scanf("%d",&a[i]);
   for(int i=1; i<=n; i++){
     scanf("%d",&b[i]);
     id[i]=1;
     q.push({a[1]+b[i],i});
   }
-  while(n--){
+  for(int j=0;j<n;j++){
     printf("%d ",q.top().first);
     int i=q.top().second; q.pop();
-    q.push({a[++id[i]]+b[i],i});
+    if(++id[i]<=n) q.push({a[id[i]]+b[i],i});
   }
   return 0;
 }

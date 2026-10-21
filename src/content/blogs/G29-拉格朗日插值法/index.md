@@ -74,12 +74,13 @@ $$1 \le n \leq 2\times 10^3$$，$$1 \le x_i,y_i,k < 998244353$$，$$x_i$$ 两两
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 #define LL long long
 const LL mod=998244353;
 LL n,k,ans;
-LL x[2005],y[2005];
+
 
 LL ksm(LL a,LL b){
   LL s=1;
@@ -92,6 +93,9 @@ LL ksm(LL a,LL b){
 }
 int main(){
   cin>>n>>k;
+  vector<LL> x,y;
+  x.assign(n+1,0);
+  y.assign(n+1,0);
   for(int i=1;i<=n;i++)cin>>x[i]>>y[i];
   for(int i=1;i<=n;i++){
     LL a=y[i],b=1;

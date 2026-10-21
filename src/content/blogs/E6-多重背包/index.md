@@ -57,9 +57,9 @@ language: zh
 ```python
 n, m = map(int, input().split())
 
-v = [0] * 100005
-w = [0] * 100005
-f = [0] * 100005
+v = [0]
+w = [0]
+f = [0] * (m + 1)
 
 cnt = 0
 for _ in range(n):
@@ -67,14 +67,14 @@ for _ in range(n):
     j = 1
     while j <= s:
         cnt += 1
-        v[cnt] = j * a
-        w[cnt] = j * b
+        v.append(j * a)
+        w.append(j * b)
         s -= j
         j <<= 1
     if s > 0:
         cnt += 1
-        v[cnt] = s * a
-        w[cnt] = s * b
+        v.append(s * a)
+        w.append(s * b)
 
 for i in range(1, cnt + 1):
     for j in range(m, v[i] - 1, -1):
@@ -88,24 +88,26 @@ print(f[m])
 ```c++
 // 二进制分组优化
 #include<iostream>
+#include <vector>
 using namespace std;
 
-const int N=100005;
 int n,m,a,b,s;
-int v[N],w[N];
-int f[N];
 
 int main(){
   cin>>n>>m;
+  vector<int> v,w,f;
+  v.assign(1, 0);
+  w.assign(1, 0);
+  f.assign(m + 1, 0);
 
   int cnt=0;
   for(int i=1;i<=n;i++){
     cin>>b>>a>>s;
     for(int j=1;j<=s;j<<=1){
-      v[++cnt]=j*a; w[cnt]=j*b;
+      ++cnt; v.push_back(j*a); w.push_back(j*b);
       s-=j;
     }
-    if(s) v[++cnt]=s*a, w[cnt]=s*b;
+    if(s){ ++cnt; v.push_back(s*a); w.push_back(s*b); }
   }
 
   for(int i=1;i<=cnt;i++)

@@ -72,10 +72,10 @@ Tarjan 判割点：DFS 记录 $dfn$ 和 $low$。对根节点，若有两个及�
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=20010;
 int n,m,a,b;
-vector<int> e[N];
-int dfn[N],low[N],tim,cut[N],root;
+vector<vector<int>> e;
+vector<int> dfn,low,cut;
+int tim,root;
 
 void tarjan(int x){
   dfn[x]=low[x]=++tim;
@@ -95,6 +95,8 @@ void tarjan(int x){
 }
 int main(){
   cin>>n>>m;
+  e.assign(n+1,{});
+  dfn.assign(n+1,0); low.assign(n+1,0); cut.assign(n+1,0);
   while(m --){
     cin>>a>>b;
     e[a].push_back(b),

@@ -211,16 +211,15 @@ def getval(k):
     return tr[x].v
 
 
-N = 110001
+n = int(sys.stdin.readline())
 INF = (1 << 30) + 1
-tr = [Node() for _ in range(N)]
+tr = [Node() for _ in range(n + 3)]
 root = 0
 tot = 0
 
 
 insert(-INF)
 insert(INF)
-n = int(sys.stdin.readline())
 for _ in range(n):
     op, x = map(int, sys.stdin.readline().split())
     if op == 1:
@@ -241,13 +240,15 @@ for _ in range(n):
 
 ```c++
 #include <iostream>
+#include <array>
+#include <vector>
 using namespace std;
 
 #define ls(x) tr[x].ch[0]
 #define rs(x) tr[x].ch[1]
-const int N=1100010, INF=(1<<30)+1;
+const int INF=(1<<30)+1;
 struct node{
-  int ch[2]; //儿
+  array<int, 2> ch; //儿
   int fa; //父
   int v;  //点权
   int cnt; //点权次数
@@ -256,7 +257,8 @@ struct node{
     fa=p, v=v1;
     cnt=siz=1;
   }
-}tr[N];
+};
+vector<node> tr;
 int root,tot; //根,节点个数
 
 void pushup(int x){ //上传
@@ -340,8 +342,9 @@ int getval(int k){ //数值
   return tr[x].v;
 }
 int main(){
-  insert(-INF);insert(INF); //哨兵
   int n,op,x; scanf("%d", &n);
+  tr.assign(n + 3, node{});
+  insert(-INF);insert(INF); //哨兵
   while(n--){
     scanf("%d%d", &op, &x);
     if(op==1) insert(x);

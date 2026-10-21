@@ -53,85 +53,90 @@ language: zh
 
 Dinic 最大流：每次用 BFS 建分层图（按到源点距离分层），再在当前分层图上用 DFS 找阻塞流（一次可增广多条路径，配合当前弧优化），反复执行直到 BFS 无法到达汇点。复杂度 $O(n^2m)$，实际表现很快。
 
-太难了，不讲具体了。
+用 `vector<vector<int>> g` 保存每个点的出边编号，边的信息统一放在 `vector<Edge> e` 中。每次添加一条原边时，连续加入正向边和容量为零的反向边，编号从 0 开始，因此编号为 `i` 的边对应的反向边始终为 `i ^ 1`。`cur[u]` 记录的是 `g[u]` 中的下标，每轮 BFS 后归零。
 
 ### py代码实现
 
-略，涉及到dfs的都不适合写python。
+本节给出 C++ 实现。
 
 ### C++代码实现
 
 ```c++
 // Luogu P3376 【模板】网络最大流
 #include <iostream>
-#include <cstring>
 #include <algorithm>
+#include <limits>
 #include <queue>
-#define LL long long
-#define N 10010
-#define M 200010
+#include <vector>
 using namespace std;
 
-int n,m,S,T;
-struct edge{LL v,c,ne;}e[M];
-int h[N],idx=1; //从2,3开始配对
-int d[N],cur[N];
+using LL = long long;
+const LL INF = numeric_limits<LL>::max() / 4;
+int n, m, S, T;
+struct Edge { int to; LL cap; };
+vector<Edge> e;
+vector<vector<int>> g;
+vector<int> d,cur;
 
-void add(int a,int b,int c){
-  e[++idx]={b,c,h[a]};
-  h[a]=idx;
+void add(int a, int b, LL cap) {
+  int id = static_cast<int>(e.size());
+  e.push_back({b, cap});
+  e.push_back({a, 0});
+  g[a].push_back(id);
+  g[b].push_back(id ^ 1);
 }
-bool bfs(){ //对点分层，找增广路
-  memset(d,0,sizeof d);
-  queue<int>q; 
-  q.push(S); d[S]=1;
-  while(q.size()){
-    int u=q.front(); q.pop();
-    for(int i=h[u];i;i=e[i].ne){
-      int v=e[i].v;
-      if(d[v]==0 && e[i].c){
-        d[v]=d[u]+1;
+bool bfs() {
+  fill(d.begin(), d.end(), -1);
+  queue<int> q;
+  q.push(S);
+  d[S] = 0;
+  while (!q.empty()) {
+    int u = q.front(); q.pop();
+    for (int id : g[u]) {
+      int v = e[id].to;
+      if (d[v] == -1 && e[id].cap > 0) {
+        d[v] = d[u] + 1;
         q.push(v);
-        if(v==T)return true;
       }
     }
   }
-  return false;
+  return d[T] != -1;
 }
-LL dfs(int u, LL mf){ //多路增广
-  if(u==T) return mf;
-  LL sum=0;
-  for(int i=cur[u];i;i=e[i].ne){
-    cur[u]=i; //当前弧优化
-    int v=e[i].v;
-    if(d[v]==d[u]+1 && e[i].c){
-      LL f=dfs(v,min(mf,e[i].c));
-      e[i].c-=f; 
-      e[i^1].c+=f; //更新残留网
-      sum+=f; //累加u的流出流量
-      mf-=f;  //减少u的剩余流量
-      if(mf==0)break;//余量优化
+LL dfs(int u, LL limit) {
+  if (u == T) return limit;
+  for (int &p = cur[u]; p < static_cast<int>(g[u].size()); ++p) {
+    int id = g[u][p], v = e[id].to;
+    if (d[v] == d[u] + 1 && e[id].cap > 0) {
+      LL f = dfs(v, min(limit, e[id].cap));
+      if (f == 0) continue;
+      e[id].cap -= f;
+      e[id ^ 1].cap += f;
+      return f; //保留当前下标，下次可继续使用这条边的剩余容量
     }
   }
-  if(sum==0) d[u]=0; //残枝优化
-  return sum;
+  return 0;
 }
-LL dinic(){ //累加可行流
-  LL flow=0;
-  while(bfs()){
-    memcpy(cur, h, sizeof h);
-    flow+=dfs(S,1e9);
+LL dinic() {
+  LL flow = 0;
+  while (bfs()) {
+    fill(cur.begin(), cur.end(), 0);
+    while (LL f = dfs(S, INF)) flow += f;
   }
   return flow;
 }
-int main(){
-  int a,b,c;
-  scanf("%d%d%d%d",&n,&m,&S,&T);
-  while(m -- ){
-    scanf("%d%d%d",&a,&b,&c);
-    add(a,b,c); add(b,a,0);
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cin >> n >> m >> S >> T;
+  g.assign(n + 1, {});
+  d.assign(n + 1, 0); cur.assign(n + 1, 0);
+  for (int i = 0; i < m; ++i) {
+    int a, b;
+    LL cap;
+    cin >> a >> b >> cap;
+    add(a, b, cap);
   }
-  printf("%lld\n",dinic());
+  cout << dinic() << '\n';
   return 0;
 }
 ```

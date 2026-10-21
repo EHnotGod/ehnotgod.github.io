@@ -74,49 +74,66 @@ Project 5.36200 0.39000
 ### C++代码实现
 
 ```c++
-// 李超线段树 O(nlogn)
-#include <iostream>
-#include <cstring>
-#include <algorithm>
+// 李超线段树，按需创建节点
+#include <bits/stdc++.h>
 using namespace std;
 
-#define N 50005
-#define ls u<<1
-#define rs u<<1|1
-int n,cnt;
-struct line{
-  double k,b; //斜率,截距
-}p[N*2];
-int tr[N*4]; //线段编号
+const int MAX_X = 50000; //题目规定的天数范围
+struct Line { double k = 0, b = 0; };
+struct Node { int id = 0, left = 0, right = 0; };
+vector<Line> lines;
+vector<Node> tr;
 
-double Y(int id,int x){ //求Y值
-  return p[id].k*x+p[id].b;
+double Y(int id, int x) {
+  return lines[id].k * x + lines[id].b;
 }
-void change(int u,int l,int r,int id){ //修改
-  int mid=(l+r)>>1;
-  if(Y(id,mid)>Y(tr[u],mid)) swap(id,tr[u]);
-  if(Y(id,l)>Y(tr[u],l)) change(ls,l,mid,id);
-  if(Y(id,r)>Y(tr[u],r)) change(rs,mid+1,r,id);
-}
-double query(int u,int l,int r,int x){ //查询
-  if(l==r) return Y(tr[u],x);
-  int mid=(l+r)>>1;
-  double t=Y(tr[u],x);
-  if(x<=mid) return max(t,query(ls,l,mid,x));
-  else return max(t,query(rs,mid+1,r,x));
-}
-int main(){
-  scanf("%d",&n);
-  for(int i=1;i<=n;i++){
-    char op[10]; scanf("%s",op);
-    if(op[0]=='P'){
-      double b,k; scanf("%lf%lf",&b,&k);
-      p[++cnt]={k,b-k};
-      change(1,1,N,cnt);
+void change(int u, int l, int r, int id) {
+  int mid = (l + r) / 2;
+  if (Y(id, mid) > Y(tr[u].id, mid)) swap(id, tr[u].id);
+  if (l == r) return;
+  if (Y(id, l) > Y(tr[u].id, l)) {
+    if (!tr[u].left) {
+      int child = tr.size();
+      tr.emplace_back();
+      tr[u].left = child;
     }
-    else{
-      int x; scanf("%d",&x);
-      printf("%d\n",(int)query(1,1,N,x)/100);
+    change(tr[u].left, l, mid, id);
+  } else if (Y(id, r) > Y(tr[u].id, r)) {
+    if (!tr[u].right) {
+      int child = tr.size();
+      tr.emplace_back();
+      tr[u].right = child;
+    }
+    change(tr[u].right, mid + 1, r, id);
+  }
+}
+double query(int u, int l, int r, int x) {
+  if (!u) return 0;
+  double ans = Y(tr[u].id, x);
+  if (l == r) return ans;
+  int mid = (l + r) / 2;
+  if (x <= mid) return max(ans, query(tr[u].left, l, mid, x));
+  return max(ans, query(tr[u].right, mid + 1, r, x));
+}
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  int n;
+  cin >> n;
+  lines.assign(1, Line{}); //直线0表示初始收益0
+  tr.assign(2, Node{});   //节点0为空，节点1为根
+  for (int i = 0; i < n; ++i) {
+    string op;
+    cin >> op;
+    if (op == "Project") {
+      double b, k;
+      cin >> b >> k;
+      lines.push_back({k, b - k});
+      change(1, 1, MAX_X, (int)lines.size() - 1);
+    } else {
+      int x;
+      cin >> x;
+      cout << (int)(query(1, 1, MAX_X, x) / 100) << '\n';
     }
   }
 }

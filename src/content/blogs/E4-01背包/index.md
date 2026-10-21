@@ -53,12 +53,10 @@ language: zh
 ### Python代码实现
 
 ```python
-N = 3410
-M = 13000
 n, m = map(int, input().split())
-v = [0] * N
-w = [0] * N
-f = [0] * M
+v = [0] * (n + 1)
+w = [0] * (n + 1)
+f = [0] * (m + 1)
 for i in range(n):
     v[i + 1], w[i + 1] = map(int, input().split())
 for i in range(1, n + 1):
@@ -73,17 +71,22 @@ print(f[m])
 ### C++代码实现
 
 ```c++
-// 逆序枚举，优化空间#include <iostream>
+// 逆序枚举，优化空间
+#include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-const int N=3410,M=13000;
 int n, m;
-int v[N],w[N],f[M];
 
 int main(){
   scanf("%d%d",&n,&m);
+  vector<int> v,w;
+  v.assign(n + 1, 0);
+  w.assign(n + 1, 0);
+  vector<int> f;
+  f.assign(m + 1, 0);
   for(int i=1; i<=n; i++)
     scanf("%d%d",&v[i],&w[i]);  //费用，价值
 

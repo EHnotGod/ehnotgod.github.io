@@ -76,11 +76,6 @@ language: zh
 ```python
 # P1219 [USACO1.5] 八皇后 Checker Challenge
 
-N = 30
-pos = [0] * N
-c = [0] * N
-p = [0] * N
-q = [0] * N
 ans = 0
 def pr():
     if ans <= 3:
@@ -101,6 +96,10 @@ def dfs(i):
         dfs(i + 1)
         c[j] = p[i + j] = q[i - j + n] = 0
 n = int(input())
+pos = [0] * (n + 1)
+c = [0] * (n + 1)
+p = [0] * (2 * n + 1)
+q = [0] * (2 * n + 1)
 dfs(1)
 print(ans)
 ```
@@ -108,14 +107,14 @@ print(ans)
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 using namespace std;
 
-const int N=30;
 int n, ans;
-int pos[N],c[N],p[N],q[N];
+vector<int> pos,c,p,q;
 
 void print(){
   if(ans<=3){
@@ -138,6 +137,8 @@ void dfs(int i){
 }
 int main(){
   cin >> n;
+  pos.assign(n+1,0); c.assign(n+1,0);
+  p.assign(2*n+1,0); q.assign(2*n+1,0);
   dfs(1);
   cout << ans;
   return 0;

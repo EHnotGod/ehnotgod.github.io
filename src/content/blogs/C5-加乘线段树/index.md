@@ -232,18 +232,19 @@ for _ in range(m):
 #include <cstring>
 #include <iostream>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-#define N 100005
 #define LL long long
 #define int long long
 #define lc u<<1
 #define rc u<<1|1
-LL w[N];
+vector<LL> w;
 LL n,m,op,x,y,k,mod;
 struct Tree{ //线段树
   LL l,r,sum,add,mul;
-}tr[N*4];
+};
+vector<Tree> tr;
 
 inline LL len(int u) { return tr[u].r - tr[u].l + 1; }
 
@@ -268,7 +269,7 @@ void pushdown(int u) {
   }
 }
 void build(LL u,LL l,LL r){ //建树
-  tr[u]={l,r,w[l],0,1};
+  tr[u]={l,r,(w[l]%mod+mod)%mod,0,1};
   if(l==r) return;
   LL m=l+r>>1;
   build(lc,l,m);
@@ -314,6 +315,8 @@ LL query(LL u,LL l,LL r){ //区查
 }
 signed main(){
   cin>>n>>m>>mod;
+  w.assign(n + 1, 0);
+  tr.assign(n * 4 + 5, Tree{});
   for(int i=1; i<=n; i ++) cin>>w[i];
   build(1,1,n);
   while(m--){

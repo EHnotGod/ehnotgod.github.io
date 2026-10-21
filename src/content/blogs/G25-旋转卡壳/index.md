@@ -54,13 +54,13 @@ language: zh
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-#define N 50010
 #define x first
 #define y second
 #define Point pair<int,int>
-Point p[N],s[N];
+vector<Point> p,s;
 int n;
 
 int cross(Point a,Point b,Point c){ //叉积
@@ -70,7 +70,7 @@ int dis(Point a, Point b){ //距离平方
   return (a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y);
 }
 void Andrew(){
-  sort(p+1,p+n+1);
+  sort(p.begin()+1,p.end());
   int t=0;
   for(int i=1; i<=n; i++){ //下凸包
     while(t>1&&cross(s[t-1],s[t],p[i])<=0)t--;
@@ -93,6 +93,8 @@ int rotating_calipers(){ //旋转卡壳
 }
 int main(){
   scanf("%d",&n);
+  p.assign(n+1,Point{});
+  s.assign(2*n+2,Point{});
   for(int i=1; i<=n; i++) scanf("%d%d",&p[i].x,&p[i].y);
   Andrew();
   printf("%d\n",rotating_calipers());

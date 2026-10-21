@@ -97,18 +97,18 @@ print(int(ans))
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include<iostream>
 #include<cstdio>
 #include<algorithm>
 using namespace std;
 
-#define N 20005
 struct line{    //线段
   int l,r;
-  bool operator<(line &t){
+  bool operator<(const line &t) const{
     return l<t.l;
   }
-}a[N];
+};
 int n,st,ed,sum;
 //a[] 存储每条线段的起点,终点
 //st  存储合并区间的起点
@@ -117,9 +117,10 @@ int n,st,ed,sum;
 
 int main(){
   scanf("%d",&n);
+  vector<line> a(n+1);
   for(int i=1;i<=n;i++)
     cin>>a[i].l>>a[i].r;
-  sort(a+1,a+n+1); //按起点排序
+  sort(a.begin()+1,a.end()); //按起点排序
 
   st=a[1].l; ed=a[1].r;
   sum+=a[1].r-a[1].l;

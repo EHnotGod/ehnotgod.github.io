@@ -61,10 +61,10 @@ Tarjan 强连通分量：DFS 时给每个点记录 $dfn$（访问序）和 $low$
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=10010;
 int n,m,a,b,ans;
-vector<int> e[N]; 
-int dfn[N],low[N],tim,stk[N],ins[N],top,scc[N],siz[N],cnt;
+vector<vector<int>> e;
+vector<int> dfn,low,stk,ins,scc,siz;
+int tim,top,cnt;
 
 void tarjan(int x){
   dfn[x]=low[x]=++tim; //时间戳 追溯值
@@ -91,6 +91,9 @@ void tarjan(int x){
 int main(){
   ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
   cin>>n>>m;
+  e.assign(n+1,{});
+  dfn.assign(n+1,0); low.assign(n+1,0); stk.assign(n+1,0);
+  ins.assign(n+1,0); scc.assign(n+1,0); siz.assign(n+1,0);
   while(m--)
     cin>>a>>b, e[a].push_back(b);
   for(int i=1;i<=n;i++) //可能不连通

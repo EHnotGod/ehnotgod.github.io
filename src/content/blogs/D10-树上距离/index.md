@@ -25,15 +25,15 @@ language: zh
 # 相比树链剖分板子，只在有标注“#距离”处修改了
 import sys
 sys.setrecursionlimit(int(1e7))
-N = 100010
-fa = [0] * N
-son = [0] * N
-dep = [0] * N
-siz = [0] * N
-top = [0] * N
+n = int(input())
+fa = [0] * (n + 1)
+son = [0] * (n + 1)
+dep = [0] * (n + 1)
+siz = [0] * (n + 1)
+top = [0] * (n + 1)
 # 距离
-dis = [0] * N
-e = [[] for i in range(N)]
+dis = [0] * (n + 1)
+e = [[] for i in range(n + 1)]
 def dfs1(u, f):
     fa[u] = f
     siz[u] = 1
@@ -65,7 +65,6 @@ def lca(u, v):
         return u
     else:
         return v
-n = int(input())
 for i in range(1, n):
     a, b = map(int, input().split())
     e[a].append(b)
@@ -88,11 +87,9 @@ for i in range(m):
 #include <algorithm>
 #include <vector>
 using namespace std;
-const int N=100010;
 int n,m,a,b,c;
-vector<int> e[N];
-int dep[N],fa[N],son[N],sz[N],dis[N];
-int top[N];
+vector<vector<int>> e;
+vector<int> dep,fa,son,sz,dis,top;
 
 void dfs1(int u,int father){
   fa[u]=father,dep[u]=dep[father]+1,sz[u]=1;
@@ -122,6 +119,9 @@ int lca(int x,int y){
 }
 int main(){
   scanf("%d",&n);
+  e.assign(n+1,{});
+  dep.assign(n+1,0); fa.assign(n+1,0); son.assign(n+1,0);
+  sz.assign(n+1,0); dis.assign(n+1,0); top.assign(n+1,0);
   for(int i=1; i<n; i++){
     scanf("%d%d",&a,&b);
     e[a].push_back(b);

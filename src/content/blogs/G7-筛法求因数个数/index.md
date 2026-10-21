@@ -77,22 +77,23 @@ for i in range(1, n + 1):
 
 ```c++
 #include <iostream>
+#include <vector>
 using namespace std;
 
-const int N = 1000010;
-int p[N], vis[N], cnt;
-int a[N]; //a[i]记录i的最小质因子的次数
-int d[N]; //d[i]记录i的约数个数
+vector<int> p;
+vector<unsigned char> vis;
+vector<int> a; //a[i]记录i的最小质因子的次数
+vector<int> d; //d[i]记录i的约数个数
 
 void get_d(int n){ //筛法求约数个数
   d[1] = 1;
   for(int i=2; i<=n; i++){
     if(!vis[i]){
-      p[++cnt] = i;
+      p.push_back(i);
       a[i] = 1;
       d[i] = 2;
     }
-    for(int j=1; i*p[j]<=n; j++){
+    for(int j=1; j<static_cast<int>(p.size())&&1LL*i*p[j]<=n; j++){
       int m = i*p[j];
       vis[m] = 1;
       if(i%p[j] == 0){
@@ -110,6 +111,10 @@ void get_d(int n){ //筛法求约数个数
 int main(){
   int n;
   cin >> n;
+  p.assign(1,0);
+  vis.assign(n+1,0);
+  a.assign(n+1,0);
+  d.assign(n+1,0);
   get_d(n);
   for(int i=1; i<=n; i++)
     printf("%d\n", d[i]);

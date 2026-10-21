@@ -45,7 +45,7 @@ int main(){
   scanf("%d%d%d", &a, &b, &m);
   int d = exgcd(a, m, x, y);
   if(b%d == 0) 
-    printf("%d", 1ll*x*b/d%m);
+    printf("%lld", 1ll*x*b/d%m);
   else puts("none");
   return 0;
 }

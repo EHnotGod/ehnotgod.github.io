@@ -62,9 +62,9 @@ language: zh
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=100005;
-int n,rt,d[N];
-vector<pair<int,int>> e[N];
+int n,rt;
+vector<int> d;
+vector<vector<pair<int,int>>> e;
 
 void dfs(int u,int fa){
   if(d[rt]<d[u]) rt=u; //记录最远点
@@ -76,6 +76,7 @@ void dfs(int u,int fa){
 }
 int main(){
   cin>>n;
+  e.assign(n+1,{}); d.assign(n+1,0);
   for(int i=1,x,y;i<n;i++){
     cin>>x>>y;
     e[x].emplace_back(y,1);
@@ -93,9 +94,9 @@ int main(){
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=100005;
-int n,mxd,d[N]; //d[u]从u点向下走的最长距离
-vector<pair<int,int>> e[N];
+int n,mxd;
+vector<int> d; //d[u]从u点向下走的最长距离
+vector<vector<pair<int,int>>> e;
 
 void dfs(int u,int fa){
   for(auto [v,w]:e[u]){
@@ -107,6 +108,7 @@ void dfs(int u,int fa){
 }
 int main(){
   cin>>n;
+  e.assign(n+1,{}); d.assign(n+1,0);
   for(int i=1,x,y;i<n;i++){
     cin>>x>>y;
     e[x].emplace_back(y,1);

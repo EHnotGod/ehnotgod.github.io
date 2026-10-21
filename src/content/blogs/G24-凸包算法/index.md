@@ -56,10 +56,11 @@ Andrew 凸包：按 $(x,y)$ 排序后，先从左到右构造下凸包，再从�
 #include <cstring>
 #include <algorithm>
 #include <cmath>
+#include <vector>
 using namespace std;
 
-const int N=100010;
-struct Point{double x,y;} p[N],s[N];
+struct Point{double x,y;};
+vector<Point> p,s;
 int n,top;
 
 double cross(Point a,Point b,Point c){ //叉积
@@ -72,7 +73,7 @@ bool cmp(Point a, Point b){ //比较
   return a.x!=b.x ? a.x<b.x : a.y<b.y;
 }
 double Andrew(){
-  sort(p+1,p+n+1,cmp); //排序
+  sort(p.begin()+1,p.end(),cmp); //排序
   for(int i=1; i<=n; i++){ //下凸包
     while(top>1&&cross(s[top-1],s[top],p[i])<=0)top--;
     s[++top]=p[i];
@@ -88,6 +89,8 @@ double Andrew(){
 }
 int main(){
   scanf("%d",&n);
+  p.assign(n+1,Point{});
+  s.assign(2*n+2,Point{});
   for(int i=1;i<=n;i++)scanf("%lf%lf",&p[i].x,&p[i].y);
   printf("%.2lf\n", Andrew());
   return 0;

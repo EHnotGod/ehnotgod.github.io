@@ -60,34 +60,33 @@ language: zh
 ### C++代码：
 
 ```c++
-#include<iostream>
-#include<cmath>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
-const int N = 55;
-int S[N][N][100],L[N][N];
 
-void add(int x, int y){
-  L[x][y]=max(L[x-1][y-1],L[x-1][y]);        
-  for(int i=0; i<L[x][y]; i++){  
-    S[x][y][i]+=S[x-1][y-1][i]+y*S[x-1][y][i];   
-    S[x][y][i+1]+=S[x][y][i]/10; 
-    S[x][y][i]%=10;
-  }
-  while(S[x][y][L[x][y]]){
-    S[x][y][L[x][y]+1]+=S[x][y][L[x][y]]/10;
-    S[x][y][L[x][y]]%=10;
-    L[x][y]++;
-  }
-}
 int main(){
-  int n, m;
-  cin>>n>>m;
-  S[0][0][0]=1; L[0][0]=1;
-  for(int i=1; i<=n; i++)
-    for(int j=1; j<=i; j++)
-      add(i,j);   
-  if(!L[n][m]) cout<<0;     
-  for(int i=L[n][m]-1; i>=0; i--)
-    cout<<S[n][m][i];
+  int n,m; cin>>n>>m;
+  if(m>n){cout<<0; return 0;}
+  using Digits=vector<int>; //十进制低位在前，位数随进位增长
+  vector<vector<Digits>> S;
+  S.assign(n+1,vector<Digits>(m+1));
+  S[0][0]={1};
+  for(int i=1;i<=n;i++)
+    for(int j=1;j<=min(i,m);j++){
+      const auto& a=S[i-1][j-1];
+      const auto& b=S[i-1][j];
+      auto& cur=S[i][j];
+      cur.assign(max(a.size(),b.size()),0);
+      int carry=0;
+      for(size_t k=0;k<cur.size();k++){
+        int value=carry+(k<a.size()?a[k]:0)+j*(k<b.size()?b[k]:0);
+        cur[k]=value%10;
+        carry=value/10;
+      }
+      while(carry){cur.push_back(carry%10); carry/=10;}
+    }
+  if(S[n][m].empty()) cout<<0;
+  else for(auto it=S[n][m].rbegin();it!=S[n][m].rend();++it) cout<<*it;
 }
 ```

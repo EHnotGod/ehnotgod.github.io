@@ -171,20 +171,20 @@ for i in range(1, n + 1):
 #include<cstring>
 #include<iostream>
 #include<queue>
-#define N 30010
+#include<vector>
 #define INF 1000000000
 using namespace std;
 
 int n,m,a,b,c;
 struct edge{int v,w;};
-vector<edge> e[N];
-int vis[N],cnt[N];
-long long h[N],d[N];
+vector<vector<edge>> e;
+vector<int> vis,cnt;
+vector<long long> h,d;
 
 void spfa(){
     queue<int>q;
-    memset(h,63,sizeof h);
-    memset(vis,false,sizeof vis);
+    h.assign(n+1,0x3f3f3f3f3f3f3f3fLL);
+    vis.assign(n+1,0);
     h[0]=0,vis[0]=1;q.push(0);
     while(q.size()){
         int u=q.front(); q.pop();vis[u]=0;
@@ -204,7 +204,7 @@ void spfa(){
 void dijkstra(int s){
     priority_queue<pair<long long,int>>q;
     for(int i=1;i<=n;i++)d[i]=INF;
-    memset(vis,false,sizeof vis);
+    vis.assign(n+1,0);
     d[s]=0; q.push({0,s});
     while(q.size()){
         int u=q.top().second;q.pop();
@@ -221,6 +221,11 @@ void dijkstra(int s){
 }
 int main(){
   cin>>n>>m;
+  e.assign(n+1,{});
+  h.assign(n+1,0);
+  d.assign(n+1,0);
+  vis.assign(n+1,0);
+  cnt.assign(n+1,0);
   for(int i=0;i<m;i++)
     cin>>a>>b>>c, e[a].push_back({b,c});
     for(int i=1;i<=n;i++)

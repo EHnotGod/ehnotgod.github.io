@@ -136,7 +136,7 @@ y = root[r]
 每加入一个新数，就产生一个新版本：
 
 ```cpp
-insert(root[i-1],root[i],1,bn,id);
+root[i]=insert(root[i-1],1,bn,id);
 ```
 
 也就是：
@@ -159,11 +159,13 @@ root[3]
 核心：
 
 ```cpp
-void insert(int x,int &y,int l,int r,int pos){
-    y=++idx;
-    tr[y]=tr[x];
+int insert(int x,int l,int r,int pos){
+    int y = tr.size();
+    node copy = tr[x];
+    tr.push_back(copy);
     tr[y].s++;
-    ...
+    // 递归更新对应儿子，最后返回新节点编号
+    return y;
 }
 ```
 
@@ -177,9 +179,10 @@ y = 新版本节点
 最重要的是：
 
 ```cpp
-y=++idx;      // 新建节点
-tr[y]=tr[x];  // 复制旧节点
-tr[y].s++;    // 只修改新节点
+int y = tr.size();  // 新建节点编号
+node copy = tr[x];
+tr.push_back(copy);  // 复制旧节点
+tr[y].s++;           // 只修改新节点
 ```
 
 也就是说：
@@ -194,7 +197,7 @@ O(log n)
 
 个节点，而不是复制整棵树。
 
-注意`int &y`，它可以让父节点的lc(y)自动附到对应的子节点。
+`insert` 返回新节点编号，递归返回后再写入父节点的儿子。`vector` 扩容会使已有引用失效，因此不把 `tr[y].l` 或 `tr[y].r` 以引用参数传入递归。
 
 总体复杂度：
 
@@ -288,24 +291,34 @@ print('\n'.join(output))
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-#define N 200005
 #define lc(x) tr[x].l
 #define rc(x) tr[x].r
 struct node{
   int l,r,s; //s:节点值域中有多少个数
-}tr[N*20];
-int root[N],idx;
-int n,m,a[N],b[N];
+};
+vector<node> tr;
+vector<int> root,a,b;
+int n,m;
 
-void insert(int x,int &y,int l,int r,int pos){
-  y=++idx; //开点
-  tr[y]=tr[x]; tr[y].s++;
-  if(l==r) return;
-  int m=l+r>>1;
-  if(pos<=m) insert(lc(x),lc(y),l,m,pos);
-  else insert(rc(x),rc(y),m+1,r,pos);
+int insert(int x,int l,int r,int pos){
+  int y=tr.size();
+  node copy=tr[x];
+  tr.push_back(copy); //按需开点
+  tr[y].s++;
+  if(l==r) return y;
+  int m=(l+r)>>1;
+  if(pos<=m){
+    int child=insert(lc(x),l,m,pos);
+    lc(y)=child;
+  }
+  else{
+    int child=insert(rc(x),m+1,r,pos);
+    rc(y)=child;
+  }
+  return y;
 }
 int query(int x,int y,int l,int r,int k){
   if(l==r) return l;
@@ -316,15 +329,19 @@ int query(int x,int y,int l,int r,int k){
 }
 int main(){
   scanf("%d%d",&n,&m);
+  a.assign(n + 1, 0);
+  b.assign(n + 1, 0);
+  root.assign(n + 1, 0);
+  tr.assign(1, node{}); //编号0表示空节点
   for(int i=1; i<=n; i++){
     scanf("%d",&a[i]); b[i]=a[i];
   }
-  sort(b+1,b+n+1);
-  int bn=unique(b+1,b+n+1)-b-1; //去重后的个数
+  sort(b.begin()+1,b.end());
+  int bn=unique(b.begin()+1,b.end())-b.begin()-1; //去重后的个数
 
   for(int i=1; i<=n; i++){
-    int id=lower_bound(b+1,b+bn+1,a[i])-b;//下标
-    insert(root[i-1],root[i],1,bn,id);
+    int id=lower_bound(b.begin()+1,b.begin()+bn+1,a[i])-b.begin();//下标
+    root[i]=insert(root[i-1],1,bn,id);
   }
   while(m--){
     int l,r,k; scanf("%d%d%d",&l,&r,&k);
@@ -344,7 +361,7 @@ int query_rank(int x,int y,int l,int r,int pos){
   return s+query_rank(rc(x),rc(y),m+1,r,pos);
 }
 
-int pos=lower_bound(b+1,b+bn+1,v)-b;
+int pos=lower_bound(b.begin()+1,b.begin()+bn+1,v)-b.begin();
 int rk=query_rank(root[l-1],root[r],1,bn,pos);
 printf("%d\n",rk);
 ```

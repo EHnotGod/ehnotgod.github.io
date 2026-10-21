@@ -107,13 +107,13 @@ using namespace std;
 
 #define lc 2*p
 #define rc 2*p+1
-#define N 500005
 
-int w[N];
+vector<int> w;
 
 struct node {
     int l, r, sum, ansl, ansr, ans;
-} tr[N * 4];
+};
+vector<node> tr;
 void merge(int p){
     tr[p].sum = tr[lc].sum + tr[rc].sum;
     tr[p].ans = max(tr[lc].ans, max(tr[rc].ans, tr[rc].ansl + tr[lc].ansr));
@@ -170,6 +170,8 @@ signed main(){
     cout.tie(0);
     int n, m;
     cin >> n >> m;
+    w.assign(n + 1, 0);
+    tr.assign(n * 4 + 5, node{});
     range(i, 0, n){
         cin >> w[i + 1];
     }

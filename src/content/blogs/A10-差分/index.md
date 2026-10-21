@@ -85,17 +85,17 @@ print(abs(p - q) + 1)
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <iostream>
 #include <cstring>
 using namespace std;
 
 typedef long long LL;
-const int N=100010;
-int a[N], b[N];
 
 int main(){
   int n;
   cin>>n;
+  vector<int> a(n+1),b(n+1);
   for(int i=1; i<=n; i++) cin>>a[i];
   for(int i=1; i<=n; i++) b[i]=a[i]-a[i-1];
 

@@ -82,20 +82,20 @@ sys.stdout.write(out)
 
 ```c++
 #include <iostream>
+#include <vector>
 using namespace std;
 
-const int N = 1000010;
-int p[N], vis[N], cnt;
-int phi[N];
+vector<int> p,phi;
+vector<unsigned char> vis;
 
 void get_phi(int n){//筛法求欧拉函数
   phi[1] = 1;
   for(int i=2; i<=n; i++){
     if(!vis[i]){
-      p[cnt++] = i;
+      p.push_back(i);
       phi[i] = i-1;
     }
-    for(int j=0; i*p[j]<=n; j++){
+    for(int j=0; j<static_cast<int>(p.size())&&1LL*i*p[j]<=n; j++){
       int m = i*p[j];
       vis[m] = 1;
       if(i%p[j] == 0){
@@ -110,6 +110,9 @@ void get_phi(int n){//筛法求欧拉函数
 int main(){
   int n;
   cin >> n;
+  p.clear();
+  vis.assign(n+1,0);
+  phi.assign(n+1,0);
   get_phi(n);
   for(int i=1; i<=n; i++)
     printf("%d ", phi[i]);

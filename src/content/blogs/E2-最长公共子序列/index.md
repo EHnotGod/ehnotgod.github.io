@@ -94,16 +94,20 @@ if __name__ == "__main__":
 ```c++
 #include <cstring>
 #include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
 
-char a[200] = "ADABBC";
-char b[200] = "DBPCA";
-int f[200][200];
-int p[200][200];
+string a = "ADABBC";
+string b = "DBPCA";
+vector<vector<int>> f,p;
 int m, n;
 void LCS() {
     int i, j;
-    m = strlen(a);
-    n = strlen(b);
+    m = a.size();
+    n = b.size();
+    f.assign(m + 1, vector<int>(n + 1, 0));
+    p.assign(m + 1, vector<int>(n + 1, 0));
     for (i = 1; i <= m; i++) {
         for (j = 1; j <= n; j++) {
             if (a[i-1] == b[j-1]) {
@@ -123,7 +127,7 @@ void LCS() {
 
 void getLCS() {
     int i, j, k;
-    char s[200];
+    string s(f[m][n], ' ');
     i = m;
     j = n;
     k = f[m][n];

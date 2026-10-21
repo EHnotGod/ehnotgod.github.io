@@ -59,17 +59,20 @@ Windy 数（相邻数字差 $\ge 2$）数位 DP：预处理 $f[i][j]$ 表示共 
 ### Python代码实现
 
 ```python
-f = [[0] * 20 for i in range(20)]
-def init():
+a, b = map(int, input().split())
+f = []
+def init(digits):
+    global f
+    f = [[0] * 10 for _ in range(digits + 1)]
     for i in range(10):
         f[1][i] = 1
-    for i in range(2, 20):
+    for i in range(2, digits + 1):
         for j in range(10):
             for k in range(10):
                 if abs(j - k) >= 2:
                     f[i][j] += f[i - 1][k]
 def dp(x):
-    if x == 0:
+    if x <= 0:
         return 0
     xlis = []
     while x > 0:
@@ -97,8 +100,7 @@ def dp(x):
         for j in range(1, 10):
             res += f[i + 1][j]
     return res
-init()
-a, b = map(int, input().split())
+init(len(str(b)))
 print(dp(b) - dp(a - 1))
 ```
 
@@ -108,21 +110,21 @@ print(dp(b) - dp(a - 1))
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 20;
-int a[N];     //把整数的每一位数字抠出来，存入数组 
-int f[N][10]; //f[i][j]表示一共有i位，且最高位数字为j的Windy数的个数 
+vector<vector<int>> f; //f[i][j]表示一共有i位，且最高位数字为j的Windy数的个数
 
-void init(){  //预处理Windy数的个数 
+void init(int digits){  //预处理Windy数的个数
+  f.assign(digits + 1, vector<int>(10, 0));
   for(int i=0; i<=9; i++) f[1][i]=1;  //一位数 
-  for(int i=2; i<N; i++)        //阶段：枚举位数 
+  for(int i=2; i<=digits; i++)        //阶段：枚举位数
     for(int j=0; j<=9; j++)     //状态：枚举第i位 
       for(int k=0; k<=9; k++)   //决策：枚举第i-1位 
         if(abs(k-j)>=2) f[i][j]+=f[i-1][k];    
 }
 int dp(int x){
-  if(!x) return 0;                //特判，x==0返回0 
-  int cnt = 0; 
-  while(x) a[++cnt]=x%10, x/=10;  //把每一位抠出来存入数组
+  if(x<=0) return 0;                //特判，x==0返回0
+  vector<int> a(1, 0);
+  int cnt = 0;
+  while(x) a.push_back(x%10), ++cnt, x/=10;  //把每一位抠出来存入数组
 
   int res=0, last=-2;             //last表示上一位数字 
   for(int i=cnt; i>=1; --i){      //从高位到低位枚举 
@@ -141,9 +143,9 @@ int dp(int x){
   return res; 
 }
 int main(){
-  init();   //预处理Windy数的个数 
   int l,r;
   cin>>l>>r;
+  init(to_string(r).size());
   cout<<dp(r)-dp(l-1);
   return 0;
 }

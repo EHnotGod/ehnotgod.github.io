@@ -98,14 +98,15 @@ language: zh
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=500010;
 int n,m,a,b;
-vector<int> e[N],ne[N],dcc[N];
-int dfn[N],low[N],tot,stk[N],top,cut[N],root,cnt;
+vector<vector<int>> e,dcc;
+vector<int> dfn,low,stk,cut;
+int tot,top,root,cnt;
 
 void tarjan(int x){
   if(x==root&&!e[x].size()){ //孤立点
-        dcc[++cnt].push_back(x);
+        ++cnt; dcc.emplace_back();
+        dcc[cnt].push_back(x);
         return;
     }  
   dfn[x]=low[x]=++tot; stk[++top]=x;
@@ -118,7 +119,7 @@ void tarjan(int x){
         son++;
         if(x!=root||son>1)cut[x]=1; //割点
         
-        ++cnt;
+        ++cnt; dcc.emplace_back();
         while(1){
           int z=stk[top--];
           dcc[cnt].push_back(z);
@@ -134,6 +135,9 @@ void tarjan(int x){
 int main(){
   ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
   cin>>n>>m;
+  e.assign(n+1,{}); dcc.assign(1,{});
+  dfn.assign(n+1,0); low.assign(n+1,0);
+  stk.assign(n+1,0); cut.assign(n+1,0);
   while(m--){
     cin>>a>>b;
     if(a==b) continue; //忽略自环

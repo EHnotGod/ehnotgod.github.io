@@ -106,9 +106,10 @@ for i in range(1, n + 1):
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=50010;
-int n,siz[N],f[N],cnt=1e9;
-vector<int> e[N],g;
+int n,cnt=1e9;
+vector<int> siz,f;
+vector<vector<int>> e;
+vector<int> g;
 
 void dfs(int u,int fa){
   siz[u]=1;
@@ -123,6 +124,7 @@ void dfs(int u,int fa){
 }
 int main(){
   scanf("%d",&n);
+  e.assign(n+1,{}); siz.assign(n+1,0); f.assign(n+1,0);
   for(int i=1,a,b;i<n;i++){
     scanf("%d%d",&a,&b);
     e[a].push_back(b);

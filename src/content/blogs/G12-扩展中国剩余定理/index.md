@@ -95,40 +95,39 @@ if __name__ == "__main__":
 
 ```c++
 #include <iostream>
-#include <cstring>
-#include <algorithm>
+#include <vector>
 using namespace std;
 
-typedef __int128 LL;
-const int N = 100005;
-LL n, m[N], r[N];
-
+using LL = __int128;
 LL exgcd(LL a,LL b,LL &x,LL &y){
-  if(b==0){x=1, y=0; return a;}
-  LL d, x1, y1;
-  d = exgcd(b, a%b, x1, y1);
-  x = y1, y = x1-a/b*y1;
+  if(b==0){x=1; y=0; return a;}
+  LL x1,y1,d=exgcd(b,a%b,x1,y1);
+  x=y1; y=x1-a/b*y1;
   return d;
 }
-LL EXCRT(LL m[], LL r[]){
-  LL m1, m2, r1, r2, p, q;
-  m1 = m[1], r1 = r[1];
-  for(int i=2; i<=n; i++){
-    m2 = m[i], r2 = r[i];
-    LL d = exgcd(m1,m2,p,q);
-    if((r2-r1)%d){return -1;}
-    p=p*(r2-r1)/d; //特解
+LL EXCRT(const vector<LL>& m,const vector<LL>& r){
+  LL m1=m[1],r1=r[1];
+  for(size_t i=2;i<m.size();i++){
+    LL m2=m[i],r2=r[i],p,q;
+    LL d=exgcd(m1,m2,p,q);
+    if((r2-r1)%d) return -1;
+    p=p*((r2-r1)/d);
     p=(p%(m2/d)+m2/d)%(m2/d);
-    r1 = m1*p+r1;
-    m1 = m1*m2/d;
+    r1=m1*p+r1;
+    m1=m1*(m2/d);
   }
   return (r1%m1+m1)%m1;
 }
 int main(){
-  scanf("%lld", &n);
-  for(int i = 1; i <= n; ++i)
-    scanf("%lld%lld", m+i, r+i);
-  printf("%lld\n",EXCRT(m,r));
-  return 0;
+  ios::sync_with_stdio(false); cin.tie(nullptr);
+  int n; cin>>n;
+  vector<LL> m,r;
+  m.assign(n+1,0); r.assign(n+1,0);
+  for(int i=1;i<=n;i++){
+    long long mi,ri; cin>>mi>>ri;
+    m[i]=mi; r[i]=ri;
+  }
+  //题目保证最小公倍数不超过 10^18，答案可转回 long long 输出。
+  cout<<static_cast<long long>(EXCRT(m,r))<<'\n';
 }
 ```

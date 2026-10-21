@@ -99,14 +99,14 @@ for i in range(1, n + 1):
 ```c++
 #include <iostream>
 #include <deque>
+#include <vector>
 using namespace std;
 
-const int N=1000010;
-int a[N];
-deque<int> q;
 
 int main(){
   int n, k; scanf("%d%d", &n, &k);
+  vector<int> a; a.assign(n + 1, 0);
+  deque<int> q;
   for(int i=1; i<=n; i++) scanf("%d", &a[i]);
 
   // 维护窗口最小值

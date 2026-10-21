@@ -56,17 +56,18 @@ language: zh
 from bisect import bisect_left
 import sys
 input = sys.stdin.readline
-N = 200005
 # L[i] = [x1, x2, y, tag]
 L = []
 # 线段树
-cnt = [0] * (N * 8)
-length = [0] * (N * 8)
+cnt = []
+length = []
 # X 坐标，保持 1 下标
-X = [0] * (N * 2)
+X = []
 def pushup(u, l, r):
     if cnt[u]:
         length[u] = X[r + 1] - X[l]   # r → X[r+1]
+    elif l == r:
+        length[u] = 0
     else:
         length[u] = length[u << 1] + length[u << 1 | 1]
 def change(u, l, r, a, b, tag):
@@ -82,6 +83,7 @@ def change(u, l, r, a, b, tag):
     pushup(u, l, r)
 
 def main():
+    global cnt, length, X
     n = int(input())
     xs = []
     for i in range(1, n + 1):
@@ -97,14 +99,15 @@ def main():
     # X 坐标排序 + 去重
     xs = sorted(set(xs))
     s = len(xs)
-    for i in range(s):
-        X[i + 1] = xs[i]
+    X = [0] + xs
+    cnt = [0] * (4 * s + 5)
+    length = [0] * (4 * s + 5)
     ans = 0
     for i in range(n - 1):
         l = bisect_left(xs, L[i][0]) + 1
         r = bisect_left(xs, L[i][1]) + 1
         # x2 → r-1
-        change(1, 1, s, l, r - 1, L[i][3])
+        change(1, 1, s - 1, l, r - 1, L[i][3])
         ans += (L[i + 1][2] - L[i][2]) * length[1]
     print(ans)
 
@@ -120,20 +123,22 @@ if __name__ == "__main__":
 #include <iostream>
 #include <cstdio>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 #define ls u<<1
 #define rs u<<1|1
-const int N=200005;
 struct line{   //扫描线
   int x1,x2,y;
   int tag;     //入边:+1,出边:-1
-  bool operator<(line &t){return y<t.y;}
-}L[N];
-int cnt[N*8],len[N*8]; //线段树
-int X[N];              //X坐标
+  bool operator<(const line &t)const{return y<t.y;}
+};
+vector<line> L;
+vector<int> cnt,len; //线段树
+vector<int> X;       //X坐标
 void pushup(int u,int l, int r){
   if(cnt[u]) len[u]=X[r+1]-X[l]; //r → X[r+1]
+  else if(l==r) len[u]=0;
   else len[u]=len[ls]+len[rs];
 }
 void change(int u,int l,int r,int a,int b,int tag){
@@ -150,6 +155,8 @@ void change(int u,int l,int r,int a,int b,int tag){
 }
 int main(){
   int n,x1,x2,y1,y2; scanf("%d",&n);
+  L.assign(2 * n + 1, line{});
+  X.assign(2 * n + 1, 0);
   for(int i=1; i<=n; i++){
     scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
     L[i]={x1,x2,y1,1};
@@ -157,15 +164,17 @@ int main(){
     X[i]=x1; X[n+i]=x2;         
   }
   n*=2;
-  sort(L+1,L+n+1); //扫描线排序
-  sort(X+1,X+n+1); //X坐标排序
-  int s=unique(X+1,X+n+1)-X-1; //去重
+  sort(L.begin()+1,L.end()); //扫描线排序
+  sort(X.begin()+1,X.end()); //X坐标排序
+  int s=unique(X.begin()+1,X.end())-X.begin()-1; //去重
   
+  cnt.assign(4 * s + 5, 0);
+  len.assign(4 * s + 5, 0);
   long long ans=0;
   for(int i=1; i<n; i++){
-    int l=lower_bound(X+1,X+s+1,L[i].x1)-X;
-    int r=lower_bound(X+1,X+s+1,L[i].x2)-X;
-    change(1,1,s,l,r-1,L[i].tag); //x2 → r-1
+    int l=lower_bound(X.begin()+1,X.begin()+s+1,L[i].x1)-X.begin();
+    int r=lower_bound(X.begin()+1,X.begin()+s+1,L[i].x2)-X.begin();
+    change(1,1,s-1,l,r-1,L[i].tag); //x2 → r-1
     ans+=1ll*(L[i+1].y-L[i].y)*len[1];
   }
   printf("%lld\n",ans);

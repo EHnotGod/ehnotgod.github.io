@@ -195,6 +195,7 @@ language: zh
 
 // 1.头文件(EH:?这也能算第一点?)
 #include <bits/stdc++.h>
+#include <cassert>
 using namespace std;
 #define endl "\n"
 #define int long long

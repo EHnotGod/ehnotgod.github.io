@@ -42,20 +42,19 @@ for _ in range(t):
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 using namespace std;
 
-const int N=1010;
-int n,a[N],b[N];
-
 int main(){
   int t; cin>>t;
   while(t--){
-    cin>>n;
+    int n; cin>>n;
+    vector<int> a(n),b(n);
     for(int i=0; i<n; i++) cin>>a[i]>>b[i];
-    sort(a,a+n); sort(b,b+n);
+    sort(a.begin(),a.end()); sort(b.begin(),b.end());
 
     int x=a[n/2]-a[(n-1)/2]+1;
     int y=b[n/2]-b[(n-1)/2]+1;

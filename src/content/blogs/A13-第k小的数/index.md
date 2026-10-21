@@ -91,10 +91,12 @@ print(qnth_element(0, n - 1))
 ### C++代码实现
 
 ```c++
+#include <vector>
 #include <iostream>
 using namespace std;
 
-int n,k,a[5000010];
+int n,k;
+vector<int> a;
 
 int qnth_element(int l, int r){
   if(l==r) return a[l];
@@ -110,6 +112,7 @@ int qnth_element(int l, int r){
 
 int main(){
   scanf("%d%d",&n,&k);
+  a.assign(n,0);
   for(int i=0;i<n;i++) scanf("%d",&a[i]);
   printf("%d\n",qnth_element(0,n-1));
 }

@@ -75,14 +75,14 @@ print(a + b)
 ### C++代码实现
 
 ```c++
+#include <string>
+#include <vector>
 #include <iostream>
 using namespace std;
 
-const int N=505;
-int a[N],b[N],c[N];
 int la,lb,lc;
 
-void add(int a[],int b[],int c[]){ //a+b=c
+void add(const vector<int>& a,const vector<int>& b,vector<int>& c){ //a+b=c
     for(int i=1; i<=lc; i++){
         c[i]+=a[i]+b[i]; //求和
         c[i+1]+=c[i]/10; //进位
@@ -93,6 +93,7 @@ void add(int a[],int b[],int c[]){ //a+b=c
 int main(){
     string sa,sb; cin>>sa>>sb;
     la=sa.size(),lb=sb.size(),lc=max(la,lb);
+    vector<int> a(lc+2),b(lc+2),c(lc+2);
     for(int i=1; i<=la; i++) a[i]=sa[la-i]-'0';
     for(int i=1; i<=lb; i++) b[i]=sb[lb-i]-'0';
     add(a,b,c);

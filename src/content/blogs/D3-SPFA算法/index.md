@@ -74,17 +74,16 @@ SPFA 是队列优化的 Bellman-Ford，适合含负权边的图。维护队列�
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 2010;
 int n, m;
-int d[N], vis[N], cnt[N];
+vector<int> d, vis, cnt;
 struct Edge {
     int v, w;
 };
-vector<Edge> g[N];
+vector<vector<Edge>> g;
 bool spfa() { // 判负环
-    memset(d, 0x3f, sizeof d); d[1] = 0;
-    memset(vis, 0, sizeof vis);
-    memset(cnt, 0, sizeof cnt);
+    d.assign(n + 1, 0x3f3f3f3f); d[1] = 0;
+    vis.assign(n + 1, 0);
+    cnt.assign(n + 1, 0);
     queue<int> q; 
     q.push(1); 
     vis[1] = 1; // 在队中
@@ -112,7 +111,7 @@ int main() {
     scanf("%d", &T);
     while (T--) {
         scanf("%d%d", &n, &m);
-        for (int i = 1; i <= n; i++) g[i].clear();
+        g.assign(n + 1, {});
         for (int i = 1; i <= m; i++) {
             int u, v, w;
             scanf("%d%d%d", &u, &v, &w);

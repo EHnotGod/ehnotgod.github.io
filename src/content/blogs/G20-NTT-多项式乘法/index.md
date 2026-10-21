@@ -60,11 +60,12 @@ NTT 数论变换：用模素数 $P=998244353$ 的原根 $g=3$ 替代复数单位
 #include <algorithm>
 #include <cmath>
 #define LL long long
+#include <vector>
 using namespace std;
-const int N=4e6;
 const int g=3,P=998244353;
-int n,m,R[N],gi,ni;
-LL A[N],B[N];
+int n,m,gi,ni;
+vector<int> R;
+vector<LL> A,B;
 
 LL qpow(LL a,LL b){
   LL ans=1;
@@ -72,7 +73,7 @@ LL qpow(LL a,LL b){
     if(b&1) ans=ans*a%P;
   return ans;
 }
-void NTT(LL A[],int n,int op){
+void NTT(vector<LL>& A,int n,int op){
   for(int i=0; i<n; ++i)
     R[i]=R[i/2]/2+((i&1)?n/2:0);      
   for(int i=0; i<n; ++i)
@@ -91,14 +92,19 @@ void NTT(LL A[],int n,int op){
 }
 int main(){
   scanf("%d%d",&n,&m);
-  for(int i=0;i<=n;++i)scanf("%lld",A+i);
-  for(int i=0;i<=m;++i)scanf("%lld",B+i);
-  for(m=n+m,n=1; n<=m; n<<=1);
+  int degree=n+m,limit=1;
+  while(limit<=degree) limit<<=1;
+  R.assign(limit,0);
+  A.assign(limit,0);
+  B.assign(limit,0);
+  for(int i=0;i<=n;++i)scanf("%lld",&A[i]);
+  for(int i=0;i<=m;++i)scanf("%lld",&B[i]);
+  m=degree; n=limit;
   gi=qpow(g,P-2); ni=qpow(n,P-2);
   NTT(A,n,1); NTT(B,n,1);
   for(int i=0;i<n;++i)A[i]=A[i]*B[i]%P;
   NTT(A,n,-1);
   for(int i=0;i<=m;++i)
-    printf("%d ",A[i]*ni%P);
+    printf("%lld ",A[i]*ni%P);
 }
 ```

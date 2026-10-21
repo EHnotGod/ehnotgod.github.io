@@ -63,12 +63,9 @@ template<class H, class...T> void dbg_out(const H& h, const T&...t){
 #define def(name, ...) auto name = [&](__VA_ARGS__)
 
 
-const int N = 40000010;
 const int mod = 1000000007;
-int p[N], vis[N], cnt;
-int mu[N];
-int fac[N];
-int inv[N];
+vector<int> p,mu,fac,inv;
+vector<unsigned char> vis;
 
 
 int qpow(int a,int b,int p){ //快速幂
@@ -81,6 +78,8 @@ int qpow(int a,int b,int p){ //快速幂
   return s;
 }
 void init(int n){
+    fac.assign(n,0);
+    inv.assign(n,0);
     fac[0] = 1;
     range(i, 1, n){
         fac[i] = i * fac[i - 1] % mod;
@@ -98,13 +97,16 @@ int comb(int n, int r){
     return ans;
 }
 void get_mu(int n){//筛法求莫比乌斯函数
+  p.assign(1,0);
+  vis.assign(n+1,0);
+  mu.assign(n+1,0);
   mu[1] = 1;
   for(int i=2; i<=n; i++){
     if(!vis[i]){
-      p[++cnt] = i;
+      p.push_back(i);
       mu[i] = -1;
     }
-    for(int j=1; i*p[j]<=n; j++){
+    for(int j=1; j<static_cast<int>(p.size())&&i*p[j]<=n; j++){
       int m = i*p[j]; 
       vis[m] = 1;
       if(i%p[j] == 0){

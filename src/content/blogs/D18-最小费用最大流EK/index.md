@@ -61,75 +61,95 @@ language: zh
 
 最小费用最大流：在 EK 框架下，每次用 SPFA 在残量网络上找费用最小的增广路，沿最短路增广并累加费用，直到找不到增广路。因为残量网络中存在负费用反向边，用 SPFA 而非 Dijkstra。复杂度 $O(F\cdot nm)$。
 
+邻接表使用 `vector<vector<int>> g` 保存出边编号，边信息存放在 `vector<Edge> e` 中。正反向边连续加入，编号从 0 开始，通过 `i ^ 1` 找反向边；反向边的初始容量为零，费用为正向边费用的相反数。`pre[v]` 记录最短路上进入 `v` 的边编号，以便沿路径更新残量。
+
 ### py代码实现
 
-略，涉及到dfs的都不适合写python。
+本节给出 C++ 实现。
 
 ### C++代码实现
 
 ```c++
 // Luogu P3381 【模板】最小费用最大流
 #include <iostream>
-#include <cstring>
 #include <algorithm>
+#include <limits>
 #include <queue>
+#include <vector>
 using namespace std;
 
-const int N=5010,M=100010,INF=1e8;
-int n,m,S,T;
-struct edge{int v,c,w,ne;}e[M];
-int h[N],idx=1;//从2,3开始配对
-int d[N],mf[N],pre[N],vis[N];
-int flow,cost;
+using LL = long long;
+const LL INF = numeric_limits<LL>::max() / 4;
+int n, m, S, T;
+struct Edge { int to; LL cap, cost; };
+vector<Edge> e;
+vector<vector<int>> g;
+vector<LL> d,mf;
+LL flow,cost;
+vector<int> pre;
+vector<bool> vis;
 
-void add(int a,int b,int c,int d){
-  e[++idx]={b,c,d,h[a]};
-  h[a]=idx;
+void add(int a, int b, LL cap, LL w) {
+  int id = static_cast<int>(e.size());
+  e.push_back({b, cap, w});
+  e.push_back({a, 0, -w});
+  g[a].push_back(id);
+  g[b].push_back(id ^ 1);
 }
-bool spfa(){
-  memset(d,0x3f,sizeof d);
-  memset(mf,0,sizeof mf);
-  queue<int> q; q.push(S);
-  d[S]=0, mf[S]=INF, vis[S]=1;
-  while(q.size()){
-    int u=q.front(); q.pop();
-    vis[u]=0;
-    for(int i=h[u];i;i=e[i].ne){
-      int v=e[i].v,c=e[i].c,w=e[i].w;
-      if(d[v]>d[u]+w && c){
-        d[v]=d[u]+w; //最短路
-        pre[v]=i;
-        mf[v]=min(mf[u],c);
-        if(!vis[v]){
-          q.push(v); vis[v]=1;
+bool spfa() {
+  fill(d.begin(), d.end(), INF);
+  fill(mf.begin(), mf.end(), 0);
+  fill(vis.begin(), vis.end(), false);
+  queue<int> q;
+  q.push(S);
+  d[S] = 0;
+  mf[S] = INF;
+  vis[S] = true;
+  while (!q.empty()) {
+    int u = q.front(); q.pop();
+    vis[u] = false;
+    for (int id : g[u]) {
+      int v = e[id].to;
+      if (e[id].cap > 0 && d[v] > d[u] + e[id].cost) {
+        d[v] = d[u] + e[id].cost;
+        pre[v] = id;
+        mf[v] = min(mf[u], e[id].cap);
+        if (!vis[v]) {
+          q.push(v);
+          vis[v] = true;
         }
       }
     }
   }
-  return mf[T]>0;
+  return mf[T] > 0;
 }
-void EK(){
-  while(spfa()){
-    for(int v=T;v!=S;){
-      int i=pre[v];
-      e[i].c-=mf[T];
-      e[i^1].c+=mf[T];
-      v=e[i^1].v;
+void EK() {
+  while (spfa()) {
+    for (int v = T; v != S; ) {
+      int id = pre[v];
+      e[id].cap -= mf[T];
+      e[id ^ 1].cap += mf[T];
+      v = e[id ^ 1].to;
     }
-    flow+=mf[T]; //累加可行流
-    cost+=mf[T]*d[T];//累加费用   
+    flow += mf[T];
+    cost += mf[T] * d[T];
   }
 }
-int main(){
-  scanf("%d%d%d%d",&n,&m,&S,&T);
-  int a,b,c,d;
-  while(m --){
-    scanf("%d%d%d%d",&a,&b,&c,&d);
-    add(a,b,c,d);
-    add(b,a,0,-d);
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cin >> n >> m >> S >> T;
+  g.assign(n + 1, {});
+  d.assign(n + 1, 0); mf.assign(n + 1, 0);
+  pre.assign(n + 1, 0); vis.assign(n + 1, false);
+  for (int i = 0; i < m; ++i) {
+    int a, b;
+    LL cap, w;
+    cin >> a >> b >> cap >> w;
+    add(a, b, cap, w);
   }
   EK();
-  printf("%d %d\n",flow,cost);
+  cout << flow << ' ' << cost << '\n';
   return 0;
 }
 ```

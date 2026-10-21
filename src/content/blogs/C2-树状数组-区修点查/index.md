@@ -113,11 +113,11 @@ if __name__ == "__main__":
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=500010;
-int n,m,a[N];
+int n,m;
 
 struct BIT{
-  int s[N]; //差分的区间和
+  vector<int> s; //差分的区间和
+  explicit BIT(int size) { s.assign(size + 1, 0); }
   void change(int x,int w){
     for(;x<=n;x+=x&-x) s[x]+=w;
   }
@@ -126,10 +126,12 @@ struct BIT{
     for(;x;x-=x&-x) res+=s[x];
     return res;
   }
-}T;
+};
 int main(){
   ios::sync_with_stdio(0);
   cin>>n>>m; int op,x,y,k;
+  vector<int> a; a.assign(n + 1, 0);
+  BIT T(n);
   for(int i=1;i<=n;i++) cin>>a[i];
   for(int i=1;i<=m;i++){
     cin>>op>>x;

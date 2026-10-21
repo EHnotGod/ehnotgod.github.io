@@ -62,13 +62,14 @@ language: zh
 
 ```c++
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int n;
-long long f[20];
-
 int main(){
+  int n;
   cin >> n;
+  vector<long long> f;
+  f.assign(n+1,0);
   f[0] = 1;
   for(int i = 1; i <= n; i++) 
     f[i] = f[i-1]*(4*i-2)/(i+1);

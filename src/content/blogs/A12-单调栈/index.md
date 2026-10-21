@@ -78,15 +78,14 @@ print(*f)
 ### C++代码实现
 
 ```cpp
+#include <vector>
 #include <cstdio>
 using namespace std;
-
-const int N = 3000005;
-int a[N], f[N], stk[N];
 
 int main() {
     int n;
     scanf("%d", &n);
+    vector<int> a(n+1),f(n+1),stk(n+1);
     for (int i = 1; i <= n; i++) scanf("%d", &a[i]);
 
     int top = 0;
