@@ -1,0 +1,312 @@
+---
+import { EXAMPLE_POINTS, MAX_POINTS } from '@/utils/point-plotter'
+
+interface Props {
+  isZh: boolean
+}
+const { isZh } = Astro.props
+---
+
+<point-plotter data-locale={isZh ? 'zh' : 'en'} class='block'>
+  <div class='grid gap-5 lg:grid-cols-[260px_minmax(0,1fr)]'>
+    <section class='min-w-0 rounded-xl border border-border p-5' aria-labelledby='points-label'>
+      <label id='points-label' for='point-input' class='font-medium'
+        >{isZh ? '坐标输入' : 'Coordinates'}</label
+      >
+      <p id='point-help' class='mb-4 mt-2 text-xs leading-5 text-muted-foreground'>
+        {
+          isZh
+            ? '每行一个点：x y，以空格或逗号分隔。支持负数、小数和科学计数法。'
+            : 'One point per line: x y, separated by spaces or commas. Decimals, negatives, and scientific notation are supported.'
+        }
+      </p>
+      <textarea
+        id='point-input'
+        aria-describedby='point-help point-error'
+        spellcheck='false'
+        class='block min-h-64 w-full resize-y rounded-lg border border-input bg-background p-3 font-mono text-sm leading-7 outline-none focus-visible:ring-2 focus-visible:ring-primary'
+        >{EXAMPLE_POINTS}</textarea
+      >
+      <div class='mt-3 flex gap-2'>
+        <button type='button' data-action='example' class='tool-button'
+          >{isZh ? '载入示例' : 'Load example'}</button
+        >
+        <button type='button' data-action='clear' class='tool-button'
+          >{isZh ? '清空' : 'Clear'}</button
+        >
+      </div>
+      <p class='mt-3 text-xs text-muted-foreground'>
+        {isZh ? `实时绘图 · 最多 ${MAX_POINTS} 个点` : `Live preview · Up to ${MAX_POINTS} points`}
+      </p>
+      <p id='point-error' role='status' class='mt-3 text-sm text-destructive' hidden></p>
+    </section>
+
+    <section
+      class='min-w-0 overflow-hidden rounded-xl border border-border'
+      aria-label={isZh ? '绘图区' : 'Plot'}
+    >
+      <fieldset class='flex flex-wrap gap-x-5 gap-y-3 border-b border-border px-5 py-4 text-sm'>
+        <legend class='sr-only'>{isZh ? '绘图选项' : 'Plot options'}</legend>
+        <label class='flex cursor-pointer items-center gap-2'
+          ><input type='checkbox' name='connect' checked />{
+            isZh ? '依次连线' : 'Connect points'
+          }</label
+        >
+        <label
+          class='flex cursor-pointer items-center gap-2 has-[:disabled]:cursor-default has-[:disabled]:opacity-50'
+          ><input type='checkbox' name='close' />{isZh ? '首尾相连' : 'Close shape'}</label
+        >
+        <label class='flex cursor-pointer items-center gap-2'
+          ><input type='checkbox' name='labels' checked />{
+            isZh ? '显示点编号' : 'Point labels'
+          }</label
+        >
+      </fieldset>
+      <div data-canvas class='relative'>
+        <svg
+          data-plot
+          xmlns='http://www.w3.org/2000/svg'
+          role='img'
+          aria-label={isZh
+            ? '平面坐标图，鼠标悬停在点上可查看坐标'
+            : 'Coordinate plot. Hover over a point to see its coordinates.'}
+          class='block h-[440px] w-full'></svg>
+        <p
+          data-empty
+          class='pointer-events-none absolute inset-0 flex items-center justify-center px-8 text-center text-sm text-muted-foreground'
+          hidden
+        >
+          {isZh ? '在左侧输入坐标，即可生成图形。' : 'Enter coordinates to draw a plot.'}
+        </p>
+      </div>
+      <div
+        class='flex flex-wrap justify-between gap-2 border-t border-border px-5 py-3 text-xs text-muted-foreground'
+      >
+        <span data-stats role='status' aria-live='polite'></span>
+        <span
+          >{isZh ? '横纵轴等比例 · 悬停查看坐标' : 'Equal axis scale · Hover for coordinates'}</span
+        >
+      </div>
+    </section>
+  </div>
+  <noscript
+    ><p class='mt-4'>
+      {isZh ? '请启用 JavaScript 以使用绘图工具。' : 'Enable JavaScript to use the plotter.'}
+    </p></noscript
+  >
+</point-plotter>
+
+<style>
+  .tool-button {
+    @apply rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground transition-colors hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary;
+  }
+  input[type='checkbox'] {
+    accent-color: hsl(var(--primary));
+  }
+  [hidden] {
+    display: none !important;
+  }
+  svg :global(.grid-line) {
+    stroke: hsl(var(--border));
+    stroke-width: 0.7;
+  }
+  svg :global(.axis-line) {
+    stroke: hsl(var(--muted-foreground) / 0.65);
+    stroke-width: 1.2;
+  }
+  svg :global(.tick-label) {
+    fill: hsl(var(--muted-foreground));
+    font-size: 10px;
+  }
+  svg :global(.point-line) {
+    stroke: hsl(var(--primary));
+    stroke-width: 2;
+    fill: none;
+    stroke-linejoin: round;
+  }
+  svg :global(.plot-point) {
+    fill: hsl(var(--primary));
+    stroke: hsl(var(--background));
+    stroke-width: 1.5;
+  }
+  svg :global(.plot-point:hover) {
+    r: 6;
+  }
+  svg :global(.point-label) {
+    fill: hsl(var(--foreground));
+    font-size: 11px;
+    paint-order: stroke;
+    stroke: hsl(var(--background));
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  import {
+    edgeCount,
+    EXAMPLE_POINTS,
+    fitPoints,
+    gridTicks,
+    MAX_POINTS,
+    parsePoints
+  } from '@/utils/point-plotter'
+
+  class PointPlotter extends HTMLElement {
+    private observer?: ResizeObserver
+    private frame = 0
+
+    connectedCallback() {
+      this.addEventListener('input', this.scheduleRender)
+      this.addEventListener('change', this.scheduleRender)
+      this.querySelector('[data-action="example"]')?.addEventListener('click', () => {
+        this.querySelector<HTMLTextAreaElement>('textarea')!.value = EXAMPLE_POINTS
+        this.scheduleRender()
+      })
+      this.querySelector('[data-action="clear"]')?.addEventListener('click', () => {
+        const input = this.querySelector<HTMLTextAreaElement>('textarea')!
+        input.value = ''
+        input.focus()
+        this.scheduleRender()
+      })
+      this.observer = new ResizeObserver(this.scheduleRender)
+      this.observer.observe(this.querySelector('[data-canvas]')!)
+      this.render()
+    }
+
+    disconnectedCallback() {
+      this.observer?.disconnect()
+      cancelAnimationFrame(this.frame)
+      this.removeEventListener('input', this.scheduleRender)
+      this.removeEventListener('change', this.scheduleRender)
+    }
+
+    private scheduleRender = () => {
+      cancelAnimationFrame(this.frame)
+      this.frame = requestAnimationFrame(() => this.render())
+    }
+
+    private render() {
+      const isZh = this.dataset.locale === 'zh'
+      const input = this.querySelector<HTMLTextAreaElement>('textarea')!
+      const connect = this.querySelector<HTMLInputElement>('[name="connect"]')!
+      const close = this.querySelector<HTMLInputElement>('[name="close"]')!
+      const labels = this.querySelector<HTMLInputElement>('[name="labels"]')!.checked
+      const error = this.querySelector<HTMLElement>('#point-error')!
+      const empty = this.querySelector<HTMLElement>('[data-empty]')!
+      const svg = this.querySelector<SVGSVGElement>('[data-plot]')!
+      const stats = this.querySelector<HTMLElement>('[data-stats]')!
+      const result = parsePoints(input.value)
+      close.disabled = !connect.checked
+      const points = result.points ?? []
+      const width = Math.max(240, svg.getBoundingClientRect().width)
+      const height = 440
+      const fit = fitPoints(points, width, height)
+      let message = ''
+      if (result.error === 'invalid') {
+        message = isZh
+          ? `第 ${result.line} 行格式有误，请输入两个数：x y。`
+          : `Line ${result.line}: enter two numbers, x y.`
+      } else if (result.error === 'limit') {
+        message = isZh ? `最多支持 ${MAX_POINTS} 个点。` : `Use at most ${MAX_POINTS} points.`
+      } else if (result.error === 'range' || !fit) {
+        message = isZh
+          ? '坐标数值或范围过大 / 过小，请调整后重试。'
+          : 'The coordinate values or range are too large or too small. Please adjust them.'
+      }
+      error.textContent = message
+      error.hidden = !message
+      input.setAttribute('aria-invalid', String(Boolean(message)))
+      empty.hidden = !message && points.length > 0
+      empty.textContent = message
+        ? isZh
+          ? '请修正坐标输入后继续绘图。'
+          : 'Correct the coordinates to continue.'
+        : isZh
+          ? '输入坐标，即可生成图形。'
+          : 'Enter coordinates to draw a plot.'
+      const edges = message ? 0 : edgeCount(points.length, connect.checked, close.checked)
+      stats.textContent = isZh
+        ? `${message ? 0 : points.length} 个点 · ${edges} 条线段`
+        : `${message ? 0 : points.length} points · ${edges} segments`
+      svg.replaceChildren()
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`)
+      if (!fit || message) return
+
+      const element = (tag: string, attrs: Record<string, string | number>, text?: string) => {
+        const node = document.createElementNS('http://www.w3.org/2000/svg', tag)
+        Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, String(value)))
+        if (text !== undefined) node.textContent = text
+        return node
+      }
+      const format = (value: number) => {
+        if (value === 0) return '0'
+        return Math.abs(value) >= 1e6 || Math.abs(value) < 1e-4
+          ? value.toExponential(2)
+          : String(Number(value.toPrecision(6)))
+      }
+      const grid = element('g', { 'aria-hidden': 'true' })
+      for (const x of gridTicks(fit.xMin, fit.xMax, fit.scale)) {
+        const px = fit.project({ x, y: 0 }).x
+        grid.append(
+          element('line', {
+            x1: px,
+            y1: 0,
+            x2: px,
+            y2: height,
+            class: x === 0 ? 'axis-line' : 'grid-line'
+          })
+        )
+        if (px > 18 && px < width - 18)
+          grid.append(
+            element(
+              'text',
+              { x: px, y: height - 12, 'text-anchor': 'middle', class: 'tick-label' },
+              format(x)
+            )
+          )
+      }
+      for (const y of gridTicks(fit.yMin, fit.yMax, fit.scale)) {
+        const py = fit.project({ x: 0, y }).y
+        grid.append(
+          element('line', {
+            x1: 0,
+            y1: py,
+            x2: width,
+            y2: py,
+            class: y === 0 ? 'axis-line' : 'grid-line'
+          })
+        )
+        if (py > 16 && py < height - 30)
+          grid.append(element('text', { x: 8, y: py - 5, class: 'tick-label' }, format(y)))
+      }
+      grid.append(element('text', { x: width - 13, y: height - 12, class: 'tick-label' }, 'x'))
+      grid.append(element('text', { x: 8, y: 14, class: 'tick-label' }, 'y'))
+      svg.append(grid)
+      const projected = points.map(fit.project)
+      if (connect.checked && points.length > 1) {
+        const vertices = projected.map((point) => `${point.x},${point.y}`)
+        if (close.checked && points.length > 2) vertices.push(vertices[0])
+        svg.append(element('polyline', { points: vertices.join(' '), class: 'point-line' }))
+      }
+      const pointGroup = element('g', {})
+      projected.forEach((point, index) => {
+        const dot = element('circle', { cx: point.x, cy: point.y, r: 4, class: 'plot-point' })
+        dot.append(element('title', {}, `${index + 1}: (${points[index].x}, ${points[index].y})`))
+        pointGroup.append(dot)
+        if (labels)
+          pointGroup.append(
+            element(
+              'text',
+              { x: point.x + 8, y: point.y - 9, class: 'point-label' },
+              String(index + 1)
+            )
+          )
+      })
+      svg.append(pointGroup)
+    }
+  }
+
+  if (!customElements.get('point-plotter')) customElements.define('point-plotter', PointPlotter)
+</script>

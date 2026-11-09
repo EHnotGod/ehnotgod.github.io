@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const isZh = Astro.currentLocale === 'zh'
+const title = isZh ? '工具包' : 'Toolkit'
+const description = isZh ? '一些随手可用的小工具。' : 'Small tools for everyday tasks.'
+const prefix = isZh ? '/zh' : ''
+---
+
+<BaseLayout meta={{ title, description }}>
+  <main class='mb-16'>
+    <h1 class='text-3xl font-medium'>{title}</h1>
+    <p class='mt-3 text-muted-foreground'>{description}</p>
+    <div class='mt-8 grid gap-4 sm:grid-cols-2'>
+      <a
+        href={`${prefix}/tools/point-plotter`}
+        class='group rounded-xl border border-border p-6 transition-colors hover:border-primary hover:bg-muted/40'
+      >
+        <svg class='mb-5 size-10 text-primary' viewBox='0 0 40 40' fill='none' aria-hidden='true'>
+          <path d='M5 4v31h31' stroke='currentColor' stroke-opacity='.4'></path>
+          <path d='m9 27 8-15 10 8 8-12' stroke='currentColor' stroke-width='2'></path>
+          <g fill='currentColor'>
+            <circle cx='9' cy='27' r='2.5'></circle>
+            <circle cx='17' cy='12' r='2.5'></circle>
+            <circle cx='27' cy='20' r='2.5'></circle>
+            <circle cx='35' cy='8' r='2.5'></circle>
+          </g>
+        </svg>
+        <h2 class='text-lg font-medium'>
+          {isZh ? '平面点绘图' : 'Point Plotter'}
+          <span aria-hidden='true'>↗</span>
+        </h2>
+        <p class='mt-2 text-sm leading-6 text-muted-foreground'>
+          {
+            isZh
+              ? '输入二维坐标，自动生成散点、折线或闭合图形。'
+              : 'Turn coordinates into a scatter plot, polyline, or closed shape.'
+          }
+        </p>
+      </a>
+    </div>
+  </main>
+</BaseLayout>

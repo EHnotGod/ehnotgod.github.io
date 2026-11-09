@@ -45,6 +45,7 @@ export const theme: ThemeUserConfig = {
       { title: 'Blog', link: '/blog/algo' },
       { title: 'Academic', link: '/academic' },
       { title: 'Projects', link: '/projects' },
+      { title: 'Toolkit', link: '/tools' },
       { title: 'About', link: '/about' },
       { title: 'Links', link: '/links' }
     ]

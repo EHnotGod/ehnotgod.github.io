@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+import PointPlotter from './PointPlotter.astro'
+
+const isZh = Astro.currentLocale === 'zh'
+const title = isZh ? '平面点绘图' : 'Point Plotter'
+const description = isZh
+  ? '输入二维坐标，按顺序绘制平面上的点与连线。'
+  : 'Plot points and connect them in input order on a coordinate plane.'
+---
+
+<BaseLayout meta={{ title, description }}>
+  <main class='mb-16'>
+    <a
+      href={isZh ? '/zh/tools' : '/tools'}
+      class='text-sm text-muted-foreground hover:text-primary'
+    >
+      ← {isZh ? '工具包' : 'Toolkit'}
+    </a>
+    <h1 class='mt-5 text-3xl font-medium'>{title}</h1>
+    <p class='mb-8 mt-3 text-muted-foreground'>{description}</p>
+    <PointPlotter {isZh} />
+  </main>
+</BaseLayout>

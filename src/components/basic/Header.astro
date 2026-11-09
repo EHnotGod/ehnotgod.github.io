@@ -90,7 +90,7 @@ function getLocalizedUrl(locale: string | undefined, path: string) {
                 class='w-full flex-none grow py-2 text-right font-medium transition-none hover:text-primary md:w-fit md:px-3'
                 aria-label='Nav menu item'
               >
-                {item.title}
+                {item.title === 'Toolkit' && Astro.currentLocale === 'zh' ? '工具包' : item.title}
               </a>
             )
           })
