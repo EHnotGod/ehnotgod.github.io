@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/scripts/pretty-feed-v3.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:h="http://www.w3.org/TR/html4/"><channel><title>EH&apos;s Blog</title><description>EH is not god, but EH</description><link>https://ehnotgod.github.io</link><item><title>H1 计算几何通用</title><link>https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/h1-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E9%80%9A%E7%94%A8</guid><description>计算几何专题讲解：精度建模、二维几何模板、凸包切线、闵可夫斯基和、旋转卡壳、半平面交、最小覆盖圆与竞赛题单，附章节索引和 C++ 代码。</description><pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;本页收录《计算几何专题讲解》完整 132 页课件，以及最新的计算几何 C++ 模板。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;/downloads/computational-geometry/main.pdf&quot;&gt;查看或下载完整 PDF&lt;/a&gt; · 下载完整 C++ 源码 · &lt;a href=&quot;#%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF&quot;&gt;代码模板&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;目录索引&lt;/h2&gt;
-&lt;p&gt;目录中的页码与 PDF 一致，点击标题即可跳转。展开章节可查看小节和具体知识点；桌面端也可使用右侧目录。&lt;/p&gt;
+&lt;p&gt;目录按“章节 → 小节”展示，页码与 PDF 一致，点击标题即可跳转；桌面端也可使用右侧目录。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;#%E8%AF%BE%E4%BB%B6%E5%B0%81%E9%9D%A2%E4%B8%8E%E5%8E%9F%E6%96%87%E7%9B%AE%E5%BD%95&quot;&gt;课件封面与原文目录&lt;/a&gt;&lt;/strong&gt;（第 1–3 页）&lt;/p&gt;
@@ -12,79 +12,19 @@
 &lt;/ul&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#11-%E7%B2%BE%E5%BA%A6%E5%BB%BA%E6%A8%A1&quot;&gt;1.1 精度建模&lt;/a&gt;（第 5–8 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#12-%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6keeping-the-dogs-apart&quot;&gt;1.2 案例研究：Keeping the Dogs Apart&lt;/a&gt;（第 9–13 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#121-%E7%9C%8B%E8%B5%B7%E6%9D%A5%E5%BE%88%E5%AF%B9%E4%BD%86%E8%BF%87%E4%B8%8D%E5%8E%BB%E7%9A%84%E4%BB%A3%E7%A0%81&quot;&gt;1.2.1 看起来很对但过不去的代码&lt;/a&gt;（第 10–11 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#122-%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90&quot;&gt;1.2.2 误差分析&lt;/a&gt;（第 12 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#123-%E5%B7%A7%E8%A7%A3&quot;&gt;1.2.3 巧解&lt;/a&gt;（第 13 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#13-%E6%B5%AE%E7%82%B9%E6%95%B0%E6%B1%82%E5%92%8C&quot;&gt;1.3 浮点数求和&lt;/a&gt;（第 14–15 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#131-%E6%9B%B4%E7%B2%BE%E7%A1%AE%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E6%B1%82%E5%92%8C&quot;&gt;1.3.1 更精确的浮点数求和&lt;/a&gt;（第 14 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#132-stablesum-%E6%A8%A1%E6%9D%BF&quot;&gt;1.3.2 stableSum 模板&lt;/a&gt;（第 15 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#14-%E5%B8%B8%E7%94%A8%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0&quot;&gt;1.4 常用数学函数&lt;/a&gt;（第 16–18 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#141-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E4%B8%8E%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0&quot;&gt;1.4.1 三角函数与反三角函数&lt;/a&gt;（第 16 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#142-%E6%95%B0%E5%80%BC%E5%A4%84%E7%90%86%E4%B8%8E%E7%B2%BE%E5%BA%A6%E6%8E%A7%E5%88%B6&quot;&gt;1.4.2 数值处理与精度控制&lt;/a&gt;（第 17 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#143-python-%E9%AB%98%E7%B2%BE%E5%BA%A6%E6%95%B0%E5%80%BC%E4%B8%8E%E6%95%B4%E6%95%B0%E4%B8%8A%E9%99%90&quot;&gt;1.4.3 Python 高精度数值与整数上限&lt;/a&gt;（第 18 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#12-%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6keeping-the-dogs-apart&quot;&gt;1.2 案例研究：Keeping the Dogs Apart&lt;/a&gt;（第 9–13 页）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#13-%E6%B5%AE%E7%82%B9%E6%95%B0%E6%B1%82%E5%92%8C&quot;&gt;1.3 浮点数求和&lt;/a&gt;（第 14–15 页）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#14-%E5%B8%B8%E7%94%A8%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0&quot;&gt;1.4 常用数学函数&lt;/a&gt;（第 16–18 页）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;#2-%E4%BA%8C%E7%BB%B4%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E6%A8%A1%E6%9D%BF&quot;&gt;2 二维计算几何模板&lt;/a&gt;&lt;/strong&gt;（第 19–76 页）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#21-%E7%82%B9&quot;&gt;2.1 点&lt;/a&gt;（第 20–36 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#211-%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89&quot;&gt;2.1.1 基本定义&lt;/a&gt;（第 20 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#212-%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0&quot;&gt;2.1.2 辅助函数&lt;/a&gt;（第 21 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#213-%E5%B9%B3%E7%A7%BB&quot;&gt;2.1.3 平移&lt;/a&gt;（第 22 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#214-%E7%BC%A9%E6%94%BE&quot;&gt;2.1.4 缩放&lt;/a&gt;（第 23 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#215-%E6%97%8B%E8%BD%AC%E4%B8%8E%E5%A4%8D%E6%95%B0&quot;&gt;2.1.5 旋转与复数&lt;/a&gt;（第 24–25 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#216-%E7%82%B9%E7%A7%AF&quot;&gt;2.1.6 点积&lt;/a&gt;（第 26 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#217-%E5%8F%89%E7%A7%AF%E5%A4%B9%E8%A7%92%E4%B8%8E%E6%96%B9%E5%90%91%E5%88%A4%E6%96%AD&quot;&gt;2.1.7 叉积、夹角与方向判断&lt;/a&gt;（第 27–33 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#218-%E6%9E%81%E8%A7%92%E6%8E%92%E5%BA%8F&quot;&gt;2.1.8 极角排序&lt;/a&gt;（第 34–36 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#22-%E7%9B%B4%E7%BA%BF&quot;&gt;2.2 直线&lt;/a&gt;（第 37–50 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#221-%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F&quot;&gt;2.2.1 基本定义与表示方式&lt;/a&gt;（第 37–40 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#222-%E7%82%B9%E4%B8%8E%E7%9B%B4%E7%BA%BF%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%85%B3%E7%B3%BB&quot;&gt;2.2.2 点与直线的位置关系&lt;/a&gt;（第 41 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#223-%E7%82%B9%E5%88%B0%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%B9%B3%E6%96%B9%E8%B7%9D%E7%A6%BB&quot;&gt;2.2.3 点到直线的距离与平方距离&lt;/a&gt;（第 42–43 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#224-%E8%BF%87%E4%B8%80%E7%82%B9%E7%9A%84%E5%9E%82%E7%BA%BF&quot;&gt;2.2.4 过一点的垂线&lt;/a&gt;（第 44 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#225-%E6%B2%BF%E7%9B%B4%E7%BA%BF%E6%8E%92%E5%BA%8F&quot;&gt;2.2.5 沿直线排序&lt;/a&gt;（第 45 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#226-%E6%B2%BF%E6%8C%87%E5%AE%9A%E6%96%B9%E5%90%91%E5%B9%B3%E7%A7%BB&quot;&gt;2.2.6 沿指定方向平移&lt;/a&gt;（第 46 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#227-%E7%9B%B4%E7%BA%BF%E4%BA%A4%E7%82%B9&quot;&gt;2.2.7 直线交点&lt;/a&gt;（第 47–48 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#228-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E4%B8%8E%E5%8F%8D%E5%B0%84&quot;&gt;2.2.8 正交投影与反射&lt;/a&gt;（第 49–50 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#23-%E7%BA%BF%E6%AE%B5&quot;&gt;2.3 线段&lt;/a&gt;（第 51–58 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#231-%E7%82%B9%E5%9C%A8%E7%BA%BF%E6%AE%B5%E4%B8%BA%E7%9B%B4%E5%BE%84%E7%9A%84%E5%9C%86%E5%86%85&quot;&gt;2.3.1 点在线段为直径的圆内&lt;/a&gt;（第 51 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#232-%E7%82%B9%E5%9C%A8%E7%BA%BF%E6%AE%B5%E4%B8%8A&quot;&gt;2.3.2 点在线段上&lt;/a&gt;（第 52 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#233-%E7%BA%BF%E6%AE%B5%E4%B8%8E%E7%BA%BF%E6%AE%B5%E4%BA%A4%E7%82%B9&quot;&gt;2.3.3 线段与线段交点&lt;/a&gt;（第 53–55 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#234-%E7%82%B9%E5%88%B0%E7%BA%BF%E6%AE%B5%E7%9A%84%E8%B7%9D%E7%A6%BB&quot;&gt;2.3.4 点到线段的距离&lt;/a&gt;（第 56–57 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#235-%E7%BA%BF%E6%AE%B5%E5%88%B0%E7%BA%BF%E6%AE%B5%E7%9A%84%E8%B7%9D%E7%A6%BB&quot;&gt;2.3.5 线段到线段的距离&lt;/a&gt;（第 58 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#24-%E5%A4%9A%E8%BE%B9%E5%BD%A2&quot;&gt;2.4 多边形&lt;/a&gt;（第 59–69 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#241-%E5%A4%9A%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF&quot;&gt;2.4.1 多边形面积&lt;/a&gt;（第 59 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#242-%E5%B0%84%E7%BA%BF%E6%B3%95%E5%88%A4%E7%82%B9&quot;&gt;2.4.2 射线法判点&lt;/a&gt;（第 60–63 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E5%87%B8%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%86%85%E4%B8%A5%E6%A0%BC%E5%88%A4%E7%82%B9&quot;&gt;凸多边形内严格判点&lt;/a&gt;（第 64 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#243-%E5%87%B8%E5%8C%85&quot;&gt;2.4.3 凸包&lt;/a&gt;（第 65–69 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#25-%E5%9C%86&quot;&gt;2.5 圆&lt;/a&gt;（第 70–76 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#251-%E5%A4%96%E6%8E%A5%E5%9C%86&quot;&gt;2.5.1 外接圆&lt;/a&gt;（第 70–71 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#252-%E5%9C%86%E4%B8%8E%E7%9B%B4%E7%BA%BF%E7%9A%84%E4%BA%A4%E7%82%B9&quot;&gt;2.5.2 圆与直线的交点&lt;/a&gt;（第 72–73 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#253-%E5%9C%86%E4%B8%8E%E5%9C%86%E7%9A%84%E4%BA%A4%E7%82%B9&quot;&gt;2.5.3 圆与圆的交点&lt;/a&gt;（第 74–76 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#21-%E7%82%B9&quot;&gt;2.1 点&lt;/a&gt;（第 20–36 页）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#22-%E7%9B%B4%E7%BA%BF&quot;&gt;2.2 直线&lt;/a&gt;（第 37–50 页）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#23-%E7%BA%BF%E6%AE%B5&quot;&gt;2.3 线段&lt;/a&gt;（第 51–58 页）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#24-%E5%A4%9A%E8%BE%B9%E5%BD%A2&quot;&gt;2.4 多边形&lt;/a&gt;（第 59–69 页）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#25-%E5%9C%86&quot;&gt;2.5 圆&lt;/a&gt;（第 70–76 页）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;#3-%E6%9B%B4%E5%A4%9A%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95&quot;&gt;3 更多高级算法&lt;/a&gt;&lt;/strong&gt;（第 77–93 页）&lt;/li&gt;
@@ -117,24 +57,8 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#51-%E6%80%BB%E7%BB%93&quot;&gt;5.1 总结&lt;/a&gt;（第 115 页）&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#52-%E6%AF%94%E8%B5%9B%E5%BB%BA%E8%AE%AE&quot;&gt;5.2 比赛建议&lt;/a&gt;（第 116–117 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#53-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E7%BB%BC%E5%90%88%E9%A2%98%E5%8D%95&quot;&gt;5.3 计算几何综合题单&lt;/a&gt;（第 118–124 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#%E7%BB%BC%E5%90%88%E9%A2%98%E5%8D%952024-%E7%9C%81%E8%B5%9B%E4%B8%8E%E9%82%80%E8%AF%B7%E8%B5%9B&quot;&gt;综合题单：2024 省赛与邀请赛&lt;/a&gt;（第 118 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E7%BB%BC%E5%90%88%E9%A2%98%E5%8D%952024-%E5%8C%BA%E5%9F%9F%E8%B5%9B&quot;&gt;综合题单：2024 区域赛&lt;/a&gt;（第 119 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E7%BB%BC%E5%90%88%E9%A2%98%E5%8D%952025-%E7%9C%81%E8%B5%9B%E4%B8%8E%E9%82%80%E8%AF%B7%E8%B5%9B&quot;&gt;综合题单：2025 省赛与邀请赛&lt;/a&gt;（第 120–121 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E7%BB%BC%E5%90%88%E9%A2%98%E5%8D%952025-%E5%8C%BA%E5%9F%9F%E8%B5%9B&quot;&gt;综合题单：2025 区域赛&lt;/a&gt;（第 122–123 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E7%BB%BC%E5%90%88%E9%A2%98%E5%8D%952026-%E7%9C%81%E8%B5%9B%E4%B8%8E%E9%82%80%E8%AF%B7%E8%B5%9B&quot;&gt;综合题单：2026 省赛与邀请赛&lt;/a&gt;（第 124 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#54-%E9%A2%98%E5%8D%95%E9%9A%BE%E5%BA%A6%E4%B8%8E%E6%A0%87%E7%AD%BE&quot;&gt;5.4 题单难度与标签&lt;/a&gt;（第 125–131 页）
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#%E9%9A%BE%E5%BA%A6%E4%B8%8E%E6%A0%87%E7%AD%BE2024-%E7%9C%81%E8%B5%9B%E4%B8%8E%E9%82%80%E8%AF%B7%E8%B5%9B&quot;&gt;难度与标签：2024 省赛与邀请赛&lt;/a&gt;（第 125 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E9%9A%BE%E5%BA%A6%E4%B8%8E%E6%A0%87%E7%AD%BE2024-%E5%8C%BA%E5%9F%9F%E8%B5%9B&quot;&gt;难度与标签：2024 区域赛&lt;/a&gt;（第 126 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E9%9A%BE%E5%BA%A6%E4%B8%8E%E6%A0%87%E7%AD%BE2025-%E7%9C%81%E8%B5%9B%E4%B8%8E%E9%82%80%E8%AF%B7%E8%B5%9B&quot;&gt;难度与标签：2025 省赛与邀请赛&lt;/a&gt;（第 127–128 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E9%9A%BE%E5%BA%A6%E4%B8%8E%E6%A0%87%E7%AD%BE2025-%E5%8C%BA%E5%9F%9F%E8%B5%9B&quot;&gt;难度与标签：2025 区域赛&lt;/a&gt;（第 129–130 页）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E9%9A%BE%E5%BA%A6%E4%B8%8E%E6%A0%87%E7%AD%BE2026-%E7%9C%81%E8%B5%9B%E4%B8%8E%E9%82%80%E8%AF%B7%E8%B5%9B&quot;&gt;难度与标签：2026 省赛与邀请赛&lt;/a&gt;（第 131 页）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#53-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E7%BB%BC%E5%90%88%E9%A2%98%E5%8D%95&quot;&gt;5.3 计算几何综合题单&lt;/a&gt;（第 118–124 页）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#54-%E9%A2%98%E5%8D%95%E9%9A%BE%E5%BA%A6%E4%B8%8E%E6%A0%87%E7%AD%BE&quot;&gt;5.4 题单难度与标签&lt;/a&gt;（第 125–131 页）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -177,33 +101,33 @@
 &lt;h3&gt;1.2 案例研究：Keeping the Dogs Apart&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;第 9 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-009.webp&quot; alt=&quot;计算几何专题讲解，第 9 页：1.2 案例研究：Keeping the Dogs Apart&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;1.2.1 看起来很对但过不去的代码&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1.2.1 看起来很对但过不去的代码&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 10–11 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-010.webp&quot; alt=&quot;计算几何专题讲解，第 10 页：1.2.1 看起来很对但过不去的代码&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-011.webp&quot; alt=&quot;计算几何专题讲解，第 11 页：1.2.1 看起来很对但过不去的代码&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;1.2.2 误差分析&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1.2.2 误差分析&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 12 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-012.webp&quot; alt=&quot;计算几何专题讲解，第 12 页：1.2.2 误差分析&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;1.2.3 巧解&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1.2.3 巧解&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 13 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-013.webp&quot; alt=&quot;计算几何专题讲解，第 13 页：1.2.3 巧解&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;1.3 浮点数求和&lt;/h3&gt;
-&lt;h4&gt;1.3.1 更精确的浮点数求和&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1.3.1 更精确的浮点数求和&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 14 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-014.webp&quot; alt=&quot;计算几何专题讲解，第 14 页：1.3.1 更精确的浮点数求和&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;1.3.2 stableSum 模板&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1.3.2 stableSum 模板&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 15 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-015.webp&quot; alt=&quot;计算几何专题讲解，第 15 页：1.3.2 stableSum 模板&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;1.4 常用数学函数&lt;/h3&gt;
-&lt;h4&gt;1.4.1 三角函数与反三角函数&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1.4.1 三角函数与反三角函数&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 16 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-016.webp&quot; alt=&quot;计算几何专题讲解，第 16 页：1.4.1 三角函数与反三角函数&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;1.4.2 数值处理与精度控制&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1.4.2 数值处理与精度控制&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 17 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-017.webp&quot; alt=&quot;计算几何专题讲解，第 17 页：1.4.2 数值处理与精度控制&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;1.4.3 Python 高精度数值与整数上限&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1.4.3 Python 高精度数值与整数上限&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 18 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-018.webp&quot; alt=&quot;计算几何专题讲解，第 18 页：1.4.3 Python 高精度数值与整数上限&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
@@ -212,26 +136,26 @@
 &lt;p&gt;&lt;img src=&quot;images/H1-019.webp&quot; alt=&quot;计算几何专题讲解，第 19 页：2 二维计算几何模板&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;2.1 点&lt;/h3&gt;
-&lt;h4&gt;2.1.1 基本定义&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.1.1 基本定义&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 20 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-020.webp&quot; alt=&quot;计算几何专题讲解，第 20 页：2.1.1 基本定义&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.1.2 辅助函数&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.1.2 辅助函数&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 21 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-021.webp&quot; alt=&quot;计算几何专题讲解，第 21 页：2.1.2 辅助函数&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.1.3 平移&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.1.3 平移&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 22 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-022.webp&quot; alt=&quot;计算几何专题讲解，第 22 页：2.1.3 平移&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.1.4 缩放&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.1.4 缩放&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 23 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-023.webp&quot; alt=&quot;计算几何专题讲解，第 23 页：2.1.4 缩放&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.1.5 旋转与复数&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.1.5 旋转与复数&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 24–25 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-024.webp&quot; alt=&quot;计算几何专题讲解，第 24 页：2.1.5 旋转与复数&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-025.webp&quot; alt=&quot;计算几何专题讲解，第 25 页：2.1.5 旋转与复数&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.1.6 点积&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.1.6 点积&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 26 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-026.webp&quot; alt=&quot;计算几何专题讲解，第 26 页：2.1.6 点积&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.1.7 叉积、夹角与方向判断&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.1.7 叉积、夹角与方向判断&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 27–33 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-027.webp&quot; alt=&quot;计算几何专题讲解，第 27 页：2.1.7 叉积、夹角与方向判断&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-028.webp&quot; alt=&quot;计算几何专题讲解，第 28 页：2.1.7 叉积、夹角与方向判断&quot;&gt;&lt;/p&gt;
@@ -240,78 +164,78 @@
 &lt;p&gt;&lt;img src=&quot;images/H1-031.webp&quot; alt=&quot;计算几何专题讲解，第 31 页：2.1.7 叉积、夹角与方向判断&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-032.webp&quot; alt=&quot;计算几何专题讲解，第 32 页：2.1.7 叉积、夹角与方向判断&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-033.webp&quot; alt=&quot;计算几何专题讲解，第 33 页：2.1.7 叉积、夹角与方向判断&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.1.8 极角排序&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.1.8 极角排序&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 34–36 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-034.webp&quot; alt=&quot;计算几何专题讲解，第 34 页：2.1.8 极角排序&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-035.webp&quot; alt=&quot;计算几何专题讲解，第 35 页：2.1.8 极角排序&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-036.webp&quot; alt=&quot;计算几何专题讲解，第 36 页：2.1.8 极角排序&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;2.2 直线&lt;/h3&gt;
-&lt;h4&gt;2.2.1 基本定义与表示方式&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.2.1 基本定义与表示方式&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 37–40 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-037.webp&quot; alt=&quot;计算几何专题讲解，第 37 页：2.2.1 基本定义与表示方式&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-038.webp&quot; alt=&quot;计算几何专题讲解，第 38 页：2.2.1 基本定义与表示方式&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-039.webp&quot; alt=&quot;计算几何专题讲解，第 39 页：2.2.1 基本定义与表示方式&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-040.webp&quot; alt=&quot;计算几何专题讲解，第 40 页：2.2.1 基本定义与表示方式&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.2.2 点与直线的位置关系&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.2.2 点与直线的位置关系&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 41 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-041.webp&quot; alt=&quot;计算几何专题讲解，第 41 页：2.2.2 点与直线的位置关系&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.2.3 点到直线的距离与平方距离&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.2.3 点到直线的距离与平方距离&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 42–43 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-042.webp&quot; alt=&quot;计算几何专题讲解，第 42 页：2.2.3 点到直线的距离与平方距离&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-043.webp&quot; alt=&quot;计算几何专题讲解，第 43 页：2.2.3 点到直线的距离与平方距离&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.2.4 过一点的垂线&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.2.4 过一点的垂线&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 44 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-044.webp&quot; alt=&quot;计算几何专题讲解，第 44 页：2.2.4 过一点的垂线&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.2.5 沿直线排序&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.2.5 沿直线排序&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 45 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-045.webp&quot; alt=&quot;计算几何专题讲解，第 45 页：2.2.5 沿直线排序&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.2.6 沿指定方向平移&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.2.6 沿指定方向平移&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 46 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-046.webp&quot; alt=&quot;计算几何专题讲解，第 46 页：2.2.6 沿指定方向平移&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.2.7 直线交点&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.2.7 直线交点&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 47–48 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-047.webp&quot; alt=&quot;计算几何专题讲解，第 47 页：2.2.7 直线交点&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-048.webp&quot; alt=&quot;计算几何专题讲解，第 48 页：2.2.7 直线交点&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.2.8 正交投影与反射&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.2.8 正交投影与反射&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 49–50 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-049.webp&quot; alt=&quot;计算几何专题讲解，第 49 页：2.2.8 正交投影与反射&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-050.webp&quot; alt=&quot;计算几何专题讲解，第 50 页：2.2.8 正交投影与反射&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;2.3 线段&lt;/h3&gt;
-&lt;h4&gt;2.3.1 点在线段为直径的圆内&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.3.1 点在线段为直径的圆内&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 51 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-051.webp&quot; alt=&quot;计算几何专题讲解，第 51 页：2.3.1 点在线段为直径的圆内&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.3.2 点在线段上&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.3.2 点在线段上&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 52 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-052.webp&quot; alt=&quot;计算几何专题讲解，第 52 页：2.3.2 点在线段上&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.3.3 线段与线段交点&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.3.3 线段与线段交点&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 53–55 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-053.webp&quot; alt=&quot;计算几何专题讲解，第 53 页：2.3.3 线段与线段交点&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-054.webp&quot; alt=&quot;计算几何专题讲解，第 54 页：2.3.3 线段与线段交点&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-055.webp&quot; alt=&quot;计算几何专题讲解，第 55 页：2.3.3 线段与线段交点&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.3.4 点到线段的距离&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.3.4 点到线段的距离&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 56–57 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-056.webp&quot; alt=&quot;计算几何专题讲解，第 56 页：2.3.4 点到线段的距离&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-057.webp&quot; alt=&quot;计算几何专题讲解，第 57 页：2.3.4 点到线段的距离&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.3.5 线段到线段的距离&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.3.5 线段到线段的距离&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 58 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-058.webp&quot; alt=&quot;计算几何专题讲解，第 58 页：2.3.5 线段到线段的距离&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;2.4 多边形&lt;/h3&gt;
-&lt;h4&gt;2.4.1 多边形面积&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.4.1 多边形面积&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 59 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-059.webp&quot; alt=&quot;计算几何专题讲解，第 59 页：2.4.1 多边形面积&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.4.2 射线法判点&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.4.2 射线法判点&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 60–63 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-060.webp&quot; alt=&quot;计算几何专题讲解，第 60 页：2.4.2 射线法判点&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-061.webp&quot; alt=&quot;计算几何专题讲解，第 61 页：2.4.2 射线法判点&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-062.webp&quot; alt=&quot;计算几何专题讲解，第 62 页：2.4.2 射线法判点&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-063.webp&quot; alt=&quot;计算几何专题讲解，第 63 页：2.4.2 射线法判点&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;凸多边形内严格判点&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;凸多边形内严格判点&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 64 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-064.webp&quot; alt=&quot;计算几何专题讲解，第 64 页：凸多边形内严格判点&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.4.3 凸包&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.4.3 凸包&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 65–69 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-065.webp&quot; alt=&quot;计算几何专题讲解，第 65 页：2.4.3 凸包&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-066.webp&quot; alt=&quot;计算几何专题讲解，第 66 页：2.4.3 凸包&quot;&gt;&lt;/p&gt;
@@ -320,15 +244,15 @@
 &lt;p&gt;&lt;img src=&quot;images/H1-069.webp&quot; alt=&quot;计算几何专题讲解，第 69 页：2.4.3 凸包&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;2.5 圆&lt;/h3&gt;
-&lt;h4&gt;2.5.1 外接圆&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.5.1 外接圆&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 70–71 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-070.webp&quot; alt=&quot;计算几何专题讲解，第 70 页：2.5.1 外接圆&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-071.webp&quot; alt=&quot;计算几何专题讲解，第 71 页：2.5.1 外接圆&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.5.2 圆与直线的交点&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.5.2 圆与直线的交点&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 72–73 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-072.webp&quot; alt=&quot;计算几何专题讲解，第 72 页：2.5.2 圆与直线的交点&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-073.webp&quot; alt=&quot;计算几何专题讲解，第 73 页：2.5.2 圆与直线的交点&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;2.5.3 圆与圆的交点&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2.5.3 圆与圆的交点&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 74–76 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-074.webp&quot; alt=&quot;计算几何专题讲解，第 74 页：2.5.3 圆与圆的交点&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-075.webp&quot; alt=&quot;计算几何专题讲解，第 75 页：2.5.3 圆与圆的交点&quot;&gt;&lt;/p&gt;
@@ -436,40 +360,40 @@
 &lt;p&gt;&lt;img src=&quot;images/H1-117.webp&quot; alt=&quot;计算几何专题讲解，第 117 页：5.2 比赛建议&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;5.3 计算几何综合题单&lt;/h3&gt;
-&lt;h4&gt;综合题单：2024 省赛与邀请赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;综合题单：2024 省赛与邀请赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 118 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-118.webp&quot; alt=&quot;计算几何专题讲解，第 118 页：综合题单：2024 省赛与邀请赛&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;综合题单：2024 区域赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;综合题单：2024 区域赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 119 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-119.webp&quot; alt=&quot;计算几何专题讲解，第 119 页：综合题单：2024 区域赛&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;综合题单：2025 省赛与邀请赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;综合题单：2025 省赛与邀请赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 120–121 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-120.webp&quot; alt=&quot;计算几何专题讲解，第 120 页：综合题单：2025 省赛与邀请赛&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-121.webp&quot; alt=&quot;计算几何专题讲解，第 121 页：综合题单：2025 省赛与邀请赛&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;综合题单：2025 区域赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;综合题单：2025 区域赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 122–123 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-122.webp&quot; alt=&quot;计算几何专题讲解，第 122 页：综合题单：2025 区域赛&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-123.webp&quot; alt=&quot;计算几何专题讲解，第 123 页：综合题单：2025 区域赛&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;综合题单：2026 省赛与邀请赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;综合题单：2026 省赛与邀请赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 124 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-124.webp&quot; alt=&quot;计算几何专题讲解，第 124 页：综合题单：2026 省赛与邀请赛&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;5.4 题单难度与标签&lt;/h3&gt;
-&lt;h4&gt;难度与标签：2024 省赛与邀请赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;难度与标签：2024 省赛与邀请赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 125 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-125.webp&quot; alt=&quot;计算几何专题讲解，第 125 页：难度与标签：2024 省赛与邀请赛&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;难度与标签：2024 区域赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;难度与标签：2024 区域赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 126 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-126.webp&quot; alt=&quot;计算几何专题讲解，第 126 页：难度与标签：2024 区域赛&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;难度与标签：2025 省赛与邀请赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;难度与标签：2025 省赛与邀请赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 127–128 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-127.webp&quot; alt=&quot;计算几何专题讲解，第 127 页：难度与标签：2025 省赛与邀请赛&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-128.webp&quot; alt=&quot;计算几何专题讲解，第 128 页：难度与标签：2025 省赛与邀请赛&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;难度与标签：2025 区域赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;难度与标签：2025 区域赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 129–130 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-129.webp&quot; alt=&quot;计算几何专题讲解，第 129 页：难度与标签：2025 区域赛&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-130.webp&quot; alt=&quot;计算几何专题讲解，第 130 页：难度与标签：2025 区域赛&quot;&gt;&lt;/p&gt;
-&lt;h4&gt;难度与标签：2026 省赛与邀请赛&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;难度与标签：2026 省赛与邀请赛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第 131 页&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/H1-131.webp&quot; alt=&quot;计算几何专题讲解，第 131 页：难度与标签：2026 省赛与邀请赛&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95&quot;&gt;↑ 返回目录索引&lt;/a&gt;&lt;/p&gt;
@@ -2866,21 +2790,34 @@ for i in range(m):
 #include &amp;#x3C;cmath&gt;
 using namespace std;
 
+struct STTable{
+  vector&amp;#x3C;int&gt; lg;
+  vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; f;
+
+  STTable(const vector&amp;#x3C;int&gt;&amp;#x26; a){ //a 从下标 1 开始
+    int n=a.size()-1;
+    lg.assign(n+1,0);
+    for(int i=2;i&amp;#x3C;=n;i++) lg[i]=lg[i/2]+1;
+    f.assign(n+1,vector&amp;#x3C;int&gt;(lg[n]+1));
+    for(int i=1;i&amp;#x3C;=n;i++) f[i][0]=a[i];
+    for(int j=1;j&amp;#x3C;=lg[n];j++) //枚举区间长度
+      for(int i=1;i+(1&amp;#x3C;&amp;#x3C;j)-1&amp;#x3C;=n;i++) //枚举起点
+        f[i][j]=max(f[i][j-1],f[i+(1&amp;#x3C;&amp;#x3C;(j-1))][j-1]);
+  }
+  int query(int l,int r) const{
+    int k=lg[r-l+1]; //区间长度的指数
+    return max(f[l][k],f[r-(1&amp;#x3C;&amp;#x3C;k)+1][k]);
+  }
+};
+
 int main(){
   int n,m; scanf(&quot;%d%d&quot;,&amp;#x26;n,&amp;#x26;m);
-  vector&amp;#x3C;int&gt; lg(n+1);
-  for(int i=2;i&amp;#x3C;=n;i++) lg[i]=lg[i/2]+1;
-  vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; f(n+1,vector&amp;#x3C;int&gt;(lg[n]+1));
-
-  for(int i=1;i&amp;#x3C;=n;i++) scanf(&quot;%d&quot;,&amp;#x26;f[i][0]);
-  for(int j=1;j&amp;#x3C;=lg[n];j++) //枚举区间长度
-    for(int i=1;i+(1&amp;#x3C;&amp;#x3C;j)-1&amp;#x3C;=n;i++) //枚举起点
-      f[i][j]=max(f[i][j-1],f[i+(1&amp;#x3C;&amp;#x3C;(j-1))][j-1]);
-
+  vector&amp;#x3C;int&gt; a(n+1);
+  for(int i=1;i&amp;#x3C;=n;i++) scanf(&quot;%d&quot;,&amp;#x26;a[i]);
+  STTable st(a);
   for(int i=1,l,r;i&amp;#x3C;=m;i++){
     scanf(&quot;%d%d&quot;,&amp;#x26;l,&amp;#x26;r);
-    int k=lg[r-l+1]; //区间长度的指数
-    printf(&quot;%d\n&quot;,max(f[l][k],f[r-(1&amp;#x3C;&amp;#x3C;k)+1][k]));
+    printf(&quot;%d\n&quot;,st.query(l,r));
   }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A12 单调栈</title><link>https://ehnotgod.github.io/blog/a12-%E5%8D%95%E8%B0%83%E6%A0%88</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a12-%E5%8D%95%E8%B0%83%E6%A0%88</guid><description>单调栈模板：求每个数右边第一个比它大的数的下标。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
@@ -3191,10 +3128,9 @@ while n:
 #include &amp;#x3C;queue&gt;
 using namespace std;
 
-priority_queue&amp;#x3C;int,vector&amp;#x3C;int&gt;,greater&amp;#x3C;int&gt; &gt; q;
-
 int main(){
   int n; scanf(&quot;%d&quot;,&amp;#x26;n); //操作次数
+  priority_queue&amp;#x3C;int,vector&amp;#x3C;int&gt;,greater&amp;#x3C;int&gt; &gt; q;
   while(n--){
     int op,x; scanf(&quot;%d&quot;,&amp;#x26;op);
     if(op==1) scanf(&quot;%d&quot;,&amp;#x26;x), q.push(x);
@@ -3258,20 +3194,29 @@ for i in range(n):
 #include&amp;#x3C;queue&gt;
 using namespace std;
 
-int main(){
-  int n,w; scanf(&quot;%d%d&quot;,&amp;#x26;n,&amp;#x26;w); //选手总数,获奖率
+struct DualHeap{
   priority_queue&amp;#x3C;int&gt; a; //大根堆
   priority_queue&amp;#x3C;int,vector&amp;#x3C;int&gt;,greater&amp;#x3C;int&gt; &gt; b;
 
-  for(int i=1; i&amp;#x3C;=n; i++){
-    int x; scanf(&quot;%d&quot;,&amp;#x26;x);
+  void insert(int x){
     if(b.empty()||x&gt;=b.top()) b.push(x); //插入
     else a.push(x);
-
-    int k=max(1,i*w/100); //第k大
+  }
+  int query(int k){ //第k大
     while(b.size()&gt;k) a.push(b.top()), b.pop(); //调整
     while(b.size()&amp;#x3C;k) b.push(a.top()), a.pop();
-    printf(&quot;%d &quot;, b.top()); //取值
+    return b.top(); //取值
+  }
+};
+
+int main(){
+  int n,w; scanf(&quot;%d%d&quot;,&amp;#x26;n,&amp;#x26;w); //选手总数,获奖率
+  DualHeap heap;
+  for(int i=1; i&amp;#x3C;=n; i++){
+    int x; scanf(&quot;%d&quot;,&amp;#x26;x);
+    heap.insert(x);
+    int k=max(1,i*w/100); //第k大
+    printf(&quot;%d &quot;,heap.query(k));
   }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>A17 距离之和最小、中位数</title><link>https://ehnotgod.github.io/blog/a17-%E8%B7%9D%E7%A6%BB%E4%B9%8B%E5%92%8C%E6%9C%80%E5%B0%8F%E4%B8%AD%E4%BD%8D%E6%95%B0</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/a17-%E8%B7%9D%E7%A6%BB%E4%B9%8B%E5%92%8C%E6%9C%80%E5%B0%8F%E4%B8%AD%E4%BD%8D%E6%95%B0</guid><description>中位数性质：使各点距离和最小的点恰是中位数。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
@@ -4540,65 +4485,76 @@ using namespace std;
 #define range(i, a, b) for (int i = (a); i &amp;#x3C; (b); ++i)
 #define lc (p&amp;#x3C;&amp;#x3C;1)
 #define rc (p&amp;#x3C;&amp;#x3C;1|1)
-vector&amp;#x3C;int&gt; w;
-struct node {
-    int l, r, sum;
+struct SegmentTree {
+  struct node {
+      int l, r, sum;
+  };
+  vector&amp;#x3C;node&gt; tr;
+
+  explicit SegmentTree(const vector&amp;#x3C;int&gt;&amp;#x26; w) {
+    int n = w.size() - 1;
+    tr.assign(n * 4 + 5, node{});
+    build(1, 1, n, w);
+  }
+
+  void build(int p, int l, int r, const vector&amp;#x3C;int&gt;&amp;#x26; w) {
+      tr[p].l = l;
+      tr[p].r = r;
+      tr[p].sum = w[l];
+      if (l == r) return;
+      int m = (l + r) / 2;
+      build(lc, l, m, w);
+      build(rc, m + 1, r, w);
+      tr[p].sum = tr[lc].sum + tr[rc].sum;
+  }
+
+  // 点修改（从根递归进入）
+  void update(int p, int x, int k) {
+      if (tr[p].l == x &amp;#x26;&amp;#x26; tr[p].r == x) {
+          tr[p].sum += k;
+          return;
+      }
+      int m = (tr[p].l + tr[p].r) / 2;
+      if (x &amp;#x3C;= m) update(lc, x, k);
+      else update(rc, x, k);
+      tr[p].sum = tr[lc].sum + tr[rc].sum;
+  }
+
+  int query(int p, int x, int y) {
+      if (x &amp;#x3C;= tr[p].l &amp;#x26;&amp;#x26; tr[p].r &amp;#x3C;= y) return tr[p].sum;
+      int m = (tr[p].l + tr[p].r) / 2;
+      int sum = 0;
+      if (x &amp;#x3C;= m) sum += query(lc, x, y);
+      if (y &gt; m)  sum += query(rc, x, y);
+      return sum;
+  }
+  void update(int x, int k) { update(1, x, k); }
+  int query(int x, int y) { return query(1, x, y); }
 };
-vector&amp;#x3C;node&gt; tr;
+#undef lc
+#undef rc
 
-void build(int p, int l, int r) {
-    tr[p].l = l;
-    tr[p].r = r;
-    tr[p].sum = w[l];
-    if (l == r) return;
-    int m = (l + r) / 2;
-    build(lc, l, m);
-    build(rc, m + 1, r);
-    tr[p].sum = tr[lc].sum + tr[rc].sum;
-}
-
-// 点修改（从根递归进入）
-void update(int p, int x, int k) {
-    if (tr[p].l == x &amp;#x26;&amp;#x26; tr[p].r == x) {
-        tr[p].sum += k;
-        return;
-    }
-    int m = (tr[p].l + tr[p].r) / 2;
-    if (x &amp;#x3C;= m) update(lc, x, k);
-    else update(rc, x, k);
-    tr[p].sum = tr[lc].sum + tr[rc].sum;
-}
-
-int query(int p, int x, int y) {
-    if (x &amp;#x3C;= tr[p].l &amp;#x26;&amp;#x26; tr[p].r &amp;#x3C;= y) return tr[p].sum;
-    int m = (tr[p].l + tr[p].r) / 2;
-    int sum = 0;
-    if (x &amp;#x3C;= m) sum += query(lc, x, y);
-    if (y &gt; m)  sum += query(rc, x, y);
-    return sum;
-}
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int n, m;
     cin &gt;&gt; n &gt;&gt; m;
-    w.assign(n + 1, 0);
-    tr.assign(n * 4 + 5, node{});
+    vector&amp;#x3C;int&gt; w(n + 1);
     range(i, 0, n){
         cin &gt;&gt; w[i + 1];
     }
-    build(1, 1, n);
+    SegmentTree seg(w);
     range(i, 0, m){
         int op; cin &gt;&gt; op;
         int x, y, k;
         if (op == 1){
             cin &gt;&gt; x &gt;&gt; k;  // 单点更新
-            update(1, x, k);
+            seg.update(x, k);
         }
         else{
             cin &gt;&gt; x &gt;&gt; y;  // 区间查询
-            cout &amp;#x3C;&amp;#x3C; query(1, x, y) &amp;#x3C;&amp;#x3C; endl;
+            cout &amp;#x3C;&amp;#x3C; seg.query(x, y) &amp;#x3C;&amp;#x3C; endl;
         }
     }
 }
@@ -4693,7 +4649,7 @@ struct BIT{
   vector&amp;#x3C;int&gt; s; //差分的区间和
   explicit BIT(int size) { s.assign(size + 1, 0); }
   void change(int x,int w){
-    for(;x&amp;#x3C;=n;x+=x&amp;#x26;-x) s[x]+=w;
+    for(;x&amp;#x3C;(int)s.size();x+=x&amp;#x26;-x) s[x]+=w;
   }
   int query(int x){
     int res=0;
@@ -4781,24 +4737,28 @@ for _ in range(m):
 using namespace std;
 
 int n,m,x,y,z;
-vector&amp;#x3C;int&gt; pa;
-
-int find(int x){
-  if(pa[x]==x) return x;
-  return pa[x]=find(pa[x]);
-}
-void unset(int x,int y){
-  pa[find(x)]=find(y);
-}
+struct DSU{
+  vector&amp;#x3C;int&gt; pa;
+  explicit DSU(int n){
+    pa.resize(n + 1);
+    for(int i=0;i&amp;#x3C;=n;i++) pa[i]=i;
+  }
+  int find(int x){
+    if(pa[x]==x) return x;
+    return pa[x]=find(pa[x]);
+  }
+  void unset(int x,int y){
+    pa[find(x)]=find(y);
+  }
+};
 int main(){
   cin&gt;&gt;n&gt;&gt;m;
-  pa.assign(n + 1, 0);
-  for(int i=1;i&amp;#x3C;=n;i++) pa[i]=i;
+  DSU dsu(n);
   while(m --){
     cin&gt;&gt;z&gt;&gt;x&gt;&gt;y;
-    if(z==1) unset(x,y);
+    if(z==1) dsu.unset(x,y);
     else{
-      if(find(x)==find(y)) puts(&quot;Y&quot;);
+      if(dsu.find(x)==dsu.find(y)) puts(&quot;Y&quot;);
       else puts(&quot;N&quot;);
     }
   }
@@ -4806,18 +4766,58 @@ int main(){
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C4 线段树</title><link>https://ehnotgod.github.io/blog/c4-%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c4-%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>线段树模板：区间修改 + 区间查询（加法）。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3372&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如题，已知一个数列 $${a_i}$$，你需要进行下面两种操作：&lt;/p&gt;
+&lt;p&gt;如题，已知一个数列&lt;/p&gt;
+&lt;p&gt;$$
+{a_i}
+$$&lt;/p&gt;
+&lt;p&gt;，你需要进行下面两种操作：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;将某区间每一个数加上 $$k$$。&lt;/li&gt;
 &lt;li&gt;求出某区间每一个数的和。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;输入格式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;第一行包含两个整数 $$n, m$$，分别表示该数列数字的个数和操作的总个数。&lt;/p&gt;
-&lt;p&gt;第二行包含 $$n$$ 个用空格分隔的整数 $$a_i$$，其中第 $$i$$ 个数字表示数列第 $$i$$ 项的初始值。&lt;/p&gt;
-&lt;p&gt;接下来 $$m$$ 行每行包含 $$3$$ 或 $$4$$ 个整数，表示一个操作，具体如下：&lt;/p&gt;
+&lt;p&gt;第一行包含两个整数&lt;/p&gt;
+&lt;p&gt;$$
+n, m
+$$&lt;/p&gt;
+&lt;p&gt;，分别表示该数列数字的个数和操作的总个数。&lt;/p&gt;
+&lt;p&gt;第二行包含&lt;/p&gt;
+&lt;p&gt;$$
+n$$ 个用空格分隔的整数
+$$&lt;/p&gt;
+&lt;p&gt;a_i
+$$
+，其中第
+$$&lt;/p&gt;
+&lt;p&gt;i
+$$
+个数字表示数列第
+$$&lt;/p&gt;
+&lt;p&gt;i$$ 项的初始值。&lt;/p&gt;
+&lt;p&gt;接下来&lt;/p&gt;
+&lt;p&gt;$$
+m$$ 行每行包含
+$$&lt;/p&gt;
+&lt;p&gt;3
+$$
+或
+$$&lt;/p&gt;
+&lt;p&gt;4$$ 个整数，表示一个操作，具体如下：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;1 x y k&lt;/code&gt;：将区间 $$[x, y]$$ 内每个数加上 $$k$$。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;2 x y&lt;/code&gt;：输出区间 $$[x, y]$$ 内每个数的和。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;1 x y k&lt;/code&gt;：将区间
+$$
+[x, y]
+$$&lt;/p&gt;
+&lt;p&gt;内每个数加上 $$k$$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;2 x y&lt;/code&gt;：输出区间
+$$
+[x, y]
+$$&lt;/p&gt;
+&lt;p&gt;内每个数的和。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;输出格式&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;输出包含若干行整数，即为所有操作 2 的结果。&lt;/p&gt;
@@ -4835,7 +4835,23 @@ int main(){
 8
 20
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对于 $$100%$$ 的数据：$$1 \le n, m \le {10}^5$$，$$a_i,k$$ 为正数，且任意时刻数列的和不超过 $$2\times 10^{18}$$。&lt;/p&gt;
+&lt;p&gt;对于&lt;/p&gt;
+&lt;p&gt;$$
+100%
+$$&lt;/p&gt;
+&lt;p&gt;的数据：
+$$
+1 \le n, m \le {10}^5
+$$&lt;/p&gt;
+&lt;p&gt;，
+$$
+a_i,k
+$$&lt;/p&gt;
+&lt;p&gt;为正数，且任意时刻数列的和不超过
+$$
+2\times 10^{18}
+$$&lt;/p&gt;
+&lt;p&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;【样例解释】&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/2251.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;算法解析&lt;/h3&gt;
@@ -5177,94 +5193,102 @@ using namespace std;
 #define int long long
 #define lc u&amp;#x3C;&amp;#x3C;1
 #define rc u&amp;#x3C;&amp;#x3C;1|1
-vector&amp;#x3C;LL&gt; w;
-LL n,m,op,x,y,k,mod;
-struct Tree{ //线段树
-  LL l,r,sum,add,mul;
+struct SegmentTree{
+  struct Tree{ //线段树节点
+    LL l,r,sum,add,mul;
+  };
+  vector&amp;#x3C;Tree&gt; tr;
+  LL mod;
+
+  SegmentTree(const vector&amp;#x3C;LL&gt;&amp;#x26; w,LL mod):tr(w.size()*4+5),mod(mod){
+    build(1,1,w.size()-1,w);
+  }
+  void change(LL l,LL r,LL k){ change(1,l,r,k); }
+  void change2(LL l,LL r,LL k){ change2(1,l,r,k); }
+  LL query(LL l,LL r){ return query(1,l,r); }
+
+  inline LL len(int u) { return tr[u].r - tr[u].l + 1; }
+
+  void pushup(int u) {
+    tr[u].sum = (tr[lc].sum + tr[rc].sum) % mod;
+  }
+
+  void apply_mul_add_to_node(int u, LL mulv, LL addv) {
+    mulv %= mod; if (mulv &amp;#x3C; 0) mulv += mod;
+    addv %= mod; if (addv &amp;#x3C; 0) addv += mod;
+    tr[u].sum = ( (tr[u].sum * mulv) % mod + (addv * (len(u) % mod)) % mod ) % mod;
+    tr[u].mul = (tr[u].mul * mulv) % mod;
+    tr[u].add = (tr[u].add * mulv + addv) % mod;
+  }
+
+  void pushdown(int u) {
+    if (tr[u].mul != 1 || tr[u].add != 0) {
+      apply_mul_add_to_node(lc, tr[u].mul, tr[u].add);
+      apply_mul_add_to_node(rc, tr[u].mul, tr[u].add);
+      tr[u].mul = 1;
+      tr[u].add = 0;
+    }
+  }
+  void build(LL u,LL l,LL r,const vector&amp;#x3C;LL&gt;&amp;#x26; w){ //建树
+    tr[u]={l,r,(w[l]%mod+mod)%mod,0,1};
+    if(l==r) return;
+    LL m=l+r&gt;&gt;1;
+    build(lc,l,m,w);
+    build(rc,m+1,r,w);
+    pushup(u);
+  }
+  void change(LL u,LL l,LL r,LL k){ //区修
+    if(l&amp;#x3C;=tr[u].l&amp;#x26;&amp;#x26;tr[u].r&amp;#x3C;=r){
+      apply_mul_add_to_node(u, 1, k);
+      return;
+    }
+    LL m=tr[u].l+tr[u].r&gt;&gt;1;
+    pushdown(u);
+    if(l&amp;#x3C;=m) change(lc,l,r,k);
+    if(r&gt;m) change(rc,l,r,k);
+    pushup(u);
+  }
+  void change2(LL u,LL l,LL r,LL k){ //区修
+    if(l&amp;#x3C;=tr[u].l&amp;#x26;&amp;#x26;tr[u].r&amp;#x3C;=r){
+      apply_mul_add_to_node(u, k, 0);
+      return;
+    }
+    LL m=tr[u].l+tr[u].r&gt;&gt;1;
+    pushdown(u);
+    if(l&amp;#x3C;=m) change2(lc,l,r,k);
+    if(r&gt;m) change2(rc,l,r,k);
+    pushup(u);
+  }
+  LL query(LL u,LL l,LL r){ //区查
+    if(l&amp;#x3C;=tr[u].l &amp;#x26;&amp;#x26; tr[u].r&amp;#x3C;=r) return tr[u].sum % mod;
+    LL m=tr[u].l+tr[u].r&gt;&gt;1;
+    pushdown(u);
+    LL sum=0;
+    if(l&amp;#x3C;=m) {
+      sum+=query(lc,l,r);
+      sum %= mod;
+    }
+    if(r&gt;m) {
+      sum+=query(rc,l,r);
+      sum %= mod;
+    }
+    return sum;
+  }
 };
-vector&amp;#x3C;Tree&gt; tr;
-
-inline LL len(int u) { return tr[u].r - tr[u].l + 1; }
-
-void pushup(int u) {
-  tr[u].sum = (tr[lc].sum + tr[rc].sum) % mod;
-}
-
-void apply_mul_add_to_node(int u, LL mulv, LL addv) {
-  mulv %= mod; if (mulv &amp;#x3C; 0) mulv += mod;
-  addv %= mod; if (addv &amp;#x3C; 0) addv += mod;
-  tr[u].sum = ( (tr[u].sum * mulv) % mod + (addv * (len(u) % mod)) % mod ) % mod;
-  tr[u].mul = (tr[u].mul * mulv) % mod;
-  tr[u].add = (tr[u].add * mulv + addv) % mod;
-}
-
-void pushdown(int u) {
-  if (tr[u].mul != 1 || tr[u].add != 0) {
-    apply_mul_add_to_node(lc, tr[u].mul, tr[u].add);
-    apply_mul_add_to_node(rc, tr[u].mul, tr[u].add);
-    tr[u].mul = 1;
-    tr[u].add = 0;
-  }
-}
-void build(LL u,LL l,LL r){ //建树
-  tr[u]={l,r,(w[l]%mod+mod)%mod,0,1};
-  if(l==r) return;
-  LL m=l+r&gt;&gt;1;
-  build(lc,l,m);
-  build(rc,m+1,r);
-  pushup(u);
-}
-void change(LL u,LL l,LL r,LL k){ //区修
-  if(l&amp;#x3C;=tr[u].l&amp;#x26;&amp;#x26;tr[u].r&amp;#x3C;=r){
-    apply_mul_add_to_node(u, 1, k);
-    return;
-  }
-  LL m=tr[u].l+tr[u].r&gt;&gt;1;
-  pushdown(u);
-  if(l&amp;#x3C;=m) change(lc,l,r,k);
-  if(r&gt;m) change(rc,l,r,k);
-  pushup(u);
-}
-void change2(LL u,LL l,LL r,LL k){ //区修
-  if(l&amp;#x3C;=tr[u].l&amp;#x26;&amp;#x26;tr[u].r&amp;#x3C;=r){
-    apply_mul_add_to_node(u, k, 0);
-    return;
-  }
-  LL m=tr[u].l+tr[u].r&gt;&gt;1;
-  pushdown(u);
-  if(l&amp;#x3C;=m) change2(lc,l,r,k);
-  if(r&gt;m) change2(rc,l,r,k);
-  pushup(u);
-}
-LL query(LL u,LL l,LL r){ //区查
-  if(l&amp;#x3C;=tr[u].l &amp;#x26;&amp;#x26; tr[u].r&amp;#x3C;=r) return tr[u].sum % mod;
-  LL m=tr[u].l+tr[u].r&gt;&gt;1;
-  pushdown(u);
-  LL sum=0;
-  if(l&amp;#x3C;=m) {
-    sum+=query(lc,l,r);
-    sum %= mod;
-  }
-  if(r&gt;m) {
-    sum+=query(rc,l,r);
-    sum %= mod;
-  }
-  return sum;
-}
 signed main(){
+  LL n,m,op,x,y,k,mod;
   cin&gt;&gt;n&gt;&gt;m&gt;&gt;mod;
-  w.assign(n + 1, 0);
-  tr.assign(n * 4 + 5, Tree{});
+  vector&amp;#x3C;LL&gt; w(n + 1);
   for(int i=1; i&amp;#x3C;=n; i ++) cin&gt;&gt;w[i];
-  build(1,1,n);
+  SegmentTree seg(w,mod);
   while(m--){
     cin&gt;&gt;op&gt;&gt;x&gt;&gt;y;
-    if(op==3)cout&amp;#x3C;&amp;#x3C;query(1,x,y)&amp;#x3C;&amp;#x3C;endl;
+    if(op==3)cout&amp;#x3C;&amp;#x3C;seg.query(x,y)&amp;#x3C;&amp;#x3C;endl;
     else if (op == 2){
-      cin&gt;&gt;k;change(1,x,y,k);
+      cin&gt;&gt;k;seg.change(x,y,k);
     }
     else{
-      cin&gt;&gt;k;change2(1,x,y,k);
+      cin&gt;&gt;k;seg.change2(x,y,k);
     }
   }
   return 0;
@@ -5331,88 +5355,94 @@ using namespace std;
 #define lc 2*p
 #define rc 2*p+1
 
-vector&amp;#x3C;int&gt; w;
+struct SegmentTree {
+    struct node {
+        int l, r, sum, ansl, ansr, ans;
+    };
+    vector&amp;#x3C;node&gt; tr;
 
-struct node {
-    int l, r, sum, ansl, ansr, ans;
+    SegmentTree(const vector&amp;#x3C;int&gt;&amp;#x26; w):tr(w.size()*4+5){
+        build(1, 1, w.size()-1, w);
+    }
+    void update(int x, int k){ update(1, x, k); }
+    node query(int x, int y){ return query(1, x, y); }
+
+    void merge(int p){
+        tr[p].sum = tr[lc].sum + tr[rc].sum;
+        tr[p].ans = max(tr[lc].ans, max(tr[rc].ans, tr[rc].ansl + tr[lc].ansr));
+        tr[p].ansl = max(tr[lc].sum + tr[rc].ansl, tr[lc].ansl);
+        tr[p].ansr = max(tr[rc].sum + tr[lc].ansr, tr[rc].ansr);
+    }
+    void build(int p, int l, int r, const vector&amp;#x3C;int&gt;&amp;#x26; w) {
+        tr[p].l = l; tr[p].r = r;
+        if (l == r) {
+            tr[p].sum = w[l];
+            tr[p].ansl = tr[p].ansr = tr[p].ans = w[l];
+            return;
+        }
+        int m = (l + r) / 2;
+        build(lc, l, m, w);
+        build(rc, m + 1, r, w);
+        merge(p);
+    }
+    void update(int p, int x, int k) {
+        if (tr[p].l == x &amp;#x26;&amp;#x26; tr[p].r == x) {
+            tr[p].sum = k;
+            tr[p].ansl = k;
+            tr[p].ansr = k;
+            tr[p].ans = k;
+            return;
+        }
+        int m = (tr[p].l + tr[p].r) / 2;
+        if (x &amp;#x3C;= m) update(lc, x, k);
+        else update(rc, x, k);
+        merge(p);
+    }
+
+    node query(int p, int x, int y) {
+        if (x &amp;#x3C;= tr[p].l &amp;#x26;&amp;#x26; tr[p].r &amp;#x3C;= y) return tr[p];
+        int m = (tr[p].l + tr[p].r) / 2;
+        if (y &amp;#x3C;= m){
+            return query(lc, x, y);
+        }
+        else if (x &gt; m) {
+            return query(rc, x, y);
+        }
+        else{
+            node t, a = query(lc, x, y), b = query(rc, x, y);
+            t.sum = a.sum + b.sum;
+            t.ansl = max(a.ansl, a.sum + b.ansl);
+            t.ansr = max(b.ansr, b.sum + a.ansr);
+            t.ans = max({a.ans, b.ans, a.ansr + b.ansl});
+            return t;
+        }
+    }
 };
-vector&amp;#x3C;node&gt; tr;
-void merge(int p){
-    tr[p].sum = tr[lc].sum + tr[rc].sum;
-    tr[p].ans = max(tr[lc].ans, max(tr[rc].ans, tr[rc].ansl + tr[lc].ansr));
-    tr[p].ansl = max(tr[lc].sum + tr[rc].ansl, tr[lc].ansl);
-    tr[p].ansr = max(tr[rc].sum + tr[lc].ansr, tr[rc].ansr);
-}
-void build(int p, int l, int r) {
-    tr[p].l = l; tr[p].r = r;
-    if (l == r) {
-        tr[p].sum = w[l];
-        tr[p].ansl = tr[p].ansr = tr[p].ans = w[l];
-        return;
-    }
-    int m = (l + r) / 2;
-    build(lc, l, m);
-    build(rc, m + 1, r);
-    merge(p);
-}
-void update(int p, int x, int k) {
-    if (tr[p].l == x &amp;#x26;&amp;#x26; tr[p].r == x) {
-        tr[p].sum = k;
-        tr[p].ansl = k;
-        tr[p].ansr = k;
-        tr[p].ans = k;
-        return;
-    }
-    int m = (tr[p].l + tr[p].r) / 2;
-    if (x &amp;#x3C;= m) update(lc, x, k);
-    else update(rc, x, k);
-    merge(p);
-}
-
-node query(int p, int x, int y) {
-    if (x &amp;#x3C;= tr[p].l &amp;#x26;&amp;#x26; tr[p].r &amp;#x3C;= y) return tr[p];
-    int m = (tr[p].l + tr[p].r) / 2;
-    if (y &amp;#x3C;= m){
-        return query(lc, x, y);
-    } 
-    else if (x &gt; m) {
-        return query(rc, x, y);
-    }
-    else{
-        node t, a = query(lc, x, y), b = query(rc, x, y);
-        t.sum = a.sum + b.sum;
-        t.ansl = max(a.ansl, a.sum + b.ansl);
-        t.ansr = max(b.ansr, b.sum + a.ansr);
-        t.ans = max({a.ans, b.ans, a.ansr + b.ansl});
-        return t;
-    }
-}
 signed main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int n, m;
     cin &gt;&gt; n &gt;&gt; m;
-    w.assign(n + 1, 0);
-    tr.assign(n * 4 + 5, node{});
+    vector&amp;#x3C;int&gt; w(n + 1);
     range(i, 0, n){
         cin &gt;&gt; w[i + 1];
     }
-    build(1, 1, n);
+    SegmentTree seg(w);
     range(i, 0, m){
         int op; cin &gt;&gt; op;
         int x, y, k;
         if (op == 2){
             cin &gt;&gt; x &gt;&gt; k;
-            update(1, x, k);
+            seg.update(x, k);
         }
         else{
             cin &gt;&gt; x &gt;&gt; y;
             if (x &gt; y){
-                cout &amp;#x3C;&amp;#x3C; query(1, y, x).ans &amp;#x3C;&amp;#x3C; endl;
+                cout &amp;#x3C;&amp;#x3C; seg.query(y, x).ans &amp;#x3C;&amp;#x3C; endl;
             }
             else{
-                cout &amp;#x3C;&amp;#x3C; query(1, x, y).ans &amp;#x3C;&amp;#x3C; endl;
+                cout &amp;#x3C;&amp;#x3C; seg.query(x, y).ans &amp;#x3C;&amp;#x3C; endl;
             }
         }
     }
@@ -5633,113 +5663,120 @@ using namespace std;
 
 #define ls(x) tr[x].ch[0]
 #define rs(x) tr[x].ch[1]
-const int INF=(1&amp;#x3C;&amp;#x3C;30)+1;
-struct node{
-  array&amp;#x3C;int, 2&gt; ch; //儿
-  int fa; //父
-  int v;  //点权
-  int cnt; //点权次数
-  int siz; //子树大小
-  void init(int p,int v1){
-    fa=p, v=v1;
-    cnt=siz=1;
+struct Splay{
+  static constexpr int INF=(1&amp;#x3C;&amp;#x3C;30)+1;
+  struct node{
+    array&amp;#x3C;int, 2&gt; ch; //儿
+    int fa; //父
+    int v;  //点权
+    int cnt; //点权次数
+    int siz; //子树大小
+    void init(int p,int v1){
+      fa=p, v=v1;
+      cnt=siz=1;
+    }
+  };
+  vector&amp;#x3C;node&gt; tr;
+  int root=0,tot=0; //根,节点个数
+
+  Splay(int n):tr(n + 3){
+    insert(-INF);insert(INF); //哨兵
+  }
+  int predecessor(int v){ return tr[getpre(v)].v; }
+  int successor(int v){ return tr[getsuc(v)].v; }
+
+  void pushup(int x){ //上传
+    tr[x].siz=tr[ls(x)].siz+tr[rs(x)].siz+tr[x].cnt;
+  }
+  void rotate(int x){ //旋转
+    int y=tr[x].fa, z=tr[y].fa, k=tr[y].ch[1]==x; //y的右儿是x
+    tr[z].ch[tr[z].ch[1]==y]=x, tr[x].fa=z; //z的儿是x,x的父是z
+    tr[y].ch[k]=tr[x].ch[k^1], tr[tr[x].ch[k^1]].fa=y; //y的儿是x的异儿,x的异儿的父是y
+    tr[x].ch[k^1]=y, tr[y].fa=x; //x的异儿是y,y的父是x
+    pushup(y), pushup(x); //自底向上push
+  }
+  void splay(int x, int k){ //伸展
+    while(tr[x].fa!=k){ //折线转xx,直线转yx
+      int y=tr[x].fa, z=tr[y].fa;
+      if(z!=k) (ls(y)==x)^(ls(z)==y)?rotate(x):rotate(y);
+      rotate(x);
+    }
+    if(!k) root=x; //k=0时,x转到根
+  }
+  void insert(int v){ //插入
+    int x=root, p=0;
+    //x走到空节点或走到目标点结束
+    while(x&amp;#x26;&amp;#x26;tr[x].v!=v) p=x,x=tr[x].ch[v&gt;tr[x].v];
+    if(x) tr[x].cnt++; //目标点情况
+    else{ //空节点情况
+      x=++tot;
+      tr[p].ch[v&gt;tr[p].v]=x;
+      tr[x].init(p,v);
+    }
+    splay(x, 0);
+  }
+  void find(int v){ //找到v并转到根
+    int x=root;
+    while(tr[x].ch[v&gt;tr[x].v]&amp;#x26;&amp;#x26;v!=tr[x].v)
+      x=tr[x].ch[v&gt;tr[x].v];
+    splay(x, 0);
+  }
+  int getpre(int v){ //前驱
+    find(v);
+    int x=root;
+    if(tr[x].v&amp;#x3C;v) return x;
+    x=ls(x);
+    while(rs(x)) x=rs(x);
+    splay(x, 0);
+    return x;
+  }
+  int getsuc(int v){ //后继
+    find(v);
+    int x=root;
+    if(tr[x].v&gt;v) return x;
+    x=rs(x);
+    while(ls(x)) x=ls(x);
+    splay(x, 0);
+    return x;
+  }
+  void del(int v){ //删除
+    int pre=getpre(v);
+    int suc=getsuc(v);
+    splay(pre,0), splay(suc,pre);
+    int del=tr[suc].ch[0];
+    if(tr[del].cnt&gt;1)
+      tr[del].cnt--, splay(del,0);
+    else
+      tr[suc].ch[0]=0, splay(suc,0);
+  }
+  int getrank(int v){ //排名
+    insert(v);
+    int res=tr[tr[root].ch[0]].siz;
+    del(v);
+    return res;
+  }
+  int getval(int k){ //数值
+    int x=root;
+    while(true){
+      if(k&amp;#x3C;=tr[ls(x)].siz) x=ls(x);
+      else if(k&amp;#x3C;=tr[ls(x)].siz+tr[x].cnt) break;
+      else k-=tr[ls(x)].siz+tr[x].cnt, x=rs(x);
+    }
+    splay(x, 0);
+    return tr[x].v;
   }
 };
-vector&amp;#x3C;node&gt; tr;
-int root,tot; //根,节点个数
-
-void pushup(int x){ //上传
-  tr[x].siz=tr[ls(x)].siz+tr[rs(x)].siz+tr[x].cnt;
-}
-void rotate(int x){ //旋转
-  int y=tr[x].fa, z=tr[y].fa, k=tr[y].ch[1]==x; //y的右儿是x
-  tr[z].ch[tr[z].ch[1]==y]=x, tr[x].fa=z; //z的儿是x,x的父是z
-  tr[y].ch[k]=tr[x].ch[k^1], tr[tr[x].ch[k^1]].fa=y; //y的儿是x的异儿,x的异儿的父是y
-  tr[x].ch[k^1]=y, tr[y].fa=x; //x的异儿是y,y的父是x
-  pushup(y), pushup(x); //自底向上push
-}
-void splay(int x, int k){ //伸展
-  while(tr[x].fa!=k){ //折线转xx,直线转yx
-    int y=tr[x].fa, z=tr[y].fa;
-    if(z!=k) (ls(y)==x)^(ls(z)==y)?rotate(x):rotate(y);
-    rotate(x);
-  }
-  if(!k) root=x; //k=0时,x转到根
-}
-void insert(int v){ //插入
-  int x=root, p=0;
-  //x走到空节点或走到目标点结束
-  while(x&amp;#x26;&amp;#x26;tr[x].v!=v) p=x,x=tr[x].ch[v&gt;tr[x].v];
-  if(x) tr[x].cnt++; //目标点情况
-  else{ //空节点情况
-    x=++tot;
-    tr[p].ch[v&gt;tr[p].v]=x;
-    tr[x].init(p,v);
-  }
-  splay(x, 0);
-}
-void find(int v){ //找到v并转到根
-  int x=root;
-  while(tr[x].ch[v&gt;tr[x].v]&amp;#x26;&amp;#x26;v!=tr[x].v)
-    x=tr[x].ch[v&gt;tr[x].v];
-  splay(x, 0);
-}
-int getpre(int v){ //前驱
-  find(v);
-  int x=root;
-  if(tr[x].v&amp;#x3C;v) return x;
-  x=ls(x);
-  while(rs(x)) x=rs(x);
-  splay(x, 0);
-  return x;
-}
-int getsuc(int v){ //后继
-  find(v);
-  int x=root;
-  if(tr[x].v&gt;v) return x;
-  x=rs(x);
-  while(ls(x)) x=ls(x);
-  splay(x, 0);
-  return x;
-}
-void del(int v){ //删除
-  int pre=getpre(v);
-  int suc=getsuc(v);
-  splay(pre,0), splay(suc,pre);
-  int del=tr[suc].ch[0];
-  if(tr[del].cnt&gt;1)
-    tr[del].cnt--, splay(del,0);
-  else
-    tr[suc].ch[0]=0, splay(suc,0);
-}
-int getrank(int v){ //排名
-  insert(v);
-  int res=tr[tr[root].ch[0]].siz;
-  del(v);
-  return res;
-}
-int getval(int k){ //数值
-  int x=root;
-  while(true){
-    if(k&amp;#x3C;=tr[ls(x)].siz) x=ls(x);
-    else if(k&amp;#x3C;=tr[ls(x)].siz+tr[x].cnt) break;
-    else k-=tr[ls(x)].siz+tr[x].cnt, x=rs(x);
-  }
-  splay(x, 0);
-  return tr[x].v;
-}
 int main(){
   int n,op,x; scanf(&quot;%d&quot;, &amp;#x26;n);
-  tr.assign(n + 3, node{});
-  insert(-INF);insert(INF); //哨兵
+  Splay tree(n);
   while(n--){
     scanf(&quot;%d%d&quot;, &amp;#x26;op, &amp;#x26;x);
-    if(op==1) insert(x);
-    else if(op==2) del(x);
-    else if(op==3) printf(&quot;%d\n&quot;,getrank(x));
-    else if(op==4) printf(&quot;%d\n&quot;,getval(x+1));
-    else if(op==5) printf(&quot;%d\n&quot;,tr[getpre(x)].v);
-    else printf(&quot;%d\n&quot;,tr[getsuc(x)].v);
+    if(op==1) tree.insert(x);
+    else if(op==2) tree.del(x);
+    else if(op==3) printf(&quot;%d\n&quot;,tree.getrank(x));
+    else if(op==4) printf(&quot;%d\n&quot;,tree.getval(x+1));
+    else if(op==5) printf(&quot;%d\n&quot;,tree.predecessor(x));
+    else printf(&quot;%d\n&quot;,tree.successor(x));
   }
 }
 &lt;/code&gt;&lt;/pre&gt;
@@ -5752,19 +5789,20 @@ using namespace __gnu_pbds;
 
 using pii = pair&amp;#x3C;int,int&gt;;
 
-tree&amp;#x3C;
+using OrderedTree = tree&amp;#x3C;
     pii,
     null_type,
     less&amp;#x3C;pii&gt;,
     rb_tree_tag,
     tree_order_statistics_node_update
-&gt; tr;
+&gt;;
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int n; cin &gt;&gt; n;
+    OrderedTree tr;
     int id = 0;
     const int INF = 1e9;
 
@@ -6000,6 +6038,7 @@ for _ in range(m):
 print(&apos;\n&apos;.join(output))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;PersistentSegmentTree&lt;/code&gt; 封装节点、版本根和离散化数组；构造时传入下标从 1 开始的数组，随后用 &lt;code&gt;seg.query(l,r,k)&lt;/code&gt; 查询。上面的 &lt;code&gt;tr&lt;/code&gt;、&lt;code&gt;root&lt;/code&gt;、&lt;code&gt;insert&lt;/code&gt; 和递归 &lt;code&gt;query&lt;/code&gt; 均对应结构体内部成员。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;// 主席树 O(nlognlogn)
 #include &amp;#x3C;iostream&gt;
 #include &amp;#x3C;cstring&gt;
@@ -6009,61 +6048,66 @@ using namespace std;
 
 #define lc(x) tr[x].l
 #define rc(x) tr[x].r
-struct node{
-  int l,r,s; //s:节点值域中有多少个数
+struct PersistentSegmentTree{
+  struct node{
+    int l,r,s; //s:节点值域中有多少个数
+  };
+  vector&amp;#x3C;node&gt; tr;
+  vector&amp;#x3C;int&gt; root,b;
+  int bn;
+
+  PersistentSegmentTree(const vector&amp;#x3C;int&gt;&amp;#x26; a):tr(1),root(a.size()),b(a){
+    //编号0表示空节点
+    sort(b.begin()+1,b.end());
+    bn=unique(b.begin()+1,b.end())-b.begin()-1; //去重后的个数
+    for(int i=1; i&amp;#x3C;(int)a.size(); i++){
+      int id=lower_bound(b.begin()+1,b.begin()+bn+1,a[i])-b.begin();//下标
+      root[i]=insert(root[i-1],1,bn,id);
+    }
+  }
+  int query(int l,int r,int k){
+    int id=query(root[l-1],root[r],1,bn,k);
+    return b[id];
+  }
+
+  int insert(int x,int l,int r,int pos){
+    int y=tr.size();
+    node copy=tr[x];
+    tr.push_back(copy); //按需开点
+    tr[y].s++;
+    if(l==r) return y;
+    int m=(l+r)&gt;&gt;1;
+    if(pos&amp;#x3C;=m){
+      int child=insert(lc(x),l,m,pos);
+      lc(y)=child;
+    }
+    else{
+      int child=insert(rc(x),m+1,r,pos);
+      rc(y)=child;
+    }
+    return y;
+  }
+  int query(int x,int y,int l,int r,int k){
+    if(l==r) return l;
+    int m=l+r&gt;&gt;1;
+    int s=tr[lc(y)].s-tr[lc(x)].s;
+    if(k&amp;#x3C;=s) return query(lc(x),lc(y),l,m,k);
+    else return query(rc(x),rc(y),m+1,r,k-s);
+  }
 };
-vector&amp;#x3C;node&gt; tr;
-vector&amp;#x3C;int&gt; root,a,b;
-int n,m;
-
-int insert(int x,int l,int r,int pos){
-  int y=tr.size();
-  node copy=tr[x];
-  tr.push_back(copy); //按需开点
-  tr[y].s++;
-  if(l==r) return y;
-  int m=(l+r)&gt;&gt;1;
-  if(pos&amp;#x3C;=m){
-    int child=insert(lc(x),l,m,pos);
-    lc(y)=child;
-  }
-  else{
-    int child=insert(rc(x),m+1,r,pos);
-    rc(y)=child;
-  }
-  return y;
-}
-int query(int x,int y,int l,int r,int k){
-  if(l==r) return l;
-  int m=l+r&gt;&gt;1;
-  int s=tr[lc(y)].s-tr[lc(x)].s;
-  if(k&amp;#x3C;=s) return query(lc(x),lc(y),l,m,k);
-  else return query(rc(x),rc(y),m+1,r,k-s);
-}
 int main(){
+  int n,m;
   scanf(&quot;%d%d&quot;,&amp;#x26;n,&amp;#x26;m);
-  a.assign(n + 1, 0);
-  b.assign(n + 1, 0);
-  root.assign(n + 1, 0);
-  tr.assign(1, node{}); //编号0表示空节点
-  for(int i=1; i&amp;#x3C;=n; i++){
-    scanf(&quot;%d&quot;,&amp;#x26;a[i]); b[i]=a[i];
-  }
-  sort(b.begin()+1,b.end());
-  int bn=unique(b.begin()+1,b.end())-b.begin()-1; //去重后的个数
-
-  for(int i=1; i&amp;#x3C;=n; i++){
-    int id=lower_bound(b.begin()+1,b.begin()+bn+1,a[i])-b.begin();//下标
-    root[i]=insert(root[i-1],1,bn,id);
-  }
+  vector&amp;#x3C;int&gt; a(n + 1);
+  for(int i=1; i&amp;#x3C;=n; i++) scanf(&quot;%d&quot;,&amp;#x26;a[i]);
+  PersistentSegmentTree seg(a);
   while(m--){
     int l,r,k; scanf(&quot;%d%d%d&quot;,&amp;#x26;l,&amp;#x26;r,&amp;#x26;k);
-    int id=query(root[l-1],root[r],1,bn,k);
-    printf(&quot;%d\n&quot;,b[id]);
+    printf(&quot;%d\n&quot;,seg.query(l,r,k));
   }
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;查询x是第几小的话，参考如下代码：&lt;/p&gt;
+&lt;p&gt;查询x是第几小的话，将下面两个 &lt;code&gt;query_rank&lt;/code&gt; 方法加入 &lt;code&gt;PersistentSegmentTree&lt;/code&gt;：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;int query_rank(int x,int y,int l,int r,int pos){
   if(l==r) return 1;
   int m=l+r&gt;&gt;1;
@@ -6072,9 +6116,13 @@ int main(){
   return s+query_rank(rc(x),rc(y),m+1,r,pos);
 }
 
-int pos=lower_bound(b.begin()+1,b.begin()+bn+1,v)-b.begin();
-int rk=query_rank(root[l-1],root[r],1,bn,pos);
-printf(&quot;%d\n&quot;,rk);
+int query_rank(int l,int r,int v){
+  int pos=lower_bound(b.begin()+1,b.begin()+bn+1,v)-b.begin();
+  return query_rank(root[l-1],root[r],1,bn,pos);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在 &lt;code&gt;main&lt;/code&gt; 中调用（此处假设 &lt;code&gt;v&lt;/code&gt; 在离散化值域中）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;printf(&quot;%d\n&quot;,seg.query_rank(l,r,v));
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C9 扫描线</title><link>https://ehnotgod.github.io/blog/c9-%E6%89%AB%E6%8F%8F%E7%BA%BF</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c9-%E6%89%AB%E6%8F%8F%E7%BA%BF</guid><description>扫描线：矩形面积并 / 周长并。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P5490&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -6176,30 +6224,43 @@ struct line{   //扫描线
   int tag;     //入边:+1,出边:-1
   bool operator&amp;#x3C;(const line &amp;#x26;t)const{return y&amp;#x3C;t.y;}
 };
-vector&amp;#x3C;line&gt; L;
-vector&amp;#x3C;int&gt; cnt,len; //线段树
-vector&amp;#x3C;int&gt; X;       //X坐标
-void pushup(int u,int l, int r){
-  if(cnt[u]) len[u]=X[r+1]-X[l]; //r → X[r+1]
-  else if(l==r) len[u]=0;
-  else len[u]=len[ls]+len[rs];
-}
-void change(int u,int l,int r,int a,int b,int tag){
-  if(a&gt;r || b&amp;#x3C;l) return; //越界
-  if(a&amp;#x3C;=l &amp;#x26;&amp;#x26; r&amp;#x3C;=b){      //覆盖
-    cnt[u]+=tag;
-    pushup(u,l,r);
-    return;
+struct SegmentTree{
+  vector&amp;#x3C;int&gt; cnt,len; //线段树
+  vector&amp;#x3C;int&gt; X;       //X坐标
+  int n;              //离散后的小区间个数
+
+  SegmentTree(const vector&amp;#x3C;int&gt;&amp;#x26; x,int s): X(x), n(s-1){
+    cnt.assign(4 * s + 5, 0);
+    len.assign(4 * s + 5, 0);
   }
-  int m=l+r&gt;&gt;1;
-  change(ls,l,m,a,b,tag); //裂开
-  change(rs,m+1,r,a,b,tag);
-  pushup(u,l,r);
-}
+  void pushup(int u,int l, int r){
+    if(cnt[u]) len[u]=X[r+1]-X[l]; //r → X[r+1]
+    else if(l==r) len[u]=0;
+    else len[u]=len[ls]+len[rs];
+  }
+  void change(int u,int l,int r,int a,int b,int tag){
+    if(a&gt;r || b&amp;#x3C;l) return; //越界
+    if(a&amp;#x3C;=l &amp;#x26;&amp;#x26; r&amp;#x3C;=b){      //覆盖
+      cnt[u]+=tag;
+      pushup(u,l,r);
+      return;
+    }
+    int m=l+r&gt;&gt;1;
+    change(ls,l,m,a,b,tag); //裂开
+    change(rs,m+1,r,a,b,tag);
+    pushup(u,l,r);
+  }
+  void change(int a,int b,int tag){
+    change(1,1,n,a,b,tag);
+  }
+  int query()const{
+    return len[1];
+  }
+};
 int main(){
   int n,x1,x2,y1,y2; scanf(&quot;%d&quot;,&amp;#x26;n);
-  L.assign(2 * n + 1, line{});
-  X.assign(2 * n + 1, 0);
+  vector&amp;#x3C;line&gt; L(2 * n + 1);
+  vector&amp;#x3C;int&gt; X(2 * n + 1);
   for(int i=1; i&amp;#x3C;=n; i++){
     scanf(&quot;%d%d%d%d&quot;,&amp;#x26;x1,&amp;#x26;y1,&amp;#x26;x2,&amp;#x26;y2);
     L[i]={x1,x2,y1,1};
@@ -6211,14 +6272,13 @@ int main(){
   sort(X.begin()+1,X.end()); //X坐标排序
   int s=unique(X.begin()+1,X.end())-X.begin()-1; //去重
   
-  cnt.assign(4 * s + 5, 0);
-  len.assign(4 * s + 5, 0);
+  SegmentTree tree(X,s);
   long long ans=0;
   for(int i=1; i&amp;#x3C;n; i++){
     int l=lower_bound(X.begin()+1,X.begin()+s+1,L[i].x1)-X.begin();
     int r=lower_bound(X.begin()+1,X.begin()+s+1,L[i].x2)-X.begin();
-    change(1,1,s-1,l,r-1,L[i].tag); //x2 → r-1
-    ans+=1ll*(L[i+1].y-L[i].y)*len[1];
+    tree.change(l,r-1,L[i].tag); //x2 → r-1
+    ans+=1ll*(L[i+1].y-L[i].y)*tree.query();
   }
   printf(&quot;%lld\n&quot;,ans);
 }
@@ -6246,7 +6306,7 @@ int main(){
 &lt;p&gt;KD-Tree 可以理解成一棵“按坐标不断切分平面”的二叉树。建树时，第一层按 x 坐标找中位数作为根，下一层按 y 坐标，再下一层又按 x，交替进行。这样每个节点既代表一个点，也代表它整棵子树中所有点所在的一个矩形区域，也就是包围盒 &lt;code&gt;L[] ~ U[]&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;查询一个点最近的已有点时，从根开始 DFS。每到一个节点，先计算查询点到当前节点的真实距离，用它更新当前最优答案 &lt;code&gt;ans&lt;/code&gt;。然后分别计算查询点到左、右子树包围盒的最小可能距离 &lt;code&gt;dl、dr&lt;/code&gt;。这个值表示：即使子树里存在最理想的点，它也不可能比这个距离更近。&lt;/p&gt;
 &lt;p&gt;如果某个子树的包围盒最小距离已经 &lt;code&gt;&gt;= ans&lt;/code&gt;，说明这棵子树里的所有点都不可能成为更优答案，可以直接剪枝；否则继续递归。通常先搜索 &lt;code&gt;dl、dr&lt;/code&gt; 较小的一边，这样更容易提前找到更小的 &lt;code&gt;ans&lt;/code&gt;，从而剪掉另一边更多节点。&lt;/p&gt;
-&lt;p&gt;你现在把任意查询点放进 &lt;code&gt;t[0]&lt;/code&gt;，再设 &lt;code&gt;cur=0&lt;/code&gt;，就可以直接复用原来的 &lt;code&gt;dis()&lt;/code&gt;、&lt;code&gt;dis2()&lt;/code&gt; 和 &lt;code&gt;query()&lt;/code&gt;。因此整个算法核心就是：&lt;strong&gt;KD-Tree 建树负责把点划分成区域，query 通过“点到包围盒的距离下界”进行剪枝，从而快速找到最近点。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;KDTree&lt;/code&gt; 内部把任意查询点放进 &lt;code&gt;t[0]&lt;/code&gt;，再设 &lt;code&gt;cur=0&lt;/code&gt;，就可以直接复用原来的 &lt;code&gt;dis()&lt;/code&gt;、&lt;code&gt;dis2()&lt;/code&gt; 和 &lt;code&gt;query()&lt;/code&gt;。因此整个算法核心就是：&lt;strong&gt;KD-Tree 建树负责把点划分成区域，query 通过“点到包围盒的距离下界”进行剪枝，从而快速找到最近点。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;py代码实现&lt;/h3&gt;
 &lt;p&gt;略&lt;/p&gt;
 &lt;h3&gt;C++代码实现&lt;/h3&gt;
@@ -6261,75 +6321,87 @@ int main(){
 #include &amp;#x3C;vector&gt;
 using namespace std;
 
-double ans=2e18;
-int n,K,root,cur; //K维度,root根,cur当前节点
-struct KD{     //KD树节点信息
-  int l,r;     //左右孩子
-  array&amp;#x3C;double, 2&gt; v; //点的坐标值
-  array&amp;#x3C;double, 2&gt; L,U; //子树区域的坐标范围
-  bool operator&amp;#x3C;(const KD &amp;#x26;b)const{return v[K]&amp;#x3C;b.v[K];}
-};
-vector&amp;#x3C;KD&gt; t;
+struct KDTree{
+  double ans=2e18;
+  int root=0,cur=0; //root根,cur当前节点
+  struct KD{     //KD树节点信息
+    int l,r;     //左右孩子
+    array&amp;#x3C;double, 2&gt; v; //点的坐标值
+    array&amp;#x3C;double, 2&gt; L,U; //子树区域的坐标范围
+  };
+  vector&amp;#x3C;KD&gt; t;
 
-void pushup(int p){ //更新p子树区域的坐标范围
-  for(int i=0;i&amp;#x3C;2;i++){
-    t[p].L[i]=t[p].U[i]=t[p].v[i];
-    if(lc)
-      t[p].L[i]=min(t[p].L[i],t[lc].L[i]),
-      t[p].U[i]=max(t[p].U[i],t[lc].U[i]);
-    if(rc)
-      t[p].L[i]=min(t[p].L[i],t[rc].L[i]),
-      t[p].U[i]=max(t[p].U[i],t[rc].U[i]);
+  explicit KDTree(int n): t(n + 1){}
+
+  void pushup(int p){ //更新p子树区域的坐标范围
+    for(int i=0;i&amp;#x3C;2;i++){
+      t[p].L[i]=t[p].U[i]=t[p].v[i];
+      if(lc)
+        t[p].L[i]=min(t[p].L[i],t[lc].L[i]),
+        t[p].U[i]=max(t[p].U[i],t[lc].U[i]);
+      if(rc)
+        t[p].L[i]=min(t[p].L[i],t[rc].L[i]),
+        t[p].U[i]=max(t[p].U[i],t[rc].U[i]);
+    }
   }
-}
-int build(int l,int r,int k){ //交替建树
-  if(l&gt;r) return 0;
-  int m=(l+r)&gt;&gt;1; 
-  K=k; nth_element(t.begin()+l,t.begin()+m,t.begin()+r+1); //中位数
-  t[m].l=build(l,m-1,k^1);
-  t[m].r=build(m+1,r,k^1);
-  pushup(m);
-  return m;
-}
-double sq(double x){return x*x;}
-double dis(int p){ //当前点到p点的距离
-  double s=0;
-  for(int i=0;i&amp;#x3C;2;i++) 
-    s+=sq(t[cur].v[i]-t[p].v[i]);
-  return s;
-}
-double dis2(int p){ //当前点到p子树区域的最小距离
-  if(!p) return 2e18; 
-  double s=0;
-  for(int i=0;i&amp;#x3C;2;++i)
-    s+=sq(max(t[cur].v[i]-t[p].U[i],0.0))+
-       sq(max(t[p].L[i]-t[cur].v[i],0.0));
-  return s;
-}
-void query(int p){ //查询当前点的最小距离
-  if(!p) return;
-  if(p!=cur) ans=min(ans,dis(p));
-  double dl=dis2(lc),dr=dis2(rc);
-  if(dl&amp;#x3C;dr){
-    if(dl&amp;#x3C;ans) query(lc);
-    if(dr&amp;#x3C;ans) query(rc);
+  int build(int l,int r,int k){ //交替建树
+    if(l&gt;r) return 0;
+    int m=(l+r)&gt;&gt;1;
+    nth_element(t.begin()+l,t.begin()+m,t.begin()+r+1,
+      [k](const KD &amp;#x26;a,const KD &amp;#x26;b){return a.v[k]&amp;#x3C;b.v[k];}); //中位数
+    t[m].l=build(l,m-1,k^1);
+    t[m].r=build(m+1,r,k^1);
+    pushup(m);
+    return m;
   }
-  else{
-    if(dr&amp;#x3C;ans) query(rc);
-    if(dl&amp;#x3C;ans) query(lc);
+  double sq(double x){return x*x;}
+  double dis(int p){ //当前点到p点的距离
+    double s=0;
+    for(int i=0;i&amp;#x3C;2;i++)
+      s+=sq(t[cur].v[i]-t[p].v[i]);
+    return s;
   }
-}
+  double dis2(int p){ //当前点到p子树区域的最小距离
+    if(!p) return 2e18;
+    double s=0;
+    for(int i=0;i&amp;#x3C;2;++i)
+      s+=sq(max(t[cur].v[i]-t[p].U[i],0.0))+
+         sq(max(t[p].L[i]-t[cur].v[i],0.0));
+    return s;
+  }
+  void query(int p){ //查询当前点的最小距离
+    if(!p) return;
+    if(p!=cur) ans=min(ans,dis(p));
+    double dl=dis2(lc),dr=dis2(rc);
+    if(dl&amp;#x3C;dr){
+      if(dl&amp;#x3C;ans) query(lc);
+      if(dr&amp;#x3C;ans) query(rc);
+    }
+    else{
+      if(dr&amp;#x3C;ans) query(rc);
+      if(dl&amp;#x3C;ans) query(lc);
+    }
+  }
+  void build(){
+    root=build(1,(int)t.size()-1,0);
+  }
+  double closestPair(){
+    ans=2e18;
+    for(cur=1;cur&amp;#x3C;(int)t.size();cur++) query(root);
+    return sqrt(ans);
+  }
+};
 int main(){
+  int n;
   scanf(&quot;%d&quot;,&amp;#x26;n);
-  t.assign(n + 1, KD{});
+  KDTree tree(n);
   for(int i=1; i&amp;#x3C;=n; i++)
-    scanf(&quot;%lf%lf&quot;,&amp;#x26;t[i].v[0],&amp;#x26;t[i].v[1]);
-  root=build(1,n,0);
-  for(cur=1; cur&amp;#x3C;=n; cur++) query(root);
-  printf(&quot;%.4lf\n&quot;,sqrt(ans));
+    scanf(&quot;%lf%lf&quot;,&amp;#x26;tree.t[i].v[0],&amp;#x26;tree.t[i].v[1]);
+  tree.build();
+  printf(&quot;%.4lf\n&quot;,tree.closestPair());
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;使用以下代码可以查任意点到点群的最近距离：&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;KDTree&lt;/code&gt; 中加入以下成员函数，可以查任意点到点群的最近距离：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-c++&quot;&gt;double queryPoint(double x,double y){
   t[0].v[0]=x;
   t[0].v[1]=y;
@@ -6525,62 +6597,74 @@ Project 5.36200 0.39000
 #include &amp;#x3C;bits/stdc++.h&gt;
 using namespace std;
 
-const int MAX_X = 50000; //题目规定的天数范围
-struct Line { double k = 0, b = 0; };
-struct Node { int id = 0, left = 0, right = 0; };
-vector&amp;#x3C;Line&gt; lines;
-vector&amp;#x3C;Node&gt; tr;
+struct LiChaoTree {
+  static constexpr int MAX_X = 50000; //题目规定的天数范围
+  struct Line { double k = 0, b = 0; };
+  struct Node { int id = 0, left = 0, right = 0; };
+  vector&amp;#x3C;Line&gt; lines;
+  vector&amp;#x3C;Node&gt; tr;
 
-double Y(int id, int x) {
-  return lines[id].k * x + lines[id].b;
-}
-void change(int u, int l, int r, int id) {
-  int mid = (l + r) / 2;
-  if (Y(id, mid) &gt; Y(tr[u].id, mid)) swap(id, tr[u].id);
-  if (l == r) return;
-  if (Y(id, l) &gt; Y(tr[u].id, l)) {
-    if (!tr[u].left) {
-      int child = tr.size();
-      tr.emplace_back();
-      tr[u].left = child;
-    }
-    change(tr[u].left, l, mid, id);
-  } else if (Y(id, r) &gt; Y(tr[u].id, r)) {
-    if (!tr[u].right) {
-      int child = tr.size();
-      tr.emplace_back();
-      tr[u].right = child;
-    }
-    change(tr[u].right, mid + 1, r, id);
+  LiChaoTree() {
+    lines.assign(1, Line{}); //直线0表示初始收益0
+    tr.assign(2, Node{});   //节点0为空，节点1为根
   }
-}
-double query(int u, int l, int r, int x) {
-  if (!u) return 0;
-  double ans = Y(tr[u].id, x);
-  if (l == r) return ans;
-  int mid = (l + r) / 2;
-  if (x &amp;#x3C;= mid) return max(ans, query(tr[u].left, l, mid, x));
-  return max(ans, query(tr[u].right, mid + 1, r, x));
-}
+
+  double Y(int id, int x) {
+    return lines[id].k * x + lines[id].b;
+  }
+  void change(int u, int l, int r, int id) {
+    int mid = (l + r) / 2;
+    if (Y(id, mid) &gt; Y(tr[u].id, mid)) swap(id, tr[u].id);
+    if (l == r) return;
+    if (Y(id, l) &gt; Y(tr[u].id, l)) {
+      if (!tr[u].left) {
+        int child = tr.size();
+        tr.emplace_back();
+        tr[u].left = child;
+      }
+      change(tr[u].left, l, mid, id);
+    } else if (Y(id, r) &gt; Y(tr[u].id, r)) {
+      if (!tr[u].right) {
+        int child = tr.size();
+        tr.emplace_back();
+        tr[u].right = child;
+      }
+      change(tr[u].right, mid + 1, r, id);
+    }
+  }
+  double query(int u, int l, int r, int x) {
+    if (!u) return 0;
+    double ans = Y(tr[u].id, x);
+    if (l == r) return ans;
+    int mid = (l + r) / 2;
+    if (x &amp;#x3C;= mid) return max(ans, query(tr[u].left, l, mid, x));
+    return max(ans, query(tr[u].right, mid + 1, r, x));
+  }
+  void change(double k, double b) {
+    lines.push_back({k, b});
+    change(1, 1, MAX_X, (int)lines.size() - 1);
+  }
+  double query(int x) {
+    return query(1, 1, MAX_X, x);
+  }
+};
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int n;
   cin &gt;&gt; n;
-  lines.assign(1, Line{}); //直线0表示初始收益0
-  tr.assign(2, Node{});   //节点0为空，节点1为根
+  LiChaoTree tree;
   for (int i = 0; i &amp;#x3C; n; ++i) {
     string op;
     cin &gt;&gt; op;
     if (op == &quot;Project&quot;) {
       double b, k;
       cin &gt;&gt; b &gt;&gt; k;
-      lines.push_back({k, b - k});
-      change(1, 1, MAX_X, (int)lines.size() - 1);
+      tree.change(k, b - k);
     } else {
       int x;
       cin &gt;&gt; x;
-      cout &amp;#x3C;&amp;#x3C; (int)(query(1, 1, MAX_X, x) / 100) &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+      cout &amp;#x3C;&amp;#x3C; (int)(tree.query(x) / 100) &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
     }
   }
 }
@@ -7428,21 +7512,30 @@ struct edge{
   {return w &amp;#x3C; t.w;}
 };
 vector&amp;#x3C;edge&gt; e;
-vector&amp;#x3C;int&gt; fa;
+struct DSU{
+  vector&amp;#x3C;int&gt; fa;
+  explicit DSU(int n){
+    fa.resize(n+1);
+    for(int i=0;i&amp;#x3C;=n;i++) fa[i]=i;
+  }
+  int find(int x){
+    if(fa[x]==x) return x;
+    return fa[x]=find(fa[x]);
+  }
+  bool unite(int x,int y){
+    x=find(x),y=find(y);
+    if(x==y) return false;
+    fa[x]=y;
+    return true;
+  }
+};
 int ans,cnt;
 
-int find(int x){
-  if(fa[x]==x) return x;
-  return fa[x]=find(fa[x]);
-}
 bool kruskal(){
   sort(e.begin(),e.end());
-  for(int i=1;i&amp;#x3C;=n;i++)fa[i]=i;
+  DSU dsu(n);
   for(int i=0; i&amp;#x3C;m; i++){
-    int x=find(e[i].u);
-    int y=find(e[i].v);
-    if(x!=y){
-      fa[x]=y;
+    if(dsu.unite(e[i].u,e[i].v)){
       ans+=e[i].w;
       cnt++;
     }
@@ -7452,7 +7545,6 @@ bool kruskal(){
 int main(){
   cin&gt;&gt;n&gt;&gt;m;
   e.resize(m);
-  fa.assign(n+1,0);
   for(int i=0; i&amp;#x3C;m; i++)
     cin&gt;&gt;e[i].u&gt;&gt;e[i].v&gt;&gt;e[i].w;
   if(!kruskal()) puts(&quot;orz&quot;);
@@ -7821,124 +7913,136 @@ int main(){
 using namespace std;
 
 #define int long long
-int n,m,root,P,a,b,c,t;
-vector&amp;#x3C;int&gt; w;
-vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; e;
-vector&amp;#x3C;int&gt; fa,dep,siz,son;
-vector&amp;#x3C;int&gt; top,id,nw; //树链
-int cnt;
+struct HLD{
+  int n,P;
+  vector&amp;#x3C;int&gt; w;
+  vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; e;
+  vector&amp;#x3C;int&gt; fa,dep,siz,son;
+  vector&amp;#x3C;int&gt; top,id,nw; //树链
+  int cnt=0;
 
-#define lc u&amp;#x3C;&amp;#x3C;1
-#define rc u&amp;#x3C;&amp;#x3C;1|1
-struct tree{
-  int l,r; 
-  int sum,add;
+  #define lc u&amp;#x3C;&amp;#x3C;1
+  #define rc u&amp;#x3C;&amp;#x3C;1|1
+  struct tree{
+    int l,r;
+    int sum,add;
+  };
+  vector&amp;#x3C;tree&gt; tr; //线段树
+
+  void dfs1(int u,int f){ //搞fa,dep,siz,son
+    fa[u]=f,dep[u]=dep[f]+1,siz[u]=1;
+    for(int v:e[u]){
+      if(v==f) continue;
+      dfs1(v,u);
+      siz[u]+=siz[v];
+      if(siz[son[u]]&amp;#x3C;siz[v]) son[u]=v;
+    }
+  }
+  void dfs2(int u,int tp){ //搞top,id,nw
+    top[u]=tp,id[u]=++cnt,nw[cnt]=w[u];
+    if(son[u]) dfs2(son[u],tp);
+    for(int v:e[u]){
+      if(v==fa[u]||v==son[u])continue;
+      dfs2(v,v);
+    }
+  }
+
+  void pushup(int u){
+    tr[u].sum=(tr[lc].sum+tr[rc].sum)%P;
+  }
+  void pushdown(int u){
+    if(tr[u].add){
+      tr[lc].sum=(tr[lc].sum+tr[u].add*(tr[lc].r-tr[lc].l+1))%P;
+      tr[rc].sum=(tr[rc].sum+tr[u].add*(tr[rc].r-tr[rc].l+1))%P;
+      tr[lc].add=(tr[lc].add+tr[u].add)%P;
+      tr[rc].add=(tr[rc].add+tr[u].add)%P;
+      tr[u].add=0;
+    }
+  }
+  void build(int u,int l,int r){ //构建线段树
+    tr[u]={l,r,nw[l]%P,0};
+    if(l==r) return;
+    int mid=l+r&gt;&gt;1;
+    build(lc,l,mid);
+    build(rc,mid+1,r);
+    pushup(u);
+  }
+  void change(int u,int x,int y,int k){ //线段树修改
+    if(x&gt;tr[u].r||y&amp;#x3C;tr[u].l) return;
+    if(x&amp;#x3C;=tr[u].l&amp;#x26;&amp;#x26;tr[u].r&amp;#x3C;=y){
+      tr[u].sum=(tr[u].sum+k*(tr[u].r-tr[u].l+1))%P;
+      tr[u].add=(tr[u].add+k)%P;
+      return;
+    }
+    pushdown(u);
+    change(lc,x,y,k);
+    change(rc,x,y,k);
+    pushup(u);
+  }
+  void change_path(int u,int v,int k){ //修改路径
+    while(top[u]!=top[v]){
+      if(dep[top[u]]&amp;#x3C;dep[top[v]]) swap(u,v);
+      change(1,id[top[u]],id[u],k);
+      u=fa[top[u]];
+    }
+    if(dep[u]&amp;#x3C;dep[v]) swap(u,v);
+    change(1,id[v],id[u],k); //最后一段
+  }
+  void change_tree(int u,int k){ //修改子树
+    change(1,id[u],id[u]+siz[u]-1,k);
+  }
+  int query(int u,int x,int y){ //线段树查询
+    if(x&gt;tr[u].r||y&amp;#x3C;tr[u].l) return 0;
+    if(x&amp;#x3C;=tr[u].l&amp;#x26;&amp;#x26;tr[u].r&amp;#x3C;=y) return tr[u].sum;
+    pushdown(u);
+    return (query(lc,x,y)+query(rc,x,y))%P;
+  }
+  int query_path(int u,int v){ //查询路径
+    int res=0;
+    while(top[u]!=top[v]){
+      if(dep[top[u]]&amp;#x3C;dep[top[v]]) swap(u,v);
+      res=(res+query(1,id[top[u]],id[u]))%P;
+      u=fa[top[u]];
+    }
+    if(dep[u]&amp;#x3C;dep[v]) swap(u,v);
+    res=(res+query(1,id[v],id[u]))%P; //最后一段
+    return res;
+  }
+  int query_tree(int u){ //查询子树
+    return query(1,id[u],id[u]+siz[u]-1);
+  }
+  HLD(int size,int mod):n(size),P(mod){
+    e.assign(n+1,{}); w.assign(n+1,0);
+    fa.assign(n+1,0); dep.assign(n+1,0);
+    siz.assign(n+1,0); son.assign(n+1,0);
+    top.assign(n+1,0); id.assign(n+1,0); nw.assign(n+1,0);
+    tr.assign(4*n+4,{});
+  }
+  void build(int root){
+    dfs1(root,0); dfs2(root,root);
+    build(1,1,n);
+  }
 };
-vector&amp;#x3C;tree&gt; tr; //线段树
+#undef lc
+#undef rc
 
-void dfs1(int u,int f){ //搞fa,dep,siz,son
-  fa[u]=f,dep[u]=dep[f]+1,siz[u]=1;
-  for(int v:e[u]){
-    if(v==f) continue;
-    dfs1(v,u);
-    siz[u]+=siz[v];
-    if(siz[son[u]]&amp;#x3C;siz[v]) son[u]=v; 
-  }
-}
-void dfs2(int u,int tp){ //搞top,id,nw
-  top[u]=tp,id[u]=++cnt,nw[cnt]=w[u];
-  if(son[u]) dfs2(son[u],tp);
-  for(int v:e[u]){
-    if(v==fa[u]||v==son[u])continue;
-    dfs2(v,v);
-  }
-}
-
-void pushup(int u){
-  tr[u].sum=(tr[lc].sum+tr[rc].sum)%P;
-}
-void pushdown(int u){
-  if(tr[u].add){
-    tr[lc].sum=(tr[lc].sum+tr[u].add*(tr[lc].r-tr[lc].l+1))%P;
-    tr[rc].sum=(tr[rc].sum+tr[u].add*(tr[rc].r-tr[rc].l+1))%P;
-    tr[lc].add=(tr[lc].add+tr[u].add)%P;
-    tr[rc].add=(tr[rc].add+tr[u].add)%P;
-    tr[u].add=0;
-  }
-}
-void build(int u,int l,int r){ //构建线段树
-  tr[u]={l,r,nw[l]%P,0};
-  if(l==r) return;
-  int mid=l+r&gt;&gt;1;
-  build(lc,l,mid);
-  build(rc,mid+1,r);
-  pushup(u);
-}
-void change(int u,int x,int y,int k){ //线段树修改
-  if(x&gt;tr[u].r||y&amp;#x3C;tr[u].l) return;
-  if(x&amp;#x3C;=tr[u].l&amp;#x26;&amp;#x26;tr[u].r&amp;#x3C;=y){
-    tr[u].sum=(tr[u].sum+k*(tr[u].r-tr[u].l+1))%P;
-    tr[u].add=(tr[u].add+k)%P;
-    return;
-  }
-  pushdown(u);
-  change(lc,x,y,k);
-  change(rc,x,y,k);
-  pushup(u);
-}
-void change_path(int u,int v,int k){ //修改路径
-  while(top[u]!=top[v]){
-    if(dep[top[u]]&amp;#x3C;dep[top[v]]) swap(u,v);
-    change(1,id[top[u]],id[u],k);
-    u=fa[top[u]];
-  }
-  if(dep[u]&amp;#x3C;dep[v]) swap(u,v);
-  change(1,id[v],id[u],k); //最后一段
-}
-void change_tree(int u,int k){ //修改子树
-  change(1,id[u],id[u]+siz[u]-1,k);
-}
-int query(int u,int x,int y){ //线段树查询
-  if(x&gt;tr[u].r||y&amp;#x3C;tr[u].l) return 0;
-  if(x&amp;#x3C;=tr[u].l&amp;#x26;&amp;#x26;tr[u].r&amp;#x3C;=y) return tr[u].sum;
-  pushdown(u);
-  return (query(lc,x,y)+query(rc,x,y))%P;
-}
-int query_path(int u,int v){ //查询路径
-  int res=0;
-  while(top[u]!=top[v]){
-    if(dep[top[u]]&amp;#x3C;dep[top[v]]) swap(u,v);
-    res=(res+query(1,id[top[u]],id[u]))%P;
-    u=fa[top[u]];
-  }
-  if(dep[u]&amp;#x3C;dep[v]) swap(u,v);
-  res=(res+query(1,id[v],id[u]))%P; //最后一段
-  return res;
-}
-int query_tree(int u){ //查询子树
-  return query(1,id[u],id[u]+siz[u]-1);
-}
 signed main(){
   ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+  int n,m,root,P,a,b,c,t;
   cin&gt;&gt;n&gt;&gt;m&gt;&gt;root&gt;&gt;P;
-  e.assign(n+1,{}); w.assign(n+1,0);
-  fa.assign(n+1,0); dep.assign(n+1,0);
-  siz.assign(n+1,0); son.assign(n+1,0);
-  top.assign(n+1,0); id.assign(n+1,0); nw.assign(n+1,0);
-  tr.assign(4*n+4,{});
-  for(int i=1; i&amp;#x3C;=n; i++) cin&gt;&gt;w[i];
+  HLD hld(n,P);
+  for(int i=1; i&amp;#x3C;=n; i++) cin&gt;&gt;hld.w[i];
   for(int i=0; i&amp;#x3C;n-1; i++){
     cin&gt;&gt;a&gt;&gt;b;
-    e[a].push_back(b); e[b].push_back(a);
+    hld.e[a].push_back(b); hld.e[b].push_back(a);
   }
-  dfs1(root,0); dfs2(root,root); //把树拆成链
-  build(1,1,n);  //用链建线段树
+  hld.build(root); //把树拆成链
   while(m--){
     cin&gt;&gt;t&gt;&gt;a;
-    if(t==1) cin&gt;&gt;b&gt;&gt;c,change_path(a,b,c);
-    else if(t==3) cin&gt;&gt;c,change_tree(a,c);
-    else if(t==2) cin&gt;&gt;b,cout&amp;#x3C;&amp;#x3C;query_path(a,b)%P&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
-    else cout&amp;#x3C;&amp;#x3C;query_tree(a)%P&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
+    if(t==1) cin&gt;&gt;b&gt;&gt;c,hld.change_path(a,b,c);
+    else if(t==3) cin&gt;&gt;c,hld.change_tree(a,c);
+    else if(t==2) cin&gt;&gt;b,cout&amp;#x3C;&amp;#x3C;hld.query_path(a,b)%P&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
+    else cout&amp;#x3C;&amp;#x3C;hld.query_tree(a)%P&amp;#x3C;&amp;#x3C;&quot;\n&quot;;
   }
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>D10 树上距离</title><link>https://ehnotgod.github.io/blog/d10-%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/d10-%E6%A0%91%E4%B8%8A%E8%B7%9D%E7%A6%BB</guid><description>树上前缀和/差分：求树上两点距离与路径和。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
@@ -9193,80 +9297,87 @@ using namespace std;
 #define range(i, a, b) for (int i = (a); i &amp;#x3C; (b); ++i)
 #define def(name, ...) auto name = [&amp;#x26;](__VA_ARGS__)
 
-int n, m, q, LOG;
-struct edge{
-  int u,v,w;
-  bool operator&amp;#x3C;(const edge &amp;#x26;t)const
-  {return w &amp;#x3C; t.w;}
-};
-vector&amp;#x3C;edge&gt; edges;
-int cnt;
-vector&amp;#x3C;int&gt; fa2,value;
-vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; e;
-int find(int x){
-  if(fa2[x]==x) return x;
-  return fa2[x]=find(fa2[x]);
-}
-void kruskal(){
-  sort(edges.begin(),edges.end());
-  cnt = n;
-  iota(fa2.begin(),fa2.end(),0);
-  for(int i=0; i&amp;#x3C;m; i++){
-    int x = find(edges[i].u);
-    int y = find(edges[i].v);
-    if(x!=y){
-        cnt++;
-        fa2[x]=cnt;
-        fa2[y]=cnt;
-        value[cnt] = edges[i].w;
+struct KruskalTree{
+  int n, m, LOG;
+  struct edge{
+    int u,v,w;
+    bool operator&amp;#x3C;(const edge &amp;#x26;t)const
+    {return w &amp;#x3C; t.w;}
+  };
+  vector&amp;#x3C;edge&gt; edges;
+  int cnt;
+  vector&amp;#x3C;int&gt; fa2,value;
+  vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; e;
+  int find(int x){
+    if(fa2[x]==x) return x;
+    return fa2[x]=find(fa2[x]);
+  }
+  void kruskal(){
+    sort(edges.begin(),edges.end());
+    cnt = n;
+    iota(fa2.begin(),fa2.end(),0);
+    for(int i=0; i&amp;#x3C;m; i++){
+      int x = find(edges[i].u);
+      int y = find(edges[i].v);
+      if(x!=y){
+          cnt++;
+          fa2[x]=cnt;
+          fa2[y]=cnt;
+          value[cnt] = edges[i].w;
 
-        e[x].push_back(cnt);
-        e[y].push_back(cnt);
-        e[cnt].push_back(x);
-        e[cnt].push_back(y);
+          e[x].push_back(cnt);
+          e[y].push_back(cnt);
+          e[cnt].push_back(x);
+          e[cnt].push_back(y);
+      }
     }
   }
-}
-vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; f;
-vector&amp;#x3C;int&gt; dep;
+  vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; f;
+  vector&amp;#x3C;int&gt; dep;
 
-void dfs(int u,int fa){
-  f[u][0]=fa; dep[u]=dep[fa]+1;
-  for(int i=1;i&amp;#x3C;LOG;i++) //u的2,4,8...祖先
-    f[u][i]=f[f[u][i-1]][i-1];
-  for(int v:e[u])
-    if(v!=fa) dfs(v,u);
-}
-int lca(int u,int v){
-  if(dep[u]&amp;#x3C;dep[v]) swap(u,v);
-  for(int i=LOG-1;~i;i--) //u先大步后小步向上跳，直到与v同层
-    if(dep[f[u][i]]&gt;=dep[v]) u=f[u][i];
-  if(u==v) return v;
-  for(int i=LOG-1;~i;i--) //u,v一起向上跳，直到lca的下面
-    if(f[u][i]!=f[v][i]) u=f[u][i],v=f[v][i];
-  return f[u][0];
-}
+  void dfs(int u,int fa){
+    f[u][0]=fa; dep[u]=dep[fa]+1;
+    for(int i=1;i&amp;#x3C;LOG;i++) //u的2,4,8...祖先
+      f[u][i]=f[f[u][i-1]][i-1];
+    for(int v:e[u])
+      if(v!=fa) dfs(v,u);
+  }
+  int lca(int u,int v){
+    if(dep[u]&amp;#x3C;dep[v]) swap(u,v);
+    for(int i=LOG-1;~i;i--) //u先大步后小步向上跳，直到与v同层
+      if(dep[f[u][i]]&gt;=dep[v]) u=f[u][i];
+    if(u==v) return v;
+    for(int i=LOG-1;~i;i--) //u,v一起向上跳，直到lca的下面
+      if(f[u][i]!=f[v][i]) u=f[u][i],v=f[v][i];
+    return f[u][0];
+  }
+  KruskalTree(int size,int edge_count):n(size),m(edge_count){
+    LOG=1;
+    while((1LL&amp;#x3C;&amp;#x3C;LOG)&amp;#x3C;=2*n) ++LOG;
+    edges.resize(m);
+    fa2.assign(2*n+1,0); value.assign(2*n+1,0);
+    e.assign(2*n+1,{});
+    f.assign(2*n+1,vector&amp;#x3C;int&gt;(LOG,0)); dep.assign(2*n+1,0);
+  }
+  void build(){
+    kruskal();
+    dfs(cnt,0);
+  }
+  int query(int u,int v){ return value[lca(u,v)]; }
+};
 // vector&amp;#x3C;int&gt; a(n, 0);
 // vector&amp;#x3C;vector&amp;#x3C;int&gt;&gt; dp(n + 1, vector&amp;#x3C;int&gt;(n + 1, 0));
 void solve() {
-	cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
-	LOG=1;
-	while((1LL&amp;#x3C;&amp;#x3C;LOG)&amp;#x3C;=2*n) ++LOG;
-	edges.resize(m);
-	fa2.assign(2*n+1,0); value.assign(2*n+1,0);
-	e.assign(2*n+1,{});
-	f.assign(2*n+1,vector&amp;#x3C;int&gt;(LOG,0)); dep.assign(2*n+1,0);
-	for (int i = 0; i &amp;#x3C; m; i++){
-		cin &gt;&gt; edges[i].u &gt;&gt; edges[i].v &gt;&gt; edges[i].w;
-	}
-    kruskal();
-
-    dfs(cnt, 0);
-    
+    int n,m,q;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
+    KruskalTree tree(n,m);
+    for (int i = 0; i &amp;#x3C; m; i++){
+        cin &gt;&gt; tree.edges[i].u &gt;&gt; tree.edges[i].v &gt;&gt; tree.edges[i].w;
+    }
+    tree.build();
     while (q--){
-        int u, v; cin &gt;&gt; u &gt;&gt; v;
-        int uv = lca(u, v);
-        cout &amp;#x3C;&amp;#x3C; value[uv] &amp;#x3C;&amp;#x3C; endl;
+        int u,v; cin &gt;&gt; u &gt;&gt; v;
+        cout &amp;#x3C;&amp;#x3C; tree.query(u,v) &amp;#x3C;&amp;#x3C; endl;
     }
 }
 
@@ -11366,43 +11477,47 @@ for _ in range(T):
 #include &amp;#x3C;unordered_map&gt;
 using namespace std;
 
-vector&amp;#x3C;unordered_map&amp;#x3C;char,int&gt;&gt; ch;
-vector&amp;#x3C;int&gt; cnt;
+struct Trie{
+  vector&amp;#x3C;unordered_map&amp;#x3C;char,int&gt;&gt; ch;
+  vector&amp;#x3C;int&gt; cnt;
 
-void insert(const string&amp;#x26; s){
-  int p=0;
-  for(char c:s){
-    auto it=ch[p].find(c);
-    if(it==ch[p].end()){
-      int next=ch.size();
-      ch[p][c]=next;
-      ch.emplace_back();
-      cnt.push_back(0);
-      p=next;
+  Trie():ch(1),cnt(1,0){} //初始化根节点，按需扩容
+
+  void insert(const string&amp;#x26; s){
+    int p=0;
+    for(char c:s){
+      auto it=ch[p].find(c);
+      if(it==ch[p].end()){
+        int next=ch.size();
+        ch[p][c]=next;
+        ch.emplace_back();
+        cnt.push_back(0);
+        p=next;
+      }
+      else p=it-&gt;second;
+      cnt[p]++;
     }
-    else p=it-&gt;second;
-    cnt[p]++;
   }
-}
-int query(const string&amp;#x26; s){
-  int p=0;
-  for(char c:s){
-    auto it=ch[p].find(c);
-    if(it==ch[p].end()) return 0;
-    p=it-&gt;second;
+  int query(const string&amp;#x26; s) const{
+    int p=0;
+    for(char c:s){
+      auto it=ch[p].find(c);
+      if(it==ch[p].end()) return 0;
+      p=it-&gt;second;
+    }
+    return cnt[p];
   }
-  return cnt[p];
-}
+};
 int main(){
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int T; cin&gt;&gt;T;
   while(T--){
     int n,q; cin&gt;&gt;n&gt;&gt;q;
-    ch.assign(1,{}); cnt.assign(1,0); // 每组重置根节点，按需扩容
+    Trie trie; //每组创建独立的字典树
     string s;
-    while(n--) cin&gt;&gt;s,insert(s);
-    while(q--) cin&gt;&gt;s,cout&amp;#x3C;&amp;#x3C;query(s)&amp;#x3C;&amp;#x3C;&apos;\n&apos;;
+    while(n--) cin&gt;&gt;s,trie.insert(s);
+    while(q--) cin&gt;&gt;s,cout&amp;#x3C;&amp;#x3C;trie.query(s)&amp;#x3C;&amp;#x3C;&apos;\n&apos;;
   }
   return 0;
 }
@@ -11460,41 +11575,45 @@ print(ans)
 #include &amp;#x3C;array&gt;
 using namespace std;
 
-vector&amp;#x3C;array&amp;#x3C;int,2&gt;&gt; ch;
+struct BinaryTrie{
+  vector&amp;#x3C;array&amp;#x3C;int,2&gt;&gt; ch;
 
-void insert(int x){
-  int p=0;
-  for(int i=30; i&gt;=0; i--){
-    int j=x&gt;&gt;i&amp;#x26;1; //取出第i位
-    if(!ch[p][j]){
-      int next=ch.size();
-      ch[p][j]=next;
-      ch.push_back({0,0});
+  BinaryTrie():ch(1,{0,0}){}
+
+  void insert(int x){
+    int p=0;
+    for(int i=30; i&gt;=0; i--){
+      int j=x&gt;&gt;i&amp;#x26;1; //取出第i位
+      if(!ch[p][j]){
+        int next=ch.size();
+        ch[p][j]=next;
+        ch.push_back({0,0});
+      }
+      p=ch[p][j];
     }
-    p=ch[p][j];
   }
-}
-int query(int x){
-  int p=0,res=0;
-  for(int i=30; i&gt;=0; i--){
-    int j=x&gt;&gt;i&amp;#x26;1;
-    if(ch[p][!j]){
-      res += 1&amp;#x3C;&amp;#x3C;i; //累加位权
-      p=ch[p][!j];
+  int query(int x) const{
+    int p=0,res=0;
+    for(int i=30; i&gt;=0; i--){
+      int j=x&gt;&gt;i&amp;#x26;1;
+      if(ch[p][!j]){
+        res += 1&amp;#x3C;&amp;#x3C;i; //累加位权
+        p=ch[p][!j];
+      }
+      else p=ch[p][j];
     }
-    else p=ch[p][j];
+    return res;
   }
-  return res;
-}
+};
 int main(){
   int n; cin&gt;&gt;n;
   vector&amp;#x3C;int&gt; a(n+1);
-  ch.assign(1,{0,0});
+  BinaryTrie trie;
   for(int i=1; i&amp;#x3C;=n; i++)
-    cin&gt;&gt;a[i],insert(a[i]);
+    cin&gt;&gt;a[i],trie.insert(a[i]);
   int ans=0;
   for(int i=1; i&amp;#x3C;=n; i++)
-    ans=max(ans,query(a[i]));
+    ans=max(ans,trie.query(a[i]));
   cout&amp;#x3C;&amp;#x3C;ans;
   return 0;
 }
@@ -13427,30 +13546,37 @@ int main(){
 using namespace std;
 
 typedef long long LL;
-int n;
-vector&amp;#x3C;LL&gt; p;
+struct LinearBasis{
+  vector&amp;#x3C;LL&gt; p;
 
-void insert(LL x){ //贪心法
-  for(int i=63;i&gt;=0;--i){
-    if(x&gt;&gt;i&amp;#x26;1){  //x第i位为1
-      if(!p[i]){ //不存在则加入
-        p[i]=x; 
-        break;
+  LinearBasis():p(64,0){} //64 位整数的线性基
+
+  void insert(LL x){ //贪心法
+    for(int i=63;i&gt;=0;--i){
+      if(x&gt;&gt;i&amp;#x26;1){  //x第i位为1
+        if(!p[i]){ //不存在则加入
+          p[i]=x;
+          break;
+        }
+        x^=p[i];   //存在则异或
       }
-      x^=p[i];   //存在则异或
     }
   }
-}
+  LL query() const{
+    LL ans=0;
+    for(int i=63;i&gt;=0;i--) ans=max(ans,ans^p[i]);
+    return ans;
+  }
+};
 int main(){
+  int n;
   scanf(&quot;%d&quot;,&amp;#x26;n);
-  p.assign(64,0); //64 位整数的线性基
+  LinearBasis basis;
   for(int i=0;i&amp;#x3C;n;i++){
     LL x; scanf(&quot;%lld&quot;,&amp;#x26;x);
-    insert(x);
+    basis.insert(x);
   }
-  LL ans=0;
-  for(int i=63;i&gt;=0;i--) ans=max(ans,ans^p[i]);
-  printf(&quot;%lld\n&quot;,ans);
+  printf(&quot;%lld\n&quot;,basis.query());
 }
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>G29 拉格朗日插值法</title><link>https://ehnotgod.github.io/blog/g29-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/g29-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95</guid><description>拉格朗日插值：求多项式在任意点的值。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P4781&lt;/p&gt;

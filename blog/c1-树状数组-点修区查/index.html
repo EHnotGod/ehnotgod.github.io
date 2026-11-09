@@ -426,65 +426,76 @@ int main() {
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#E36209;--shiki-dark:#FFAB70">i</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a); i </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (b); </span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">i)</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> lc</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (p</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> rc</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (p</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#D73A49;--shiki-dark:#F97583">|</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> w;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">struct</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> node {</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> l, r, sum;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">struct</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> SegmentTree {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  struct</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> node {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> l, r, sum;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  };</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">node</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  explicit </span><span style="color:#6F42C1;--shiki-dark:#B392F0">SegmentTree</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int>&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> w) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> w.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 4</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, node{});</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, n, w);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> l, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r, </span><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int>&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> w) {</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">      tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> l;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">      tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">      tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> w</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[l];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (l </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (l </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r) </span><span style="color:#D73A49;--shiki-dark:#F97583">/</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(lc, l, m, w);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">      build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(rc, m </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, r, w);</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">      tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[lc].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[rc].sum;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  // 点修改（从根递归进入）</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> k) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x) {</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">          tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> k;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">          return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r) </span><span style="color:#D73A49;--shiki-dark:#F97583">/</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (x </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m) </span><span style="color:#6F42C1;--shiki-dark:#B392F0">update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(lc, x, k);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      else</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(rc, x, k);</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">      tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[lc].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[rc].sum;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (x </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r) </span><span style="color:#D73A49;--shiki-dark:#F97583">/</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (x </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m) sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(lc, x, y);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (y </span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m)  sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(rc, x, y);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sum;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> k) { </span><span style="color:#6F42C1;--shiki-dark:#B392F0">update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, k); }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y) { </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, y); }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">};</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">node</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#undef</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> lc</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#undef</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> rc</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> l</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> r</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> l;</span></span>
-<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r;</span></span>
-<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> w</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[l];</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (l </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (l </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r) </span><span style="color:#D73A49;--shiki-dark:#F97583">/</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(lc, l, m);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(rc, m </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, r);</span></span>
-<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[lc].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[rc].sum;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 点修改（从根递归进入）</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> x</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> k</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x) {</span></span>
-<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">        tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> k;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r) </span><span style="color:#D73A49;--shiki-dark:#F97583">/</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (x </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m) </span><span style="color:#6F42C1;--shiki-dark:#B392F0">update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(lc, x, k);</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    else</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(rc, x, k);</span></span>
-<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[lc].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[rc].sum;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> x</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> y</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (x </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].sum;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].l </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[p].r) </span><span style="color:#D73A49;--shiki-dark:#F97583">/</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (x </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m) sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(lc, x, y);</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (y </span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m)  sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(rc, x, y);</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sum;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    ios::sync_with_stdio</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cin.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">tie</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cout.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">tie</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n, m;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    w.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 4</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, node{});</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#6F42C1;--shiki-dark:#B392F0"> w</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(i, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, n){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#E36209;--shiki-dark:#FFAB70"> w</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, n);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    SegmentTree </span><span style="color:#6F42C1;--shiki-dark:#B392F0">seg</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(w);</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(i, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, m){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> op; cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> op;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, y, k;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (op </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> k;</span><span style="color:#6A737D;--shiki-dark:#6A737D">  // 单点更新</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, k);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            seg.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">update</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, k);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        else</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y;</span><span style="color:#6A737D;--shiki-dark:#6A737D">  // 区间查询</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, y) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> endl;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> seg.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, y) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> endl;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre><span class="language transition-opacity duration-300 absolute top-3 right-0 ps-1 pe-3 text-sm bg-muted text-muted-foreground select-none">c</span><button class="copy transition-opacity duration-300 opacity-0 absolute top-3 right-3 text-muted-foreground p-1 box-content border border-border rounded bg-primary-foreground" data-code="//洛谷P3374
@@ -494,65 +505,76 @@ using namespace std;
 #define range(i, a, b) for (int i = (a); i < (b); ++i)
 #define lc (p<<1)
 #define rc (p<<1|1)
-vector<int> w;
-struct node {
-    int l, r, sum;
+struct SegmentTree {
+  struct node {
+      int l, r, sum;
+  };
+  vector<node> tr;
+
+  explicit SegmentTree(const vector<int>&#x26; w) {
+    int n = w.size() - 1;
+    tr.assign(n * 4 + 5, node{});
+    build(1, 1, n, w);
+  }
+
+  void build(int p, int l, int r, const vector<int>&#x26; w) {
+      tr[p].l = l;
+      tr[p].r = r;
+      tr[p].sum = w[l];
+      if (l == r) return;
+      int m = (l + r) / 2;
+      build(lc, l, m, w);
+      build(rc, m + 1, r, w);
+      tr[p].sum = tr[lc].sum + tr[rc].sum;
+  }
+
+  // 点修改（从根递归进入）
+  void update(int p, int x, int k) {
+      if (tr[p].l == x &#x26;&#x26; tr[p].r == x) {
+          tr[p].sum += k;
+          return;
+      }
+      int m = (tr[p].l + tr[p].r) / 2;
+      if (x <= m) update(lc, x, k);
+      else update(rc, x, k);
+      tr[p].sum = tr[lc].sum + tr[rc].sum;
+  }
+
+  int query(int p, int x, int y) {
+      if (x <= tr[p].l &#x26;&#x26; tr[p].r <= y) return tr[p].sum;
+      int m = (tr[p].l + tr[p].r) / 2;
+      int sum = 0;
+      if (x <= m) sum += query(lc, x, y);
+      if (y > m)  sum += query(rc, x, y);
+      return sum;
+  }
+  void update(int x, int k) { update(1, x, k); }
+  int query(int x, int y) { return query(1, x, y); }
 };
-vector<node> tr;
+#undef lc
+#undef rc
 
-void build(int p, int l, int r) {
-    tr[p].l = l;
-    tr[p].r = r;
-    tr[p].sum = w[l];
-    if (l == r) return;
-    int m = (l + r) / 2;
-    build(lc, l, m);
-    build(rc, m + 1, r);
-    tr[p].sum = tr[lc].sum + tr[rc].sum;
-}
-
-// 点修改（从根递归进入）
-void update(int p, int x, int k) {
-    if (tr[p].l == x &#x26;&#x26; tr[p].r == x) {
-        tr[p].sum += k;
-        return;
-    }
-    int m = (tr[p].l + tr[p].r) / 2;
-    if (x <= m) update(lc, x, k);
-    else update(rc, x, k);
-    tr[p].sum = tr[lc].sum + tr[rc].sum;
-}
-
-int query(int p, int x, int y) {
-    if (x <= tr[p].l &#x26;&#x26; tr[p].r <= y) return tr[p].sum;
-    int m = (tr[p].l + tr[p].r) / 2;
-    int sum = 0;
-    if (x <= m) sum += query(lc, x, y);
-    if (y > m)  sum += query(rc, x, y);
-    return sum;
-}
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int n, m;
     cin >> n >> m;
-    w.assign(n + 1, 0);
-    tr.assign(n * 4 + 5, node{});
+    vector<int> w(n + 1);
     range(i, 0, n){
         cin >> w[i + 1];
     }
-    build(1, 1, n);
+    SegmentTree seg(w);
     range(i, 0, m){
         int op; cin >> op;
         int x, y, k;
         if (op == 1){
             cin >> x >> k;  // 单点更新
-            update(1, x, k);
+            seg.update(x, k);
         }
         else{
             cin >> x >> y;  // 区间查询
-            cout << query(1, x, y) << endl;
+            cout << seg.query(x, y) << endl;
         }
     }
 }" onclick="

@@ -163,10 +163,9 @@ while n:
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;queue></span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">priority_queue</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8">,greater</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#D73A49;--shiki-dark:#F97583"> ></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> q;</span></span>
-<span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n; </span><span style="color:#6F42C1;--shiki-dark:#B392F0">scanf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n);</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //操作次数</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  priority_queue</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8">,greater</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#D73A49;--shiki-dark:#F97583"> ></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> q;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  while</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">--</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> op,x; </span><span style="color:#6F42C1;--shiki-dark:#B392F0">scanf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">op);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(op</span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#6F42C1;--shiki-dark:#B392F0">scanf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">x), q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">push</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x);</span></span>
@@ -180,10 +179,9 @@ while n:
 #include <queue>
 using namespace std;
 
-priority_queue<int,vector<int>,greater<int> > q;
-
 int main(){
   int n; scanf(&#x22;%d&#x22;,&#x26;n); //操作次数
+  priority_queue<int,vector<int>,greater<int> > q;
   while(n--){
     int op,x; scanf(&#x22;%d&#x22;,&#x26;op);
     if(op==1) scanf(&#x22;%d&#x22;,&#x26;x), q.push(x);
