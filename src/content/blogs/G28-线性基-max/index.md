@@ -70,29 +70,36 @@ $$ 1 \leq n \leq 50, 0 \leq S_i < 2 ^ {50} $$
 using namespace std;
 
 typedef long long LL;
-int n;
-vector<LL> p;
+struct LinearBasis{
+  vector<LL> p;
 
-void insert(LL x){ //贪心法
-  for(int i=63;i>=0;--i){
-    if(x>>i&1){  //x第i位为1
-      if(!p[i]){ //不存在则加入
-        p[i]=x; 
-        break;
+  LinearBasis():p(64,0){} //64 位整数的线性基
+
+  void insert(LL x){ //贪心法
+    for(int i=63;i>=0;--i){
+      if(x>>i&1){  //x第i位为1
+        if(!p[i]){ //不存在则加入
+          p[i]=x;
+          break;
+        }
+        x^=p[i];   //存在则异或
       }
-      x^=p[i];   //存在则异或
     }
   }
-}
+  LL query() const{
+    LL ans=0;
+    for(int i=63;i>=0;i--) ans=max(ans,ans^p[i]);
+    return ans;
+  }
+};
 int main(){
+  int n;
   scanf("%d",&n);
-  p.assign(64,0); //64 位整数的线性基
+  LinearBasis basis;
   for(int i=0;i<n;i++){
     LL x; scanf("%lld",&x);
-    insert(x);
+    basis.insert(x);
   }
-  LL ans=0;
-  for(int i=63;i>=0;i--) ans=max(ans,ans^p[i]);
-  printf("%lld\n",ans);
+  printf("%lld\n",basis.query());
 }
 ```

@@ -226,65 +226,76 @@ using namespace std;
 #define range(i, a, b) for (int i = (a); i < (b); ++i)
 #define lc (p<<1)
 #define rc (p<<1|1)
-vector<int> w;
-struct node {
-    int l, r, sum;
+struct SegmentTree {
+  struct node {
+      int l, r, sum;
+  };
+  vector<node> tr;
+
+  explicit SegmentTree(const vector<int>& w) {
+    int n = w.size() - 1;
+    tr.assign(n * 4 + 5, node{});
+    build(1, 1, n, w);
+  }
+
+  void build(int p, int l, int r, const vector<int>& w) {
+      tr[p].l = l;
+      tr[p].r = r;
+      tr[p].sum = w[l];
+      if (l == r) return;
+      int m = (l + r) / 2;
+      build(lc, l, m, w);
+      build(rc, m + 1, r, w);
+      tr[p].sum = tr[lc].sum + tr[rc].sum;
+  }
+
+  // 点修改（从根递归进入）
+  void update(int p, int x, int k) {
+      if (tr[p].l == x && tr[p].r == x) {
+          tr[p].sum += k;
+          return;
+      }
+      int m = (tr[p].l + tr[p].r) / 2;
+      if (x <= m) update(lc, x, k);
+      else update(rc, x, k);
+      tr[p].sum = tr[lc].sum + tr[rc].sum;
+  }
+
+  int query(int p, int x, int y) {
+      if (x <= tr[p].l && tr[p].r <= y) return tr[p].sum;
+      int m = (tr[p].l + tr[p].r) / 2;
+      int sum = 0;
+      if (x <= m) sum += query(lc, x, y);
+      if (y > m)  sum += query(rc, x, y);
+      return sum;
+  }
+  void update(int x, int k) { update(1, x, k); }
+  int query(int x, int y) { return query(1, x, y); }
 };
-vector<node> tr;
+#undef lc
+#undef rc
 
-void build(int p, int l, int r) {
-    tr[p].l = l;
-    tr[p].r = r;
-    tr[p].sum = w[l];
-    if (l == r) return;
-    int m = (l + r) / 2;
-    build(lc, l, m);
-    build(rc, m + 1, r);
-    tr[p].sum = tr[lc].sum + tr[rc].sum;
-}
-
-// 点修改（从根递归进入）
-void update(int p, int x, int k) {
-    if (tr[p].l == x && tr[p].r == x) {
-        tr[p].sum += k;
-        return;
-    }
-    int m = (tr[p].l + tr[p].r) / 2;
-    if (x <= m) update(lc, x, k);
-    else update(rc, x, k);
-    tr[p].sum = tr[lc].sum + tr[rc].sum;
-}
-
-int query(int p, int x, int y) {
-    if (x <= tr[p].l && tr[p].r <= y) return tr[p].sum;
-    int m = (tr[p].l + tr[p].r) / 2;
-    int sum = 0;
-    if (x <= m) sum += query(lc, x, y);
-    if (y > m)  sum += query(rc, x, y);
-    return sum;
-}
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int n, m;
     cin >> n >> m;
-    w.assign(n + 1, 0);
-    tr.assign(n * 4 + 5, node{});
+    vector<int> w(n + 1);
     range(i, 0, n){
         cin >> w[i + 1];
     }
-    build(1, 1, n);
+    SegmentTree seg(w);
     range(i, 0, m){
         int op; cin >> op;
         int x, y, k;
         if (op == 1){
             cin >> x >> k;  // 单点更新
-            update(1, x, k);
+            seg.update(x, k);
         }
         else{
             cin >> x >> y;  // 区间查询
-            cout << query(1, x, y) << endl;
+            cout << seg.query(x, y) << endl;
         }
     }
 }

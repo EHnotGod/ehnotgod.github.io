@@ -119,7 +119,7 @@ struct BIT{
   vector<int> s; //差分的区间和
   explicit BIT(int size) { s.assign(size + 1, 0); }
   void change(int x,int w){
-    for(;x<=n;x+=x&-x) s[x]+=w;
+    for(;x<(int)s.size();x+=x&-x) s[x]+=w;
   }
   int query(int x){
     int res=0;

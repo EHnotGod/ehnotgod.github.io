@@ -106,21 +106,34 @@ for i in range(m):
 #include <cmath>
 using namespace std;
 
+struct STTable{
+  vector<int> lg;
+  vector<vector<int>> f;
+
+  STTable(const vector<int>& a){ //a 从下标 1 开始
+    int n=a.size()-1;
+    lg.assign(n+1,0);
+    for(int i=2;i<=n;i++) lg[i]=lg[i/2]+1;
+    f.assign(n+1,vector<int>(lg[n]+1));
+    for(int i=1;i<=n;i++) f[i][0]=a[i];
+    for(int j=1;j<=lg[n];j++) //枚举区间长度
+      for(int i=1;i+(1<<j)-1<=n;i++) //枚举起点
+        f[i][j]=max(f[i][j-1],f[i+(1<<(j-1))][j-1]);
+  }
+  int query(int l,int r) const{
+    int k=lg[r-l+1]; //区间长度的指数
+    return max(f[l][k],f[r-(1<<k)+1][k]);
+  }
+};
+
 int main(){
   int n,m; scanf("%d%d",&n,&m);
-  vector<int> lg(n+1);
-  for(int i=2;i<=n;i++) lg[i]=lg[i/2]+1;
-  vector<vector<int>> f(n+1,vector<int>(lg[n]+1));
-
-  for(int i=1;i<=n;i++) scanf("%d",&f[i][0]);
-  for(int j=1;j<=lg[n];j++) //枚举区间长度
-    for(int i=1;i+(1<<j)-1<=n;i++) //枚举起点
-      f[i][j]=max(f[i][j-1],f[i+(1<<(j-1))][j-1]);
-
+  vector<int> a(n+1);
+  for(int i=1;i<=n;i++) scanf("%d",&a[i]);
+  STTable st(a);
   for(int i=1,l,r;i<=m;i++){
     scanf("%d%d",&l,&r);
-    int k=lg[r-l+1]; //区间长度的指数
-    printf("%d\n",max(f[l][k],f[r-(1<<k)+1][k]));
+    printf("%d\n",st.query(l,r));
   }
 }
 ```

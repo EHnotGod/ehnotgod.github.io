@@ -133,30 +133,43 @@ struct line{   //扫描线
   int tag;     //入边:+1,出边:-1
   bool operator<(const line &t)const{return y<t.y;}
 };
-vector<line> L;
-vector<int> cnt,len; //线段树
-vector<int> X;       //X坐标
-void pushup(int u,int l, int r){
-  if(cnt[u]) len[u]=X[r+1]-X[l]; //r → X[r+1]
-  else if(l==r) len[u]=0;
-  else len[u]=len[ls]+len[rs];
-}
-void change(int u,int l,int r,int a,int b,int tag){
-  if(a>r || b<l) return; //越界
-  if(a<=l && r<=b){      //覆盖
-    cnt[u]+=tag;
-    pushup(u,l,r);
-    return;
+struct SegmentTree{
+  vector<int> cnt,len; //线段树
+  vector<int> X;       //X坐标
+  int n;              //离散后的小区间个数
+
+  SegmentTree(const vector<int>& x,int s): X(x), n(s-1){
+    cnt.assign(4 * s + 5, 0);
+    len.assign(4 * s + 5, 0);
   }
-  int m=l+r>>1;
-  change(ls,l,m,a,b,tag); //裂开
-  change(rs,m+1,r,a,b,tag);
-  pushup(u,l,r);
-}
+  void pushup(int u,int l, int r){
+    if(cnt[u]) len[u]=X[r+1]-X[l]; //r → X[r+1]
+    else if(l==r) len[u]=0;
+    else len[u]=len[ls]+len[rs];
+  }
+  void change(int u,int l,int r,int a,int b,int tag){
+    if(a>r || b<l) return; //越界
+    if(a<=l && r<=b){      //覆盖
+      cnt[u]+=tag;
+      pushup(u,l,r);
+      return;
+    }
+    int m=l+r>>1;
+    change(ls,l,m,a,b,tag); //裂开
+    change(rs,m+1,r,a,b,tag);
+    pushup(u,l,r);
+  }
+  void change(int a,int b,int tag){
+    change(1,1,n,a,b,tag);
+  }
+  int query()const{
+    return len[1];
+  }
+};
 int main(){
   int n,x1,x2,y1,y2; scanf("%d",&n);
-  L.assign(2 * n + 1, line{});
-  X.assign(2 * n + 1, 0);
+  vector<line> L(2 * n + 1);
+  vector<int> X(2 * n + 1);
   for(int i=1; i<=n; i++){
     scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
     L[i]={x1,x2,y1,1};
@@ -168,14 +181,13 @@ int main(){
   sort(X.begin()+1,X.end()); //X坐标排序
   int s=unique(X.begin()+1,X.end())-X.begin()-1; //去重
   
-  cnt.assign(4 * s + 5, 0);
-  len.assign(4 * s + 5, 0);
+  SegmentTree tree(X,s);
   long long ans=0;
   for(int i=1; i<n; i++){
     int l=lower_bound(X.begin()+1,X.begin()+s+1,L[i].x1)-X.begin();
     int r=lower_bound(X.begin()+1,X.begin()+s+1,L[i].x2)-X.begin();
-    change(1,1,s-1,l,r-1,L[i].tag); //x2 → r-1
-    ans+=1ll*(L[i+1].y-L[i].y)*len[1];
+    tree.change(l,r-1,L[i].tag); //x2 → r-1
+    ans+=1ll*(L[i+1].y-L[i].y)*tree.query();
   }
   printf("%lld\n",ans);
 }

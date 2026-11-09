@@ -53,7 +53,7 @@ KD-Tree 可以理解成一棵“按坐标不断切分平面”的二叉树。建
 
 如果某个子树的包围盒最小距离已经 `>= ans`，说明这棵子树里的所有点都不可能成为更优答案，可以直接剪枝；否则继续递归。通常先搜索 `dl、dr` 较小的一边，这样更容易提前找到更小的 `ans`，从而剪掉另一边更多节点。
 
-你现在把任意查询点放进 `t[0]`，再设 `cur=0`，就可以直接复用原来的 `dis()`、`dis2()` 和 `query()`。因此整个算法核心就是：**KD-Tree 建树负责把点划分成区域，query 通过“点到包围盒的距离下界”进行剪枝，从而快速找到最近点。**
+在 `KDTree` 内部把任意查询点放进 `t[0]`，再设 `cur=0`，就可以直接复用原来的 `dis()`、`dis2()` 和 `query()`。因此整个算法核心就是：**KD-Tree 建树负责把点划分成区域，query 通过“点到包围盒的距离下界”进行剪枝，从而快速找到最近点。**
 
 
 ### py代码实现
@@ -74,75 +74,87 @@ KD-Tree 可以理解成一棵“按坐标不断切分平面”的二叉树。建
 #include <vector>
 using namespace std;
 
-double ans=2e18;
-int n,K,root,cur; //K维度,root根,cur当前节点
-struct KD{     //KD树节点信息
-  int l,r;     //左右孩子
-  array<double, 2> v; //点的坐标值
-  array<double, 2> L,U; //子树区域的坐标范围
-  bool operator<(const KD &b)const{return v[K]<b.v[K];}
-};
-vector<KD> t;
+struct KDTree{
+  double ans=2e18;
+  int root=0,cur=0; //root根,cur当前节点
+  struct KD{     //KD树节点信息
+    int l,r;     //左右孩子
+    array<double, 2> v; //点的坐标值
+    array<double, 2> L,U; //子树区域的坐标范围
+  };
+  vector<KD> t;
 
-void pushup(int p){ //更新p子树区域的坐标范围
-  for(int i=0;i<2;i++){
-    t[p].L[i]=t[p].U[i]=t[p].v[i];
-    if(lc)
-      t[p].L[i]=min(t[p].L[i],t[lc].L[i]),
-      t[p].U[i]=max(t[p].U[i],t[lc].U[i]);
-    if(rc)
-      t[p].L[i]=min(t[p].L[i],t[rc].L[i]),
-      t[p].U[i]=max(t[p].U[i],t[rc].U[i]);
+  explicit KDTree(int n): t(n + 1){}
+
+  void pushup(int p){ //更新p子树区域的坐标范围
+    for(int i=0;i<2;i++){
+      t[p].L[i]=t[p].U[i]=t[p].v[i];
+      if(lc)
+        t[p].L[i]=min(t[p].L[i],t[lc].L[i]),
+        t[p].U[i]=max(t[p].U[i],t[lc].U[i]);
+      if(rc)
+        t[p].L[i]=min(t[p].L[i],t[rc].L[i]),
+        t[p].U[i]=max(t[p].U[i],t[rc].U[i]);
+    }
   }
-}
-int build(int l,int r,int k){ //交替建树
-  if(l>r) return 0;
-  int m=(l+r)>>1; 
-  K=k; nth_element(t.begin()+l,t.begin()+m,t.begin()+r+1); //中位数
-  t[m].l=build(l,m-1,k^1);
-  t[m].r=build(m+1,r,k^1);
-  pushup(m);
-  return m;
-}
-double sq(double x){return x*x;}
-double dis(int p){ //当前点到p点的距离
-  double s=0;
-  for(int i=0;i<2;i++) 
-    s+=sq(t[cur].v[i]-t[p].v[i]);
-  return s;
-}
-double dis2(int p){ //当前点到p子树区域的最小距离
-  if(!p) return 2e18; 
-  double s=0;
-  for(int i=0;i<2;++i)
-    s+=sq(max(t[cur].v[i]-t[p].U[i],0.0))+
-       sq(max(t[p].L[i]-t[cur].v[i],0.0));
-  return s;
-}
-void query(int p){ //查询当前点的最小距离
-  if(!p) return;
-  if(p!=cur) ans=min(ans,dis(p));
-  double dl=dis2(lc),dr=dis2(rc);
-  if(dl<dr){
-    if(dl<ans) query(lc);
-    if(dr<ans) query(rc);
+  int build(int l,int r,int k){ //交替建树
+    if(l>r) return 0;
+    int m=(l+r)>>1;
+    nth_element(t.begin()+l,t.begin()+m,t.begin()+r+1,
+      [k](const KD &a,const KD &b){return a.v[k]<b.v[k];}); //中位数
+    t[m].l=build(l,m-1,k^1);
+    t[m].r=build(m+1,r,k^1);
+    pushup(m);
+    return m;
   }
-  else{
-    if(dr<ans) query(rc);
-    if(dl<ans) query(lc);
+  double sq(double x){return x*x;}
+  double dis(int p){ //当前点到p点的距离
+    double s=0;
+    for(int i=0;i<2;i++)
+      s+=sq(t[cur].v[i]-t[p].v[i]);
+    return s;
   }
-}
+  double dis2(int p){ //当前点到p子树区域的最小距离
+    if(!p) return 2e18;
+    double s=0;
+    for(int i=0;i<2;++i)
+      s+=sq(max(t[cur].v[i]-t[p].U[i],0.0))+
+         sq(max(t[p].L[i]-t[cur].v[i],0.0));
+    return s;
+  }
+  void query(int p){ //查询当前点的最小距离
+    if(!p) return;
+    if(p!=cur) ans=min(ans,dis(p));
+    double dl=dis2(lc),dr=dis2(rc);
+    if(dl<dr){
+      if(dl<ans) query(lc);
+      if(dr<ans) query(rc);
+    }
+    else{
+      if(dr<ans) query(rc);
+      if(dl<ans) query(lc);
+    }
+  }
+  void build(){
+    root=build(1,(int)t.size()-1,0);
+  }
+  double closestPair(){
+    ans=2e18;
+    for(cur=1;cur<(int)t.size();cur++) query(root);
+    return sqrt(ans);
+  }
+};
 int main(){
+  int n;
   scanf("%d",&n);
-  t.assign(n + 1, KD{});
+  KDTree tree(n);
   for(int i=1; i<=n; i++)
-    scanf("%lf%lf",&t[i].v[0],&t[i].v[1]);
-  root=build(1,n,0);
-  for(cur=1; cur<=n; cur++) query(root);
-  printf("%.4lf\n",sqrt(ans));
+    scanf("%lf%lf",&tree.t[i].v[0],&tree.t[i].v[1]);
+  tree.build();
+  printf("%.4lf\n",tree.closestPair());
 }
 ```
-使用以下代码可以查任意点到点群的最近距离：
+在 `KDTree` 中加入以下成员函数，可以查任意点到点群的最近距离：
 ```c++
 double queryPoint(double x,double y){
   t[0].v[0]=x;

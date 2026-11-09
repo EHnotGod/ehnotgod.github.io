@@ -100,24 +100,28 @@ for _ in range(m):
 using namespace std;
 
 int n,m,x,y,z;
-vector<int> pa;
-
-int find(int x){
-  if(pa[x]==x) return x;
-  return pa[x]=find(pa[x]);
-}
-void unset(int x,int y){
-  pa[find(x)]=find(y);
-}
+struct DSU{
+  vector<int> pa;
+  explicit DSU(int n){
+    pa.resize(n + 1);
+    for(int i=0;i<=n;i++) pa[i]=i;
+  }
+  int find(int x){
+    if(pa[x]==x) return x;
+    return pa[x]=find(pa[x]);
+  }
+  void unset(int x,int y){
+    pa[find(x)]=find(y);
+  }
+};
 int main(){
   cin>>n>>m;
-  pa.assign(n + 1, 0);
-  for(int i=1;i<=n;i++) pa[i]=i;
+  DSU dsu(n);
   while(m --){
     cin>>z>>x>>y;
-    if(z==1) unset(x,y);
+    if(z==1) dsu.unset(x,y);
     else{
-      if(find(x)==find(y)) puts("Y");
+      if(dsu.find(x)==dsu.find(y)) puts("Y");
       else puts("N");
     }
   }

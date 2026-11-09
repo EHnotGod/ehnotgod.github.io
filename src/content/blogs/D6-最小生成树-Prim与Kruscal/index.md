@@ -217,21 +217,30 @@ struct edge{
   {return w < t.w;}
 };
 vector<edge> e;
-vector<int> fa;
+struct DSU{
+  vector<int> fa;
+  explicit DSU(int n){
+    fa.resize(n+1);
+    for(int i=0;i<=n;i++) fa[i]=i;
+  }
+  int find(int x){
+    if(fa[x]==x) return x;
+    return fa[x]=find(fa[x]);
+  }
+  bool unite(int x,int y){
+    x=find(x),y=find(y);
+    if(x==y) return false;
+    fa[x]=y;
+    return true;
+  }
+};
 int ans,cnt;
 
-int find(int x){
-  if(fa[x]==x) return x;
-  return fa[x]=find(fa[x]);
-}
 bool kruskal(){
   sort(e.begin(),e.end());
-  for(int i=1;i<=n;i++)fa[i]=i;
+  DSU dsu(n);
   for(int i=0; i<m; i++){
-    int x=find(e[i].u);
-    int y=find(e[i].v);
-    if(x!=y){
-      fa[x]=y;
+    if(dsu.unite(e[i].u,e[i].v)){
       ans+=e[i].w;
       cnt++;
     }
@@ -241,7 +250,6 @@ bool kruskal(){
 int main(){
   cin>>n>>m;
   e.resize(m);
-  fa.assign(n+1,0);
   for(int i=0; i<m; i++)
     cin>>e[i].u>>e[i].v>>e[i].w;
   if(!kruskal()) puts("orz");

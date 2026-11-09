@@ -78,62 +78,74 @@ Project 5.36200 0.39000
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX_X = 50000; //题目规定的天数范围
-struct Line { double k = 0, b = 0; };
-struct Node { int id = 0, left = 0, right = 0; };
-vector<Line> lines;
-vector<Node> tr;
+struct LiChaoTree {
+  static constexpr int MAX_X = 50000; //题目规定的天数范围
+  struct Line { double k = 0, b = 0; };
+  struct Node { int id = 0, left = 0, right = 0; };
+  vector<Line> lines;
+  vector<Node> tr;
 
-double Y(int id, int x) {
-  return lines[id].k * x + lines[id].b;
-}
-void change(int u, int l, int r, int id) {
-  int mid = (l + r) / 2;
-  if (Y(id, mid) > Y(tr[u].id, mid)) swap(id, tr[u].id);
-  if (l == r) return;
-  if (Y(id, l) > Y(tr[u].id, l)) {
-    if (!tr[u].left) {
-      int child = tr.size();
-      tr.emplace_back();
-      tr[u].left = child;
-    }
-    change(tr[u].left, l, mid, id);
-  } else if (Y(id, r) > Y(tr[u].id, r)) {
-    if (!tr[u].right) {
-      int child = tr.size();
-      tr.emplace_back();
-      tr[u].right = child;
-    }
-    change(tr[u].right, mid + 1, r, id);
+  LiChaoTree() {
+    lines.assign(1, Line{}); //直线0表示初始收益0
+    tr.assign(2, Node{});   //节点0为空，节点1为根
   }
-}
-double query(int u, int l, int r, int x) {
-  if (!u) return 0;
-  double ans = Y(tr[u].id, x);
-  if (l == r) return ans;
-  int mid = (l + r) / 2;
-  if (x <= mid) return max(ans, query(tr[u].left, l, mid, x));
-  return max(ans, query(tr[u].right, mid + 1, r, x));
-}
+
+  double Y(int id, int x) {
+    return lines[id].k * x + lines[id].b;
+  }
+  void change(int u, int l, int r, int id) {
+    int mid = (l + r) / 2;
+    if (Y(id, mid) > Y(tr[u].id, mid)) swap(id, tr[u].id);
+    if (l == r) return;
+    if (Y(id, l) > Y(tr[u].id, l)) {
+      if (!tr[u].left) {
+        int child = tr.size();
+        tr.emplace_back();
+        tr[u].left = child;
+      }
+      change(tr[u].left, l, mid, id);
+    } else if (Y(id, r) > Y(tr[u].id, r)) {
+      if (!tr[u].right) {
+        int child = tr.size();
+        tr.emplace_back();
+        tr[u].right = child;
+      }
+      change(tr[u].right, mid + 1, r, id);
+    }
+  }
+  double query(int u, int l, int r, int x) {
+    if (!u) return 0;
+    double ans = Y(tr[u].id, x);
+    if (l == r) return ans;
+    int mid = (l + r) / 2;
+    if (x <= mid) return max(ans, query(tr[u].left, l, mid, x));
+    return max(ans, query(tr[u].right, mid + 1, r, x));
+  }
+  void change(double k, double b) {
+    lines.push_back({k, b});
+    change(1, 1, MAX_X, (int)lines.size() - 1);
+  }
+  double query(int x) {
+    return query(1, 1, MAX_X, x);
+  }
+};
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int n;
   cin >> n;
-  lines.assign(1, Line{}); //直线0表示初始收益0
-  tr.assign(2, Node{});   //节点0为空，节点1为根
+  LiChaoTree tree;
   for (int i = 0; i < n; ++i) {
     string op;
     cin >> op;
     if (op == "Project") {
       double b, k;
       cin >> b >> k;
-      lines.push_back({k, b - k});
-      change(1, 1, MAX_X, (int)lines.size() - 1);
+      tree.change(k, b - k);
     } else {
       int x;
       cin >> x;
-      cout << (int)(query(1, 1, MAX_X, x) / 100) << '\n';
+      cout << (int)(tree.query(x) / 100) << '\n';
     }
   }
 }

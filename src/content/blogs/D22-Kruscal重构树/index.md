@@ -115,80 +115,87 @@ using namespace std;
 #define range(i, a, b) for (int i = (a); i < (b); ++i)
 #define def(name, ...) auto name = [&](__VA_ARGS__)
 
-int n, m, q, LOG;
-struct edge{
-  int u,v,w;
-  bool operator<(const edge &t)const
-  {return w < t.w;}
-};
-vector<edge> edges;
-int cnt;
-vector<int> fa2,value;
-vector<vector<int>> e;
-int find(int x){
-  if(fa2[x]==x) return x;
-  return fa2[x]=find(fa2[x]);
-}
-void kruskal(){
-  sort(edges.begin(),edges.end());
-  cnt = n;
-  iota(fa2.begin(),fa2.end(),0);
-  for(int i=0; i<m; i++){
-    int x = find(edges[i].u);
-    int y = find(edges[i].v);
-    if(x!=y){
-        cnt++;
-        fa2[x]=cnt;
-        fa2[y]=cnt;
-        value[cnt] = edges[i].w;
+struct KruskalTree{
+  int n, m, LOG;
+  struct edge{
+    int u,v,w;
+    bool operator<(const edge &t)const
+    {return w < t.w;}
+  };
+  vector<edge> edges;
+  int cnt;
+  vector<int> fa2,value;
+  vector<vector<int>> e;
+  int find(int x){
+    if(fa2[x]==x) return x;
+    return fa2[x]=find(fa2[x]);
+  }
+  void kruskal(){
+    sort(edges.begin(),edges.end());
+    cnt = n;
+    iota(fa2.begin(),fa2.end(),0);
+    for(int i=0; i<m; i++){
+      int x = find(edges[i].u);
+      int y = find(edges[i].v);
+      if(x!=y){
+          cnt++;
+          fa2[x]=cnt;
+          fa2[y]=cnt;
+          value[cnt] = edges[i].w;
 
-        e[x].push_back(cnt);
-        e[y].push_back(cnt);
-        e[cnt].push_back(x);
-        e[cnt].push_back(y);
+          e[x].push_back(cnt);
+          e[y].push_back(cnt);
+          e[cnt].push_back(x);
+          e[cnt].push_back(y);
+      }
     }
   }
-}
-vector<vector<int>> f;
-vector<int> dep;
+  vector<vector<int>> f;
+  vector<int> dep;
 
-void dfs(int u,int fa){
-  f[u][0]=fa; dep[u]=dep[fa]+1;
-  for(int i=1;i<LOG;i++) //u的2,4,8...祖先
-    f[u][i]=f[f[u][i-1]][i-1];
-  for(int v:e[u])
-    if(v!=fa) dfs(v,u);
-}
-int lca(int u,int v){
-  if(dep[u]<dep[v]) swap(u,v);
-  for(int i=LOG-1;~i;i--) //u先大步后小步向上跳，直到与v同层
-    if(dep[f[u][i]]>=dep[v]) u=f[u][i];
-  if(u==v) return v;
-  for(int i=LOG-1;~i;i--) //u,v一起向上跳，直到lca的下面
-    if(f[u][i]!=f[v][i]) u=f[u][i],v=f[v][i];
-  return f[u][0];
-}
+  void dfs(int u,int fa){
+    f[u][0]=fa; dep[u]=dep[fa]+1;
+    for(int i=1;i<LOG;i++) //u的2,4,8...祖先
+      f[u][i]=f[f[u][i-1]][i-1];
+    for(int v:e[u])
+      if(v!=fa) dfs(v,u);
+  }
+  int lca(int u,int v){
+    if(dep[u]<dep[v]) swap(u,v);
+    for(int i=LOG-1;~i;i--) //u先大步后小步向上跳，直到与v同层
+      if(dep[f[u][i]]>=dep[v]) u=f[u][i];
+    if(u==v) return v;
+    for(int i=LOG-1;~i;i--) //u,v一起向上跳，直到lca的下面
+      if(f[u][i]!=f[v][i]) u=f[u][i],v=f[v][i];
+    return f[u][0];
+  }
+  KruskalTree(int size,int edge_count):n(size),m(edge_count){
+    LOG=1;
+    while((1LL<<LOG)<=2*n) ++LOG;
+    edges.resize(m);
+    fa2.assign(2*n+1,0); value.assign(2*n+1,0);
+    e.assign(2*n+1,{});
+    f.assign(2*n+1,vector<int>(LOG,0)); dep.assign(2*n+1,0);
+  }
+  void build(){
+    kruskal();
+    dfs(cnt,0);
+  }
+  int query(int u,int v){ return value[lca(u,v)]; }
+};
 // vector<int> a(n, 0);
 // vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
 void solve() {
-	cin >> n >> m >> q;
-	LOG=1;
-	while((1LL<<LOG)<=2*n) ++LOG;
-	edges.resize(m);
-	fa2.assign(2*n+1,0); value.assign(2*n+1,0);
-	e.assign(2*n+1,{});
-	f.assign(2*n+1,vector<int>(LOG,0)); dep.assign(2*n+1,0);
-	for (int i = 0; i < m; i++){
-		cin >> edges[i].u >> edges[i].v >> edges[i].w;
-	}
-    kruskal();
-
-    dfs(cnt, 0);
-    
+    int n,m,q;
+    cin >> n >> m >> q;
+    KruskalTree tree(n,m);
+    for (int i = 0; i < m; i++){
+        cin >> tree.edges[i].u >> tree.edges[i].v >> tree.edges[i].w;
+    }
+    tree.build();
     while (q--){
-        int u, v; cin >> u >> v;
-        int uv = lca(u, v);
-        cout << value[uv] << endl;
+        int u,v; cin >> u >> v;
+        cout << tree.query(u,v) << endl;
     }
 }
 

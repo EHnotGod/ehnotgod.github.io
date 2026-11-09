@@ -80,41 +80,45 @@ print(ans)
 #include <array>
 using namespace std;
 
-vector<array<int,2>> ch;
+struct BinaryTrie{
+  vector<array<int,2>> ch;
 
-void insert(int x){
-  int p=0;
-  for(int i=30; i>=0; i--){
-    int j=x>>i&1; //取出第i位
-    if(!ch[p][j]){
-      int next=ch.size();
-      ch[p][j]=next;
-      ch.push_back({0,0});
+  BinaryTrie():ch(1,{0,0}){}
+
+  void insert(int x){
+    int p=0;
+    for(int i=30; i>=0; i--){
+      int j=x>>i&1; //取出第i位
+      if(!ch[p][j]){
+        int next=ch.size();
+        ch[p][j]=next;
+        ch.push_back({0,0});
+      }
+      p=ch[p][j];
     }
-    p=ch[p][j];
   }
-}
-int query(int x){
-  int p=0,res=0;
-  for(int i=30; i>=0; i--){
-    int j=x>>i&1;
-    if(ch[p][!j]){
-      res += 1<<i; //累加位权
-      p=ch[p][!j];
+  int query(int x) const{
+    int p=0,res=0;
+    for(int i=30; i>=0; i--){
+      int j=x>>i&1;
+      if(ch[p][!j]){
+        res += 1<<i; //累加位权
+        p=ch[p][!j];
+      }
+      else p=ch[p][j];
     }
-    else p=ch[p][j];
+    return res;
   }
-  return res;
-}
+};
 int main(){
   int n; cin>>n;
   vector<int> a(n+1);
-  ch.assign(1,{0,0});
+  BinaryTrie trie;
   for(int i=1; i<=n; i++)
-    cin>>a[i],insert(a[i]);
+    cin>>a[i],trie.insert(a[i]);
   int ans=0;
   for(int i=1; i<=n; i++)
-    ans=max(ans,query(a[i]));
+    ans=max(ans,trie.query(a[i]));
   cout<<ans;
   return 0;
 }

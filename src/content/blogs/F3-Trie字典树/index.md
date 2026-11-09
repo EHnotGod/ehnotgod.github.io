@@ -99,43 +99,47 @@ for _ in range(T):
 #include <unordered_map>
 using namespace std;
 
-vector<unordered_map<char,int>> ch;
-vector<int> cnt;
+struct Trie{
+  vector<unordered_map<char,int>> ch;
+  vector<int> cnt;
 
-void insert(const string& s){
-  int p=0;
-  for(char c:s){
-    auto it=ch[p].find(c);
-    if(it==ch[p].end()){
-      int next=ch.size();
-      ch[p][c]=next;
-      ch.emplace_back();
-      cnt.push_back(0);
-      p=next;
+  Trie():ch(1),cnt(1,0){} //初始化根节点，按需扩容
+
+  void insert(const string& s){
+    int p=0;
+    for(char c:s){
+      auto it=ch[p].find(c);
+      if(it==ch[p].end()){
+        int next=ch.size();
+        ch[p][c]=next;
+        ch.emplace_back();
+        cnt.push_back(0);
+        p=next;
+      }
+      else p=it->second;
+      cnt[p]++;
     }
-    else p=it->second;
-    cnt[p]++;
   }
-}
-int query(const string& s){
-  int p=0;
-  for(char c:s){
-    auto it=ch[p].find(c);
-    if(it==ch[p].end()) return 0;
-    p=it->second;
+  int query(const string& s) const{
+    int p=0;
+    for(char c:s){
+      auto it=ch[p].find(c);
+      if(it==ch[p].end()) return 0;
+      p=it->second;
+    }
+    return cnt[p];
   }
-  return cnt[p];
-}
+};
 int main(){
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int T; cin>>T;
   while(T--){
     int n,q; cin>>n>>q;
-    ch.assign(1,{}); cnt.assign(1,0); // 每组重置根节点，按需扩容
+    Trie trie; //每组创建独立的字典树
     string s;
-    while(n--) cin>>s,insert(s);
-    while(q--) cin>>s,cout<<query(s)<<'\n';
+    while(n--) cin>>s,trie.insert(s);
+    while(q--) cin>>s,cout<<trie.query(s)<<'\n';
   }
   return 0;
 }

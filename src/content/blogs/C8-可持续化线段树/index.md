@@ -286,6 +286,8 @@ print('\n'.join(output))
 
 ### C++代码实现
 
+`PersistentSegmentTree` 封装节点、版本根和离散化数组；构造时传入下标从 1 开始的数组，随后用 `seg.query(l,r,k)` 查询。上面的 `tr`、`root`、`insert` 和递归 `query` 均对应结构体内部成员。
+
 ```c++
 // 主席树 O(nlognlogn)
 #include <iostream>
@@ -296,62 +298,67 @@ using namespace std;
 
 #define lc(x) tr[x].l
 #define rc(x) tr[x].r
-struct node{
-  int l,r,s; //s:节点值域中有多少个数
+struct PersistentSegmentTree{
+  struct node{
+    int l,r,s; //s:节点值域中有多少个数
+  };
+  vector<node> tr;
+  vector<int> root,b;
+  int bn;
+
+  PersistentSegmentTree(const vector<int>& a):tr(1),root(a.size()),b(a){
+    //编号0表示空节点
+    sort(b.begin()+1,b.end());
+    bn=unique(b.begin()+1,b.end())-b.begin()-1; //去重后的个数
+    for(int i=1; i<(int)a.size(); i++){
+      int id=lower_bound(b.begin()+1,b.begin()+bn+1,a[i])-b.begin();//下标
+      root[i]=insert(root[i-1],1,bn,id);
+    }
+  }
+  int query(int l,int r,int k){
+    int id=query(root[l-1],root[r],1,bn,k);
+    return b[id];
+  }
+
+  int insert(int x,int l,int r,int pos){
+    int y=tr.size();
+    node copy=tr[x];
+    tr.push_back(copy); //按需开点
+    tr[y].s++;
+    if(l==r) return y;
+    int m=(l+r)>>1;
+    if(pos<=m){
+      int child=insert(lc(x),l,m,pos);
+      lc(y)=child;
+    }
+    else{
+      int child=insert(rc(x),m+1,r,pos);
+      rc(y)=child;
+    }
+    return y;
+  }
+  int query(int x,int y,int l,int r,int k){
+    if(l==r) return l;
+    int m=l+r>>1;
+    int s=tr[lc(y)].s-tr[lc(x)].s;
+    if(k<=s) return query(lc(x),lc(y),l,m,k);
+    else return query(rc(x),rc(y),m+1,r,k-s);
+  }
 };
-vector<node> tr;
-vector<int> root,a,b;
-int n,m;
-
-int insert(int x,int l,int r,int pos){
-  int y=tr.size();
-  node copy=tr[x];
-  tr.push_back(copy); //按需开点
-  tr[y].s++;
-  if(l==r) return y;
-  int m=(l+r)>>1;
-  if(pos<=m){
-    int child=insert(lc(x),l,m,pos);
-    lc(y)=child;
-  }
-  else{
-    int child=insert(rc(x),m+1,r,pos);
-    rc(y)=child;
-  }
-  return y;
-}
-int query(int x,int y,int l,int r,int k){
-  if(l==r) return l;
-  int m=l+r>>1;
-  int s=tr[lc(y)].s-tr[lc(x)].s;
-  if(k<=s) return query(lc(x),lc(y),l,m,k);
-  else return query(rc(x),rc(y),m+1,r,k-s);
-}
 int main(){
+  int n,m;
   scanf("%d%d",&n,&m);
-  a.assign(n + 1, 0);
-  b.assign(n + 1, 0);
-  root.assign(n + 1, 0);
-  tr.assign(1, node{}); //编号0表示空节点
-  for(int i=1; i<=n; i++){
-    scanf("%d",&a[i]); b[i]=a[i];
-  }
-  sort(b.begin()+1,b.end());
-  int bn=unique(b.begin()+1,b.end())-b.begin()-1; //去重后的个数
-
-  for(int i=1; i<=n; i++){
-    int id=lower_bound(b.begin()+1,b.begin()+bn+1,a[i])-b.begin();//下标
-    root[i]=insert(root[i-1],1,bn,id);
-  }
+  vector<int> a(n + 1);
+  for(int i=1; i<=n; i++) scanf("%d",&a[i]);
+  PersistentSegmentTree seg(a);
   while(m--){
     int l,r,k; scanf("%d%d%d",&l,&r,&k);
-    int id=query(root[l-1],root[r],1,bn,k);
-    printf("%d\n",b[id]);
+    printf("%d\n",seg.query(l,r,k));
   }
 }
 ```
 
-查询x是第几小的话，参考如下代码：
+查询x是第几小的话，将下面两个 `query_rank` 方法加入 `PersistentSegmentTree`：
 ```c++
 int query_rank(int x,int y,int l,int r,int pos){
   if(l==r) return 1;
@@ -361,7 +368,13 @@ int query_rank(int x,int y,int l,int r,int pos){
   return s+query_rank(rc(x),rc(y),m+1,r,pos);
 }
 
-int pos=lower_bound(b.begin()+1,b.begin()+bn+1,v)-b.begin();
-int rk=query_rank(root[l-1],root[r],1,bn,pos);
-printf("%d\n",rk);
+int query_rank(int l,int r,int v){
+  int pos=lower_bound(b.begin()+1,b.begin()+bn+1,v)-b.begin();
+  return query_rank(root[l-1],root[r],1,bn,pos);
+}
+```
+
+在 `main` 中调用（此处假设 `v` 在离散化值域中）：
+```c++
+printf("%d\n",seg.query_rank(l,r,v));
 ```
