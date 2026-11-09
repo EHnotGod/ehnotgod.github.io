@@ -201,7 +201,7 @@ if __name__ == &#x27;__main__&#x27;:
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">500</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">typedef</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> VI;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">VI </span><span style="color:#6F42C1;--shiki-dark:#B392F0">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(N),</span><span style="color:#6F42C1;--shiki-dark:#B392F0">res</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(N);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">VI a,res;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">VI </span><span style="color:#6F42C1;--shiki-dark:#B392F0">mul</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(VI </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, VI </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70">b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span><span style="color:#6A737D;--shiki-dark:#6A737D">//高精度</span></span>
@@ -225,6 +225,8 @@ if __name__ == &#x27;__main__&#x27;:
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  a.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(N,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  res.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(N,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  printf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p</span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#6F42C1;--shiki-dark:#B392F0">log10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  quickpow</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, k</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">499</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
@@ -242,7 +244,7 @@ using namespace std;
 
 const int N=500;
 typedef vector<int> VI;
-VI a(N),res(N);
+VI a,res;
 int p;
 
 VI mul(VI &#x26;a, VI &#x26;b){//高精度
@@ -266,6 +268,8 @@ void quickpow(int p){//快速幂
 }
 int main(){
   cin >> p;
+  a.assign(N,0);
+  res.assign(N,0);
   printf(&#x22;%d\n&#x22;,int(p*log10(2))+1);
   quickpow(p);
   for(int i=0, k=499; i<10; i++){

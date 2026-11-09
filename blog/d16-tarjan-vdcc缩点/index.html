@@ -150,14 +150,15 @@
 <div class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><pre><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x3C;bits/stdc++.h></span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">500010</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n,m,a,b;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#E36209;--shiki-dark:#FFAB70"> e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],</span><span style="color:#E36209;--shiki-dark:#FFAB70">ne</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],</span><span style="color:#E36209;--shiki-dark:#FFAB70">dcc</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> dfn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],</span><span style="color:#E36209;--shiki-dark:#FFAB70">low</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],tot,</span><span style="color:#E36209;--shiki-dark:#FFAB70">stk</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],top,</span><span style="color:#E36209;--shiki-dark:#FFAB70">cut</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],root,cnt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> e,dcc;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> dfn,low,stk,cut;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tot,top,root,cnt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> tarjan</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> x</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  if</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x</span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8">root</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;!</span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x].</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()){</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //孤立点</span></span>
-<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">        dcc</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">cnt].</span><span style="color:#6F42C1;--shiki-dark:#B392F0">push_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        ++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">cnt; dcc.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">emplace_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">        dcc</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[cnt].</span><span style="color:#6F42C1;--shiki-dark:#B392F0">push_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }  </span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  dfn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x]</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70">low</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x]</span><span style="color:#D73A49;--shiki-dark:#F97583">=++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">tot; </span><span style="color:#E36209;--shiki-dark:#FFAB70">stk</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">top]</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">x;</span></span>
@@ -170,7 +171,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        son</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        if</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x</span><span style="color:#D73A49;--shiki-dark:#F97583">!=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">root</span><span style="color:#D73A49;--shiki-dark:#F97583">||</span><span style="color:#24292E;--shiki-dark:#E1E4E8">son</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span><span style="color:#E36209;--shiki-dark:#FFAB70">cut</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x]</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //割点</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        </span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        ++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">cnt;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        ++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">cnt; dcc.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">emplace_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        while</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">          int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> z</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70">stk</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[top</span><span style="color:#D73A49;--shiki-dark:#F97583">--</span><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">          dcc</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[cnt].</span><span style="color:#6F42C1;--shiki-dark:#B392F0">push_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(z);</span></span>
@@ -186,6 +187,9 @@
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  ios::sync_with_stdio</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">),cin.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">tie</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">),cout.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">tie</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  cin</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">n</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">m;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  e.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,{}); dcc.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,{});</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  dfn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">); low.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  stk.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">); cut.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  while</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(m</span><span style="color:#D73A49;--shiki-dark:#F97583">--</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cin</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">a</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">b;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a</span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8">b) </span><span style="color:#D73A49;--shiki-dark:#F97583">continue</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //忽略自环</span></span>
@@ -202,14 +206,15 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre><span class="language transition-opacity duration-300 absolute top-3 right-0 ps-1 pe-3 text-sm bg-muted text-muted-foreground select-none">c</span><button class="copy transition-opacity duration-300 opacity-0 absolute top-3 right-3 text-muted-foreground p-1 box-content border border-border rounded bg-primary-foreground" data-code="#include<bits/stdc++.h>
 using namespace std;
 
-const int N=500010;
 int n,m,a,b;
-vector<int> e[N],ne[N],dcc[N];
-int dfn[N],low[N],tot,stk[N],top,cut[N],root,cnt;
+vector<vector<int>> e,dcc;
+vector<int> dfn,low,stk,cut;
+int tot,top,root,cnt;
 
 void tarjan(int x){
   if(x==root&#x26;&#x26;!e[x].size()){ //孤立点
-        dcc[++cnt].push_back(x);
+        ++cnt; dcc.emplace_back();
+        dcc[cnt].push_back(x);
         return;
     }  
   dfn[x]=low[x]=++tot; stk[++top]=x;
@@ -222,7 +227,7 @@ void tarjan(int x){
         son++;
         if(x!=root||son>1)cut[x]=1; //割点
         
-        ++cnt;
+        ++cnt; dcc.emplace_back();
         while(1){
           int z=stk[top--];
           dcc[cnt].push_back(z);
@@ -238,6 +243,9 @@ void tarjan(int x){
 int main(){
   ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
   cin>>n>>m;
+  e.assign(n+1,{}); dcc.assign(1,{});
+  dfn.assign(n+1,0); low.assign(n+1,0);
+  stk.assign(n+1,0); cut.assign(n+1,0);
   while(m--){
     cin>>a>>b;
     if(a==b) continue; //忽略自环

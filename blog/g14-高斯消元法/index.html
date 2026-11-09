@@ -195,12 +195,12 @@ else:
 <div class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><pre><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;algorithm></span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;cmath></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;vector></span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">110</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> double</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> eps</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#D73A49;--shiki-dark:#F97583">e-</span><span style="color:#005CC5;--shiki-dark:#79B8FF">6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">double</span><span style="color:#E36209;--shiki-dark:#FFAB70"> a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N][N];</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //增广矩阵</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;double>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //增广矩阵</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> gauss</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> c,r;</span><span style="color:#6A737D;--shiki-dark:#6A737D">//当前列，当前行</span></span>
@@ -238,6 +238,7 @@ else:
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  a.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n,vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;double></span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> j</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; j</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n; j</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#E36209;--shiki-dark:#FFAB70"> a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i][j];</span></span>
@@ -248,12 +249,12 @@ else:
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre><span class="language transition-opacity duration-300 absolute top-3 right-0 ps-1 pe-3 text-sm bg-muted text-muted-foreground select-none">c</span><button class="copy transition-opacity duration-300 opacity-0 absolute top-3 right-3 text-muted-foreground p-1 box-content border border-border rounded bg-primary-foreground" data-code="#include <iostream>
 #include <algorithm>
 #include <cmath>
+#include <vector>
 using namespace std;
 
-const int N=110;
 const double eps=1e-6;
 int n;
-double a[N][N]; //增广矩阵
+vector<vector<double>> a; //增广矩阵
 
 int gauss(){
   int c,r;//当前列，当前行
@@ -291,6 +292,7 @@ int gauss(){
 }
 int main(){
   cin >> n;
+  a.assign(n,vector<double>(n+1,0));
   for(int i=0; i<n; i++)
     for(int j=0; j<=n; j++)
       cin >> a[i][j];

@@ -189,16 +189,20 @@ if __name__ == &#x22;__main__&#x22;:
 <h3 id="c代码实现">C++代码实现<a class="anchor" href="#c代码实现">#</a></h3>
 <div class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><pre><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;cstring></span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;string></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;vector></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">char</span><span style="color:#E36209;--shiki-dark:#FFAB70"> a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "ADABBC"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">char</span><span style="color:#E36209;--shiki-dark:#FFAB70"> b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "DBPCA"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> f</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">][</span><span style="color:#005CC5;--shiki-dark:#79B8FF">200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">][</span><span style="color:#005CC5;--shiki-dark:#79B8FF">200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">string a </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "ADABBC"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">string b </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "DBPCA"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> f,p;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m, n;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> LCS</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i, j;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> strlen</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    n </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> strlen</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(b);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    n </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    f.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(m </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    p.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(m </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (i </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (j </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; j </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n; j</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">            if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#E36209;--shiki-dark:#FFAB70">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#E36209;--shiki-dark:#FFAB70"> b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[j</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]) {</span></span>
@@ -218,7 +222,7 @@ if __name__ == &#x22;__main__&#x22;:
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getLCS</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i, j, k;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    char</span><span style="color:#E36209;--shiki-dark:#FFAB70"> s</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    string </span><span style="color:#6F42C1;--shiki-dark:#B392F0">s</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#E36209;--shiki-dark:#FFAB70">f</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[m][n], </span><span style="color:#032F62;--shiki-dark:#9ECBFF">' '</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    i </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    j </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    k </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#E36209;--shiki-dark:#FFAB70"> f</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[m][n];</span></span>
@@ -244,16 +248,20 @@ if __name__ == &#x22;__main__&#x22;:
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre><span class="language transition-opacity duration-300 absolute top-3 right-0 ps-1 pe-3 text-sm bg-muted text-muted-foreground select-none">c</span><button class="copy transition-opacity duration-300 opacity-0 absolute top-3 right-3 text-muted-foreground p-1 box-content border border-border rounded bg-primary-foreground" data-code="#include <cstring>
 #include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
 
-char a[200] = &#x22;ADABBC&#x22;;
-char b[200] = &#x22;DBPCA&#x22;;
-int f[200][200];
-int p[200][200];
+string a = &#x22;ADABBC&#x22;;
+string b = &#x22;DBPCA&#x22;;
+vector<vector<int>> f,p;
 int m, n;
 void LCS() {
     int i, j;
-    m = strlen(a);
-    n = strlen(b);
+    m = a.size();
+    n = b.size();
+    f.assign(m + 1, vector<int>(n + 1, 0));
+    p.assign(m + 1, vector<int>(n + 1, 0));
     for (i = 1; i <= m; i++) {
         for (j = 1; j <= n; j++) {
             if (a[i-1] == b[j-1]) {
@@ -273,7 +281,7 @@ void LCS() {
 
 void getLCS() {
     int i, j, k;
-    char s[200];
+    string s(f[m][n], &#x27; &#x27;);
     i = m;
     j = n;
     k = f[m][n];

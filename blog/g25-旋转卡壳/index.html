@@ -109,13 +109,13 @@
 <div class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><pre><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;cstring></span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;algorithm></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;vector></span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> N</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 50010</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> x</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> first</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> y</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> second</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Point</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> pair</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int></span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Point </span><span style="color:#E36209;--shiki-dark:#FFAB70">p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],</span><span style="color:#E36209;--shiki-dark:#FFAB70">s</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">Point</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p,s;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> cross</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Point </span><span style="color:#E36209;--shiki-dark:#FFAB70">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,Point </span><span style="color:#E36209;--shiki-dark:#FFAB70">b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,Point </span><span style="color:#E36209;--shiki-dark:#FFAB70">c</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //叉积</span></span>
@@ -125,7 +125,7 @@
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a.x</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8">b.x)</span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a.x</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8">b.x)</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a.y</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8">b.y)</span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a.y</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8">b.y);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Andrew</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  sort</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,p</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  sort</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">begin</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,p.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">end</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> t</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //下凸包</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    while</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(t</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cross</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#E36209;--shiki-dark:#FFAB70">s</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[t</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span><span style="color:#E36209;--shiki-dark:#FFAB70">s</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[t],</span><span style="color:#E36209;--shiki-dark:#FFAB70">p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i])</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)t</span><span style="color:#D73A49;--shiki-dark:#F97583">--</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
@@ -148,6 +148,8 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  scanf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  p.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,Point{});</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,Point{});</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#6F42C1;--shiki-dark:#B392F0">scanf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d%d</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70">p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i].x,</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70">p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i].y);</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  Andrew</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  printf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#6F42C1;--shiki-dark:#B392F0">rotating_calipers</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
@@ -155,13 +157,13 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre><span class="language transition-opacity duration-300 absolute top-3 right-0 ps-1 pe-3 text-sm bg-muted text-muted-foreground select-none">c</span><button class="copy transition-opacity duration-300 opacity-0 absolute top-3 right-3 text-muted-foreground p-1 box-content border border-border rounded bg-primary-foreground" data-code="#include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-#define N 50010
 #define x first
 #define y second
 #define Point pair<int,int>
-Point p[N],s[N];
+vector<Point> p,s;
 int n;
 
 int cross(Point a,Point b,Point c){ //叉积
@@ -171,7 +173,7 @@ int dis(Point a, Point b){ //距离平方
   return (a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y);
 }
 void Andrew(){
-  sort(p+1,p+n+1);
+  sort(p.begin()+1,p.end());
   int t=0;
   for(int i=1; i<=n; i++){ //下凸包
     while(t>1&#x26;&#x26;cross(s[t-1],s[t],p[i])<=0)t--;
@@ -194,6 +196,8 @@ int rotating_calipers(){ //旋转卡壳
 }
 int main(){
   scanf(&#x22;%d&#x22;,&#x26;n);
+  p.assign(n+1,Point{});
+  s.assign(2*n+2,Point{});
   for(int i=1; i<=n; i++) scanf(&#x22;%d%d&#x22;,&#x26;p[i].x,&#x26;p[i].y);
   Andrew();
   printf(&#x22;%d\n&#x22;,rotating_calipers());

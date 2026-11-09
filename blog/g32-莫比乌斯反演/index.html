@@ -116,12 +116,9 @@
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> def</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#E36209;--shiki-dark:#FFAB70">name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, ...) auto name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">](</span><span style="color:#6F42C1;--shiki-dark:#B392F0">__VA_ARGS__</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 40000010</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> mod </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1000000007</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N], </span><span style="color:#E36209;--shiki-dark:#FFAB70">vis</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N], cnt;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> mu</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> fac</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> inv</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p,mu,fac,inv;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;unsigned</span><span style="color:#D73A49;--shiki-dark:#F97583"> char></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vis;</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> qpow</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //快速幂</span></span>
@@ -134,6 +131,8 @@
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> init</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> n</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    fac.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    inv.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    fac</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(i, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, n){</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">        fac</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#E36209;--shiki-dark:#FFAB70"> fac</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> mod;</span></span>
@@ -151,13 +150,16 @@
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ans;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> get_mu</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> n</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span><span style="color:#6A737D;--shiki-dark:#6A737D">//筛法求莫比乌斯函数</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  p.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  vis.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  mu.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  mu</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">!</span><span style="color:#E36209;--shiki-dark:#FFAB70">vis</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i]){</span></span>
-<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">      p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">cnt] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      p.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">push_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(i);</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">      mu</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> -</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> j</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#E36209;--shiki-dark:#FFAB70">p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[j]</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n; j</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> j</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; j</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">static_cast</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">())</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">i</span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#E36209;--shiki-dark:#FFAB70">p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[j]</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n; j</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> m </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#E36209;--shiki-dark:#FFAB70">p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[j]; </span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">      vis</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[m] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">      if</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(i</span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#E36209;--shiki-dark:#FFAB70">p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[j] </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
@@ -229,12 +231,9 @@ template<class H, class...T> void dbg_out(const H&#x26; h, const T&#x26;...t){
 #define def(name, ...) auto name = [&#x26;](__VA_ARGS__)
 
 
-const int N = 40000010;
 const int mod = 1000000007;
-int p[N], vis[N], cnt;
-int mu[N];
-int fac[N];
-int inv[N];
+vector<int> p,mu,fac,inv;
+vector<unsigned char> vis;
 
 
 int qpow(int a,int b,int p){ //快速幂
@@ -247,6 +246,8 @@ int qpow(int a,int b,int p){ //快速幂
   return s;
 }
 void init(int n){
+    fac.assign(n,0);
+    inv.assign(n,0);
     fac[0] = 1;
     range(i, 1, n){
         fac[i] = i * fac[i - 1] % mod;
@@ -264,13 +265,16 @@ int comb(int n, int r){
     return ans;
 }
 void get_mu(int n){//筛法求莫比乌斯函数
+  p.assign(1,0);
+  vis.assign(n+1,0);
+  mu.assign(n+1,0);
   mu[1] = 1;
   for(int i=2; i<=n; i++){
     if(!vis[i]){
-      p[++cnt] = i;
+      p.push_back(i);
       mu[i] = -1;
     }
-    for(int j=1; i*p[j]<=n; j++){
+    for(int j=1; j<static_cast<int>(p.size())&#x26;&#x26;i*p[j]<=n; j++){
       int m = i*p[j]; 
       vis[m] = 1;
       if(i%p[j] == 0){

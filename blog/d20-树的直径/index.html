@@ -112,9 +112,9 @@
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x3C;bits/stdc++.h></span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">100005</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n,rt,</span><span style="color:#E36209;--shiki-dark:#FFAB70">d</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">pair</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int>></span><span style="color:#E36209;--shiki-dark:#FFAB70"> e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n,rt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> d;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">pair</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int>>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> e;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> dfs</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> u</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> fa</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  if</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#E36209;--shiki-dark:#FFAB70">d</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[rt]</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#E36209;--shiki-dark:#FFAB70">d</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[u]) rt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">u;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //记录最远点</span></span>
@@ -126,6 +126,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  cin</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">n;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  e.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,{}); d.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,x,y;i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n;i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cin</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">x</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">y;</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x].</span><span style="color:#6F42C1;--shiki-dark:#B392F0">emplace_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(y,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
@@ -139,9 +140,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=100005;
-int n,rt,d[N];
-vector<pair<int,int>> e[N];
+int n,rt;
+vector<int> d;
+vector<vector<pair<int,int>>> e;
 
 void dfs(int u,int fa){
   if(d[rt]<d[u]) rt=u; //记录最远点
@@ -153,6 +154,7 @@ void dfs(int u,int fa){
 }
 int main(){
   cin>>n;
+  e.assign(n+1,{}); d.assign(n+1,0);
   for(int i=1,x,y;i<n;i++){
     cin>>x>>y;
     e[x].emplace_back(y,1);
@@ -171,9 +173,9 @@ int main(){
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x3C;bits/stdc++.h></span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">100005</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n,mxd,</span><span style="color:#E36209;--shiki-dark:#FFAB70">d</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //d[u]从u点向下走的最长距离</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">pair</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int>></span><span style="color:#E36209;--shiki-dark:#FFAB70"> e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n,mxd;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> d;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //d[u]从u点向下走的最长距离</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">pair</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int>>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> e;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> dfs</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> u</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> fa</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(auto [v,w]:</span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[u]){</span></span>
@@ -185,6 +187,7 @@ int main(){
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  cin</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">n;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  e.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,{}); d.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,x,y;i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n;i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cin</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">x</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">y;</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x].</span><span style="color:#6F42C1;--shiki-dark:#B392F0">emplace_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(y,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
@@ -196,9 +199,9 @@ int main(){
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=100005;
-int n,mxd,d[N]; //d[u]从u点向下走的最长距离
-vector<pair<int,int>> e[N];
+int n,mxd;
+vector<int> d; //d[u]从u点向下走的最长距离
+vector<vector<pair<int,int>>> e;
 
 void dfs(int u,int fa){
   for(auto [v,w]:e[u]){
@@ -210,6 +213,7 @@ void dfs(int u,int fa){
 }
 int main(){
   cin>>n;
+  e.assign(n+1,{}); d.assign(n+1,0);
   for(int i=1,x,y;i<n;i++){
     cin>>x>>y;
     e[x].emplace_back(y,1);

@@ -274,16 +274,15 @@
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[x].v</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">N </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 110001</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">n </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(sys.stdin.readline())</span></span>
 <span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">INF</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x3C;&#x3C;</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 30</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">tr </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [Node() </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> _ </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(N)]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">tr </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [Node() </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> _ </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)]</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">tot </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">insert(</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF">INF</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">insert(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">INF</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">n </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(sys.stdin.readline())</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> _ </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n):</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    op, x </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, sys.stdin.readline().split())</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> op </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
@@ -441,16 +440,15 @@ def getval(k):
     return tr[x].v
 
 
-N = 110001
+n = int(sys.stdin.readline())
 INF = (1 << 30) + 1
-tr = [Node() for _ in range(N)]
+tr = [Node() for _ in range(n + 3)]
 root = 0
 tot = 0
 
 
 insert(-INF)
 insert(INF)
-n = int(sys.stdin.readline())
 for _ in range(n):
     op, x = map(int, sys.stdin.readline().split())
     if op == 1:
@@ -471,13 +469,15 @@ for _ in range(n):
         "><div class="ready"><svg class="size-5"><use href="/icons/code.svg#mingcute-clipboard-line"></use></svg></div><div class="success hidden"><svg class="size-5"><use href="/icons/code.svg#mingcute-file-check-line"></use></svg></div></button></div>
 <h3 id="c代码实现">C++代码实现<a class="anchor" href="#c代码实现">#</a></h3>
 <div class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><pre><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;array></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;vector></span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> ls</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#E36209;--shiki-dark:#FFAB70">x</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x].ch[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> rs</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#E36209;--shiki-dark:#FFAB70">x</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x].ch[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1100010</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, INF</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">30</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> INF</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">30</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">struct</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> node{</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> ch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //儿</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  array</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ch;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //儿</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> fa;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //父</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v;</span><span style="color:#6A737D;--shiki-dark:#6A737D">  //点权</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> cnt;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //点权次数</span></span>
@@ -486,7 +486,8 @@ for _ in range(n):
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    fa</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">p, v</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">v1;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cnt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">siz</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">node</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> root,tot;</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //根,节点个数</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> pushup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> x</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //上传</span></span>
@@ -570,8 +571,9 @@ for _ in range(n):
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#E36209;--shiki-dark:#FFAB70"> tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[x].v;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  insert</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8">INF);</span><span style="color:#6F42C1;--shiki-dark:#B392F0">insert</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(INF);</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //哨兵</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n,op,x; </span><span style="color:#6F42C1;--shiki-dark:#B392F0">scanf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  tr.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, node{});</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  insert</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8">INF);</span><span style="color:#6F42C1;--shiki-dark:#B392F0">insert</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(INF);</span><span style="color:#6A737D;--shiki-dark:#6A737D"> //哨兵</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  while</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">--</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    scanf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d%d</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">op, </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">x);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(op</span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#6F42C1;--shiki-dark:#B392F0">insert</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x);</span></span>
@@ -582,13 +584,15 @@ for _ in range(n):
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    else</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> printf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%d\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#E36209;--shiki-dark:#FFAB70">tr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getsuc</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x)].v);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre><span class="language transition-opacity duration-300 absolute top-3 right-0 ps-1 pe-3 text-sm bg-muted text-muted-foreground select-none">c</span><button class="copy transition-opacity duration-300 opacity-0 absolute top-3 right-3 text-muted-foreground p-1 box-content border border-border rounded bg-primary-foreground" data-code="#include <iostream>
+#include <array>
+#include <vector>
 using namespace std;
 
 #define ls(x) tr[x].ch[0]
 #define rs(x) tr[x].ch[1]
-const int N=1100010, INF=(1<<30)+1;
+const int INF=(1<<30)+1;
 struct node{
-  int ch[2]; //儿
+  array<int, 2> ch; //儿
   int fa; //父
   int v;  //点权
   int cnt; //点权次数
@@ -597,7 +601,8 @@ struct node{
     fa=p, v=v1;
     cnt=siz=1;
   }
-}tr[N];
+};
+vector<node> tr;
 int root,tot; //根,节点个数
 
 void pushup(int x){ //上传
@@ -681,8 +686,9 @@ int getval(int k){ //数值
   return tr[x].v;
 }
 int main(){
-  insert(-INF);insert(INF); //哨兵
   int n,op,x; scanf(&#x22;%d&#x22;, &#x26;n);
+  tr.assign(n + 3, node{});
+  insert(-INF);insert(INF); //哨兵
   while(n--){
     scanf(&#x22;%d%d&#x22;, &#x26;op, &#x26;x);
     if(op==1) insert(x);

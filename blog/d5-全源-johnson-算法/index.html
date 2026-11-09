@@ -302,20 +302,20 @@ for i in range(1, n + 1):
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x3C;cstring></span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x3C;iostream></span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x3C;queue></span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> N</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 30010</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x3C;vector></span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#define</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> INF</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1000000000</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">using namespace std;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n,m,a,b,c;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">struct</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> edge{</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v,w;};</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">edge</span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#E36209;--shiki-dark:#FFAB70"> e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> vis</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],</span><span style="color:#E36209;--shiki-dark:#FFAB70">cnt</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">long</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#E36209;--shiki-dark:#FFAB70"> h</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N],</span><span style="color:#E36209;--shiki-dark:#FFAB70">d</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">edge</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> e;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vis,cnt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">vector</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;long</span><span style="color:#D73A49;--shiki-dark:#F97583"> long></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> h,d;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> spfa</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    queue</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8">q;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    memset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(h,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">63</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">sizeof</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> h);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    memset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(vis,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">sizeof</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vis);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    h.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">0x</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3f3f3f3f3f3f3f3f</span><span style="color:#D73A49;--shiki-dark:#F97583">LL</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    vis.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    h</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#E36209;--shiki-dark:#FFAB70">vis</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">push</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    while</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> u</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">front</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(); q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">pop</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span><span style="color:#E36209;--shiki-dark:#FFAB70">vis</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[u]</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
@@ -335,7 +335,7 @@ for i in range(1, n + 1):
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> dijkstra</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> s</span><span style="color:#24292E;--shiki-dark:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    priority_queue</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">pair</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;long</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">int>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">q;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n;i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span><span style="color:#E36209;--shiki-dark:#FFAB70">d</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[i]</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">INF;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    memset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(vis,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#D73A49;--shiki-dark:#F97583">sizeof</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vis);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    vis.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    d</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[s]</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">push</span><span style="color:#24292E;--shiki-dark:#E1E4E8">({</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,s});</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    while</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()){</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> u</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">top</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().second;q.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">pop</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
@@ -352,6 +352,11 @@ for i in range(1, n + 1):
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  cin</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">n</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">m;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  e.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,{});</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  h.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  d.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  vis.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  cnt.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">assign</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n</span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">m;i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cin</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">a</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">b</span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8">c, </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[a].</span><span style="color:#6F42C1;--shiki-dark:#B392F0">push_back</span><span style="color:#24292E;--shiki-dark:#E1E4E8">({b,c});</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;i</span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n;i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
@@ -375,20 +380,20 @@ for i in range(1, n + 1):
 #include<cstring>
 #include<iostream>
 #include<queue>
-#define N 30010
+#include<vector>
 #define INF 1000000000
 using namespace std;
 
 int n,m,a,b,c;
 struct edge{int v,w;};
-vector<edge> e[N];
-int vis[N],cnt[N];
-long long h[N],d[N];
+vector<vector<edge>> e;
+vector<int> vis,cnt;
+vector<long long> h,d;
 
 void spfa(){
     queue<int>q;
-    memset(h,63,sizeof h);
-    memset(vis,false,sizeof vis);
+    h.assign(n+1,0x3f3f3f3f3f3f3f3fLL);
+    vis.assign(n+1,0);
     h[0]=0,vis[0]=1;q.push(0);
     while(q.size()){
         int u=q.front(); q.pop();vis[u]=0;
@@ -408,7 +413,7 @@ void spfa(){
 void dijkstra(int s){
     priority_queue<pair<long long,int>>q;
     for(int i=1;i<=n;i++)d[i]=INF;
-    memset(vis,false,sizeof vis);
+    vis.assign(n+1,0);
     d[s]=0; q.push({0,s});
     while(q.size()){
         int u=q.top().second;q.pop();
@@ -425,6 +430,11 @@ void dijkstra(int s){
 }
 int main(){
   cin>>n>>m;
+  e.assign(n+1,{});
+  h.assign(n+1,0);
+  d.assign(n+1,0);
+  vis.assign(n+1,0);
+  cnt.assign(n+1,0);
   for(int i=0;i<m;i++)
     cin>>a>>b>>c, e[a].push_back({b,c});
     for(int i=1;i<=n;i++)
