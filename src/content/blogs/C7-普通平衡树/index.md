@@ -635,61 +635,77 @@ void output(int p) {
     output(tr[p].r);
 }
 
-// 以下按值操作要求中序序列非降序
-// 返回严格小于 v 的元素个数 + 1，v 不必存在
+// 以下五个函数是为 P3369 新增的按值操作，要求中序序列保持非降序。
+// 单次操作的期望时间复杂度均为 O(log n)，树退化时最坏为 O(n)。
+
+// 查询 v 的排名：严格小于 v 的元素个数 + 1，v 不必存在。
+// 重复值分别计数；若 v 存在，返回第一个 v 的位置。
+// 沿树向下查找，通过左子树大小累加答案，期望 O(log n)。
 int getrank(ll v) {
     int p = root, ans = 1;
     while (p) {
         pushdown(p);
         if (tr[p].val < v) {
+            // 左子树的所有元素和当前节点都小于 v，计入后继续查右子树
             ans += sz(tr[p].l) + 1;
             p = tr[p].r;
         } else {
+            // 当前值 >= v，只有左子树还可能包含小于 v 的元素
             p = tr[p].l;
         }
     }
     return ans;
 }
 
-// 按值插入 v，插到所有等于 v 的元素之前
+// 按值插入一个 v，允许重复值，插入后仍保持非降序。
+// 先用 getrank 求插入位置，再调用原模板的按位置插入 insert。
+// 两次期望 O(log n) 的操作，总期望复杂度仍为 O(log n)。
 void insert_value(ll v) {
     insert(getrank(v), v);
 }
 
-// 按值删除一个 v；不存在时不操作
+// 按值删除一个 v，多个相同值只删除第一个；不存在时不操作。
+// getrank 找到第一个 >= v 的位置，检查该位置确实为 v 后按位置删除。
+// 排名、取值、删除各调用至多一次，总期望复杂度为 O(log n)。
 void del_value(ll v) {
     int k = getrank(v);
     if (k <= sz(root) && getval(k) == v) del(k);
 }
 
-// 严格前驱：小于 v 的最大值
-// 不存在时返回 LLONG_MIN，P3369 保证答案存在
+// 查询 v 的严格前驱：小于 v 的最大值，v 不必存在。
+// 不存在时返回 LLONG_MIN，P3369 保证答案存在。
+// 沿树向下查找并更新候选答案，期望 O(log n)。
 ll getpre(ll v) {
     int p = root;
     ll ans = LLONG_MIN;
     while (p) {
         pushdown(p);
         if (tr[p].val < v) {
+            // 当前值可作为前驱，右子树中可能有更大且仍小于 v 的值
             ans = tr[p].val;
             p = tr[p].r;
         } else {
+            // 当前值 >= v，右子树也不符合要求，只查左子树
             p = tr[p].l;
         }
     }
     return ans;
 }
 
-// 严格后继：大于 v 的最小值
-// 不存在时返回 LLONG_MAX，P3369 保证答案存在
+// 查询 v 的严格后继：大于 v 的最小值，v 不必存在。
+// 不存在时返回 LLONG_MAX，P3369 保证答案存在。
+// 沿树向下查找并更新候选答案，期望 O(log n)。
 ll getsuc(ll v) {
     int p = root;
     ll ans = LLONG_MAX;
     while (p) {
         pushdown(p);
         if (tr[p].val > v) {
+            // 当前值可作为后继，左子树中可能有更小且仍大于 v 的值
             ans = tr[p].val;
             p = tr[p].l;
         } else {
+            // 当前值 <= v，左子树也不符合要求，只查右子树
             p = tr[p].r;
         }
     }
