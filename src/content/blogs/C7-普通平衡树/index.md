@@ -420,3 +420,301 @@ int main(){
     }
 }
 ```
+
+### FHQ Treap
+
+保留按位置分裂的序列操作，并补充普通平衡树的按值操作。下面是可以直接提交 [P3369](https://www.luogu.com.cn/problem/P3369) 的完整代码，重复值各占一个节点，删除时只删除一个。
+
+`split` 将前 `k` 个元素分到左树；`insert(k, v)`、`del(k)`、`getval(k)`、`modify(k, v)` 中的位置从 1 开始。`insert_value`、`del_value`、`getrank`、`getpre`、`getsuc` 要求中序序列保持非降序，主函数只使用满足这一条件的操作。额外保留的 `reverse`、`range_add`、`modify` 用于维护一般序列，若操作破坏了有序性，就不能继续直接进行按值操作。`range_sum` 按位置求和，不改变序列顺序。
+
+基本操作的期望时间复杂度为 $$O(\log n)$$，`size` 为 $$O(1)$$，`output` 为 $$O(n)$$。节点编号不回收，数组容量应大于插入操作的总次数；这里的容量足够处理 P3369。
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+const int N = 200010;
+
+struct node {
+    int l, r;
+    ll val, sum;
+    uint32_t key;
+    int size;
+    bool rev;
+    ll add;
+} tr[N];
+
+int root = 0, idx = 0;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int sz(int p) {
+    return tr[p].size;
+}
+
+int newnode(ll v) {
+    int p = ++idx;
+    tr[p] = {};
+    tr[p].val = tr[p].sum = v;
+    tr[p].key = rng();
+    tr[p].size = 1;
+    return p;
+}
+
+void pushup(int p) {
+    if (!p) return;
+    tr[p].size = sz(tr[p].l) + sz(tr[p].r) + 1;
+    tr[p].sum = tr[tr[p].l].sum
+              + tr[tr[p].r].sum + tr[p].val;
+}
+
+void apply_add(int p, ll v) {
+    if (!p) return;
+    tr[p].val += v;
+    tr[p].sum += v * tr[p].size;
+    tr[p].add += v;
+}
+
+void apply_rev(int p) {
+    if (!p) return;
+    swap(tr[p].l, tr[p].r);
+    tr[p].rev ^= 1;
+}
+
+void pushdown(int p) {
+    if (!p) return;
+
+    if (tr[p].rev) {
+        apply_rev(tr[p].l);
+        apply_rev(tr[p].r);
+        tr[p].rev = false;
+    }
+
+    if (tr[p].add) {
+        apply_add(tr[p].l, tr[p].add);
+        apply_add(tr[p].r, tr[p].add);
+        tr[p].add = 0;
+    }
+}
+
+// 将前 k 个元素分给 x，其余分给 y
+void split(int p, int k, int &x, int &y) {
+    if (!p) {
+        x = y = 0;
+        return;
+    }
+
+    pushdown(p);
+
+    if (k > sz(tr[p].l)) {
+        x = p;
+        split(tr[p].r, k - sz(tr[p].l) - 1, tr[p].r, y);
+    } else {
+        y = p;
+        split(tr[p].l, k, x, tr[p].l);
+    }
+
+    pushup(p);
+}
+
+// 合并两个序列，x 在前，y 在后
+int merge(int x, int y) {
+    if (!x || !y) return x ? x : y;
+
+    if (tr[x].key < tr[y].key) {
+        pushdown(x);
+        tr[x].r = merge(tr[x].r, y);
+        pushup(x);
+        return x;
+    } else {
+        pushdown(y);
+        tr[y].l = merge(x, tr[y].l);
+        pushup(y);
+        return y;
+    }
+}
+
+// 在位置 k 插入 v，原第 k 个及之后的元素后移
+// 合法范围：1 <= k <= size() + 1
+void insert(int k, ll v) {
+    int x, y;
+    split(root, k - 1, x, y);
+    root = merge(merge(x, newnode(v)), y);
+}
+
+// 删除第 k 个元素，合法范围：1 <= k <= size()
+void del(int k) {
+    int x, y, z;
+    split(root, k, x, z);
+    split(x, k - 1, x, y);
+    root = merge(x, z);
+    // y 是被删除的节点，当前模板不回收编号
+}
+
+// 查询第 k 个元素，下标无效时返回 -1
+ll getval(int k) {
+    int p = root;
+
+    while (p) {
+        pushdown(p);
+        int s = sz(tr[p].l);
+
+        if (k == s + 1) return tr[p].val;
+        if (k <= s) {
+            p = tr[p].l;
+        } else {
+            k -= s + 1;
+            p = tr[p].r;
+        }
+    }
+
+    return -1;
+}
+
+// 修改第 k 个元素为 v，合法范围：1 <= k <= size()
+void modify(int k, ll v) {
+    int x, y, z;
+    split(root, k, x, z);
+    split(x, k - 1, x, y);
+
+    if (y) {
+        tr[y].val = v;
+        pushup(y);
+    }
+
+    root = merge(merge(x, y), z);
+}
+
+// 翻转区间 [l, r]，合法范围：1 <= l <= r <= size()
+void reverse(int l, int r) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    apply_rev(y);
+
+    root = merge(merge(x, y), z);
+}
+
+// 区间 [l, r] 所有元素加 v
+void range_add(int l, int r, ll v) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    apply_add(y, v);
+
+    root = merge(merge(x, y), z);
+}
+
+// 查询区间 [l, r] 的元素和
+ll range_sum(int l, int r) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    ll ans = tr[y].sum;
+
+    root = merge(merge(x, y), z);
+    return ans;
+}
+
+// 当前序列长度
+int size() {
+    return sz(root);
+}
+
+// 中序遍历输出
+void output(int p) {
+    if (!p) return;
+
+    pushdown(p);
+    output(tr[p].l);
+    cout << tr[p].val << ' ';
+    output(tr[p].r);
+}
+
+// 以下按值操作要求中序序列非降序
+// 返回严格小于 v 的元素个数 + 1，v 不必存在
+int getrank(ll v) {
+    int p = root, ans = 1;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val < v) {
+            ans += sz(tr[p].l) + 1;
+            p = tr[p].r;
+        } else {
+            p = tr[p].l;
+        }
+    }
+    return ans;
+}
+
+// 按值插入 v，插到所有等于 v 的元素之前
+void insert_value(ll v) {
+    insert(getrank(v), v);
+}
+
+// 按值删除一个 v；不存在时不操作
+void del_value(ll v) {
+    int k = getrank(v);
+    if (k <= sz(root) && getval(k) == v) del(k);
+}
+
+// 严格前驱：小于 v 的最大值
+// 不存在时返回 LLONG_MIN，P3369 保证答案存在
+ll getpre(ll v) {
+    int p = root;
+    ll ans = LLONG_MIN;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val < v) {
+            ans = tr[p].val;
+            p = tr[p].r;
+        } else {
+            p = tr[p].l;
+        }
+    }
+    return ans;
+}
+
+// 严格后继：大于 v 的最小值
+// 不存在时返回 LLONG_MAX，P3369 保证答案存在
+ll getsuc(ll v) {
+    int p = root;
+    ll ans = LLONG_MAX;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val > v) {
+            ans = tr[p].val;
+            p = tr[p].l;
+        } else {
+            p = tr[p].r;
+        }
+    }
+    return ans;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin >> n;
+    while (n--) {
+        int op;
+        ll x;
+        cin >> op >> x;
+
+        if (op == 1) insert_value(x);
+        else if (op == 2) del_value(x);
+        else if (op == 3) cout << getrank(x) << '\n';
+        else if (op == 4) cout << getval(static_cast<int>(x)) << '\n';
+        else if (op == 5) cout << getpre(x) << '\n';
+        else if (op == 6) cout << getsuc(x) << '\n';
+    }
+
+    return 0;
+}
+```
