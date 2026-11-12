@@ -5833,6 +5833,298 @@ int main(){
         }
     }
 }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;FHQ Treap&lt;/h3&gt;
+&lt;p&gt;保留按位置分裂的序列操作，并补充普通平衡树的按值操作。下面是可以直接提交 &lt;a href=&quot;https://www.luogu.com.cn/problem/P3369&quot;&gt;P3369&lt;/a&gt; 的完整代码，重复值各占一个节点，删除时只删除一个。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;split&lt;/code&gt; 将前 &lt;code&gt;k&lt;/code&gt; 个元素分到左树；&lt;code&gt;insert(k, v)&lt;/code&gt;、&lt;code&gt;del(k)&lt;/code&gt;、&lt;code&gt;getval(k)&lt;/code&gt;、&lt;code&gt;modify(k, v)&lt;/code&gt; 中的位置从 1 开始。&lt;code&gt;insert_value&lt;/code&gt;、&lt;code&gt;del_value&lt;/code&gt;、&lt;code&gt;getrank&lt;/code&gt;、&lt;code&gt;getpre&lt;/code&gt;、&lt;code&gt;getsuc&lt;/code&gt; 要求中序序列保持非降序，主函数只使用满足这一条件的操作。额外保留的 &lt;code&gt;reverse&lt;/code&gt;、&lt;code&gt;range_add&lt;/code&gt;、&lt;code&gt;modify&lt;/code&gt; 用于维护一般序列，若操作破坏了有序性，就不能继续直接进行按值操作。&lt;code&gt;range_sum&lt;/code&gt; 按位置求和，不改变序列顺序。&lt;/p&gt;
+&lt;p&gt;基本操作的期望时间复杂度为 $$O(\log n)$$，&lt;code&gt;size&lt;/code&gt; 为 $$O(1)$$，&lt;code&gt;output&lt;/code&gt; 为 $$O(n)$$。节点编号不回收，数组容量应大于插入操作的总次数；这里的容量足够处理 P3369。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;#include &amp;#x3C;bits/stdc++.h&gt;
+using namespace std;
+
+using ll = long long;
+
+const int N = 200010;
+
+struct node {
+    int l, r;
+    ll val, sum;
+    uint32_t key;
+    int size;
+    bool rev;
+    ll add;
+} tr[N];
+
+int root = 0, idx = 0;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int sz(int p) {
+    return tr[p].size;
+}
+
+int newnode(ll v) {
+    int p = ++idx;
+    tr[p] = {};
+    tr[p].val = tr[p].sum = v;
+    tr[p].key = rng();
+    tr[p].size = 1;
+    return p;
+}
+
+void pushup(int p) {
+    if (!p) return;
+    tr[p].size = sz(tr[p].l) + sz(tr[p].r) + 1;
+    tr[p].sum = tr[tr[p].l].sum
+              + tr[tr[p].r].sum + tr[p].val;
+}
+
+void apply_add(int p, ll v) {
+    if (!p) return;
+    tr[p].val += v;
+    tr[p].sum += v * tr[p].size;
+    tr[p].add += v;
+}
+
+void apply_rev(int p) {
+    if (!p) return;
+    swap(tr[p].l, tr[p].r);
+    tr[p].rev ^= 1;
+}
+
+void pushdown(int p) {
+    if (!p) return;
+
+    if (tr[p].rev) {
+        apply_rev(tr[p].l);
+        apply_rev(tr[p].r);
+        tr[p].rev = false;
+    }
+
+    if (tr[p].add) {
+        apply_add(tr[p].l, tr[p].add);
+        apply_add(tr[p].r, tr[p].add);
+        tr[p].add = 0;
+    }
+}
+
+// 将前 k 个元素分给 x，其余分给 y
+void split(int p, int k, int &amp;#x26;x, int &amp;#x26;y) {
+    if (!p) {
+        x = y = 0;
+        return;
+    }
+
+    pushdown(p);
+
+    if (k &gt; sz(tr[p].l)) {
+        x = p;
+        split(tr[p].r, k - sz(tr[p].l) - 1, tr[p].r, y);
+    } else {
+        y = p;
+        split(tr[p].l, k, x, tr[p].l);
+    }
+
+    pushup(p);
+}
+
+// 合并两个序列，x 在前，y 在后
+int merge(int x, int y) {
+    if (!x || !y) return x ? x : y;
+
+    if (tr[x].key &amp;#x3C; tr[y].key) {
+        pushdown(x);
+        tr[x].r = merge(tr[x].r, y);
+        pushup(x);
+        return x;
+    } else {
+        pushdown(y);
+        tr[y].l = merge(x, tr[y].l);
+        pushup(y);
+        return y;
+    }
+}
+
+// 在位置 k 插入 v，原第 k 个及之后的元素后移
+// 合法范围：1 &amp;#x3C;= k &amp;#x3C;= size() + 1
+void insert(int k, ll v) {
+    int x, y;
+    split(root, k - 1, x, y);
+    root = merge(merge(x, newnode(v)), y);
+}
+
+// 删除第 k 个元素，合法范围：1 &amp;#x3C;= k &amp;#x3C;= size()
+void del(int k) {
+    int x, y, z;
+    split(root, k, x, z);
+    split(x, k - 1, x, y);
+    root = merge(x, z);
+    // y 是被删除的节点，当前模板不回收编号
+}
+
+// 查询第 k 个元素，下标无效时返回 -1
+ll getval(int k) {
+    int p = root;
+
+    while (p) {
+        pushdown(p);
+        int s = sz(tr[p].l);
+
+        if (k == s + 1) return tr[p].val;
+        if (k &amp;#x3C;= s) {
+            p = tr[p].l;
+        } else {
+            k -= s + 1;
+            p = tr[p].r;
+        }
+    }
+
+    return -1;
+}
+
+// 修改第 k 个元素为 v，合法范围：1 &amp;#x3C;= k &amp;#x3C;= size()
+void modify(int k, ll v) {
+    int x, y, z;
+    split(root, k, x, z);
+    split(x, k - 1, x, y);
+
+    if (y) {
+        tr[y].val = v;
+        pushup(y);
+    }
+
+    root = merge(merge(x, y), z);
+}
+
+// 翻转区间 [l, r]，合法范围：1 &amp;#x3C;= l &amp;#x3C;= r &amp;#x3C;= size()
+void reverse(int l, int r) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    apply_rev(y);
+
+    root = merge(merge(x, y), z);
+}
+
+// 区间 [l, r] 所有元素加 v
+void range_add(int l, int r, ll v) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    apply_add(y, v);
+
+    root = merge(merge(x, y), z);
+}
+
+// 查询区间 [l, r] 的元素和
+ll range_sum(int l, int r) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    ll ans = tr[y].sum;
+
+    root = merge(merge(x, y), z);
+    return ans;
+}
+
+// 当前序列长度
+int size() {
+    return sz(root);
+}
+
+// 中序遍历输出
+void output(int p) {
+    if (!p) return;
+
+    pushdown(p);
+    output(tr[p].l);
+    cout &amp;#x3C;&amp;#x3C; tr[p].val &amp;#x3C;&amp;#x3C; &apos; &apos;;
+    output(tr[p].r);
+}
+
+// 以下按值操作要求中序序列非降序
+// 返回严格小于 v 的元素个数 + 1，v 不必存在
+int getrank(ll v) {
+    int p = root, ans = 1;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val &amp;#x3C; v) {
+            ans += sz(tr[p].l) + 1;
+            p = tr[p].r;
+        } else {
+            p = tr[p].l;
+        }
+    }
+    return ans;
+}
+
+// 按值插入 v，插到所有等于 v 的元素之前
+void insert_value(ll v) {
+    insert(getrank(v), v);
+}
+
+// 按值删除一个 v；不存在时不操作
+void del_value(ll v) {
+    int k = getrank(v);
+    if (k &amp;#x3C;= sz(root) &amp;#x26;&amp;#x26; getval(k) == v) del(k);
+}
+
+// 严格前驱：小于 v 的最大值
+// 不存在时返回 LLONG_MIN，P3369 保证答案存在
+ll getpre(ll v) {
+    int p = root;
+    ll ans = LLONG_MIN;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val &amp;#x3C; v) {
+            ans = tr[p].val;
+            p = tr[p].r;
+        } else {
+            p = tr[p].l;
+        }
+    }
+    return ans;
+}
+
+// 严格后继：大于 v 的最小值
+// 不存在时返回 LLONG_MAX，P3369 保证答案存在
+ll getsuc(ll v) {
+    int p = root;
+    ll ans = LLONG_MAX;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val &gt; v) {
+            ans = tr[p].val;
+            p = tr[p].l;
+        } else {
+            p = tr[p].r;
+        }
+    }
+    return ans;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin &gt;&gt; n;
+    while (n--) {
+        int op;
+        ll x;
+        cin &gt;&gt; op &gt;&gt; x;
+
+        if (op == 1) insert_value(x);
+        else if (op == 2) del_value(x);
+        else if (op == 3) cout &amp;#x3C;&amp;#x3C; getrank(x) &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+        else if (op == 4) cout &amp;#x3C;&amp;#x3C; getval(static_cast&amp;#x3C;int&gt;(x)) &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+        else if (op == 5) cout &amp;#x3C;&amp;#x3C; getpre(x) &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+        else if (op == 6) cout &amp;#x3C;&amp;#x3C; getsuc(x) &amp;#x3C;&amp;#x3C; &apos;\n&apos;;
+    }
+
+    return 0;
+}
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>C8 可持续化线段树</title><link>https://ehnotgod.github.io/blog/c8-%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/c8-%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91</guid><description>可持久化线段树（主席树）：静态区间第 k 小。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;题目链接：https://www.luogu.com.cn/problem/P3834&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;题目背景&lt;/strong&gt;&lt;/p&gt;

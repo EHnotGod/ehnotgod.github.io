@@ -69,7 +69,7 @@
   if (toggleDarkModeElement) {
     toggleDarkModeElement.dataset.theme = localStorage.getItem('theme') || 'system'
   }
-</script> <script type="module" src="/_astro/Header.astro_astro_type_script_index_0_lang.C4-mXMSD.js"></script>   <main class="mt-6 items-start gap-x-10 md:flex">  <aside class="animate top-24 min-w-48 basis-60 overflow-y-scroll max-md:hidden md:sticky md:order-2 lg:shrink-0" style="height:calc(100vh - 8rem);" id="sidebar"> <toc-heading slot="sidebar"> <h2 class="font-semibold">TABLE OF CONTENTS</h2> <ul class="mt-4 text-card-foreground"> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: 题目情境" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#题目情境">题目情境</a> </div> <ul> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: 算法解析" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#算法解析">算法解析</a> </div> <ul> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: Python代码实现" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#python代码实现">Python代码实现</a> </div> <ul> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: C++代码实现" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#c代码实现">C++代码实现</a> </div>  </li> </ul> </li> </ul> </li> </ul> </li> </ul> </toc-heading> <script type="module">class c extends HTMLElement{headings=[];tocLinks=[];headingProgress={};constructor(){super(),this.headings=Array.from(document.querySelectorAll("article h2, article h3, article h4, article h5, article h6")),this.tocLinks=Array.from(this.querySelectorAll('a[href^="#"]')).map(e=>({element:e,progressBar:e.previousElementSibling,slug:(e.getAttribute("href")||"").substring(1)}))}updatePositionAndStyle=()=>{const e=window.innerHeight,r=document.querySelector("#content"),o=r?.getBoundingClientRect().top+window.scrollY||0,h=(r?.offsetHeight||0)+o;this.headings.forEach((s,i)=>{const g=s.getBoundingClientRect().top+window.scrollY,n=this.headings[i+1]?this.headings[i+1].getBoundingClientRect().top+window.scrollY:h,t=[g-window.scrollY,n-window.scrollY-s.offsetHeight],l=(e-t[0])/(t[1]-t[0]);this.headingProgress[s.id]={inView:t[0]<e&&t[1]>0,progress:Math.max(0,Math.min(1,l))}}),this.tocLinks.forEach(({element:s,progressBar:i,slug:g},n)=>{const{inView:t,progress:l}=this.headingProgress[g];this.headingProgress[g]&&(s.classList.toggle("highlight",t),s.classList.toggle("highlight-bg-translucent",t),s.classList.toggle("rounded-t-2xl",t&&(n==0||!this.headingProgress[this.tocLinks[n-1]?.slug].inView)),s.classList.toggle("rounded-b-2xl",t&&(n==this.tocLinks.length-1||!this.headingProgress[this.tocLinks[n+1]?.slug].inView)),i.classList.toggle("readed",!t&&l==1),i.classList.toggle("highlight-bg",t),i.style.setProperty("height",`${l*90}%`))})};connectedCallback(){this.tocLinks.forEach(e=>{e.element.addEventListener("click",r=>{r.preventDefault();const o=this.headings.find(h=>h.id===e.slug);o?(history.pushState(null,o.textContent||"",e.element.getAttribute("href")),o.scrollIntoView({behavior:"smooth"})):console.warn(`No heading found for slug: ${e.slug}`)})}),setInterval(this.updatePositionAndStyle,100),window.addEventListener("scroll",this.updatePositionAndStyle)}}customElements.define("toc-heading",c);</script> </aside> <article class="min-w-0 grow">  <div id="content-header" class="animate"> <div class="article-info max-lg:mx-auto"> <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs leading-6 text-muted-foreground">  <div class="flex items-center gap-1"> <svg aria-hidden="true" class="size-5 astro-p7sajfz3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><g fill="none" fill-rule="evenodd"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M16 3a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2V4a1 1 0 0 1 2 0v1h6V4a1 1 0 0 1 1-1M8 7H5v2h14V7h-3zm-3 4v8h14v-8zm2 2a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m1 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2zm3-2a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H12a1 1 0 0 1-1-1m1 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2zm3-2a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H16a1 1 0 0 1-1-1m1 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2z"/></g></svg>  <span class="text-muted-foreground font-sans"> <time datetime="2026-08-08T00:00:00.000Z"> Aug 8, 2026 </time> </span>  </div>  <div class="flex items-center gap-1"> <svg aria-hidden="true" class="size-5 astro-p7sajfz3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><g fill="none"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m0 2a1 1 0 0 1 .993.883L13 7v4.586l2.707 2.707a1 1 0 0 1-1.32 1.497l-.094-.083l-3-3a1 1 0 0 1-.284-.576L11 12V7a1 1 0 0 1 1-1"/></g></svg>  7 min read </div> <span class="flex items-center gap-1"> <svg aria-hidden="true" class="size-5 astro-p7sajfz3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><g fill="none" fill-rule="evenodd"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m1.482 14.94a18 18 0 0 1-2.964 0q.14.596.31 1.102c.251.755.53 1.293.79 1.622c.127.162.23.248.3.29l.051.028l.03.008l.032-.008l.051-.027a1.2 1.2 0 0 0 .3-.29c.26-.33.539-.868.79-1.623q.17-.506.31-1.102m-8.675-1.435a8.03 8.03 0 0 0 4.441 4.01a11 11 0 0 1-.318-.84a16 16 0 0 1-.52-2.033a18 18 0 0 1-3.603-1.137m14.387 0c-1.145.5-2.351.883-3.605 1.137a16 16 0 0 1-.52 2.034q-.144.437-.318.838a8.03 8.03 0 0 0 4.443-4.01Zm-5.218-4.634a15 15 0 0 1-3.952 0a26 26 0 0 0 .141 4.025a16.2 16.2 0 0 0 3.67 0A25 25 0 0 0 14 12q0-.576-.024-1.13ZM4.568 9.032a8 8 0 0 0-.52 3.856a16 16 0 0 0 4.067 1.637a28 28 0 0 1-.074-4.053a15 15 0 0 1-3.473-1.44m14.864 0a15 15 0 0 1-3.473 1.44a28 28 0 0 1-.074 4.053a16 16 0 0 0 4.066-1.637a8 8 0 0 0-.52-3.855Zm-7.416-5.02l-.011-.002l-.02.003l-.038.015a1.2 1.2 0 0 0-.33.307c-.26.33-.538.868-.79 1.622c-.27.808-.488 1.8-.633 2.919a13 13 0 0 0 3.612 0c-.145-1.12-.364-2.111-.633-2.919c-.252-.754-.53-1.293-.79-1.622a1.2 1.2 0 0 0-.3-.29l-.067-.032Zm-2.768.474a8 8 0 0 0-3.71 2.797c.843.484 1.746.876 2.695 1.163c.16-1.164.397-2.223.697-3.122q.145-.438.318-.838m5.504 0q.172.4.318.838c.3.9.537 1.958.697 3.122a13 13 0 0 0 2.695-1.163a8 8 0 0 0-3.71-2.797"/></g></svg>  zh </span>  <span class="flex items-center gap-1"> <svg aria-hidden="true" class="size-5 astro-p7sajfz3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M10.124 3.008a1 1 0 0 1 .868 1.116L10.508 8h3.984l.516-4.124a1 1 0 1 1 1.984.248L16.508 8H20a1 1 0 1 1 0 2h-3.742l-.5 4H19.5a1 1 0 1 1 0 2h-3.992l-.516 4.124a1 1 0 1 1-1.984-.248L13.492 16H9.508l-.516 4.124a1 1 0 1 1-1.984-.248L7.492 16H4.5a1 1 0 1 1 0-2h3.242l.5-4H5a1 1 0 0 1 0-2h3.492l.516-4.124a1 1 0 0 1 1.116-.868M13.742 14l.5-4h-3.984l-.5 4z"/></g></svg>  <div> <a aria-label="View more blogs with the tag 数据结构" class="hover:underline hover:underline-offset-4" data-pagefind-filter="tag" href="/tags/数据结构"> 数据结构 </a>  </div> </span> </div> <h1 class="mt-4 text-2xl font-medium sm:mb-2 sm:mt-6 sm:text-3xl"> C7 普通平衡树 </h1> <div class="mt-3 italic"> <blockquote class="text-sm text-muted-foreground"><q>平衡树（Treap/Splay）模板：动态维护有序集合。</q></blockquote> <div class="text-sm text-muted-foreground mt-1"> <span class="waline-pageview-count" data-path="/zh/blog/c7-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91"></span> views
+</script> <script type="module" src="/_astro/Header.astro_astro_type_script_index_0_lang.C4-mXMSD.js"></script>   <main class="mt-6 items-start gap-x-10 md:flex">  <aside class="animate top-24 min-w-48 basis-60 overflow-y-scroll max-md:hidden md:sticky md:order-2 lg:shrink-0" style="height:calc(100vh - 8rem);" id="sidebar"> <toc-heading slot="sidebar"> <h2 class="font-semibold">TABLE OF CONTENTS</h2> <ul class="mt-4 text-card-foreground"> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: 题目情境" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#题目情境">题目情境</a> </div> <ul> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: 算法解析" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#算法解析">算法解析</a> </div> <ul> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: Python代码实现" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#python代码实现">Python代码实现</a> </div> <ul> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: C++代码实现" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#c代码实现">C++代码实现</a> </div> <ul> <li> <div class="relative"> <span class="absolute top-[5%] w-[2px] rounded transition-colors duration-300 [&.highlight-bg]:bg-primary [&.readed]:bg-input"></span> <a aria-label="Scroll to section: FHQ Treap" class="line-clamp-2 px-3 py-1 ms-2 flex-1 text-foreground/75 transition-all hover:text-foreground [&#38;.highlight]:font-medium [&#38;.highlight]:text-primary [&#38;.readed]:text-input [&#38;.highlight-bg-translucent]:bg-muted ps-7" href="#fhq-treap">FHQ Treap</a> </div>  </li> </ul> </li> </ul> </li> </ul> </li> </ul> </li> </ul> </toc-heading> <script type="module">class c extends HTMLElement{headings=[];tocLinks=[];headingProgress={};constructor(){super(),this.headings=Array.from(document.querySelectorAll("article h2, article h3, article h4, article h5, article h6")),this.tocLinks=Array.from(this.querySelectorAll('a[href^="#"]')).map(e=>({element:e,progressBar:e.previousElementSibling,slug:(e.getAttribute("href")||"").substring(1)}))}updatePositionAndStyle=()=>{const e=window.innerHeight,r=document.querySelector("#content"),o=r?.getBoundingClientRect().top+window.scrollY||0,h=(r?.offsetHeight||0)+o;this.headings.forEach((s,i)=>{const g=s.getBoundingClientRect().top+window.scrollY,n=this.headings[i+1]?this.headings[i+1].getBoundingClientRect().top+window.scrollY:h,t=[g-window.scrollY,n-window.scrollY-s.offsetHeight],l=(e-t[0])/(t[1]-t[0]);this.headingProgress[s.id]={inView:t[0]<e&&t[1]>0,progress:Math.max(0,Math.min(1,l))}}),this.tocLinks.forEach(({element:s,progressBar:i,slug:g},n)=>{const{inView:t,progress:l}=this.headingProgress[g];this.headingProgress[g]&&(s.classList.toggle("highlight",t),s.classList.toggle("highlight-bg-translucent",t),s.classList.toggle("rounded-t-2xl",t&&(n==0||!this.headingProgress[this.tocLinks[n-1]?.slug].inView)),s.classList.toggle("rounded-b-2xl",t&&(n==this.tocLinks.length-1||!this.headingProgress[this.tocLinks[n+1]?.slug].inView)),i.classList.toggle("readed",!t&&l==1),i.classList.toggle("highlight-bg",t),i.style.setProperty("height",`${l*90}%`))})};connectedCallback(){this.tocLinks.forEach(e=>{e.element.addEventListener("click",r=>{r.preventDefault();const o=this.headings.find(h=>h.id===e.slug);o?(history.pushState(null,o.textContent||"",e.element.getAttribute("href")),o.scrollIntoView({behavior:"smooth"})):console.warn(`No heading found for slug: ${e.slug}`)})}),setInterval(this.updatePositionAndStyle,100),window.addEventListener("scroll",this.updatePositionAndStyle)}}customElements.define("toc-heading",c);</script> </aside> <article class="min-w-0 grow">  <div id="content-header" class="animate"> <div class="article-info max-lg:mx-auto"> <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs leading-6 text-muted-foreground">  <div class="flex items-center gap-1"> <svg aria-hidden="true" class="size-5 astro-p7sajfz3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><g fill="none" fill-rule="evenodd"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M16 3a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2V4a1 1 0 0 1 2 0v1h6V4a1 1 0 0 1 1-1M8 7H5v2h14V7h-3zm-3 4v8h14v-8zm2 2a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m1 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2zm3-2a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H12a1 1 0 0 1-1-1m1 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2zm3-2a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H16a1 1 0 0 1-1-1m1 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2z"/></g></svg>  <span class="text-muted-foreground font-sans"> <time datetime="2026-08-08T00:00:00.000Z"> Aug 8, 2026 </time> </span>  </div>  <div class="flex items-center gap-1"> <svg aria-hidden="true" class="size-5 astro-p7sajfz3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><g fill="none"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m0 2a1 1 0 0 1 .993.883L13 7v4.586l2.707 2.707a1 1 0 0 1-1.32 1.497l-.094-.083l-3-3a1 1 0 0 1-.284-.576L11 12V7a1 1 0 0 1 1-1"/></g></svg>  13 min read </div> <span class="flex items-center gap-1"> <svg aria-hidden="true" class="size-5 astro-p7sajfz3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><g fill="none" fill-rule="evenodd"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m1.482 14.94a18 18 0 0 1-2.964 0q.14.596.31 1.102c.251.755.53 1.293.79 1.622c.127.162.23.248.3.29l.051.028l.03.008l.032-.008l.051-.027a1.2 1.2 0 0 0 .3-.29c.26-.33.539-.868.79-1.623q.17-.506.31-1.102m-8.675-1.435a8.03 8.03 0 0 0 4.441 4.01a11 11 0 0 1-.318-.84a16 16 0 0 1-.52-2.033a18 18 0 0 1-3.603-1.137m14.387 0c-1.145.5-2.351.883-3.605 1.137a16 16 0 0 1-.52 2.034q-.144.437-.318.838a8.03 8.03 0 0 0 4.443-4.01Zm-5.218-4.634a15 15 0 0 1-3.952 0a26 26 0 0 0 .141 4.025a16.2 16.2 0 0 0 3.67 0A25 25 0 0 0 14 12q0-.576-.024-1.13ZM4.568 9.032a8 8 0 0 0-.52 3.856a16 16 0 0 0 4.067 1.637a28 28 0 0 1-.074-4.053a15 15 0 0 1-3.473-1.44m14.864 0a15 15 0 0 1-3.473 1.44a28 28 0 0 1-.074 4.053a16 16 0 0 0 4.066-1.637a8 8 0 0 0-.52-3.855Zm-7.416-5.02l-.011-.002l-.02.003l-.038.015a1.2 1.2 0 0 0-.33.307c-.26.33-.538.868-.79 1.622c-.27.808-.488 1.8-.633 2.919a13 13 0 0 0 3.612 0c-.145-1.12-.364-2.111-.633-2.919c-.252-.754-.53-1.293-.79-1.622a1.2 1.2 0 0 0-.3-.29l-.067-.032Zm-2.768.474a8 8 0 0 0-3.71 2.797c.843.484 1.746.876 2.695 1.163c.16-1.164.397-2.223.697-3.122q.145-.438.318-.838m5.504 0q.172.4.318.838c.3.9.537 1.958.697 3.122a13 13 0 0 0 2.695-1.163a8 8 0 0 0-3.71-2.797"/></g></svg>  zh </span>  <span class="flex items-center gap-1"> <svg aria-hidden="true" class="size-5 astro-p7sajfz3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M10.124 3.008a1 1 0 0 1 .868 1.116L10.508 8h3.984l.516-4.124a1 1 0 1 1 1.984.248L16.508 8H20a1 1 0 1 1 0 2h-3.742l-.5 4H19.5a1 1 0 1 1 0 2h-3.992l-.516 4.124a1 1 0 1 1-1.984-.248L13.492 16H9.508l-.516 4.124a1 1 0 1 1-1.984-.248L7.492 16H4.5a1 1 0 1 1 0-2h3.242l.5-4H5a1 1 0 0 1 0-2h3.492l.516-4.124a1 1 0 0 1 1.116-.868M13.742 14l.5-4h-3.984l-.5 4z"/></g></svg>  <div> <a aria-label="View more blogs with the tag 数据结构" class="hover:underline hover:underline-offset-4" data-pagefind-filter="tag" href="/tags/数据结构"> 数据结构 </a>  </div> </span> </div> <h1 class="mt-4 text-2xl font-medium sm:mb-2 sm:mt-6 sm:text-3xl"> C7 普通平衡树 </h1> <div class="mt-3 italic"> <blockquote class="text-sm text-muted-foreground"><q>平衡树（Treap/Splay）模板：动态维护有序集合。</q></blockquote> <div class="text-sm text-muted-foreground mt-1"> <span class="waline-pageview-count" data-path="/zh/blog/c7-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91"></span> views
 <a href="#waline">
 | <span class="waline-comment-count" data-path="/zh/blog/c7-%E6%99%AE%E9%80%9A%E5%B9%B3%E8%A1%A1%E6%A0%91"></span> comments
 </a> </div> </div> </div>  <div class="mt-4 w-1/2 border-t max-lg:mx-auto sm:mt-6 sm:w-1/3"></div> <script type="module">const o=window.innerHeight,s=o/9,i=o*2/9,l=o*3/9,e=document.getElementById("blurImage");e&&window.addEventListener("scroll",()=>{const t=window.scrollY;t>=l?e.style.opacity="0.15":t>=i?e.style.opacity="0.3":t>=s&&(e.style.opacity="0.45")});</script> </div>  <div id="content" class="max-w-none animate mt-8 md:min-w-[45ch] break-words prose prose-axi dark:prose-invert dark:prose-axi prose-headings:font-medium">   <h3 id="题目情境">题目情境<a class="anchor" href="#题目情境">#</a></h3>
@@ -820,6 +820,587 @@ int main(){
             cout << it->first << &#x27;\n&#x27;;
         }
     }
+}" onclick="
+          navigator.clipboard.writeText(this.dataset.code);
+          this.classList.add(&#x27;copied&#x27;);
+          setTimeout(() => this.classList.remove(&#x27;copied&#x27;), 2000)
+        "><div class="ready"><svg class="size-5"><use href="/icons/code.svg#mingcute-clipboard-line"></use></svg></div><div class="success hidden"><svg class="size-5"><use href="/icons/code.svg#mingcute-file-check-line"></use></svg></div></button></div>
+<h3 id="fhq-treap">FHQ Treap<a class="anchor" href="#fhq-treap">#</a></h3>
+<p>保留按位置分裂的序列操作，并补充普通平衡树的按值操作。下面是可以直接提交 <a href="https://www.luogu.com.cn/problem/P3369" rel="nofollow noopener noreferrer" target="_blank">P3369<span> ↗</span></a> 的完整代码，重复值各占一个节点，删除时只删除一个。</p>
+<p><code>split</code> 将前 <code>k</code> 个元素分到左树；<code>insert(k, v)</code>、<code>del(k)</code>、<code>getval(k)</code>、<code>modify(k, v)</code> 中的位置从 1 开始。<code>insert_value</code>、<code>del_value</code>、<code>getrank</code>、<code>getpre</code>、<code>getsuc</code> 要求中序序列保持非降序，主函数只使用满足这一条件的操作。额外保留的 <code>reverse</code>、<code>range_add</code>、<code>modify</code> 用于维护一般序列，若操作破坏了有序性，就不能继续直接进行按值操作。<code>range_sum</code> 按位置求和，不改变序列顺序。</p>
+<p>基本操作的期望时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，<code>size</code> 为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>，<code>output</code> 为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。节点编号不回收，数组容量应大于插入操作的总次数；这里的容量足够处理 P3369。</p>
+<div class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><pre><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;bits/stdc++.h></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">using</span><span style="color:#D73A49;--shiki-dark:#F97583"> namespace</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> std</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">using</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> ll</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 200010</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">struct</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> node</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> l, r;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ll val, sum;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    uint32_t</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> key;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> size;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    bool</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> rev;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ll add;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">} tr[N];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, idx </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">mt19937</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> rng</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">chrono</span><span style="color:#24292E;--shiki-dark:#E1E4E8">::</span><span style="color:#6F42C1;--shiki-dark:#B392F0">steady_clock</span><span style="color:#24292E;--shiki-dark:#E1E4E8">::</span><span style="color:#6F42C1;--shiki-dark:#B392F0">now</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">time_since_epoch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">count</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].size;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> newnode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> ++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">idx;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].val </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].key </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> rng</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].size </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> pushup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">!</span><span style="color:#24292E;--shiki-dark:#E1E4E8">p) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].size </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l) </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].r) </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[tr[p].l].sum</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">              +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[tr[p].r].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].val;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> apply_add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">!</span><span style="color:#24292E;--shiki-dark:#E1E4E8">p) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].val </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].sum </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v </span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].size;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].add </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> apply_rev</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">!</span><span style="color:#24292E;--shiki-dark:#E1E4E8">p) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    swap</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l, tr[p].r);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    tr[p].rev </span><span style="color:#D73A49;--shiki-dark:#F97583">^=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">!</span><span style="color:#24292E;--shiki-dark:#E1E4E8">p) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (tr[p].rev) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        apply_rev</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        apply_rev</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].r);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        tr[p].rev </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (tr[p].add) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        apply_add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l, tr[p].add);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        apply_add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].r, tr[p].add);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        tr[p].add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 将前 k 个元素分给 x，其余分给 y</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> k</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70">x</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x26;</span><span style="color:#E36209;--shiki-dark:#FFAB70">y</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">!</span><span style="color:#24292E;--shiki-dark:#E1E4E8">p) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        x </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (k </span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l)) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        x </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].r, k </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l) </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, tr[p].r, y);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    } </span><span style="color:#D73A49;--shiki-dark:#F97583">else</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        y </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l, k, x, tr[p].l);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    pushup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 合并两个序列，x 在前，y 在后</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> x</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> y</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">!</span><span style="color:#24292E;--shiki-dark:#E1E4E8">x </span><span style="color:#D73A49;--shiki-dark:#F97583">||</span><span style="color:#D73A49;--shiki-dark:#F97583"> !</span><span style="color:#24292E;--shiki-dark:#E1E4E8">y) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">?</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (tr[x].key </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[y].key) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        tr[x].r </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[x].r, y);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    } </span><span style="color:#D73A49;--shiki-dark:#F97583">else</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(y);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        tr[y].l </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, tr[y].l);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(y);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 在位置 k 插入 v，原第 k 个及之后的元素后移</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 合法范围：1 &#x3C;= k &#x3C;= size() + 1</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> insert</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> k</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, y;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(root, k </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, y);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, </span><span style="color:#6F42C1;--shiki-dark:#B392F0">newnode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(v)), y);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 删除第 k 个元素，合法范围：1 &#x3C;= k &#x3C;= size()</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> del</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> k</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, y, z;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(root, k, x, z);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, k </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, y);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, z);</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    // y 是被删除的节点，当前模板不回收编号</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 查询第 k 个元素，下标无效时返回 -1</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getval</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> k</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> root;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    while</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (p) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (k </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].val;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (k </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].l;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        } </span><span style="color:#D73A49;--shiki-dark:#F97583">else</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            k </span><span style="color:#D73A49;--shiki-dark:#F97583">-=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].r;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#D73A49;--shiki-dark:#F97583"> -</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 修改第 k 个元素为 v，合法范围：1 &#x3C;= k &#x3C;= size()</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> modify</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> k</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, y, z;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(root, k, x, z);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, k </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, y);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (y) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        tr[y].val </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(y);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, y), z);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 翻转区间 [l, r]，合法范围：1 &#x3C;= l &#x3C;= r &#x3C;= size()</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> reverse</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> l</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> r</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, y, z;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(root, r, x, z);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, l </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, y);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    apply_rev</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(y);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, y), z);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 区间 [l, r] 所有元素加 v</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> range_add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> l</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> r</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, y, z;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(root, r, x, z);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, l </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, y);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    apply_add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(y, v);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, y), z);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 查询区间 [l, r] 的元素和</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> range_sum</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> l</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> r</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x, y, z;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(root, r, x, z);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, l </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, x, y);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ll ans </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[y].sum;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">merge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x, y), z);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ans;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 当前序列长度</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(root);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 中序遍历输出</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> output</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> p</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">!</span><span style="color:#24292E;--shiki-dark:#E1E4E8">p) </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    output</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].val </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> ' '</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    output</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].r);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 以下按值操作要求中序序列非降序</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 返回严格小于 v 的元素个数 + 1，v 不必存在</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getrank</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> root, ans </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    while</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (p) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (tr[p].val </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            ans </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(tr[p].l) </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].r;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        } </span><span style="color:#D73A49;--shiki-dark:#F97583">else</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].l;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ans;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 按值插入 v，插到所有等于 v 的元素之前</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> insert_value</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    insert</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getrank</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(v), v);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 按值删除一个 v；不存在时不操作</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> del_value</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> k </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getrank</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(v);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (k </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> sz</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(root) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getval</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(k) </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v) </span><span style="color:#6F42C1;--shiki-dark:#B392F0">del</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(k);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 严格前驱：小于 v 的最大值</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 不存在时返回 LLONG_MIN，P3369 保证答案存在</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getpre</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> root;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ll ans </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> LLONG_MIN;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    while</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (p) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (tr[p].val </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            ans </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].val;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].r;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        } </span><span style="color:#D73A49;--shiki-dark:#F97583">else</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].l;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ans;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 严格后继：大于 v 的最小值</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 不存在时返回 LLONG_MAX，P3369 保证答案存在</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getsuc</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">ll</span><span style="color:#E36209;--shiki-dark:#FFAB70"> v</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> root;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ll ans </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> LLONG_MAX;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    while</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (p) {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        pushdown</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (tr[p].val </span><span style="color:#D73A49;--shiki-dark:#F97583">></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> v) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            ans </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].val;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].l;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        } </span><span style="color:#D73A49;--shiki-dark:#F97583">else</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            p </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tr[p].r;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ans;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    ios</span><span style="color:#24292E;--shiki-dark:#E1E4E8">::</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sync_with_stdio</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cin.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">tie</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">nullptr</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    while</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (n</span><span style="color:#D73A49;--shiki-dark:#F97583">--</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> op;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ll x;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        cin </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> op </span><span style="color:#D73A49;--shiki-dark:#F97583">>></span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (op </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#6F42C1;--shiki-dark:#B392F0">insert_value</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        else</span><span style="color:#D73A49;--shiki-dark:#F97583"> if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (op </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#6F42C1;--shiki-dark:#B392F0">del_value</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        else</span><span style="color:#D73A49;--shiki-dark:#F97583"> if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (op </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getrank</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '</span><span style="color:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">'</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        else</span><span style="color:#D73A49;--shiki-dark:#F97583"> if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (op </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getval</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">static_cast&#x3C;int></span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x)) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '</span><span style="color:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">'</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        else</span><span style="color:#D73A49;--shiki-dark:#F97583"> if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (op </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getpre</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '</span><span style="color:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">'</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        else</span><span style="color:#D73A49;--shiki-dark:#F97583"> if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (op </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getsuc</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(x) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> '</span><span style="color:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">'</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre><span class="language transition-opacity duration-300 absolute top-3 right-0 ps-1 pe-3 text-sm bg-muted text-muted-foreground select-none">cpp</span><button class="copy transition-opacity duration-300 opacity-0 absolute top-3 right-3 text-muted-foreground p-1 box-content border border-border rounded bg-primary-foreground" data-code="#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+const int N = 200010;
+
+struct node {
+    int l, r;
+    ll val, sum;
+    uint32_t key;
+    int size;
+    bool rev;
+    ll add;
+} tr[N];
+
+int root = 0, idx = 0;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int sz(int p) {
+    return tr[p].size;
+}
+
+int newnode(ll v) {
+    int p = ++idx;
+    tr[p] = {};
+    tr[p].val = tr[p].sum = v;
+    tr[p].key = rng();
+    tr[p].size = 1;
+    return p;
+}
+
+void pushup(int p) {
+    if (!p) return;
+    tr[p].size = sz(tr[p].l) + sz(tr[p].r) + 1;
+    tr[p].sum = tr[tr[p].l].sum
+              + tr[tr[p].r].sum + tr[p].val;
+}
+
+void apply_add(int p, ll v) {
+    if (!p) return;
+    tr[p].val += v;
+    tr[p].sum += v * tr[p].size;
+    tr[p].add += v;
+}
+
+void apply_rev(int p) {
+    if (!p) return;
+    swap(tr[p].l, tr[p].r);
+    tr[p].rev ^= 1;
+}
+
+void pushdown(int p) {
+    if (!p) return;
+
+    if (tr[p].rev) {
+        apply_rev(tr[p].l);
+        apply_rev(tr[p].r);
+        tr[p].rev = false;
+    }
+
+    if (tr[p].add) {
+        apply_add(tr[p].l, tr[p].add);
+        apply_add(tr[p].r, tr[p].add);
+        tr[p].add = 0;
+    }
+}
+
+// 将前 k 个元素分给 x，其余分给 y
+void split(int p, int k, int &#x26;x, int &#x26;y) {
+    if (!p) {
+        x = y = 0;
+        return;
+    }
+
+    pushdown(p);
+
+    if (k > sz(tr[p].l)) {
+        x = p;
+        split(tr[p].r, k - sz(tr[p].l) - 1, tr[p].r, y);
+    } else {
+        y = p;
+        split(tr[p].l, k, x, tr[p].l);
+    }
+
+    pushup(p);
+}
+
+// 合并两个序列，x 在前，y 在后
+int merge(int x, int y) {
+    if (!x || !y) return x ? x : y;
+
+    if (tr[x].key < tr[y].key) {
+        pushdown(x);
+        tr[x].r = merge(tr[x].r, y);
+        pushup(x);
+        return x;
+    } else {
+        pushdown(y);
+        tr[y].l = merge(x, tr[y].l);
+        pushup(y);
+        return y;
+    }
+}
+
+// 在位置 k 插入 v，原第 k 个及之后的元素后移
+// 合法范围：1 <= k <= size() + 1
+void insert(int k, ll v) {
+    int x, y;
+    split(root, k - 1, x, y);
+    root = merge(merge(x, newnode(v)), y);
+}
+
+// 删除第 k 个元素，合法范围：1 <= k <= size()
+void del(int k) {
+    int x, y, z;
+    split(root, k, x, z);
+    split(x, k - 1, x, y);
+    root = merge(x, z);
+    // y 是被删除的节点，当前模板不回收编号
+}
+
+// 查询第 k 个元素，下标无效时返回 -1
+ll getval(int k) {
+    int p = root;
+
+    while (p) {
+        pushdown(p);
+        int s = sz(tr[p].l);
+
+        if (k == s + 1) return tr[p].val;
+        if (k <= s) {
+            p = tr[p].l;
+        } else {
+            k -= s + 1;
+            p = tr[p].r;
+        }
+    }
+
+    return -1;
+}
+
+// 修改第 k 个元素为 v，合法范围：1 <= k <= size()
+void modify(int k, ll v) {
+    int x, y, z;
+    split(root, k, x, z);
+    split(x, k - 1, x, y);
+
+    if (y) {
+        tr[y].val = v;
+        pushup(y);
+    }
+
+    root = merge(merge(x, y), z);
+}
+
+// 翻转区间 [l, r]，合法范围：1 <= l <= r <= size()
+void reverse(int l, int r) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    apply_rev(y);
+
+    root = merge(merge(x, y), z);
+}
+
+// 区间 [l, r] 所有元素加 v
+void range_add(int l, int r, ll v) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    apply_add(y, v);
+
+    root = merge(merge(x, y), z);
+}
+
+// 查询区间 [l, r] 的元素和
+ll range_sum(int l, int r) {
+    int x, y, z;
+    split(root, r, x, z);
+    split(x, l - 1, x, y);
+
+    ll ans = tr[y].sum;
+
+    root = merge(merge(x, y), z);
+    return ans;
+}
+
+// 当前序列长度
+int size() {
+    return sz(root);
+}
+
+// 中序遍历输出
+void output(int p) {
+    if (!p) return;
+
+    pushdown(p);
+    output(tr[p].l);
+    cout << tr[p].val << &#x27; &#x27;;
+    output(tr[p].r);
+}
+
+// 以下按值操作要求中序序列非降序
+// 返回严格小于 v 的元素个数 + 1，v 不必存在
+int getrank(ll v) {
+    int p = root, ans = 1;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val < v) {
+            ans += sz(tr[p].l) + 1;
+            p = tr[p].r;
+        } else {
+            p = tr[p].l;
+        }
+    }
+    return ans;
+}
+
+// 按值插入 v，插到所有等于 v 的元素之前
+void insert_value(ll v) {
+    insert(getrank(v), v);
+}
+
+// 按值删除一个 v；不存在时不操作
+void del_value(ll v) {
+    int k = getrank(v);
+    if (k <= sz(root) &#x26;&#x26; getval(k) == v) del(k);
+}
+
+// 严格前驱：小于 v 的最大值
+// 不存在时返回 LLONG_MIN，P3369 保证答案存在
+ll getpre(ll v) {
+    int p = root;
+    ll ans = LLONG_MIN;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val < v) {
+            ans = tr[p].val;
+            p = tr[p].r;
+        } else {
+            p = tr[p].l;
+        }
+    }
+    return ans;
+}
+
+// 严格后继：大于 v 的最小值
+// 不存在时返回 LLONG_MAX，P3369 保证答案存在
+ll getsuc(ll v) {
+    int p = root;
+    ll ans = LLONG_MAX;
+    while (p) {
+        pushdown(p);
+        if (tr[p].val > v) {
+            ans = tr[p].val;
+            p = tr[p].l;
+        } else {
+            p = tr[p].r;
+        }
+    }
+    return ans;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin >> n;
+    while (n--) {
+        int op;
+        ll x;
+        cin >> op >> x;
+
+        if (op == 1) insert_value(x);
+        else if (op == 2) del_value(x);
+        else if (op == 3) cout << getrank(x) << &#x27;\n&#x27;;
+        else if (op == 4) cout << getval(static_cast<int>(x)) << &#x27;\n&#x27;;
+        else if (op == 5) cout << getpre(x) << &#x27;\n&#x27;;
+        else if (op == 6) cout << getsuc(x) << &#x27;\n&#x27;;
+    }
+
+    return 0;
 }" onclick="
           navigator.clipboard.writeText(this.dataset.code);
           this.classList.add(&#x27;copied&#x27;);
