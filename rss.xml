@@ -15055,26 +15055,37 @@ def reshape(x, shape):
 &lt;ul&gt;
 &lt;li&gt;矩阵乘法&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;求导：
-设定：
-令$$Y = A B$$其中$$A \in \mathbb{R}^{m\times n}$$，$$B \in \mathbb{R}^{n\times p}$$，$$Y \in \mathbb{R}^{m\times p}$$上游标量损失为L，并记梯度矩阵$$G = \frac{\partial L}{\partial Y} \in \mathbb{R}^{m\times p}.$$。
-则$$\boxed{\frac{\partial L}{\partial A} = G,B^{\mathsf{T}}}$$，$$\boxed{\frac{\partial L}{\partial B} = A^{\mathsf{T}},G}$$。
-推导：
-每个元素：
-$$Y_{ij} = \sum_{k} A_{ik} B_{kj}.$$
-用链式法则：
-$$\frac{\partial L}{\partial A_{uv}} = \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial A_{uv}}
-= \sum_{i,j} G_{ij},\delta_{iu},B_{vj}
-= \sum_{j} G_{uj} B_{vj},$$
-这就是矩阵形式
-$$\frac{\partial L}{\partial A} = G B^{\mathsf{T}}.$$
-对 B 同理：
-$$\frac{\partial L}{\partial B_{uv}} = \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial B_{uv}}
-= \sum_{i,j} G_{ij},A_{iu},\delta_{jv}
-= \sum_{i} A_{iu} G_{iv},$$
-因此矩阵形式为
-$$\frac{\partial L}{\partial B} = A^{\mathsf{T}} G.$$
-故矩阵乘法就很简单了：&lt;/p&gt;
+&lt;p&gt;令 $Y = AB$，其中 $A \in \mathbb{R}^{m\times n}$，$B \in \mathbb{R}^{n\times p}$，$Y \in \mathbb{R}^{m\times p}$。
+设上游标量损失为 $L$，并记梯度矩阵 $G = \frac{\partial L}{\partial Y} \in \mathbb{R}^{m\times p}$。则&lt;/p&gt;
+&lt;p&gt;$$
+\boxed{\frac{\partial L}{\partial A} = G,B^{\mathsf{T}}}
+\qquad
+\boxed{\frac{\partial L}{\partial B} = A^{\mathsf{T}},G}
+$$&lt;/p&gt;
+&lt;p&gt;推导时，先把 $Y$ 的每个元素写成求和形式。&lt;/p&gt;
+&lt;p&gt;$$
+Y_{ij} = \sum_k A_{ik} B_{kj}
+$$&lt;/p&gt;
+&lt;p&gt;对 $A_{uv}$ 应用链式法则，得到&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{\partial L}{\partial A_{uv}}
+&amp;#x26;= \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial A_{uv}} \
+&amp;#x26;= \sum_{i,j} G_{ij},\delta_{iu},B_{vj} \
+&amp;#x26;= \sum_j G_{uj} B_{vj}.
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;写成矩阵形式就是 $\frac{\partial L}{\partial A} = G B^{\mathsf{T}}$。&lt;/p&gt;
+&lt;p&gt;对 $B_{uv}$ 同理。&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{\partial L}{\partial B_{uv}}
+&amp;#x26;= \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial B_{uv}} \
+&amp;#x26;= \sum_{i,j} G_{ij},A_{iu},\delta_{jv} \
+&amp;#x26;= \sum_i A_{iu} G_{iv}.
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;对应的矩阵形式为 $\frac{\partial L}{\partial B} = A^{\mathsf{T}} G$。下面用这两个式子实现 &lt;code&gt;MatMul.backward()&lt;/code&gt;。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class MatMul(Function):
     def forward(self, x, W):
         y = x.dot(W)
