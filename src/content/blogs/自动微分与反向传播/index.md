@@ -433,26 +433,46 @@ def reshape(x, shape):
 
 - 矩阵乘法
 
-求导：
-设定：
-令$$Y = A B$$其中$$A \in \mathbb{R}^{m\times n}$$，$$B \in \mathbb{R}^{n\times p}$$，$$Y \in \mathbb{R}^{m\times p}$$上游标量损失为L，并记梯度矩阵$$G = \frac{\partial L}{\partial Y} \in \mathbb{R}^{m\times p}.$$。
-则$$\boxed{\frac{\partial L}{\partial A} = G\,B^{\mathsf{T}}}$$，$$\boxed{\frac{\partial L}{\partial B} = A^{\mathsf{T}}\,G}$$。
-推导：
-每个元素：
-$$Y_{ij} = \sum_{k} A_{ik} B_{kj}.$$
-用链式法则：
-$$\frac{\partial L}{\partial A_{uv}} = \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial A_{uv}}
-= \sum_{i,j} G_{ij}\,\delta_{iu}\,B_{vj}
-= \sum_{j} G_{uj} B_{vj},$$
-这就是矩阵形式
-$$\frac{\partial L}{\partial A} = G B^{\mathsf{T}}.$$
-对 B 同理：
-$$\frac{\partial L}{\partial B_{uv}} = \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial B_{uv}}
-= \sum_{i,j} G_{ij}\,A_{iu}\,\delta_{jv}
-= \sum_{i} A_{iu} G_{iv},$$
-因此矩阵形式为
-$$\frac{\partial L}{\partial B} = A^{\mathsf{T}} G.$$
-故矩阵乘法就很简单了：
+令 $Y = AB$，其中 $A \in \mathbb{R}^{m\times n}$，$B \in \mathbb{R}^{n\times p}$，$Y \in \mathbb{R}^{m\times p}$。
+设上游标量损失为 $L$，并记梯度矩阵 $G = \frac{\partial L}{\partial Y} \in \mathbb{R}^{m\times p}$。则
+
+$$
+\boxed{\frac{\partial L}{\partial A} = G\,B^{\mathsf{T}}}
+\qquad
+\boxed{\frac{\partial L}{\partial B} = A^{\mathsf{T}}\,G}
+$$
+
+推导时，先把 $Y$ 的每个元素写成求和形式。
+
+$$
+Y_{ij} = \sum_k A_{ik} B_{kj}
+$$
+
+对 $A_{uv}$ 应用链式法则，得到
+
+$$
+\begin{aligned}
+\frac{\partial L}{\partial A_{uv}}
+&= \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial A_{uv}} \\
+&= \sum_{i,j} G_{ij}\,\delta_{iu}\,B_{vj} \\
+&= \sum_j G_{uj} B_{vj}.
+\end{aligned}
+$$
+
+写成矩阵形式就是 $\frac{\partial L}{\partial A} = G B^{\mathsf{T}}$。
+
+对 $B_{uv}$ 同理。
+
+$$
+\begin{aligned}
+\frac{\partial L}{\partial B_{uv}}
+&= \sum_{i,j} \frac{\partial L}{\partial Y_{ij}} \frac{\partial Y_{ij}}{\partial B_{uv}} \\
+&= \sum_{i,j} G_{ij}\,A_{iu}\,\delta_{jv} \\
+&= \sum_i A_{iu} G_{iv}.
+\end{aligned}
+$$
+
+对应的矩阵形式为 $\frac{\partial L}{\partial B} = A^{\mathsf{T}} G$。下面用这两个式子实现 `MatMul.backward()`。
 
 ```python
 class MatMul(Function):
