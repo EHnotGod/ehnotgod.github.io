@@ -1,7 +1,7 @@
 ---
 title: "自动微分与反向传播"
 publishDate: 2026-08-08
-description: "自动微分与反向传播：从零实现 Variable 与梯度计算。"
+description: "手写 DeZero，从计算图和反向传播到训练神经网络、保存权重和实现 Dropout。"
 category: technical
 tags:
   - 深度学习底层学习
@@ -9,7 +9,7 @@ tags:
 language: zh
 ---
 
-### 1. 变量与函数
+## 1. 变量与函数
 
 我们先从最核心的部分开始——变量类（Variable）。
 还记得 PyTorch 和 TensorFlow 吗？它们的底层核心都是 Tensor。在我们的实现中，也会有类似的概念，只不过底层我们用的是 numpy.ndarray。所有的运算都基于它来完成。
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 有一个需要注意的是，我们说过，ndarray执行的是计算功能，所以，定义函数时候的forward的输入不是Variable类型，而是ndarray类型。而执行函数的时候还是输入Variable类型。
 还有就是，定义square(x)函数的主要目的是符合我们的习惯，这样可以不用定义两个括号。
 
-### 2. 纯链式正向传播与反向传播
+## 2. 纯链式正向传播与反向传播
 
 对于正向传播，其实我们只需要这么做就行了：square(square(square(x)))不就得了，这样就能很自然地一层一层执行下去......当然，也不一定是square函数，这里只是举个例子，其实换成其他的也行，比如add(exp(x)+exp(y))。
 然后我们来研究一下反向传播。
@@ -172,7 +172,7 @@ y.backward()
 print(x.grad)
 ```
 
-### 3. 可变数参数
+## 3. 可变数参数
 
 前面我们研究的是链式的计算图，接下来我们研究一下多链式图（即“相对链式”，输入之后就是输出的那种图，但是输入和输出参数的数量会变，即“可变的长参数”，无需考虑拓扑序的那种）。
 - 前向过程：
@@ -268,7 +268,7 @@ y.backward()
 print(x.grad)
 ```
 
-### 4. True计算图
+## 4. True计算图
 
 其实上一节的假设不太好，我们这里直接引入复杂的计算图吧。计算图的本质上是一个DAG（有向无环图），对于一个DAG，给定起点，一定可以进行拓扑排序。拓扑排序的做法有很多种，比如kahn算法抑或是染色法，我们这里使用Kahn算法，但是不完全是Kahn，个人感觉只是使用了Kahn 算法中的“层次”概念。不了解的自己去搜或者尝试证明以下的方法。
 假如我需要处理下面这个图，我们之前的方法可能会y→D→c→C→a→A→x...这样是错的，因为处理a一直到x的时候，b和B都没处理，显然和计算顺序不符。
@@ -350,7 +350,7 @@ class Function:
 ```
 seen_set的意思是，目前添加过哪些函数，就不能二次添加了。每次添加函数之后进行一轮sort，看似复杂度爆炸，实则模型里的函数数目其实比变量少多了，这点复杂度不需要节约，加个优先队列反而需要占用更多空间。
 
-### 5. 一些必要的优化
+## 5. 一些必要的优化
 
 1. 内存管理和循环引用
 
@@ -405,7 +405,7 @@ Variable.__pow__ = pow
 ```
 
 原书有绘制计算图以及求高阶导数等步骤，在这里我们将掠过，这部分内容不需要。
-### 6. 可变长参数
+## 6. 可变长参数
 前面我们研究过“可变数参数”，这是啥意思呢？通俗的说就是，输入和输出的变量数目不一样，比如add，会把两个变量聚合到一个变量上面去。这里我们讲的可变长参数的主要是，变量内部的维度。比如sum函数，它可以把一个1*n长度的变量变成一个标量，对应的，它的正向传播和反向传播也得写清楚，还有更难的，比如矩阵呢？这个在接下来我们会一步一步讲。
 - reshape函数
 这个函数比较容易理解，所以我打算把它放在最开始去讲。
@@ -490,3 +490,469 @@ class MatMul(Function):
 def matmul(x, W):
     return MatMul()(x, W)
 ```
+
+## 7. 神经网络与框架搭建
+
+矩阵乘法能把一批输入一次映射到输出。再加上偏置、损失和参数更新，就能训练第一个模型。下面的 Python 代码块可以按顺序放进同一个文件运行。先把前面的计算图骨架整理成一个一阶求导版本。这里的算子有多个输入和一个输出，`forward()` 和 `backward()` 都在数组上计算。
+
+```python
+from contextlib import contextmanager
+from contextvars import ContextVar
+from math import prod
+from weakref import ref
+
+import numpy as np
+
+try:
+    import cupy as cp
+except ImportError:
+    cp = None
+
+
+def array_module(array):
+    return cp if cp is not None and isinstance(array, cp.ndarray) else np
+
+
+record_grad = ContextVar("record_grad", default=True)
+
+
+@contextmanager
+def no_grad():
+    token = record_grad.set(False)
+    try:
+        yield
+    finally:
+        record_grad.reset(token)
+
+
+class Variable:
+    def __init__(self, data):
+        self.data = array_module(data).asarray(data)
+        self.grad = None
+        self.creator = None
+        self.generation = 0
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self):
+        if self.grad is None:
+            self.grad = array_module(self.data).ones_like(self.data)
+        funcs, seen = [], set()
+
+        def add_func(func):
+            if func is not None and func not in seen:
+                seen.add(func)
+                funcs.append(func)
+                funcs.sort(key=lambda f: f.generation)
+
+        add_func(self.creator)
+        while funcs:
+            func = funcs.pop()
+            output = func.output()
+            grads = func.backward(output.grad)
+            if not isinstance(grads, tuple):
+                grads = (grads,)
+            for variable, grad in zip(func.inputs, grads):
+                variable.grad = grad if variable.grad is None else variable.grad + grad
+                add_func(variable.creator)
+            if output is not self:
+                output.cleargrad()
+
+
+class Function:
+    def __call__(self, *inputs):
+        xp = array_module(inputs[0].data)
+        if any(array_module(x.data) is not xp for x in inputs):
+            raise ValueError("All inputs must use the same array module")
+        data = self.forward(*(x.data for x in inputs))
+        output = Variable(xp.asarray(data))
+        if record_grad.get():
+            self.inputs = inputs
+            self.output = ref(output)
+            self.generation = max(x.generation for x in inputs)
+            output.creator = self
+            output.generation = self.generation + 1
+        return output
+```
+
+### 7.1 线性回归
+
+设输入 $X$ 的形状为 $(N,D)$，$W$ 为 $(D,K)$，$b$ 为 $(K,)$。预测值 $XW+b$ 有 $N$ 行，每行加的是同一份偏置。矩阵乘法沿用上一节的反传公式。偏置被广播了 $N$ 次，所以反传时要沿着批次维度求和。
+
+$$
+\hat Y=XW+b, \qquad
+\frac{\partial L}{\partial b_j}=\sum_{i=1}^{N}\frac{\partial L}{\partial \hat Y_{ij}}.
+$$
+
+用均方误差量出预测值与目标的差距，再让权重和偏置沿各自的负梯度方向走一步。每轮先清空参数梯度，因为同一个参数可能在图中被多次使用，`backward()` 会把各条路径给出的梯度相加。
+
+```python
+class Affine(Function):
+    def forward(self, x, weight, bias):
+        return x @ weight + bias
+
+    def backward(self, gy):
+        x, weight, _ = (v.data for v in self.inputs)
+        return gy @ weight.T, x.T @ gy, gy.sum(axis=0)
+
+
+class MeanSquaredError(Function):
+    def forward(self, prediction, target):
+        self.diff = prediction - target
+        return (self.diff ** 2).mean()
+
+    def backward(self, gy):
+        grad = gy * (2 / self.diff.size) * self.diff
+        return grad, -grad
+
+
+rng = np.random.default_rng(42)
+x = Variable(rng.uniform(-1, 1, (128, 1)))
+y = Variable(2 * x.data + 1)
+weight = Variable(np.zeros((1, 1)))
+bias = Variable(np.zeros(1))
+
+for _ in range(100):
+    prediction = Affine()(x, weight, bias)
+    loss = MeanSquaredError()(prediction, y)
+    for variable in (x, y, weight, bias):
+        variable.cleargrad()
+    loss.backward()
+    for param in (weight, bias):
+        param.data -= 0.1 * param.grad
+
+print(weight.data.item(), bias.data.item())  # 约 2.0 和 1.0
+```
+
+### 7.2 参数层
+
+`Variable` 既能表示一批输入，也能表示权重。给可训练权重一个 `Parameter` 类型，层就可以按类型找出要交给优化器的变量。下面把参数和子层都注册成对象属性。带名字的遍历也给保存权重提供了像 `hidden.weight` 这样的路径。
+
+```python
+class Parameter(Variable):
+    pass
+
+
+class Layer:
+    training = True
+
+    def __call__(self, *inputs):
+        return self.forward(*inputs)
+
+    def named_parameters(self):
+        seen = set()
+
+        def walk(layer, prefix):
+            if id(layer) in seen:
+                return
+            seen.add(id(layer))
+            for name, value in vars(layer).items():
+                path = f"{prefix}{name}"
+                if isinstance(value, Layer):
+                    yield from walk(value, f"{path}.")
+                elif isinstance(value, Parameter) and id(value) not in seen:
+                    seen.add(id(value))
+                    yield path, value
+
+        yield from walk(self, "")
+
+    def parameters(self):
+        for _, param in self.named_parameters():
+            yield param
+
+    def train(self, mode=True):
+        self.training = mode
+        for value in vars(self).values():
+            if isinstance(value, Layer):
+                value.train(mode)
+        return self
+
+    def eval(self):
+        return self.train(False)
+
+
+class Linear(Layer):
+    def __init__(self, in_size, out_size, rng):
+        weights = rng.standard_normal((in_size, out_size)) / np.sqrt(in_size)
+        self.weight = Parameter(weights.astype(np.float32))
+        self.bias = Parameter(np.zeros(out_size, dtype=np.float32))
+
+    def forward(self, x):
+        return Affine()(x, self.weight, self.bias)
+```
+
+### 7.3 汇总层
+
+模型本身也可以是一层。把两个 `Linear` 挂到同一个对象上，外层就能递归收集参数并切换训练模式。两个线性层直接相接仍是一次仿射变换，中间加上 `tanh` 后，模型就能拟合非线性的决策边界。
+
+```python
+class Tanh(Function):
+    def forward(self, x):
+        self.y = array_module(x).tanh(x)
+        return self.y
+
+    def backward(self, gy):
+        return gy * (1 - self.y ** 2)
+
+
+class MLP(Layer):
+    def __init__(self, seed=0):
+        rng = np.random.default_rng(seed)
+        self.hidden = Linear(2, 16, rng)
+        self.output = Linear(16, 2, rng)
+
+    def forward(self, x):
+        hidden = Tanh()(self.hidden(x))
+        return self.output(hidden)
+```
+
+### 7.4 Optimizer 更新参数
+
+把学习率和更新公式收进优化器。模型负责给出参数，反传负责填好梯度，SGD 负责原地更新参数数组。遇到本轮没有参与计算的参数就跳过。
+
+```python
+class SGD:
+    def __init__(self, model, lr):
+        self.model = model
+        self.lr = lr
+
+    def zero_grad(self):
+        for param in self.model.parameters():
+            param.cleargrad()
+
+    def step(self):
+        for param in self.model.parameters():
+            if param.grad is not None:
+                param.data -= self.lr * param.grad
+```
+
+### 7.5 损失函数
+
+线性回归用均方误差。做二分类时，模型为每个样本输出两个分数，也就是 logits。把 softmax 和交叉熵放在同一个算子里，先减去每行最大的 logit，再用 log-sum-exp 求目标类别的负对数概率。这样既避免指数溢出，也省去先求概率再直接取对数的步骤。
+
+$$
+L=-\frac{1}{N}\sum_{i=1}^{N}\log p_{i,t_i},
+\qquad
+\frac{\partial L}{\partial z_{ij}}=\frac{p_{ij}-\mathbf{1}_{j=t_i}}{N}.
+$$
+
+```python
+class SoftmaxCrossEntropy(Function):
+    def __init__(self, labels):
+        self.labels = labels
+
+    def forward(self, logits):
+        xp = array_module(logits)
+        self.rows = xp.arange(logits.shape[0])
+        self.labels = xp.asarray(self.labels)
+        shifted = logits - logits.max(axis=1, keepdims=True)
+        exp = xp.exp(shifted)
+        total = exp.sum(axis=1, keepdims=True)
+        self.prob = exp / total
+        log_prob = shifted - xp.log(total)
+        return -log_prob[self.rows, self.labels].mean()
+
+    def backward(self, gy):
+        grad = self.prob.copy()
+        grad[self.rows, self.labels] -= 1
+        return gy * (grad / len(self.rows))
+```
+
+这里约定 `logits` 的形状是 `(N, C)`，标签是长度为 `N`、取值在 `[0, C)` 的整数数组。反传只在真实类别的位置减 1，省去了构造 one-hot 矩阵。
+
+### 7.6 Datasets
+
+数据集只定义如何按索引取得一对输入和标签。这里用一个 XOR 数据集来检验模型。两个坐标同号时记为类别 1，异号时记为类别 0。用不同随机种子生成训练集和测试集。
+
+```python
+class ArrayDataset:
+    def __init__(self, inputs, labels):
+        if len(inputs) != len(labels):
+            raise ValueError("Inputs and labels must have the same length")
+        self.inputs = inputs
+        self.labels = labels
+
+    def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, index):
+        return self.inputs[index], self.labels[index]
+
+
+def xor_dataset(size, seed):
+    rng = np.random.default_rng(seed)
+    inputs = rng.uniform(-1, 1, (size, 2)).astype(np.float32)
+    labels = (inputs[:, 0] * inputs[:, 1] > 0).astype(np.int64)
+    return ArrayDataset(inputs, labels)
+```
+
+### 7.7 DataLoader
+
+DataLoader 负责每轮打乱索引并把样本组成小批量。末尾不足一批的数据也照常使用。这个数据集支持数组索引，可以一次取出整批特征和标签。
+
+```python
+class DataLoader:
+    def __init__(self, dataset, batch_size, shuffle=False, seed=0):
+        if batch_size < 1:
+            raise ValueError("Batch size must be positive")
+        self.dataset = dataset
+        self.batch_size = batch_size
+        self.shuffle = shuffle
+        self.rng = np.random.default_rng(seed)
+
+    def __iter__(self):
+        size = len(self.dataset)
+        indices = self.rng.permutation(size) if self.shuffle else np.arange(size)
+        for start in range(0, size, self.batch_size):
+            yield self.dataset[indices[start:start + self.batch_size]]
+
+
+def train_epoch(model, optimizer, loader, xp=np):
+    model.train()
+    for inputs, labels in loader:
+        optimizer.zero_grad()
+        logits = model(Variable(xp.asarray(inputs)))
+        loss = SoftmaxCrossEntropy(labels)(logits)
+        loss.backward()
+        optimizer.step()
+
+
+model = MLP()
+optimizer = SGD(model, lr=0.2)
+train_loader = DataLoader(xor_dataset(512, seed=1), 32, shuffle=True)
+
+for _ in range(60):
+    train_epoch(model, optimizer, train_loader)
+
+test_x, test_y = xor_dataset(256, seed=2)[:]
+model.eval()
+with no_grad():
+    predicted = model(Variable(test_x)).data.argmax(axis=1)
+print("Test accuracy:", (predicted == test_y).mean())
+```
+
+## 8. 关键组件与框架拓展
+
+### 8.1 使用 GPU
+
+前面的算子从输入数组决定用 NumPy 还是 CuPy，梯度的初始值也在同一个设备上创建。切换设备时要一起移动所有参数，并在每批前向计算之前把输入传到同一个设备。标签会在交叉熵内部转换，DataLoader 可以继续在 CPU 上取样本。
+
+```python
+def to_numpy(data):
+    if cp is not None and isinstance(data, cp.ndarray):
+        return cp.asnumpy(data)
+    return data
+
+
+def to_device(model, xp):
+    for param in model.parameters():
+        param.data = to_numpy(param.data) if xp is np else xp.asarray(param.data)
+        param.cleargrad()
+    return model
+```
+
+在装好 CuPy 和 CUDA 的机器上，可以用 `to_device(model, cp)` 把参数移到 GPU，再调用 `train_epoch(model, optimizer, train_loader, xp=cp)`。当前 SGD 只引用模型，没有额外的数组状态。带动量的优化器还需要一并迁移速度等状态。
+
+### 8.2 模型的保存与加载
+
+把 `named_parameters()` 给出的参数路径作为键，存成一个 `.npz` 文件。加载前先核对键和形状，确认都匹配后再替换参数数据。这里保留目标模型原本的设备和数据类型，旧梯度则在加载后清空。
+
+```python
+def save_weights(model, path):
+    arrays = {name: to_numpy(param.data) for name, param in model.named_parameters()}
+    with open(path, "wb") as file:
+        np.savez_compressed(file, **arrays)
+
+
+def load_weights(model, path):
+    params = dict(model.named_parameters())
+    pending = []
+    with np.load(path, allow_pickle=False) as weights:
+        if set(weights.files) != set(params):
+            raise ValueError("Checkpoint parameter names do not match the model")
+        for name, param in params.items():
+            value = weights[name]
+            if value.shape != param.data.shape:
+                raise ValueError(f"Unexpected shape for {name}: {value.shape}")
+            xp = array_module(param.data)
+            pending.append((param, xp.asarray(value, dtype=param.data.dtype)))
+    for param, value in pending:
+        param.data = value
+        param.cleargrad()
+
+
+save_weights(model, "xor-weights.npz")
+restored = MLP(seed=9)
+load_weights(restored, "xor-weights.npz")
+```
+
+这个文件保存的是权重。恢复时先构建结构相同的模型，优化器状态和训练轮次可以在需要断点续训时另存。
+
+### 8.3 Dropout
+
+训练时以概率 $p$ 把一部分激活置零，保留下来的值乘以 $1/(1-p)$，这样激活的期望保持不变。反传要复用同一次前向生成的掩码。切到评估模式后直接返回输入。
+
+```python
+class DropoutMask(Function):
+    def __init__(self, ratio):
+        self.ratio = ratio
+
+    def forward(self, x):
+        xp = array_module(x)
+        self.scale = (xp.random.random(x.shape) >= self.ratio).astype(x.dtype)
+        self.scale /= 1 - self.ratio
+        return x * self.scale
+
+    def backward(self, gy):
+        return gy * self.scale
+
+
+class Dropout(Layer):
+    def __init__(self, ratio):
+        if not 0 <= ratio < 1:
+            raise ValueError("Dropout probability must be in [0, 1)")
+        self.ratio = ratio
+
+    def forward(self, x):
+        return DropoutMask(self.ratio)(x) if self.training else x
+
+
+class DropoutMLP(MLP):
+    def __init__(self, seed=0):
+        super().__init__(seed)
+        self.dropout = Dropout(0.2)
+
+    def forward(self, x):
+        hidden = Tanh()(self.hidden(x))
+        return self.output(self.dropout(hidden))
+```
+
+`model.eval()` 会递归关闭子层的 Dropout。`no_grad()` 控制是否记录计算图。推理时通常把两者一起用。
+
+### 8.4 拓展：添加或更新部分函数
+
+继续加算子时，先把前向的输入输出形状写清楚，再看反传需要保留什么。拿两个常用操作举例，ReLU 要记住哪些输入大于零，Flatten 则只需要记住原始形状。
+
+```python
+class ReLU(Function):
+    def forward(self, x):
+        self.positive = x > 0
+        return array_module(x).maximum(x, 0)
+
+    def backward(self, gy):
+        return gy * self.positive
+
+
+class Flatten(Function):
+    def forward(self, x):
+        self.shape = x.shape
+        return x.reshape(x.shape[0], prod(x.shape[1:]))
+
+    def backward(self, gy):
+        return gy.reshape(self.shape)
+```
+
+ReLU 在零点取梯度 0，需要时可用 `ReLU()(self.hidden(x))` 替换 MLP 的 `tanh`。Flatten 保留第一维的批次大小，例如把形状 `(N, 1, 28, 28)` 的图像批次变成 `(N, 784)`。反传会把梯度还原成输入形状。
+
+延伸阅读可以对照《从零开始的深度学习 3》里的线性回归、层、数据加载与框架扩展章节。[原书目录](https://www.oreilly.co.jp/books/9784873119069/)
