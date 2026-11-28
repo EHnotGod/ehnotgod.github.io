@@ -14668,7 +14668,8 @@ x = Variable(data)
 print(x.data)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;1.2 函数（Function）&lt;/h3&gt;
-&lt;p&gt;先抛个问题：什么是函数？
+&lt;p&gt;接下来，我们来看一看函数这一块。
+先抛个问题：什么是函数？
 比如$$f(x)=x^2$$这算不算函数？当然算！这是一个最基础的形式——从一个变量映射到另一个变量。
 不过，现实中我们经常会遇到更复杂的函数。比如 sum()，它的输入是多个值，输出却是一个值，这就属于多对一的函数。而且这类函数通常还涉及到数据维度的变化，稍微麻烦一点，我们后面再慢慢讲。现在，我们先从简单的单变量函数入手。
 前面我们说过，定义“变量类”的目的，是为了能记录计算过程。那同理，如果我们想要整个计算图完整、可追踪，函数的计算过程也得被“记住”。这意味着什么？——函数也要被实例化！
@@ -14992,8 +14993,12 @@ class Function:
         return outputs if len(outputs) &gt; 1 else outputs[0]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;3.2 中间梯度与计算图&lt;/h3&gt;
-&lt;p&gt;反向传播时，已经用过的中间梯度通常可以释放。&lt;code&gt;backward()&lt;/code&gt; 可以提供一个开关，在需要检查这些梯度时保留它们。&lt;/p&gt;
-&lt;p&gt;只做推理时，可以用 &lt;code&gt;no_grad()&lt;/code&gt; 临时关闭计算图记录。&lt;code&gt;contextlib.contextmanager&lt;/code&gt; 能把这个开关限制在一段 &lt;code&gt;with&lt;/code&gt; 语句内。后面的训练示例会用到它。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一、在反向传播的时候，中间用过的梯度，在很多情况下，可以不要了。&lt;/li&gt;
+&lt;li&gt;二、我们知道，pytorch里，有个功能是model.train()，还有功能是model.eval()。这两个的区别之一就是后者不需要保留中间层的输入变量。
+对于第一点，我们可以在backword函数处设置一个开关，自主选择是否需要中间的梯度：
+对于第二点，可以使用@contextlib.contextmanager修饰器，它可以让你用 生成器函数 来实现 with 语句的行为，实现“在局部时间”内的控制操作。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;3.3 变量属性与运算符重载&lt;/h3&gt;
 &lt;p&gt;有一点需要明确，虽然我们使用了numpy的ndarray作为计算底层，那么我们为何不整一个numpy-plus呢？简单来说，我们可以添加一些函数让它更加易用！
 numpy里有个东西叫做x.shape，这里我们实现一下：&lt;/p&gt;
@@ -15020,9 +15025,10 @@ Variable.__pow__ = pow
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;原书有绘制计算图以及求高阶导数等步骤，在这里我们将掠过，这部分内容不需要。&lt;/p&gt;
 &lt;h2&gt;4. 张量运算&lt;/h2&gt;
-&lt;p&gt;第 2 节讨论的是算子接收和返回多少个 &lt;code&gt;Variable&lt;/code&gt;。这一节看单个 &lt;code&gt;Variable&lt;/code&gt; 里的数组形状如何变化，以及反传时怎样得到与各个输入形状一致的梯度。&lt;/p&gt;
+&lt;p&gt;前面我们研究过“可变数参数”，这是啥意思呢？通俗的说就是，输入和输出的变量数目不一样，比如add，会把两个变量聚合到一个变量上面去。这里我们讲的可变长参数的主要是，变量内部的维度。比如sum函数，它可以把一个1*n长度的变量变成一个标量，对应的，它的正向传播和反向传播也得写清楚，还有更难的，比如矩阵呢？这个在接下来我们会一步一步讲。&lt;/p&gt;
 &lt;h3&gt;4.1 形状变换（Reshape）&lt;/h3&gt;
-&lt;p&gt;回忆一下，我们之前讲幂次函数的时候，我们说过，要记录一个东西是吧，也就是幂次本身。我们的reshape函数同理，要记录一下原来的维度（x_shape）以及改变后的维度(shape)。numpy里自带了reshape函数，所以计算过程直接使用就行。对于反向过程，我们直接reshape回去就行，梯度数值不需要进行处理。&lt;/p&gt;
+&lt;p&gt;这个函数比较容易理解，所以我打算把它放在最开始去讲。
+回忆一下，我们之前讲幂次函数的时候，我们说过，要记录一个东西是吧，也就是幂次本身。我们的reshape函数同理，要记录一下原来的维度（x_shape）以及改变后的维度(shape)。numpy里自带了reshape函数，所以计算过程直接使用就行。对于反向过程，我们直接reshape回去就行，梯度数值不需要进行处理。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Reshape(Function):
     def __init__(self, shape):
         self.shape = shape
@@ -15089,8 +15095,7 @@ def matmul(x, W):
     return MatMul()(x, W)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;5. 神经网络与框架搭建&lt;/h2&gt;
-&lt;p&gt;矩阵乘法能把一批输入一次映射到输出。再加上偏置、损失和参数更新，就能训练第一个模型。运行本章示例时，先展开下面的一阶自动微分核心，再按顺序把 Python 代码块放进同一个文件。&lt;/p&gt;
-&lt;p&gt;这里的算子有多个输入和一个输出，&lt;code&gt;forward()&lt;/code&gt; 和 &lt;code&gt;backward()&lt;/code&gt; 都在数组上计算。&lt;/p&gt;
+&lt;p&gt;矩阵乘法能把一批输入一次映射到输出。再加上偏置、损失和参数更新，就能训练第一个模型。下面的 Python 代码块可以按顺序放进同一个文件运行。先把前面的计算图骨架整理成一个一阶求导版本。这里的算子有多个输入和一个输出，&lt;code&gt;forward()&lt;/code&gt; 和 &lt;code&gt;backward()&lt;/code&gt; 都在数组上计算。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from contextlib import contextmanager
 from contextvars import ContextVar
 from math import prod
