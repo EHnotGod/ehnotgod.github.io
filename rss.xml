@@ -966,7 +966,606 @@ signed main() {
 &lt;p&gt;&lt;img src=&quot;images/13-d-corner-cases.jpg&quot; alt=&quot;D是我写的，很多Corner case没有考虑到，自己真是老了&quot;&gt;&lt;/p&gt;
 &lt;p&gt;下一场是 CC 网络赛。不过彼时我和一个队友还在本部进行预推免面试，在网络赛前我极限赶了回来，但这次只有两个人打，有个队友没赶回来。前期 73 迅速地秒了 5 个签到题，随后我开出了拓扑排序 + dp，以及范德蒙德卷积 + 计数题，最后一题是计算几何，正好碰到我的长处，于是也迅速通过了，本场打出了最好战绩第 231 名，并拿到了一个额外名额。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;images/14-eight-problems.jpg&quot; alt=&quot;8题？省赛来了这是&quot;&gt;&lt;/p&gt;
-&lt;p&gt;接下来是区域赛，不过具体去哪一场“旅游”，还得看导师以及队友的时间安排嘛。&lt;/p&gt;</content:encoded><h:img src="/_astro/fengmian.B1QT22no.jpg"/><enclosure url="/_astro/fengmian.B1QT22no.jpg"/></item><item><title>E22 SOS DP（高维前缀和）</title><link>https://ehnotgod.github.io/blog/e22-sosdp</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/e22-sosdp</guid><description>SOS DP：用高维前缀和在 O(n·2^n) 时间内求出所有状态的子集和，附 Python、C++ 模板与超集和、按位与为零的应用。</description><pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
+&lt;p&gt;接下来是区域赛，不过具体去哪一场“旅游”，还得看导师以及队友的时间安排嘛。&lt;/p&gt;</content:encoded><h:img src="/_astro/fengmian.B1QT22no.jpg"/><enclosure url="/_astro/fengmian.B1QT22no.jpg"/></item><item><title>CNN 卷积神经网络</title><link>https://ehnotgod.github.io/blog/basic-cnn</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/basic-cnn</guid><description>从滑窗手算出发，推导卷积的输出尺寸、参数量与感受野，再手写 Conv2d 并训练图像分类器。</description><pubDate>Sat, 28 Nov 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;给一张 $12\times12$ 的灰度图，判断里面是一条横线还是竖线。横线可能出现在任何一行。我们希望模型能在不同位置用同一套规则识别它，这正是卷积擅长做的事。&lt;/p&gt;
+&lt;p&gt;这是&lt;a href=&quot;/zh/collection/basic-model-algorithms/&quot;&gt;基础模型算法&lt;/a&gt;的第一篇。可以先跑下面的 $2\times2$ 手算，再用相同的规则读懂 PyTorch 中的卷积层。&lt;/p&gt;
+&lt;h2&gt;1. 滑窗与权重共享&lt;/h2&gt;
+&lt;p&gt;二维卷积读入一个局部窗口，把窗口与卷积核对应的元素相乘，再把乘积加起来。同一个卷积核沿着图像滑动，得到一张特征图。设输入的左上角是&lt;/p&gt;
+&lt;p&gt;$$
+\begin{bmatrix}
+1 &amp;#x26; 2 &amp;#x26; 3\
+5 &amp;#x26; 6 &amp;#x26; 7\
+9 &amp;#x26; 10 &amp;#x26; 11
+\end{bmatrix},
+\qquad
+K=\begin{bmatrix}
+1 &amp;#x26; -1\
+1 &amp;#x26; -1
+\end{bmatrix}.
+$$&lt;/p&gt;
+&lt;p&gt;第一格的输出为 $1-2+5-6=-2$。往右移一格得到 $2-3+6-7=-2$。这个核对左右亮度差有响应。实际训练时，核里的数字由梯度更新，模型可以在不同层学出不同的局部特征。&lt;/p&gt;
+&lt;p&gt;PyTorch 的 &lt;code&gt;Conv2d&lt;/code&gt; 直接用核做乘加，因此严格说实现的是互相关。信号处理中的卷积会先翻转核。对可学习的核，两种记号的区别可以由权重的排列吸收。以下都采用 PyTorch 的约定。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html&quot;&gt;PyTorch Conv2d 文档&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;1.1 多输入通道与多输出通道&lt;/h3&gt;
+&lt;p&gt;输入用 &lt;code&gt;(N, C_in, H, W)&lt;/code&gt; 表示。对 RGB 图像，$C_{\mathrm{in}}=3$。普通卷积中，每个输出通道拥有一个跨越所有输入通道的核，三个颜色通道各有一片权重，乘加结果汇总到同一个输出值。$C_{\mathrm{out}}$ 个核会得到 $C_{\mathrm{out}}$ 张特征图。&lt;/p&gt;
+&lt;p&gt;令 $\widetilde X$ 表示填充后的输入，省略批次下标。输出通道 $o$ 在位置 $(i,j)$ 的值是&lt;/p&gt;
+&lt;p&gt;$$
+Y_{o,i,j}=b_o+\sum_{c,u,v}
+W_{o,c,u,v},\widetilde X_{c,,i s_h+u d_h,,j s_w+v d_w}.
+$$&lt;/p&gt;
+&lt;p&gt;求和遍历输入通道 $c$ 和核的坐标 $(u,v)$，$s$ 是步幅，$d$ 是膨胀率。反传时，同一个核元素在多个窗口里都被使用，所以它的梯度是各位置贡献的和。单个贡献等于上游梯度乘以该窗口对应的输入值。这正是&lt;a href=&quot;/zh/blog/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/&quot;&gt;自动微分与反向传播&lt;/a&gt;里梯度累加的同一个规则。&lt;/p&gt;
+&lt;h2&gt;2. 输出尺寸、参数量与感受野&lt;/h2&gt;
+&lt;h3&gt;2.1 用公式检查形状&lt;/h3&gt;
+&lt;p&gt;单看高度这一维。大小为 $K$、膨胀率为 $D$ 的核，覆盖的实际跨度是 $K_{\mathrm{eff}}=D(K-1)+1$。左右各补 $P$ 格、每次跨 $S$ 格，可放下的完整窗口数为&lt;/p&gt;
+&lt;p&gt;$$
+H_{\mathrm{out}}=
+\left\lfloor\frac{H_{\mathrm{in}}+2P-K_{\mathrm{eff}}}{S}\right\rfloor+1.
+$$&lt;/p&gt;
+&lt;p&gt;宽度用相同公式单独计算。以 &lt;code&gt;Conv2d(3, 16, kernel_size=3, stride=2, padding=1)&lt;/code&gt; 为例，&lt;code&gt;(8, 3, 32, 32)&lt;/code&gt; 会变成 &lt;code&gt;(8, 16, 16, 16)&lt;/code&gt;。如果步幅为 1、核为奇数且 $D=1$，每侧填充 $(K-1)/2$ 格可以保持尺寸。&lt;/p&gt;
+&lt;h3&gt;2.2 参数有多少&lt;/h3&gt;
+&lt;p&gt;普通卷积的权重形状为 &lt;code&gt;(C_out, C_in, K_h, K_w)&lt;/code&gt;，每个输出通道还可以有一个偏置。上面的例子参数量为 $16(3\cdot3\cdot3+1)=448$，图像宽高变动也沿用这组权重。&lt;/p&gt;
+&lt;p&gt;分组卷积把输入和输出通道分成 $g$ 组，各组独立计算。权重形状变为 &lt;code&gt;(C_out, C_in / groups, K_h, K_w)&lt;/code&gt;，两个通道数都必须能被 $g$ 整除。取 $g=C_{\mathrm{in}}$ 时就是逐通道卷积，常再接一个普通的 $1\times1$ 卷积混合通道。&lt;/p&gt;
+&lt;h3&gt;2.3 堆叠后一个输出能看到多大范围&lt;/h3&gt;
+&lt;p&gt;站在原图坐标上，记相邻两个特征点相隔 $j$ 格，单个特征点的理论感受野宽度为 $r$。初始为 $j=r=1$，经过核跨度 $K_{\mathrm{eff}}$、步幅 $S$ 的层后&lt;/p&gt;
+&lt;p&gt;$$
+r_{\mathrm{new}}=r+(K_{\mathrm{eff}}-1)j,\qquad
+j_{\mathrm{new}}=jS.
+$$&lt;/p&gt;
+&lt;p&gt;依次通过 &lt;code&gt;3×3 Conv, stride=1&lt;/code&gt;、&lt;code&gt;2×2 MaxPool, stride=2&lt;/code&gt;、&lt;code&gt;3×3 Conv, stride=1&lt;/code&gt;，感受野从 $1$ 变为 $3$、$4$、$8$。padding 会影响边上的有效输入范围，感受野公式描述的是理论跨度。&lt;/p&gt;
+&lt;h2&gt;3. 用 NumPy 手写卷积前向&lt;/h2&gt;
+&lt;p&gt;下面实现 &lt;code&gt;groups=1&lt;/code&gt; 的版本，步幅、填充、膨胀率在两个空间维度上共用。循环只走输出位置，&lt;code&gt;tensordot&lt;/code&gt; 同时完成批次和通道的乘加。最后用手算例子和 PyTorch 检查结果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
+import torch
+from torch.nn.functional import conv2d
+
+
+def conv2d_numpy(x, weight, bias, stride=1, padding=0, dilation=1):
+    if stride &amp;#x3C; 1 or padding &amp;#x3C; 0 or dilation &amp;#x3C; 1:
+        raise ValueError(&quot;Invalid stride, padding, or dilation&quot;)
+    n, channels, height, width = x.shape
+    out_channels, kernel_channels, kh, kw = weight.shape
+    if channels != kernel_channels or bias.shape != (out_channels,):
+        raise ValueError(&quot;Input, weight, and bias shapes do not match&quot;)
+
+    effective_h = dilation * (kh - 1) + 1
+    effective_w = dilation * (kw - 1) + 1
+    h_out = (height + 2 * padding - effective_h) // stride + 1
+    w_out = (width + 2 * padding - effective_w) // stride + 1
+    if h_out &amp;#x3C; 1 or w_out &amp;#x3C; 1:
+        raise ValueError(&quot;Kernel does not fit the padded input&quot;)
+
+    x = np.pad(x, ((0, 0), (0, 0), (padding, padding), (padding, padding)))
+    result = np.empty(
+        (n, out_channels, h_out, w_out), dtype=np.result_type(x, weight, bias)
+    )
+    for i in range(h_out):
+        for j in range(w_out):
+            row, col = i * stride, j * stride
+            region = x[:, :, row:row + effective_h:dilation, col:col + effective_w:dilation]
+            result[:, :, i, j] = (
+                np.tensordot(region, weight, axes=((1, 2, 3), (1, 2, 3))) + bias
+            )
+    return result
+
+
+image = np.arange(1.0, 17.0).reshape(1, 1, 4, 4)
+edge = np.array([[[[1., -1.], [1., -1.]]]])
+assert conv2d_numpy(image, edge, np.zeros(1))[0, 0, 0, 0] == -2
+
+rng = np.random.default_rng(4)
+x = rng.normal(size=(2, 3, 9, 8))
+w = rng.normal(size=(4, 3, 3, 2))
+b = rng.normal(size=(4,))
+options = dict(stride=2, padding=1, dilation=2)
+actual = conv2d_numpy(x, w, b, **options)
+expected = conv2d(*(torch.from_numpy(a) for a in (x, w, b)), **options)
+np.testing.assert_allclose(actual, expected.numpy())
+print(actual.shape)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个版本便于验证索引。实际框架可以重新组织窗口、使用矩阵乘法或选用专门的硬件内核，保持上述张量接口。&lt;/p&gt;
+&lt;h2&gt;4. 训练一个最小的图像分类器&lt;/h2&gt;
+&lt;p&gt;卷积后接 ReLU，让堆叠的层具有非线性。最大池化从每个窗口选出最大的响应并缩小特征图。这个例子关心线的方向，不关心线移动到了哪一行或哪一列，所以在分类前用全局平均池化，把每张特征图压成一个值。最后由全连接层把 16 个描述值映射到两个类别的 logits。&lt;/p&gt;
+&lt;p&gt;| 层 | 输出形状 |
+| --- | --- |
+| 输入 | &lt;code&gt;(N, 1, 12, 12)&lt;/code&gt; |
+| Conv + ReLU | &lt;code&gt;(N, 8, 12, 12)&lt;/code&gt; |
+| MaxPool | &lt;code&gt;(N, 8, 6, 6)&lt;/code&gt; |
+| Conv + ReLU | &lt;code&gt;(N, 16, 6, 6)&lt;/code&gt; |
+| AdaptiveAvgPool + Flatten | &lt;code&gt;(N, 16)&lt;/code&gt; |
+| Linear | &lt;code&gt;(N, 2)&lt;/code&gt; |&lt;/p&gt;
+&lt;p&gt;下面的脚本会独立生成训练集和测试集，可直接运行，无需下载数据。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import torch
+from torch import nn
+
+torch.manual_seed(0)
+torch.set_num_threads(1)
+
+
+def lines(count, seed):
+    rng = torch.Generator().manual_seed(seed)
+    images = 0.15 * torch.randn(count, 1, 12, 12, generator=rng)
+    labels = torch.randint(0, 2, (count,), generator=rng)
+    starts = torch.randint(0, 11, (count,), generator=rng)
+    for i, (label, start) in enumerate(zip(labels.tolist(), starts.tolist())):
+        if label == 0:
+            images[i, 0, start:start + 2, :] += 1
+        else:
+            images[i, 0, :, start:start + 2] += 1
+    return images, labels
+
+
+model = nn.Sequential(
+    nn.Conv2d(1, 8, 3, padding=1),
+    nn.ReLU(),
+    nn.MaxPool2d(2),
+    nn.Conv2d(8, 16, 3, padding=1),
+    nn.ReLU(),
+    nn.AdaptiveAvgPool2d(1),
+    nn.Flatten(1),
+    nn.Linear(16, 2),
+)
+x_train, y_train = lines(192, seed=1)
+x_test, y_test = lines(96, seed=2)
+loss_fn = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+
+for _ in range(40):
+    optimizer.zero_grad()
+    loss = loss_fn(model(x_train), y_train)
+    loss.backward()
+    optimizer.step()
+
+model.eval()
+with torch.no_grad():
+    logits = model(x_test)
+    assert logits.shape == (96, 2)
+    accuracy = (logits.argmax(dim=1) == y_test).float().mean().item()
+print(f&quot;test accuracy = {accuracy:.3f}&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;CrossEntropyLoss&lt;/code&gt; 接收未归一化的 logits 和整型类别索引，两类任务的目标形状为 &lt;code&gt;(N,)&lt;/code&gt;。如果换成自己的图片，先检查通道维是否在第二维，标签是否是 &lt;code&gt;torch.long&lt;/code&gt;，卷积后的高宽是否符合预期。池化和带步幅的卷积都会丢掉空间细节，做定位或分割时要保留更高分辨率的特征。&lt;/p&gt;
+&lt;h2&gt;5. 参考资料与下一篇&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;LeCun 等人的文档识别论文展示了卷积网络如何在字符识别任务中组织卷积、下采样与分类。&lt;a href=&quot;https://doi.org/10.1109/5.726791&quot;&gt;Gradient-Based Learning Applied to Document Recognition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官方文档给出了分组卷积、膨胀率与输出尺寸的精确定义。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html&quot;&gt;PyTorch Conv2d&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下一篇看&lt;a href=&quot;/zh/blog/basic-rnn/&quot;&gt;RNN 循环神经网络&lt;/a&gt;，把计算从二维空间移到有先后顺序的序列上。&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>LSTM 长短期记忆网络</title><link>https://ehnotgod.github.io/blog/basic-lstm</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/basic-lstm</guid><description>用手算理解遗忘门、输入门和输出门，分析细胞状态的梯度路径，再实现单步 LSTM 与延迟记忆任务。</description><pubDate>Sat, 28 Nov 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在&lt;a href=&quot;/zh/blog/basic-rnn/&quot;&gt;RNN&lt;/a&gt;里，隐藏状态既负责记录历史，又要产生当前输出。每读一个输入，这个状态就得穿过一次矩阵乘法和非线性。LSTM 给状态分出两条路径。细胞状态 $c_t$ 可以按元素保留或写入，隐藏状态 $h_t$ 提供当下的输出以及下一步的门控信息。&lt;/p&gt;
+&lt;p&gt;这是&lt;a href=&quot;/zh/collection/basic-model-algorithms/&quot;&gt;基础模型算法&lt;/a&gt;的第三篇。正文使用 PyTorch 实现的常见变体，它包含遗忘门。可以结合原论文了解最早的结构与动机。&lt;a href=&quot;https://doi.org/10.1162/neco.1997.9.8.1735&quot;&gt;LSTM 原论文&lt;/a&gt; · &lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.LSTM.html&quot;&gt;PyTorch LSTM 文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1. 四个向量怎样更新两份状态&lt;/h2&gt;
+&lt;p&gt;输入 $x_t$ 的维度为 $D$，上一步的 $h_{t-1}$ 与 $c_{t-1}$ 的维度都为 $H$。先对输入和旧隐藏状态做两次线性变换，得到一份长为 $4H$ 的向量，切成四段&lt;/p&gt;
+&lt;p&gt;$$
+[z_i,z_f,z_g,z_o]=x_tW_x+h_{t-1}W_h+b.
+$$&lt;/p&gt;
+&lt;p&gt;这四段分别负责输入门、遗忘门、候选内容和输出门。门用 sigmoid 转到 $[0,1]$，候选内容用 $\tanh$ 转到 $[-1,1]$。完整更新是&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+i_t &amp;#x26;= \sigma(z_i), &amp;#x26; f_t &amp;#x26;= \sigma(z_f),\
+g_t &amp;#x26;= \tanh(z_g), &amp;#x26; o_t &amp;#x26;= \sigma(z_o),\
+c_t &amp;#x26;= f_t\odot c_{t-1}+i_t\odot g_t,\
+h_t &amp;#x26;= o_t\odot\tanh(c_t).
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;| 向量 | 参与的计算 | 接近 0 时会怎样 |
+| --- | --- | --- |
+| 遗忘门 $f_t$ | 从旧细胞状态保留多少 | 旧记忆在该维几乎被清空 |
+| 输入门 $i_t$ | 写入多少候选内容 | 候选内容在该维几乎写不进去 |
+| 候选 $g_t$ | 提供有正有负的新内容 | 该维写入的内容很少 |
+| 输出门 $o_t$ | 从细胞状态暴露多少到 $h_t$ | 该维的隐藏输出很小，细胞状态可以继续保留 |&lt;/p&gt;
+&lt;p&gt;例如某个维度上，原来的 $c_{t-1}=0.8$，遗忘门为 $0.9$，输入门为 $0.2$，候选值为 $-0.5$。新记忆为 $0.9\times0.8+0.2\times(-0.5)=0.62$。若输出门是 $0.4$，对应的隐藏状态为 $0.4\tanh(0.62)\approx0.220$。隐藏状态读出来的数值可以比内部记忆小得多。&lt;/p&gt;
+&lt;h2&gt;2. 梯度为什么能走得更远&lt;/h2&gt;
+&lt;p&gt;把门值和经过 $h$ 的支路单独看，细胞状态的直接传递项是 $f_t\odot c_{t-1}$。沿着这条直接边，$c_t$ 对 $c_{t-1}$ 的局部导数是&lt;/p&gt;
+&lt;p&gt;$$
+\left.\frac{\partial c_t}{\partial c_{t-1}}\right|_{\text{直接路径}}
+=\operatorname{diag}(f_t).
+$$&lt;/p&gt;
+&lt;p&gt;连续 $k$ 步沿这条路径传递时，对应维度的梯度会乘上这 $k$ 个遗忘门值。门在需要记住的阶段能学到接近 1，梯度就能在这些阶段保留得更多。门持续偏小，或者梯度走进其他饱和的分支时，梯度依然可能变小。&lt;/p&gt;
+&lt;p&gt;完整反传还要算其他路径。比如时刻 $t$ 的隐藏状态读出了 $c_t$，自己的损失和未来门控传回来的 $h_t$ 梯度都会贡献到 $c_t$。设已有上游梯度 $\bar h_t$ 和来自未来的 $\bar c_t^{\mathrm{future}}$，先合并&lt;/p&gt;
+&lt;p&gt;$$
+\bar c_t=\bar c_t^{\mathrm{future}}
++\bar h_t\odot o_t\odot\bigl(1-\tanh^2(c_t)\bigr).
+$$&lt;/p&gt;
+&lt;p&gt;然后，$\bar c_t\odot f_t$ 传回旧细胞状态，$\bar c_t\odot c_{t-1}$ 传给遗忘门。输入门、候选内容和输出门也各自用乘积法则和激活函数导数往回传。用自动微分库时，这些分支会合并到同一棵计算图里。&lt;/p&gt;
+&lt;h2&gt;3. 合并矩阵与参数量&lt;/h2&gt;
+&lt;p&gt;单向、单层、无投影时，PyTorch 的 &lt;code&gt;weight_ih_l0&lt;/code&gt; 是 &lt;code&gt;(4H, D)&lt;/code&gt;，&lt;code&gt;weight_hh_l0&lt;/code&gt; 是 &lt;code&gt;(4H, H)&lt;/code&gt;，顺序为 &lt;code&gt;i, f, g, o&lt;/code&gt;。框架按 &lt;code&gt;x @ weight.T&lt;/code&gt; 做乘法，所以存储形状与前文使用的 $W_x$、$W_h$ 互为转置。&lt;/p&gt;
+&lt;p&gt;PyTorch 还为这两组线性变换各存了一份偏置，前向会把它们相加。参数量因此为 $4HD+4H^2+8H$。例如 $D=3$、$H=5$ 时总量为 $200$。若自己只存一份合并偏置，等式中的最后一项就变成 $4H$。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.LSTM.html&quot;&gt;PyTorch LSTM 参数布局&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;3.1 用 NumPy 重算一个 LSTMCell&lt;/h3&gt;
+&lt;p&gt;本例直接取 PyTorch 初始化的权重，在 NumPy 中重算同一组批次的两个状态。这样可以同时验证矩阵转置、切片顺序和偏置相加。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
+import torch
+from torch import nn
+
+
+def sigmoid(x):
+    return np.exp(-np.logaddexp(0, -x))
+
+
+def lstm_step(x, h, c, wx, wh, bias):
+    gates = x @ wx + h @ wh + bias
+    zi, zf, zg, zo = np.split(gates, 4, axis=-1)
+    i = sigmoid(zi)
+    f = sigmoid(zf)
+    g = np.tanh(zg)
+    o = sigmoid(zo)
+    c_next = f * c + i * g
+    h_next = o * np.tanh(c_next)
+    return h_next, c_next
+
+
+torch.manual_seed(2)
+cell = nn.LSTMCell(3, 5).double()
+x = torch.randn(2, 3, dtype=torch.float64)
+h = torch.randn(2, 5, dtype=torch.float64)
+c = torch.randn(2, 5, dtype=torch.float64)
+
+with torch.no_grad():
+    expected_h, expected_c = cell(x, (h, c))
+    bias = (cell.bias_ih + cell.bias_hh).numpy()
+    actual_h, actual_c = lstm_step(
+        x.numpy(), h.numpy(), c.numpy(),
+        cell.weight_ih.numpy().T, cell.weight_hh.numpy().T, bias,
+    )
+
+np.testing.assert_allclose(actual_h, expected_h.numpy())
+np.testing.assert_allclose(actual_c, expected_c.numpy())
+assert sum(p.numel() for p in cell.parameters()) == 200
+print(actual_h.shape, actual_c.shape)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;4. 用最后一个时间步读取第一步的信息&lt;/h2&gt;
+&lt;p&gt;这里用长度为 16 的单变量序列。第一步写入 $+1$ 或 $-1$，其余位置只有少量独立噪声，标签由第一步的符号决定。模型直到最后一个时间步才输出类别。测试集用另一个随机种子生成，评估的是同样长度和规则下的记忆能力。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import torch
+from torch import nn
+
+torch.manual_seed(0)
+torch.set_num_threads(1)
+
+
+def memory_batch(count, steps, seed):
+    rng = torch.Generator().manual_seed(seed)
+    labels = torch.randint(0, 2, (count,), generator=rng)
+    x = 0.05 * torch.randn(count, steps, 1, generator=rng)
+    x[:, 0, 0] = 2 * labels.float() - 1
+    return x, labels
+
+
+lstm = nn.LSTM(input_size=1, hidden_size=12, batch_first=True)
+readout = nn.Linear(12, 2)
+x_train, y_train = memory_batch(128, steps=16, seed=1)
+x_test, y_test = memory_batch(96, steps=16, seed=2)
+
+# The combined forget bias starts at 1.
+with torch.no_grad():
+    hidden = lstm.hidden_size
+    lstm.bias_ih_l0[hidden:2 * hidden].fill_(1)
+    lstm.bias_hh_l0[hidden:2 * hidden].zero_()
+
+
+def classify(x):
+    output, (h_n, c_n) = lstm(x)
+    assert output.shape[:2] == x.shape[:2]
+    assert h_n.shape == c_n.shape == (1, x.size(0), 12)
+    return readout(h_n[-1])
+
+
+optimizer = torch.optim.Adam([*lstm.parameters(), *readout.parameters()], lr=0.02)
+loss_fn = nn.CrossEntropyLoss()
+for _ in range(80):
+    optimizer.zero_grad()
+    loss = loss_fn(classify(x_train), y_train)
+    loss.backward()
+    optimizer.step()
+
+lstm.eval()
+readout.eval()
+with torch.no_grad():
+    test_accuracy = (classify(x_test).argmax(dim=-1) == y_test).float().mean()
+print(f&quot;test accuracy = {test_accuracy.item():.3f}&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;output&lt;/code&gt; 是最后一层所有时间步的隐藏状态，&lt;code&gt;h_n&lt;/code&gt; 与 &lt;code&gt;c_n&lt;/code&gt; 是各层及方向在序列结束时的状态。即使 &lt;code&gt;batch_first=True&lt;/code&gt;，最终状态的批次维仍在第二维。用单层单向等长批次时，&lt;code&gt;output[:, -1]&lt;/code&gt; 与 &lt;code&gt;h_n[-1]&lt;/code&gt; 相同。若数据经过 padding，应像&lt;a href=&quot;/zh/blog/basic-rnn/&quot;&gt;RNN 的变长示例&lt;/a&gt;一样传真实长度或正确取有效位置。&lt;/p&gt;
+&lt;h3&gt;4.1 LSTM 与 GRU&lt;/h3&gt;
+&lt;p&gt;LSTM 把 $h_t$ 与 $c_t$ 分开，用三道门控制读写。GRU 只传一份隐藏状态，通过更新门混合旧状态与新候选，并用重置门控制旧状态怎样参与候选计算。相同输入和隐藏维度下，GRU 通常有较少的门控参数，实际速度和效果还要看任务、序列长度及实现。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.GRU.html&quot;&gt;PyTorch GRU&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;5. 参考资料与下一篇&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;最初的 LSTM 论文从长期梯度问题出发，引入了更稳定的误差信号路径。&lt;a href=&quot;https://doi.org/10.1162/neco.1997.9.8.1735&quot;&gt;Hochreiter 与 Schmidhuber，Long Short-Term Memory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;现代实现的门、状态、参数及双向接口以官方文档为准。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.LSTM.html&quot;&gt;PyTorch LSTM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下一篇看&lt;a href=&quot;/zh/blog/basic-transformer/&quot;&gt;Transformer&lt;/a&gt;，用自注意力直接混合多个位置的信息。&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>RNN 循环神经网络</title><link>https://ehnotgod.github.io/blog/basic-rnn</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/basic-rnn</guid><description>把循环网络展开到时间轴上，从单步递推推到 BPTT，手写梯度并处理 PyTorch 的变长序列。</description><pubDate>Sat, 28 Nov 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;若输入是连续订单金额、语音帧或者一句话，当前位置的含义常常取决于前面出现了什么。RNN 给每条序列维护一个隐藏状态，每读一步就用当前输入和旧状态算出新状态。顺序一变，经过的状态就可能不同。&lt;/p&gt;
+&lt;p&gt;这是&lt;a href=&quot;/zh/collection/basic-model-algorithms/&quot;&gt;基础模型算法&lt;/a&gt;的第二篇。前一篇讲&lt;a href=&quot;/zh/blog/basic-cnn/&quot;&gt;CNN 的权重共享&lt;/a&gt;，这里的权重沿时间轴共享。&lt;/p&gt;
+&lt;h2&gt;1. 一个时间步到底算什么&lt;/h2&gt;
+&lt;p&gt;一个样本在时刻 $t$ 的输入 $x_t$ 是长度为 $D$ 的行向量，隐藏状态 $h_t$ 是长度为 $H$ 的行向量。由初始状态 $h_0$ 开始，依次计算&lt;/p&gt;
+&lt;p&gt;$$
+a_t=x_tW_x+h_{t-1}W_h+b,\qquad
+h_t=\tanh(a_t).
+$$&lt;/p&gt;
+&lt;p&gt;$W_x$ 的形状为 $(D,H)$，$W_h$ 为 $(H,H)$，$b$ 为 $(H,)$。长度为 $T$ 的序列共做 $T$ 次递推，重复使用同一组参数。若打包 $N$ 条等长序列，$x_t$ 与 $h_t$ 就分别是 $(N,D)$ 和 $(N,H)$ 的矩阵。&lt;/p&gt;
+&lt;p&gt;取标量情形 $h_0=0$、$W_x=1$、$W_h=0.5$、$b=0$。读入 $[1,0]$，$h_1=\tanh(1)\approx0.762$，$h_2=\tanh(0.5h_1)\approx0.363$。输入若变成 $[0,1]$，最终状态约为 $0.762$。单步公式相同，状态经过的路径变了。&lt;/p&gt;
+&lt;h3&gt;1.1 从状态得到任务输出&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;整段分类&lt;/strong&gt;可以将最后一个有效状态 $h_T$ 接线性层，得到类别 logits。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逐步标注&lt;/strong&gt;可以将每个 $h_t$ 接同一个线性层，输出长度为 $T$ 的标签序列。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预测下一项&lt;/strong&gt;可以让 $h_t$ 输出第 $t+1$ 项的分布，训练时让输入和标签错开一格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;双向 RNN 加一条从末尾往前读的分支，可以给每个位置同时提供前后文。因果预测只能使用当前及之前的输入，应使用单向网络。&lt;/p&gt;
+&lt;h2&gt;2. 沿时间反向传播（BPTT）&lt;/h2&gt;
+&lt;p&gt;把 RNN 展成一个链式计算图，$h_t$ 会同时影响当前的任务输出和后续的 $h_{t+1}$。设 $g_t$ 是时刻 $t$ 的损失对 $h_t$ 的直接梯度，$\delta_t=\partial L/\partial a_t$。按照行向量记法，从最后一项向前递推&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\delta_t
+&amp;#x26;=\bigl(g_t+\delta_{t+1}W_h^{\mathsf T}\bigr)\odot(1-h_t^2),\
+\frac{\partial L}{\partial W_x}
+&amp;#x26;=\sum_{t=1}^{T}x_t^{\mathsf T}\delta_t,\
+\frac{\partial L}{\partial W_h}
+&amp;#x26;=\sum_{t=1}^{T}h_{t-1}^{\mathsf T}\delta_t,\qquad
+\frac{\partial L}{\partial b}=\sum_{t=1}^{T}\delta_t.
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;最后一项之后的 $\delta_{T+1}$ 为零。若只在句末做分类，$g_1$ 到 $g_{T-1}$ 为零，较早的状态仍会经由递推得到梯度。参数被每一个时间步使用，所以求导时必须把所有时间步的贡献相加。&lt;/p&gt;
+&lt;h3&gt;2.1 为什么长依赖难学&lt;/h3&gt;
+&lt;p&gt;标量情形的每一步会把从未来传回的梯度乘上 $W_h(1-h_t^2)$。如果连续 30 步的乘子都是 0.8，经过这条路径后梯度只剩 $0.8^{30}\approx0.00124$。向量情形则是反复乘局部雅可比矩阵，梯度可能沿某些方向变小、沿另一些方向变大。$\tanh$ 进入饱和区时，其导数也会变小。&lt;/p&gt;
+&lt;p&gt;梯度裁剪会限制单次更新前的梯度范数，主要应对梯度爆炸。截断 BPTT 会在片段交界处断开旧计算图，前向状态仍继续传递，梯度只在当前窗口内传播。需要跨批延续状态时，应确认这些批次真的是同一条序列的连续片段。&lt;a href=&quot;https://proceedings.mlr.press/v28/pascanu13.html&quot;&gt;Pascanu 等人对梯度消失和爆炸的分析&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;3. 用 NumPy 手写前向和 BPTT&lt;/h2&gt;
+&lt;p&gt;下面先用一条序列对全部时刻计算平均平方损失，再对 $W_h$ 做中心有限差分。改动一个共享权重后重跑整个前向，数值梯度会包含这个权重在所有时刻的影响。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
+
+
+def rnn_forward(xs, wx, wh, bias):
+    states = np.zeros((len(xs) + 1, len(bias)), dtype=xs.dtype)
+    for t, x in enumerate(xs):
+        states[t + 1] = np.tanh(x @ wx + states[t] @ wh + bias)
+    return states
+
+
+def loss_and_grads(xs, target, wx, wh, bias):
+    states = rnn_forward(xs, wx, wh, bias)
+    diff = states[1:] - target
+    loss = 0.5 * np.sum(diff ** 2) / len(xs)
+
+    dwx, dwh, db = np.zeros_like(wx), np.zeros_like(wh), np.zeros_like(bias)
+    dh_next = np.zeros_like(bias)
+    for t in reversed(range(len(xs))):
+        h_prev, h = states[t], states[t + 1]
+        dh = diff[t] / len(xs) + dh_next
+        dz = dh * (1 - h ** 2)
+        dwx += np.outer(xs[t], dz)
+        dwh += np.outer(h_prev, dz)
+        db += dz
+        dh_next = dz @ wh.T
+    return loss, (dwx, dwh, db)
+
+
+rng = np.random.default_rng(0)
+xs = rng.normal(size=(5, 3))
+target = rng.normal(size=(5, 2))
+wx = rng.normal(scale=0.2, size=(3, 2))
+wh = rng.normal(scale=0.2, size=(2, 2))
+bias = np.zeros(2)
+loss, (_, dwh, _) = loss_and_grads(xs, target, wx, wh, bias)
+
+eps = 1e-5
+numerical = np.empty_like(wh)
+for index in np.ndindex(wh.shape):
+    delta = np.zeros_like(wh)
+    delta[index] = eps
+    plus, _ = loss_and_grads(xs, target, wx, wh + delta, bias)
+    minus, _ = loss_and_grads(xs, target, wx, wh - delta, bias)
+    numerical[index] = (plus - minus) / (2 * eps)
+np.testing.assert_allclose(dwh, numerical, rtol=1e-6, atol=1e-8)
+print(f&quot;loss = {loss:.4f}, max gradient error = {abs(dwh - numerical).max():.2e}&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;4. PyTorch 中的形状和变长批次&lt;/h2&gt;
+&lt;p&gt;给 &lt;code&gt;nn.RNN&lt;/code&gt; 设置 &lt;code&gt;batch_first=True&lt;/code&gt;，输入与输出的头两维分别是批次和时间。最后的隐藏状态依然将层数与方向放在第一维。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.RNN.html&quot;&gt;PyTorch RNN 文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;| 张量 | 单层单向的形状 | 含义 |
+| --- | --- | --- |
+| &lt;code&gt;x&lt;/code&gt; | &lt;code&gt;(N, T, D)&lt;/code&gt; | 每个时间步的输入 |
+| &lt;code&gt;output&lt;/code&gt; | &lt;code&gt;(N, T, H)&lt;/code&gt; | 最后一层各时刻的状态 |
+| &lt;code&gt;h_n&lt;/code&gt; | &lt;code&gt;(1, N, H)&lt;/code&gt; | 每条序列的最终隐藏状态 |&lt;/p&gt;
+&lt;p&gt;把不同长度的样本补零后直接送入 RNN，短序列在补齐的位置依然会更新状态。可以用 &lt;code&gt;pack_padded_sequence&lt;/code&gt; 提供真实长度，再从 &lt;code&gt;h_n[-1]&lt;/code&gt; 取每个样本的最后有效状态。下面先用打包批次算一次，再把每条序列单独送进同一个网络验证。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import torch
+from torch import nn
+from torch.nn.utils.rnn import pack_padded_sequence
+
+torch.manual_seed(1)
+
+lengths = torch.tensor([5, 2, 4])
+x = torch.randn(3, 5, 3)
+for i, length in enumerate(lengths.tolist()):
+    x[i, length:] = 0
+
+rnn = nn.RNN(input_size=3, hidden_size=4, batch_first=True)
+classifier = nn.Linear(4, 2)
+packed = pack_padded_sequence(x, lengths, batch_first=True, enforce_sorted=False)
+_, h_n = rnn(packed)
+logits = classifier(h_n[-1])
+assert logits.shape == (3, 2)
+
+for i, length in enumerate(lengths.tolist()):
+    _, separate_state = rnn(x[i:i + 1, :length])
+    torch.testing.assert_close(h_n[:, i:i + 1], separate_state)
+print(logits.shape)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;多层结构会把下层每个时刻的输出送给上层。双向时 &lt;code&gt;output&lt;/code&gt; 的最后一维会拼接两个方向，&lt;code&gt;h_n&lt;/code&gt; 的第一维则是 &lt;code&gt;num_layers * num_directions&lt;/code&gt;。用双向模型做整句分类时，可以显式把最后一层两个方向的最终状态拼接起来。&lt;/p&gt;
+&lt;h2&gt;5. 参考资料与下一篇&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;官方文档列出了循环层、批次维和隐藏状态的接口。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.RNN.html&quot;&gt;PyTorch RNN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;关于梯度范数、裁剪和长期依赖的分析见原论文。&lt;a href=&quot;https://proceedings.mlr.press/v28/pascanu13.html&quot;&gt;On the difficulty of training recurrent neural networks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下一篇是&lt;a href=&quot;/zh/blog/basic-lstm/&quot;&gt;LSTM 长短期记忆网络&lt;/a&gt;。它保留了时间递推，并给记忆和梯度增加一条更直接的路径。&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>Transformer 与自注意力</title><link>https://ehnotgod.github.io/blog/basic-transformer</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/basic-transformer</guid><description>手算 Q、K、V 和因果掩码，拆解多头注意力、位置编码与残差块，写一个可训练的小型语言模型。</description><pubDate>Sat, 28 Nov 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;/zh/blog/basic-lstm/&quot;&gt;LSTM&lt;/a&gt;需要把早先的信息沿着状态一步步送到后面。自注意力给了另一种选择，每个位置都能在允许的范围内直接读取其他位置，并根据当前输入决定读多少。Transformer 再用前馈网络、残差连接和归一化把这些计算组成可以堆叠的层。&lt;/p&gt;
+&lt;p&gt;这是&lt;a href=&quot;/zh/collection/basic-model-algorithms/&quot;&gt;基础模型算法&lt;/a&gt;的第四篇。下文先讲单层在做什么，再实现一个仅解码器的因果模型。原论文使用的是编码器与解码器两套层。&lt;a href=&quot;https://arxiv.org/html/1706.03762v7&quot;&gt;Attention Is All You Need&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1. 自注意力怎样从其他位置读信息&lt;/h2&gt;
+&lt;h3&gt;1.1 Q、K 和 V&lt;/h3&gt;
+&lt;p&gt;同一条长度为 $T$ 的序列表示为矩阵 $X$，每行对应一个 token。由三组可训练的投影生成查询（query）、键（key）和值（value）。&lt;/p&gt;
+&lt;p&gt;$$
+Q=XW_Q,\qquad K=XW_K,\qquad V=XW_V.
+$$&lt;/p&gt;
+&lt;p&gt;第 $i$ 行的查询 $q_i$ 和第 $j$ 行的键 $k_j$ 做点积，得到位置 $i$ 给位置 $j$ 的分数。对固定的 $i$，softmax 沿着所有可见的 $j$ 做归一化。然后用这些权重加权求和读出 $V$。&lt;/p&gt;
+&lt;p&gt;$$
+S=\frac{QK^{\mathsf T}}{\sqrt{d_k}},\qquad
+A=\operatorname{softmax}_{\text{键维}}(S),\qquad
+Y=AV.
+$$&lt;/p&gt;
+&lt;p&gt;$d_k$ 是单个查询或键向量的宽度。若其各分量近似独立且方差为 1，点积的方差量级为 $d_k$。除以 $\sqrt{d_k}$ 能让分数的尺度更稳定，减少 softmax 因分数过大而过早变得尖锐。&lt;/p&gt;
+&lt;h3&gt;1.2 手算一个输出向量&lt;/h3&gt;
+&lt;p&gt;让一个查询 $q=[1,0]$ 对两个键 $[1,0]$ 和 $[0,1]$ 打分。缩放后的分数是 $[1/\sqrt{2},0]$，softmax 后的权重约为 $[0.670,0.330]$。若两个值向量为 $[2,0]$ 和 $[0,4]$，加权输出约为 $[1.340,1.320]$。换一个查询，两个键和值可以保持原样，读到的信息比例会变化。&lt;/p&gt;
+&lt;h2&gt;2. 多头注意力里的形状&lt;/h2&gt;
+&lt;p&gt;设批大小为 $B$，序列长度为 $T$，模型宽度为 $d$，头数为 $H$，每头宽度 $d_h=d/H$。常见实现先把每个位置投影成 $3d$，沿最后一维拆成三份，再给三份各自拆头。&lt;/p&gt;
+&lt;p&gt;| 中间量 | 形状 | 最后一维的含义 |
+| --- | --- | --- |
+| 输入表示 | &lt;code&gt;(B, T, d)&lt;/code&gt; | 每个 token 的特征 |
+| 每个 Q、K、V | &lt;code&gt;(B, H, T, d_h)&lt;/code&gt; | 单个头的特征 |
+| &lt;code&gt;Q @ K.transpose(-1, -2)&lt;/code&gt; | &lt;code&gt;(B, H, T, T)&lt;/code&gt; | 每个查询对所有键的打分 |
+| 每个头的加权读出 | &lt;code&gt;(B, H, T, d_h)&lt;/code&gt; | 当前头读取到的信息 |
+| 合并各头并做输出投影 | &lt;code&gt;(B, T, d)&lt;/code&gt; | 下一层接收的特征 |&lt;/p&gt;
+&lt;p&gt;每个头有自己的投影子空间和权重矩阵。算完各头后，先把头拼回特征维，再由输出投影混合。下方代码用一次线性层计算三份投影，数学上等价于先独立算三次再拼起来。&lt;/p&gt;
+&lt;h2&gt;3. 掩码与位置信息&lt;/h2&gt;
+&lt;h3&gt;3.1 因果掩码和 padding 掩码&lt;/h3&gt;
+&lt;p&gt;预测下一个 token 时，第 $i$ 个查询只能读取下标 $j\leq i$ 的键。对于四个位置，下面的矩阵用 1 表示可见。&lt;/p&gt;
+&lt;p&gt;$$
+M=
+\begin{bmatrix}
+1&amp;#x26;0&amp;#x26;0&amp;#x26;0\
+1&amp;#x26;1&amp;#x26;0&amp;#x26;0\
+1&amp;#x26;1&amp;#x26;1&amp;#x26;0\
+1&amp;#x26;1&amp;#x26;1&amp;#x26;1
+\end{bmatrix}.
+$$&lt;/p&gt;
+&lt;p&gt;先把不可见位置的分数设为 $-\infty$，再对键维做 softmax。掩掉的位置权重为零，可见的位置重新归一化。如果某一行的键全被掩掉，手写 softmax 可能产生 &lt;code&gt;NaN&lt;/code&gt;，需要避免该行或显式处理。&lt;/p&gt;
+&lt;p&gt;padding 掩码负责从注意力里排除补齐位置，因果掩码负责排除未来位置，二者可以同时使用。若训练标签也被补齐，应在损失计算时跳过这些目标。调用框架接口时，需要确认布尔掩码中 &lt;code&gt;True&lt;/code&gt; 的语义。比如 &lt;code&gt;scaled_dot_product_attention&lt;/code&gt; 用 &lt;code&gt;True&lt;/code&gt; 表示允许参与，而 &lt;code&gt;nn.MultiheadAttention&lt;/code&gt; 的布尔 &lt;code&gt;attn_mask&lt;/code&gt; 用 &lt;code&gt;True&lt;/code&gt; 表示禁止参与。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html&quot;&gt;PyTorch SDPA&lt;/a&gt; · &lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.MultiheadAttention.html&quot;&gt;PyTorch MultiheadAttention&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;3.2 怎样把位置带进模型&lt;/h3&gt;
+&lt;p&gt;没有位置输入、也没有掩码的自注意力会随着输入重排而重排输出。为了让模型区分相同 token 出现的不同位置，可以在 token embedding 上加位置向量。原论文用不同频率的正弦和余弦构造固定编码。&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+PE(p,2i)&amp;#x26;=\sin\bigl(p/10000^{2i/d}\bigr),\
+PE(p,2i+1)&amp;#x26;=\cos\bigl(p/10000^{2i/d}\bigr).
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;下方示例用可学习的位置表 &lt;code&gt;nn.Embedding(max_len, d)&lt;/code&gt;，便于直接观察位置张量如何与 token 张量相加。它最多支持表中已经定义的位置。&lt;a href=&quot;https://arxiv.org/html/1706.03762v7#S3.SS5&quot;&gt;原论文的位置编码一节&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;4. 从注意力到 Transformer 层&lt;/h2&gt;
+&lt;p&gt;注意力在不同位置之间混合信息。前馈网络（FFN）则在每个位置上独立做两次线性映射，中间接非线性，通常先从 $d$ 扩充到 $d_{\mathrm{ff}}$，再投影回 $d$。同一层内所有位置共享 FFN 的参数。&lt;/p&gt;
+&lt;p&gt;原论文把 LayerNorm 放到残差相加之后。下方实现采用先归一化再进入子层的 Pre-Norm 形式。&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+U &amp;#x26;= X+\operatorname{Attention}(\operatorname{LN}_1(X)),\
+Y &amp;#x26;= U+\operatorname{FFN}(\operatorname{LN}_2(U)).
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;两个子层都返回 &lt;code&gt;(B, T, d)&lt;/code&gt;，才能与输入逐元素相加。LayerNorm 在这里沿每个位置的特征维做归一化。堆多层时，上一层的输出就是下一层的输入。&lt;/p&gt;
+&lt;p&gt;常见用途可以按注意力连接方式区分。&lt;/p&gt;
+&lt;p&gt;| 结构 | 位置之间如何连接 | 常见任务 |
+| --- | --- | --- |
+| 仅编码器 | 输入 token 可在有效范围内相互读取 | 分类、文本表征 |
+| 仅解码器 | 每个位置只能读自身和前文 | 自回归生成 |
+| 编码器—解码器 | 解码器用因果自注意力，并通过交叉注意力读取编码结果 | 翻译、条件生成 |&lt;/p&gt;
+&lt;p&gt;在交叉注意力中，$Q$ 来自解码器，$K$ 和 $V$ 来自编码器，两边序列长度可以不同。得分矩阵对应目标位置与源位置之间的关系。&lt;/p&gt;
+&lt;h2&gt;5. 手写一个可运行的因果模型&lt;/h2&gt;
+&lt;p&gt;下面实现多头自注意力、一个解码器块、token 与位置 embedding，以及预测下一项的训练循环。玩具序列形如 &lt;code&gt;8, 9, 0, 1, 2&lt;/code&gt;，学习目标是每个位置预测循环计数的下一项。无需下载数据。&lt;/p&gt;
+&lt;p&gt;训练前先做因果性检查。保持前两个 token 不变，替换后两个 token，前两个位置的 logits 应保持一致。这个检查能抓出常见的掩码方向错误。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import torch
+from torch import nn
+from torch.nn import functional as F
+
+torch.manual_seed(4)
+torch.set_num_threads(1)
+
+
+class CausalAttention(nn.Module):
+    def __init__(self, width, heads, max_len):
+        super().__init__()
+        if width % heads != 0:
+            raise ValueError(&quot;Model width must be divisible by the number of heads&quot;)
+        self.heads = heads
+        self.head_dim = width // heads
+        self.qkv = nn.Linear(width, 3 * width)
+        self.out = nn.Linear(width, width)
+        self.register_buffer(
+            &quot;visible&quot;, torch.ones(max_len, max_len, dtype=torch.bool).tril(),
+            persistent=False,
+        )
+
+    def forward(self, x):
+        batch, steps, width = x.shape
+        blocks = self.qkv(x).chunk(3, dim=-1)
+        q, k, v = (
+            part.reshape(batch, steps, self.heads, self.head_dim).transpose(1, 2)
+            for part in blocks
+        )
+        scores = (q @ k.transpose(-1, -2)) / self.head_dim ** 0.5
+        scores = scores.masked_fill(~self.visible[:steps, :steps], float(&quot;-inf&quot;))
+        weights = scores.softmax(dim=-1)
+        merged = (weights @ v).transpose(1, 2).reshape(batch, steps, width)
+        return self.out(merged)
+
+
+class DecoderBlock(nn.Module):
+    def __init__(self, width, heads, max_len):
+        super().__init__()
+        self.ln1 = nn.LayerNorm(width)
+        self.attention = CausalAttention(width, heads, max_len)
+        self.ln2 = nn.LayerNorm(width)
+        self.ffn = nn.Sequential(
+            nn.Linear(width, 4 * width),
+            nn.GELU(),
+            nn.Linear(4 * width, width),
+        )
+
+    def forward(self, x):
+        x = x + self.attention(self.ln1(x))
+        return x + self.ffn(self.ln2(x))
+
+
+class TinyDecoder(nn.Module):
+    def __init__(self, vocab, width=32, heads=4, max_len=16):
+        super().__init__()
+        self.token = nn.Embedding(vocab, width)
+        self.position = nn.Embedding(max_len, width)
+        self.layers = nn.Sequential(
+            DecoderBlock(width, heads, max_len),
+            DecoderBlock(width, heads, max_len),
+        )
+        self.norm = nn.LayerNorm(width)
+        self.classifier = nn.Linear(width, vocab)
+
+    def forward(self, tokens):
+        steps = tokens.size(1)
+        if not 1 &amp;#x3C;= steps &amp;#x3C;= self.position.num_embeddings:
+            raise ValueError(&quot;Sequence length is outside the learned position range&quot;)
+        positions = torch.arange(steps, device=tokens.device)
+        x = self.token(tokens) + self.position(positions)
+        return self.classifier(self.norm(self.layers(x)))
+
+
+vocab = 10
+model = TinyDecoder(vocab)
+with torch.no_grad():
+    a = model(torch.tensor([[3, 4, 5, 6]]))
+    b = model(torch.tensor([[3, 4, 1, 2]]))
+    assert a.shape == (1, 4, vocab)
+    torch.testing.assert_close(a[:, :2], b[:, :2])
+
+steps = 8
+train_starts = torch.randint(vocab, (32, 1))
+train = (train_starts + torch.arange(steps + 1)) % vocab
+x, y = train[:, :-1], train[:, 1:]
+optimizer = torch.optim.AdamW(model.parameters(), lr=0.01)
+
+for _ in range(60):
+    optimizer.zero_grad()
+    logits = model(x)
+    loss = F.cross_entropy(logits.reshape(-1, vocab), y.reshape(-1))
+    loss.backward()
+    optimizer.step()
+
+model.eval()
+with torch.no_grad():
+    prefix = torch.tensor([[8, 9, 0, 1]])
+    next_token = model(prefix)[:, -1].argmax(dim=-1)
+print(&quot;next token:&quot;, next_token.item())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;x&lt;/code&gt; 和 &lt;code&gt;y&lt;/code&gt; 都是 &lt;code&gt;(B, T)&lt;/code&gt;。第 $t$ 个输入的标签是原序列的第 $t+1$ 个 token。损失把所有位置展平成一批分类样本，前向仍要靠掩码阻止模型读取标签位置。训练时，模型一次算出全部位置的 logits。生成时，要先选出一个新 token，再把它加入前缀继续预测。&lt;/p&gt;
+&lt;h2&gt;6. 计算开销和生成时的 KV Cache&lt;/h2&gt;
+&lt;p&gt;全长为 $T$ 的序列会产生 $H$ 个 $T\times T$ 的分数矩阵。按总模型宽度 $d$ 计算，点积和加权求和的主要开销为 $O(T^2d)$。查询、键、值和输出投影另外需要 $O(Td^2)$ 量级的计算。直接保存分数矩阵需要 $O(HT^2)$ 空间，更高效的内核可以减少中间矩阵的显存占用。&lt;a href=&quot;https://arxiv.org/html/1706.03762v7#S4&quot;&gt;原论文的复杂度比较&lt;/a&gt; · &lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html&quot;&gt;PyTorch SDPA&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自回归生成每多一个 token，上面的小模型都会重算整段前缀。因果模型中，旧位置的表示不会因追加未来 token 而改变。KV Cache 在每一层存下这些位置先前算好的键和值，下一步只为新 token 计算投影，再读取缓存与新追加的键和值。每层普通多头注意力的缓存大小随前缀长度线性增长。单步注意力仍需遍历可见前缀，生成过程也仍需要按 token 推进。&lt;/p&gt;
+&lt;h2&gt;7. 参考资料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;原论文包含编码器和解码器、缩放点积、多头注意力与位置编码的定义。&lt;a href=&quot;https://arxiv.org/html/1706.03762v7&quot;&gt;Vaswani 等人，Attention Is All You Need&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;对照官方接口可以检查张量布局、布尔掩码与高效实现的选项。&lt;a href=&quot;https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html&quot;&gt;PyTorch SDPA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;回到&lt;a href=&quot;/zh/collection/basic-model-algorithms/&quot;&gt;基础模型算法&lt;/a&gt;可以从 CNN、RNN 和 LSTM 的手写例子重新对照这套计算。&lt;/p&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>E22 SOS DP（高维前缀和）</title><link>https://ehnotgod.github.io/blog/e22-sosdp</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/e22-sosdp</guid><description>SOS DP：用高维前缀和在 O(n·2^n) 时间内求出所有状态的子集和，附 Python、C++ 模板与超集和、按位与为零的应用。</description><pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;题目情境&lt;/h3&gt;
 &lt;p&gt;给定一个长度为 $2^n$ 的数组 $a$，下标视作一个 $n$ 位二进制集合。对于每个集合 $S$，求它所有子集对应的权值之和：&lt;/p&gt;
 &lt;p&gt;$$
 f[S] = \sum_{T\subseteq S} a[T]
