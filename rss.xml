@@ -14651,6 +14651,7 @@ plt.title(&quot;RNN Training Loss Over Epochs&quot;)
 plt.legend()
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;</content:encoded><h:img src="undefined"/><enclosure url="undefined"/></item><item><title>自动微分与反向传播</title><link>https://ehnotgod.github.io/blog/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD</link><guid isPermaLink="true">https://ehnotgod.github.io/blog/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD</guid><description>手写 DeZero，从计算图和反向传播到训练神经网络、保存权重和实现 Dropout。</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;1. 变量与函数&lt;/h2&gt;
+&lt;h3&gt;1.1 变量（Variable）&lt;/h3&gt;
 &lt;p&gt;我们先从最核心的部分开始——变量类（Variable）。
 还记得 PyTorch 和 TensorFlow 吗？它们的底层核心都是 Tensor。在我们的实现中，也会有类似的概念，只不过底层我们用的是 numpy.ndarray。所有的运算都基于它来完成。
 那问题来了：既然 NumPy 已经能做广播、求和、矩阵乘法这些操作，为什么还要自己再封装一层“变量类”呢？
@@ -14666,8 +14667,8 @@ data = np.array(1.0)
 x = Variable(data)
 print(x.data)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;接下来，我们来看一看函数这一块。
-先抛个问题：什么是函数？
+&lt;h3&gt;1.2 函数（Function）&lt;/h3&gt;
+&lt;p&gt;先抛个问题：什么是函数？
 比如$$f(x)=x^2$$这算不算函数？当然算！这是一个最基础的形式——从一个变量映射到另一个变量。
 不过，现实中我们经常会遇到更复杂的函数。比如 sum()，它的输入是多个值，输出却是一个值，这就属于多对一的函数。而且这类函数通常还涉及到数据维度的变化，稍微麻烦一点，我们后面再慢慢讲。现在，我们先从简单的单变量函数入手。
 前面我们说过，定义“变量类”的目的，是为了能记录计算过程。那同理，如果我们想要整个计算图完整、可追踪，函数的计算过程也得被“记住”。这意味着什么？——函数也要被实例化！
@@ -14705,7 +14706,8 @@ if __name__ == &quot;__main__&quot;:
 &lt;p&gt;解释一下：&lt;strong&gt;call&lt;/strong&gt; 是一个特殊方法，允许一个对象像函数一样被调用。怎么说呢？等价于隐藏了.&lt;strong&gt;call&lt;/strong&gt;()函数，然后使用y = square(x)的时候，先调用了Square里从Function那里继承来的__call__，再利用call内部的forward执行自己的forward。
 有一个需要注意的是，我们说过，ndarray执行的是计算功能，所以，定义函数时候的forward的输入不是Variable类型，而是ndarray类型。而执行函数的时候还是输入Variable类型。
 还有就是，定义square(x)函数的主要目的是符合我们的习惯，这样可以不用定义两个括号。&lt;/p&gt;
-&lt;h2&gt;2. 纯链式正向传播与反向传播&lt;/h2&gt;
+&lt;h2&gt;2. 反向传播与计算图&lt;/h2&gt;
+&lt;h3&gt;2.1 链式前向与反向传播&lt;/h3&gt;
 &lt;p&gt;对于正向传播，其实我们只需要这么做就行了：square(square(square(x)))不就得了，这样就能很自然地一层一层执行下去......当然，也不一定是square函数，这里只是举个例子，其实换成其他的也行，比如add(exp(x)+exp(y))。
 然后我们来研究一下反向传播。
 首先，先提出一个概念，叫做计算图，我们之前提到过，它可以长这样：
@@ -14798,7 +14800,7 @@ y = square(exp(square(x)))
 y.backward()
 print(x.grad)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;3. 可变数参数&lt;/h2&gt;
+&lt;h3&gt;2.2 多输入与多输出&lt;/h3&gt;
 &lt;p&gt;前面我们研究的是链式的计算图，接下来我们研究一下多链式图（即“相对链式”，输入之后就是输出的那种图，但是输入和输出参数的数量会变，即“可变的长参数”，无需考虑拓扑序的那种）。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;前向过程：
@@ -14893,7 +14895,7 @@ y = add(add(x, x), x)
 y.backward()
 print(x.grad)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;4. True计算图&lt;/h2&gt;
+&lt;h3&gt;2.3 分支计算图的反传顺序&lt;/h3&gt;
 &lt;p&gt;其实上一节的假设不太好，我们这里直接引入复杂的计算图吧。计算图的本质上是一个DAG（有向无环图），对于一个DAG，给定起点，一定可以进行拓扑排序。拓扑排序的做法有很多种，比如kahn算法抑或是染色法，我们这里使用Kahn算法，但是不完全是Kahn，个人感觉只是使用了Kahn 算法中的“层次”概念。不了解的自己去搜或者尝试证明以下的方法。
 假如我需要处理下面这个图，我们之前的方法可能会y→D→c→C→a→A→x...这样是错的，因为处理a一直到x的时候，b和B都没处理，显然和计算顺序不符。
 &lt;img src=&quot;https://ehnotgod.github.io/_astro/1-4.BN6ty61q_Z1fsmLk.webp&quot; alt=&quot;image&quot;&gt;
@@ -14971,10 +14973,8 @@ class Function:
 ......
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;seen_set的意思是，目前添加过哪些函数，就不能二次添加了。每次添加函数之后进行一轮sort，看似复杂度爆炸，实则模型里的函数数目其实比变量少多了，这点复杂度不需要节约，加个优先队列反而需要占用更多空间。&lt;/p&gt;
-&lt;h2&gt;5. 一些必要的优化&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;内存管理和循环引用&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2&gt;3. 自动微分引擎的优化&lt;/h2&gt;
+&lt;h3&gt;3.1 弱引用与循环引用&lt;/h3&gt;
 &lt;p&gt;Python使用两种方式管理内存，一种是引用计数，另外一种是分代垃圾回收。引用计数的原理很简单，当它被另一个对象引用的时候，引用计数+1，停止引用时，引用计数-1。引用计数为0时，Python解释器会回收该对象。这很智能，但是它不能处理循环引用，所以单纯设置None无法解决这个内存问题。不过分代垃圾回收机制可以解决这个问题，具体原理很复杂这里不多说了。他会在内存不足的时候自动调用，也可以gc.collect()主动调用。
 在 Python 中，我们可以使用 weakref.ref 函数来创建弱引用。弱引用是在不增加引用计数的情况下引用另一个对象的功能。我们需要破除右侧的循环，可以给outputs打上weakref，就可以自动破除了。weakref的引用方式是后面加个&quot;()&quot;。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;while funcs:
@@ -14991,20 +14991,12 @@ class Function:
         self.outputs = [weakref.ref(output) for output in outputs] # output is weakref
         return outputs if len(outputs) &gt; 1 else outputs[0]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;自动消除不必要的内存&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;一、在反向传播的时候，中间用过的梯度，在很多情况下，可以不要了。&lt;/li&gt;
-&lt;li&gt;二、我们知道，pytorch里，有个功能是model.train()，还有功能是model.eval()。这两个的区别之一就是后者不需要保留中间层的输入变量。
-对于第一点，我们可以在backword函数处设置一个开关，自主选择是否需要中间的梯度：
-对于第二点，可以使用@contextlib.contextmanager修饰器，它可以让你用 生成器函数 来实现 with 语句的行为，实现“在局部时间”内的控制操作。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;添加一些同步化的优化
-有一点需要明确，虽然我们使用了numpy的ndarray作为计算底层，那么我们为何不整一个numpy-plus呢？简单来说，我们可以添加一些函数让它更加易用！
-numpy里有个东西叫做x.shape，这里我们实现一下：&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3&gt;3.2 中间梯度与计算图&lt;/h3&gt;
+&lt;p&gt;反向传播时，已经用过的中间梯度通常可以释放。&lt;code&gt;backward()&lt;/code&gt; 可以提供一个开关，在需要检查这些梯度时保留它们。&lt;/p&gt;
+&lt;p&gt;只做推理时，可以用 &lt;code&gt;no_grad()&lt;/code&gt; 临时关闭计算图记录。&lt;code&gt;contextlib.contextmanager&lt;/code&gt; 能把这个开关限制在一段 &lt;code&gt;with&lt;/code&gt; 语句内。后面的训练示例会用到它。&lt;/p&gt;
+&lt;h3&gt;3.3 变量属性与运算符重载&lt;/h3&gt;
+&lt;p&gt;有一点需要明确，虽然我们使用了numpy的ndarray作为计算底层，那么我们为何不整一个numpy-plus呢？简单来说，我们可以添加一些函数让它更加易用！
+numpy里有个东西叫做x.shape，这里我们实现一下：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;@property
 def shape(self):
     return self.data.shape
@@ -15027,13 +15019,10 @@ def pow(x, c):
 Variable.__pow__ = pow
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;原书有绘制计算图以及求高阶导数等步骤，在这里我们将掠过，这部分内容不需要。&lt;/p&gt;
-&lt;h2&gt;6. 可变长参数&lt;/h2&gt;
-&lt;p&gt;前面我们研究过“可变数参数”，这是啥意思呢？通俗的说就是，输入和输出的变量数目不一样，比如add，会把两个变量聚合到一个变量上面去。这里我们讲的可变长参数的主要是，变量内部的维度。比如sum函数，它可以把一个1*n长度的变量变成一个标量，对应的，它的正向传播和反向传播也得写清楚，还有更难的，比如矩阵呢？这个在接下来我们会一步一步讲。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;reshape函数
-这个函数比较容易理解，所以我打算把它放在最开始去讲。
-回忆一下，我们之前讲幂次函数的时候，我们说过，要记录一个东西是吧，也就是幂次本身。我们的reshape函数同理，要记录一下原来的维度（x_shape）以及改变后的维度(shape)。numpy里自带了reshape函数，所以计算过程直接使用就行。对于反向过程，我们直接reshape回去就行，梯度数值不需要进行处理。&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2&gt;4. 张量运算&lt;/h2&gt;
+&lt;p&gt;第 2 节讨论的是算子接收和返回多少个 &lt;code&gt;Variable&lt;/code&gt;。这一节看单个 &lt;code&gt;Variable&lt;/code&gt; 里的数组形状如何变化，以及反传时怎样得到与各个输入形状一致的梯度。&lt;/p&gt;
+&lt;h3&gt;4.1 形状变换（Reshape）&lt;/h3&gt;
+&lt;p&gt;回忆一下，我们之前讲幂次函数的时候，我们说过，要记录一个东西是吧，也就是幂次本身。我们的reshape函数同理，要记录一下原来的维度（x_shape）以及改变后的维度(shape)。numpy里自带了reshape函数，所以计算过程直接使用就行。对于反向过程，我们直接reshape回去就行，梯度数值不需要进行处理。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Reshape(Function):
     def __init__(self, shape):
         self.shape = shape
@@ -15052,9 +15041,7 @@ def reshape(x, shape):
     return Reshape(shape)(x)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用方法比较反人类：y = F.reshape(x,(6,))，而我们平时可能使用惯了y = x.reshape(2, 3)这样，所以我们可以修改一下Variable类，去实现这个便捷设计（略）。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;矩阵乘法&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3&gt;4.2 矩阵乘法（MatMul）&lt;/h3&gt;
 &lt;p&gt;令 $Y = AB$，其中 $A \in \mathbb{R}^{m\times n}$，$B \in \mathbb{R}^{n\times p}$，$Y \in \mathbb{R}^{m\times p}$。
 设上游标量损失为 $L$，并记梯度矩阵 $G = \frac{\partial L}{\partial Y} \in \mathbb{R}^{m\times p}$。则&lt;/p&gt;
 &lt;p&gt;$$
@@ -15101,8 +15088,9 @@ $$&lt;/p&gt;
 def matmul(x, W):
     return MatMul()(x, W)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;7. 神经网络与框架搭建&lt;/h2&gt;
-&lt;p&gt;矩阵乘法能把一批输入一次映射到输出。再加上偏置、损失和参数更新，就能训练第一个模型。下面的 Python 代码块可以按顺序放进同一个文件运行。先把前面的计算图骨架整理成一个一阶求导版本。这里的算子有多个输入和一个输出，&lt;code&gt;forward()&lt;/code&gt; 和 &lt;code&gt;backward()&lt;/code&gt; 都在数组上计算。&lt;/p&gt;
+&lt;h2&gt;5. 神经网络与框架搭建&lt;/h2&gt;
+&lt;p&gt;矩阵乘法能把一批输入一次映射到输出。再加上偏置、损失和参数更新，就能训练第一个模型。运行本章示例时，先展开下面的一阶自动微分核心，再按顺序把 Python 代码块放进同一个文件。&lt;/p&gt;
+&lt;p&gt;这里的算子有多个输入和一个输出，&lt;code&gt;forward()&lt;/code&gt; 和 &lt;code&gt;backward()&lt;/code&gt; 都在数组上计算。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from contextlib import contextmanager
 from contextvars import ContextVar
 from math import prod
@@ -15182,7 +15170,7 @@ class Function:
             output.generation = self.generation + 1
         return output
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;7.1 线性回归&lt;/h3&gt;
+&lt;h3&gt;5.1 线性回归&lt;/h3&gt;
 &lt;p&gt;设输入 $X$ 的形状为 $(N,D)$，$W$ 为 $(D,K)$，$b$ 为 $(K,)$。预测值 $XW+b$ 有 $N$ 行，每行加的是同一份偏置。矩阵乘法沿用上一节的反传公式。偏置被广播了 $N$ 次，所以反传时要沿着批次维度求和。&lt;/p&gt;
 &lt;p&gt;$$
 \hat Y=XW+b, \qquad
@@ -15225,7 +15213,7 @@ for _ in range(100):
 
 print(weight.data.item(), bias.data.item())  # 约 2.0 和 1.0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;7.2 参数层&lt;/h3&gt;
+&lt;h3&gt;5.2 参数与线性层&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Variable&lt;/code&gt; 既能表示一批输入，也能表示权重。给可训练权重一个 &lt;code&gt;Parameter&lt;/code&gt; 类型，层就可以按类型找出要交给优化器的变量。下面把参数和子层都注册成对象属性。带名字的遍历也给保存权重提供了像 &lt;code&gt;hidden.weight&lt;/code&gt; 这样的路径。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Parameter(Variable):
     pass
@@ -15278,7 +15266,7 @@ class Linear(Layer):
     def forward(self, x):
         return Affine()(x, self.weight, self.bias)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;7.3 汇总层&lt;/h3&gt;
+&lt;h3&gt;5.3 组合网络层（MLP）&lt;/h3&gt;
 &lt;p&gt;模型本身也可以是一层。把两个 &lt;code&gt;Linear&lt;/code&gt; 挂到同一个对象上，外层就能递归收集参数并切换训练模式。两个线性层直接相接仍是一次仿射变换，中间加上 &lt;code&gt;tanh&lt;/code&gt; 后，模型就能拟合非线性的决策边界。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Tanh(Function):
     def forward(self, x):
@@ -15299,7 +15287,7 @@ class MLP(Layer):
         hidden = Tanh()(self.hidden(x))
         return self.output(hidden)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;7.4 Optimizer 更新参数&lt;/h3&gt;
+&lt;h3&gt;5.4 优化器（SGD）&lt;/h3&gt;
 &lt;p&gt;把学习率和更新公式收进优化器。模型负责给出参数，反传负责填好梯度，SGD 负责原地更新参数数组。遇到本轮没有参与计算的参数就跳过。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class SGD:
     def __init__(self, model, lr):
@@ -15315,7 +15303,7 @@ class MLP(Layer):
             if param.grad is not None:
                 param.data -= self.lr * param.grad
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;7.5 损失函数&lt;/h3&gt;
+&lt;h3&gt;5.5 损失函数&lt;/h3&gt;
 &lt;p&gt;线性回归用均方误差。做二分类时，模型为每个样本输出两个分数，也就是 logits。把 softmax 和交叉熵放在同一个算子里，先减去每行最大的 logit，再用 log-sum-exp 求目标类别的负对数概率。这样既避免指数溢出，也省去先求概率再直接取对数的步骤。&lt;/p&gt;
 &lt;p&gt;$$
 L=-\frac{1}{N}\sum_{i=1}^{N}\log p_{i,t_i},
@@ -15343,7 +15331,7 @@ $$&lt;/p&gt;
         return gy * (grad / len(self.rows))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这里约定 &lt;code&gt;logits&lt;/code&gt; 的形状是 &lt;code&gt;(N, C)&lt;/code&gt;，标签是长度为 &lt;code&gt;N&lt;/code&gt;、取值在 &lt;code&gt;[0, C)&lt;/code&gt; 的整数数组。反传只在真实类别的位置减 1，省去了构造 one-hot 矩阵。&lt;/p&gt;
-&lt;h3&gt;7.6 Datasets&lt;/h3&gt;
+&lt;h3&gt;5.6 数据集（Dataset）&lt;/h3&gt;
 &lt;p&gt;数据集只定义如何按索引取得一对输入和标签。这里用一个 XOR 数据集来检验模型。两个坐标同号时记为类别 1，异号时记为类别 0。用不同随机种子生成训练集和测试集。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class ArrayDataset:
     def __init__(self, inputs, labels):
@@ -15365,7 +15353,7 @@ def xor_dataset(size, seed):
     labels = (inputs[:, 0] * inputs[:, 1] &gt; 0).astype(np.int64)
     return ArrayDataset(inputs, labels)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;7.7 DataLoader&lt;/h3&gt;
+&lt;h3&gt;5.7 批量加载（DataLoader）&lt;/h3&gt;
 &lt;p&gt;DataLoader 负责每轮打乱索引并把样本组成小批量。末尾不足一批的数据也照常使用。这个数据集支持数组索引，可以一次取出整批特征和标签。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class DataLoader:
     def __init__(self, dataset, batch_size, shuffle=False, seed=0):
@@ -15406,8 +15394,8 @@ with no_grad():
     predicted = model(Variable(test_x)).data.argmax(axis=1)
 print(&quot;Test accuracy:&quot;, (predicted == test_y).mean())
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;8. 关键组件与框架拓展&lt;/h2&gt;
-&lt;h3&gt;8.1 使用 GPU&lt;/h3&gt;
+&lt;h2&gt;6. 关键组件与框架拓展&lt;/h2&gt;
+&lt;h3&gt;6.1 使用 GPU&lt;/h3&gt;
 &lt;p&gt;前面的算子从输入数组决定用 NumPy 还是 CuPy，梯度的初始值也在同一个设备上创建。切换设备时要一起移动所有参数，并在每批前向计算之前把输入传到同一个设备。标签会在交叉熵内部转换，DataLoader 可以继续在 CPU 上取样本。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def to_numpy(data):
     if cp is not None and isinstance(data, cp.ndarray):
@@ -15422,7 +15410,7 @@ def to_device(model, xp):
     return model
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在装好 CuPy 和 CUDA 的机器上，可以用 &lt;code&gt;to_device(model, cp)&lt;/code&gt; 把参数移到 GPU，再调用 &lt;code&gt;train_epoch(model, optimizer, train_loader, xp=cp)&lt;/code&gt;。当前 SGD 只引用模型，没有额外的数组状态。带动量的优化器还需要一并迁移速度等状态。&lt;/p&gt;
-&lt;h3&gt;8.2 模型的保存与加载&lt;/h3&gt;
+&lt;h3&gt;6.2 保存与加载权重&lt;/h3&gt;
 &lt;p&gt;把 &lt;code&gt;named_parameters()&lt;/code&gt; 给出的参数路径作为键，存成一个 &lt;code&gt;.npz&lt;/code&gt; 文件。加载前先核对键和形状，确认都匹配后再替换参数数据。这里保留目标模型原本的设备和数据类型，旧梯度则在加载后清空。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def save_weights(model, path):
     arrays = {name: to_numpy(param.data) for name, param in model.named_parameters()}
@@ -15452,7 +15440,7 @@ restored = MLP(seed=9)
 load_weights(restored, &quot;xor-weights.npz&quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这个文件保存的是权重。恢复时先构建结构相同的模型，优化器状态和训练轮次可以在需要断点续训时另存。&lt;/p&gt;
-&lt;h3&gt;8.3 Dropout&lt;/h3&gt;
+&lt;h3&gt;6.3 Dropout&lt;/h3&gt;
 &lt;p&gt;训练时以概率 $p$ 把一部分激活置零，保留下来的值乘以 $1/(1-p)$，这样激活的期望保持不变。反传要复用同一次前向生成的掩码。切到评估模式后直接返回输入。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class DropoutMask(Function):
     def __init__(self, ratio):
@@ -15488,7 +15476,7 @@ class DropoutMLP(MLP):
         return self.output(self.dropout(hidden))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;model.eval()&lt;/code&gt; 会递归关闭子层的 Dropout。&lt;code&gt;no_grad()&lt;/code&gt; 控制是否记录计算图。推理时通常把两者一起用。&lt;/p&gt;
-&lt;h3&gt;8.4 拓展：添加或更新部分函数&lt;/h3&gt;
+&lt;h3&gt;6.4 扩展算子（ReLU、Flatten）&lt;/h3&gt;
 &lt;p&gt;继续加算子时，先把前向的输入输出形状写清楚，再看反传需要保留什么。拿两个常用操作举例，ReLU 要记住哪些输入大于零，Flatten 则只需要记住原始形状。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class ReLU(Function):
     def forward(self, x):
